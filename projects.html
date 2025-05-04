@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MRHXEVRZN9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore iO Innovation's portfolio of AI-driven web development, financial technology, and SEO optimization projects.">
+    <title>Our Projects - iO Innovation</title>
+
+    <!-- iOS Home Screen App Icon -->
+    <link rel="apple-touch-icon" href="assets/images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/1.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/1.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="assets/images/1.png">
+
+    <!-- iOS App Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="iO Innovation">
+
+    <!-- Standard Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/1.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/header-footer.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <style>
+        /* Project Page Specific Styles */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 220px;
+            width: 100%;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--heading-color);
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .project-content p {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .project-btn:hover {
+            color: var(--heading-color);
+        }
+
+        .project-details {
+            padding: 80px 0;
+        }
+
+        .project-details .container {
+            max-width: 1000px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/1.png" alt="Innovation Logo">
+                    <h1>iO Innovation</h1>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html" class="active">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li>
+                            <div class="theme-switch" id="theme-switch">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+
+        <!-- Project Filters -->
+        <section class="project-details">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <p class="section-description">Browse our diverse range of solutions across multiple industries</p>
+
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai">AI Solutions</button>
+                    <button class="filter-btn" data-filter="fintech">Fintech</button>
+                    <button class="filter-btn" data-filter="seo">SEO & Analytics</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- AI Solutions Projects -->
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-brain"></i>
+                            <span class="project-tag">AI Solution</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>TradeSmart AI Advisor</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">TensorFlow</span>
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">AWS</span>
+                            </div>
+                            <p>An intelligent investment advisory platform that leverages machine learning to analyze market trends and provide personalized portfolio recommendations.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-robot"></i>
+                            <span class="project-tag">AI Solution</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>ContentGenius</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">GPT-4</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Vue.js</span>
+                            </div>
+                            <p>An AI-powered content creation tool that helps businesses generate SEO-optimized blog posts, social media content, and marketing copy tailored to their target audience.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fintech Projects -->
+                    <div class="project-card" data-category="fintech">
+                        <div class="project-image">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="project-tag">Fintech</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>CryptoTrack Dashboard</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">D3.js</span>
+                                <span class="tech-badge">Firebase</span>
+                                <span class="tech-badge">Node.js</span>
+                            </div>
+                            <p>A comprehensive cryptocurrency portfolio tracking platform with real-time price updates, performance analytics, and trend visualization tools.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Live Demo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-btn">Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="fintech">
+                        <div class="project-image">
+                            <i class="fas fa-coins"></i>
+                            <span class="project-tag">Fintech</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>SmartBudget</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">Flutter</span>
+                                <span class="tech-badge">Firebase</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Plaid API</span>
+                            </div>
+                            <p>A personal finance application using AI to analyze spending patterns, provide budget recommendations, and help users achieve their financial goals.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO & Analytics Projects -->
+                    <div class="project-card" data-category="seo">
+                        <div class="project-image">
+                            <i class="fas fa-search"></i>
+                            <span class="project-tag">SEO & Analytics</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>SEO Performance Suite</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">Vue.js</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">PostgreSQL</span>
+                                <span class="tech-badge">Google API</span>
+                            </div>
+                            <p>A comprehensive SEO analytics platform providing keyword research, competitor analysis, content optimization, and performance tracking in one unified dashboard.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="seo">
+                        <div class="project-image">
+                            <i class="fas fa-analytics"></i>
+                            <span class="project-tag">SEO & Analytics</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>DataViz Analytics</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">D3.js</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">MongoDB</span>
+                            </div>
+                            <p>An interactive data visualization platform that transforms complex marketing and sales data into intuitive dashboards and actionable insights.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Live Demo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-btn">Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Development Projects -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="project-tag">Web Development</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>LuxeCommerce</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">Next.js</span>
+                                <span class="tech-badge">Shopify API</span>
+                                <span class="tech-badge">Tailwind CSS</span>
+                                <span class="tech-badge">Stripe</span>
+                            </div>
+                            <p>A high-end e-commerce platform for luxury fashion brands featuring seamless checkout experiences, personalized recommendations, and advanced inventory management.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Live Demo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-btn">Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <i class="fas fa-building"></i>
+                            <span class="project-tag">Web Development</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>PropertyPro</h3>
+                            <div class="project-tech">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Google Maps API</span>
+                            </div>
+                            <p>A real estate platform with advanced property search, virtual tours, and AI-powered price prediction to help users make informed decisions.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Have a Project in Mind?</h2>
+                <p>Let's collaborate to bring your vision to life with our expertise in AI, finance technology, and digital innovation</p>
+                <a href="contact.html" class="btn">Start a Conversation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Web Solutions</h3>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">E-Commerce</a></li>
+                        <li><a href="services.html">SEO Services</a></li>
+                        <li><a href="services.html">Security Solutions</a></li>
+                        <li><a href="services.html">Web Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Security Solutions</h3>
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 iO Web Solutions. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Project Filtering Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
