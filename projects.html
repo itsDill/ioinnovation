@@ -1,404 +1,1087 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-MRHXEVRZN9');
+      gtag("config", "G-MRHXEVRZN9");
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore iO Innovation's portfolio of AI-driven web development, financial technology, and SEO optimization projects.">
-    <title>Our Projects - iO Innovation</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Enhanced SEO Meta Tags -->
+    <title>
+      Professional Web Development Tools & Solutions | iO Innovation
+    </title>
+    <meta
+      name="description"
+      content="Discover powerful web development tools including 13F Visualizer, CMS System, Security Analyzer, SEO Suite, and Finance Widgets. Professional solutions for modern businesses."
+    />
+    <meta
+      name="keywords"
+      content="13F visualizer, CMS system, website security analyzer, SEO suite, finance widgets, web development tools, business solutions"
+    />
+    <meta name="author" content="iO Innovation" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ioinnovation.com/tools" />
+    <meta
+      property="og:title"
+      content="Professional Web Development Tools & Solutions | iO Innovation"
+    />
+    <meta
+      property="og:description"
+      content="Discover powerful web development tools including 13F Visualizer, CMS System, Security Analyzer, SEO Suite, and Finance Widgets."
+    />
+    <meta property="og:image" content="assets/images/tools-preview.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ioinnovation.com/tools" />
+    <meta
+      property="twitter:title"
+      content="Professional Web Development Tools & Solutions | iO Innovation"
+    />
+    <meta
+      property="twitter:description"
+      content="Discover powerful web development tools including 13F Visualizer, CMS System, Security Analyzer, SEO Suite, and Finance Widgets."
+    />
+    <meta property="twitter:image" content="assets/images/tools-preview.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Professional Web Development Tools",
+        "description": "Comprehensive suite of web development tools and solutions",
+        "url": "https://ioinnovation.com/tools",
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "SoftwareApplication",
+              "name": "13F Visualizer",
+              "description": "Advanced financial data visualization tool for SEC 13F filings analysis"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "CMS System",
+              "description": "User-friendly content management system for modern websites"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Website Security Analyzer",
+              "description": "Comprehensive security scanning and vulnerability assessment tool"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "SEO Suite",
+              "description": "Complete SEO optimization and analytics platform"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Finance Widgets",
+              "description": "Customizable financial widgets for websites and applications"
+            }
+          ]
+        }
+      }
+    </script>
 
     <!-- iOS Home Screen App Icon -->
-    <link rel="apple-touch-icon" href="assets/images/icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/1.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/1.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="assets/images/1.png">
+    <link rel="apple-touch-icon" href="assets/images/icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/1.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/1.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="assets/images/1.png" />
 
     <!-- iOS App Settings -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="iO Innovation">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="iO Innovation Tools" />
 
     <!-- Standard Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/1.png">
+    <link rel="icon" type="image/png" href="assets/images/1.png" />
+    <link rel="canonical" href="https://ioinnovation.com/tools" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/header-footer.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/header-footer.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
 
     <style>
-        /* Project Page Specific Styles */
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        --info-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      /* Enhanced Project Page Styles */
+      .tools-hero {
+        background: var(--primary-gradient);
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tools-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+      }
+
+      .tools-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .tools-hero p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .project-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 50px;
+        padding: 0 20px;
+      }
+
+      .filter-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-color);
+        border: 2px solid transparent;
+        border-radius: 50px;
+        padding: 12px 28px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .filter-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .filter-btn:hover::before {
+        left: 100%;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--accent-color);
+        color: #fff;
+        border-color: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+
+      .tool-card {
+        background: var(--card-bg);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.05)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .tool-card:hover::before {
+        opacity: 1;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .tool-header {
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-header.fintech {
+        background: var(--primary-gradient);
+      }
+      .tool-header.cms {
+        background: var(--secondary-gradient);
+      }
+      .tool-header.security {
+        background: var(--success-gradient);
+      }
+      .tool-header.seo {
+        background: var(--warning-gradient);
+      }
+      .tool-header.widgets {
+        background: var(--info-gradient);
+      }
+
+      .tool-tag {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        font-size: 13px;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+      }
+
+      .tool-content {
+        padding: 32px;
+      }
+
+      .tool-content h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--heading-color);
+      }
+
+      .tool-tech {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .tech-badge {
+        background: rgba(102, 126, 234, 0.1);
+        color: var(--accent-color);
+        font-size: 12px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-weight: 600;
+        border: 1px solid rgba(102, 126, 234, 0.2);
+      }
+
+      .tool-content p {
+        color: var(--text-color);
+        margin-bottom: 24px;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .tool-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 24px;
+      }
+
+      .tool-features li {
+        color: var(--text-color);
+        font-size: 14px;
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .tool-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      .tool-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .tool-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--accent-color);
+        font-weight: 600;
+        font-size: 14px;
+        padding: 12px 24px;
+        border: 2px solid var(--accent-color);
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .tool-btn:hover {
+        background: var(--accent-color);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .tool-btn.primary {
+        background: var(--accent-color);
+        color: #fff;
+      }
+
+      .tool-btn.primary:hover {
+        background: transparent;
+        color: var(--accent-color);
+      }
+
+      .project-details {
+        padding: 100px 0;
+        background: var(--bg-color);
+      }
+
+      .project-details .container {
+        max-width: 1200px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--heading-color);
+        margin-bottom: 20px;
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* CTA Section Enhancement */
+      .cta {
+        background: var(--primary-gradient);
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 50px 50px;
+        animation: drift 30s linear infinite;
+      }
+
+      @keyframes drift {
+        0% {
+          transform: rotate(0deg) translate(0, 0);
+        }
+        100% {
+          transform: rotate(360deg) translate(50px, 50px);
+        }
+      }
+
+      .cta h2 {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta .btn {
+        background: #fff;
+        color: var(--accent-color);
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 600;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .cta .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .tools-hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 0 15px;
+        }
+
+        .tool-header {
+          height: 200px;
+          font-size: 3rem;
+        }
+
+        .section-header h2 {
+          font-size: 2.2rem;
+        }
+
         .project-filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 40px;
+          padding: 0 15px;
         }
+      }
 
-        .filter-btn {
-            background: var(--card-bg);
-            color: var(--text-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+      /* Loading Animation */
+      .tool-card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(30px);
+      }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-color);
-            color: #fff;
-        }
+      .tool-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .tool-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .tool-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .tool-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .tool-card:nth-child(5) {
+        animation-delay: 0.5s;
+      }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 220px;
-            width: 100%;
-            background-color: var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-tag {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 30px;
-            font-weight: 500;
-        }
-
-        .project-content {
-            padding: 24px;
-        }
-
-        .project-content h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: var(--heading-color);
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .tech-badge {
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-size: 12px;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-weight: 500;
-        }
-
-        .project-content p {
-            color: var(--text-color);
-            margin-bottom: 20px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 16px;
-        }
-
-        .project-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .project-btn:hover {
-            color: var(--heading-color);
-        }
-
-        .project-details {
-            padding: 80px 0;
-        }
-
-        .project-details .container {
-            max-width: 1000px;
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
+      }
     </style>
-</head>
-<body data-theme="dark">
+  </head>
+  <body data-theme="dark">
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="assets/images/1.png" alt="Innovation Logo">
-                    <h1>iO Innovation</h1>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <img src="assets/images/1.png" alt="iO Innovation Logo" />
+            <h1>iO Innovation</h1>
+          </div>
+          <nav>
+            <ul id="nav-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="projects.html" class="active">Tools</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li>
+                <div class="theme-switch" id="theme-switch">
+                  <i class="fas fa-moon"></i>
                 </div>
-                <nav>
-                    <ul id="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html" class="active">Tools</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li>
-                            <div class="theme-switch" id="theme-switch">
-                                <i class="fas fa-moon"></i>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="hamburger" id="hamburger">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </nav>
+              </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+              <i class="fas fa-bars"></i>
             </div>
+          </nav>
         </div>
+      </div>
     </header>
 
     <main>
-
-
-        <!-- Project Filters -->
-        <section class="project-details">
-            <div class="container">
-                <h2>Featured Tools</h2>
-                <p class="section-description">Browse our diverse range of tools across multiple industries</p>
-
-                <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="ai">AI Solutions</button>
-                    <button class="filter-btn" data-filter="webdev">Web Dev</button>
-                    <button class="filter-btn" data-filter="fintech">Fintech</button>
-                    <button class="filter-btn" data-filter="seo">SEO & Analytics</button>
-                </div>
-
-    <div class="projects-grid">
-        <!-- AI Solutions Projects -->
-        <div class="project-card" data-category="ai">
-            <div class="project-image">
-                <i class="fas fa-brain"></i>
-                <span class="project-tag">Web Dev</span>
-            </div>
-            <div class="project-content">
-                <h3>Home page</h3>
-                <div class="project-tech">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">TensorFlow</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">AWS</span>
-                </div>
-                <p>A simple home page template with language toggle and light and dark theme.</p>
-                <div class="project-links">
-                    <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+      <!-- Hero Section -->
+      <section class="tools-hero">
+        <div class="container">
+          <h1>Professional Development Tools</h1>
+          <p>
+            Powerful, innovative solutions designed to accelerate your business
+            growth and streamline your workflow
+          </p>
         </div>
+      </section>
 
-        <!-- AI Solutions Projects -->
-        <div class="project-card" data-category="ai">
-            <div class="project-image">
-                <i class="fas fa-brain"></i>
-                <span class="project-tag">AI Solution</span>
-            </div>
-            <div class="project-content">
-                <h3>TradeSmart AI Advisor</h3>
-                <div class="project-tech">
-                   <span class="tech-badge">Python</span>
-                   <span class="tech-badge">TensorFlow</span>
-                   <span class="tech-badge">React</span>
-                   <span class="tech-badge">AWS</span>
-                </div>
-                <p>An intelligent investment advisory platform that leverages machine learning and AI to analyze market trends.</p>
-                <div class="project-links">
-                    <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
+      <!-- Tools Section -->
+      <section class="project-details">
+        <div class="container">
+          <div class="section-header">
+            <h2>Featured Tools & Solutions</h2>
+            <p class="section-description">
+              Explore our comprehensive suite of professional tools designed for
+              modern businesses
+            </p>
+          </div>
 
-        <!-- Fintech Projects -->
-        <div class="project-card" data-category="fintech">
-            <div class="project-image">
-                <i class="fas fa-coins"></i>
-                <span class="project-tag">Fintech</span>
-            </div>
-            <div class="project-content">
-                <h3>SmartBudget</h3>
-                <div class="project-tech">
-                    <span class="tech-badge">Flutter</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Plaid API</span>
-                </div>
-                <p>A personal finance application using AI to analyze spending patterns, provide budget recommendations, and help users achieve their financial goals.</p>
-                <div class="project-links">
-                    <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">
+              All Tools
+            </button>
+            <button class="filter-btn" data-filter="fintech">Financial</button>
+            <button class="filter-btn" data-filter="cms">Content</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+            <button class="filter-btn" data-filter="seo">
+              SEO & Analytics
+            </button>
+          </div>
 
-        <!-- SEO & Analytics Projects -->
-        <div class="project-card" data-category="seo">
-            <div class="project-image">
+          <div class="tools-grid">
+            <!-- 13F Visualizer -->
+            <article class="tool-card" data-category="fintech">
+              <div class="tool-header fintech">
+                <i class="fas fa-chart-line"></i>
+                <span class="tool-tag">Financial Analytics</span>
+              </div>
+              <div class="tool-content">
+                <h3>13F Visualizer</h3>
+                <div class="tool-tech">
+                  <span class="tech-badge">React</span>
+                  <span class="tech-badge">D3.js</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">SEC API</span>
+                </div>
+                <p>
+                  Advanced financial data visualization tool for analyzing SEC
+                  13F filings. Track institutional holdings, portfolio changes,
+                  and investment trends with interactive charts and
+                  comprehensive analytics.
+                </p>
+                <ul class="tool-features">
+                  <li>Real-time SEC 13F filing analysis</li>
+                  <li>Interactive portfolio visualizations</li>
+                  <li>Institutional investor tracking</li>
+                  <li>Historical trend analysis</li>
+                </ul>
+                <div class="tool-actions">
+                  <a href="#demo" class="tool-btn primary"
+                    >View Demo <i class="fas fa-play"></i
+                  ></a>
+                  <a href="#learn-more" class="tool-btn"
+                    >Learn More <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- CMS System -->
+            <article class="tool-card" data-category="cms">
+              <div class="tool-header cms">
+                <i class="fas fa-edit"></i>
+                <span class="tool-tag">Content Management</span>
+              </div>
+              <div class="tool-content">
+                <h3>Advanced CMS System</h3>
+                <div class="tool-tech">
+                  <span class="tech-badge">Vue.js</span>
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">MongoDB</span>
+                  <span class="tech-badge">GraphQL</span>
+                </div>
+                <p>
+                  User-friendly content management system with drag-and-drop
+                  functionality, multi-user collaboration, and advanced
+                  publishing workflows for modern websites.
+                </p>
+                <ul class="tool-features">
+                  <li>Drag & drop page builder</li>
+                  <li>Multi-user collaboration</li>
+                  <li>Advanced media management</li>
+                  <li>SEO optimization tools</li>
+                </ul>
+                <div class="tool-actions">
+                  <a href="#demo" class="tool-btn primary"
+                    >Try Demo <i class="fas fa-external-link-alt"></i
+                  ></a>
+                  <a href="#features" class="tool-btn"
+                    >View Features <i class="fas fa-list"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Website Security Analyzer -->
+            <article class="tool-card" data-category="security">
+              <div class="tool-header security">
+                <i class="fas fa-shield-alt"></i>
+                <span class="tool-tag">Security & Protection</span>
+              </div>
+              <div class="tool-content">
+                <h3>Website Security Analyzer</h3>
+                <div class="tool-tech">
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Selenium</span>
+                  <span class="tech-badge">OWASP</span>
+                  <span class="tech-badge">AWS</span>
+                </div>
+                <p>
+                  Comprehensive security scanning tool that identifies
+                  vulnerabilities, performs penetration testing, and provides
+                  detailed security reports with actionable recommendations.
+                </p>
+                <ul class="tool-features">
+                  <li>Vulnerability assessment</li>
+                  <li>SSL/TLS certificate analysis</li>
+                  <li>OWASP compliance checking</li>
+                  <li>Automated security reporting</li>
+                </ul>
+                <div class="tool-actions">
+                  <a href="#scan" class="tool-btn primary"
+                    >Start Scan <i class="fas fa-search"></i
+                  ></a>
+                  <a href="#security-guide" class="tool-btn"
+                    >Security Guide <i class="fas fa-book"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- SEO Suite -->
+            <article class="tool-card" data-category="seo">
+              <div class="tool-header seo">
                 <i class="fas fa-search"></i>
-                <span class="project-tag">SEO & Analytics</span>
-            </div>
-            <div class="project-content">
-                <h3>SEO Performance Suite</h3>
-                <div class="project-tech">
-                    <span class="tech-badge">Vue.js</span>
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">PostgreSQL</span>
-                    <span class="tech-badge">Google API</span>
+                <span class="tool-tag">SEO & Analytics</span>
+              </div>
+              <div class="tool-content">
+                <h3>Professional SEO Suite</h3>
+                <div class="tool-tech">
+                  <span class="tech-badge">Angular</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">PostgreSQL</span>
+                  <span class="tech-badge">Google APIs</span>
                 </div>
-                <p>A comprehensive SEO analytics platform providing keyword research, competitor analysis, content optimization, and performance tracking in one unified dashboard.</p>
-                <div class="project-links">
-                    <a href="#" class="project-btn">View Case Study <i class="fas fa-arrow-right"></i></a>
+                <p>
+                  Complete SEO optimization platform with keyword research,
+                  competitor analysis, content optimization, rank tracking, and
+                  comprehensive performance analytics.
+                </p>
+                <ul class="tool-features">
+                  <li>Advanced keyword research</li>
+                  <li>Competitor analysis</li>
+                  <li>Content optimization</li>
+                  <li>Rank tracking & reporting</li>
+                </ul>
+                <div class="tool-actions">
+                  <a href="#seo-audit" class="tool-btn primary"
+                    >Free Audit <i class="fas fa-chart-bar"></i
+                  ></a>
+                  <a href="#pricing" class="tool-btn"
+                    >View Pricing <i class="fas fa-tag"></i
+                  ></a>
                 </div>
-            </div>
+              </div>
+            </article>
+
+            <!-- Finance Widgets -->
+            <article class="tool-card" data-category="fintech">
+              <div class="tool-header widgets">
+                <i class="fas fa-calculator"></i>
+                <span class="tool-tag">Financial Widgets</span>
+              </div>
+              <div class="tool-content">
+                <h3>Finance Widget Collection</h3>
+                <div class="tool-tech">
+                  <span class="tech-badge">JavaScript</span>
+                  <span class="tech-badge">Chart.js</span>
+                  <span class="tech-badge">REST API</span>
+                  <span class="tech-badge">Responsive</span>
+                </div>
+                <p>
+                  Customizable financial widgets including calculators, market
+                  data displays, currency converters, and interactive charts for
+                  websites and applications.
+                </p>
+                <ul class="tool-features">
+                  <li>Real-time market data</li>
+                  <li>Financial calculators</li>
+                  <li>Currency conversion</li>
+                  <li>Customizable themes</li>
+                </ul>
+                <div class="tool-actions">
+                  <a href="#widgets" class="tool-btn primary"
+                    >Browse Widgets <i class="fas fa-th"></i
+                  ></a>
+                  <a href="#integration" class="tool-btn"
+                    >Integration Guide <i class="fas fa-code"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-    </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta">
-            <div class="container">
-                <h2>Have a Project in Mind?</h2>
-                <p>Let's collaborate to bring your vision to life with our expertise in AI, finance technology, and digital innovation</p>
-                <a href="contact.html" class="btn">Start a Conversation</a>
-            </div>
-        </section>
+      <!-- CTA Section -->
+      <section class="cta">
+        <div class="container">
+          <h2>Ready to Transform Your Business?</h2>
+          <p>
+            Let's collaborate to implement the perfect tools and solutions for
+            your specific needs
+          </p>
+          <a href="contact.html" class="btn">Start Your Project Today</a>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Web Solutions</h3>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>iO Innovation</h3>
+            <p>
+              Professional web development tools and solutions for modern
+              businesses.
+            </p>
+          </div>
 
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="services.html">Web Development</a></li>
-                        <li><a href="services.html">E-Commerce</a></li>
-                        <li><a href="services.html">SEO Services</a></li>
-                        <li><a href="services.html">Security Solutions</a></li>
-                        <li><a href="services.html">Web Maintenance</a></li>
-                    </ul>
-                </div>
+          <div class="footer-column">
+            <h3>Our Tools</h3>
+            <ul>
+              <li><a href="#13f-visualizer">13F Visualizer</a></li>
+              <li><a href="#cms-system">CMS System</a></li>
+              <li><a href="#security-analyzer">Security Analyzer</a></li>
+              <li><a href="#seo-suite">SEO Suite</a></li>
+              <li><a href="#finance-widgets">Finance Widgets</a></li>
+            </ul>
+          </div>
 
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="services.html">Web Development</a></li>
+              <li><a href="services.html">Custom Solutions</a></li>
+              <li><a href="services.html">SEO Services</a></li>
+              <li><a href="services.html">Security Audits</a></li>
+              <li><a href="services.html">Consulting</a></li>
+            </ul>
+          </div>
 
-                <div class="footer-column">
-                    <h3>Security Solutions</h3>
-                    <ul>
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 iO Web Solutions. All Rights Reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="sitemap.html">Sitemap</a>
-                </div>
-            </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="projects.html">Tools</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 iO Innovation. All Rights Reserved. | Professional Web
+            Development Tools & Solutions
+          </p>
+          <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="sitemap.html">Sitemap</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
     <script>
-        // Project Filtering Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
+      // Enhanced Project Filtering with Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const toolCards = document.querySelectorAll(".tool-card");
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
 
-                    // Add active class to clicked button
-                    this.classList.add('active');
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            // Add active class to clicked button
+            this.classList.add("active");
 
-                    // Get filter value
-                    const filterValue = this.getAttribute('data-filter');
+            // Filter cards with animation
+            toolCards.forEach((card, index) => {
+              const category = card.getAttribute("data-category");
 
-                    // Filter projects
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
+              if (filter === "all" || category === filter) {
+                card.style.display = "block";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, index * 100);
+              } else {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(30px)";
+                setTimeout(() => {
+                  card.style.display = "none";
+                }, 300);
+              }
             });
+          });
         });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        // Tool card hover effects
+        toolCards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-10px) scale(1.02)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+            }
+          });
+        }, observerOptions);
+
+        // Observe all tool cards
+        toolCards.forEach((card) => {
+          observer.observe(card);
+        });
+
+        // Add loading state management
+        window.addEventListener("load", function () {
+          document.body.classList.add("loaded");
+        });
+
+        // Tool action handlers
+        document.querySelectorAll(".tool-btn").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            // Add click animation
+            this.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              this.style.transform = "scale(1)";
+            }, 150);
+
+            // Handle demo links (placeholder functionality)
+            if (this.href.includes("#demo")) {
+              e.preventDefault();
+              showDemoModal(this.closest(".tool-card"));
+            }
+          });
+        });
+
+        // Demo modal functionality (placeholder)
+        function showDemoModal(toolCard) {
+          const toolName = toolCard.querySelector("h3").textContent;
+          alert(
+            `Demo for ${toolName} would open here. This is a placeholder for the actual demo functionality.`
+          );
+        }
+
+        // Performance monitoring
+        if ("performance" in window) {
+          window.addEventListener("load", () => {
+            setTimeout(() => {
+              const perfData = performance.getEntriesByType("navigation")[0];
+              console.log(
+                `Page load time: ${
+                  perfData.loadEventEnd - perfData.loadEventStart
+                }ms`
+              );
+            }, 0);
+          });
+        }
+      });
+
+      // Additional utility functions
+      function initializeToolsPage() {
+        // Initialize any additional functionality here
+        setupResponsiveHandlers();
+        setupKeyboardNavigation();
+      }
+
+      function setupResponsiveHandlers() {
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+        function handleTabletChange(e) {
+          const toolsGrid = document.querySelector(".tools-grid");
+          if (e.matches) {
+            toolsGrid.style.gridTemplateColumns = "1fr";
+          } else {
+            toolsGrid.style.gridTemplateColumns =
+              "repeat(auto-fit, minmax(380px, 1fr))";
+          }
+        }
+
+        mediaQuery.addListener(handleTabletChange);
+        handleTabletChange(mediaQuery);
+      }
+
+      function setupKeyboardNavigation() {
+        document.addEventListener("keydown", function (e) {
+          // ESC key to close any modals
+          if (e.key === "Escape") {
+            closeAllModals();
+          }
+
+          // Arrow keys for filter navigation
+          if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+            navigateFilters(e.key);
+          }
+        });
+      }
+
+      function closeAllModals() {
+        // Placeholder for modal closing functionality
+        console.log("Closing all modals");
+      }
+
+      function navigateFilters(direction) {
+        const activeFilter = document.querySelector(".filter-btn.active");
+        const allFilters = Array.from(document.querySelectorAll(".filter-btn"));
+        const currentIndex = allFilters.indexOf(activeFilter);
+
+        let newIndex;
+        if (direction === "ArrowLeft") {
+          newIndex =
+            currentIndex > 0 ? currentIndex - 1 : allFilters.length - 1;
+        } else {
+          newIndex =
+            currentIndex < allFilters.length - 1 ? currentIndex + 1 : 0;
+        }
+
+        allFilters[newIndex].click();
+        allFilters[newIndex].focus();
+      }
+
+      // Initialize everything when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeToolsPage);
+      } else {
+        initializeToolsPage();
+      }
     </script>
-</body>
+  </body>
 </html>
