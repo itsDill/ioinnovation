@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algo Trading Dashboard - Client Portal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <style>
+      :root {
+        --primary-color: #3b82f6;
+        --secondary-color: #1e293b;
+        --success-color: #10b981;
+        --danger-color: #ef4444;
+        --warning-color: #f59e0b;
+        --info-color: #06b6d4;
+        --background: #0f172a;
+        --surface: #1e293b;
+        --surface-light: #334155;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --border: #334155;
+        --gradient-primary: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        --gradient-success: linear-gradient(135deg, #10b981, #059669);
+        --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+
+      .dashboard {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background: var(--surface);
+        border-right: 1px solid var(--border);
+        padding: 2rem 0;
+      }
+
+      .sidebar-header {
+        padding: 0 2rem 2rem;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 2rem;
+      }
+
+      .sidebar-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .sidebar-subtitle {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      .sidebar-nav {
+        padding: 0 1rem;
+      }
+
+      .nav-item {
+        margin-bottom: 0.5rem;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background: var(--primary-color);
+        color: white;
+        transform: translateX(4px);
+      }
+
+      .nav-link i {
+        margin-right: 0.75rem;
+        width: 20px;
+        text-align: center;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 2rem;
+        background: var(--background);
+      }
+
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dashboard-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .dashboard-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .status-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: var(--surface);
+        border-radius: 8px;
+        font-size: 0.875rem;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success-color);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      /* Grid Layout */
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .card-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .card-subtitle {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      /* Market Data Cards */
+      .market-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .market-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-primary);
+      }
+
+      .market-symbol {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .market-price {
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: "JetBrains Mono", monospace;
+        margin-bottom: 0.5rem;
+      }
+
+      .market-change {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+      }
+
+      .change-positive {
+        color: var(--success-color);
+      }
+
+      .change-negative {
+        color: var(--danger-color);
+      }
+
+      .market-indicators {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .indicator {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .indicator-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .indicator-value {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      /* Algorithm Section */
+      .algo-section {
+        grid-column: 1 / -1;
+      }
+
+      .algo-controls {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .control-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+      }
+
+      .control-input {
+        padding: 0.5rem;
+        background: var(--background);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        color: var(--text-primary);
+        font-family: "JetBrains Mono", monospace;
+        width: 100px;
+      }
+
+      .algo-status {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .status-card {
+        flex: 1;
+        padding: 1rem;
+        background: var(--surface-light);
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .status-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: "JetBrains Mono", monospace;
+        margin-bottom: 0.5rem;
+      }
+
+      .status-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* Chart Container */
+      .chart-container {
+        position: relative;
+        height: 400px;
+        margin-top: 1rem;
+      }
+
+      /* Signal Log */
+      .signal-log {
+        max-height: 300px;
+        overflow-y: auto;
+        background: var(--background);
+        border-radius: 8px;
+        padding: 1rem;
+      }
+
+      .signal-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .signal-item:last-child {
+        border-bottom: none;
+      }
+
+      .signal-type {
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .signal-buy {
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--success-color);
+      }
+
+      .signal-sell {
+        background: rgba(239, 68, 68, 0.2);
+        color: var(--danger-color);
+      }
+
+      .signal-hold {
+        background: rgba(245, 158, 11, 0.2);
+        color: var(--warning-color);
+      }
+
+      .signal-time {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: relative;
+          width: 100%;
+          height: auto;
+        }
+
+        .main-content {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .dashboard-header {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+        }
+
+        .dashboard-actions {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .algo-controls {
+          flex-direction: column;
+        }
+
+        .algo-status {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">Algo Trading</h2>
+          <p class="sidebar-subtitle">Advanced Analytics</p>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-item">
+            <a href="#" class="nav-link active" data-section="overview">
+              <i class="fas fa-chart-line"></i>
+              Overview
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-section="algorithm">
+              <i class="fas fa-brain"></i>
+              Algorithm
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-section="signals">
+              <i class="fas fa-signal"></i>
+              Signals
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-section="performance">
+              <i class="fas fa-trophy"></i>
+              Performance
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-section="settings">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="dashboard-header">
+          <h1 class="dashboard-title">Trading Dashboard</h1>
+          <div class="dashboard-actions">
+            <div class="status-indicator">
+              <div class="status-dot"></div>
+              <span>Algorithm Running</span>
+            </div>
+            <button class="btn btn-primary" id="toggleAlgo">
+              <i class="fas fa-pause"></i>
+              Pause
+            </button>
+          </div>
+        </div>
+
+        <!-- Market Overview -->
+        <div class="dashboard-grid">
+          <div class="card market-card">
+            <div class="market-symbol">JP225</div>
+            <div class="market-price" id="jp225-price">¥39,850</div>
+            <div class="market-change change-positive">
+              <i class="fas fa-arrow-up"></i>
+              <span id="jp225-change">+125.50 (+0.32%)</span>
+            </div>
+            <div class="market-indicators">
+              <div class="indicator">
+                <div class="indicator-label">SMA 20</div>
+                <div class="indicator-value" id="jp225-sma20">39,720</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">SMA 50</div>
+                <div class="indicator-value" id="jp225-sma50">39,680</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">Signal</div>
+                <div class="indicator-value" id="jp225-signal">BUY</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">Strength</div>
+                <div class="indicator-value" id="jp225-strength">85%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card market-card">
+            <div class="market-symbol">DE30</div>
+            <div class="market-price" id="de30-price">€18,450</div>
+            <div class="market-change change-negative">
+              <i class="fas fa-arrow-down"></i>
+              <span id="de30-change">-75.20 (-0.41%)</span>
+            </div>
+            <div class="market-indicators">
+              <div class="indicator">
+                <div class="indicator-label">SMA 20</div>
+                <div class="indicator-value" id="de30-sma20">18,520</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">SMA 50</div>
+                <div class="indicator-value" id="de30-sma50">18,580</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">Signal</div>
+                <div class="indicator-value" id="de30-signal">SELL</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">Strength</div>
+                <div class="indicator-value" id="de30-strength">72%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card market-card">
+            <div class="market-symbol">USTEC</div>
+            <div class="market-price" id="ustec-price">$20,125</div>
+            <div class="market-change change-positive">
+              <i class="fas fa-arrow-up"></i>
+              <span id="ustec-change">+45.80 (+0.23%)</span>
+            </div>
+            <div class="market-indicators">
+              <div class="indicator">
+                <div class="indicator-label">SMA 20</div>
+                <div class="indicator-value" id="ustec-sma20">20,080</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">SMA 50</div>
+                <div class="indicator-value" id="ustec-sma50">20,040</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">Signal</div>
+                <div class="indicator-value" id="ustec-signal">HOLD</div>
+              </div>
+              <div class="indicator">
+                <div class="indicator-label">Strength</div>
+                <div class="indicator-value" id="ustec-strength">60%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Algorithm Section -->
+        <div class="card algo-section">
+          <div class="card-header">
+            <h3 class="card-title">Simple Moving Average Algorithm</h3>
+            <div class="card-subtitle">Real-time signal generation</div>
+          </div>
+
+          <div class="algo-controls">
+            <div class="control-group">
+              <label class="control-label">Short SMA</label>
+              <input
+                type="number"
+                class="control-input"
+                id="short-sma"
+                value="20"
+                min="5"
+                max="50"
+              />
+            </div>
+            <div class="control-group">
+              <label class="control-label">Long SMA</label>
+              <input
+                type="number"
+                class="control-input"
+                id="long-sma"
+                value="50"
+                min="20"
+                max="200"
+              />
+            </div>
+            <div class="control-group">
+              <label class="control-label">Signal Threshold</label>
+              <input
+                type="number"
+                class="control-input"
+                id="signal-threshold"
+                value="0.5"
+                step="0.1"
+                min="0.1"
+                max="2.0"
+              />
+            </div>
+            <div class="control-group">
+              <label class="control-label">Min Strength</label>
+              <input
+                type="number"
+                class="control-input"
+                id="min-strength"
+                value="60"
+                min="1"
+                max="100"
+              />
+            </div>
+          </div>
+
+          <div class="algo-status">
+            <div class="status-card">
+              <div class="status-value" id="total-signals">127</div>
+              <div class="status-label">Total Signals</div>
+            </div>
+            <div class="status-card">
+              <div class="status-value" id="win-rate">68.5%</div>
+              <div class="status-label">Win Rate</div>
+            </div>
+            <div class="status-card">
+              <div class="status-value" id="active-positions">3</div>
+              <div class="status-label">Active Positions</div>
+            </div>
+            <div class="status-card">
+              <div class="status-value" id="daily-pnl">+$2,450</div>
+              <div class="status-label">Daily P&L</div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="priceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Signal Log -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Recent Signals</h3>
+            <div class="card-subtitle">Last 24 hours</div>
+          </div>
+          <div class="signal-log" id="signal-log">
+            <!-- Signals will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Market data simulation
+      const marketData = {
+        JP225: {
+          price: 39850,
+          change: 125.5,
+          changePercent: 0.32,
+          sma20: 39720,
+          sma50: 39680,
+          signal: "BUY",
+          strength: 85,
+          history: [],
+        },
+        DE30: {
+          price: 18450,
+          change: -75.2,
+          changePercent: -0.41,
+          sma20: 18520,
+          sma50: 18580,
+          signal: "SELL",
+          strength: 72,
+          history: [],
+        },
+        USTEC: {
+          price: 20125,
+          change: 45.8,
+          changePercent: 0.23,
+          sma20: 20080,
+          sma50: 20040,
+          signal: "HOLD",
+          strength: 60,
+          history: [],
+        },
+      };
+
+      // Algorithm parameters
+      let algoParams = {
+        shortSMA: 20,
+        longSMA: 50,
+        signalThreshold: 0.5,
+        minStrength: 60,
+        isRunning: true,
+      };
+
+      // Initialize charts
+      const ctx = document.getElementById("priceChart").getContext("2d");
+      const priceChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "JP225",
+              data: [],
+              borderColor: "#3b82f6",
+              backgroundColor: "rgba(59, 130, 246, 0.1)",
+              tension: 0.4,
+            },
+            {
+              label: "DE30",
+              data: [],
+              borderColor: "#10b981",
+              backgroundColor: "rgba(16, 185, 129, 0.1)",
+              tension: 0.4,
+            },
+            {
+              label: "USTEC",
+              data: [],
+              borderColor: "#f59e0b",
+              backgroundColor: "rgba(245, 158, 11, 0.1)",
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                color: "#f1f5f9",
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#94a3b8",
+              },
+              grid: {
+                color: "#334155",
+              },
+            },
+            y: {
+              ticks: {
+                color: "#94a3b8",
+              },
+              grid: {
+                color: "#334155",
+              },
+            },
+          },
+        },
+      });
+
+      // Simple Moving Average Algorithm
+      class SMAAlgorithm {
+        constructor(params) {
+          this.params = params;
+          this.signals = [];
+        }
+
+        calculateSMA(data, period) {
+          if (data.length < period) return null;
+          const sum = data.slice(-period).reduce((a, b) => a + b, 0);
+          return sum / period;
+        }
+
+        generateSignal(symbol, price, history) {
+          if (history.length < this.params.longSMA) return "HOLD";
+
+          const shortSMA = this.calculateSMA(history, this.params.shortSMA);
+          const longSMA = this.calculateSMA(history, this.params.longSMA);
+
+          if (!shortSMA || !longSMA) return "HOLD";
+
+          const crossover = ((shortSMA - longSMA) / longSMA) * 100;
+          const strength = Math.min(Math.abs(crossover) * 10, 100);
+
+          if (strength < this.params.minStrength) return "HOLD";
+
+          if (crossover > this.params.signalThreshold) {
+            this.addSignal(symbol, "BUY", price, strength);
+            return "BUY";
+          } else if (crossover < -this.params.signalThreshold) {
+            this.addSignal(symbol, "SELL", price, strength);
+            return "SELL";
+          }
+
+          return "HOLD";
+        }
+
+        addSignal(symbol, type, price, strength) {
+          const signal = {
+            symbol,
+            type,
+            price,
+            strength,
+            timestamp: new Date(),
+          };
+          this.signals.unshift(signal);
+          if (this.signals.length > 50) this.signals.pop();
+          this.updateSignalLog();
+        }
+
+        updateSignalLog() {
+          const logElement = document.getElementById("signal-log");
+          logElement.innerHTML = this.signals
+            .map(
+              (signal) => `
+                    <div class="signal-item">
+                        <div>
+                            <span class="signal-type signal-${signal.type.toLowerCase()}">${
+                signal.type
+              }</span>
+                            <span style="margin-left: 1rem; font-weight: 600;">${
+                              signal.symbol
+                            }</span>
+                            <span style="margin-left: 1rem; color: var(--text-muted);">@${signal.price.toFixed(
+                              2
+                            )}</span>
+                        </div>
+                        <div class="signal-time">${signal.timestamp.toLocaleTimeString()}</div>
+                    </div>
+                `
+            )
+            .join("");
+        }
+      }
+
+      // Initialize algorithm
+      const algorithm = new SMAAlgorithm(algoParams);
+
+      // Simulate market data updates
+      function updateMarketData() {
+        if (!algoParams.isRunning) return;
+
+        Object.keys(marketData).forEach((symbol) => {
+          const data = marketData[symbol];
+
+          // Simulate price movement
+          const volatility = 0.002;
+          const prevPrice = data.price;
+          const change = (Math.random() - 0.5) * volatility * prevPrice;
+          data.price += change;
+          data.change = change;
+          data.changePercent = (change / prevPrice) * 100;
+
+          // Update history
+          data.history.push(data.price);
+          if (data.history.length > 200) data.history.shift();
+
+          // Calculate SMAs
+          if (data.history.length >= algoParams.shortSMA) {
+            data.sma20 = algorithm.calculateSMA(
+              data.history,
+              algoParams.shortSMA
+            );
+          }
+          if (data.history.length >= algoParams.longSMA) {
+            data.sma50 = algorithm.calculateSMA(
+              data.history,
+              algoParams.longSMA
+            );
+          }
+
+          // Generate signal
+          data.signal = algorithm.generateSignal(
+            symbol,
+            data.price,
+            data.history
+          );
+          data.strength = Math.min(
+            Math.abs((data.sma20 - data.sma50) / data.sma50) * 1000,
+            100
+          );
+
+          // Update UI
+          updateMarketCard(symbol, data);
+        });
+
+        // Update chart
+        updateChart();
+      }
+
+      function updateMarketCard(symbol, data) {
+        const symbolLower = symbol.toLowerCase();
+        const priceElement = document.getElementById(`${symbolLower}-price`);
+        const changeElement = document.getElementById(`${symbolLower}-change`);
+        const sma20Element = document.getElementById(`${symbolLower}-sma20`);
+        const sma50Element = document.getElementById(`${symbolLower}-sma50`);
+        const signalElement = document.getElementById(`${symbolLower}-signal`);
+        const strengthElement = document.getElementById(
+          `${symbolLower}-strength`
+        );
+
+        if (priceElement) {
+          const currency =
+            symbol === "JP225" ? "¥" : symbol === "DE30" ? "€" : "$";
+          priceElement.textContent = `${currency}${Number(
+            data.price.toFixed(0)
+          ).toLocaleString()}`;
+        }
+
+        if (changeElement) {
+          const changeParent = changeElement.parentElement;
+          const isPositive = data.change > 0;
+          changeParent.className = `market-change ${
+            isPositive ? "change-positive" : "change-negative"
+          }`;
+          const icon = changeParent.querySelector("i");
+          icon.className = `fas fa-arrow-${isPositive ? "up" : "down"}`;
+          changeElement.textContent = `${
+            isPositive ? "+" : ""
+          }${data.change.toFixed(2)} (${
+            isPositive ? "+" : ""
+          }${data.changePercent.toFixed(2)}%)`;
+        }
+
+        if (sma20Element)
+          sma20Element.textContent = data.sma20
+            ? data.sma20.toFixed(0).toLocaleString()
+            : "--";
+        if (sma50Element)
+          sma50Element.textContent = data.sma50
+            ? data.sma50.toFixed(0).toLocaleString()
+            : "--";
+        if (signalElement) signalElement.textContent = data.signal;
+        if (strengthElement)
+          strengthElement.textContent = `${Math.round(data.strength)}%`;
+      }
+
+      function updateChart() {
+        const now = new Date();
+        const timeLabel = now.toLocaleTimeString();
+
+        // Add new data point
+        priceChart.data.labels.push(timeLabel);
+        priceChart.data.datasets[0].data.push(marketData.JP225.price);
+        priceChart.data.datasets[1].data.push(marketData.DE30.price);
+        priceChart.data.datasets[2].data.push(marketData.USTEC.price);
+
+        // Keep only last 50 data points
+        if (priceChart.data.labels.length > 50) {
+          priceChart.data.labels.shift();
+          priceChart.data.datasets.forEach((dataset) => dataset.data.shift());
+        }
+
+        priceChart.update("none");
+      }
+
+      // Algorithm statistics
+      function updateAlgorithmStats() {
+        const totalSignals = algorithm.signals.length;
+        const buySignals = algorithm.signals.filter(
+          (s) => s.type === "BUY"
+        ).length;
+        const sellSignals = algorithm.signals.filter(
+          (s) => s.type === "SELL"
+        ).length;
+        const winRate =
+          totalSignals > 0
+            ? (((buySignals + sellSignals) / totalSignals) * 100).toFixed(1)
+            : "0.0";
+
+        document.getElementById("total-signals").textContent = totalSignals;
+        document.getElementById("win-rate").textContent = `${winRate}%`;
+
+        // Simulate some other stats
+        document.getElementById("active-positions").textContent =
+          Math.floor(Math.random() * 5) + 1;
+        const dailyPnl = (Math.random() - 0.3) * 5000;
+        document.getElementById("daily-pnl").textContent = `${
+          dailyPnl >= 0 ? "+" : ""
+        }$${dailyPnl.toFixed(0)}`;
+      }
+
+      // Event listeners
+      document
+        .getElementById("toggleAlgo")
+        .addEventListener("click", function () {
+          algoParams.isRunning = !algoParams.isRunning;
+          const button = this;
+          const statusDot = document.querySelector(".status-dot");
+          const statusText = document.querySelector(".status-indicator span");
+
+          if (algoParams.isRunning) {
+            button.innerHTML = '<i class="fas fa-pause"></i> Pause';
+            statusText.textContent = "Algorithm Running";
+            statusDot.style.background = "var(--success-color)";
+          } else {
+            button.innerHTML = '<i class="fas fa-play"></i> Start';
+            statusText.textContent = "Algorithm Paused";
+            statusDot.style.background = "var(--danger-color)";
+          }
+        });
+
+      // Parameter controls
+      document
+        .getElementById("short-sma")
+        .addEventListener("change", function () {
+          algoParams.shortSMA = parseInt(this.value);
+          algorithm.params.shortSMA = algoParams.shortSMA;
+        });
+
+      document
+        .getElementById("long-sma")
+        .addEventListener("change", function () {
+          algoParams.longSMA = parseInt(this.value);
+          algorithm.params.longSMA = algoParams.longSMA;
+        });
+
+      document
+        .getElementById("signal-threshold")
+        .addEventListener("change", function () {
+          algoParams.signalThreshold = parseFloat(this.value);
+          algorithm.params.signalThreshold = algoParams.signalThreshold;
+        });
+
+      document
+        .getElementById("min-strength")
+        .addEventListener("change", function () {
+          algoParams.minStrength = parseInt(this.value);
+          algorithm.params.minStrength = algoParams.minStrength;
+        });
+
+      // Navigation
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .querySelectorAll(".nav-link")
+            .forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+
+          const section = this.dataset.section;
+          // Here you could implement section switching logic
+          console.log(`Switching to section: ${section}`);
+        });
+      });
+
+      // Initialize data with some history
+      function initializeData() {
+        Object.keys(marketData).forEach((symbol) => {
+          const data = marketData[symbol];
+          // Generate initial price history
+          for (let i = 0; i < 100; i++) {
+            const volatility = 0.001;
+            const change = (Math.random() - 0.5) * volatility * data.price;
+            data.price += change;
+            data.history.push(data.price);
+          }
+          data.price = marketData[symbol].price; // Reset to initial price
+        });
+      }
+
+      // Start the application
+      initializeData();
+
+      // Update market data every 2 seconds
+      setInterval(updateMarketData, 2000);
+
+      // Update algorithm stats every 10 seconds
+      setInterval(updateAlgorithmStats, 10000);
+
+      // Initial updates
+      updateAlgorithmStats();
+
+      // Add some initial signals for demonstration
+      setTimeout(() => {
+        algorithm.addSignal("JP225", "BUY", 39850, 85);
+        algorithm.addSignal("DE30", "SELL", 18450, 72);
+        algorithm.addSignal("USTEC", "HOLD", 20125, 60);
+      }, 1000);
+    </script>
+  </body>
+</html>
