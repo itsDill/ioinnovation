@@ -13,6 +13,7 @@
   --gradient-end: #1d4ed8;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --border-color-dark: #ffffff1a; /* fallback for browsers that support 8-digit hex */
   --border-color-dark: rgba(255, 255, 255, 0.1);
   --border-color-light: rgba(0, 0, 0, 0.1);
   --radius: 8px;
@@ -181,6 +182,7 @@ section h2::after {
     var(--gradient-end)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -2px;
 }
