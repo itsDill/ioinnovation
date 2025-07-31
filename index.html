@@ -3,22 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IO Innovation Fund - Innovative Ecosystem Intelligence</title>
+    <title>Trading Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
-      :root {
-        --primary-teal: #0f766e;
-        --secondary-teal: #14b8a6;
-        --accent-teal: #5eead4;
-        --dark-bg: #0f172a;
-        --dark-card: #1e293b;
-        --light-bg: #f8fafc;
-        --light-card: #ffffff;
-        --text-primary: #f1f5f9;
-        --text-secondary: #cbd5e1;
-        --text-light: #1e293b;
-        --text-light-secondary: #64748b;
-      }
-
       * {
         margin: 0;
         padding: 0;
@@ -26,1108 +13,967 @@
       }
 
       body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--dark-bg);
-        color: var(--text-primary);
-        line-height: 1.6;
-        transition: all 0.3s ease;
-      }
-
-      body.light-mode {
-        background: var(--light-bg);
-        color: var(--text-light);
-      }
-
-      body.light-mode .card {
-        background: var(--light-card);
-        border: 1px solid #e2e8f0;
-      }
-
-      body.light-mode .hero-section {
-        background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
-      }
-
-      body.light-mode .nav-bar {
-        background: rgba(255, 255, 255, 0.95);
-        border-bottom: 1px solid #e2e8f0;
-      }
-
-      .nav-bar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(30, 41, 59, 0.5);
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .nav-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--secondary-teal);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .nav-link {
-        color: var(--text-primary);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        transition: all 0.3s ease;
-      }
-
-      .nav-link:hover {
-        color: var(--secondary-teal);
-        background: rgba(20, 184, 166, 0.1);
-      }
-
-      body.light-mode .nav-link {
-        color: var(--text-light);
-      }
-
-      .theme-toggle {
-        background: none;
-        border: 2px solid var(--primary-teal);
-        color: var(--secondary-teal);
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .theme-toggle:hover {
-        background: var(--primary-teal);
-        color: white;
-      }
-
-      .hero-section {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* Replace 'your-background.jpg' with your actual image filename */
+        background: url("Untitled (1200 x 800 mm).jpg") center center / cover
+            no-repeat fixed,
+          linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        padding: 20px;
         position: relative;
-        overflow: hidden;
       }
 
-      .hero-canvas {
-        position: absolute;
+      /* Dark overlay for better text readability */
+      body::before {
+        content: "";
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: -1;
       }
 
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        max-width: 800px;
+      .container {
+        max-width: 1400px;
         margin: 0 auto;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      .hero-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(
-          135deg,
-          var(--accent-teal),
-          var(--secondary-teal)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .hero-subtitle {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .cta-buttons {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-      }
-
-      .btn-primary {
-        background: linear-gradient(
-          135deg,
-          var(--primary-teal),
-          var(--secondary-teal)
-        );
-        color: white;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--secondary-teal);
-        border: 2px solid var(--primary-teal);
-      }
-
-      .btn-secondary:hover {
-        background: var(--primary-teal);
-        color: white;
-      }
-
-      .main-content {
-        padding: 5rem 0;
-      }
-
-      .section {
-        margin-bottom: 5rem;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         font-weight: 700;
-        text-align: center;
-        margin-bottom: 3rem;
-        color: var(--secondary-teal);
       }
 
-      .ad-space {
-        background: var(--dark-card);
-        border: 2px dashed var(--primary-teal);
-        border-radius: 15px;
-        padding: 2rem;
-        text-align: center;
-        margin: 3rem 0;
-        opacity: 0.7;
-        position: relative;
-        overflow: hidden;
-        height: 140px;
-      }
-
-      .ad-label {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-        margin-bottom: 1rem;
-      }
-
-      .ad-container {
-        position: relative;
-        height: 80px;
-        overflow: hidden;
-        margin-top: 1rem;
-      }
-
-      .ad-slider {
-        display: flex;
-        animation: slideAds 20s linear infinite;
-        gap: 2rem;
-      }
-
-      .ad-box {
-        min-width: 200px;
-        height: 60px;
-        background: linear-gradient(
-          45deg,
-          var(--primary-teal),
-          var(--secondary-teal)
-        );
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 600;
-        font-size: 0.9rem;
-        flex-shrink: 0;
-      }
-
-      @keyframes slideAds {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-
-      .controls {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 3rem;
-        flex-wrap: wrap;
-      }
-
-      .control-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .control-label {
-        font-weight: 600;
-        color: var(--secondary-teal);
-      }
-
-      .selector {
-        background: var(--dark-card);
-        border: 2px solid var(--primary-teal);
-        color: var(--text-primary);
-        padding: 0.75rem 1.5rem;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      body.light-mode .selector {
-        background: var(--light-card);
-        color: var(--text-light);
-      }
-
-      .selector:hover {
-        background: var(--primary-teal);
-        color: white;
-      }
-
-      .metrics-grid {
+      .dashboard-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-bottom: 3rem;
-      }
-
-      .metric-card {
-        background: var(--dark-card);
-        border-radius: 15px;
-        padding: 2rem;
-        border-left: 4px solid var(--secondary-teal);
-        transition: all 0.3s ease;
-      }
-
-      .metric-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
-      }
-
-      .metric-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--secondary-teal);
-      }
-
-      .metric-value {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .metric-description {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-      }
-
-      body.light-mode .metric-description {
-        color: var(--text-light-secondary);
-      }
-
-      .chart-container {
-        background: var(--dark-card);
-        border-radius: 15px;
-        padding: 2rem;
-        margin: 2rem 0;
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .chart-placeholder {
-        color: var(--text-secondary);
-        text-align: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
       }
 
       .card {
-        background: var(--dark-card);
+        background: linear-gradient(145deg, #ffffff, #f8fafc);
         border-radius: 15px;
-        padding: 2rem;
-        margin: 2rem 0;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .blog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .blog-card {
-        background: var(--dark-card);
-        border-radius: 15px;
-        padding: 2rem;
-        transition: all 0.3s ease;
-        border-left: 4px solid var(--secondary-teal);
-      }
-
-      .blog-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
-      }
-
-      .blog-card.ad-card {
-        background: linear-gradient(
-          135deg,
-          rgba(15, 118, 110, 0.1),
-          rgba(20, 184, 166, 0.1)
-        );
-        border-left: 4px solid var(--accent-teal);
-      }
-
-      .blog-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--secondary-teal);
-      }
-
-      .blog-excerpt {
-        color: var(--text-secondary);
-        margin-bottom: 1rem;
-        line-height: 1.6;
-      }
-
-      .blog-meta {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-        opacity: 0.8;
-      }
-
-      .ad-content {
-        text-align: center;
-        padding: 1rem;
-      }
-
-      .ad-cta {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.5rem 1.5rem;
-        background: var(--secondary-teal);
-        color: white;
-        text-decoration: none;
-        border-radius: 25px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .ad-cta:hover {
-        background: var(--primary-teal);
+      .card:hover {
         transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
       }
 
-      .footer {
-        background: var(--dark-card);
-        padding: 3rem 0;
+      .card h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #34495e;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+        transform: translateY(-1px);
+      }
+
+      button {
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(52, 152, 219, 0.6);
+        background: linear-gradient(45deg, #2980b9, #3498db);
+      }
+
+      button:disabled {
+        background: #95a5a6;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .stat-card {
+        background: linear-gradient(145deg, #ffffff, #f1f5f9);
+        padding: 25px;
+        border-radius: 15px;
         text-align: center;
-        border-top: 1px solid rgba(30, 41, 59, 0.5);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #3498db;
+        transition: transform 0.3s ease;
       }
 
-      body.light-mode .footer {
-        background: var(--light-card);
-        border-top: 1px solid #e2e8f0;
+      .stat-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .stat-value {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+
+      .profit {
+        color: #27ae60 !important;
+      }
+      .loss {
+        color: #e74c3c !important;
+      }
+      .neutral {
+        color: #95a5a6 !important;
+      }
+
+      .trade-history {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #e1e8ed;
+        border-radius: 12px;
+        background: #f8fafc;
+      }
+
+      .trade-entry {
+        padding: 15px;
+        border-bottom: 1px solid #e1e8ed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .trade-entry:hover {
+        background: rgba(52, 152, 219, 0.1);
+        transform: translateX(5px);
+      }
+
+      .trade-info {
+        flex: 1;
+      }
+
+      .trade-result {
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: white;
+        font-size: 0.9rem;
+        min-width: 80px;
+        text-align: center;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 25px;
+        background: #ecf0f1;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 15px 0;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #27ae60, #2ecc71);
+        transition: width 0.5s ease;
+        border-radius: 15px;
+        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+      }
+
+      .alert {
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        border-left: 5px solid;
+      }
+
+      .alert-success {
+        background: #d5f4e6;
+        color: #27ae60;
+        border-left-color: #27ae60;
+      }
+
+      .alert-danger {
+        background: #fdeaea;
+        color: #e74c3c;
+        border-left-color: #e74c3c;
+      }
+
+      .alert-warning {
+        background: #fef9e7;
+        color: #f39c12;
+        border-left-color: #f39c12;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      .chart-container {
+        height: 400px;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e1e8ed;
+      }
+
+      #balanceChart {
+        max-width: 100%;
+        height: 100%;
+      }
+
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
 
       @media (max-width: 768px) {
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .controls {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .cta-buttons {
-          flex-direction: column;
-          align-items: center;
+        .dashboard-grid {
+          grid-template-columns: 1fr;
         }
 
         .container {
-          padding: 0 1rem;
+          padding: 20px;
         }
 
-        .nav-links {
-          display: none;
+        h1 {
+          font-size: 2.2rem;
         }
 
-        .blog-grid {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .stats-grid {
           grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <nav class="nav-bar">
-      <div class="container">
-        <div class="nav-content">
-          <div class="logo">IO Innovation Fund</div>
-          <div class="nav-links">
-            <a href="#index" class="nav-link">Index</a>
-            <a href="#insights" class="nav-link">Insights</a>
-            <a href="#fund" class="nav-link">Fund</a>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <div class="container">
+      <h1>📈 Advanced Trading Dashboard</h1>
+
+      <!-- Setup Section -->
+      <div id="setupSection" class="card full-width">
+        <h2>Initial Setup</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+          "
+        >
+          <div class="form-group">
+            <label for="startingBalance">Starting Balance ($)</label>
+            <input
+              type="number"
+              id="startingBalance"
+              value="100"
+              step="0.01"
+              min="1"
+            />
+          </div>
+          <div class="form-group">
+            <label for="minLotSize">Minimum Lot Size</label>
+            <input
+              type="number"
+              id="minLotSize"
+              value="0.01"
+              step="0.01"
+              min="0.01"
+            />
+          </div>
+          <div class="form-group">
+            <label for="dailyMaxLoss">Daily Max Loss ($)</label>
+            <input
+              type="number"
+              id="dailyMaxLoss"
+              value="1.50"
+              step="0.01"
+              min="0.01"
+            />
+          </div>
+          <div class="form-group">
+            <label for="takeProfitGoal">Take Profit Goal ($)</label>
+            <input
+              type="number"
+              id="takeProfitGoal"
+              value="0.30"
+              step="0.01"
+              min="0.01"
+            />
+          </div>
+          <div class="form-group">
+            <label for="maxLoss">Max Loss per Trade ($)</label>
+            <input
+              type="number"
+              id="maxLoss"
+              value="0.15"
+              step="0.01"
+              min="0.01"
+            />
+          </div>
+        </div>
+        <button onclick="startTrading()" class="pulse-animation">
+          Start Trading Session
+        </button>
+      </div>
+
+      <!-- Stats Section -->
+      <div id="statsSection" style="display: none">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="currentBalance">$100.00</div>
+            <div class="stat-label">Current Balance</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="currentLotSize">0.01</div>
+            <div class="stat-label">Current Lot Size</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="tradesInSet">0/5</div>
+            <div class="stat-label">Trades in Set</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="dailyPnL">$0.00</div>
+            <div class="stat-label">Daily P&L</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="winRate">0%</div>
+            <div class="stat-label">Win Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="totalTrades">0</div>
+            <div class="stat-label">Total Trades</div>
           </div>
         </div>
       </div>
-    </nav>
 
-    <section class="hero-section">
-      <canvas class="hero-canvas" id="heroCanvas"></canvas>
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title">Innovative Ecosystem Intelligence</h1>
-          <p class="hero-subtitle">
-            We support the world's most future-ready factories and industrial
-            businesses through comprehensive ecosystem insights and data-driven
-            intelligence.
-          </p>
-          <div class="cta-buttons">
-            <a href="#index" class="btn btn-primary">Access the Index</a>
-            <a href="#insights" class="btn btn-secondary">Explore Insights</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <main class="main-content">
-      <div class="container">
-        <div class="ad-space">
-          <div class="ad-label">Advertisements</div>
-          <div class="ad-container">
-            <div class="ad-slider">
-              <div class="ad-box">TechCorp Solutions</div>
-              <div class="ad-box">InnovateLab Platform</div>
-              <div class="ad-box">FutureFactory Tools</div>
-              <div class="ad-box">SmartManufacturing</div>
-              <div class="ad-box">NextGen Industries</div>
-            </div>
-          </div>
-        </div>
-
-        <section id="index" class="section">
-          <h2 class="section-title">Innovation Ecosystem Index</h2>
-
-          <div class="controls">
-            <div class="control-group">
-              <div class="control-label">Region</div>
-              <select
-                class="selector"
-                id="regionSelector"
-                onchange="updateData()"
-              >
-                <option value="">Select Region</option>
+      <!-- Trading Section -->
+      <div id="tradingSection" style="display: none">
+        <div class="dashboard-grid">
+          <div class="card">
+            <h2>Enter Trade</h2>
+            <div class="form-group">
+              <label for="instrument">Select Instrument</label>
+              <select id="instrument">
+                <option value="NASDAQ">NASDAQ</option>
+                <option value="SP500">S&P 500</option>
+                <option value="STOXX50">STOXX 50</option>
+                <option value="DE30">DE30</option>
+                <option value="JP225">JP225</option>
               </select>
             </div>
-            <div class="control-group">
-              <div class="control-label">Industry</div>
-              <select
-                class="selector"
-                id="industrySelector"
-                onchange="updateData()"
-              >
-                <option value="">Select Industry</option>
-              </select>
+            <div class="form-group">
+              <label for="tradeResult">Trade Result ($)</label>
+              <input
+                type="number"
+                id="tradeResult"
+                step="0.01"
+                placeholder="Enter profit (+) or loss (-)"
+              />
             </div>
-          </div>
+            <button onclick="submitTrade()" id="submitTradeBtn">
+              Submit Trade
+            </button>
 
-          <div class="metrics-grid" id="metricsGrid">
-            <div class="metric-card">
-              <div class="metric-title">Loading Data...</div>
-              <div class="metric-description">
-                Please select region and industry to view metrics
+            <div
+              style="
+                margin-top: 20px;
+                padding: 15px;
+                background: #f8fafc;
+                border-radius: 8px;
+              "
+            >
+              <div style="margin-bottom: 8px">
+                <strong style="color: #27ae60">Expected Profit:</strong> $<span
+                  id="expectedProfit"
+                  >0.30</span
+                >
+              </div>
+              <div>
+                <strong style="color: #e74c3c">Max Loss:</strong> $<span
+                  id="expectedLoss"
+                  >-0.15</span
+                >
               </div>
             </div>
           </div>
 
-          <div class="chart-container">
-            <div class="chart-placeholder">
-              <h3>Innovation Trend Analysis</h3>
-              <p>Interactive charts showing ecosystem development over time</p>
-              <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.7">
-                Data visualization powered by real-time ecosystem metrics
-              </p>
+          <div class="card">
+            <h2>Set Progress</h2>
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                id="setProgress"
+                style="width: 0%"
+              ></div>
             </div>
-          </div>
-        </section>
-
-        <section id="insights" class="section">
-          <h2 class="section-title">Latest Insights</h2>
-          <div class="blog-grid">
-            <div class="blog-card">
-              <h3 class="blog-title">The Future of Manufacturing 4.0</h3>
-              <p class="blog-excerpt">
-                Exploring how AI, IoT, and automation are transforming
-                traditional manufacturing processes and creating new
-                opportunities for innovation.
-              </p>
-              <div class="blog-meta">Published 3 days ago • 5 min read</div>
+            <div
+              style="
+                text-align: center;
+                margin-top: 10px;
+                font-weight: 600;
+                color: #2c3e50;
+              "
+            >
+              <span id="setProgressText">Trade 1 of 5</span>
             </div>
 
-            <div class="blog-card">
-              <h3 class="blog-title">ASEAN's Rising Innovation Economy</h3>
-              <p class="blog-excerpt">
-                Southeast Asia emerges as a global innovation hub with
-                increasing investment in digital infrastructure and talent
-                development.
-              </p>
-              <div class="blog-meta">Published 1 week ago • 7 min read</div>
-            </div>
-
-            <div class="blog-card ad-card">
-              <div class="ad-content">
-                <h3 class="blog-title">Partner with Innovation Leaders</h3>
-                <p class="blog-excerpt">
-                  Connect your startup with leading VCs and accelerators in our
-                  network.
-                </p>
-                <a href="#" class="ad-cta">Learn More</a>
+            <div
+              id="setCompleteSection"
+              style="display: none; margin-top: 20px"
+            >
+              <div class="alert alert-warning">
+                <strong>Set Complete!</strong> Enter your actual total balance
+                to proceed.
               </div>
-            </div>
-
-            <div class="blog-card">
-              <h3 class="blog-title">Sustainable Tech: The Next Frontier</h3>
-              <p class="blog-excerpt">
-                How clean technology investments are reshaping global supply
-                chains and creating new market opportunities.
-              </p>
-              <div class="blog-meta">Published 2 weeks ago • 6 min read</div>
-            </div>
-
-            <div class="blog-card">
-              <h3 class="blog-title">China's Green Manufacturing Revolution</h3>
-              <p class="blog-excerpt">
-                Analyzing the massive shift towards sustainable manufacturing
-                practices and its impact on global competitiveness.
-              </p>
-              <div class="blog-meta">Published 3 weeks ago • 8 min read</div>
-            </div>
-
-            <div class="blog-card">
-              <h3 class="blog-title">Fintech Innovation Trends 2025</h3>
-              <p class="blog-excerpt">
-                Key trends shaping financial technology, from blockchain
-                adoption to AI-powered financial services.
-              </p>
-              <div class="blog-meta">Published 1 month ago • 4 min read</div>
+              <div class="form-group">
+                <label for="actualBalance">Actual Balance ($)</label>
+                <input type="number" id="actualBalance" step="0.01" />
+              </div>
+              <button onclick="processSetCompletion()">Process Results</button>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-    </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>
-          &copy; 2025 IO Innovation Fund. Innovative ecosystem intelligence for
-          the future of industry.
-        </p>
+      <!-- Chart Section - Now with real Chart.js implementation -->
+      <div id="chartSection" style="display: none" class="card full-width">
+        <h2>Live Balance Tracker</h2>
+        <div class="chart-container">
+          <canvas id="balanceChart"></canvas>
+        </div>
       </div>
-    </footer>
+
+      <!-- History Section -->
+      <div id="historySection" style="display: none" class="card full-width">
+        <h2>Trade History</h2>
+        <div class="trade-history" id="tradeHistory">
+          <!-- Trade entries will be added here -->
+        </div>
+      </div>
+    </div>
 
     <script>
-      // JSON data will be loaded from external file
-      // TODO: Replace 'ecosystem-data.json' with your actual JSON file name
-      let ecosystemData = {};
+      // Trading state
+      let tradingState = {
+        startingBalance: 100,
+        currentBalance: 100,
+        currentLotSize: 0.01,
+        minLotSize: 0.01,
+        dailyMaxLoss: 1.5,
+        takeProfitGoal: 0.3,
+        maxLoss: 0.15,
+        tradesInCurrentSet: 0,
+        currentSetStartBalance: 100,
+        trades: [],
+        sets: [],
+        dailyPnL: 0,
+        sessionActive: false,
+        balanceHistory: [],
+      };
 
-      async function loadData() {
-        try {
-          // Load your JSON data here - replace 'ecosystem-data.json' with your file name
-          const response = await fetch("ecosystem-data.json");
-          ecosystemData = await response.json();
-          populateSelectors();
-        } catch (error) {
-          console.error("Error loading data:", error);
-          // Fallback for demo purposes
-          ecosystemData = {
-            "silicon-valley": {
-              manufacturing: {
-                investmentDensity: {
-                  value: 95,
-                  description: "VC funding per capita in manufacturing tech",
-                },
-                digitalInfrastructure: {
-                  value: 92,
-                  description: "5G coverage and smart infrastructure adoption",
+      // Chart.js instance
+      let balanceChart = null;
+
+      function initializeChart() {
+        const ctx = document.getElementById("balanceChart").getContext("2d");
+
+        // Initialize with starting balance
+        tradingState.balanceHistory = [
+          {
+            trade: 0,
+            balance: tradingState.startingBalance,
+            timestamp: new Date(),
+          },
+        ];
+
+        balanceChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["Start"],
+            datasets: [
+              {
+                label: "Account Balance ($)",
+                data: [tradingState.startingBalance],
+                borderColor: "#3498db",
+                backgroundColor: "rgba(52, 152, 219, 0.1)",
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: "#3498db",
+                pointBorderColor: "#ffffff",
+                pointBorderWidth: 2,
+                pointRadius: 6,
+                pointHoverRadius: 8,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: true,
+                position: "top",
+                labels: {
+                  color: "#2c3e50",
+                  font: {
+                    size: 14,
+                    weight: "bold",
+                  },
                 },
               },
             },
-          };
-          populateSelectors();
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: "Trade Number",
+                  color: "#2c3e50",
+                  font: {
+                    size: 14,
+                    weight: "bold",
+                  },
+                },
+                ticks: {
+                  color: "#7f8c8d",
+                },
+                grid: {
+                  color: "rgba(0, 0, 0, 0.1)",
+                },
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: "Balance ($)",
+                  color: "#2c3e50",
+                  font: {
+                    size: 14,
+                    weight: "bold",
+                  },
+                },
+                ticks: {
+                  color: "#7f8c8d",
+                  callback: function (value) {
+                    return "$" + value.toFixed(2);
+                  },
+                },
+                grid: {
+                  color: "rgba(0, 0, 0, 0.1)",
+                },
+              },
+            },
+            animation: {
+              duration: 1000,
+              easing: "easeInOutQuart",
+            },
+            interaction: {
+              intersect: false,
+              mode: "index",
+            },
+          },
+        });
+      }
+
+      function updateChart() {
+        if (!balanceChart) return;
+
+        const labels = tradingState.balanceHistory.map((_, index) =>
+          index === 0 ? "Start" : `Trade ${index}`
+        );
+        const data = tradingState.balanceHistory.map((entry) => entry.balance);
+
+        balanceChart.data.labels = labels;
+        balanceChart.data.datasets[0].data = data;
+
+        // Color the line based on performance
+        const currentBalance = tradingState.currentBalance;
+        const startingBalance = tradingState.startingBalance;
+
+        if (currentBalance > startingBalance) {
+          balanceChart.data.datasets[0].borderColor = "#27ae60";
+          balanceChart.data.datasets[0].backgroundColor =
+            "rgba(39, 174, 96, 0.1)";
+          balanceChart.data.datasets[0].pointBackgroundColor = "#27ae60";
+        } else if (currentBalance < startingBalance) {
+          balanceChart.data.datasets[0].borderColor = "#e74c3c";
+          balanceChart.data.datasets[0].backgroundColor =
+            "rgba(231, 76, 60, 0.1)";
+          balanceChart.data.datasets[0].pointBackgroundColor = "#e74c3c";
+        } else {
+          balanceChart.data.datasets[0].borderColor = "#3498db";
+          balanceChart.data.datasets[0].backgroundColor =
+            "rgba(52, 152, 219, 0.1)";
+          balanceChart.data.datasets[0].pointBackgroundColor = "#3498db";
         }
+
+        balanceChart.update();
       }
 
-      function populateSelectors() {
-        const regionSelector = document.getElementById("regionSelector");
-        const industrySelector = document.getElementById("industrySelector");
+      function startTrading() {
+        // Get setup values
+        tradingState.startingBalance = parseFloat(
+          document.getElementById("startingBalance").value
+        );
+        tradingState.currentBalance = tradingState.startingBalance;
+        tradingState.minLotSize = parseFloat(
+          document.getElementById("minLotSize").value
+        );
+        tradingState.currentLotSize = tradingState.minLotSize;
+        tradingState.dailyMaxLoss = parseFloat(
+          document.getElementById("dailyMaxLoss").value
+        );
+        tradingState.takeProfitGoal = parseFloat(
+          document.getElementById("takeProfitGoal").value
+        );
+        tradingState.maxLoss = parseFloat(
+          document.getElementById("maxLoss").value
+        );
+        tradingState.currentSetStartBalance = tradingState.currentBalance;
+        tradingState.sessionActive = true;
 
-        // Clear existing options (except first)
-        regionSelector.innerHTML = '<option value="">Select Region</option>';
-        industrySelector.innerHTML =
-          '<option value="">Select Industry</option>';
+        // Show trading sections
+        document.getElementById("setupSection").style.display = "none";
+        document.getElementById("statsSection").style.display = "block";
+        document.getElementById("tradingSection").style.display = "block";
+        document.getElementById("historySection").style.display = "block";
+        document.getElementById("chartSection").style.display = "block";
 
-        // Populate regions
-        Object.keys(ecosystemData).forEach((region) => {
-          const option = document.createElement("option");
-          option.value = region;
-          option.textContent = region
-            .replace("-", " ")
-            .replace(/\b\w/g, (l) => l.toUpperCase());
-          regionSelector.appendChild(option);
-        });
+        // Initialize chart
+        setTimeout(() => {
+          initializeChart();
+        }, 100);
 
-        // Update industries when region changes
-        regionSelector.addEventListener("change", function () {
-          industrySelector.innerHTML =
-            '<option value="">Select Industry</option>';
-          if (this.value && ecosystemData[this.value]) {
-            Object.keys(ecosystemData[this.value]).forEach((industry) => {
-              const option = document.createElement("option");
-              option.value = industry;
-              option.textContent = industry
-                .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (str) => str.toUpperCase());
-              industrySelector.appendChild(option);
-            });
-          }
-        });
+        updateDisplay();
+        updateExpectedValues();
       }
 
-      function updateData() {
-        const region = document.getElementById("regionSelector").value;
-        const industry = document.getElementById("industrySelector").value;
+      function updateExpectedValues() {
+        const lotMultiplier =
+          tradingState.currentLotSize / tradingState.minLotSize;
+        const expectedProfit = tradingState.takeProfitGoal * lotMultiplier;
+        const expectedLoss = tradingState.maxLoss * lotMultiplier;
 
-        if (
-          !region ||
-          !industry ||
-          !ecosystemData[region] ||
-          !ecosystemData[region][industry]
-        ) {
-          document.getElementById("metricsGrid").innerHTML = `
-            <div class="metric-card">
-              <div class="metric-title">Select Region and Industry</div>
-              <div class="metric-description">Please select both region and industry to view metrics</div>
-            </div>
-          `;
+        document.getElementById("expectedProfit").textContent =
+          expectedProfit.toFixed(2);
+        document.getElementById("expectedLoss").textContent =
+          (-expectedLoss).toFixed(2);
+      }
+
+      function submitTrade() {
+        if (!tradingState.sessionActive) return;
+
+        const instrument = document.getElementById("instrument").value;
+        const result = parseFloat(document.getElementById("tradeResult").value);
+
+        if (isNaN(result)) {
+          alert("Please enter a valid trade result");
           return;
         }
 
-        const data = ecosystemData[region][industry];
-        const metricsGrid = document.getElementById("metricsGrid");
-        metricsGrid.innerHTML = "";
+        // Check daily loss limit
+        if (tradingState.dailyPnL + result < -tradingState.dailyMaxLoss) {
+          alert(
+            `Daily loss limit of $${tradingState.dailyMaxLoss} would be exceeded. Trading stopped for today.`
+          );
+          return;
+        }
 
-        const metricNames = {
-          investmentDensity: "Innovation Investment Density",
-          digitalInfrastructure: "Digital Infrastructure Score",
-          sustainabilityIndex: "Sustainability Index",
-          talentPipeline: "Talent Pipeline Strength",
-          regulatoryScore: "Regulatory Innovation Score",
+        // Add trade
+        const trade = {
+          id: tradingState.trades.length + 1,
+          instrument: instrument,
+          lotSize: tradingState.currentLotSize,
+          result: result,
+          timestamp: new Date(),
+          setNumber: tradingState.sets.length + 1,
         };
 
-        Object.entries(data).forEach(([key, metric]) => {
-          const card = document.createElement("div");
-          card.className = "metric-card";
-          card.innerHTML = `
-            <div class="metric-title">${metricNames[key] || key}</div>
-            <div class="metric-value">${metric.value}/100</div>
-            <div class="metric-description">${metric.description}</div>
-          `;
-          metricsGrid.appendChild(card);
-        });
-      }
+        tradingState.trades.push(trade);
+        tradingState.currentBalance += result;
+        tradingState.dailyPnL += result;
+        tradingState.tradesInCurrentSet++;
 
-      // Duplicate toggleTheme function removed to prevent errors.
-
-      // Enhanced hero canvas animation with more professional tech look
-      function initHeroCanvas() {
-        const canvas = document.getElementById("heroCanvas");
-        const ctx = canvas.getContext("2d");
-
-        function resizeCanvas() {
-          canvas.width = canvas.offsetWidth;
-          canvas.height = canvas.offsetHeight;
-        }
-
-        resizeCanvas();
-        window.addEventListener("resize", resizeCanvas);
-
-        const nodes = [];
-        const connections = [];
-
-        // Create nodes with different types
-        for (let i = 0; i < 40; i++) {
-          nodes.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.3,
-            vy: (Math.random() - 0.5) * 0.3,
-            radius: Math.random() * 4 + 2,
-            type: Math.random() < 0.3 ? "hub" : "node",
-            pulse: Math.random() * Math.PI * 2,
-            energy: Math.random() * 0.5 + 0.5,
-          });
-        }
-
-        let mouseX = 0,
-          mouseY = 0;
-        let time = 0;
-
-        canvas.addEventListener("mousemove", (e) => {
-          const rect = canvas.getBoundingClientRect();
-          mouseX = e.clientX - rect.left;
-          mouseY = e.clientY - rect.top;
+        // Add to balance history for chart
+        tradingState.balanceHistory.push({
+          trade: tradingState.trades.length,
+          balance: tradingState.currentBalance,
+          timestamp: new Date(),
         });
 
-        function animate() {
-          time += 0.02;
-          ctx.fillStyle = "rgba(15, 23, 42, 0.05)";
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Update chart
+        updateChart();
 
-          // Update nodes
-          nodes.forEach((node, i) => {
-            node.x += node.vx;
-            node.y += node.vy;
-            node.pulse += 0.05;
+        // Clear input
+        document.getElementById("tradeResult").value = "";
 
-            // Boundary collision with smooth bounce
-            if (node.x < 0 || node.x > canvas.width) {
-              node.vx *= -0.8;
-              node.x = Math.max(0, Math.min(canvas.width, node.x));
-            }
-            if (node.y < 0 || node.y > canvas.height) {
-              node.vy *= -0.8;
-              node.y = Math.max(0, Math.min(canvas.height, node.y));
-            }
+        // Animate the balance update
+        const balanceElement = document.getElementById("currentBalance");
+        balanceElement.classList.add("pulse-animation");
+        setTimeout(() => {
+          balanceElement.classList.remove("pulse-animation");
+        }, 2000);
 
-            // Subtle gravitational effect towards center
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const dx = centerX - node.x;
-            const dy = centerY - node.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance > 200) {
-              node.vx += dx * 0.00001;
-              node.vy += dy * 0.00001;
-            }
-          });
-
-          // Draw data flow connections
-          ctx.strokeStyle = "rgba(20, 184, 166, 0.4)";
-          ctx.lineWidth = 1;
-
-          nodes.forEach((node, i) => {
-            nodes.slice(i + 1).forEach((otherNode) => {
-              const dx = node.x - otherNode.x;
-              const dy = node.y - otherNode.y;
-              const distance = Math.sqrt(dx * dx + dy * dy);
-
-              if (distance < 120) {
-                const opacity = (120 - distance) / 120;
-                ctx.strokeStyle = `rgba(20, 184, 166, ${opacity * 0.6})`;
-                ctx.lineWidth = opacity * 2;
-
-                ctx.beginPath();
-                ctx.moveTo(node.x, node.y);
-                ctx.lineTo(otherNode.x, otherNode.y);
-                ctx.stroke();
-
-                // Data packet animation
-                if (Math.random() < 0.01) {
-                  const midX = (node.x + otherNode.x) / 2;
-                  const midY = (node.y + otherNode.y) / 2;
-
-                  ctx.fillStyle = `rgba(94, 234, 212, ${opacity})`;
-                  ctx.beginPath();
-                  ctx.arc(
-                    midX + Math.sin(time * 3) * 5,
-                    midY + Math.cos(time * 3) * 5,
-                    2,
-                    0,
-                    Math.PI * 2
-                  );
-                  ctx.fill();
-                }
-              }
-            });
-
-            // Enhanced mouse interaction
-            const dx = node.x - mouseX;
-            const dy = node.y - mouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-              const strength = (150 - distance) / 150;
-              ctx.strokeStyle = `rgba(94, 234, 212, ${strength * 0.8})`;
-              ctx.lineWidth = strength * 3;
-              ctx.beginPath();
-              ctx.moveTo(node.x, node.y);
-              ctx.lineTo(mouseX, mouseY);
-              ctx.stroke();
-
-              // Create ripple effect
-              ctx.strokeStyle = `rgba(94, 234, 212, ${strength * 0.3})`;
-              ctx.lineWidth = 1;
-              ctx.beginPath();
-              ctx.arc(mouseX, mouseY, distance * 0.5, 0, Math.PI * 2);
-              ctx.stroke();
-            }
-          });
-
-          // Draw enhanced nodes
-          nodes.forEach((node) => {
-            const pulseSize = Math.sin(node.pulse) * 0.5 + 1;
-
-            if (node.type === "hub") {
-              // Hub nodes (larger, pulsing)
-              const gradient = ctx.createRadialGradient(
-                node.x,
-                node.y,
-                0,
-                node.x,
-                node.y,
-                node.radius * 2
-              );
-              gradient.addColorStop(
-                0,
-                `rgba(94, 234, 212, ${0.8 * pulseSize})`
-              );
-              gradient.addColorStop(
-                0.7,
-                `rgba(20, 184, 166, ${0.4 * pulseSize})`
-              );
-              gradient.addColorStop(1, "rgba(20, 184, 166, 0)");
-
-              ctx.fillStyle = gradient;
-              ctx.beginPath();
-              ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
-              ctx.fill();
-
-              // Core
-              ctx.fillStyle = `rgba(94, 234, 212, ${0.9 * pulseSize})`;
-              ctx.beginPath();
-              ctx.arc(node.x, node.y, node.radius * 0.3, 0, Math.PI * 2);
-              ctx.fill();
-            } else {
-              // Regular nodes
-              const gradient = ctx.createRadialGradient(
-                node.x,
-                node.y,
-                0,
-                node.x,
-                node.y,
-                node.radius * 1.5
-              );
-              gradient.addColorStop(
-                0,
-                `rgba(20, 184, 166, ${0.6 * node.energy})`
-              );
-              gradient.addColorStop(1, "rgba(20, 184, 166, 0)");
-
-              ctx.fillStyle = gradient;
-              ctx.beginPath();
-              ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
-              ctx.fill();
-
-              // Core
-              ctx.fillStyle = `rgba(20, 184, 166, ${0.8 * node.energy})`;
-              ctx.beginPath();
-              ctx.arc(node.x, node.y, node.radius * 0.4, 0, Math.PI * 2);
-              ctx.fill();
-            }
-          });
-
-          requestAnimationFrame(animate);
+        // Check if set is complete
+        if (tradingState.tradesInCurrentSet >= 5) {
+          showSetCompletion();
         }
 
-        animate();
+        updateDisplay();
+        addTradeToHistory(trade);
       }
 
-      // Initialize everything when DOM is loaded
+      function showSetCompletion() {
+        document.getElementById("setCompleteSection").style.display = "block";
+        document.getElementById("submitTradeBtn").disabled = true;
+        document.getElementById("actualBalance").value =
+          tradingState.currentBalance.toFixed(2);
+      }
+
+      function processSetCompletion() {
+        const actualBalance = parseFloat(
+          document.getElementById("actualBalance").value
+        );
+        const setStartBalance = tradingState.currentSetStartBalance;
+
+        // Create set record
+        const setResult = {
+          setNumber: tradingState.sets.length + 1,
+          startBalance: setStartBalance,
+          expectedBalance: tradingState.currentBalance,
+          actualBalance: actualBalance,
+          lotSize: tradingState.currentLotSize,
+          trades: tradingState.trades.slice(-5), // Last 5 trades
+        };
+
+        tradingState.sets.push(setResult);
+        tradingState.currentBalance = actualBalance;
+
+        // Update balance history if there's a discrepancy
+        if (
+          actualBalance !==
+          tradingState.balanceHistory[tradingState.balanceHistory.length - 1]
+            .balance
+        ) {
+          tradingState.balanceHistory[
+            tradingState.balanceHistory.length - 1
+          ].balance = actualBalance;
+          updateChart();
+        }
+
+        // Determine next lot size
+        if (actualBalance > setStartBalance + 1) {
+          // Double lot size but cap at 1.0
+          tradingState.currentLotSize = Math.min(
+            tradingState.currentLotSize * 2,
+            1.0
+          );
+          showAlert(
+            "success",
+            `🚀 Great performance! Lot size increased to ${tradingState.currentLotSize}`
+          );
+        } else if (actualBalance >= setStartBalance) {
+          // Maintain current lot size
+          showAlert(
+            "warning",
+            `⚡ Steady performance. Lot size remains at ${tradingState.currentLotSize}`
+          );
+        } else {
+          // Stop trading
+          showAlert(
+            "danger",
+            "❌ Performance below threshold. Trading session ended."
+          );
+          tradingState.sessionActive = false;
+          document.getElementById("submitTradeBtn").disabled = true;
+          return;
+        }
+
+        // Check if reached maximum lot size
+        if (tradingState.currentLotSize >= 1.0) {
+          showAlert(
+            "success",
+            "🎉 Congratulations! You've reached the maximum lot size of 1.0!"
+          );
+          tradingState.sessionActive = false;
+          document.getElementById("submitTradeBtn").disabled = true;
+          return;
+        }
+
+        // Reset for next set
+        tradingState.tradesInCurrentSet = 0;
+        tradingState.currentSetStartBalance = tradingState.currentBalance;
+        document.getElementById("setCompleteSection").style.display = "none";
+        document.getElementById("submitTradeBtn").disabled = false;
+
+        updateDisplay();
+        updateExpectedValues();
+      }
+
+      function showAlert(type, message) {
+        const alertDiv = document.createElement("div");
+        alertDiv.className = `alert alert-${type}`;
+        alertDiv.textContent = message;
+
+        const tradingSection = document.getElementById("tradingSection");
+        tradingSection.insertBefore(alertDiv, tradingSection.firstChild);
+
+        // Remove alert after 5 seconds
+        setTimeout(() => {
+          if (alertDiv.parentNode) {
+            alertDiv.remove();
+          }
+        }, 5000);
+      }
+
+      function updateDisplay() {
+        document.getElementById(
+          "currentBalance"
+        ).textContent = `$${tradingState.currentBalance.toFixed(2)}`;
+        document.getElementById("currentLotSize").textContent =
+          tradingState.currentLotSize.toFixed(2);
+        document.getElementById(
+          "tradesInSet"
+        ).textContent = `${tradingState.tradesInCurrentSet}/5`;
+
+        const dailyPnLElement = document.getElementById("dailyPnL");
+        dailyPnLElement.textContent = `$${tradingState.dailyPnL.toFixed(2)}`;
+        dailyPnLElement.className = `stat-value ${
+          tradingState.dailyPnL >= 0 ? "profit" : "loss"
+        }`;
+
+        // Calculate win rate
+        const wins = tradingState.trades.filter((t) => t.result > 0).length;
+        const winRate =
+          tradingState.trades.length > 0
+            ? (wins / tradingState.trades.length) * 100
+            : 0;
+        document.getElementById("winRate").textContent = `${winRate.toFixed(
+          1
+        )}%`;
+
+        document.getElementById("totalTrades").textContent =
+          tradingState.trades.length;
+
+        // Update set progress
+        const progress = (tradingState.tradesInCurrentSet / 5) * 100;
+        document.getElementById("setProgress").style.width = `${progress}%`;
+        document.getElementById("setProgressText").textContent = `Trade ${
+          tradingState.tradesInCurrentSet + 1
+        } of 5`;
+      }
+
+      function addTradeToHistory(trade) {
+        const historyContainer = document.getElementById("tradeHistory");
+        const tradeDiv = document.createElement("div");
+        tradeDiv.className = "trade-entry";
+
+        const resultClass = trade.result >= 0 ? "profit" : "loss";
+        const resultBg = trade.result >= 0 ? "#27ae60" : "#e74c3c";
+
+        tradeDiv.innerHTML = `
+          <div class="trade-info">
+            <div style="font-weight: 600; color: #2c3e50;">
+              ${trade.instrument} - Lot ${trade.lotSize}
+            </div>
+            <div style="color: #7f8c8d; font-size: 0.9rem;">
+              ${trade.timestamp.toLocaleString()}
+            </div>
+          </div>
+          <div class="trade-result" style="background: ${resultBg};">
+            ${trade.result >= 0 ? "+" : ""}$${trade.result.toFixed(2)}
+          </div>
+        `;
+
+        // Add to beginning of history
+        historyContainer.insertBefore(tradeDiv, historyContainer.firstChild);
+      }
+
+      // Initialize display on page load
       document.addEventListener("DOMContentLoaded", function () {
-        initHeroCanvas();
-        loadData();
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-          });
-        });
-
-        // Add scroll-based navigation highlighting
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        function highlightNav() {
-          let current = "";
-          sections.forEach((section) => {
-            const sectionTop = section.offsetTop - 100;
-            if (window.pageYOffset >= sectionTop) {
-              current = section.getAttribute("id");
-            }
-          });
-
-          navLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === "#" + current) {
-              link.classList.add("active");
-            }
-          });
-        }
-
-        window.addEventListener("scroll", highlightNav);
-
-        // Add loading animation for metric cards
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
-            }
-          });
-        }, observerOptions);
-
-        // Observe all cards for scroll animations
-        document
-          .querySelectorAll(".metric-card, .blog-card")
-          .forEach((card) => {
-            card.style.opacity = "0";
-            card.style.transform = "translateY(20px)";
-            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-            observer.observe(card);
-          });
+        updateExpectedValues();
       });
-
-      // Add some additional utility functions
-      function formatNumber(num) {
-        if (num >= 1000000) {
-          return (num / 1000000).toFixed(1) + "M";
-        } else if (num >= 1000) {
-          return (num / 1000).toFixed(1) + "K";
-        }
-        return num.toString();
-      }
-
-      // Enhanced theme toggle with system preference detection
-      function initTheme() {
-        const savedTheme = localStorage.getItem("theme");
-        const systemPrefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-
-        if (savedTheme === "light" || (!savedTheme && !systemPrefersDark)) {
-          document.body.classList.add("light-mode");
-          document.querySelector(".theme-toggle").textContent = "🌙";
-        }
-      }
-
-      function toggleTheme() {
-        document.body.classList.toggle("light-mode");
-        const button = document.querySelector(".theme-toggle");
-        const isLight = document.body.classList.contains("light-mode");
-
-        button.textContent = isLight ? "🌙" : "☀️";
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-      }
-
-      // Initialize theme on load
-      initTheme();
-
-      // Add error handling for data loading
-      window.addEventListener("error", function (e) {
-        console.error("Error occurred:", e.error);
-        // Fallback UI state
-        const metricsGrid = document.getElementById("metricsGrid");
-        if (metricsGrid && !metricsGrid.innerHTML.trim()) {
-          metricsGrid.innerHTML = `
-                          <div class="metric-card">
-                            <div class="metric-title">Demo Mode</div>
-                            <div class="metric-description">Connect your data source to see live metrics</div>
-                          </div>
-                        `;
-        }
-      });
-
-      // Mobile menu toggle (if you want to add mobile navigation)
-      function toggleMobileMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("mobile-active");
-      }
-
-      // Add performance monitoring
-      function trackPerformance() {
-        if ("performance" in window) {
-          window.addEventListener("load", () => {
-            const perfData = performance.getEntriesByType("navigation")[0];
-            console.log(
-              "Page load time:",
-              perfData.loadEventEnd - perfData.loadEventStart,
-              "ms"
-            );
-          });
-        }
-      }
-
-      trackPerformance();
     </script>
   </body>
 </html>
