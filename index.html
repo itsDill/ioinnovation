@@ -1,326 +1,1133 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-MRHXEVRZN9");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="iO Web Solutions provides AI-driven web development, SEO optimization, and innovative financial technology solutions for business growth."
-    />
-    <title>iO Innovation - AI-Powered Web Development & Tech Innovation</title>
+    <title>IO Innovation Fund - Innovative Ecosystem Intelligence</title>
+    <style>
+      :root {
+        --primary-teal: #0f766e;
+        --secondary-teal: #14b8a6;
+        --accent-teal: #5eead4;
+        --dark-bg: #0f172a;
+        --dark-card: #1e293b;
+        --light-bg: #f8fafc;
+        --light-card: #ffffff;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-light: #1e293b;
+        --text-light-secondary: #64748b;
+      }
 
-    <!-- iOS Home Screen App Icon -->
-    <link rel="apple-touch-icon" href="assets/images/icon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/1.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/1.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="assets/images/1.png" />
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <!-- iOS App Settings -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="iO Innovation" />
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--dark-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+        transition: all 0.3s ease;
+      }
 
-    <!-- Standard Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/1.png" />
+      body.light-mode {
+        background: var(--light-bg);
+        color: var(--text-light);
+      }
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/header-footer.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
+      body.light-mode .card {
+        background: var(--light-card);
+        border: 1px solid #e2e8f0;
+      }
+
+      body.light-mode .hero-section {
+        background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
+      }
+
+      body.light-mode .nav-bar {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .nav-bar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary-teal);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-link {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--secondary-teal);
+        background: rgba(20, 184, 166, 0.1);
+      }
+
+      body.light-mode .nav-link {
+        color: var(--text-light);
+      }
+
+      .theme-toggle {
+        background: none;
+        border: 2px solid var(--primary-teal);
+        color: var(--secondary-teal);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        background: var(--primary-teal);
+        color: white;
+      }
+
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-teal),
+          var(--secondary-teal)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--primary-teal),
+          var(--secondary-teal)
+        );
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--secondary-teal);
+        border: 2px solid var(--primary-teal);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-teal);
+        color: white;
+      }
+
+      .main-content {
+        padding: 5rem 0;
+      }
+
+      .section {
+        margin-bottom: 5rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--secondary-teal);
+      }
+
+      .ad-space {
+        background: var(--dark-card);
+        border: 2px dashed var(--primary-teal);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+        opacity: 0.7;
+        position: relative;
+        overflow: hidden;
+        height: 140px;
+      }
+
+      .ad-label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+      }
+
+      .ad-container {
+        position: relative;
+        height: 80px;
+        overflow: hidden;
+        margin-top: 1rem;
+      }
+
+      .ad-slider {
+        display: flex;
+        animation: slideAds 20s linear infinite;
+        gap: 2rem;
+      }
+
+      .ad-box {
+        min-width: 200px;
+        height: 60px;
+        background: linear-gradient(
+          45deg,
+          var(--primary-teal),
+          var(--secondary-teal)
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+
+      @keyframes slideAds {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .control-label {
+        font-weight: 600;
+        color: var(--secondary-teal);
+      }
+
+      .selector {
+        background: var(--dark-card);
+        border: 2px solid var(--primary-teal);
+        color: var(--text-primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      body.light-mode .selector {
+        background: var(--light-card);
+        color: var(--text-light);
+      }
+
+      .selector:hover {
+        background: var(--primary-teal);
+        color: white;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .metric-card {
+        background: var(--dark-card);
+        border-radius: 15px;
+        padding: 2rem;
+        border-left: 4px solid var(--secondary-teal);
+        transition: all 0.3s ease;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
+      }
+
+      .metric-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--secondary-teal);
+      }
+
+      .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .metric-description {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      body.light-mode .metric-description {
+        color: var(--text-light-secondary);
+      }
+
+      .chart-container {
+        background: var(--dark-card);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .chart-placeholder {
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      .card {
+        background: var(--dark-card);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .blog-card {
+        background: var(--dark-card);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        border-left: 4px solid var(--secondary-teal);
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
+      }
+
+      .blog-card.ad-card {
+        background: linear-gradient(
+          135deg,
+          rgba(15, 118, 110, 0.1),
+          rgba(20, 184, 166, 0.1)
+        );
+        border-left: 4px solid var(--accent-teal);
+      }
+
+      .blog-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--secondary-teal);
+      }
+
+      .blog-excerpt {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .blog-meta {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        opacity: 0.8;
+      }
+
+      .ad-content {
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .ad-cta {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1.5rem;
+        background: var(--secondary-teal);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .ad-cta:hover {
+        background: var(--primary-teal);
+        transform: translateY(-2px);
+      }
+
+      .footer {
+        background: var(--dark-card);
+        padding: 3rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(30, 41, 59, 0.5);
+      }
+
+      body.light-mode .footer {
+        background: var(--light-card);
+        border-top: 1px solid #e2e8f0;
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .controls {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
-  <body data-theme="dark">
-    <header>
+  <body>
+    <nav class="nav-bar">
       <div class="container">
-        <div class="header-content">
-          <div class="logo">
-            <img src="assets/images/1.png" alt="Innovation Logo" />
-            <h1>iO Innovation</h1>
-          </div>
-          <nav>
-            <ul id="nav-menu">
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="projects.html">Tools</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li>
-                <div class="theme-switch" id="theme-switch">
-                  <i class="fas fa-moon"></i>
-                </div>
-              </li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-              <i class="fas fa-bars"></i>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- Hero Section -->
-      <section id="home" class="hero">
-        <div class="container">
-          <div class="hero-content">
-            <div class="hero-text">
-              <h1>Building Foundations for Future Growth</h1>
-              <p>
-                Leveraging AI, advanced SEO strategies, and innovative
-                breakthroughs in finance and investing to propel your business
-                forward in the digital landscape.
-              </p>
-              <div>
-                <a href="services.html" class="btn">Explore Our Services</a>
-                <a href="#contact" class="btn btn-outline">Get in Touch</a>
-              </div>
-            </div>
-            <div class="hero-image">
-              <img
-                src="assets/images/techbackground.png"
-                alt="AI-Powered Web"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Stats Bar -->
-      <div class="stats-bar">
-        <div class="container stats-container">
-          <div class="stat-item">
-            <div class="stat-number">8</div>
-            <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Client Satisfaction</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">35%</div>
-            <div class="stat-label">Avg. Traffic Increase</div>
+        <div class="nav-content">
+          <div class="logo">IO Innovation Fund</div>
+          <div class="nav-links">
+            <a href="#index" class="nav-link">Index</a>
+            <a href="#insights" class="nav-link">Insights</a>
+            <a href="#fund" class="nav-link">Fund</a>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
           </div>
         </div>
       </div>
+    </nav>
 
-      <!-- Core Services Section -->
-      <section id="core-services" class="services">
-        <div class="container">
-          <h2>Our Core Services</h2>
-          <p class="section-description">
-            Specialized solutions designed to drive growth and innovation
+    <section class="hero-section">
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Innovative Ecosystem Intelligence</h1>
+          <p class="hero-subtitle">
+            We support the world's most future-ready factories and industrial
+            businesses through comprehensive ecosystem insights and data-driven
+            intelligence.
           </p>
-          <div class="services-grid">
-            <div class="service-card">
-              <i class="fas fa-robot"></i>
-              <h3>AI Integration</h3>
-              <p>
-                Implementing cutting-edge artificial intelligence solutions to
-                automate processes and provide data-driven insights for better
-                decision making.
-              </p>
-              <a href="services.html" class="read-more"
-                >Learn More <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-            <div class="service-card">
-              <i class="fas fa-chart-line"></i>
-              <h3>Tech Solutions</h3>
-              <p>
-                Innovative technology tools that streamline operations, improve
-                customer experience, and maximize investment potential.
-              </p>
-              <a href="services.html" class="read-more"
-                >Learn More <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-            <div class="service-card">
-              <i class="fas fa-search-dollar"></i>
-              <h3>Advanced SEO</h3>
-              <p>
-                Data-driven search engine optimization strategies that increase
-                your visibility, drive qualified traffic, and boost conversion
-                rates.
-              </p>
-              <a href="services.html" class="read-more"
-                >Learn More <i class="fas fa-arrow-right"></i
-              ></a>
+          <div class="cta-buttons">
+            <a href="#index" class="btn btn-primary">Access the Index</a>
+            <a href="#insights" class="btn btn-secondary">Explore Insights</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <div class="container">
+        <div class="ad-space">
+          <div class="ad-label">Advertisements</div>
+          <div class="ad-container">
+            <div class="ad-slider">
+              <div class="ad-box">TechCorp Solutions</div>
+              <div class="ad-box">InnovateLab Platform</div>
+              <div class="ad-box">FutureFactory Tools</div>
+              <div class="ad-box">SmartManufacturing</div>
+              <div class="ad-box">NextGen Industries</div>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- Featured Blog Posts -->
-      <section id="blog-preview" class="blog-preview">
-        <div class="container">
-          <h2>Featured Insights</h2>
-          <p class="section-description">
-            Latest thoughts and strategies on AI, SEO, and financial innovation
-          </p>
-          <div class="blog-posts">
-            <div class="blog-card">
-              <div class="blog-image">
-                <i class="fas fa-brain"></i>
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span>AI & Machine Learning</span>
-                  <span>April 15, 2025</span>
-                </div>
-                <h3>How AI is Revolutionizing Financial Forecasting</h3>
-                <p>
-                  Discover how machine learning algorithms are changing the way
-                  businesses predict market trends and make investment
-                  decisions.
-                </p>
-                <a href="blogpost.html" class="read-more"
-                  >Read Article <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+        <section id="index" class="section">
+          <h2 class="section-title">Innovation Ecosystem Index</h2>
+
+          <div class="controls">
+            <div class="control-group">
+              <div class="control-label">Region</div>
+              <select
+                class="selector"
+                id="regionSelector"
+                onchange="updateData()"
+              >
+                <option value="">Select Region</option>
+              </select>
             </div>
-            <div class="blog-card">
-              <div class="blog-image">
-                <i class="fas fa-search"></i>
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span>SEO Strategies</span>
-                  <span>April 8, 2025</span>
-                </div>
-                <h3>2025 SEO Trends Every Business Should Implement Now</h3>
-                <p>
-                  Stay ahead of the competition with these cutting-edge SEO
-                  strategies that are delivering exceptional results in today's
-                  digital landscape.
-                </p>
-                <a href="blog.html" class="read-more"
-                  >Read Article <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="control-group">
+              <div class="control-label">Industry</div>
+              <select
+                class="selector"
+                id="industrySelector"
+                onchange="updateData()"
+              >
+                <option value="">Select Industry</option>
+              </select>
             </div>
-            <div class="blog-card">
-              <div class="blog-image">
-                <i class="fas fa-coins"></i>
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span>Investment Innovation</span>
-                  <span>March 30, 2025</span>
-                </div>
-                <h3>Blockchain Applications Transforming Modern Finance</h3>
-                <p>
-                  Explore how distributed ledger technology is creating new
-                  opportunities for secure, transparent, and efficient financial
-                  operations.
-                </p>
-                <a href="blog.html" class="read-more"
-                  >Read Article <i class="fas fa-arrow-right"></i
-                ></a>
+          </div>
+
+          <div class="metrics-grid" id="metricsGrid">
+            <div class="metric-card">
+              <div class="metric-title">Loading Data...</div>
+              <div class="metric-description">
+                Please select region and industry to view metrics
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Tech Stack Section -->
-      <section class="tech-showcase">
-        <div class="container">
-          <h2>Our Technology Stack</h2>
-          <p class="section-description">
-            Cutting edge technologies we use to power your digital success
-          </p>
-          <div class="tech-icons">
-            <i class="fab fa-react tech-icon" title="React"></i>
-            <i class="fab fa-node-js tech-icon" title="Node.js"></i>
-            <i class="fab fa-python tech-icon" title="Python"></i>
-            <i class="fas fa-database tech-icon" title="Big Data"></i>
-            <i class="fab fa-aws tech-icon" title="AWS Cloud"></i>
-            <i class="fas fa-shield-alt tech-icon" title="Security"></i>
+          <div class="chart-container">
+            <div class="chart-placeholder">
+              <h3>Innovation Trend Analysis</h3>
+              <p>Interactive charts showing ecosystem development over time</p>
+              <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.7">
+                Data visualization powered by real-time ecosystem metrics
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- CTA Section -->
-      <section class="cta">
-        <div class="container">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>
-            Schedule a free consultation to discover how our AI-powered
-            solutions can drive your growth and innovation
-          </p>
-          <a href="#contact" class="btn">Get Started Today</a>
-        </div>
-      </section>
+        <section id="insights" class="section">
+          <h2 class="section-title">Latest Insights</h2>
+          <div class="blog-grid">
+            <div class="blog-card">
+              <h3 class="blog-title">The Future of Manufacturing 4.0</h3>
+              <p class="blog-excerpt">
+                Exploring how AI, IoT, and automation are transforming
+                traditional manufacturing processes and creating new
+                opportunities for innovation.
+              </p>
+              <div class="blog-meta">Published 3 days ago • 5 min read</div>
+            </div>
+
+            <div class="blog-card">
+              <h3 class="blog-title">ASEAN's Rising Innovation Economy</h3>
+              <p class="blog-excerpt">
+                Southeast Asia emerges as a global innovation hub with
+                increasing investment in digital infrastructure and talent
+                development.
+              </p>
+              <div class="blog-meta">Published 1 week ago • 7 min read</div>
+            </div>
+
+            <div class="blog-card ad-card">
+              <div class="ad-content">
+                <h3 class="blog-title">Partner with Innovation Leaders</h3>
+                <p class="blog-excerpt">
+                  Connect your startup with leading VCs and accelerators in our
+                  network.
+                </p>
+                <a href="#" class="ad-cta">Learn More</a>
+              </div>
+            </div>
+
+            <div class="blog-card">
+              <h3 class="blog-title">Sustainable Tech: The Next Frontier</h3>
+              <p class="blog-excerpt">
+                How clean technology investments are reshaping global supply
+                chains and creating new market opportunities.
+              </p>
+              <div class="blog-meta">Published 2 weeks ago • 6 min read</div>
+            </div>
+
+            <div class="blog-card">
+              <h3 class="blog-title">China's Green Manufacturing Revolution</h3>
+              <p class="blog-excerpt">
+                Analyzing the massive shift towards sustainable manufacturing
+                practices and its impact on global competitiveness.
+              </p>
+              <div class="blog-meta">Published 3 weeks ago • 8 min read</div>
+            </div>
+
+            <div class="blog-card">
+              <h3 class="blog-title">Fintech Innovation Trends 2025</h3>
+              <p class="blog-excerpt">
+                Key trends shaping financial technology, from blockchain
+                adoption to AI-powered financial services.
+              </p>
+              <div class="blog-meta">Published 1 month ago • 4 min read</div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="container">
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>Web Solutions</h3>
-          </div>
-
-          <div class="footer-column">
-            <h3>Services</h3>
-            <ul>
-              <li><a href="serivices.html">Web Development</a></li>
-              <li><a href="serivices.html">E-Commerce</a></li>
-              <li><a href="serivices.html">SEO Services</a></li>
-              <li><a href="serivices.html">Security Solutions</a></li>
-              <li><a href="serivices.html">Web Maintenance</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="client.html">Client</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Security Solutions</h3>
-            <ul></ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2025 iO Web Solutions. All Rights Reserved.</p>
-          <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="sitemap.html">Sitemap</a>
-          </div>
-        </div>
+        <p>
+          &copy; 2025 IO Innovation Fund. Innovative ecosystem intelligence for
+          the future of industry.
+        </p>
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script>
+      // JSON data will be loaded from external file
+      // TODO: Replace 'ecosystem-data.json' with your actual JSON file name
+      let ecosystemData = {};
+
+      async function loadData() {
+        try {
+          // Load your JSON data here - replace 'ecosystem-data.json' with your file name
+          const response = await fetch("ecosystem-data.json");
+          ecosystemData = await response.json();
+          populateSelectors();
+        } catch (error) {
+          console.error("Error loading data:", error);
+          // Fallback for demo purposes
+          ecosystemData = {
+            "silicon-valley": {
+              manufacturing: {
+                investmentDensity: {
+                  value: 95,
+                  description: "VC funding per capita in manufacturing tech",
+                },
+                digitalInfrastructure: {
+                  value: 92,
+                  description: "5G coverage and smart infrastructure adoption",
+                },
+              },
+            },
+          };
+          populateSelectors();
+        }
+      }
+
+      function populateSelectors() {
+        const regionSelector = document.getElementById("regionSelector");
+        const industrySelector = document.getElementById("industrySelector");
+
+        // Clear existing options (except first)
+        regionSelector.innerHTML = '<option value="">Select Region</option>';
+        industrySelector.innerHTML =
+          '<option value="">Select Industry</option>';
+
+        // Populate regions
+        Object.keys(ecosystemData).forEach((region) => {
+          const option = document.createElement("option");
+          option.value = region;
+          option.textContent = region
+            .replace("-", " ")
+            .replace(/\b\w/g, (l) => l.toUpperCase());
+          regionSelector.appendChild(option);
+        });
+
+        // Update industries when region changes
+        regionSelector.addEventListener("change", function () {
+          industrySelector.innerHTML =
+            '<option value="">Select Industry</option>';
+          if (this.value && ecosystemData[this.value]) {
+            Object.keys(ecosystemData[this.value]).forEach((industry) => {
+              const option = document.createElement("option");
+              option.value = industry;
+              option.textContent = industry
+                .replace(/([A-Z])/g, " $1")
+                .replace(/^./, (str) => str.toUpperCase());
+              industrySelector.appendChild(option);
+            });
+          }
+        });
+      }
+
+      function updateData() {
+        const region = document.getElementById("regionSelector").value;
+        const industry = document.getElementById("industrySelector").value;
+
+        if (
+          !region ||
+          !industry ||
+          !ecosystemData[region] ||
+          !ecosystemData[region][industry]
+        ) {
+          document.getElementById("metricsGrid").innerHTML = `
+            <div class="metric-card">
+              <div class="metric-title">Select Region and Industry</div>
+              <div class="metric-description">Please select both region and industry to view metrics</div>
+            </div>
+          `;
+          return;
+        }
+
+        const data = ecosystemData[region][industry];
+        const metricsGrid = document.getElementById("metricsGrid");
+        metricsGrid.innerHTML = "";
+
+        const metricNames = {
+          investmentDensity: "Innovation Investment Density",
+          digitalInfrastructure: "Digital Infrastructure Score",
+          sustainabilityIndex: "Sustainability Index",
+          talentPipeline: "Talent Pipeline Strength",
+          regulatoryScore: "Regulatory Innovation Score",
+        };
+
+        Object.entries(data).forEach(([key, metric]) => {
+          const card = document.createElement("div");
+          card.className = "metric-card";
+          card.innerHTML = `
+            <div class="metric-title">${metricNames[key] || key}</div>
+            <div class="metric-value">${metric.value}/100</div>
+            <div class="metric-description">${metric.description}</div>
+          `;
+          metricsGrid.appendChild(card);
+        });
+      }
+
+      // Duplicate toggleTheme function removed to prevent errors.
+
+      // Enhanced hero canvas animation with more professional tech look
+      function initHeroCanvas() {
+        const canvas = document.getElementById("heroCanvas");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvas() {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        const nodes = [];
+        const connections = [];
+
+        // Create nodes with different types
+        for (let i = 0; i < 40; i++) {
+          nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            radius: Math.random() * 4 + 2,
+            type: Math.random() < 0.3 ? "hub" : "node",
+            pulse: Math.random() * Math.PI * 2,
+            energy: Math.random() * 0.5 + 0.5,
+          });
+        }
+
+        let mouseX = 0,
+          mouseY = 0;
+        let time = 0;
+
+        canvas.addEventListener("mousemove", (e) => {
+          const rect = canvas.getBoundingClientRect();
+          mouseX = e.clientX - rect.left;
+          mouseY = e.clientY - rect.top;
+        });
+
+        function animate() {
+          time += 0.02;
+          ctx.fillStyle = "rgba(15, 23, 42, 0.05)";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Update nodes
+          nodes.forEach((node, i) => {
+            node.x += node.vx;
+            node.y += node.vy;
+            node.pulse += 0.05;
+
+            // Boundary collision with smooth bounce
+            if (node.x < 0 || node.x > canvas.width) {
+              node.vx *= -0.8;
+              node.x = Math.max(0, Math.min(canvas.width, node.x));
+            }
+            if (node.y < 0 || node.y > canvas.height) {
+              node.vy *= -0.8;
+              node.y = Math.max(0, Math.min(canvas.height, node.y));
+            }
+
+            // Subtle gravitational effect towards center
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const dx = centerX - node.x;
+            const dy = centerY - node.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 200) {
+              node.vx += dx * 0.00001;
+              node.vy += dy * 0.00001;
+            }
+          });
+
+          // Draw data flow connections
+          ctx.strokeStyle = "rgba(20, 184, 166, 0.4)";
+          ctx.lineWidth = 1;
+
+          nodes.forEach((node, i) => {
+            nodes.slice(i + 1).forEach((otherNode) => {
+              const dx = node.x - otherNode.x;
+              const dy = node.y - otherNode.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 120) {
+                const opacity = (120 - distance) / 120;
+                ctx.strokeStyle = `rgba(20, 184, 166, ${opacity * 0.6})`;
+                ctx.lineWidth = opacity * 2;
+
+                ctx.beginPath();
+                ctx.moveTo(node.x, node.y);
+                ctx.lineTo(otherNode.x, otherNode.y);
+                ctx.stroke();
+
+                // Data packet animation
+                if (Math.random() < 0.01) {
+                  const midX = (node.x + otherNode.x) / 2;
+                  const midY = (node.y + otherNode.y) / 2;
+
+                  ctx.fillStyle = `rgba(94, 234, 212, ${opacity})`;
+                  ctx.beginPath();
+                  ctx.arc(
+                    midX + Math.sin(time * 3) * 5,
+                    midY + Math.cos(time * 3) * 5,
+                    2,
+                    0,
+                    Math.PI * 2
+                  );
+                  ctx.fill();
+                }
+              }
+            });
+
+            // Enhanced mouse interaction
+            const dx = node.x - mouseX;
+            const dy = node.y - mouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 150) {
+              const strength = (150 - distance) / 150;
+              ctx.strokeStyle = `rgba(94, 234, 212, ${strength * 0.8})`;
+              ctx.lineWidth = strength * 3;
+              ctx.beginPath();
+              ctx.moveTo(node.x, node.y);
+              ctx.lineTo(mouseX, mouseY);
+              ctx.stroke();
+
+              // Create ripple effect
+              ctx.strokeStyle = `rgba(94, 234, 212, ${strength * 0.3})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.arc(mouseX, mouseY, distance * 0.5, 0, Math.PI * 2);
+              ctx.stroke();
+            }
+          });
+
+          // Draw enhanced nodes
+          nodes.forEach((node) => {
+            const pulseSize = Math.sin(node.pulse) * 0.5 + 1;
+
+            if (node.type === "hub") {
+              // Hub nodes (larger, pulsing)
+              const gradient = ctx.createRadialGradient(
+                node.x,
+                node.y,
+                0,
+                node.x,
+                node.y,
+                node.radius * 2
+              );
+              gradient.addColorStop(
+                0,
+                `rgba(94, 234, 212, ${0.8 * pulseSize})`
+              );
+              gradient.addColorStop(
+                0.7,
+                `rgba(20, 184, 166, ${0.4 * pulseSize})`
+              );
+              gradient.addColorStop(1, "rgba(20, 184, 166, 0)");
+
+              ctx.fillStyle = gradient;
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
+              ctx.fill();
+
+              // Core
+              ctx.fillStyle = `rgba(94, 234, 212, ${0.9 * pulseSize})`;
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, node.radius * 0.3, 0, Math.PI * 2);
+              ctx.fill();
+            } else {
+              // Regular nodes
+              const gradient = ctx.createRadialGradient(
+                node.x,
+                node.y,
+                0,
+                node.x,
+                node.y,
+                node.radius * 1.5
+              );
+              gradient.addColorStop(
+                0,
+                `rgba(20, 184, 166, ${0.6 * node.energy})`
+              );
+              gradient.addColorStop(1, "rgba(20, 184, 166, 0)");
+
+              ctx.fillStyle = gradient;
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, node.radius * pulseSize, 0, Math.PI * 2);
+              ctx.fill();
+
+              // Core
+              ctx.fillStyle = `rgba(20, 184, 166, ${0.8 * node.energy})`;
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, node.radius * 0.4, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          });
+
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+      }
+
+      // Initialize everything when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initHeroCanvas();
+        loadData();
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        // Add scroll-based navigation highlighting
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        function highlightNav() {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.pageYOffset >= sectionTop) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + current) {
+              link.classList.add("active");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", highlightNav);
+
+        // Add loading animation for metric cards
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        document
+          .querySelectorAll(".metric-card, .blog-card")
+          .forEach((card) => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            observer.observe(card);
+          });
+      });
+
+      // Add some additional utility functions
+      function formatNumber(num) {
+        if (num >= 1000000) {
+          return (num / 1000000).toFixed(1) + "M";
+        } else if (num >= 1000) {
+          return (num / 1000).toFixed(1) + "K";
+        }
+        return num.toString();
+      }
+
+      // Enhanced theme toggle with system preference detection
+      function initTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        const systemPrefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "light" || (!savedTheme && !systemPrefersDark)) {
+          document.body.classList.add("light-mode");
+          document.querySelector(".theme-toggle").textContent = "🌙";
+        }
+      }
+
+      function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+        const button = document.querySelector(".theme-toggle");
+        const isLight = document.body.classList.contains("light-mode");
+
+        button.textContent = isLight ? "🌙" : "☀️";
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+      }
+
+      // Initialize theme on load
+      initTheme();
+
+      // Add error handling for data loading
+      window.addEventListener("error", function (e) {
+        console.error("Error occurred:", e.error);
+        // Fallback UI state
+        const metricsGrid = document.getElementById("metricsGrid");
+        if (metricsGrid && !metricsGrid.innerHTML.trim()) {
+          metricsGrid.innerHTML = `
+                          <div class="metric-card">
+                            <div class="metric-title">Demo Mode</div>
+                            <div class="metric-description">Connect your data source to see live metrics</div>
+                          </div>
+                        `;
+        }
+      });
+
+      // Mobile menu toggle (if you want to add mobile navigation)
+      function toggleMobileMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("mobile-active");
+      }
+
+      // Add performance monitoring
+      function trackPerformance() {
+        if ("performance" in window) {
+          window.addEventListener("load", () => {
+            const perfData = performance.getEntriesByType("navigation")[0];
+            console.log(
+              "Page load time:",
+              perfData.loadEventEnd - perfData.loadEventStart,
+              "ms"
+            );
+          });
+        }
+      }
+
+      trackPerformance();
+    </script>
   </body>
 </html>
