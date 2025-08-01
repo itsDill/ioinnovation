@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | IO Innovation Fund</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 50%,
+          #16213e 100%
+        );
+        color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Animated background particles */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: rgba(64, 224, 255, 0.2);
+        border-radius: 50%;
+        animation: float 8s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Background grid pattern */
+      .grid-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(64, 224, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(64, 224, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 1;
+      }
+
+      /* Login container */
+      .login-container {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem;
+      }
+
+      .login-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        animation: slideInUp 0.8s ease-out;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .login-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #40e0ff, transparent);
+        opacity: 0.5;
+      }
+
+      .logo-section {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .logo-subtitle {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        font-weight: 300;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #ffffff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #40e0ff;
+        box-shadow: 0 0 20px rgba(64, 224, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .form-input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .login-button {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      .login-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(64, 224, 255, 0.4);
+      }
+
+      .login-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .login-button:hover::before {
+        left: 100%;
+      }
+
+      .forgot-password {
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      .forgot-password a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .forgot-password a:hover {
+        color: #40e0ff;
+        text-shadow: 0 0 10px rgba(64, 224, 255, 0.5);
+      }
+
+      .divider {
+        text-align: center;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .divider::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .divider span {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .biometric-login {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .biometric-btn {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .biometric-btn:hover {
+        background: rgba(64, 224, 255, 0.1);
+        border-color: #40e0ff;
+        transform: scale(1.1);
+      }
+
+      .back-link {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+
+      .back-link:hover {
+        color: #40e0ff;
+        transform: translateX(-5px);
+      }
+
+      /* Loading state */
+      .loading {
+        display: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .button-content {
+        transition: opacity 0.3s ease;
+      }
+
+      /* Responsive */
+      @media (max-width: 480px) {
+        .login-container {
+          padding: 1rem;
+        }
+
+        .login-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .back-link {
+          top: 1rem;
+          left: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Back to Home Link -->
+    <a href="index.html" class="back-link"> ← Back to Home </a>
+
+    <!-- Login Container -->
+    <div class="login-container">
+      <div class="login-card">
+        <div class="logo-section">
+          <div class="logo">IO Innovation Fund</div>
+          <div class="logo-subtitle">Secure Access Portal</div>
+        </div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="userKey" class="form-label">User Key</label>
+            <input
+              type="text"
+              id="userKey"
+              class="form-input"
+              placeholder="Enter your user key"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="passKey" class="form-label">Passkey</label>
+            <input
+              type="password"
+              id="passKey"
+              class="form-input"
+              placeholder="Enter your passkey"
+              required
+            />
+          </div>
+
+          <button type="submit" class="login-button" id="loginBtn">
+            <div class="button-content">Access Portfolio</div>
+            <div class="loading" id="loading"></div>
+          </button>
+        </form>
+
+        <div class="forgot-password">
+          <a href="algo.html">Algo Signals</a>
+        </div>
+
+        <div class="divider">
+          <span>or continue with</span>
+        </div>
+
+        <div class="biometric-login">
+          <div class="biometric-btn" title="Fingerprint">👆</div>
+          <div class="biometric-btn" title="Face ID">👤</div>
+          <div class="biometric-btn" title="2FA">🔐</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Create animated particles
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+
+        setInterval(() => {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.animationDuration = Math.random() * 4 + 4 + "s";
+          particle.style.animationDelay = Math.random() * 2 + "s";
+
+          particlesContainer.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, 10000);
+        }, 500);
+      }
+
+      // Form submission handling
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const loginBtn = document.getElementById("loginBtn");
+          const buttonContent = loginBtn.querySelector(".button-content");
+          const loading = document.getElementById("loading");
+          const userKey = document.getElementById("userKey").value;
+          const passKey = document.getElementById("passKey").value;
+
+          // Show loading state
+          buttonContent.style.opacity = "0";
+          loading.style.display = "block";
+          loginBtn.style.pointerEvents = "none";
+
+          // Simulate authentication process
+          setTimeout(() => {
+            // Check credentials (in a real app, this would be server-side)
+            if (userKey && passKey) {
+              // Successful login - redirect to dashboard page
+              window.location.href = "system.html";
+            } else {
+              // Failed login
+              loading.style.display = "none";
+              buttonContent.style.opacity = "1";
+              buttonContent.textContent = "Authentication Failed";
+              loginBtn.style.background =
+                "linear-gradient(45deg, #ff4757, #ff6b7a)";
+
+              // Reset after 2 seconds
+              setTimeout(() => {
+                buttonContent.textContent = "Access Portfolio";
+                loginBtn.style.background =
+                  "linear-gradient(45deg, #40e0ff, #8a2be2)";
+                loginBtn.style.pointerEvents = "auto";
+              }, 2000);
+            }
+          }, 1500);
+        });
+
+      // Biometric button interactions
+      document.querySelectorAll(".biometric-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.style.animation = "none";
+          this.style.transform = "scale(0.9)";
+
+          setTimeout(() => {
+            this.style.transform = "scale(1.1)";
+            this.style.background = "rgba(64, 224, 255, 0.2)";
+          }, 100);
+
+          setTimeout(() => {
+            this.style.transform = "scale(1)";
+            this.style.background = "rgba(255, 255, 255, 0.05)";
+            alert("🔒 Biometric authentication not yet configured");
+          }, 300);
+        });
+      });
+
+      // Input focus effects
+      document.querySelectorAll(".form-input").forEach((input) => {
+        input.addEventListener("focus", function () {
+          this.parentElement.style.transform = "translateY(-2px)";
+        });
+
+        input.addEventListener("blur", function () {
+          this.parentElement.style.transform = "translateY(0)";
+        });
+      });
+
+      // Card hover effect based on mouse position
+      document.addEventListener("mousemove", (e) => {
+        const card = document.querySelector(".login-card");
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        const rotateX = (y / rect.height) * 5;
+        const rotateY = (x / rect.width) * -5;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      // Reset card position when mouse leaves
+      document.addEventListener("mouseleave", () => {
+        const card = document.querySelector(".login-card");
+        card.style.transform =
+          "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+      });
+
+      // Initialize particles
+      createParticles();
+
+      // Add enter key handling for better UX
+      document.addEventListener("keypress", function (e) {
+        if (
+          e.key === "Enter" &&
+          document.activeElement.classList.contains("form-input")
+        ) {
+          document
+            .getElementById("loginForm")
+            .dispatchEvent(new Event("submit"));
+        }
+      });
+
+      // Demo mode shortcut (Ctrl+Shift+D)
+      document.addEventListener("keydown", function (e) {
+        if (e.ctrlKey && e.shiftKey && e.key === "D") {
+          e.preventDefault();
+          document.getElementById("userKey").value = "admin";
+          document.getElementById("passKey").value = "admin";
+        }
+      });
+    </script>
+  </body>
+</html>
