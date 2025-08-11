@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IO Innovation Fund | Algorithmic Investment Excellence</title>
+    <title>IO Innovation Fund | Premium Trading Signals</title>
     <style>
       * {
         margin: 0;
@@ -121,7 +121,7 @@
       }
 
       .hero-content {
-        max-width: 800px;
+        max-width: 900px;
         padding: 0 2rem;
       }
 
@@ -157,6 +157,13 @@
         animation: fadeInUp 1s ease-out 0.5s both;
       }
 
+      .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: rgba(255, 255, 255, 0.6);
+        animation: fadeInUp 1s ease-out 0.7s both;
+      }
+
       .cta-button {
         display: inline-block;
         padding: 1rem 2rem;
@@ -171,6 +178,7 @@
         position: relative;
         overflow: hidden;
         animation: fadeInUp 1s ease-out 1s both;
+        margin: 0 1rem;
       }
 
       .cta-button:hover {
@@ -198,6 +206,16 @@
         left: 100%;
       }
 
+      .cta-secondary {
+        background: transparent;
+        border: 2px solid rgba(64, 224, 255, 0.5);
+      }
+
+      .cta-secondary:hover {
+        background: rgba(64, 224, 255, 0.1);
+        border-color: #40e0ff;
+      }
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -206,6 +224,138 @@
         to {
           opacity: 1;
           transform: translateY(0);
+        }
+      }
+
+      /* Markets Section */
+      .markets {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .markets-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .market-category {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .market-category:hover {
+        transform: translateY(-10px);
+        border-color: rgba(64, 224, 255, 0.5);
+        box-shadow: 0 20px 40px rgba(64, 224, 255, 0.1);
+      }
+
+      .market-category::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #40e0ff, transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .market-category:hover::before {
+        opacity: 1;
+      }
+
+      .category-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      .market-category h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #40e0ff;
+      }
+
+      .market-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .market-list li {
+        padding: 0.5rem 0;
+        color: rgba(255, 255, 255, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .market-list li:hover {
+        color: #40e0ff;
+        transform: translateX(5px);
+      }
+
+      .market-list li:last-child {
+        border-bottom: none;
+      }
+
+      .status-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #00ff88;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.7;
+          transform: scale(1.2);
         }
       }
 
@@ -356,12 +506,18 @@
           font-size: 3rem;
         }
 
+        .markets-grid,
         .features-grid {
           grid-template-columns: 1fr;
         }
 
         .stats-container {
           grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cta-button {
+          display: block;
+          margin: 1rem 0;
         }
       }
 
@@ -419,10 +575,10 @@
       <nav class="nav">
         <div class="logo">IO Innovation Fund</div>
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#strategies">Strategies</a></li>
-          <li><a href="#performance">Performance</a></li>
-          <li><a href="client.html">Client</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="signals.html">Signals</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="performance.html">Performance</a></li>
         </ul>
       </nav>
     </header>
@@ -430,38 +586,128 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-content">
-        <h1>IO Innovation Fund</h1>
-        <p>Next-Generation Algorithmic Investment Strategies</p>
-        <a href="#" class="cta-button">Explore Our Vision</a>
+        <h1>Premium Trading Signals</h1>
+        <p>AI-Powered Analysis for Indices & Commodities</p>
+        <div class="hero-subtitle">
+          Professional-grade signals for USTEC, DE30, HK50, JP225, SET Index,
+          Oil, Gold & Silver
+        </div>
+        <a href="#markets" class="cta-button">Explore Markets</a>
+        <a href="client.html" class="cta-button cta-secondary">Get Access</a>
+      </div>
+    </section>
+
+    <!-- Markets Section -->
+    <section class="markets" id="markets">
+      <h2 class="section-title">Our Coverage</h2>
+      <p class="section-subtitle">
+        Precision signals across major global indices and high-demand
+        commodities
+      </p>
+
+      <div class="markets-grid">
+        <div class="market-category">
+          <div class="category-icon">📊</div>
+          <h3>Major Indices</h3>
+          <ul class="market-list">
+            <li>
+              <span>USTEC (NASDAQ-100)</span>
+              <span class="status-indicator"></span>
+            </li>
+            <li>
+              <span>DE30 (DAX)</span>
+              <span class="status-indicator"></span>
+            </li>
+            <li>
+              <span>HK50 (Hang Seng)</span>
+              <span class="status-indicator"></span>
+            </li>
+            <li>
+              <span>JP225 (Nikkei)</span>
+              <span class="status-indicator"></span>
+            </li>
+            <li>
+              <span>SET (Thailand)</span>
+              <span class="status-indicator"></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="market-category">
+          <div class="category-icon">🥇</div>
+          <h3>Premium Commodities</h3>
+          <ul class="market-list">
+            <li>
+              <span>Crude Oil (WTI)</span>
+              <span class="status-indicator"></span>
+            </li>
+            <li>
+              <span>Gold (XAU/USD)</span>
+              <span class="status-indicator"></span>
+            </li>
+            <li>
+              <span>Silver (XAG/USD)</span>
+              <span class="status-indicator"></span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="strategies">
+    <section class="features" id="signals">
+      <h2 class="section-title">Signal Intelligence</h2>
+      <p class="section-subtitle">
+        Advanced algorithmic analysis delivering actionable insights
+      </p>
+
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">🧠</div>
-          <h3>AI-Driven Analytics</h3>
+          <div class="feature-icon">🎯</div>
+          <h3>Precision Entries</h3>
           <p>
-            Advanced machine learning algorithms analyze market patterns and
-            trends in real-time, providing unprecedented insights into
-            investment opportunities.
+            Multi-timeframe analysis identifies optimal entry points with
+            precise risk-reward ratios for maximum profitability.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <h3>Ultra-Low Latency</h3>
+          <h3>Real-Time Alerts</h3>
           <p>
-            Our cutting-edge infrastructure ensures lightning-fast execution
-            speeds, capitalizing on microsecond advantages in volatile markets.
+            Instant notifications via Telegram, SMS, and email ensure you never
+            miss a high-probability trading opportunity.
           </p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🛡️</div>
           <h3>Risk Management</h3>
           <p>
-            Sophisticated risk assessment protocols and dynamic hedging
-            strategies protect capital while maximizing return potential.
+            Built-in stop-loss and take-profit levels with dynamic position
+            sizing based on market volatility patterns.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Performance Tracking</h3>
+          <p>
+            Detailed analytics on signal performance, win rates, and
+            risk-adjusted returns across all covered markets.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>AI Analysis</h3>
+          <p>
+            Machine learning algorithms process market sentiment, technical
+            patterns, and fundamental data for superior accuracy.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Global Markets</h3>
+          <p>
+            24/7 coverage across Asian, European, and American sessions with
+            timezone-optimized signal delivery.
           </p>
         </div>
       </div>
@@ -471,27 +717,76 @@
     <section class="stats" id="performance">
       <div class="stats-container">
         <div class="stat-item">
-          <span class="stat-number">∞</span>
-          <div class="stat-label">Possibilities</div>
+          <span class="stat-number">85%</span>
+          <div class="stat-label">Win Rate</div>
         </div>
         <div class="stat-item">
           <span class="stat-number">24/7</span>
-          <div class="stat-label">Market Monitoring</div>
+          <div class="stat-label">Market Coverage</div>
         </div>
         <div class="stat-item">
-          <span class="stat-number">100+</span>
-          <div class="stat-label">Data Sources</div>
+          <span class="stat-number">8</span>
+          <div class="stat-label">Markets Covered</div>
         </div>
         <div class="stat-item">
-          <span class="stat-number">0.1ms</span>
-          <div class="stat-label">Execution Time</div>
+          <span class="stat-number">< 30s</span>
+          <div class="stat-label">Signal Delivery</div>
         </div>
+        <div class="stat-item">
+          <span class="stat-number">3.2:1</span>
+          <div class="stat-label">Avg Risk:Reward</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <div class="stat-label">Daily Signals</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section Preview -->
+    <section class="features" id="blog">
+      <h2 class="section-title">Trading Insights</h2>
+      <p class="section-subtitle">
+        Expert analysis and market commentary from our research team
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Market Analysis</h3>
+          <p>
+            Daily and weekly market breakdowns covering technical patterns,
+            fundamental drivers, and trading opportunities.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Trading Education</h3>
+          <p>
+            In-depth tutorials on risk management, position sizing, and advanced
+            trading strategies for all skill levels.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Strategy Insights</h3>
+          <p>
+            Behind-the-scenes look at our signal generation process and
+            algorithmic trading methodologies.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem">
+        <a href="#" class="cta-button">Visit Blog</a>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
-      <p>IO Innovation Fund - Pioneering the Future of Algorithmic Trading</p>
+      <p>
+        IO Innovation Fund - Professional Trading Signals & Market Intelligence
+      </p>
       <p>© 2025 IO Innovation Fund. All rights reserved.</p>
       <a href="client.html" class="secret-link">◊</a>
     </footer>
@@ -541,7 +836,9 @@
       window.addEventListener("scroll", () => {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector(".hero");
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
       });
 
       // Animate stats on scroll
@@ -561,14 +858,16 @@
 
       // Animate feature cards on scroll
       function animateCards() {
-        const cards = document.querySelectorAll(".feature-card");
+        const cards = document.querySelectorAll(
+          ".feature-card, .market-category"
+        );
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
               setTimeout(() => {
                 entry.target.style.animation =
                   "fadeInUp 0.6s ease-out forwards";
-              }, index * 200);
+              }, index * 100);
             }
           });
         });
@@ -584,10 +883,25 @@
       // Add mousemove effect to hero
       document.addEventListener("mousemove", (e) => {
         const hero = document.querySelector(".hero-content");
-        const x = (e.clientX - window.innerWidth / 2) / 50;
-        const y = (e.clientY - window.innerHeight / 2) / 50;
-        hero.style.transform = `translate(${x}px, ${y}px)`;
+        if (hero) {
+          const x = (e.clientX - window.innerWidth / 2) / 50;
+          const y = (e.clientY - window.innerHeight / 2) / 50;
+          hero.style.transform = `translate(${x}px, ${y}px)`;
+        }
       });
+
+      // Animate status indicators
+      function animateStatusIndicators() {
+        const indicators = document.querySelectorAll(".status-indicator");
+        indicators.forEach((indicator) => {
+          setInterval(() => {
+            indicator.style.background =
+              Math.random() > 0.1 ? "#00ff88" : "#ff4444";
+          }, Math.random() * 5000 + 2000);
+        });
+      }
+
+      animateStatusIndicators();
     </script>
   </body>
 </html>
