@@ -144,6 +144,12 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
         padding: 1rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .header.scrolled {
+        background: rgba(10, 10, 10, 0.95);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
       .nav {
@@ -175,20 +181,33 @@
         text-decoration: none;
         transition: all 0.3s ease;
         position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
       }
 
       .nav-links a:hover {
         color: #40e0ff;
         transform: translateY(-2px);
+        background: rgba(64, 224, 255, 0.1);
       }
 
       .nav-links a.active {
         color: #40e0ff;
+        background: rgba(64, 224, 255, 0.1);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: #40e0ff;
+        font-size: 1.5rem;
+        cursor: pointer;
       }
 
       /* Hero Section */
       .hero {
-        height: 60vh;
+        height: 70vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -234,6 +253,127 @@
         color: rgba(255, 255, 255, 0.8);
       }
 
+      /* Search Bar */
+      .search-section {
+        max-width: 1200px;
+        margin: -2rem auto 3rem;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .search-container {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 1rem 1.5rem 1rem 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        color: #ffffff;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .search-input:focus {
+        border-color: #40e0ff;
+        box-shadow: 0 0 30px rgba(64, 224, 255, 0.3);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(64, 224, 255, 0.7);
+        font-size: 1.2rem;
+      }
+
+      .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 46, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        margin-top: 0.5rem;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+      }
+
+      .search-result {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .search-result:hover {
+        background: rgba(64, 224, 255, 0.1);
+      }
+
+      .search-result:last-child {
+        border-bottom: none;
+      }
+
+      /* Filter Tabs */
+      .filter-tabs {
+        max-width: 1200px;
+        margin: 0 auto 3rem;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .tabs-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .tab-button {
+        padding: 0.8rem 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .tab-button:hover {
+        color: #40e0ff;
+        border-color: rgba(64, 224, 255, 0.5);
+        background: rgba(64, 224, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .tab-button.active {
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        border-color: transparent;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(64, 224, 255, 0.3);
+      }
+
       /* Categories Section */
       .categories {
         padding: 3rem 2rem;
@@ -245,7 +385,7 @@
 
       .categories-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         margin-bottom: 4rem;
       }
@@ -344,11 +484,49 @@
         margin-right: auto;
       }
 
+      .view-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .view-btn {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .view-btn:hover {
+        background: rgba(64, 224, 255, 0.1);
+        color: #40e0ff;
+        border-color: rgba(64, 224, 255, 0.3);
+      }
+
+      .view-btn.active {
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        color: white;
+        border-color: transparent;
+      }
+
       .articles-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
+        transition: all 0.5s ease;
+      }
+
+      .articles-grid.list-view {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
       .article-card {
@@ -359,6 +537,7 @@
         overflow: hidden;
         transition: all 0.3s ease;
         position: relative;
+        cursor: pointer;
       }
 
       .article-card:hover {
@@ -383,6 +562,17 @@
         opacity: 1;
       }
 
+      .articles-grid.list-view .article-card {
+        display: flex;
+        align-items: center;
+      }
+
+      .articles-grid.list-view .article-image {
+        width: 200px;
+        height: 150px;
+        flex-shrink: 0;
+      }
+
       .article-image {
         width: 100%;
         height: 200px;
@@ -392,10 +582,42 @@
         justify-content: center;
         font-size: 3rem;
         color: rgba(64, 224, 255, 0.6);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .article-image::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(
+          circle,
+          rgba(64, 224, 255, 0.1),
+          transparent
+        );
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.8;
+        }
       }
 
       .article-content {
         padding: 1.5rem;
+        flex: 1;
       }
 
       .article-category {
@@ -431,16 +653,92 @@
         color: rgba(255, 255, 255, 0.5);
       }
 
+      .article-author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .author-avatar {
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
       .read-more {
         color: #40e0ff;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
 
       .read-more:hover {
         color: #8a2be2;
         text-shadow: 0 0 10px rgba(64, 224, 255, 0.5);
+        transform: translateX(5px);
+      }
+
+      .reading-time {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+      }
+
+      /* Load More Button */
+      .load-more-section {
+        text-align: center;
+        padding: 2rem 0;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .load-more-btn {
+        padding: 1rem 2.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(64, 224, 255, 0.3);
+        border-radius: 50px;
+        color: #40e0ff;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .load-more-btn:hover {
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        color: white;
+        border-color: transparent;
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(64, 224, 255, 0.3);
+      }
+
+      .load-more-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.5s ease;
+      }
+
+      .load-more-btn:hover::before {
+        width: 300px;
+        height: 300px;
       }
 
       /* Newsletter Section */
@@ -551,10 +849,93 @@
         text-shadow: 0 0 10px #40e0ff;
       }
 
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #40e0ff, #8a2be2);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 15px 30px rgba(64, 224, 255, 0.4);
+      }
+
+      /* Loading Animation */
+      .loading {
+        display: none;
+        text-align: center;
+        padding: 2rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .loading.active {
+        display: block;
+      }
+
+      .spinner {
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top: 3px solid #40e0ff;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .nav-links {
           display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(10, 10, 10, 0.95);
+          flex-direction: column;
+          padding: 1rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero {
+          height: 60vh;
         }
 
         .hero h1 {
@@ -566,6 +947,15 @@
           grid-template-columns: 1fr;
         }
 
+        .articles-grid.list-view .article-card {
+          flex-direction: column;
+        }
+
+        .articles-grid.list-view .article-image {
+          width: 100%;
+          height: 200px;
+        }
+
         .newsletter-form {
           flex-direction: column;
           align-items: center;
@@ -574,6 +964,16 @@
         .newsletter-input {
           width: 100%;
           max-width: 400px;
+        }
+
+        .tabs-container {
+          overflow-x: auto;
+          justify-content: flex-start;
+          padding-bottom: 0.5rem;
+        }
+
+        .tab-button {
+          white-space: nowrap;
         }
       }
 
@@ -590,19 +990,21 @@
     </style>
   </head>
   <body>
-    <!-- Animated Background -->
-    <div class="particles" id="particles"></div>
+    <!-- Animated background particles -->
+    <div class="particles"></div>
 
     <!-- Header -->
     <header class="header">
       <nav class="nav">
         <div class="logo">IO Innovation Fund</div>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="signals.html">Signals</a></li>
-          <li><a href="blog.html" class="active">Blog</a></li>
-          <li><a href="performance.html">Performance</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Finance Tools</a></li>
+          <li><a href="/markets.html">Markets</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
+        <button class="mobile-menu-btn">&#9776;</button>
       </nav>
     </header>
 
@@ -611,336 +1013,330 @@
       <div class="hero-content">
         <h1>Market Insights & Analysis</h1>
         <p>
-          Professional insights on Southeast Asian markets, innovative stocks,
-          and emerging opportunities for global investors
+          Professional trading insights for Southeast Asian markets, innovative
+          stocks, and major indices.
         </p>
+      </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+      <div class="search-container">
+        <span class="search-icon">&#128269;</span>
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Search articles, stocks, or topics..."
+        />
+        <div class="search-results"></div>
+      </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="filter-tabs">
+      <div class="tabs-container">
+        <button class="tab-button active" data-category="all">All</button>
+        <button class="tab-button" data-category="indices">Indices</button>
+        <button class="tab-button" data-category="stocks">Stocks</button>
+        <button class="tab-button" data-category="commodities">
+          Commodities
+        </button>
       </div>
     </section>
 
     <!-- Categories Section -->
     <section class="categories">
       <div class="categories-grid">
-        <div class="category-card" data-category="innovative-stocks">
-          <div class="category-icon">🚀</div>
-          <h3>Innovative Stocks</h3>
-          <p>
-            Discover breakthrough companies and disruptive technologies shaping
-            the future of Southeast Asian markets.
-          </p>
-          <div class="post-count">12 Articles</div>
-        </div>
-
-        <div class="category-card" data-category="sea-markets">
-          <div class="category-icon">🌏</div>
-          <h3>SEA Markets</h3>
-          <p>
-            Comprehensive analysis of Southeast Asian exchanges, regional
-            trends, and cross-border opportunities.
-          </p>
-          <div class="post-count">18 Articles</div>
-        </div>
-
+        <!-- Indices Blog Posts -->
         <div class="category-card" data-category="indices">
           <div class="category-icon">📊</div>
-          <h3>Major Indices</h3>
-          <p>
-            In-depth coverage of HK50, JP225, SET Index, and other key
-            benchmarks driving regional performance.
-          </p>
-          <div class="post-count">15 Articles</div>
+          <h3>Indices</h3>
+          <div class="category-posts">
+            <div class="article-card" data-category="indices">
+              <div class="article-image">📊</div>
+              <div class="article-content">
+                <span class="article-category">Indices</span>
+                <h3 class="article-title">NASDAQ-100: Breakout or Fakeout?</h3>
+                <p class="article-excerpt">
+                  Deep dive into the latest NASDAQ-100 price action, technical
+                  signals, and what traders should watch for next.
+                </p>
+                <div class="article-meta">
+                  <div class="article-author">
+                    <span class="author-avatar">JD</span>
+                    <span>Jane Doe</span>
+                  </div>
+                  <span class="reading-time">5 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More &rarr;</a>
+              </div>
+            </div>
+            <div class="article-card" data-category="indices">
+              <div class="article-image">📈</div>
+              <div class="article-content">
+                <span class="article-category">Indices</span>
+                <h3 class="article-title">S&P 500: Volatility Returns</h3>
+                <p class="article-excerpt">
+                  How recent macro events are impacting S&P 500 volatility and
+                  what it means for traders.
+                </p>
+                <div class="article-meta">
+                  <div class="article-author">
+                    <span class="author-avatar">AK</span>
+                    <span>Alex Kim</span>
+                  </div>
+                  <span class="reading-time">7 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stocks Blog Posts -->
+        <div class="category-card" data-category="stocks">
+          <div class="category-icon">💹</div>
+          <h3>Stocks</h3>
+          <div class="category-posts">
+            <div class="article-card" data-category="stocks">
+              <div class="article-image">💹</div>
+              <div class="article-content">
+                <span class="article-category">Stocks</span>
+                <h3 class="article-title">SEA Tech: Growth & Risks</h3>
+                <p class="article-excerpt">
+                  Exploring the top tech stocks in Southeast Asia and their
+                  growth potential in 2025.
+                </p>
+                <div class="article-meta">
+                  <div class="article-author">
+                    <span class="author-avatar">LS</span>
+                    <span>Lisa Sun</span>
+                  </div>
+                  <span class="reading-time">6 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More &rarr;</a>
+              </div>
+            </div>
+            <div class="article-card" data-category="stocks">
+              <div class="article-image">🏦</div>
+              <div class="article-content">
+                <span class="article-category">Stocks</span>
+                <h3 class="article-title">Banking Sector: 2025 Outlook</h3>
+                <p class="article-excerpt">
+                  What’s next for major banks in Singapore and Thailand? Analyst
+                  forecasts and key trends.
+                </p>
+                <div class="article-meta">
+                  <div class="article-author">
+                    <span class="author-avatar">MT</span>
+                    <span>Mark Tan</span>
+                  </div>
+                  <span class="reading-time">4 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commodities Blog Posts -->
+        <div class="category-card" data-category="commodities">
+          <div class="category-icon">🥇</div>
+          <h3>Commodities</h3>
+          <div class="category-posts">
+            <div class="article-card" data-category="commodities">
+              <div class="article-image">🥇</div>
+              <div class="article-content">
+                <span class="article-category">Commodities</span>
+                <h3 class="article-title">Gold: Safe Haven or Trap?</h3>
+                <p class="article-excerpt">
+                  Is gold still the ultimate safe haven asset? Our analysts
+                  weigh in on the risks and rewards.
+                </p>
+                <div class="article-meta">
+                  <div class="article-author">
+                    <span class="author-avatar">SR</span>
+                    <span>Samir Rao</span>
+                  </div>
+                  <span class="reading-time">5 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More &rarr;</a>
+              </div>
+            </div>
+            <div class="article-card" data-category="commodities">
+              <div class="article-image">🛢️</div>
+              <div class="article-content">
+                <span class="article-category">Commodities</span>
+                <h3 class="article-title">Oil Prices: What’s Next?</h3>
+                <p class="""article-excerpt">
+                  Global supply and demand factors shaping oil prices in the
+                  coming months.
+                </p>
+                <div class="article-meta">
+                  <div class="article-author">
+                    <span class="author-avatar">EM</span>
+                    <span>Emily Ma</span>
+                  </div>
+                  <span class="reading-time">8 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More &rarr;</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Featured Articles Section -->
     <section class="featured-articles">
-      <h2 class="section-title">Latest Insights</h2>
+      <h2 class="section-title">Featured Articles</h2>
       <p class="section-subtitle">
-        Stay ahead with our expert analysis and market intelligence
+        Latest market intelligence, trading strategies, and professional
+        analysis.
       </p>
-
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid">Grid View</button>
+        <button class="view-btn" data-view="list">List View</button>
+      </div>
       <div class="articles-grid">
-        <article class="article-card">
-          <div class="article-image">🚀</div>
-          <div class="article-content">
-            <span class="article-category">Innovative Stocks</span>
-            <h3 class="article-title">
-              Southeast Asia's AI Revolution: Top Growth Picks for 2025
-            </h3>
-            <p class="article-excerpt">
-              Exploring the artificial intelligence boom across SEA markets and
-              identifying the most promising opportunities for international
-              investors...
-            </p>
-            <div class="article-meta">
-              <span>Jan 15, 2025</span>
-              <a href="#" class="read-more">Read More →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-image">📈</div>
+        <!-- Example Article Card -->
+        <div class="article-card" data-category="indices">
+          <div class="article-image">📊</div>
           <div class="article-content">
             <span class="article-category">Indices</span>
-            <h3 class="article-title">
-              HK50 Technical Breakout: Key Levels to Watch This Quarter
-            </h3>
+            <h3 class="article-title">NASDAQ-100: Breakout or Fakeout?</h3>
             <p class="article-excerpt">
-              Comprehensive technical analysis of Hang Seng movements with
-              precise entry and exit strategies for momentum traders...
+              Deep dive into the latest NASDAQ-100 price action, technical
+              signals, and what traders should watch for next.
             </p>
             <div class="article-meta">
-              <span>Jan 12, 2025</span>
-              <a href="#" class="read-more">Read More →</a>
+              <div class="article-author">
+                <span class="author-avatar">JD</span>
+                <span>Jane Doe</span>
+              </div>
+              <span class="reading-time">5 min read</span>
             </div>
+            <a href="#" class="read-more">Read More &rarr;</a>
           </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-image">🌏</div>
-          <div class="article-content">
-            <span class="article-category">SEA Markets</span>
-            <h3 class="article-title">
-              Thailand's Digital Economy: SET Index Sector Rotation Analysis
-            </h3>
-            <p class="article-excerpt">
-              Deep dive into Thailand's digital transformation and its impact on
-              traditional sectors within the SET benchmark...
-            </p>
-            <div class="article-meta">
-              <span>Jan 10, 2025</span>
-              <a href="#" class="read-more">Read More →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-image">⚡</div>
-          <div class="article-content">
-            <span class="article-category">Innovative Stocks</span>
-            <h3 class="article-title">
-              Green Energy Transition in SEA: Investment Opportunities
-            </h3>
-            <p class="article-excerpt">
-              Analyzing the renewable energy surge across Southeast Asia and
-              identifying key players positioned for exponential growth...
-            </p>
-            <div class="article-meta">
-              <span>Jan 8, 2025</span>
-              <a href="#" class="read-more">Read More →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-image">🎯</div>
-          <div class="article-content">
-            <span class="article-category">Indices</span>
-            <h3 class="article-title">
-              JP225 vs Regional Peers: Comparative Strength Analysis
-            </h3>
-            <p class="article-excerpt">
-              Evaluating Nikkei performance against other Asian indices and
-              uncovering relative value opportunities...
-            </p>
-            <div class="article-meta">
-              <span>Jan 5, 2025</span>
-              <a href="#" class="read-more">Read More →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-image">💡</div>
-          <div class="article-content">
-            <span class="article-category">SEA Markets</span>
-            <h3 class="article-title">
-              Singapore's Fintech Hub: Market Leaders and Challengers
-            </h3>
-            <p class="article-excerpt">
-              Comprehensive overview of Singapore's financial technology
-              landscape and emerging investment themes...
-            </p>
-            <div class="article-meta">
-              <span>Jan 3, 2025</span>
-              <a href="#" class="read-more">Read More →</a>
-            </div>
-          </div>
-        </article>
+        </div>
+        <!-- Add more article cards as needed -->
+      </div>
+      <div class="load-more-section">
+        <button class="load-more-btn">Load More</button>
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading more articles...
+        </div>
       </div>
     </section>
 
     <!-- Newsletter Section -->
     <section class="newsletter">
       <div class="newsletter-content">
-        <h2>Stay Informed</h2>
+        <h2>Subscribe for Market Updates</h2>
         <p>
-          Get exclusive market insights and analysis delivered directly to your
-          inbox. Join thousands of investors who trust our research.
+          Get the latest insights, strategies, and analysis delivered to your
+          inbox.
         </p>
-        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <form class="newsletter-form">
           <input
-            type="email"
             class="newsletter-input"
-            placeholder="Enter your email address"
+            type="email"
+            placeholder="Your email address"
             required
           />
-          <button type="submit" class="cta-button">Subscribe</button>
+          <button class="cta-button" type="submit">Subscribe</button>
         </form>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>
-        IO Innovation Fund - Professional Trading Signals & Market Intelligence
-      </p>
-      <p>© 2025 IO Innovation Fund. All rights reserved.</p>
-      <a href="client.html" class="secret-link">◊</a>
+      <p>&copy; 2025 IO Innovation Fund. All rights reserved.</p>
+      <a href="/admin.html" class="secret-link">admin</a>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" title="Back to Top">&#8679;</button>
+
     <script>
-      // Create animated particles
-      function createParticles() {
-        const particlesContainer = document.getElementById("particles");
-
-        setInterval(() => {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.animationDuration = Math.random() * 3 + 3 + "s";
-          particle.style.animationDelay = Math.random() * 2 + "s";
-
-          particlesContainer.appendChild(particle);
-
-          setTimeout(() => {
-            particle.remove();
-          }, 8000);
-        }, 300);
-      }
-
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
         });
+
+      // Back to top button
+      const backToTop = document.querySelector(".back-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Category filter functionality
-      document.querySelectorAll(".category-card").forEach((card) => {
-        card.addEventListener("click", function () {
-          const category = this.dataset.category;
-          filterArticles(category);
-        });
-      });
-
-      function filterArticles(category) {
-        const articles = document.querySelectorAll(".article-card");
-        articles.forEach((article) => {
-          const articleCategory = article
-            .querySelector(".article-category")
-            .textContent.toLowerCase()
-            .replace(/\s+/g, "-");
-          if (
-            category === "all" ||
-            articleCategory.includes(category.split("-")[0])
-          ) {
-            article.style.display = "block";
-            article.style.animation = "fadeInUp 0.6s ease-out forwards";
+      // View toggle
+      document.querySelectorAll(".view-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".view-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const grid = document.querySelector(".articles-grid");
+          if (btn.dataset.view === "list") {
+            grid.classList.add("list-view");
           } else {
-            article.style.display = "none";
+            grid.classList.remove("list-view");
           }
         });
-      }
+      });
 
-      // Newsletter form handler
-      function handleNewsletter(event) {
-        event.preventDefault();
-        const email = event.target.querySelector('input[type="email"]').value;
-
-        // Simulate newsletter signup
-        alert(
-          "Thank you for subscribing! You'll receive our latest market insights at " +
-            email
-        );
-        event.target.reset();
-      }
-
-      // Animate cards on scroll
-      function animateCards() {
-        const cards = document.querySelectorAll(
-          ".article-card, .category-card"
-        );
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-              setTimeout(() => {
-                entry.target.style.animation =
-                  "fadeInUp 0.6s ease-out forwards";
-              }, index * 100);
+      // Filter tabs
+      document.querySelectorAll(".tab-button").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          document
+            .querySelectorAll(".tab-button")
+            .forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          const category = tab.dataset.category;
+          document.querySelectorAll(".article-card").forEach((card) => {
+            if (category === "all" || card.dataset.category === category) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
             }
           });
         });
-
-        cards.forEach((card) => observer.observe(card));
-      }
-
-      // Parallax effect for hero section
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector(".hero");
-        if (hero) {
-          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
       });
 
-      // Add mousemove effect to hero
-      document.addEventListener("mousemove", (e) => {
-        const hero = document.querySelector(".hero-content");
-        if (hero) {
-          const x = (e.clientX - window.innerWidth / 2) / 100;
-          const y = (e.clientY - window.innerHeight / 2) / 100;
-          hero.style.transform = `translate(${x}px, ${y}px)`;
-        }
-      });
-
-      // Initialize animations
-      createParticles();
-      animateCards();
-
-      // Add reading progress indicator
-      function createProgressBar() {
-        const progressBar = document.createElement("div");
-        progressBar.style.cssText = `
-          position: fixed;
-          top: 80px;
-          left: 0;
-          width: 0%;
-          height: 2px;
-          background: linear-gradient(45deg, #40e0ff, #8a2be2);
-          z-index: 1001;
-          transition: width 0.3s ease;
-        `;
-        document.body.appendChild(progressBar);
-
-        window.addEventListener("scroll", () => {
-          const scrolled =
-            (window.pageYOffset /
-              (document.body.scrollHeight - window.innerHeight)) *
-            100;
-          progressBar.style.width = scrolled + "%";
+      // Newsletter form
+      document
+        .querySelector(".newsletter-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for subscribing!");
+          this.reset();
         });
-      }
 
-      createProgressBar();
+      // Animated background particles
+      function createParticles() {
+        const container = document.querySelector(".particles");
+        for (let i = 0; i < 60; i++) {
+          const p = document.createElement("div");
+          p.className = "particle";
+          p.style.left = Math.random() * 100 + "vw";
+          p.style.top = Math.random() * 100 + "vh";
+          p.style.animationDuration = Math.random() * 3 + 4 + "s";
+          p.style.opacity = Math.random() * 0.7 + 0.3;
+          container.appendChild(p);
+        }
+      }
+      createParticles();
     </script>
   </body>
 </html>
