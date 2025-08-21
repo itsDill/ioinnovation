@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | IO Innovation Fund</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #0a1f1a 0%, #1a5c4f 100%);
+        color: #eafaf7;
+        margin: 0;
+        min-height: 100vh;
+      }
+      .header {
+        background: rgba(18, 44, 36, 0.95);
+        padding: 1.2rem 2rem;
+        border-bottom: 1px solid rgba(43, 226, 180, 0.2);
+        box-shadow: 0 8px 32px rgba(43, 226, 180, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #2be2b4, #40ffa0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 20px rgb(43, 226, 180));
+      }
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: #eafaf7;
+        text-decoration: none;
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.08);
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+      .nav-links a.active,
+      .nav-links a:hover {
+        color: #2be2b4;
+        background: rgba(43, 226, 180, 0.15);
+        border: 1px solid rgba(43, 226, 180, 0.2);
+      }
+      .contact-section {
+        max-width: 600px;
+        margin: 4rem auto 2rem;
+        background: rgba(18, 44, 36, 0.95);
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(43, 226, 180, 0.15);
+        padding: 3rem 2rem;
+        text-align: center;
+        border: 1px solid rgba(43, 226, 180, 0.2);
+      }
+      .contact-section h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #2be2b4, #40ffa0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .contact-section p {
+        color: rgba(234, 250, 247, 0.8);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        padding: 1rem 1.2rem;
+        border-radius: 16px;
+        border: 2px solid rgba(43, 226, 180, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        color: #eafaf7;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #2be2b4;
+      }
+      .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .cta-button {
+        background: linear-gradient(135deg, #2be2b4, #40ffa0);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.15);
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .cta-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(43, 226, 180, 0.15);
+      }
+      .contact-details {
+        margin-top: 2rem;
+        color: rgba(234, 250, 247, 0.8);
+        font-size: 1rem;
+      }
+      .contact-details i {
+        color: #2be2b4;
+        margin-right: 0.5rem;
+      }
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .logo {
+          margin-bottom: 1rem;
+        }
+        .nav-links {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .contact-section {
+          margin: 2rem 1rem;
+          padding: 2rem 1.5rem;
+        }
+        .contact-section h1 {
+          font-size: 2rem;
+        }
+        .contact-section p {
+          font-size: 1rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+          font-size: 0.9rem;
+        }
+        .cta-button {
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+        }
+        .contact-details {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">IO Innovation Fund</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="contact-section">
+      <h1>Get in Touch</h1>
+      <p>
+        We would love to hear from you. Whether you have a question, feedback,
+        or just want to say hello, feel free to reach out using the form below
+        or through our social media channels.
+      </p>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta-button">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+
+      <div class="contact-details">
+        <p>
+          <i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Suite 100,
+          Tech City, TC 12345
+        </p>
+        <p><i class="fas fa-phone"></i> +1 (234) 567-8901</p>
+        <p><i class="fas fa-envelope"></i> info@ioinnovationfund.com</p>
+      </div>
+    </div>
+  </body>
+</html>

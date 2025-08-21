@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      SEA Markets | IO Innovation Fund - Live Market Data & Analysis
+    </title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Live Southeast Asian market data, charts, and analysis. Track SET, SGX, KLSE, PSE indices and individual stocks with real-time updates."
+    />
+    <meta
+      name="keywords"
+      content="SEA markets, SET index, SGX, KLSE, PSE, Southeast Asia stocks, live market data, stock charts"
+    />
+    <meta name="author" content="IO Innovation Fund" />
+    <meta name="robots" content="index, follow" />
+
+    <style>
+      :root {
+        /* Dark Theme Variables */
+        --bg-primary: linear-gradient(
+          135deg,
+          #0a1f1a 0%,
+          #0f2d26 30%,
+          #123c34 60%,
+          #1a5c4f 100%
+        );
+        --bg-secondary: rgba(18, 44, 36, 0.95);
+        --bg-tertiary: rgba(15, 45, 38, 0.85);
+        --bg-card: linear-gradient(
+          135deg,
+          rgba(18, 44, 36, 0.95) 0%,
+          rgba(22, 55, 45, 0.9) 100%
+        );
+        --text-primary: #eafaf7;
+        --text-secondary: rgba(234, 250, 247, 0.8);
+        --accent-primary: #2be2b4;
+        --accent-secondary: #40ffa0;
+        --accent-tertiary: #00d475;
+        --border-color: rgba(43, 226, 180, 0.2);
+        --shadow-color: rgba(43, 226, 180, 0.15);
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --positive: #22c55e;
+        --negative: #ef4444;
+        --warning: #f59e0b;
+      }
+
+      [data-theme="light"] {
+        /* Light Theme Variables */
+        --bg-primary: linear-gradient(
+          135deg,
+          #f0fdf9 0%,
+          #e6fffa 30%,
+          #ccfdf7 60%,
+          #99f6e4 100%
+        );
+        --bg-secondary: rgba(255, 255, 255, 0.95);
+        --bg-tertiary: rgba(255, 255, 255, 0.9);
+        --bg-card: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(240, 253, 249, 0.8) 100%
+        );
+        --text-primary: #1a3a2d;
+        --text-secondary: rgba(26, 58, 45, 0.8);
+        --accent-primary: #00764b;
+        --accent-secondary: #2be2b4;
+        --accent-tertiary: #00d475;
+        --border-color: rgba(43, 226, 180, 0.3);
+        --shadow-color: rgba(0, 118, 75, 0.15);
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --positive: #16a34a;
+        --negative: #dc2626;
+        --warning: #d97706;
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.65;
+        overflow-x: hidden;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      /* Enhanced Background Effect */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 30%,
+            rgba(43, 226, 180, 0.03) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(0, 118, 75, 0.02) 0%,
+            transparent 50%
+          );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--bg-tertiary);
+        backdrop-filter: blur(25px) saturate(180%);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 8px 32px var(--shadow-color);
+        transition: all 0.3s ease;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 20px rgb(43, 226, 180));
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 0.5rem;
+      }
+
+      .nav-links a {
+        color: var(--text-primary);
+        text-decoration: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 50px;
+        background: var(--glass-bg);
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.15);
+        border-color: var(--border-color);
+        box-shadow: 0 4px 20px var(--shadow-color);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 1.2rem;
+        right: 0.5rem;
+        z-index: 1001;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid var(--border-color);
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        color: var(--accent-primary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 40px var(--shadow-color);
+        border-color: var(--accent-primary);
+      }
+
+      .theme-icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .theme-toggle:hover .theme-icon {
+        transform: rotate(180deg);
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 80px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary),
+          var(--accent-tertiary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.4));
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Market Status Bar */
+      .market-status-bar {
+        background: var(--bg-secondary);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        padding: 1rem 2rem;
+        margin: 2rem auto;
+        max-width: 1200px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px var(--shadow-color);
+        position: relative;
+        z-index: 2;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .status-item {
+        padding: 1rem;
+        background: var(--glass-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .status-label {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .status-value {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .status-change {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 0.3rem;
+      }
+
+      .positive {
+        color: var(--positive);
+      }
+      .negative {
+        color: var(--negative);
+      }
+      .neutral {
+        color: var(--warning);
+      }
+
+      /* Main Content */
+      .main-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem 4rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      /* Market Charts */
+      .market-charts {
+        background: var(--bg-card);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 20px 60px var(--shadow-color);
+      }
+
+      .chart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .chart-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .chart-controls {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .chart-btn {
+        padding: 0.5rem 1rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .chart-btn.active,
+      .chart-btn:hover {
+        background: rgba(43, 226, 180, 0.15);
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+      }
+
+      .chart-container {
+        height: 400px;
+        background: var(--glass-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .chart-placeholder {
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      /* Market Sidebar */
+      .market-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .sidebar-card {
+        background: var(--bg-card);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 15px 40px var(--shadow-color);
+      }
+
+      .sidebar-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .stock-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .stock-item:last-child {
+        border-bottom: none;
+      }
+
+      .stock-info {
+        flex: 1;
+      }
+
+      .stock-symbol {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .stock-name {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .stock-price {
+        text-align: right;
+        font-size: 0.9rem;
+      }
+
+      .price-value {
+        font-weight: 600;
+        display: block;
+      }
+
+      .price-change {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Market Tables */
+      .market-tables {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .table-card {
+        background: var(--bg-card);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 20px 60px var(--shadow-color);
+      }
+
+      .table-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .market-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .market-table th {
+        background: var(--glass-bg);
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 1rem 0.8rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .market-table td {
+        padding: 1rem 0.8rem;
+        border-bottom: 1px solid rgba(43, 226, 180, 0.1);
+        font-size: 0.9rem;
+      }
+
+      .market-table tr:hover {
+        background: var(--glass-bg);
+      }
+
+      .table-symbol {
+        font-weight: 600;
+      }
+
+      /* News Section */
+      .news-section {
+        background: var(--bg-card);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 20px 60px var(--shadow-color);
+        margin-bottom: 3rem;
+      }
+
+      .news-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .news-item {
+        background: var(--glass-bg);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .news-item:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .news-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.8rem;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .news-source {
+        font-weight: 500;
+      }
+
+      .news-time {
+        opacity: 0.8;
+      }
+
+      .news-headline {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-bottom: 0.8rem;
+      }
+
+      .news-summary {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* Back to Top */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 8px 30px var(--shadow-color);
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-4px) scale(1.1);
+        box-shadow: 0 20px 50px var(--shadow-color);
+      }
+
+      /* Animations */
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .live-indicator {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--positive);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        margin-right: 0.5rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .market-tables {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: var(--bg-tertiary);
+          backdrop-filter: blur(25px);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 2rem;
+          transition: left 0.3s ease;
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .status-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .chart-controls {
+          flex-wrap: wrap;
+        }
+
+        .market-table th,
+        .market-table td {
+          padding: 0.8rem 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .theme-toggle {
+          top: 1.2rem;
+          right: 1.5rem;
+          width: 45px;
+          height: 45px;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">IO Innovation Fund</div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Finance Tools</a></li>
+          <li><a href="/markets.html" class="active">Markets</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn">&#9776;</button>
+      </nav>
+    </header>
+
+    <!-- Theme Toggle -->
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      title="Toggle Light/Dark Mode"
+    >
+      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>SEA Markets</h1>
+        <p>
+          Live market data and comprehensive analysis of Southeast Asian
+          financial markets
+        </p>
+      </div>
+    </section>
+
+    <!-- Market Status Bar -->
+    <div class="market-status-bar">
+      <div class="status-grid">
+        <div class="status-item">
+          <div class="status-label">SET Index (Thailand)</div>
+          <div class="status-value positive">1,547.82</div>
+          <div class="status-change positive">+12.45 (+0.81%)</div>
+        </div>
+        <div class="status-item">
+          <div class="status-label">STI (Singapore)</div>
+          <div class="status-value positive">3,256.74</div>
+          <div class="status-change positive">+8.92 (+0.27%)</div>
+        </div>
+        <div class="status-item">
+          <div class="status-label">KLCI (Malaysia)</div>
+          <div class="status-value negative">1,634.19</div>
+          <div class="status-change negative">-5.33 (-0.32%)</div>
+        </div>
+        <div class="status-item">
+          <div class="status-label">PSEi (Philippines)</div>
+          <div class="status-value positive">6,892.45</div>
+          <div class="status-change positive">+23.67 (+0.34%)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="content-grid">
+        <!-- Market Charts -->
+        <div class="market-charts">
+          <div class="chart-header">
+            <h2 class="chart-title">
+              <span class="live-indicator"></span>
+              Live Market Overview
+            </h2>
+            <div class="chart-controls">
+              <button class="chart-btn active" onclick="changeTimeframe('1D')">
+                1D
+              </button>
+              <button class="chart-btn" onclick="changeTimeframe('1W')">
+                1W
+              </button>
+              <button class="chart-btn" onclick="changeTimeframe('1M')">
+                1M
+              </button>
+              <button class="chart-btn" onclick="changeTimeframe('3M')">
+                3M
+              </button>
+              <button class="chart-btn" onclick="changeTimeframe('1Y')">
+                1Y
+              </button>
+            </div>
+          </div>
+          <div class="chart-container" id="mainChart">
+            <div class="chart-placeholder">
+              <i
+                class="fas fa-chart-line"
+                style="
+                  font-size: 3rem;
+                  color: var(--accent-primary);
+                  margin-bottom: 1rem;
+                "
+              ></i>
+              <h3>Interactive Market Chart</h3>
+              <p>Real-time data visualization would appear here</p>
+              <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7">
+                Powered by live data feeds
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Market Sidebar -->
+        <div class="market-sidebar">
+          <!-- Top Gainers -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">
+              <i class="fas fa-arrow-up"></i>
+              Top Gainers
+            </h3>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">DBS</div>
+                <div class="stock-name">DBS Group</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">$35.24</span>
+                <span class="price-change positive">+2.87%</span>
+              </div>
+            </div>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">PTT</div>
+                <div class="stock-name">PTT PCL</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">₿42.50</span>
+                <span class="price-change positive">+2.41%</span>
+              </div>
+            </div>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">GENTING</div>
+                <div class="stock-name">Genting Berhad</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">RM5.68</span>
+                <span class="price-change positive">+1.98%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Losers -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">
+              <i class="fas fa-arrow-down"></i>
+              Top Losers
+            </h3>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">GRAB</div>
+                <div class="stock-name">Grab Holdings</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">$3.42</span>
+                <span class="price-change negative">-1.85%</span>
+              </div>
+            </div>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">SM</div>
+                <div class="stock-name">SM Investments</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">₱945.00</span>
+                <span class="price-change negative">-1.67%</span>
+              </div>
+            </div>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">MAYBANK</div>
+                <div class="stock-name">Malayan Banking</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">RM9.23</span>
+                <span class="price-change negative">-1.32%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Market Volume -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">
+              <i class="fas fa-chart-bar"></i>
+              Trading Volume
+            </h3>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">SET</div>
+                <div class="stock-name">Thailand</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">$2.1B</span>
+              </div>
+            </div>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">SGX</div>
+                <div class="stock-name">Singapore</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">$1.8B</span>
+              </div>
+            </div>
+            <div class="stock-item">
+              <div class="stock-info">
+                <div class="stock-symbol">KLSE</div>
+                <div class="stock-name">Malaysia</div>
+              </div>
+              <div class="stock-price">
+                <span class="price-value">$890M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Market Tables -->
+      <div class="market-tables">
+        <!-- Major Indices -->
+        <div class="table-card">
+          <h3 class="table-title">
+            <i class="fas fa-list"></i>
+            Major Indices
+          </h3>
+          <table class="market-table">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Value</th>
+                <th>Change</th>
+                <th>% Change</th>
+                <th>Volume</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-symbol">SET</td>
+                <td>1,547.82</td>
+                <td class="positive">+12.45</td>
+                <td class="positive">+0.81%</td>
+                <td>$2.1B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">STI</td>
+                <td>3,256.74</td>
+                <td class="positive">+8.92</td>
+                <td class="positive">+0.27%</td>
+                <td>$1.8B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">KLCI</td>
+                <td>1,634.19</td>
+                <td class="negative">-5.33</td>
+                <td class="negative">-0.32%</td>
+                <td>$890M</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">PSEi</td>
+                <td>6,892.45</td>
+                <td class="positive">+23.67</td>
+                <td class="positive">+0.34%</td>
+                <td>$1.2B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">VN-Index</td>
+                <td>1,234.56</td>
+                <td class="positive">+7.89</td>
+                <td class="positive">+0.64%</td>
+                <td>$456M</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Top Stocks -->
+        <div class="table-card">
+          <h3 class="table-title">
+            <i class="fas fa-star"></i>
+            Top Stocks by Market Cap
+          </h3>
+          <table class="market-table">
+            <thead>
+              <tr>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Change</th>
+                <th>% Change</th>
+                <th>Market Cap</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-symbol">DBS</td>
+                <td>$35.24</td>
+                <td class="positive">+0.98</td>
+                <td class="positive">+2.87%</td>
+                <td>$75.2B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">OCBC</td>
+                <td>$13.45</td>
+                <td class="positive">+0.12</td>
+                <td class="positive">+0.90%</td>
+                <td>$58.9B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">UOB</td>
+                <td>$29.67</td>
+                <td class="negative">-0.23</td>
+                <td class="negative">-0.77%</td>
+                <td>$54.1B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">PTT</td>
+                <td>₿42.50</td>
+                <td class="positive">+1.00</td>
+                <td class="positive">+2.41%</td>
+                <td>$41.3B</td>
+              </tr>
+              <tr>
+                <td class="table-symbol">CPALL</td>
+                <td>₿68.75</td>
+                <td class="positive">+0.50</td>
+                <td class="positive">+0.73%</td>
+                <td>$38.7B</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- News Section -->
+      <div class="news-section">
+        <h2 class="news-title">
+          <i class="fas fa-newspaper"></i>
+          Latest Market News
+        </h2>
+        <div class="news-grid">
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-source">Bloomberg</span>
+              <span class="news-time">2 hours ago</span>
+            </div>
+            <h4 class="news-headline">
+              Southeast Asian Markets Rally on Fed Policy Signals
+            </h4>
+            <p class="news-summary">
+              Regional indices surge as investors digest latest Federal Reserve
+              communications, with technology and banking sectors leading gains
+              across Thailand and Singapore markets.
+            </p>
+          </div>
+
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-source">Reuters</span>
+              <span class="news-time">4 hours ago</span>
+            </div>
+            <h4 class="news-headline">
+              Thai SET Index Breaks Through Key Resistance Level
+            </h4>
+            <p class="news-summary">
+              The Stock Exchange of Thailand composite index climbed above 1,540
+              points for the first time in three months, driven by strong
+              earnings reports from major conglomerates.
+            </p>
+          </div>
+
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-source">Nikkei Asia</span>
+              <span class="news-time">6 hours ago</span>
+            </div>
+            <h4 class="news-headline">
+              Singapore Banks Post Strong Q3 Results
+            </h4>
+            <p class="news-summary">
+              DBS, OCBC, and UOB report better-than-expected quarterly earnings,
+              boosting investor confidence in the city-state's financial sector
+              outlook.
+            </p>
+          </div>
+
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-source">The Edge Markets</span>
+              <span class="news-time">8 hours ago</span>
+            </div>
+            <h4 class="news-headline">
+              Malaysia's KLCI Faces Headwinds from Global Uncertainty
+            </h4>
+            <p class="news-summary">
+              The benchmark Kuala Lumpur Composite Index retreats as investors
+              weigh regional economic challenges against improving domestic
+              fundamentals.
+            </p>
+          </div>
+
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-source">Philippine Star</span>
+              <span class="news-time">10 hours ago</span>
+            </div>
+            <h4 class="news-headline">
+              PSE Index Gains on Infrastructure Spending Boost
+            </h4>
+            <p class="news-summary">
+              Philippine stocks advance as government announces expanded
+              infrastructure projects, benefiting construction and materials
+              companies listed on the exchange.
+            </p>
+          </div>
+
+          <div class="news-item">
+            <div class="news-meta">
+              <span class="news-source">VnExpress</span>
+              <span class="news-time">12 hours ago</span>
+            </div>
+            <h4 class="news-headline">
+              Vietnam Market Sees Foreign Investment Inflows
+            </h4>
+            <p class="news-summary">
+              Ho Chi Minh City stock exchange attracts significant foreign
+              capital as investors seek growth opportunities in the emerging
+              Southeast Asian market.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+      // Theme Toggle Functionality
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      const body = document.body;
+
+      // Load saved theme or default to dark
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      body.setAttribute("data-theme", savedTheme);
+      updateThemeIcon(savedTheme);
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        if (theme === "light") {
+          themeIcon.className = "theme-icon fas fa-moon";
+        } else {
+          themeIcon.className = "theme-icon fas fa-sun";
+        }
+      }
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Back to Top Button
+      const backToTop = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Chart Timeframe Controls
+      function changeTimeframe(timeframe) {
+        // Remove active class from all buttons
+        document.querySelectorAll(".chart-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        // Add active class to clicked button
+        event.target.classList.add("active");
+
+        // Update chart placeholder text
+        const chartPlaceholder = document.querySelector(
+          ".chart-placeholder h3"
+        );
+        chartPlaceholder.textContent = `Interactive Market Chart - ${timeframe}`;
+
+        // In a real implementation, this would update the actual chart data
+        console.log(`Switching to ${timeframe} timeframe`);
+      }
+
+      // Live Data Simulation
+      function simulateMarketData() {
+        const indices = [
+          { element: ".status-item:nth-child(1) .status-value", base: 1547.82 },
+          { element: ".status-item:nth-child(2) .status-value", base: 3256.74 },
+          { element: ".status-item:nth-child(3) .status-value", base: 1634.19 },
+          { element: ".status-item:nth-child(4) .status-value", base: 6892.45 },
+        ];
+
+        indices.forEach((index) => {
+          const element = document.querySelector(index.element);
+          if (element) {
+            // Simulate small price changes
+            const change = (Math.random() - 0.5) * 5;
+            const newValue = (index.base + change).toFixed(2);
+            element.textContent = newValue;
+
+            // Update the base value for next iteration
+            index.base = parseFloat(newValue);
+          }
+        });
+      }
+
+      // Simulate live data updates every 5 seconds
+      setInterval(simulateMarketData, 5000);
+
+      // Smooth Scrolling for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Add loading animation to chart
+      function showChartLoading() {
+        const chartContainer = document.querySelector(".chart-container");
+        chartContainer.innerHTML = `
+          <div class="chart-placeholder">
+            <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+            <h3>Loading Market Data...</h3>
+            <p>Fetching real-time updates</p>
+          </div>
+        `;
+
+        // Simulate loading complete after 2 seconds
+        setTimeout(() => {
+          chartContainer.innerHTML = `
+            <div class="chart-placeholder">
+              <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+              <h3>Interactive Market Chart</h3>
+              <p>Real-time data visualization would appear here</p>
+              <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">Powered by live data feeds</p>
+            </div>
+          `;
+        }, 2000);
+      }
+
+      // Initialize loading animation on page load
+      window.addEventListener("load", () => {
+        setTimeout(showChartLoading, 1000);
+      });
+
+      // News item click handlers
+      document.querySelectorAll(".news-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          const headline = this.querySelector(".news-headline").textContent;
+          console.log(`Opening news article: ${headline}`);
+          // In a real implementation, this would open the full article
+        });
+      });
+
+      // Add hover effects for stock items
+      document
+        .querySelectorAll(".stock-item, .market-table tr")
+        .forEach((item) => {
+          item.addEventListener("mouseenter", function () {
+            this.style.transform = "translateX(5px)";
+          });
+
+          item.addEventListener("mouseleave", function () {
+            this.style.transform = "translateX(0)";
+          });
+        });
+
+      // Market status real-time updates
+      function updateMarketStatus() {
+        const statusItems = document.querySelectorAll(".status-item");
+
+        statusItems.forEach((item) => {
+          const changeElement = item.querySelector(".status-change");
+          const valueElement = item.querySelector(".status-value");
+
+          if (changeElement && valueElement) {
+            // Simulate market volatility
+            const isPositive = Math.random() > 0.5;
+            const changeValue = (Math.random() * 20).toFixed(2);
+            const percentChange = (Math.random() * 2).toFixed(2);
+
+            changeElement.className = `status-change ${
+              isPositive ? "positive" : "negative"
+            }`;
+            changeElement.textContent = `${
+              isPositive ? "+" : "-"
+            }${changeValue} (${isPositive ? "+" : "-"}${percentChange}%)`;
+          }
+        });
+      }
+
+      // Update market status every 10 seconds
+      setInterval(updateMarketStatus, 10000);
+
+      // Add entrance animations
+      function addEntranceAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        });
+
+        document
+          .querySelectorAll(".sidebar-card, .table-card, .news-item")
+          .forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.6s ease";
+            observer.observe(el);
+          });
+      }
+
+      // Initialize animations when DOM is loaded
+      document.addEventListener("DOMContentLoaded", addEntranceAnimations);
+    </script>
+  </body>
+</html>
