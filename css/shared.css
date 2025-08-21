@@ -306,3 +306,10 @@ body::before {
     gap: 0.5rem;
   }
 }
+
+.nav-links a.active {
+  color: var(--accent-primary);
+  background: rgba(43, 226, 180, 0.15);
+  border-color: var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
