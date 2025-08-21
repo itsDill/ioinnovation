@@ -542,6 +542,49 @@
       .secret-link:hover {
         opacity: 1;
       }
+
+      /* Responsive Styles */
+      @media (max-width: 900px) {
+        .hero {
+          height: auto;
+          padding: 120px 2rem 80px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .stats-section {
+          margin: 0 auto 4rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .services-grid,
+        .posts-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-card {
+          padding: 2rem;
+        }
+
+        .cta-card h2 {
+          font-size: 2rem;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+      }
     </style>
   </head>
   <body data-theme="dark">
