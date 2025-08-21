@@ -546,7 +546,6 @@
         box-shadow: 0 15px 40px var(--shadow-color);
       }
 
-
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -559,50 +558,43 @@
         }
       }
 
-        .tools-grid {
-          grid-template-columns: 1fr;
-        }
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
 
-        .newsletter-form {
-          flex-direction: column;
-        }
+      .newsletter-form {
+        flex-direction: column;
+      }
 
-        .hero h1 {
-          font-size: 2.5rem;
-        }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
 
-        .newsletter h2 {
-          font-size: 2rem;
-        }
+      .newsletter h2 {
+        font-size: 2rem;
+      }
 
-        .theme-toggle {
-          top: 1.2rem;
-          right: 1.5rem;
-          width: 45px;
-          height: 45px;
-        }
+      .clock-grid {
+        grid-template-columns: 1fr;
+      }
 
-        .clock-grid {
-          grid-template-columns: 1fr;
-        }
+      .calc-inputs {
+        grid-template-columns: 1fr;
+      }
 
-        .calc-inputs {
-          grid-template-columns: 1fr;
-        }
+      .sentiment-overview {
+        grid-template-columns: 1fr;
+      }
 
-        .sentiment-overview {
-          grid-template-columns: 1fr;
-        }
-
-        .ipo-item {
-          grid-template-columns: 1fr;
-          text-align: center;
-          gap: 0.5rem;
-        }
+      .ipo-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0.5rem;
+      }
     </style>
   </head>
   <body data-theme="dark">
-        <!-- Header -->
+    <!-- Header -->
     <header class="header">
       <nav class="nav">
         <div class="logo">IO Innovation Fund</div>
@@ -626,8 +618,6 @@
       id="themeToggle"
       title="Toggle Light/Dark Mode"
     >
-      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
-    </button>
       <i class="theme-icon fas fa-sun" id="themeIcon"></i>
     </button>
 
@@ -1055,8 +1045,6 @@
         PHP: { USD: 0.018, SGD: 0.024, THB: 0.65, MYR: 0.083 },
       };
 
-
-
       // Market clocks functionality
       function updateMarketClocks() {
         Object.keys(markets).forEach((marketKey) => {
@@ -1255,7 +1243,6 @@
           event.target.reset();
         }, 1000);
       }
-
 
       // Initialize market clocks
       updateMarketClocks();
