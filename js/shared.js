@@ -44,3 +44,11 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
     body.classList.remove("menu-open");
   });
 });
+
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  if (window.location.pathname.endsWith(link.getAttribute("href"))) {
+    link.classList.add("active");
+  } else {
+    link.classList.remove("active");
+  }
+});
