@@ -636,61 +636,6 @@
         box-shadow: 0 15px 40px var(--shadow-color);
       }
 
-      /* Footer */
-      .footer {
-        background: var(--bg-secondary);
-        backdrop-filter: blur(20px);
-        border-top: 1px solid var(--border-color);
-        padding: 2rem;
-        text-align: center;
-        color: var(--text-secondary);
-      }
-
-      .secret-link {
-        color: var(--text-secondary);
-        text-decoration: none;
-        margin-left: 1rem;
-        opacity: 0.3;
-        transition: opacity 0.3s ease;
-      }
-
-      .secret-link:hover {
-        opacity: 1;
-      }
-
-      /* Back to Top */
-      .back-to-top {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-secondary)
-        );
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        transform: translateY(100px);
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 8px 30px var(--shadow-color);
-      }
-
-      .back-to-top.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .back-to-top:hover {
-        transform: translateY(-4px) scale(1.1);
-        box-shadow: 0 20px 50px var(--shadow-color);
-      }
-
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -703,26 +648,8 @@
         }
       }
 
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: var(--bg-tertiary);
-          backdrop-filter: blur(25px);
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 2rem;
-          transition: left 0.3s ease;
-        }
-
-        .nav-links.active {
-          left: 0;
-        }
-
+      /* Responsive Styles */
+      @media (max-width: 900px) {
         .mobile-menu-btn {
           display: block;
         }
@@ -1267,32 +1194,6 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = document.getElementById("themeIcon");
-      const body = document.body;
-
-      function setTheme(theme) {
-        body.setAttribute("data-theme", theme);
-        if (theme === "light") {
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        } else {
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        }
-        localStorage.setItem("theme", theme);
-      }
-
-      themeToggle.addEventListener("click", () => {
-        const currentTheme = body.getAttribute("data-theme");
-        setTheme(currentTheme === "dark" ? "light" : "dark");
-      });
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) setTheme(savedTheme);
-    </script>
     <script src="../js/shared.js"></script>
   </body>
 </html>

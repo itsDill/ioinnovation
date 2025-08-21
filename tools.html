@@ -546,79 +546,6 @@
         box-shadow: 0 15px 40px var(--shadow-color);
       }
 
-      /* Footer */
-      .footer {
-        background: var(--bg-secondary);
-        backdrop-filter: blur(20px);
-        border-top: 1px solid var(--border-color);
-        padding: 2rem;
-        text-align: center;
-        color: var(--text-secondary);
-      }
-
-      .secret-link {
-        color: var(--text-secondary);
-        text-decoration: none;
-        margin-left: 1rem;
-        opacity: 0.3;
-        transition: opacity 0.3s ease;
-      }
-
-      .secret-link:hover {
-        opacity: 1;
-      }
-
-      .share-button {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: var(--glass-bg);
-        color: var(--text-secondary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      .share-button:hover {
-        background: var(--accent-primary);
-        color: white;
-        transform: scale(1.1);
-      }
-
-      /* Back to Top */
-      .back-to-top {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-secondary)
-        );
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        transform: translateY(100px);
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 8px 30px var(--shadow-color);
-      }
-
-      .back-to-top.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .back-to-top:hover {
-        transform: translateY(-4px) scale(1.1);
-        box-shadow: 0 20px 50px var(--shadow-color);
-      }
 
       /* Animations */
       @keyframes fadeInUp {
@@ -631,30 +558,6 @@
           transform: translateY(0);
         }
       }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: var(--bg-tertiary);
-          backdrop-filter: blur(25px);
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 2rem;
-          transition: left 0.3s ease;
-        }
-
-        .nav-links.active {
-          left: 0;
-        }
-
-        .mobile-menu-btn {
-          display: block;
-        }
 
         .tools-grid {
           grid-template-columns: 1fr;
@@ -696,7 +599,6 @@
           text-align: center;
           gap: 0.5rem;
         }
-      }
     </style>
   </head>
   <body data-theme="dark">
@@ -1153,39 +1055,7 @@
         PHP: { USD: 0.018, SGD: 0.024, THB: 0.65, MYR: 0.083 },
       };
 
-      // Theme toggle functionality
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = document.getElementById("themeIcon");
-      const body = document.body;
 
-      themeToggle.addEventListener("click", () => {
-        const currentTheme = body.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-        body.setAttribute("data-theme", newTheme);
-        themeIcon.className =
-          newTheme === "dark"
-            ? "theme-icon fas fa-sun"
-            : "theme-icon fas fa-moon";
-
-        localStorage.setItem("theme", newTheme);
-      });
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem("theme") || "dark";
-      body.setAttribute("data-theme", savedTheme);
-      themeIcon.className =
-        savedTheme === "dark"
-          ? "theme-icon fas fa-sun"
-          : "theme-icon fas fa-moon";
-
-      // Mobile menu toggle
-      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-      const navLinks = document.querySelector(".nav-links");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
 
       // Market clocks functionality
       function updateMarketClocks() {
@@ -1386,20 +1256,6 @@
         }, 1000);
       }
 
-      // Back to top functionality
-      const backToTop = document.getElementById("backToTop");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add("visible");
-        } else {
-          backToTop.classList.remove("visible");
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
 
       // Initialize market clocks
       updateMarketClocks();

@@ -463,26 +463,6 @@
         .market-tables {
           grid-template-columns: 1fr;
         }
-      }
-
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: var(--bg-tertiary);
-          backdrop-filter: blur(25px);
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 2rem;
-          transition: left 0.3s ease;
-        }
-
-        .nav-links.active {
-          left: 0;
-        }
 
         .mobile-menu-btn {
           display: block;
@@ -984,41 +964,6 @@
 
     <!-- JavaScript -->
     <script>
-      // Theme Toggle Functionality
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = document.getElementById("themeIcon");
-      const body = document.body;
-
-      // Load saved theme or default to dark
-      const savedTheme = localStorage.getItem("theme") || "dark";
-      body.setAttribute("data-theme", savedTheme);
-      updateThemeIcon(savedTheme);
-
-      themeToggle.addEventListener("click", () => {
-        const currentTheme = body.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-        body.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        updateThemeIcon(newTheme);
-      });
-
-      function updateThemeIcon(theme) {
-        if (theme === "light") {
-          themeIcon.className = "theme-icon fas fa-moon";
-        } else {
-          themeIcon.className = "theme-icon fas fa-sun";
-        }
-      }
-
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-      const navLinks = document.querySelector(".nav-links");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
       // Back to Top Button
       const backToTop = document.getElementById("backToTop");
 

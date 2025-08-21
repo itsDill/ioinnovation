@@ -576,28 +576,8 @@
         box-shadow: 0 20px 50px var(--shadow-color);
       }
 
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: var(--bg-tertiary);
-          backdrop-filter: blur(25px);
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 2rem;
-          transition: left 0.3s ease;
-          z-index: 1002;
-          display: flex;
-        }
-
-        .nav-links.open {
-          left: 0;
-        }
-
+      /* Responsive Styles */
+      @media (max-width: 900px) {
         .mobile-menu-btn {
           display: block;
         }
