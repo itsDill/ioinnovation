@@ -317,13 +317,22 @@
           background: var(--bg-tertiary);
           flex-direction: column;
           gap: 1.5rem;
-          padding: 4rem 2rem 2rem 2rem;
+          padding: 5rem 2rem 2rem 2rem; /* Increased top padding */
           box-shadow: -8px 0 32px var(--shadow-color);
           transition: right 0.3s ease;
           z-index: 2000;
         }
         .nav-links.open {
           right: 0;
+        }
+        .close-menu-btn {
+          background: none;
+          border: none;
+          color: var(--accent-primary);
+          font-size: 2rem;
+          align-self: flex-end;
+          margin-bottom: 1rem;
+          cursor: pointer;
         }
         .mobile-menu-btn {
           display: block;
@@ -348,6 +357,9 @@
       <nav class="nav">
         <div class="logo">IO Innovation Fund</div>
         <ul class="nav-links" id="mobileNav">
+          <li>
+            <button class="close-menu-btn" id="closeMenuBtn">&times;</button>
+          </li>
           <li><a href="/index.html">Home</a></li>
           <li><a href="/tools.html">Finance Tools</a></li>
           <li><a href="/markets.html">Markets</a></li>
@@ -399,6 +411,29 @@
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const body = document.body;
+
+    // Mobile Menu Functionality
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+    menuBtn.addEventListener("click", () => {
+      mobileNav.classList.add("open");
+      body.classList.add("menu-open");
+    });
+
+    closeMenuBtn.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+      body.classList.remove("menu-open");
+    });
+
+    // Close menu when clicking a link
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("open");
+        body.classList.remove("menu-open");
+      });
+    });
 
     // Load saved theme or default to dark
     const savedTheme = localStorage.getItem("theme") || "dark";
