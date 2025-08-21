@@ -980,33 +980,6 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-      // Back to Top Button
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add("visible");
-        } else {
-          backToTop.classList.remove("visible");
-        }
-      });
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // Newsletter Form (basic validation)
-      document
-        .getElementById("newsletterForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const email = this.querySelector('input[type="email"]').value;
-          if (email) {
-            alert("Thank you for subscribing!");
-            this.reset();
-          }
-        });
-    </script>
-
     <script src="../js/shared.js"></script>
   </body>
 </html>
