@@ -982,24 +982,6 @@
     </button>
 
     <script>
-      // Theme Toggle
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = document.getElementById("themeIcon");
-      themeToggle.addEventListener("click", () => {
-        const body = document.body;
-        const isDark = body.getAttribute("data-theme") === "dark";
-        body.setAttribute("data-theme", isDark ? "light" : "dark");
-        themeIcon.classList.toggle("fa-sun", !isDark);
-        themeIcon.classList.toggle("fa-moon", isDark);
-      });
-
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-      const navLinks = document.querySelector(".nav-links");
-      mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
       // Back to Top Button
       const backToTop = document.getElementById("backToTop");
       window.addEventListener("scroll", () => {
