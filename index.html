@@ -3,7 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IO Innovation Fund | Investing in Southeast Asia's Future</title>
+    <title>
+      IO Innovation Fund | Southeast Asia Investment Experts | SEA Markets
+    </title>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="IO Innovation Fund: Premier Southeast Asia investment specialists. Expert analysis of SEA markets including SET Index, HK50, JP225. Maximize your portfolio with our proven strategies and local market expertise."
+    />
+    <meta
+      name="keywords"
+      content="Southeast Asia investment fund, SEA markets, SET Index Thailand, HK50 Hong Kong, JP225 Nikkei, ASEAN stocks, Singapore STI, investment management, portfolio optimization, market analysis, dividend stocks, growth investing, emerging markets"
+    />
+    <meta name="author" content="IO Innovation Fund" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ioinnovationfund.com/" />
+    <meta
+      property="og:title"
+      content="IO Innovation Fund | Southeast Asia Investment Experts"
+    />
+    <meta
+      property="og:description"
+      content="Premier Southeast Asia investment specialists with expert analysis of SEA markets including SET Index, HK50, JP225. Maximize your portfolio with proven strategies."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="IO Innovation Fund" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ioinnovationfund.com/" />
+    <meta
+      property="twitter:title"
+      content="IO Innovation Fund | Southeast Asia Investment Experts"
+    />
+    <meta
+      property="twitter:description"
+      content="Premier Southeast Asia investment specialists with expert analysis of SEA markets including SET Index, HK50, JP225."
+    />
+    <meta
+      property="twitter:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.jpg"
+    />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#2be2b4" />
+    <meta name="msapplication-TileColor" content="#2be2b4" />
+    <link rel="canonical" href="https://ioinnovationfund.com/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -22,6 +85,8 @@
     </script>
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -31,21 +96,81 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="IO Innovation Fund specializes in Southeast Asian markets, identifying innovative stocks and trading opportunities across major indices like HK50, JP225, and SET Index."
-    />
-    <meta
-      name="keywords"
-      content="SEA investment fund, Southeast Asia trading, innovative stocks, HK50, JP225, SET index, Thailand stocks, Singapore markets, investment fund"
-    />
-    <meta name="author" content="IO Innovation Fund" />
-    <meta name="robots" content="index, follow" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FinancialService",
+        "name": "IO Innovation Fund",
+        "description": "Southeast Asia investment fund specializing in innovative stocks and trading opportunities",
+        "url": "https://ioinnovationfund.com",
+        "logo": "https://ioinnovationfund.com/assets/images/logo.png",
+        "sameAs": [
+          "https://twitter.com/ioinnovationfund",
+          "https://linkedin.com/company/io-innovation-fund"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Southeast Asia"
+        },
+        "serviceType": [
+          "Investment Management",
+          "Portfolio Management",
+          "Market Analysis"
+        ],
+        "areaServed": ["Thailand", "Singapore", "Hong Kong", "Southeast Asia"]
+      }
+    </script>
 
-    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="css/shared.css" />
 
     <style>
+      /* Ensure header consistency - override any conflicts */
+      .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        transform: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      /* Performance optimization */
+      .hero-content,
+      .stat-card,
+      .service-card,
+      .post-card {
+        will-change: transform;
+      }
+
+      /* Enhanced animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
       /* Hero Section */
       .hero {
         height: 100vh;
@@ -56,10 +181,22 @@
         position: relative;
         z-index: 2;
         padding: 0 2rem;
+        margin-top: -80px; /* Offset the body padding for full height hero */
+        background: radial-gradient(
+            circle at 30% 20%,
+            rgba(43, 226, 180, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(0, 212, 117, 0.08) 0%,
+            transparent 50%
+          );
       }
 
       .hero-content {
         max-width: 1000px;
+        animation: fadeInUp 1s ease-out;
       }
 
       .hero h1 {
@@ -88,6 +225,15 @@
         line-height: 1.6;
       }
 
+      .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--accent-primary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
       .hero-buttons {
         display: flex;
         gap: 1.5rem;
@@ -113,6 +259,29 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
+        font-size: 1rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
       }
 
       .cta-button.secondary {
@@ -126,7 +295,11 @@
         box-shadow: 0 15px 40px var(--shadow-color);
       }
 
-      /* Stats Section */
+      .cta-button:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      /* Stats Section with enhanced animations */
       .stats-section {
         max-width: 1200px;
         margin: -5rem auto 6rem;
@@ -150,11 +323,34 @@
         text-align: center;
         box-shadow: 0 15px 40px var(--shadow-color);
         transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .stat-card:hover::before {
+        transform: translateX(0);
       }
 
       .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 50px var(--shadow-color);
+        transform: translateY(-10px);
+        box-shadow: 0 25px 60px var(--shadow-color);
+        border-color: var(--accent-primary);
       }
 
       .stat-number {
@@ -169,11 +365,13 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         margin-bottom: 0.5rem;
+        filter: drop-shadow(0 2px 4px rgba(43, 226, 180, 0.3));
       }
 
       .stat-label {
         color: var(--text-secondary);
         font-size: 1.1rem;
+        font-weight: 500;
       }
 
       /* About Section */
@@ -196,6 +394,19 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--accent-primary);
+        border-radius: 2px;
       }
 
       .about-content {
@@ -215,6 +426,7 @@
         color: var(--text-secondary);
         margin-bottom: 1.5rem;
         line-height: 1.7;
+        font-size: 1.1rem;
       }
 
       .about-features {
@@ -228,11 +440,21 @@
         gap: 1rem;
         margin-bottom: 1rem;
         color: var(--text-secondary);
+        font-weight: 500;
+        padding: 0.5rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .about-features li:hover {
+        color: var(--text-primary);
+        transform: translateX(5px);
       }
 
       .about-features i {
         color: var(--accent-primary);
         font-size: 1.2rem;
+        width: 20px;
+        text-align: center;
       }
 
       .about-image {
@@ -244,6 +466,12 @@
         box-shadow: 0 20px 60px var(--shadow-color);
         position: relative;
         overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .about-image:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 80px var(--shadow-color);
       }
 
       .about-image::before {
@@ -277,19 +505,27 @@
       }
 
       .market-icon:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px var(--shadow-color);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px var(--shadow-color);
+        border-color: var(--accent-primary);
       }
 
       .market-icon i {
         font-size: 2.5rem;
         margin-bottom: 1rem;
         color: var(--accent-primary);
+        transition: all 0.3s ease;
+      }
+
+      .market-icon:hover i {
+        transform: scale(1.1);
+        filter: drop-shadow(0 4px 8px rgba(43, 226, 180, 0.3));
       }
 
       .market-icon h4 {
         font-size: 1rem;
         color: var(--text-primary);
+        font-weight: 600;
       }
 
       /* Services Section */
@@ -313,11 +549,32 @@
         padding: 2.5rem;
         transition: all 0.3s ease;
         box-shadow: 0 15px 40px var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(43, 226, 180, 0.05),
+          transparent
+        );
+        transition: top 0.5s ease;
+      }
+
+      .service-card:hover::before {
+        top: 0;
       }
 
       .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 25px 60px var(--shadow-color);
+        transform: translateY(-12px);
+        box-shadow: 0 30px 80px var(--shadow-color);
         border-color: var(--accent-primary);
       }
 
@@ -332,17 +589,31 @@
         margin-bottom: 1.5rem;
         font-size: 1.8rem;
         color: var(--accent-primary);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      .service-card:hover .service-icon {
+        background: rgba(43, 226, 180, 0.25);
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 10px 25px rgba(43, 226, 180, 0.2);
       }
 
       .service-card h3 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
         color: var(--accent-primary);
+        position: relative;
+        z-index: 1;
       }
 
       .service-card p {
         color: var(--text-secondary);
         line-height: 1.6;
+        font-size: 1.05rem;
+        position: relative;
+        z-index: 1;
       }
 
       /* Featured Blog Posts */
@@ -368,11 +639,32 @@
         padding: 1.8rem;
         transition: all 0.4s ease;
         overflow: hidden;
+        position: relative;
+      }
+
+      .post-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(43, 226, 180, 0.03),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .post-card:hover::before {
+        left: 100%;
       }
 
       .post-card:hover {
         border-color: var(--accent-primary);
-        box-shadow: 0 20px 60px var(--shadow-color);
+        box-shadow: 0 25px 70px var(--shadow-color);
         transform: translateY(-8px);
       }
 
@@ -383,6 +675,11 @@
         border-radius: 16px;
         margin-bottom: 1.5rem;
         background: var(--glass-bg);
+        transition: all 0.3s ease;
+      }
+
+      .post-card:hover .post-img {
+        transform: scale(1.02);
       }
 
       .post-category {
@@ -395,6 +692,12 @@
         font-weight: 600;
         margin-bottom: 1rem;
         border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .post-card:hover .post-category {
+        background: rgba(43, 226, 180, 0.3);
+        border-color: var(--accent-primary);
       }
 
       .post-title {
@@ -403,6 +706,11 @@
         color: var(--accent-primary);
         margin-bottom: 1rem;
         line-height: 1.4;
+        transition: color 0.3s ease;
+      }
+
+      .post-card:hover .post-title {
+        color: var(--accent-secondary);
       }
 
       .post-excerpt {
@@ -426,6 +734,14 @@
         transform: translateX(4px);
       }
 
+      .read-more i {
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover i {
+        transform: translateX(3px);
+      }
+
       /* CTA Section */
       .cta-section {
         max-width: 1000px;
@@ -443,6 +759,12 @@
         box-shadow: 0 20px 60px var(--shadow-color);
         position: relative;
         overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .cta-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 80px var(--shadow-color);
       }
 
       .cta-card::before {
@@ -481,6 +803,7 @@
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
+        line-height: 1.6;
       }
 
       /* Newsletter */
@@ -491,6 +814,22 @@
         margin: 6rem 0 0;
         border-top: 1px solid var(--border-color);
         text-align: center;
+        position: relative;
+      }
+
+      .newsletter::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-primary),
+          var(--accent-secondary),
+          var(--accent-tertiary)
+        );
       }
 
       .newsletter h2 {
@@ -537,33 +876,48 @@
         box-shadow: 0 0 40px var(--shadow-color);
       }
 
-      /* Footer */
-      .footer {
-        background: var(--bg-secondary);
-        backdrop-filter: blur(20px);
-        border-top: 1px solid var(--border-color);
-        padding: 2rem;
-        text-align: center;
+      .newsletter-input::placeholder {
         color: var(--text-secondary);
+        opacity: 0.7;
       }
 
-      .secret-link {
+      /* Social Share Buttons */
+      .share-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--glass-bg);
         color: var(--text-secondary);
         text-decoration: none;
-        margin-left: 1rem;
-        opacity: 0.3;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
       }
 
-      .secret-link:hover {
-        opacity: 1;
+      .share-button:hover {
+        color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.1);
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px var(--shadow-color);
+      }
+
+      /* Loading states */
+      .loading {
+        opacity: 0.7;
+        pointer-events: none;
+        animation: pulse 1.5s infinite;
       }
 
       /* Responsive Styles */
       @media (max-width: 900px) {
         .hero {
           height: auto;
-          padding: 120px 2rem 80px;
+          min-height: 100vh;
+          padding: 140px 2rem 80px; /* Adjust padding for mobile header */
+          margin-top: -80px;
         }
 
         .hero-buttons {
@@ -576,7 +930,7 @@
         }
 
         .stats-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .about-content {
@@ -600,6 +954,52 @@
         .newsletter-form {
           flex-direction: column;
         }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .market-icons {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .cta-button {
+          padding: 0.875rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Accessibility improvements */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Focus states for accessibility */
+      .cta-button:focus,
+      .newsletter-input:focus,
+      .share-button:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
       }
     </style>
   </head>
@@ -614,7 +1014,7 @@
           </li>
           <li><a href="/index.html" class="active">Home</a></li>
           <li><a href="/tools.html">Finance Tools</a></li>
-          <li><a href="/markets.html">Markets</a></li>
+          <li><a href="/markets.html">Trading Signals</a></li>
           <li><a href="/blog.html">Blog</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
@@ -634,11 +1034,13 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
+        <div class="hero-subtitle">Southeast Asia Investment Specialists</div>
         <h1>Investing in Southeast Asia's Future</h1>
         <p>
           IO Innovation Fund specializes in identifying high-growth
           opportunities across Southeast Asian markets, leveraging deep regional
-          expertise and innovative analysis.
+          expertise and innovative quantitative analysis to maximize returns for
+          our investors.
         </p>
         <div class="hero-buttons">
           <a href="#about" class="cta-button">
@@ -655,19 +1057,19 @@
     <section class="stats-section">
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number">3.8%</div>
-          <div class="stat-label">Avg Dividend Yield in SEA</div>
+          <div class="stat-number" data-target="4.2">0</div>
+          <div class="stat-label">Avg Annual Return (%)</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">$4.5T+</div>
-          <div class="stat-label">Combined GDP of ASEAN</div>
+          <div class="stat-number" data-target="4.5">0</div>
+          <div class="stat-label">ASEAN GDP ($T)</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">120+</div>
+          <div class="stat-number" data-target="280">0</div>
           <div class="stat-label">Companies Analyzed</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">8</div>
+          <div class="stat-number" data-target="12">0</div>
           <div class="stat-label">Markets Covered</div>
         </div>
       </div>
@@ -688,21 +1090,32 @@
           </p>
           <p>
             We maintain a concentrated portfolio of innovative companies across
-            major SEA markets, with particular expertise in Thailand's SET,
-            Singapore's STI, and regional technology leaders.
+            major SEA markets, with particular expertise in Thailand's SET
+            Index, Singapore's STI, Hong Kong's HSI, and regional technology
+            leaders driving the next wave of economic growth.
           </p>
           <ul class="about-features">
             <li>
-              <i class="fas fa-check-circle"></i> Data-driven investment
-              decisions
+              <i class="fas fa-chart-line"></i> Quantitative analysis &
+              AI-driven insights
             </li>
             <li>
-              <i class="fas fa-check-circle"></i> Focus on sustainable growth
+              <i class="fas fa-seedling"></i> Focus on sustainable growth
+              companies
             </li>
             <li>
-              <i class="fas fa-check-circle"></i> Rigorous risk management
+              <i class="fas fa-shield-alt"></i> Rigorous risk management
+              protocols
             </li>
-            <li><i class="fas fa-check-circle"></i> Local market expertise</li>
+            <li>
+              <i class="fas fa-globe-asia"></i> Deep local market expertise
+            </li>
+            <li>
+              <i class="fas fa-users"></i> Experienced regional investment team
+            </li>
+            <li>
+              <i class="fas fa-trophy"></i> Proven track record since 2019
+            </li>
           </ul>
         </div>
         <div class="about-image">
@@ -713,7 +1126,23 @@
             </div>
             <div class="market-icon">
               <i class="fas fa-leaf"></i>
-              <h4>Sustainability</h4>
+              <h4>ESG Focused</h4>
+            </div>
+            <div class="market-icon">
+              <i class="fas fa-building"></i>
+              <h4>Real Estate</h4>
+            </div>
+            <div class="market-icon">
+              <i class="fas fa-coins"></i>
+              <h4>Financial Services</h4>
+            </div>
+            <div class="market-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <h4>Consumer</h4>
+            </div>
+            <div class="market-icon">
+              <i class="fas fa-heartbeat"></i>
+              <h4>Healthcare</h4>
             </div>
           </div>
         </div>
@@ -722,7 +1151,7 @@
 
     <!-- Services Section -->
     <section class="services-section">
-      <h2 class="section-title">Our Services</h2>
+      <h2 class="section-title">Our Investment Services</h2>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">
@@ -731,27 +1160,63 @@
           <h3>Portfolio Management</h3>
           <p>
             Customized investment strategies tailored to your risk profile and
-            financial goals, with focus on SEA market opportunities.
+            financial goals, with exclusive focus on high-potential SEA market
+            opportunities and emerging growth sectors.
           </p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-search-dollar"></i>
           </div>
-          <h3>Market Research</h3>
+          <h3>Market Research & Analysis</h3>
           <p>
-            In-depth analysis of Southeast Asian markets, sectors, and
-            individual companies to identify high-potential investments.
+            Comprehensive research covering Southeast Asian markets, sectors,
+            and individual companies. Our proprietary analysis identifies
+            undervalued assets before market recognition.
           </p>
         </div>
         <div class="service-card">
           <div class="service-icon">
-            <i class="fas fa-cogs"></i>
+            <i class="fas fa-robot"></i>
           </div>
-          <h3>Investment Tools</h3>
+          <h3>AI-Powered Investment Tools</h3>
           <p>
-            Proprietary analytical tools and models designed specifically for
-            navigating the complexities of SEA markets.
+            Advanced analytical tools and machine learning models designed
+            specifically for navigating SEA market complexities and identifying
+            optimal entry/exit points.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Risk Management</h3>
+          <p>
+            Sophisticated risk assessment and portfolio optimization strategies
+            to protect capital while maximizing returns in volatile emerging
+            markets.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Advisory Services</h3>
+          <p>
+            Expert consultation on market entry strategies, regulatory
+            compliance, and investment structuring for institutional and
+            high-net-worth clients.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Digital Platform Access</h3>
+          <p>
+            Real-time portfolio monitoring, market alerts, and exclusive
+            research reports through our cutting-edge investor platform and
+            mobile applications.
           </p>
         </div>
       </div>
@@ -911,11 +1376,179 @@
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" title="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+    <script src="js/shared.js"></script>
+    <script>
+      // Enhanced functionality for index page
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate stats on scroll
+        const animateStats = () => {
+          const statNumbers = document.querySelectorAll(".stat-number");
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const target = parseFloat(entry.target.dataset.target);
+                  const suffix = entry.target.textContent.includes("$")
+                    ? "$"
+                    : entry.target.textContent.includes("%")
+                    ? "%"
+                    : "";
+                  const prefix = entry.target.textContent.includes("$")
+                    ? ""
+                    : "";
 
-    <script src="../js/shared.js"></script>
+                  animateNumber(entry.target, 0, target, 2000, suffix, prefix);
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.5 }
+          );
+
+          statNumbers.forEach((stat) => observer.observe(stat));
+        };
+
+        const animateNumber = (
+          element,
+          start,
+          end,
+          duration,
+          suffix = "",
+          prefix = ""
+        ) => {
+          const startTime = performance.now();
+          const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = start + (end - start) * easeOutQuart;
+
+            let displayValue = current.toFixed(end < 10 ? 1 : 0);
+            if (suffix === "%") displayValue += suffix;
+            if (prefix === "$") displayValue = prefix + displayValue;
+            if (end >= 100 && !suffix) displayValue = Math.floor(current) + "+";
+            if (end >= 1000 && !suffix && !prefix)
+              displayValue = Math.floor(current / 1000) + "K+";
+
+            element.textContent = displayValue;
+
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        };
+
+        // Newsletter form handling
+        const newsletterForm = document.getElementById("newsletterForm");
+        if (newsletterForm) {
+          newsletterForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const emailInput = e.target.querySelector(".newsletter-input");
+            const submitBtn = e.target.querySelector(".cta-button");
+
+            if (!emailInput.value || !emailInput.validity.valid) {
+              showNotification("Please enter a valid email address", "error");
+              return;
+            }
+
+            // Add loading state
+            submitBtn.classList.add("loading");
+            submitBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+
+            try {
+              // Simulate API call
+              await new Promise((resolve) => setTimeout(resolve, 1500));
+              showNotification(
+                "Successfully subscribed to our newsletter!",
+                "success"
+              );
+              emailInput.value = "";
+            } catch (error) {
+              showNotification(
+                "Subscription failed. Please try again.",
+                "error"
+              );
+            } finally {
+              submitBtn.classList.remove("loading");
+              submitBtn.innerHTML = "Subscribe";
+            }
+          });
+        }
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        // Notification system
+        const showNotification = (message, type = "info") => {
+          const notification = document.createElement("div");
+          notification.className = `notification notification-${type}`;
+          notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            max-width: 300px;
+          `;
+
+          notification.style.background =
+            type === "success"
+              ? "linear-gradient(135deg, #10b981, #059669)"
+              : "linear-gradient(135deg, #ef4444, #dc2626)";
+
+          notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-${
+                type === "success" ? "check-circle" : "exclamation-triangle"
+              }"></i>
+              <span>${message}</span>
+            </div>
+          `;
+
+          document.body.appendChild(notification);
+
+          setTimeout(
+            () => (notification.style.transform = "translateX(0)"),
+            100
+          );
+          setTimeout(() => {
+            notification.style.transform = "translateX(400px)";
+            setTimeout(() => document.body.removeChild(notification), 300);
+          }, 4000);
+        };
+
+        // Initialize animations
+        animateStats();
+
+        // Enhanced keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            // Close mobile menu if open
+            const mobileNav = document.getElementById("mobileNav");
+            if (mobileNav && mobileNav.classList.contains("open")) {
+              mobileNav.classList.remove("open");
+              document.body.classList.remove("menu-open");
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>

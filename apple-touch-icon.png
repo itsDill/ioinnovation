@@ -1,0 +1,6 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="30" fill="#0a1f1a"/>
+  <path d="M45 67.5h22.5V112.5H45V67.5zm33.75-22.5h22.5v67.5h-22.5V45zm33.75 33.75h22.5V112.5h-22.5V78.75z" fill="#2be2b4"/>
+  <circle cx="146.25" cy="33.75" r="11.25" fill="#40ffa0"/>
+  <text x="90" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="800" fill="#2be2b4">IO</text>
+</svg>

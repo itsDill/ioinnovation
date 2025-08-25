@@ -97,6 +97,18 @@
     <script src="../js/shared.js"></script>
 
     <style>
+      /* Ensure header consistency - override any conflicts */
+      .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        transform: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
       /* Inherit all styles from the previous article */
       /* Breadcrumbs */
       .breadcrumbs {
@@ -1655,11 +1667,6 @@
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
     <!-- Add Chart.js and chart script before closing body tag -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -1709,24 +1716,6 @@
 
       mobileMenuBtn.addEventListener("click", () => {
         navLinks.classList.toggle("active");
-      });
-
-      // Back to Top Button
-      const backToTopBtn = document.getElementById("backToTop");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTopBtn.classList.add("visible");
-        } else {
-          backToTopBtn.classList.remove("visible");
-        }
-      });
-
-      backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
       });
 
       // Reading Progress Bar

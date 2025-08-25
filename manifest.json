@@ -1,0 +1,25 @@
+{
+  "name": "IO Innovation Fund - Southeast Asia Investment",
+  "short_name": "IO Innovation Fund",
+  "description": "Premier Southeast Asia investment specialists with expert analysis of SEA markets",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1f1a",
+  "theme_color": "#2be2b4",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["finance", "business", "investment"],
+  "lang": "en",
+  "orientation": "portrait"
+}
