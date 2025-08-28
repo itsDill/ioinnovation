@@ -37,17 +37,37 @@ const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
 
-menuBtn?.addEventListener("click", (e) => {
-  e.stopPropagation();
+function openMobileMenu() {
   mobileNav?.classList.add("open");
   body.classList.add("menu-open");
+  menuBtn?.classList.add("active");
 
   // Focus management for accessibility
-  const firstLink = mobileNav.querySelector("a");
-  if (firstLink) firstLink.focus();
+  setTimeout(() => {
+    const firstLink = mobileNav.querySelector("a:not(.close-menu-btn)");
+    if (firstLink) firstLink.focus();
+  }, 100);
+
+  // Add haptic feedback on supported devices
+  if ("vibrate" in navigator) {
+    navigator.vibrate(25);
+  }
+}
+
+function closeMobileMenu() {
+  mobileNav?.classList.remove("open");
+  body.classList.remove("menu-open");
+  menuBtn?.classList.remove("active");
+  menuBtn?.focus(); // Return focus to menu button
+}
+
+menuBtn?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  openMobileMenu();
 });
 
-closeMenuBtn?.addEventListener("click", () => {
+closeMenuBtn?.addEventListener("click", (e) => {
+  e.stopPropagation();
   closeMobileMenu();
 });
 
@@ -56,24 +76,25 @@ document.addEventListener("click", (e) => {
   if (
     mobileNav?.classList.contains("open") &&
     !mobileNav.contains(e.target) &&
-    !menuBtn.contains(e.target)
+    !menuBtn?.contains(e.target)
   ) {
     closeMobileMenu();
   }
 });
 
-// Close menu when clicking a link
-mobileNav?.querySelectorAll("a").forEach((link) => {
+// Close menu when clicking a navigation link
+mobileNav?.querySelectorAll("a:not(.close-menu-btn)").forEach((link) => {
   link.addEventListener("click", () => {
     closeMobileMenu();
   });
 });
 
-function closeMobileMenu() {
-  mobileNav?.classList.remove("open");
-  body.classList.remove("menu-open");
-  menuBtn?.focus(); // Return focus to menu button
-}
+// Handle escape key to close menu
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && mobileNav?.classList.contains("open")) {
+    closeMobileMenu();
+  }
+});
 
 // Enhanced Navigation - Active Link Management
 function updateActiveNavLink() {
@@ -99,54 +120,46 @@ function updateActiveNavLink() {
 // Initialize active link on page load
 updateActiveNavLink();
 
-// Enhanced scroll behavior
+// Enhanced scroll behavior and header management
 const header = document.querySelector(".header");
-const themeToggleBtn = document.querySelector(".theme-toggle");
-const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+let lastScrollY = window.scrollY;
+let ticking = false;
 
-window.addEventListener(
-  "scroll",
-  () => {
-    // Explicitly ensure header stays visible and positioned correctly
-    if (header) {
-      header.style.position = "fixed";
-      header.style.top = "0";
-      header.style.left = "0";
-      header.style.right = "0";
-      header.style.zIndex = "1000";
-      header.style.transform = "none";
-      header.style.visibility = "visible";
-      header.style.opacity = "1";
-    }
+function updateHeader() {
+  const currentScrollY = window.scrollY;
 
-    // Ensure theme toggle and mobile menu stay properly positioned
-    if (themeToggleBtn) {
-      themeToggleBtn.style.zIndex = "999";
-      themeToggleBtn.style.transform = "none";
-      themeToggleBtn.style.visibility = "visible";
-      themeToggleBtn.style.opacity = "1";
+  if (header) {
+    // Add/remove scrolled class for styling
+    if (currentScrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
     }
+  }
 
-    if (mobileMenuBtn) {
-      mobileMenuBtn.style.zIndex = "999";
-      mobileMenuBtn.style.transform = "none";
-      mobileMenuBtn.style.visibility = "visible";
-      mobileMenuBtn.style.opacity = "1";
-    }
-  },
-  { passive: true }
-);
+  lastScrollY = currentScrollY;
+  ticking = false;
+}
+
+function requestHeaderUpdate() {
+  if (!ticking) {
+    requestAnimationFrame(updateHeader);
+    ticking = true;
+  }
+}
+
+window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
 
 // Keyboard navigation improvements
 document.addEventListener("keydown", (e) => {
-  // Handle escape key for mobile menu
-  if (e.key === "Escape" && mobileNav?.classList.contains("open")) {
-    closeMobileMenu();
-  }
-
   // Handle enter key for theme toggle
   if (e.key === "Enter" && e.target === themeToggle) {
     themeToggle.click();
+  }
+
+  // Handle enter key for mobile menu button
+  if (e.key === "Enter" && e.target === menuBtn) {
+    menuBtn.click();
   }
 });
 

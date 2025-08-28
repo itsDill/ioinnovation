@@ -31,18 +31,6 @@
     <link rel="stylesheet" href="css/shared.css" />
 
     <style>
-      /* Ensure header consistency - override any conflicts */
-      .header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 1000 !important;
-        transform: none !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
       /* Hero Section */
       .hero {
         height: 100vh;
@@ -440,16 +428,21 @@
         <div class="logo">IO Innovation Fund</div>
         <ul class="nav-links" id="mobileNav">
           <li>
-            <button class="close-menu-btn" id="closeMenuBtn">&times;</button>
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">&times;</button>
           </li>
           <li><a href="/index.html">Home</a></li>
           <li><a href="/tools.html">Finance Tools</a></li>
-          <li><a href="/markets.html">Markets</a></li>
+          <li><a href="/markets.html">Trading Signals</a></li>
           <li><a href="/blog.html">Blog</a></li>
           <li><a href="/contact.html" class="active">Contact</a></li>
         </ul>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
-      <button class="mobile-menu-btn" id="menuBtn">&#9776;</button>
+    </header>
     </header>
 
     <!-- Enhanced Theme Toggle -->
