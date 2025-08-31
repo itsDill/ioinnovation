@@ -32,6 +32,22 @@ function updateThemeIcon(theme) {
     theme === "light" ? "theme-icon fas fa-moon" : "theme-icon fas fa-sun";
 }
 
+// Debug - Add console logs to check if elements exist
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded");
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileNav = document.getElementById("mobileNav");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+  console.log("Menu button:", menuBtn);
+  console.log("Mobile nav:", mobileNav);
+  console.log("Close button:", closeMenuBtn);
+
+  if (menuBtn) {
+    console.log("Adding click listener to menu button");
+  }
+});
+
 // Mobile Menu Functionality with enhanced UX
 const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
@@ -249,6 +265,45 @@ if (document.readyState === "loading") {
 } else {
   observeElements();
 }
+
+// Mobile menu initialization after DOM load
+document.addEventListener("DOMContentLoaded", function () {
+  // Re-initialize mobile menu functionality after DOM is loaded
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileNav = document.getElementById("mobileNav");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+  if (menuBtn && mobileNav) {
+    console.log("Reinitializing mobile menu");
+
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Menu button clicked (DOM ready)");
+
+      if (mobileNav.classList.contains("open")) {
+        mobileNav.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuBtn.classList.remove("active");
+      } else {
+        mobileNav.classList.add("open");
+        document.body.classList.add("menu-open");
+        menuBtn.classList.add("active");
+      }
+    });
+
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Close button clicked (DOM ready)");
+        mobileNav.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuBtn.classList.remove("active");
+      });
+    }
+  }
+});
 
 // Performance optimization - Debounced resize handler
 let resizeTimer;

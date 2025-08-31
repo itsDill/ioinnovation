@@ -1035,3 +1035,31 @@ html {
     will-change: transform;
   }
 }
+
+/* Ensure mobile menu works - higher specificity */
+@media (max-width: 768px) {
+  .nav-links.open {
+    right: 0 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .mobile-menu-btn {
+    display: flex !important;
+    z-index: 1600;
+  }
+  
+  .close-menu-btn {
+    display: flex !important;
+  }
+}
+
+/* Debug styles - temporary */
+.nav-links.open {
+  border: 2px solid red !important;
+}
+
+.mobile-menu-btn.active {
+  border: 2px solid yellow !important;
+}
