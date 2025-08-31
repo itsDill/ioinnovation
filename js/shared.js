@@ -41,14 +41,7 @@ function openMobileMenu() {
   if (!mobileNav) return;
 
   mobileNav.classList.add("open");
-  body.classList.add("menu-open");
   menuBtn?.classList.add("active");
-
-  // Prevent scrolling on body when menu is open
-  const scrollY = window.scrollY;
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${scrollY}px`;
-  document.body.style.width = "100%";
 
   // Focus management for accessibility
   setTimeout(() => {
@@ -74,15 +67,7 @@ function closeMobileMenu() {
   if (!mobileNav) return;
 
   mobileNav.classList.remove("open");
-  body.classList.remove("menu-open");
   menuBtn?.classList.remove("active");
-
-  // Restore body scrolling
-  const scrollY = document.body.style.top;
-  document.body.style.position = "";
-  document.body.style.top = "";
-  document.body.style.width = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
 
   menuBtn?.focus(); // Return focus to menu button
 
