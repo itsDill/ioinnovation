@@ -1265,6 +1265,7 @@
                 src="images/nikkei.png"
                 alt="JP225 Nikkei"
                 style="width: 80px; height: 80px"
+                loading="lazy"
               />
             </div>
             <span class="post-category">Market Analysis</span>
@@ -1397,7 +1398,12 @@
           ></a>
         </div>
         <div>
-          &copy; 2025 IO Innovation Fund. All rights reserved.
+          <a
+            href="/privacy.html"
+            class="secret-link"
+            aria-label="Privacy Policy"
+            >Privacy Policy</a
+          >
           <a href="/privacy.html" class="secret-link">Privacy Policy</a>
         </div>
       </div>
@@ -1405,34 +1411,6 @@
 
     <script src="js/shared.js"></script>
     <script>
-      // Inline mobile menu test
-      document.addEventListener("DOMContentLoaded", function () {
-        const menuBtn = document.getElementById("menuBtn");
-        const mobileNav = document.getElementById("mobileNav");
-
-        console.log("Inline test - Menu button:", menuBtn);
-        console.log("Inline test - Mobile nav:", mobileNav);
-
-        if (menuBtn) {
-          menuBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            console.log("Inline click handler triggered");
-
-            if (mobileNav) {
-              if (mobileNav.classList.contains("open")) {
-                mobileNav.classList.remove("open");
-                document.body.classList.remove("menu-open");
-                console.log("Menu closed");
-              } else {
-                mobileNav.classList.add("open");
-                document.body.classList.add("menu-open");
-                console.log("Menu opened");
-              }
-            }
-          });
-        }
-      });
-
       // Enhanced functionality for index page
       document.addEventListener("DOMContentLoaded", function () {
         // Animate stats on scroll

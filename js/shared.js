@@ -32,22 +32,6 @@ function updateThemeIcon(theme) {
     theme === "light" ? "theme-icon fas fa-moon" : "theme-icon fas fa-sun";
 }
 
-// Debug - Add console logs to check if elements exist
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM loaded");
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileNav = document.getElementById("mobileNav");
-  const closeMenuBtn = document.getElementById("closeMenuBtn");
-
-  console.log("Menu button:", menuBtn);
-  console.log("Mobile nav:", mobileNav);
-  console.log("Close button:", closeMenuBtn);
-
-  if (menuBtn) {
-    console.log("Adding click listener to menu button");
-  }
-});
-
 // Mobile Menu Functionality with enhanced UX
 const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
