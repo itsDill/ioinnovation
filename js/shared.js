@@ -38,32 +38,70 @@ const mobileNav = document.getElementById("mobileNav");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
 
 function openMobileMenu() {
-  mobileNav?.classList.add("open");
+  if (!mobileNav) return;
+
+  mobileNav.classList.add("open");
   body.classList.add("menu-open");
   menuBtn?.classList.add("active");
+
+  // Prevent scrolling on body when menu is open
+  const scrollY = window.scrollY;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.width = "100%";
 
   // Focus management for accessibility
   setTimeout(() => {
     const firstLink = mobileNav.querySelector("a:not(.close-menu-btn)");
     if (firstLink) firstLink.focus();
-  }, 100);
+  }, 150);
 
   // Add haptic feedback on supported devices
   if ("vibrate" in navigator) {
-    navigator.vibrate(25);
+    navigator.vibrate([25]);
+  }
+
+  // Announce to screen readers
+  if (mobileNav.getAttribute("aria-expanded")) {
+    mobileNav.setAttribute("aria-expanded", "true");
+  }
+  if (menuBtn?.getAttribute("aria-expanded")) {
+    menuBtn.setAttribute("aria-expanded", "true");
   }
 }
 
 function closeMobileMenu() {
-  mobileNav?.classList.remove("open");
+  if (!mobileNav) return;
+
+  mobileNav.classList.remove("open");
   body.classList.remove("menu-open");
   menuBtn?.classList.remove("active");
+
+  // Restore body scrolling
+  const scrollY = document.body.style.top;
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.width = "";
+  window.scrollTo(0, parseInt(scrollY || "0") * -1);
+
   menuBtn?.focus(); // Return focus to menu button
+
+  // Announce to screen readers
+  if (mobileNav.getAttribute("aria-expanded")) {
+    mobileNav.setAttribute("aria-expanded", "false");
+  }
+  if (menuBtn?.getAttribute("aria-expanded")) {
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
 }
 
 menuBtn?.addEventListener("click", (e) => {
   e.stopPropagation();
-  openMobileMenu();
+  if (mobileNav?.classList.contains("open")) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
 });
 
 closeMenuBtn?.addEventListener("click", (e) => {
@@ -93,6 +131,24 @@ mobileNav?.querySelectorAll("a:not(.close-menu-btn)").forEach((link) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && mobileNav?.classList.contains("open")) {
     closeMobileMenu();
+  }
+});
+
+// Keyboard navigation within mobile menu
+mobileNav?.addEventListener("keydown", (e) => {
+  const focusableElements = mobileNav.querySelectorAll("a, button");
+  const focusableArray = Array.from(focusableElements);
+  const currentIndex = focusableArray.indexOf(document.activeElement);
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    const nextIndex = (currentIndex + 1) % focusableArray.length;
+    focusableArray[nextIndex].focus();
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    const prevIndex =
+      (currentIndex - 1 + focusableArray.length) % focusableArray.length;
+    focusableArray[prevIndex].focus();
   }
 });
 
@@ -222,12 +278,41 @@ window.addEventListener(
 );
 
 // Preload critical pages for better performance
-const preloadPages = ["/markets.html", "/blog.html", "/contact.html"];
+const preloadPages = [
+  "/markets.html",
+  "/blog.html",
+  "/contact.html",
+  "/tools.html",
+];
 preloadPages.forEach((page) => {
   const link = document.createElement("link");
   link.rel = "prefetch";
   link.href = page;
   document.head.appendChild(link);
+});
+
+// Enhanced page loading experience
+window.addEventListener("beforeunload", () => {
+  // Add loading class to body for smooth transitions
+  document.body.style.opacity = "0.8";
+});
+
+// Page transition effects
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.style.opacity = "1";
+  document.body.style.transition = "opacity 0.3s ease";
+});
+
+// Enhanced link interactions
+document.querySelectorAll('a[href^="/"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    // Add subtle loading indication for internal links
+    if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      setTimeout(() => {
+        document.body.style.opacity = "0.9";
+      }, 100);
+    }
+  });
 });
 
 // Service Worker registration for PWA capabilities
@@ -238,4 +323,24 @@ if ("serviceWorker" in navigator) {
       .then((registration) => console.log("SW registered"))
       .catch((registrationError) => console.log("SW registration failed"));
   });
+}
+
+// Performance monitoring
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) {
+    if (entry.entryType === "navigation") {
+      // Log navigation timing for optimization
+      console.log(
+        "Navigation completed in:",
+        entry.loadEventEnd - entry.fetchStart,
+        "ms"
+      );
+    }
+  }
+});
+
+try {
+  observer.observe({ entryTypes: ["navigation"] });
+} catch (e) {
+  // Fallback for browsers that don't support PerformanceObserver
 }

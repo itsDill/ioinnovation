@@ -513,28 +513,50 @@
   <body data-theme="dark">
     <!-- Header -->
     <header class="header">
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="logo">IO Innovation Fund</div>
-        <ul class="nav-links" id="mobileNav">
-          <li>
+        <ul
+          class="nav-links"
+          id="mobileNav"
+          role="menu"
+          aria-expanded="false"
+          aria-label="Navigation menu"
+        >
+          <li role="none">
             <button
               class="close-menu-btn"
               id="closeMenuBtn"
-              aria-label="Close menu"
+              aria-label="Close navigation menu"
+              type="button"
             >
               &times;
             </button>
           </li>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/tools.html" class="active">Finance Tools</a></li>
-          <li><a href="/markets.html">Trading Signals</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
+          <li role="none">
+            <a href="/tools.html" class="active" role="menuitem"
+              >Finance Tools</a
+            >
+          </li>
+          <li role="none">
+            <a href="/markets.html" role="menuitem">Trading Signals</a>
+          </li>
+          <li role="none"><a href="/blog.html" role="menuitem">Blog</a></li>
+          <li role="none">
+            <a href="/contact.html" role="menuitem">Contact</a>
+          </li>
         </ul>
-        <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button
+          class="mobile-menu-btn"
+          id="menuBtn"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+          type="button"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
       </nav>
     </header>
