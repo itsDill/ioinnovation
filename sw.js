@@ -1,5 +1,5 @@
 // Simple Service Worker for IO Innovation Fund
-const CACHE_NAME = "io-innovation-fund-v1";
+const CACHE_NAME = "io-innovation-fund-v2025090101";
 const urlsToCache = [
   "/",
   "/index.html",
