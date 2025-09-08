@@ -4,6 +4,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
 
+  console.log("shared-simple.js DOMContentLoaded fired");
+
   // Initialize all functionality
   initializeTheme();
   initializeMobileMenu();
@@ -61,16 +63,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Mobile Menu Management
   function initializeMobileMenu() {
+    console.log("Initializing mobile menu...");
+
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
     const mobileOverlay = document.getElementById("mobileOverlay");
     const navLinks = document.querySelectorAll(".nav-links a");
 
-    if (!menuBtn || !mobileNav) return;
+    console.log("Mobile menu elements:", {
+      menuBtn: !!menuBtn,
+      mobileNav: !!mobileNav,
+      mobileOverlay: !!mobileOverlay,
+      navLinksCount: navLinks.length,
+    });
+
+    if (!menuBtn || !mobileNav) {
+      console.error("Mobile menu elements not found!");
+      return;
+    }
 
     let isMenuOpen = false;
 
     function toggleMenu() {
+      console.log("Toggle menu called, current state:", isMenuOpen);
       isMenuOpen = !isMenuOpen;
 
       // Update DOM classes
@@ -81,6 +96,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (mobileOverlay) {
         mobileOverlay.classList.toggle("active", isMenuOpen);
       }
+
+      console.log("Menu state after toggle:", {
+        isMenuOpen,
+        menuBtnClasses: menuBtn.className,
+        mobileNavClasses: mobileNav.className,
+        bodyClasses: document.body.className,
+      });
 
       // Update ARIA attributes
       menuBtn.setAttribute("aria-expanded", isMenuOpen);
@@ -106,7 +128,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Event listeners
-    menuBtn.addEventListener("click", toggleMenu);
+    menuBtn.addEventListener("click", function (e) {
+      console.log("Menu button clicked!");
+      toggleMenu();
+    });
 
     if (mobileOverlay) {
       mobileOverlay.addEventListener("click", closeMenu);
