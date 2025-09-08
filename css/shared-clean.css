@@ -32,8 +32,9 @@
   --transition-normal: 0.3s ease;
 }
 
-/* Light theme */
-[data-theme="light"] {
+/* Light theme - Enhanced mobile compatibility */
+[data-theme="light"],
+.light-theme {
   --bg-primary: #ffffff;
   --bg-secondary: rgba(255, 255, 255, 0.95);
   --bg-card: rgba(0, 0, 0, 0.03);
@@ -402,9 +403,22 @@ body {
     gap: 0.5rem;
   }
 
+  /* Enhanced mobile theme toggle */
   .theme-toggle {
     width: 36px;
     height: 36px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Force hardware acceleration on mobile for smooth theme transitions */
+  .theme-toggle,
+  .theme-icon {
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .container {
