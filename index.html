@@ -996,18 +996,11 @@
       }
     </style>
   </head>
-  <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="skip-to-main">Skip to main content</a>
-
+  <body data-theme="dark">
     <!-- Header -->
     <header class="header">
-      <!-- Mobile overlay for better UX -->
-      <div class="mobile-overlay" id="mobileOverlay"></div>
-
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/index.html" class="logo">IO Innovation Fund</a>
-
+        <div class="logo">IO Innovation Fund</div>
         <ul
           class="nav-links"
           id="mobileNav"
@@ -1016,22 +1009,27 @@
           aria-label="Navigation menu"
         >
           <li role="none">
-            <a href="/index.html" class="active" role="menuitem">Home</a>
+            <button
+              class="close-menu-btn"
+              id="closeMenuBtn"
+              aria-label="Close navigation menu"
+              type="button"
+            >
+              &times;
+            </button>
           </li>
+          <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
           <li role="none">
             <a href="/tools.html" role="menuitem">Finance Tools</a>
           </li>
           <li role="none">
             <a href="/markets.html" role="menuitem">Trading Signals</a>
           </li>
+          <li role="none"><a href="/blog.html" role="menuitem">Blog</a></li>
           <li role="none">
-            <a href="/blog.html" role="menuitem">Blog</a>
-          </li>
-          <li role="none">
-            <a href="/contact.html" role="menuitem">Contact</a>
+            <a href="/contact.html" class="active" role="menuitem">Contact</a>
           </li>
         </ul>
-
         <div class="nav-actions">
           <button
             class="theme-toggle"
@@ -1041,11 +1039,10 @@
           >
             <i class="theme-icon fas fa-sun" id="themeIcon"></i>
           </button>
-
           <button
             class="mobile-menu-btn"
             id="menuBtn"
-            aria-label="Toggle navigation menu"
+            aria-label="Open navigation menu"
             aria-expanded="false"
             aria-controls="mobileNav"
             type="button"
