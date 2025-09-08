@@ -15,17 +15,22 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeAccessibility();
   initializePerformanceOptimizations();
 
-  // Theme Management
+  // Theme Management - Enhanced for mobile
   function initializeTheme() {
-    console.log("Initializing theme system...");
+    console.log("Initializing enhanced theme system...");
 
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
 
     console.log("Theme elements found:", {
       themeToggle: !!themeToggle,
       themeIcon: !!themeIcon,
+      isMobile: isMobile,
     });
 
     // Get saved theme or use system preference
@@ -34,52 +39,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Current theme:", currentTheme);
 
-    // Apply theme function - ensure it works on mobile
+    // Enhanced theme application function for mobile
     function setTheme(theme) {
       console.log("Setting theme to:", theme);
 
-      // Apply to both document.documentElement and body for maximum compatibility
-      document.documentElement.setAttribute("data-theme", theme);
-      document.body.setAttribute("data-theme", theme);
+      // Apply to multiple targets for maximum compatibility
+      const targets = [document.documentElement, document.body];
+
+      targets.forEach((target) => {
+        if (target) {
+          target.setAttribute("data-theme", theme);
+          target.className =
+            target.className.replace(/\b(dark|light)-theme\b/g, "") +
+            ` ${theme}-theme`;
+        }
+      });
 
       // Store theme preference
       localStorage.setItem("theme", theme);
 
-      // Update icon with proper classes and mobile-safe approach
+      // Update icon with mobile-optimized approach
       if (themeIcon) {
-        // Clear existing classes first
-        themeIcon.className = "";
+        // Use requestAnimationFrame for smoother mobile performance
+        requestAnimationFrame(() => {
+          const iconClass = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+          themeIcon.className = `theme-icon ${iconClass}`;
 
-        // Add new classes based on theme
-        if (theme === "dark") {
-          themeIcon.className = "theme-icon fas fa-sun";
-        } else {
-          themeIcon.className = "theme-icon fas fa-moon";
-        }
+          // Add visual feedback for mobile users
+          if (isMobile) {
+            themeIcon.style.transform = "scale(1.1)";
+            setTimeout(() => {
+              themeIcon.style.transform = "scale(1)";
+            }, 150);
+          }
+        });
 
-        console.log("Updated theme icon classes:", themeIcon.className);
+        console.log("Updated theme icon for:", theme);
       }
 
-      // Force a repaint on mobile browsers
-      if (
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      ) {
-        document.body.style.display = "none";
-        document.body.offsetHeight; // Force reflow
-        document.body.style.display = "";
+      // Mobile-specific theme application
+      if (isMobile) {
+        // Use transform3d to trigger hardware acceleration
+        document.body.style.transform = "translate3d(0,0,0)";
+
+        // Force repaint with optimized method
+        requestAnimationFrame(() => {
+          document.body.style.transform = "";
+
+          // Additional mobile webkit optimization
+          if (window.webkit) {
+            document.body.style.webkitTransform = "translateZ(0)";
+            setTimeout(() => {
+              document.body.style.webkitTransform = "";
+            }, 100);
+          }
+        });
       }
+
+      // Dispatch custom event for other components
+      document.dispatchEvent(
+        new CustomEvent("themeChanged", {
+          detail: { theme, isMobile },
+        })
+      );
     }
 
     // Initialize theme immediately
     setTheme(currentTheme);
 
-    // Theme toggle event with mobile-optimized handling
+    // Enhanced theme toggle with mobile optimizations
     if (themeToggle) {
-      // Remove any existing listeners first
-      themeToggle.removeEventListener("click", toggleThemeHandler);
-
       function toggleThemeHandler(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -89,29 +118,72 @@ document.addEventListener("DOMContentLoaded", function () {
         currentTheme = currentTheme === "dark" ? "light" : "dark";
         setTheme(currentTheme);
 
-        // Enhanced visual feedback for mobile
-        themeToggle.style.transform = "scale(1.2)";
-        themeToggle.style.transition = "transform 0.15s ease";
+        // Enhanced mobile feedback
+        if (isMobile) {
+          // Haptic feedback if available
+          if (navigator.vibrate) {
+            navigator.vibrate(50);
+          }
 
-        setTimeout(() => {
-          themeToggle.style.transform = "scale(1)";
-        }, 150);
+          // Visual ripple effect
+          const ripple = document.createElement("div");
+          ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            width: 60px;
+            height: 60px;
+            left: -12px;
+            top: -12px;
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+            z-index: 1;
+          `;
+
+          themeToggle.style.position = "relative";
+          themeToggle.appendChild(ripple);
+
+          setTimeout(() => {
+            if (ripple.parentNode) {
+              ripple.parentNode.removeChild(ripple);
+            }
+          }, 600);
+        }
 
         console.log("Theme toggled to:", currentTheme);
       }
 
-      // Add click listener
+      // Remove any existing listeners first
+      themeToggle.removeEventListener("click", toggleThemeHandler);
+
+      // Add optimized event listeners
       themeToggle.addEventListener("click", toggleThemeHandler);
 
-      // Add touch event for better mobile responsiveness
-      themeToggle.addEventListener(
-        "touchend",
-        function (e) {
-          e.preventDefault();
-          toggleThemeHandler(e);
-        },
-        { passive: false }
-      );
+      // Enhanced touch support for mobile
+      if (isMobile) {
+        themeToggle.addEventListener(
+          "touchend",
+          function (e) {
+            e.preventDefault();
+            toggleThemeHandler(e);
+          },
+          { passive: false }
+        );
+
+        // Prevent double-tap zoom on theme toggle
+        let lastTouchEnd = 0;
+        themeToggle.addEventListener(
+          "touchend",
+          function (e) {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+              e.preventDefault();
+            }
+            lastTouchEnd = now;
+          },
+          false
+        );
+      }
     } else {
       console.error("Theme toggle button not found!");
     }
@@ -119,11 +191,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // Listen for system theme changes
     prefersDark.addEventListener("change", (e) => {
       if (!localStorage.getItem("theme")) {
-        setTheme(e.matches ? "dark" : "light");
+        const newTheme = e.matches ? "dark" : "light";
+        setTheme(newTheme);
+        currentTheme = newTheme;
       }
     });
 
-    console.log("Theme system initialized successfully");
+    // Mobile-specific optimizations
+    if (isMobile) {
+      // Listen for orientation changes to reapply theme
+      window.addEventListener("orientationchange", () => {
+        setTimeout(() => {
+          setTheme(currentTheme);
+        }, 100);
+      });
+
+      // Handle page visibility for mobile browsers
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) {
+          // Reapply theme when page becomes visible (fixes some mobile browser bugs)
+          setTimeout(() => {
+            setTheme(currentTheme);
+          }, 50);
+        }
+      });
+    }
+
+    console.log("Enhanced theme system initialized successfully");
   }
 
   // Mobile Menu Management

@@ -562,20 +562,20 @@
       </form>
 
       <div class="contact-methods">
-        <a href="tel:+12345678901" class="contact-method" aria-label="Call us">
+        <a href="tel:+6561234567" class="contact-method" aria-label="Call us">
           <i class="fas fa-phone"></i>
           <h3>Call Us</h3>
-          <p>+1 (234) 567-8901</p>
+          <p>+65 6123-4567</p>
         </a>
 
         <a
-          href="mailto:info@ioinnovationfund.com"
+          href="mailto:contact@ioinnovationfund.com"
           class="contact-method"
           aria-label="Email us"
         >
           <i class="fas fa-envelope"></i>
           <h3>Email Us</h3>
-          <p>info@ioinnovationfund.com</p>
+          <p>contact@ioinnovationfund.com</p>
         </a>
 
         <div
@@ -585,7 +585,9 @@
         >
           <i class="fas fa-map-marker-alt"></i>
           <h3>Visit Us</h3>
-          <p>123 Innovation Drive<br />Suite 100, Tech City, TC 12345</p>
+          <p>
+            1 Raffles Place, #20-01<br />One Raffles Place, Singapore 048616
+          </p>
         </div>
 
         <a
@@ -820,7 +822,8 @@
 
       // Copy address functionality
       function copyAddress() {
-        const address = "123 Innovation Drive, Suite 100, Tech City, TC 12345";
+        const address =
+          "1 Raffles Place, #20-01, One Raffles Place, Singapore 048616";
         navigator.clipboard
           .writeText(address)
           .then(() => {
