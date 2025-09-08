@@ -125,7 +125,7 @@
     <!-- Theme initialization - prevents flash of wrong theme -->
     <script src="js/theme-init.js"></script>
 
-    <link rel="stylesheet" href="css/shared.css?v=2025090102" />
+    <link rel="stylesheet" href="css/shared.css" />
 
     <style>
       /* Performance optimization */
@@ -172,8 +172,6 @@
         position: relative;
         z-index: 2;
         padding: 0 2rem;
-        margin-top: -70px; /* Offset the body padding for full height hero */
-        padding-top: 70px; /* Add top padding to account for header */
         background: radial-gradient(
             circle at 30% 20%,
             rgba(43, 226, 180, 0.1) 0%,
@@ -908,9 +906,7 @@
         .hero {
           height: auto;
           min-height: 100vh;
-          padding: 100px 2rem 80px;
-          margin-top: -60px;
-          padding-top: 60px;
+          padding: 2rem;
         }
 
         .hero-buttons {
