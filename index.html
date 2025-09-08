@@ -37,10 +37,10 @@
     />
 
     <!-- Theme initialization -->
-    <script src="js/theme-init.js?v=1725752400"></script>
+    <script src="js/theme-init.js?t=1725752888"></script>
 
-    <!-- Clean shared CSS with aggressive cache busting -->
-    <link rel="stylesheet" href="css/shared-clean.css?v=1725752400" />
+    <!-- Clean shared CSS with timestamp cache busting -->
+    <link rel="stylesheet" href="css/shared-clean.css?t=1725752888" />
 
     <!-- Index page specific styles -->
     <style>
@@ -265,6 +265,23 @@
     </style>
   </head>
   <body data-theme="dark">
+    <!-- Version indicator for debugging -->
+    <div
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #00d475;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        z-index: 9999;
+        opacity: 0.8;
+      "
+    >
+      NEW v2025-09-08
+    </div>
+
     <!-- Header -->
     <header class="header">
       <div class="mobile-overlay" id="mobileOverlay"></div>
@@ -463,23 +480,35 @@
       </div>
     </footer>
 
-    <!-- JavaScript with aggressive cache busting -->
-    <script src="js/shared-simple.js?v=1725752400"></script>
+    <!-- JavaScript with timestamp cache busting -->
+    <script src="js/shared-simple.js?t=1725752888"></script>
 
-    <!-- Force cache clear on mobile -->
+    <!-- Mobile cache detection and forced reload -->
     <script>
-      // Force reload if cached version detected
-      if (window.performance && window.performance.navigation.type === 2) {
-        window.location.reload(true);
-      }
+      // Create a unique page identifier to detect old cached versions
+      window.pageVersion = "2025-09-08-NEW";
 
-      // Clear any stored cache
-      if ("caches" in window) {
-        caches.keys().then((names) => {
-          names.forEach((name) => {
-            caches.delete(name);
-          });
-        });
+      // Check if we're on mobile and force reload if old version
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+
+      if (isMobile) {
+        // Check localStorage for last known version
+        const lastVersion = localStorage.getItem("pageVersion");
+
+        if (lastVersion !== window.pageVersion) {
+          // Store new version and force reload
+          localStorage.setItem("pageVersion", window.pageVersion);
+
+          // Use location.replace to bypass cache
+          if (lastVersion) {
+            window.location.replace(
+              window.location.href + "?nocache=" + Date.now()
+            );
+          }
+        }
       }
     </script>
   </body>
