@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IO Innovation Fund | Southeast Asia Investment Experts</title>
 
+    <!-- Aggressive cache prevention -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <!-- Basic SEO -->
     <meta
       name="description"
@@ -29,10 +37,10 @@
     />
 
     <!-- Theme initialization -->
-    <script src="js/theme-init.js"></script>
+    <script src="js/theme-init.js?v=1725752400"></script>
 
-    <!-- Clean shared CSS with cache busting -->
-    <link rel="stylesheet" href="css/shared-clean.css?v=2" />
+    <!-- Clean shared CSS with aggressive cache busting -->
+    <link rel="stylesheet" href="css/shared-clean.css?v=1725752400" />
 
     <!-- Index page specific styles -->
     <style>
@@ -455,7 +463,24 @@
       </div>
     </footer>
 
-    <!-- JavaScript with cache busting -->
-    <script src="js/shared-simple.js?v=2"></script>
+    <!-- JavaScript with aggressive cache busting -->
+    <script src="js/shared-simple.js?v=1725752400"></script>
+
+    <!-- Force cache clear on mobile -->
+    <script>
+      // Force reload if cached version detected
+      if (window.performance && window.performance.navigation.type === 2) {
+        window.location.reload(true);
+      }
+
+      // Clear any stored cache
+      if ("caches" in window) {
+        caches.keys().then((names) => {
+          names.forEach((name) => {
+            caches.delete(name);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
