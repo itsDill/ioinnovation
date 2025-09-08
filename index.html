@@ -122,7 +122,10 @@
       }
     </script>
 
-    <link rel="stylesheet" href="css/shared.css?v=2025090101" />
+    <!-- Theme initialization - prevents flash of wrong theme -->
+    <script src="js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="css/shared.css?v=2025090102" />
 
     <style>
       /* Performance optimization */
@@ -1029,29 +1032,31 @@
           </li>
         </ul>
 
-        <button
-          class="mobile-menu-btn"
-          id="menuBtn"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-          type="button"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            title="Toggle Light/Dark Mode"
+            aria-label="Toggle Light/Dark Mode"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+
+          <button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+            type="button"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
       </nav>
     </header>
-
-    <!-- Enhanced Theme Toggle -->
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      title="Toggle Light/Dark Mode"
-    >
-      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
-    </button>
 
     <!-- Hero Section -->
     <main id="main-content">

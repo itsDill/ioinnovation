@@ -31,7 +31,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="css/shared.css" />
+    <!-- Theme initialization - prevents flash of wrong theme -->
+    <script src="js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="css/shared.css?v=2025090102" />
 
     <!-- SEO Meta Tags -->
     <meta
@@ -733,29 +736,32 @@
             <a href="/contact.html" role="menuitem">Contact</a>
           </li>
         </ul>
-        <button
-          class="mobile-menu-btn"
-          id="menuBtn"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-          type="button"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            title="Toggle Light/Dark Mode"
+            aria-label="Toggle Light/Dark Mode"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+
+          <button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+            type="button"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
       </nav>
     </header>
-
-    <!-- Enhanced Theme Toggle -->
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      title="Toggle Light/Dark Mode"
-    >
-      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
-    </button>
 
     <!-- Hero Section -->
     <section class="hero">

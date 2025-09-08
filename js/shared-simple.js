@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
         setTheme(currentTheme);
 
         // Add visual feedback
-        themeToggle.style.transform = "translateY(-50%) scale(1.2)";
+        themeToggle.style.transform = "scale(1.2)";
         setTimeout(() => {
-          themeToggle.style.transform = "translateY(-50%) scale(1)";
+          themeToggle.style.transform = "scale(1)";
         }, 150);
       });
     }
