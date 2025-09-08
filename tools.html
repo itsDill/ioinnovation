@@ -544,29 +544,30 @@
           </li>
         </ul>
 
-        <button
-          class="mobile-menu-btn"
-          id="menuBtn"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-          type="button"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark/light theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+
+          <button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+            type="button"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
       </nav>
     </header>
-
-    <!-- Enhanced Theme Toggle -->
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      title="Toggle Light/Dark Mode"
-    >
-      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
-    </button>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1696,6 +1697,6 @@
         console.log("Background data loading completed");
       }, 3000);
     </script>
-    <script src="js/shared.js"></script>
+    <script src="js/shared-simple.js"></script>
   </body>
 </html>

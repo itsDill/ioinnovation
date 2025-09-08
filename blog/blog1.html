@@ -97,7 +97,7 @@
     <script src="../js/theme-init.js"></script>
 
     <link rel="stylesheet" href="../css/shared.css?v=2025090102" />
-    <script src="../js/shared.js"></script>
+    <script src="../js/shared-simple.js"></script>
 
     <style>
       /* Ensure header consistency - override any conflicts */
@@ -938,38 +938,31 @@
             <a href="/contact.html" role="menuitem">Contact</a>
           </li>
         </ul>
-        <button
-          class="mobile-menu-btn"
-          id="menuBtn"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-          type="button"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark/light theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+
+          <button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+            type="button"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
       </nav>
     </header>
-
-    <!-- Enhanced Theme Toggle -->
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      title="Toggle Light/Dark Mode"
-    >
-      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
-    </button>
-
-    <!-- Enhanced Theme Toggle -->
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      title="Toggle Light/Dark Mode"
-    >
-      <i class="theme-icon fas fa-sun" id="themeIcon"></i>
-    </button>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
@@ -1579,54 +1572,6 @@
     <!-- Add Chart.js and chart script before closing body tag -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-      // Theme Toggle Functionality
-      const themeToggle = document.getElementById("themeToggle");
-      const themeIcon = document.getElementById("themeIcon");
-      const body = document.body;
-
-      // Check for saved theme preference or respect OS preference
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-
-      if (savedTheme) {
-        body.setAttribute("data-theme", savedTheme);
-        updateThemeIcon(savedTheme);
-      } else if (prefersDark) {
-        body.setAttribute("data-theme", "dark");
-        updateThemeIcon("dark");
-      } else {
-        body.setAttribute("data-theme", "light");
-        updateThemeIcon("light");
-      }
-
-      themeToggle.addEventListener("click", () => {
-        const currentTheme = body.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        body.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        updateThemeIcon(newTheme);
-      });
-
-      function updateThemeIcon(theme) {
-        if (theme === "dark") {
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        } else {
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        }
-      }
-
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-      const navLinks = document.querySelector(".nav-links");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
       // Reading Progress Bar
       const progressBar = document.getElementById("progressBar");
 
