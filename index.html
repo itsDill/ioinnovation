@@ -999,8 +999,12 @@
   <body data-theme="dark">
     <!-- Header -->
     <header class="header">
+      <!-- Mobile overlay for better UX -->
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="logo">IO Innovation Fund</div>
+        <a href="/index.html" class="logo">IO Innovation Fund</a>
+
         <ul
           class="nav-links"
           id="mobileNav"
@@ -1009,16 +1013,8 @@
           aria-label="Navigation menu"
         >
           <li role="none">
-            <button
-              class="close-menu-btn"
-              id="closeMenuBtn"
-              aria-label="Close navigation menu"
-              type="button"
-            >
-              &times;
-            </button>
+            <a href="/index.html" class="active" role="menuitem">Home</a>
           </li>
-          <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
           <li role="none">
             <a href="/tools.html" role="menuitem">Finance Tools</a>
           </li>
@@ -1027,22 +1023,23 @@
           </li>
           <li role="none"><a href="/blog.html" role="menuitem">Blog</a></li>
           <li role="none">
-            <a href="/contact.html" class="active" role="menuitem">Contact</a>
+            <a href="/contact.html" role="menuitem">Contact</a>
           </li>
         </ul>
+
         <div class="nav-actions">
           <button
             class="theme-toggle"
             id="themeToggle"
-            title="Toggle Light/Dark Mode"
-            aria-label="Toggle Light/Dark Mode"
+            aria-label="Toggle dark/light theme"
           >
             <i class="theme-icon fas fa-sun" id="themeIcon"></i>
           </button>
+
           <button
             class="mobile-menu-btn"
             id="menuBtn"
-            aria-label="Open navigation menu"
+            aria-label="Toggle navigation menu"
             aria-expanded="false"
             aria-controls="mobileNav"
             type="button"
