@@ -7,6 +7,12 @@
       Market Insights & Analysis | IO Innovation Fund - SEA Trading Blog
     </title>
 
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -399,16 +405,26 @@
 
       .post-img {
         width: 100%;
-        height: 180px;
-        object-fit: cover;
+        height: 200px;
         border-radius: 16px;
         margin-bottom: 1.5rem;
         background: var(--glass-bg);
         transition: transform 0.3s ease;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .post-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
       }
 
       .post-card:hover .post-img {
-        transform: scale(1.05);
+        transform: scale(1.02);
       }
 
       .post-category {
@@ -815,7 +831,7 @@
             <i class="fas fa-clock"></i> 8 min read
           </div>
         </div>
-        <a href="../blog/blog1.html" class="featured-read-more">
+        <a href="blog/blog1.html" class="featured-read-more">
           Read Full Analysis <i class="fas fa-arrow-right"></i>
         </a>
       </article>
@@ -857,26 +873,8 @@
         <div class="posts-grid" id="postsGrid">
           <!-- Post 1 -->
           <article class="post-card" data-category="indices">
-            <div
-              class="post-img"
-              style="
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <img
-                src="photos/image.png"
-                alt="JP225 Nikkei"
-                style="
-                  width: 400px;
-                  height: 200px;
-                  border-radius: 16px;
-                  object-fit: cover;
-                  box-shadow: 0 4px 24px rgba(43, 226, 180, 0.12);
-                "
-              />
+            <div class="post-img">
+              <img src="photos/image.png" alt="JP225 Nikkei Index Analysis" />
             </div>
             <span class="post-category">Market Indices</span>
             <h3 class="post-title">
@@ -892,7 +890,7 @@
               <span class="reading-time">6 min read</span>
             </div>
             <div class="post-actions">
-              <a href="#" class="read-more"
+              <a href="blog/blog2.html" class="read-more"
                 >Read More <i class="fas fa-arrow-right"></i
               ></a>
               <div class="share-buttons">
@@ -908,25 +906,10 @@
 
           <!-- Post 2 -->
           <article class="post-card" data-category="sea-markets">
-            <div
-              class="post-img"
-              style="
-                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
+            <div class="post-img">
               <img
-                src="photos/set-index.png"
-                alt="SET Index"
-                style="
-                  width: 100px;
-                  height: 100px;
-                  border-radius: 16px;
-                  object-fit: cover;
-                  box-shadow: 0 4px 24px rgba(43, 226, 180, 0.12);
-                "
+                src="photos/image copy.png"
+                alt="SET Index Thailand Economic Recovery"
               />
             </div>
             <span class="post-category">SEA Markets</span>
@@ -939,14 +922,10 @@
               to watch in Q4 2025.
             </p>
             <div class="post-meta">
-              <div class="author-info">
-                <div class="author-avatar">RP</div>
-                <span>Raj Patel</span>
-              </div>
               <span class="reading-time">5 min read</span>
             </div>
             <div class="post-actions">
-              <a href="#" class="read-more"
+              <a href="blog/blog3.html" class="read-more"
                 >Read More <i class="fas fa-arrow-right"></i
               ></a>
               <div class="share-buttons">
@@ -962,25 +941,10 @@
 
           <!-- Post 3 -->
           <article class="post-card" data-category="dividends">
-            <div
-              class="post-img"
-              style="
-                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
+            <div class="post-img">
               <img
-                src="photos/dividends.png"
-                alt="Dividend Stocks"
-                style="
-                  width: 100px;
-                  height: 100px;
-                  border-radius: 16px;
-                  object-fit: cover;
-                  box-shadow: 0 4px 24px rgba(43, 226, 180, 0.12);
-                "
+                src="photos/image copy 2.png"
+                alt="High-Yield Dividend Stocks SEA Markets"
               />
             </div>
             <span class="post-category">Dividend Stocks</span>
@@ -994,14 +958,10 @@
               portfolio.
             </p>
             <div class="post-meta">
-              <div class="author-info">
-                <div class="author-avatar">SC</div>
-                <span>Sarah Chen</span>
-              </div>
               <span class="reading-time">7 min read</span>
             </div>
             <div class="post-actions">
-              <a href="#" class="read-more"
+              <a href="blog/blog4.html" class="read-more"
                 >Read More <i class="fas fa-arrow-right"></i
               ></a>
               <div class="share-buttons">
@@ -1017,25 +977,10 @@
 
           <!-- Post 4 -->
           <article class="post-card" data-category="innovation">
-            <div
-              class="post-img"
-              style="
-                background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
+            <div class="post-img">
               <img
-                src="photos/ai-growth.png"
-                alt="AI Growth Stocks"
-                style="
-                  width: 100px;
-                  height: 100px;
-                  border-radius: 16px;
-                  object-fit: cover;
-                  box-shadow: 0 4px 24px rgba(43, 226, 180, 0.12);
-                "
+                src="photos/image copy 3.png"
+                alt="AI Revolution Southeast Asia Growth Stocks"
               />
             </div>
             <span class="post-category">Innovation Stocks</span>
@@ -1048,14 +993,10 @@
               strong growth potential.
             </p>
             <div class="post-meta">
-              <div class="author-info">
-                <div class="author-avatar">TN</div>
-                <span>Tommy Ng</span>
-              </div>
               <span class="reading-time">9 min read</span>
             </div>
             <div class="post-actions">
-              <a href="#" class="read-more"
+              <a href="blog/blog5.html" class="read-more"
                 >Read More <i class="fas fa-arrow-right"></i
               ></a>
               <div class="share-buttons">
@@ -1071,25 +1012,10 @@
 
           <!-- Post 5 -->
           <article class="post-card" data-category="analysis">
-            <div
-              class="post-img"
-              style="
-                background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
+            <div class="post-img">
               <img
-                src="photos/commodities.png"
-                alt="Commodities Analysis"
-                style="
-                  width: 100px;
-                  height: 100px;
-                  border-radius: 16px;
-                  object-fit: cover;
-                  box-shadow: 0 4px 24px rgba(43, 226, 180, 0.12);
-                "
+                src="photos/image copy 4.png"
+                alt="Palm Oil Rubber Rice Southeast Asia Economy"
               />
             </div>
             <span class="post-category">Technical Analysis</span>
@@ -1103,14 +1029,10 @@
               trade dynamics, and the future outlook for these key commodities.
             </p>
             <div class="post-meta">
-              <div class="author-info">
-                <div class="author-avatar">DJ</div>
-                <span>David Johnson</span>
-              </div>
               <span class="reading-time">12 min read</span>
             </div>
             <div class="post-actions">
-              <a href="#" class="read-more"
+              <a href="blog/blog6.html" class="read-more"
                 >Read More <i class="fas fa-arrow-right"></i
               ></a>
               <div class="share-buttons">
@@ -1126,25 +1048,10 @@
 
           <!-- Post 6 -->
           <article class="post-card" data-category="commodities">
-            <div
-              class="post-img"
-              style="
-                background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            >
+            <div class="post-img">
               <img
-                src="photos/palm-oil.png"
-                alt="Palm Oil Futures"
-                style="
-                  width: 100px;
-                  height: 100px;
-                  border-radius: 16px;
-                  object-fit: cover;
-                  box-shadow: 0 4px 24px rgba(43, 226, 180, 0.12);
-                "
+                src="photos/image copy 5.png"
+                alt="Palm Oil Futures Malaysia Export Surge"
               />
             </div>
             <span class="post-category">Commodities</span>
@@ -1157,14 +1064,10 @@
               resistance levels.
             </p>
             <div class="post-meta">
-              <div class="author-info">
-                <div class="author-avatar">AM</div>
-                <span>Ahmad Malik</span>
-              </div>
               <span class="reading-time">6 min read</span>
             </div>
             <div class="post-actions">
-              <a href="#" class="read-more"
+              <a href="blog/blog7.html" class="read-more"
                 >Read More <i class="fas fa-arrow-right"></i
               ></a>
               <div class="share-buttons">
