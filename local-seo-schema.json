@@ -1,0 +1,264 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "IO Innovation Fund",
+  "alternateName": "IO Innovation Fund - Southeast Asia Investment Specialists",
+  "description": "Leading Southeast Asia investment specialists providing professional investment research, market analysis, and portfolio management services across ASEAN markets.",
+  "url": "https://ioinnovationfund.com",
+  "logo": "https://ioinnovationfund.com/favicon.svg",
+  "image": "https://ioinnovationfund.com/assets/images/og-image.png",
+  "telephone": "+65-6000-0000",
+  "email": "contact@ioinnovationfund.com",
+  "foundingDate": "2020-01-01",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Marcus Shaw",
+      "jobTitle": "Chief Investment Officer",
+      "alumniOf": "National University of Singapore",
+      "knowsAbout": [
+        "Southeast Asia Markets",
+        "Investment Analysis",
+        "ASEAN Economics"
+      ]
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Marina Bay Financial Centre",
+    "addressLocality": "Singapore",
+    "addressRegion": "Central Region",
+    "postalCode": "018989",
+    "addressCountry": "SG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "1.290270",
+    "longitude": "103.851959"
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Thailand",
+      "sameAs": "https://en.wikipedia.org/wiki/Thailand"
+    },
+    {
+      "@type": "Country",
+      "name": "Singapore",
+      "sameAs": "https://en.wikipedia.org/wiki/Singapore"
+    },
+    {
+      "@type": "Country",
+      "name": "Malaysia",
+      "sameAs": "https://en.wikipedia.org/wiki/Malaysia"
+    },
+    {
+      "@type": "Country",
+      "name": "Indonesia",
+      "sameAs": "https://en.wikipedia.org/wiki/Indonesia"
+    },
+    {
+      "@type": "Country",
+      "name": "Philippines",
+      "sameAs": "https://en.wikipedia.org/wiki/Philippines"
+    },
+    {
+      "@type": "Country",
+      "name": "Vietnam",
+      "sameAs": "https://en.wikipedia.org/wiki/Vietnam"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Southeast Asia Investment Services",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "Thailand SET Index Analysis",
+        "description": "Professional analysis of Thailand's Stock Exchange including SET Index tracking, top companies research, and investment strategies for Thai market opportunities.",
+        "provider": {
+          "@type": "Organization",
+          "name": "IO Innovation Fund"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Thailand"
+        },
+        "serviceType": "Investment Analysis"
+      },
+      {
+        "@type": "Service",
+        "name": "Singapore STI Investment Research",
+        "description": "Comprehensive research and analysis of Singapore's Straits Times Index, banking sector analysis, and REIT investment opportunities in Singapore market.",
+        "provider": {
+          "@type": "Organization",
+          "name": "IO Innovation Fund"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Singapore"
+        },
+        "serviceType": "Market Research"
+      },
+      {
+        "@type": "Service",
+        "name": "Malaysia KLCI Market Intelligence",
+        "description": "Expert analysis of Malaysia's FTSE Bursa Malaysia KLCI, palm oil sector insights, and Malaysian banking industry research for investment opportunities.",
+        "provider": {
+          "@type": "Organization",
+          "name": "IO Innovation Fund"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Malaysia"
+        },
+        "serviceType": "Market Intelligence"
+      },
+      {
+        "@type": "Service",
+        "name": "Indonesia IDX Composite Analysis",
+        "description": "In-depth analysis of Indonesia's IDX Composite index, commodities sector research, and consumer market opportunities in Southeast Asia's largest economy.",
+        "provider": {
+          "@type": "Organization",
+          "name": "IO Innovation Fund"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Indonesia"
+        },
+        "serviceType": "Investment Research"
+      },
+      {
+        "@type": "Service",
+        "name": "Philippines PSEi Investment Guide",
+        "description": "Professional guidance on Philippines Stock Exchange Index, real estate sector analysis, and BPO industry investment opportunities in Philippine markets.",
+        "provider": {
+          "@type": "Organization",
+          "name": "IO Innovation Fund"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Philippines"
+        },
+        "serviceType": "Investment Advisory"
+      },
+      {
+        "@type": "Service",
+        "name": "Vietnam VN-Index Market Research",
+        "description": "Comprehensive research on Vietnam's VN-Index, manufacturing sector analysis, and emerging market opportunities in one of Asia's fastest-growing economies.",
+        "provider": {
+          "@type": "Organization",
+          "name": "IO Innovation Fund"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Vietnam"
+        },
+        "serviceType": "Emerging Market Research"
+      }
+    ]
+  },
+  "knowsAbout": [
+    "Southeast Asia Investment",
+    "ASEAN Stock Markets",
+    "Thailand SET Index",
+    "Singapore STI",
+    "Malaysia KLCI",
+    "Indonesia IDX Composite",
+    "Philippines PSEi",
+    "Vietnam VN-Index",
+    "Emerging Markets Analysis",
+    "Portfolio Management",
+    "Financial Research",
+    "Market Intelligence",
+    "Investment Strategy",
+    "Regional Economic Analysis",
+    "Cross-border Investment",
+    "Currency Risk Management",
+    "ESG Investment in Asia"
+  ],
+  "memberOf": [
+    {
+      "@type": "Organization",
+      "name": "CFA Institute"
+    },
+    {
+      "@type": "Organization",
+      "name": "ASEAN Business Advisory Council"
+    }
+  ],
+  "award": [
+    "Best Southeast Asia Investment Research 2024",
+    "ASEAN Market Analysis Excellence Award 2023"
+  ],
+  "sameAs": [
+    "https://twitter.com/ioinnovation",
+    "https://linkedin.com/company/ioinnovation",
+    "https://facebook.com/ioinnovation",
+    "https://youtube.com/c/ioinnovationfund",
+    "https://crunchbase.com/organization/io-innovation-fund"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+65-6000-0000",
+      "contactType": "Customer Service",
+      "availableLanguage": [
+        "English",
+        "Mandarin",
+        "Thai",
+        "Vietnamese",
+        "Bahasa Indonesia",
+        "Tagalog",
+        "Malay"
+      ],
+      "areaServed": ["SG", "TH", "MY", "ID", "PH", "VN"]
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "research@ioinnovationfund.com",
+      "contactType": "Investment Research",
+      "availableLanguage": ["English", "Mandarin"],
+      "areaServed": ["SG", "TH", "MY", "ID", "PH", "VN"]
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Investment Professional"
+      },
+      "datePublished": "2024-08-15",
+      "reviewBody": "Excellent analysis of Southeast Asian markets with deep insights into regional investment opportunities. Their SET Index research has been particularly valuable.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Portfolio Manager"
+      },
+      "datePublished": "2024-07-22",
+      "reviewBody": "IO Innovation Fund provides the most comprehensive ASEAN market intelligence. Their insights on Indonesian and Vietnamese markets have been game-changing for our portfolio.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ioinnovationfund.com"
+  }
+}

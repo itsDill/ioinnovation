@@ -1,19 +1,68 @@
+# IO Innovation Fund - Southeast Asia Investment Specialists
+# https://ioinnovationfund.com
+
+# Default crawl rules for all bots
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /debug.html
+Disallow: /system.html
+Disallow: /client.html
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Crawl delay to be respectful of server resources
+Crawl-delay: 1
+
+# Allow all major search engines with specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /debug.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block problematic or unwanted bots
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
 
 # Sitemap location
 Sitemap: https://ioinnovationfund.com/sitemap.xml
 
-# Block admin areas (if any)
-Disallow: /admin/
-Disallow: /private/
-
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
+# Host directive (helps with canonicalization)
+Host: https://ioinnovationfund.com
