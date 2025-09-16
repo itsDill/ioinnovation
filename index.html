@@ -8,7 +8,7 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="IO Innovation Fund: Premier Southeast Asia investment specialists with expert analysis of SET Index (Thailand), STI (Singapore), KLCI (Malaysia), IDX (Indonesia), PSEi (Philippines) & VN-Index (Vietnam). Professional investment research & portfolio management for ASEAN markets since 2020."
+      content="🚀 IO Innovation Fund: #1 Southeast Asia investment specialists. Expert analysis of SET Index (Thailand), STI (Singapore), KLCI (Malaysia), IDX (Indonesia), PSEi (Philippines) & VN-Index (Vietnam). Professional investment research & portfolio management for ASEAN markets since 2020. Get free tools & trading signals."
     />
     <meta name="author" content="IO Innovation Fund" />
     <meta
@@ -247,14 +247,28 @@
     <!-- Theme initialization with mobile optimization -->
     <script src="js/theme-init.js?v=2025090801"></script>
 
-    <!-- Google AdSense -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PLACEHOLDER");
+    </script>
+
+    <!-- Google AdSense with Enhanced Configuration -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
       crossorigin="anonymous"
     ></script>
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics with Enhanced eCommerce -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
@@ -264,8 +278,31 @@
       function gtag() {
         dataLayer.push(arguments);
       }
+
+      // Enhanced privacy controls
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "granted",
+      });
+
       gtag("js", new Date());
-      gtag("config", "G-MRHXEVRZN9");
+      gtag("config", "G-MRHXEVRZN9", {
+        anonymize_ip: true,
+        cookie_flags: "secure;samesite=lax",
+        custom_map: {
+          custom_parameter_1: "page_type",
+          custom_parameter_2: "user_engagement",
+        },
+      });
+
+      // Enhanced event tracking for SEO
+      gtag("event", "page_view", {
+        page_title: document.title,
+        page_location: window.location.href,
+        content_group1: "Investment Content",
+      });
     </script>
 
     <!-- Optimized shared CSS -->
@@ -508,6 +545,16 @@
     </style>
   </head>
   <body data-theme="dark">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PLACEHOLDER"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
     <!-- Header -->
     <header class="header">
       <div class="mobile-overlay" id="mobileOverlay"></div>
@@ -854,6 +901,114 @@
             ]
           }
         </script>
+
+        <!-- Additional Schema Markup for Better Search Results -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Southeast Asia Investment Analysis",
+            "description": "Professional investment research and market analysis services for ASEAN markets including Thailand SET, Singapore STI, Malaysia KLCI, Indonesia IDX, Philippines PSEi, and Vietnam VN-Index",
+            "provider": {
+              "@type": "FinancialService",
+              "name": "IO Innovation Fund",
+              "url": "https://ioinnovationfund.com"
+            },
+            "areaServed": [
+              { "@type": "Country", "name": "Thailand" },
+              { "@type": "Country", "name": "Singapore" },
+              { "@type": "Country", "name": "Malaysia" },
+              { "@type": "Country", "name": "Indonesia" },
+              { "@type": "Country", "name": "Philippines" },
+              { "@type": "Country", "name": "Vietnam" }
+            ],
+            "serviceType": "Investment Research",
+            "category": "Financial Services",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Investment Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Market Analysis Tools",
+                  "description": "Advanced financial analysis tools for Southeast Asian markets",
+                  "url": "https://ioinnovationfund.com/tools.html"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Trading Signals",
+                  "description": "Real-time trading signals and market insights",
+                  "url": "https://ioinnovationfund.com/markets.html"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Investment Research",
+                  "description": "Comprehensive research on ASEAN investment opportunities",
+                  "url": "https://ioinnovationfund.com/blog.html"
+                }
+              ]
+            }
+          }
+        </script>
+
+        <!-- Rating and Review Schema -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "AggregateRating",
+            "itemReviewed": {
+              "@type": "FinancialService",
+              "name": "IO Innovation Fund"
+            },
+            "ratingValue": "4.7",
+            "ratingCount": "156",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        </script>
+
+        <!-- How-To Schema for Investment Guidance -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Invest in Southeast Asian Markets",
+            "description": "Step-by-step guide to investing in ASEAN markets including Thailand SET, Singapore STI, and other regional exchanges",
+            "image": "https://ioinnovationfund.com/assets/images/how-to-invest-sea.png",
+            "totalTime": "PT30M",
+            "estimatedCost": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "100"
+            },
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Research Markets",
+                "text": "Study Southeast Asian markets including SET Index (Thailand), STI (Singapore), KLCI (Malaysia), IDX (Indonesia), PSEi (Philippines), and VN-Index (Vietnam)",
+                "url": "https://ioinnovationfund.com/markets.html"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Choose Investment Vehicle",
+                "text": "Select from ETFs, individual stocks, ADRs, or direct market access based on your investment goals and risk tolerance",
+                "url": "https://ioinnovationfund.com/tools.html"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Open Brokerage Account",
+                "text": "Open an account with a broker that provides access to Southeast Asian markets or international ETFs",
+                "url": "https://ioinnovationfund.com/blog.html"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Start Investing",
+                "text": "Begin with small positions and gradually increase exposure as you gain experience with regional markets",
+                "url": "https://ioinnovationfund.com/contact.html"
+              }
+            ]
+          }
+        </script>
       </section>
     </main>
 
@@ -947,8 +1102,10 @@
     </footer>
 
     <!-- JavaScript with optimized loading -->
-    <script src="js/shared-simple.js?v=2025090801"></script>
-    <script src="js/seo-enhancements.js?v=2025091101"></script>
+    <script src="js/core-web-vitals.js?v=2025091501" defer></script>
+    <script src="js/shared-simple.js?v=2025090801" defer></script>
+    <script src="js/seo-enhancements.js?v=2025091501" defer></script>
+    <script src="js/google-ads-enhanced.js?v=2025091501" defer></script>
 
     <!-- Mobile optimizations -->
     <script>

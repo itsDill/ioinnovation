@@ -1,9 +1,10 @@
 /* Service Worker for IO Innovation Fund */
 /* Improved caching strategy for mobile performance */
 
-const CACHE_NAME = "io-innovation-v2025090801";
-const STATIC_CACHE = "static-v2025090801";
-const DYNAMIC_CACHE = "dynamic-v2025090801";
+const CACHE_NAME = "io-innovation-v2025091501";
+const STATIC_CACHE = "static-v2025091501";
+const DYNAMIC_CACHE = "dynamic-v2025091501";
+const IMAGES_CACHE = "images-v2025091501";
 
 // Files to cache immediately
 const STATIC_ASSETS = [
@@ -15,9 +16,13 @@ const STATIC_ASSETS = [
   "/css/shared-clean.css",
   "/js/shared-simple.js",
   "/js/theme-init.js",
+  "/js/core-web-vitals.js",
+  "/js/seo-enhancements.js",
+  "/js/google-ads-enhanced.js",
   "/favicon.svg",
   "/favicon.ico",
   "/manifest.json",
+  "/apple-touch-icon.png",
 ];
 
 // Files to cache dynamically
