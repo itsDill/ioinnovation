@@ -9,8 +9,8 @@ Disallow: /private/
 Disallow: /debug.html
 Disallow: /system.html
 Disallow: /client.html
-Disallow: /*.js$
-Disallow: /*.css$
+Allow: /*.js$
+Allow: /*.css$
 
 # Crawl delay to be respectful of server resources
 Crawl-delay: 1

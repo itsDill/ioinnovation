@@ -258,7 +258,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-PLACEHOLDER");
+      })(window, document, "script", "dataLayer", "GTM-K8Q7B2X");
     </script>
 
     <!-- Google AdSense with Enhanced Configuration -->
@@ -308,18 +308,60 @@
     <!-- Optimized shared CSS -->
     <link rel="stylesheet" href="css/shared-clean.css?v=2025090801" />
 
-    <!-- Mobile optimizations -->
+    <!-- Enhanced Mobile optimizations -->
     <script>
-      // Mobile viewport fix
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        const viewport = document.querySelector('meta[name="viewport"]');
-        if (viewport) {
-          viewport.setAttribute(
-            "content",
-            "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      // Enhanced mobile viewport and performance fix
+      (function () {
+        const isMobile =
+          /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
           );
+
+        if (isMobile) {
+          // Dynamic viewport fix for better mobile experience
+          const viewport = document.querySelector('meta[name="viewport"]');
+          if (viewport) {
+            viewport.setAttribute(
+              "content",
+              "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+            );
+          }
+
+          // Add mobile-specific meta tags
+          const mobileMeta = document.createElement("meta");
+          mobileMeta.name = "mobile-web-app-capable";
+          mobileMeta.content = "yes";
+          document.head.appendChild(mobileMeta);
+
+          const statusBar = document.createElement("meta");
+          statusBar.name = "apple-mobile-web-app-status-bar-style";
+          statusBar.content = "black-translucent";
+          document.head.appendChild(statusBar);
+
+          // Prevent zoom on inputs
+          const style = document.createElement("style");
+          style.textContent = `
+            input, textarea, select {
+              font-size: 16px !important;
+              transform: scale(1);
+            }
+            
+            /* Mobile-specific ad optimizations */
+            @media (max-width: 768px) {
+              .ad-container {
+                margin: 1rem 0;
+                padding: 0.5rem;
+              }
+              
+              .adsbygoogle {
+                max-width: 100% !important;
+                width: 100% !important;
+              }
+            }
+          `;
+          document.head.appendChild(style);
         }
-      }
+      })();
     </script>
 
     <!-- Index page specific styles -->
@@ -542,13 +584,96 @@
           font-size: 2rem;
         }
       }
+
+      /* Ad Styles */
+      .ad-section {
+        padding: 2rem 0;
+        text-align: center;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .ad-label {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.6;
+      }
+
+      .ad-container {
+        max-width: 728px;
+        margin: 0 auto;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border-radius: var(--border-radius);
+        position: relative;
+      }
+
+      .ad-horizontal {
+        min-height: 90px;
+      }
+
+      .adsbygoogle {
+        display: block !important;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+
+      /* Prevent layout shifts */
+      .ad-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--glass-bg);
+        border: 1px dashed var(--border-color);
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
+      }
+
+      .ad-container::after {
+        content: "Ad Space";
+        position: absolute;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      /* Hide placeholder when ad loads */
+      .ad-container:has(.adsbygoogle[data-ad-status="filled"])::before,
+      .ad-container:has(.adsbygoogle[data-ad-status="filled"])::after {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .ad-container {
+          min-height: 280px;
+          max-width: 320px;
+        }
+
+        .ad-horizontal {
+          min-height: 100px;
+        }
+      }
     </style>
   </head>
   <body data-theme="dark">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PLACEHOLDER"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K8Q7B2X"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
@@ -609,6 +734,23 @@
             <a href="/tools.html" class="btn btn-primary">
               Explore Tools <i class="fas fa-chart-line"></i>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Container - Top -->
+      <section class="ad-section" style="padding: 2rem 0; text-align: center">
+        <div class="container">
+          <div class="ad-label">Advertisement</div>
+          <div id="top-banner-ad" class="ad-container ad-horizontal">
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-2456627863532019"
+              data-ad-slot="1234567890"
+              data-ad-format="horizontal"
+              data-full-width-responsive="true"
+            ></ins>
           </div>
         </div>
       </section>
@@ -701,6 +843,23 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Container - Middle -->
+      <section class="ad-section" style="padding: 2rem 0; text-align: center">
+        <div class="container">
+          <div class="ad-label">Advertisement</div>
+          <div id="middle-ad" class="ad-container">
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-2456627863532019"
+              data-ad-slot="2345678901"
+              data-ad-format="rectangle"
+              data-full-width-responsive="true"
+            ></ins>
           </div>
         </div>
       </section>
@@ -951,6 +1110,42 @@
           }
         </script>
 
+        <!-- LocalBusiness Schema for Better Local SEO -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://ioinnovationfund.com/#business",
+            "name": "IO Innovation Fund",
+            "alternateName": "IO Innovation Fund - Southeast Asia Investment Specialists",
+            "description": "Premier Southeast Asia investment fund specializing in ASEAN markets analysis and portfolio management",
+            "url": "https://ioinnovationfund.com",
+            "telephone": "+65-9000-0000",
+            "email": "contact@ioinnovationfund.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Marina Bay",
+              "addressLocality": "Singapore",
+              "postalCode": "018989",
+              "addressCountry": "SG"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "1.290270",
+              "longitude": "103.851959"
+            },
+            "openingHours": ["Mo-Fr 09:00-18:00"],
+            "currenciesAccepted": "USD, SGD, THB, MYR, IDR, PHP, VND",
+            "paymentAccepted": "Credit Card, Bank Transfer, Digital Payment",
+            "priceRange": "$$",
+            "sameAs": [
+              "https://twitter.com/ioinnovation",
+              "https://linkedin.com/company/ioinnovation",
+              "https://facebook.com/ioinnovation"
+            ]
+          }
+        </script>
+
         <!-- Rating and Review Schema -->
         <script type="application/ld+json">
           {
@@ -1100,6 +1295,19 @@
         </div>
       </div>
     </footer>
+
+    <!-- Initialize Google Ads -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize AdSense ads
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.warn("AdSense initialization failed:", e);
+        }
+      });
+    </script>
 
     <!-- JavaScript with optimized loading -->
     <script src="js/core-web-vitals.js?v=2025091501" defer></script>
