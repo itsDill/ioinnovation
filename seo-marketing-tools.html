@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO & Marketing Tools | Website Optimization & Analysis Tools</title>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free SEO and marketing tools: SEO analyzer, keyword density checker, meta tag generator, social media tools, link analyzer, and more professional marketing utilities."
+    />
+    <meta name="author" content="IO Web Tools" />
+    <meta
+      name="keywords"
+      content="SEO tools, marketing tools, keyword analyzer, SEO checker, meta tags generator, social media tools, link analyzer, website optimization"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="SEO & Marketing Tools | Website Optimization & Analysis Tools"
+    />
+    <meta
+      property="og:description"
+      content="Professional-grade free SEO and marketing tools for website optimization, keyword analysis, meta tag generation, and social media management."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/seo-marketing-tools.html"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="canonical"
+      href="https://iowebtools.com/seo-marketing-tools.html"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/shared-clean.css" />
+    <script src="js/theme-init.js"></script>
+
+    <style>
+      .page-header {
+        padding: 4rem 0 2rem;
+        text-align: center;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.1) 0%,
+          transparent 50%
+        );
+      }
+
+      .page-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .tool-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .tool-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+        box-shadow: 0 4px 15px var(--shadow-color);
+      }
+
+      .tool-info h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .tool-category {
+        font-size: 0.85rem;
+        color: var(--accent-primary);
+        font-weight: 500;
+      }
+
+      .tool-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-interface {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-label {
+        display: block;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+        transition: all var(--transition-normal);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .form-textarea {
+        width: 100%;
+        min-height: 120px;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+        resize: vertical;
+        transition: all var(--transition-normal);
+      }
+
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+
+      .btn-action {
+        padding: 0.5rem 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all var(--transition-normal);
+      }
+
+      .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent-primary);
+        border: 1px solid var(--accent-primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--accent-primary);
+        color: white;
+      }
+
+      .result-display {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin-top: 1rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      .result-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .result-item {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .result-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .result-label {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .keyword-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .keyword-tag {
+        padding: 0.25rem 0.75rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        font-size: 0.85rem;
+        color: var(--text-primary);
+      }
+
+      .keyword-tag.high {
+        background: rgba(46, 204, 113, 0.2);
+        border-color: #2ecc71;
+        color: #2ecc71;
+      }
+
+      .keyword-tag.medium {
+        background: rgba(241, 196, 15, 0.2);
+        border-color: #f1c40f;
+        color: #f39c12;
+      }
+
+      .keyword-tag.low {
+        background: rgba(231, 76, 60, 0.2);
+        border-color: #e74c3c;
+        color: #e74c3c;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--border-color);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 0.5rem;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .action-buttons {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Web Tools</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/finance-tools.html">Finance Tools</a></li>
+          <li><a href="/technology-tools.html">Tech Tools</a></li>
+          <li>
+            <a href="/seo-marketing-tools.html" class="active"
+              >SEO & Marketing</a
+            >
+          </li>
+          <li><a href="/privacy-security-tools.html">Privacy & Security</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">SEO & Marketing Tools</h1>
+          <p class="page-description">
+            Professional SEO analysis and marketing tools for website
+            optimization, keyword research, social media management, and digital
+            marketing success.
+          </p>
+        </div>
+      </section>
+
+      <!-- Tools Grid -->
+      <section class="container">
+        <div class="tools-grid">
+          <!-- SEO Analyzer -->
+          <div class="tool-card" id="seo-analyzer">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="tool-info">
+                <h3>SEO Analyzer</h3>
+                <div class="tool-category">Website Optimization</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Analyze your website's SEO performance with comprehensive reports
+              on meta tags, keywords, content structure, and optimization
+              recommendations.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Website URL</label>
+                <input
+                  type="url"
+                  id="seoUrl"
+                  class="form-input"
+                  placeholder="https://example.com"
+                />
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="analyzeSEO()">
+                  Analyze SEO
+                </button>
+                <button class="btn-action btn-secondary" onclick="clearSEO()">
+                  Clear
+                </button>
+              </div>
+              <div class="result-display" id="seoResult" style="display: none">
+                <div class="result-grid" id="seoMetrics"></div>
+                <div id="seoDetails"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keyword Density Checker -->
+          <div class="tool-card" id="keyword-density">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-key"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Keyword Density Checker</h3>
+                <div class="tool-category">Content Analysis</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Analyze keyword density in your content to optimize for search
+              engines. Identify over-optimization and find the perfect keyword
+              balance.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Content Text</label>
+                <textarea
+                  id="keywordContent"
+                  class="form-textarea"
+                  placeholder="Paste your content here to analyze keyword density..."
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label"
+                  >Target Keywords (optional, comma-separated)</label
+                >
+                <input
+                  type="text"
+                  id="targetKeywords"
+                  class="form-input"
+                  placeholder="SEO, marketing, optimization"
+                />
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="analyzeKeywordDensity()">
+                  Analyze Keywords
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearKeywordDensity()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="keywordResult"
+                style="display: none"
+              >
+                <div class="result-grid" id="keywordMetrics"></div>
+                <div id="keywordList"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Meta Tag Generator -->
+          <div class="tool-card" id="meta-generator">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-tags"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Meta Tag Generator</h3>
+                <div class="tool-category">HTML Optimization</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Generate optimized meta tags for your web pages including title,
+              description, keywords, and Open Graph tags for better SEO and
+              social sharing.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Page Title</label>
+                <input
+                  type="text"
+                  id="metaTitle"
+                  class="form-input"
+                  placeholder="Your Page Title - Brand Name"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Meta Description</label>
+                <textarea
+                  id="metaDescription"
+                  class="form-textarea"
+                  placeholder="Write a compelling description (150-160 characters recommended)"
+                  maxlength="160"
+                ></textarea>
+                <small style="color: var(--text-secondary); font-size: 0.8rem"
+                  >Characters: <span id="descCharCount">0</span>/160</small
+                >
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Keywords</label>
+                  <input
+                    type="text"
+                    id="metaKeywords"
+                    class="form-input"
+                    placeholder="keyword1, keyword2, keyword3"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Page URL</label>
+                  <input
+                    type="url"
+                    id="metaUrl"
+                    class="form-input"
+                    placeholder="https://example.com/page"
+                  />
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Author</label>
+                  <input
+                    type="text"
+                    id="metaAuthor"
+                    class="form-input"
+                    placeholder="Your Name or Company"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label"
+                    >Image URL (for social sharing)</label
+                  >
+                  <input
+                    type="url"
+                    id="metaImage"
+                    class="form-input"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="generateMetaTags()">
+                  Generate Meta Tags
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="copyMetaTags()"
+                >
+                  Copy HTML
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearMetaTags()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="metaResult"
+                style="display: none; font-family: 'Courier New', monospace"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Link Analyzer -->
+          <div class="tool-card" id="link-analyzer">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-link"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Link Analyzer</h3>
+                <div class="tool-category">Link Building</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Analyze internal and external links on any webpage. Check link
+              status, identify broken links, and optimize your link structure
+              for better SEO.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Website URL to Analyze</label>
+                <input
+                  type="url"
+                  id="linkAnalyzerUrl"
+                  class="form-input"
+                  placeholder="https://example.com"
+                />
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="analyzeLinks()">
+                  Analyze Links
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearLinkAnalysis()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div class="result-display" id="linkResult" style="display: none">
+                <div class="result-grid" id="linkMetrics"></div>
+                <div id="linkDetails"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Preview -->
+          <div class="tool-card" id="social-preview">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-share-alt"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Social Media Preview</h3>
+                <div class="tool-category">Social Optimization</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Preview how your content will appear when shared on Facebook,
+              Twitter, LinkedIn, and other social media platforms. Optimize for
+              maximum engagement.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Page Title</label>
+                <input
+                  type="text"
+                  id="socialTitle"
+                  class="form-input"
+                  placeholder="Your engaging title"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea
+                  id="socialDescription"
+                  class="form-textarea"
+                  placeholder="Compelling description for social sharing..."
+                ></textarea>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Image URL</label>
+                  <input
+                    type="url"
+                    id="socialImage"
+                    class="form-input"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Website URL</label>
+                  <input
+                    type="url"
+                    id="socialUrl"
+                    class="form-input"
+                    placeholder="https://example.com"
+                  />
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="generateSocialPreviews()">
+                  Generate Previews
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearSocialPreviews()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="socialResult"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Readability Analyzer -->
+          <div class="tool-card" id="readability-analyzer">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Readability Analyzer</h3>
+                <div class="tool-category">Content Quality</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Analyze your content's readability with multiple scoring methods.
+              Improve user engagement and SEO with better content structure and
+              clarity.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Content to Analyze</label>
+                <textarea
+                  id="readabilityContent"
+                  class="form-textarea"
+                  placeholder="Paste your content here to analyze readability..."
+                ></textarea>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="analyzeReadability()">
+                  Analyze Readability
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearReadability()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="readabilityResult"
+                style="display: none"
+              >
+                <div class="result-grid" id="readabilityMetrics"></div>
+                <div id="readabilityDetails"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              gap: 1.2rem;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <a href="/privacy.html" class="secret-link">Privacy Policy</a>
+            <a href="/terms.html" class="secret-link">Terms of Service</a>
+            <a href="/contact.html" class="secret-link">Contact</a>
+          </div>
+          <div
+            style="
+              max-width: 600px;
+              font-size: 0.85rem;
+              line-height: 1.5;
+              color: var(--text-secondary);
+            "
+          >
+            <p>&copy; 2025 IO Web Tools. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem">
+              SEO and marketing analysis tools are provided for informational
+              purposes. Results may vary and should be used as guidance for
+              optimization efforts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/shared-simple.js"></script>
+
+    <script>
+      // SEO Analyzer
+      function analyzeSEO() {
+        const url = document.getElementById("seoUrl").value;
+        const result = document.getElementById("seoResult");
+        const metrics = document.getElementById("seoMetrics");
+        const details = document.getElementById("seoDetails");
+
+        if (!url) {
+          alert("Please enter a website URL");
+          return;
+        }
+
+        // Simulate SEO analysis (in real app, would use actual web scraping/API)
+        const analysis = generateMockSEOAnalysis(url);
+
+        metrics.innerHTML = `
+          <div class="result-item">
+            <div class="result-value">${analysis.seoScore}</div>
+            <div class="result-label">SEO Score</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.titleLength}</div>
+            <div class="result-label">Title Length</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.metaDescLength}</div>
+            <div class="result-label">Meta Desc Length</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.headings}</div>
+            <div class="result-label">Headings Found</div>
+          </div>
+        `;
+
+        details.innerHTML = `
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">SEO Analysis Details</h4>
+          <div style="margin-bottom: 1rem;">
+            <strong>Title Tag:</strong> ${analysis.title || "Not found"}
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${Math.min(
+                (analysis.titleLength / 60) * 100,
+                100
+              )}%"></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong>Meta Description:</strong> ${
+              analysis.metaDesc || "Not found"
+            }
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${Math.min(
+                (analysis.metaDescLength / 160) * 100,
+                100
+              )}%"></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong>Recommendations:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-secondary);">
+              ${analysis.recommendations
+                .map((rec) => `<li>${rec}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
+
+        result.style.display = "block";
+      }
+
+      function generateMockSEOAnalysis(url) {
+        // Generate realistic mock data
+        const titleLength = Math.floor(Math.random() * 80) + 20;
+        const metaDescLength = Math.floor(Math.random() * 200) + 50;
+        const headings = Math.floor(Math.random() * 20) + 5;
+        const seoScore = Math.floor(Math.random() * 40) + 60; // 60-100 range
+
+        const recommendations = [];
+        if (titleLength > 60)
+          recommendations.push("Shorten title tag to under 60 characters");
+        if (metaDescLength > 160)
+          recommendations.push(
+            "Optimize meta description length (150-160 chars)"
+          );
+        if (headings < 5)
+          recommendations.push("Add more heading tags for better structure");
+        if (seoScore < 80) recommendations.push("Improve keyword optimization");
+        recommendations.push("Add alt text to images");
+        recommendations.push("Improve page loading speed");
+
+        return {
+          seoScore,
+          titleLength,
+          metaDescLength,
+          headings,
+          title: `Example Page Title for ${new URL(url).hostname}`,
+          metaDesc:
+            "This is an example meta description for the analyzed page.",
+          recommendations: recommendations.slice(0, 4),
+        };
+      }
+
+      function clearSEO() {
+        document.getElementById("seoUrl").value = "";
+        document.getElementById("seoResult").style.display = "none";
+      }
+
+      // Keyword Density Analyzer
+      function analyzeKeywordDensity() {
+        const content = document.getElementById("keywordContent").value;
+        const targetKeywords = document.getElementById("targetKeywords").value;
+        const result = document.getElementById("keywordResult");
+        const metrics = document.getElementById("keywordMetrics");
+        const keywordList = document.getElementById("keywordList");
+
+        if (!content) {
+          alert("Please enter content to analyze");
+          return;
+        }
+
+        const analysis = analyzeContent(content, targetKeywords);
+
+        metrics.innerHTML = `
+          <div class="result-item">
+            <div class="result-value">${analysis.wordCount}</div>
+            <div class="result-label">Total Words</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.uniqueWords}</div>
+            <div class="result-label">Unique Words</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.sentences}</div>
+            <div class="result-label">Sentences</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.avgWordsPerSentence}</div>
+            <div class="result-label">Avg Words/Sentence</div>
+          </div>
+        `;
+
+        const keywordHTML = analysis.keywords
+          .map((kw) => {
+            let className = "low";
+            if (kw.density >= 2 && kw.density <= 3) className = "high";
+            else if (kw.density >= 1) className = "medium";
+
+            return `<span class="keyword-tag ${className}">${kw.word}: ${kw.density}%</span>`;
+          })
+          .join("");
+
+        keywordList.innerHTML = `
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Keyword Density Analysis</h4>
+          <div class="keyword-list">${keywordHTML}</div>
+          <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+            <strong>Density Guidelines:</strong> 
+            <span style="color: #2ecc71;">■ Optimal (1-3%)</span>
+            <span style="color: #f39c12;">■ Acceptable (0.5-1%)</span>
+            <span style="color: #e74c3c;">■ Low/High (Under 0.5% or Over 3%)</span>
+          </div>
+        `;
+
+        result.style.display = "block";
+      }
+
+      function analyzeContent(content, targetKeywords) {
+        const words = content.toLowerCase().match(/\b\w+\b/g) || [];
+        const sentences = content
+          .split(/[.!?]+/)
+          .filter((s) => s.trim().length > 0);
+        const wordCount = words.length;
+        const uniqueWords = new Set(words).size;
+
+        // Count word frequencies
+        const wordFreq = {};
+        words.forEach((word) => {
+          if (word.length > 3) {
+            // Ignore short words
+            wordFreq[word] = (wordFreq[word] || 0) + 1;
+          }
+        });
+
+        // Calculate densities
+        const keywords = Object.entries(wordFreq)
+          .map(([word, count]) => ({
+            word,
+            count,
+            density: ((count / wordCount) * 100).toFixed(1),
+          }))
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 20); // Top 20 keywords
+
+        return {
+          wordCount,
+          uniqueWords,
+          sentences: sentences.length,
+          avgWordsPerSentence: Math.round(wordCount / sentences.length),
+          keywords,
+        };
+      }
+
+      function clearKeywordDensity() {
+        document.getElementById("keywordContent").value = "";
+        document.getElementById("targetKeywords").value = "";
+        document.getElementById("keywordResult").style.display = "none";
+      }
+
+      // Meta Tag Generator
+      function generateMetaTags() {
+        const title = document.getElementById("metaTitle").value;
+        const description = document.getElementById("metaDescription").value;
+        const keywords = document.getElementById("metaKeywords").value;
+        const url = document.getElementById("metaUrl").value;
+        const author = document.getElementById("metaAuthor").value;
+        const image = document.getElementById("metaImage").value;
+        const result = document.getElementById("metaResult");
+
+        if (!title || !description) {
+          alert("Please enter at least a title and description");
+          return;
+        }
+
+        let metaTags = `<!-- Basic Meta Tags -->
+<title>${title}</title>
+<meta name="description" content="${description}">`;
+
+        if (keywords) {
+          metaTags += `\n<meta name="keywords" content="${keywords}">`;
+        }
+        if (author) {
+          metaTags += `\n<meta name="author" content="${author}">`;
+        }
+
+        metaTags += `\n<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
+
+        if (url) {
+          metaTags += `\n\n<!-- Open Graph Tags -->
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${url}">
+<meta property="og:type" content="website">`;
+        }
+
+        if (image) {
+          metaTags += `\n<meta property="og:image" content="${image}">
+<meta property="og:image:alt" content="${title}">`;
+        }
+
+        if (url) {
+          metaTags += `\n\n<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${description}">`;
+        }
+
+        if (image) {
+          metaTags += `\n<meta name="twitter:image" content="${image}">`;
+        }
+
+        if (url) {
+          metaTags += `\n\n<!-- Canonical URL -->
+<link rel="canonical" href="${url}">`;
+        }
+
+        result.textContent = metaTags;
+        result.style.display = "block";
+      }
+
+      function copyMetaTags() {
+        const result = document.getElementById("metaResult");
+        if (result.style.display === "none" || !result.textContent) {
+          alert("Generate meta tags first");
+          return;
+        }
+
+        navigator.clipboard.writeText(result.textContent).then(() => {
+          alert("Meta tags copied to clipboard!");
+        });
+      }
+
+      function clearMetaTags() {
+        document.getElementById("metaTitle").value = "";
+        document.getElementById("metaDescription").value = "";
+        document.getElementById("metaKeywords").value = "";
+        document.getElementById("metaUrl").value = "";
+        document.getElementById("metaAuthor").value = "";
+        document.getElementById("metaImage").value = "";
+        document.getElementById("metaResult").style.display = "none";
+      }
+
+      // Character counter for meta description
+      document
+        .getElementById("metaDescription")
+        .addEventListener("input", function () {
+          const count = this.value.length;
+          document.getElementById("descCharCount").textContent = count;
+
+          const counter = document.getElementById("descCharCount");
+          if (count > 160) {
+            counter.style.color = "#e74c3c";
+          } else if (count > 140) {
+            counter.style.color = "#f39c12";
+          } else {
+            counter.style.color = "var(--accent-primary)";
+          }
+        });
+
+      // Link Analyzer (Mock Implementation)
+      function analyzeLinks() {
+        const url = document.getElementById("linkAnalyzerUrl").value;
+        const result = document.getElementById("linkResult");
+        const metrics = document.getElementById("linkMetrics");
+        const details = document.getElementById("linkDetails");
+
+        if (!url) {
+          alert("Please enter a website URL");
+          return;
+        }
+
+        // Generate mock link analysis
+        const analysis = generateMockLinkAnalysis(url);
+
+        metrics.innerHTML = `
+          <div class="result-item">
+            <div class="result-value">${analysis.totalLinks}</div>
+            <div class="result-label">Total Links</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.internalLinks}</div>
+            <div class="result-label">Internal Links</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.externalLinks}</div>
+            <div class="result-label">External Links</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.brokenLinks}</div>
+            <div class="result-label">Broken Links</div>
+          </div>
+        `;
+
+        details.innerHTML = `
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Link Analysis Report</h4>
+          <div style="margin-bottom: 1rem;">
+            <strong>Link Distribution:</strong>
+            <div style="margin-top: 0.5rem;">
+              Internal: ${(
+                (analysis.internalLinks / analysis.totalLinks) *
+                100
+              ).toFixed(1)}%
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: ${
+                  (analysis.internalLinks / analysis.totalLinks) * 100
+                }%"></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong>Recommendations:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-secondary);">
+              ${analysis.recommendations
+                .map((rec) => `<li>${rec}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
+
+        result.style.display = "block";
+      }
+
+      function generateMockLinkAnalysis(url) {
+        const totalLinks = Math.floor(Math.random() * 100) + 20;
+        const internalLinks = Math.floor(totalLinks * 0.7);
+        const externalLinks = totalLinks - internalLinks;
+        const brokenLinks = Math.floor(Math.random() * 5);
+
+        const recommendations = [
+          "Fix broken links to improve user experience",
+          "Add more internal links for better SEO",
+          "Use descriptive anchor text for links",
+          "Check external links regularly for validity",
+        ];
+
+        return {
+          totalLinks,
+          internalLinks,
+          externalLinks,
+          brokenLinks,
+          recommendations,
+        };
+      }
+
+      function clearLinkAnalysis() {
+        document.getElementById("linkAnalyzerUrl").value = "";
+        document.getElementById("linkResult").style.display = "none";
+      }
+
+      // Social Media Preview
+      function generateSocialPreviews() {
+        const title = document.getElementById("socialTitle").value;
+        const description = document.getElementById("socialDescription").value;
+        const image = document.getElementById("socialImage").value;
+        const url = document.getElementById("socialUrl").value;
+        const result = document.getElementById("socialResult");
+
+        if (!title || !description) {
+          alert("Please enter at least a title and description");
+          return;
+        }
+
+        const domain = url ? new URL(url).hostname : "example.com";
+
+        result.innerHTML = `
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Social Media Previews</h4>
+          
+          <!-- Facebook Preview -->
+          <div style="margin-bottom: 2rem;">
+            <h5 style="margin-bottom: 0.5rem;">Facebook Preview</h5>
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; max-width: 500px;">
+              ${
+                image
+                  ? `<img src="${image}" alt="Preview" style="width: 100%; height: 200px; object-fit: cover; background: var(--glass-bg);" onerror="this.style.display='none'">`
+                  : ""
+              }
+              <div style="padding: 1rem; background: var(--bg-card);">
+                <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.5rem;">${domain}</div>
+                <div style="font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">${title}</div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">${description.substring(
+                  0,
+                  100
+                )}${description.length > 100 ? "..." : ""}</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Twitter Preview -->
+          <div style="margin-bottom: 2rem;">
+            <h5 style="margin-bottom: 0.5rem;">Twitter Preview</h5>
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; max-width: 500px;">
+              ${
+                image
+                  ? `<img src="${image}" alt="Preview" style="width: 100%; height: 200px; object-fit: cover; background: var(--glass-bg);" onerror="this.style.display='none'">`
+                  : ""
+              }
+              <div style="padding: 1rem; background: var(--bg-card);">
+                <div style="font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">${title}</div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">${description.substring(
+                  0,
+                  120
+                )}${description.length > 120 ? "..." : ""}</div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary);">${domain}</div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        result.style.display = "block";
+      }
+
+      function clearSocialPreviews() {
+        document.getElementById("socialTitle").value = "";
+        document.getElementById("socialDescription").value = "";
+        document.getElementById("socialImage").value = "";
+        document.getElementById("socialUrl").value = "";
+        document.getElementById("socialResult").style.display = "none";
+      }
+
+      // Readability Analyzer
+      function analyzeReadability() {
+        const content = document.getElementById("readabilityContent").value;
+        const result = document.getElementById("readabilityResult");
+        const metrics = document.getElementById("readabilityMetrics");
+        const details = document.getElementById("readabilityDetails");
+
+        if (!content) {
+          alert("Please enter content to analyze");
+          return;
+        }
+
+        const analysis = calculateReadability(content);
+
+        metrics.innerHTML = `
+          <div class="result-item">
+            <div class="result-value">${analysis.fleschScore}</div>
+            <div class="result-label">Flesch Score</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.gradeLevel}</div>
+            <div class="result-label">Grade Level</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.avgSentenceLength}</div>
+            <div class="result-label">Avg Sentence Length</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">${analysis.avgSyllables}</div>
+            <div class="result-label">Avg Syllables/Word</div>
+          </div>
+        `;
+
+        details.innerHTML = `
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Readability Analysis</h4>
+          <div style="margin-bottom: 1rem;">
+            <strong>Readability Level:</strong> ${analysis.readabilityLevel}
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${
+                analysis.fleschScore
+              }%"></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <strong>Recommendations:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-secondary);">
+              ${analysis.recommendations
+                .map((rec) => `<li>${rec}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
+
+        result.style.display = "block";
+      }
+
+      function calculateReadability(content) {
+        const sentences = content
+          .split(/[.!?]+/)
+          .filter((s) => s.trim().length > 0);
+        const words = content.match(/\b\w+\b/g) || [];
+        const totalSentences = sentences.length;
+        const totalWords = words.length;
+
+        // Estimate syllables (simplified)
+        const totalSyllables = words.reduce((count, word) => {
+          return (
+            count +
+            Math.max(
+              1,
+              word
+                .toLowerCase()
+                .replace(/[^a-z]/g, "")
+                .replace(/e$/i, "")
+                .match(/[aeiouy]+/g)?.length || 1
+            )
+          );
+        }, 0);
+
+        const avgSentenceLength = Math.round(totalWords / totalSentences);
+        const avgSyllables = (totalSyllables / totalWords).toFixed(1);
+
+        // Flesch Reading Ease Score
+        const fleschScore = Math.round(
+          206.835 - 1.015 * avgSentenceLength - 84.6 * avgSyllables
+        );
+
+        let readabilityLevel;
+        if (fleschScore >= 90) readabilityLevel = "Very Easy";
+        else if (fleschScore >= 80) readabilityLevel = "Easy";
+        else if (fleschScore >= 70) readabilityLevel = "Fairly Easy";
+        else if (fleschScore >= 60) readabilityLevel = "Standard";
+        else if (fleschScore >= 50) readabilityLevel = "Fairly Difficult";
+        else if (fleschScore >= 30) readabilityLevel = "Difficult";
+        else readabilityLevel = "Very Difficult";
+
+        const gradeLevel = Math.round(
+          0.39 * avgSentenceLength + 11.8 * avgSyllables - 15.59
+        );
+
+        const recommendations = [];
+        if (avgSentenceLength > 20)
+          recommendations.push("Use shorter sentences (aim for 15-20 words)");
+        if (avgSyllables > 1.5)
+          recommendations.push("Use simpler words when possible");
+        if (fleschScore < 60)
+          recommendations.push(
+            "Improve readability for better user engagement"
+          );
+        if (totalSentences < 5)
+          recommendations.push("Add more content for better analysis");
+
+        return {
+          fleschScore: Math.max(0, Math.min(100, fleschScore)),
+          gradeLevel,
+          avgSentenceLength,
+          avgSyllables,
+          readabilityLevel,
+          recommendations,
+        };
+      }
+
+      function clearReadability() {
+        document.getElementById("readabilityContent").value = "";
+        document.getElementById("readabilityResult").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

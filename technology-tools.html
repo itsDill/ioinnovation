@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technology Tools | Developer Utilities & Code Tools</title>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free technology tools for developers: JSON formatter, hash generator, QR code generator, API tester, code minifier, and more professional developer utilities."
+    />
+    <meta name="author" content="IO Web Tools" />
+    <meta
+      name="keywords"
+      content="developer tools, JSON formatter, hash generator, QR code generator, API tester, code minifier, technology tools, programming utilities"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Technology Tools | Developer Utilities & Code Tools"
+    />
+    <meta
+      property="og:description"
+      content="Professional-grade free technology tools for developers including JSON formatters, hash generators, QR code generators, and API testing utilities."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/technology-tools.html"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://iowebtools.com/technology-tools.html" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/shared-clean.css" />
+    <script src="js/theme-init.js"></script>
+
+    <style>
+      .page-header {
+        padding: 4rem 0 2rem;
+        text-align: center;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.1) 0%,
+          transparent 50%
+        );
+      }
+
+      .page-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .tool-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .tool-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+        box-shadow: 0 4px 15px var(--shadow-color);
+      }
+
+      .tool-info h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .tool-category {
+        font-size: 0.85rem;
+        color: var(--accent-primary);
+        font-weight: 500;
+      }
+
+      .tool-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-interface {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-label {
+        display: block;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .form-textarea {
+        width: 100%;
+        min-height: 150px;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        resize: vertical;
+        transition: all var(--transition-normal);
+      }
+
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+        transition: all var(--transition-normal);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .form-select {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+
+      .btn-action {
+        padding: 0.5rem 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all var(--transition-normal);
+      }
+
+      .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent-primary);
+        border: 1px solid var(--accent-primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--accent-primary);
+        color: white;
+      }
+
+      .result-display {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        margin-top: 1rem;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        white-space: pre-wrap;
+        word-break: break-all;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .qr-display {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .qr-code {
+        background: white;
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .three-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .two-column,
+        .three-column {
+          grid-template-columns: 1fr;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .action-buttons {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Web Tools</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/finance-tools.html">Finance Tools</a></li>
+          <li>
+            <a href="/technology-tools.html" class="active">Tech Tools</a>
+          </li>
+          <li><a href="/seo-marketing-tools.html">SEO & Marketing</a></li>
+          <li><a href="/privacy-security-tools.html">Privacy & Security</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Technology Tools</h1>
+          <p class="page-description">
+            Professional developer utilities and code tools for formatting,
+            validation, generation, and testing. All processing is done
+            client-side for maximum security and privacy.
+          </p>
+        </div>
+      </section>
+
+      <!-- Tools Grid -->
+      <section class="container">
+        <div class="tools-grid">
+          <!-- JSON Formatter -->
+          <div class="tool-card" id="json-formatter">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="tool-info">
+                <h3>JSON Formatter</h3>
+                <div class="tool-category">Data Processing</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Format, validate, and beautify JSON data with syntax highlighting
+              and error detection. Perfect for API development and debugging.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">JSON Input</label>
+                <textarea
+                  id="jsonInput"
+                  class="form-textarea"
+                  placeholder='{"name":"example","data":[1,2,3]}'
+                ></textarea>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="formatJSON()">
+                  Format JSON
+                </button>
+                <button class="btn-action btn-secondary" onclick="minifyJSON()">
+                  Minify JSON
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="validateJSON()"
+                >
+                  Validate JSON
+                </button>
+                <button class="btn-action btn-secondary" onclick="clearJSON()">
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="jsonOutput"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Hash Generator -->
+          <div class="tool-card" id="hash-generator">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-fingerprint"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Hash Generator</h3>
+                <div class="tool-category">Cryptography</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Generate MD5, SHA-1, SHA-256, and other hash values for text
+              strings. Useful for data integrity verification and security
+              applications.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Input Text</label>
+                <textarea
+                  id="hashInput"
+                  class="form-textarea"
+                  placeholder="Enter text to hash..."
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Hash Algorithm</label>
+                <select id="hashAlgorithm" class="form-select">
+                  <option value="MD5">MD5</option>
+                  <option value="SHA-1">SHA-1</option>
+                  <option value="SHA-256" selected>SHA-256</option>
+                  <option value="SHA-512">SHA-512</option>
+                </select>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="generateHash()">
+                  Generate Hash
+                </button>
+                <button class="btn-action btn-secondary" onclick="copyHash()">
+                  Copy Hash
+                </button>
+                <button class="btn-action btn-secondary" onclick="clearHash()">
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="hashOutput"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- QR Code Generator -->
+          <div class="tool-card" id="qr-generator">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-qrcode"></i>
+              </div>
+              <div class="tool-info">
+                <h3>QR Code Generator</h3>
+                <div class="tool-category">Visual Tools</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Create custom QR codes for URLs, text, contact information, WiFi
+              credentials, and more. Supports various sizes and error correction
+              levels.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">QR Code Type</label>
+                <select
+                  id="qrType"
+                  class="form-select"
+                  onchange="updateQRFields()"
+                >
+                  <option value="text">Plain Text</option>
+                  <option value="url">URL/Website</option>
+                  <option value="email">Email</option>
+                  <option value="phone">Phone Number</option>
+                  <option value="wifi">WiFi Credentials</option>
+                </select>
+              </div>
+              <div id="qrFields">
+                <div class="form-group">
+                  <label class="form-label">Text Content</label>
+                  <textarea
+                    id="qrContent"
+                    class="form-textarea"
+                    placeholder="Enter text or URL..."
+                  ></textarea>
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Size</label>
+                  <select id="qrSize" class="form-select">
+                    <option value="200">Small (200px)</option>
+                    <option value="300" selected>Medium (300px)</option>
+                    <option value="400">Large (400px)</option>
+                    <option value="500">Extra Large (500px)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Error Correction</label>
+                  <select id="qrErrorCorrection" class="form-select">
+                    <option value="L">Low (7%)</option>
+                    <option value="M" selected>Medium (15%)</option>
+                    <option value="Q">Quartile (25%)</option>
+                    <option value="H">High (30%)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="generateQR()">
+                  Generate QR Code
+                </button>
+                <button class="btn-action btn-secondary" onclick="downloadQR()">
+                  Download PNG
+                </button>
+                <button class="btn-action btn-secondary" onclick="clearQR()">
+                  Clear
+                </button>
+              </div>
+              <div class="qr-display" id="qrOutput" style="display: none">
+                <div class="qr-code" id="qrCodeContainer"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- URL Encoder/Decoder -->
+          <div class="tool-card" id="url-encoder">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-link"></i>
+              </div>
+              <div class="tool-info">
+                <h3>URL Encoder/Decoder</h3>
+                <div class="tool-category">Text Processing</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Encode and decode URLs for safe transmission over the internet.
+              Handle special characters, spaces, and international characters
+              properly.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Input URL or Text</label>
+                <textarea
+                  id="urlInput"
+                  class="form-textarea"
+                  placeholder="Enter URL or text to encode/decode..."
+                ></textarea>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="encodeURL()">
+                  Encode URL
+                </button>
+                <button class="btn-action btn-secondary" onclick="decodeURL()">
+                  Decode URL
+                </button>
+                <button class="btn-action btn-secondary" onclick="copyURL()">
+                  Copy Result
+                </button>
+                <button class="btn-action btn-secondary" onclick="clearURL()">
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="urlOutput"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Base64 Encoder/Decoder -->
+          <div class="tool-card" id="base64-tool">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Base64 Encoder/Decoder</h3>
+                <div class="tool-category">Data Encoding</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Encode and decode Base64 strings for data transmission, email
+              attachments, and web applications. Supports both text and file
+              encoding.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Input Text</label>
+                <textarea
+                  id="base64Input"
+                  class="form-textarea"
+                  placeholder="Enter text to encode or Base64 to decode..."
+                ></textarea>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="encodeBase64()">
+                  Encode to Base64
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="decodeBase64()"
+                >
+                  Decode from Base64
+                </button>
+                <button class="btn-action btn-secondary" onclick="copyBase64()">
+                  Copy Result
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearBase64()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="base64Output"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Password Strength Checker -->
+          <div class="tool-card" id="password-checker">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Password Strength Checker</h3>
+                <div class="tool-category">Security Analysis</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Analyze password strength and security with detailed feedback. Get
+              recommendations for creating stronger, more secure passwords.
+            </p>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Password to Check</label>
+                <input
+                  type="password"
+                  id="passwordInput"
+                  class="form-input"
+                  placeholder="Enter password to analyze..."
+                />
+                <div style="margin-top: 0.5rem">
+                  <label
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+                      font-size: 0.85rem;
+                      color: var(--text-secondary);
+                    "
+                  >
+                    <input
+                      type="checkbox"
+                      id="showPassword"
+                      onchange="togglePasswordVisibility()"
+                      style="margin: 0"
+                    />
+                    Show password
+                  </label>
+                </div>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-action" onclick="checkPasswordStrength()">
+                  Check Strength
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="generateStrongPassword()"
+                >
+                  Generate Strong Password
+                </button>
+                <button
+                  class="btn-action btn-secondary"
+                  onclick="clearPasswordCheck()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div
+                class="result-display"
+                id="passwordResult"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              gap: 1.2rem;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <a href="/privacy.html" class="secret-link">Privacy Policy</a>
+            <a href="/terms.html" class="secret-link">Terms of Service</a>
+            <a href="/contact.html" class="secret-link">Contact</a>
+          </div>
+          <div
+            style="
+              max-width: 600px;
+              font-size: 0.85rem;
+              line-height: 1.5;
+              color: var(--text-secondary);
+            "
+          >
+            <p>&copy; 2025 IO Web Tools. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem">
+              All tools process data client-side for maximum security. Your data
+              never leaves your browser.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="js/shared-simple.js"></script>
+
+    <script>
+      // JSON Formatter Functions
+      function formatJSON() {
+        const input = document.getElementById("jsonInput").value;
+        const output = document.getElementById("jsonOutput");
+
+        try {
+          const parsed = JSON.parse(input);
+          const formatted = JSON.stringify(parsed, null, 2);
+          output.textContent = formatted;
+          output.style.display = "block";
+          output.style.color = "var(--text-primary)";
+        } catch (error) {
+          output.textContent = "Error: " + error.message;
+          output.style.display = "block";
+          output.style.color = "#ff4757";
+        }
+      }
+
+      function minifyJSON() {
+        const input = document.getElementById("jsonInput").value;
+        const output = document.getElementById("jsonOutput");
+
+        try {
+          const parsed = JSON.parse(input);
+          const minified = JSON.stringify(parsed);
+          output.textContent = minified;
+          output.style.display = "block";
+          output.style.color = "var(--text-primary)";
+        } catch (error) {
+          output.textContent = "Error: " + error.message;
+          output.style.display = "block";
+          output.style.color = "#ff4757";
+        }
+      }
+
+      function validateJSON() {
+        const input = document.getElementById("jsonInput").value;
+        const output = document.getElementById("jsonOutput");
+
+        try {
+          JSON.parse(input);
+          output.textContent = "✅ Valid JSON";
+          output.style.display = "block";
+          output.style.color = "var(--accent-primary)";
+        } catch (error) {
+          output.textContent = "❌ Invalid JSON: " + error.message;
+          output.style.display = "block";
+          output.style.color = "#ff4757";
+        }
+      }
+
+      function clearJSON() {
+        document.getElementById("jsonInput").value = "";
+        document.getElementById("jsonOutput").style.display = "none";
+      }
+
+      // Hash Generator Functions
+      function generateHash() {
+        const input = document.getElementById("hashInput").value;
+        const algorithm = document.getElementById("hashAlgorithm").value;
+        const output = document.getElementById("hashOutput");
+
+        if (!input) {
+          alert("Please enter text to hash");
+          return;
+        }
+
+        let hash;
+        switch (algorithm) {
+          case "MD5":
+            hash = CryptoJS.MD5(input).toString();
+            break;
+          case "SHA-1":
+            hash = CryptoJS.SHA1(input).toString();
+            break;
+          case "SHA-256":
+            hash = CryptoJS.SHA256(input).toString();
+            break;
+          case "SHA-512":
+            hash = CryptoJS.SHA512(input).toString();
+            break;
+          default:
+            hash = CryptoJS.SHA256(input).toString();
+        }
+
+        output.textContent = `${algorithm}: ${hash}`;
+        output.style.display = "block";
+        output.style.color = "var(--text-primary)";
+      }
+
+      function copyHash() {
+        const output = document.getElementById("hashOutput");
+        if (output.style.display === "none" || !output.textContent) {
+          alert("Generate a hash first");
+          return;
+        }
+
+        const hash = output.textContent.split(": ")[1];
+        navigator.clipboard.writeText(hash).then(() => {
+          alert("Hash copied to clipboard!");
+        });
+      }
+
+      function clearHash() {
+        document.getElementById("hashInput").value = "";
+        document.getElementById("hashOutput").style.display = "none";
+      }
+
+      // QR Code Functions
+      let qrCode = null;
+
+      function updateQRFields() {
+        const type = document.getElementById("qrType").value;
+        const fieldsContainer = document.getElementById("qrFields");
+
+        let fieldsHTML = "";
+        switch (type) {
+          case "text":
+            fieldsHTML = `
+              <div class="form-group">
+                <label class="form-label">Text Content</label>
+                <textarea id="qrContent" class="form-textarea" placeholder="Enter text..."></textarea>
+              </div>
+            `;
+            break;
+          case "url":
+            fieldsHTML = `
+              <div class="form-group">
+                <label class="form-label">Website URL</label>
+                <input type="url" id="qrContent" class="form-input" placeholder="https://example.com">
+              </div>
+            `;
+            break;
+          case "email":
+            fieldsHTML = `
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="qrContent" class="form-input" placeholder="example@email.com">
+              </div>
+            `;
+            break;
+          case "phone":
+            fieldsHTML = `
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" id="qrContent" class="form-input" placeholder="+1234567890">
+              </div>
+            `;
+            break;
+          case "wifi":
+            fieldsHTML = `
+              <div class="form-group">
+                <label class="form-label">Network Name (SSID)</label>
+                <input type="text" id="wifiSSID" class="form-input" placeholder="MyWiFiNetwork">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" id="wifiPassword" class="form-input" placeholder="password123">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Security Type</label>
+                <select id="wifiSecurity" class="form-select">
+                  <option value="WPA">WPA/WPA2</option>
+                  <option value="WEP">WEP</option>
+                  <option value="nopass">None (Open)</option>
+                </select>
+              </div>
+            `;
+            break;
+        }
+
+        fieldsContainer.innerHTML = fieldsHTML;
+      }
+
+      function generateQR() {
+        const type = document.getElementById("qrType").value;
+        const size = parseInt(document.getElementById("qrSize").value);
+        const errorCorrection =
+          document.getElementById("qrErrorCorrection").value;
+        const container = document.getElementById("qrCodeContainer");
+        const output = document.getElementById("qrOutput");
+
+        let content = "";
+
+        if (type === "wifi") {
+          const ssid = document.getElementById("wifiSSID").value;
+          const password = document.getElementById("wifiPassword").value;
+          const security = document.getElementById("wifiSecurity").value;
+
+          if (!ssid) {
+            alert("Please enter WiFi network name");
+            return;
+          }
+
+          content = `WIFI:T:${security};S:${ssid};P:${password};;`;
+        } else {
+          content = document.getElementById("qrContent").value;
+
+          if (!content) {
+            alert("Please enter content for the QR code");
+            return;
+          }
+
+          if (type === "email") {
+            content = `mailto:${content}`;
+          } else if (type === "phone") {
+            content = `tel:${content}`;
+          }
+        }
+
+        // Clear previous QR code
+        container.innerHTML = "";
+
+        // Generate new QR code
+        qrCode = new QRCode(container, {
+          text: content,
+          width: size,
+          height: size,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel[errorCorrection],
+        });
+
+        output.style.display = "block";
+      }
+
+      function downloadQR() {
+        if (!qrCode) {
+          alert("Generate a QR code first");
+          return;
+        }
+
+        const canvas = document.querySelector("#qrCodeContainer canvas");
+        if (canvas) {
+          const link = document.createElement("a");
+          link.download = "qrcode.png";
+          link.href = canvas.toDataURL();
+          link.click();
+        }
+      }
+
+      function clearQR() {
+        document.getElementById("qrContent").value = "";
+        document.getElementById("qrOutput").style.display = "none";
+        document.getElementById("qrCodeContainer").innerHTML = "";
+        qrCode = null;
+      }
+
+      // URL Encoder/Decoder Functions
+      function encodeURL() {
+        const input = document.getElementById("urlInput").value;
+        const output = document.getElementById("urlOutput");
+
+        if (!input) {
+          alert("Please enter text to encode");
+          return;
+        }
+
+        const encoded = encodeURIComponent(input);
+        output.textContent = encoded;
+        output.style.display = "block";
+        output.style.color = "var(--text-primary)";
+      }
+
+      function decodeURL() {
+        const input = document.getElementById("urlInput").value;
+        const output = document.getElementById("urlOutput");
+
+        if (!input) {
+          alert("Please enter text to decode");
+          return;
+        }
+
+        try {
+          const decoded = decodeURIComponent(input);
+          output.textContent = decoded;
+          output.style.display = "block";
+          output.style.color = "var(--text-primary)";
+        } catch (error) {
+          output.textContent = "Error: Invalid URL encoding";
+          output.style.display = "block";
+          output.style.color = "#ff4757";
+        }
+      }
+
+      function copyURL() {
+        const output = document.getElementById("urlOutput");
+        if (output.style.display === "none" || !output.textContent) {
+          alert("Process text first");
+          return;
+        }
+
+        navigator.clipboard.writeText(output.textContent).then(() => {
+          alert("Result copied to clipboard!");
+        });
+      }
+
+      function clearURL() {
+        document.getElementById("urlInput").value = "";
+        document.getElementById("urlOutput").style.display = "none";
+      }
+
+      // Base64 Functions
+      function encodeBase64() {
+        const input = document.getElementById("base64Input").value;
+        const output = document.getElementById("base64Output");
+
+        if (!input) {
+          alert("Please enter text to encode");
+          return;
+        }
+
+        const encoded = btoa(unescape(encodeURIComponent(input)));
+        output.textContent = encoded;
+        output.style.display = "block";
+        output.style.color = "var(--text-primary)";
+      }
+
+      function decodeBase64() {
+        const input = document.getElementById("base64Input").value;
+        const output = document.getElementById("base64Output");
+
+        if (!input) {
+          alert("Please enter Base64 to decode");
+          return;
+        }
+
+        try {
+          const decoded = decodeURIComponent(escape(atob(input)));
+          output.textContent = decoded;
+          output.style.display = "block";
+          output.style.color = "var(--text-primary)";
+        } catch (error) {
+          output.textContent = "Error: Invalid Base64 encoding";
+          output.style.display = "block";
+          output.style.color = "#ff4757";
+        }
+      }
+
+      function copyBase64() {
+        const output = document.getElementById("base64Output");
+        if (output.style.display === "none" || !output.textContent) {
+          alert("Process text first");
+          return;
+        }
+
+        navigator.clipboard.writeText(output.textContent).then(() => {
+          alert("Result copied to clipboard!");
+        });
+      }
+
+      function clearBase64() {
+        document.getElementById("base64Input").value = "";
+        document.getElementById("base64Output").style.display = "none";
+      }
+
+      // Password Strength Functions
+      function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("passwordInput");
+        const showPassword = document.getElementById("showPassword");
+
+        passwordInput.type = showPassword.checked ? "text" : "password";
+      }
+
+      function checkPasswordStrength() {
+        const password = document.getElementById("passwordInput").value;
+        const output = document.getElementById("passwordResult");
+
+        if (!password) {
+          alert("Please enter a password to check");
+          return;
+        }
+
+        const strength = analyzePassword(password);
+
+        let result = `Password Strength: ${strength.level}\n`;
+        result += `Score: ${strength.score}/100\n\n`;
+        result += `Length: ${password.length} characters\n`;
+        result += `Has lowercase: ${strength.hasLower ? "✅" : "❌"}\n`;
+        result += `Has uppercase: ${strength.hasUpper ? "✅" : "❌"}\n`;
+        result += `Has numbers: ${strength.hasNumbers ? "✅" : "❌"}\n`;
+        result += `Has symbols: ${strength.hasSymbols ? "✅" : "❌"}\n\n`;
+
+        if (strength.suggestions.length > 0) {
+          result += `Suggestions:\n${strength.suggestions.join("\n")}`;
+        }
+
+        output.textContent = result;
+        output.style.display = "block";
+        output.style.color = strength.color;
+      }
+
+      function analyzePassword(password) {
+        let score = 0;
+        const suggestions = [];
+
+        // Length check
+        if (password.length >= 12) score += 25;
+        else if (password.length >= 8) score += 15;
+        else suggestions.push("• Use at least 8 characters (12+ recommended)");
+
+        // Character variety
+        const hasLower = /[a-z]/.test(password);
+        const hasUpper = /[A-Z]/.test(password);
+        const hasNumbers = /\d/.test(password);
+        const hasSymbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(
+          password
+        );
+
+        if (hasLower) score += 15;
+        else suggestions.push("• Include lowercase letters");
+
+        if (hasUpper) score += 15;
+        else suggestions.push("• Include uppercase letters");
+
+        if (hasNumbers) score += 15;
+        else suggestions.push("• Include numbers");
+
+        if (hasSymbols) score += 25;
+        else suggestions.push("• Include symbols (!@#$%^&*)");
+
+        // Common patterns check
+        if (!/(.)\1{2,}/.test(password)) score += 5;
+        else suggestions.push("• Avoid repeating characters");
+
+        let level, color;
+        if (score >= 80) {
+          level = "Very Strong";
+          color = "#2ecc71";
+        } else if (score >= 60) {
+          level = "Strong";
+          color = "#27ae60";
+        } else if (score >= 40) {
+          level = "Fair";
+          color = "#f39c12";
+        } else if (score >= 20) {
+          level = "Weak";
+          color = "#e67e22";
+        } else {
+          level = "Very Weak";
+          color = "#e74c3c";
+        }
+
+        return {
+          score,
+          level,
+          color,
+          hasLower,
+          hasUpper,
+          hasNumbers,
+          hasSymbols,
+          suggestions,
+        };
+      }
+
+      function generateStrongPassword() {
+        const length = 16;
+        const charset =
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+        let password = "";
+
+        // Ensure at least one character from each category
+        password += "abcdefghijklmnopqrstuvwxyz"[
+          Math.floor(Math.random() * 26)
+        ];
+        password += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[
+          Math.floor(Math.random() * 26)
+        ];
+        password += "0123456789"[Math.floor(Math.random() * 10)];
+        password += "!@#$%^&*()_+-="[Math.floor(Math.random() * 13)];
+
+        // Fill the rest randomly
+        for (let i = 4; i < length; i++) {
+          password += charset[Math.floor(Math.random() * charset.length)];
+        }
+
+        // Shuffle the password
+        password = password
+          .split("")
+          .sort(() => Math.random() - 0.5)
+          .join("");
+
+        document.getElementById("passwordInput").value = password;
+        checkPasswordStrength();
+      }
+
+      function clearPasswordCheck() {
+        document.getElementById("passwordInput").value = "";
+        document.getElementById("passwordResult").style.display = "none";
+        document.getElementById("showPassword").checked = false;
+        togglePasswordVisibility();
+      }
+
+      // Initialize QR fields on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        updateQRFields();
+      });
+    </script>
+  </body>
+</html>

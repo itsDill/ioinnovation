@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | IO Innovation Fund</title>
+    <title>Contact Us | IO Web Tools - Get Support & Feedback</title>
 
     <script
       async
@@ -24,6 +24,18 @@
       gtag("js", new Date());
       gtag("config", "G-MRHXEVRZN9");
     </script>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Contact IO Web Tools for support, feedback, or feature requests. Get help with our finance, technology, SEO, and privacy tools. We're here to help!"
+    />
+    <meta
+      name="keywords"
+      content="contact IO Web Tools, support, feedback, tool requests, customer service, help desk"
+    />
+    <meta name="author" content="IO Web Tools" />
+    <meta name="robots" content="index, follow" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -293,48 +305,135 @@
 
       .contact-methods {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-        margin: 3rem 0;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
       }
 
       .contact-method {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
         background: var(--glass-bg);
         border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
+        border-radius: 15px;
         text-decoration: none;
         color: var(--text-primary);
-        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
       }
 
       .contact-method:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px var(--shadow-color);
+        box-shadow: 0 20px 40px var(--shadow-color);
         border-color: var(--accent-primary);
       }
 
       .contact-method i {
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: var(--accent-primary);
         margin-bottom: 1rem;
-        display: block;
       }
 
       .contact-method h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
         margin-bottom: 0.5rem;
+        color: var(--text-primary);
       }
 
       .contact-method p {
         color: var(--text-secondary);
-        font-size: 0.9rem;
         margin: 0;
       }
 
+      /* FAQ Section */
+      .faq-section {
+        margin-top: 6rem;
+        padding-top: 4rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .faq-section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 3rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .faq-grid {
+        display: grid;
+        gap: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 10px 30px var(--shadow-color);
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        background: var(--bg-secondary);
+      }
+
+      .faq-question h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .faq-question i {
+        color: var(--accent-primary);
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        padding: 0 2rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding: 0 2rem 1.5rem;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
       .form-success {
         background: rgba(34, 197, 94, 0.1);
         border: 1px solid rgba(34, 197, 94, 0.3);
@@ -437,7 +536,7 @@
       <div class="mobile-overlay" id="mobileOverlay"></div>
 
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/index.html" class="logo">IO Innovation Fund</a>
+        <a href="/index.html" class="logo">IO Web Tools</a>
 
         <ul
           class="nav-links"
@@ -448,10 +547,20 @@
         >
           <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
           <li role="none">
-            <a href="/tools.html" role="menuitem">Finance Tools</a>
+            <a href="/finance-tools.html" role="menuitem">Finance Tools</a>
           </li>
           <li role="none">
-            <a href="/markets.html" role="menuitem">Trading Signals</a>
+            <a href="/technology-tools.html" role="menuitem">Tech Tools</a>
+          </li>
+          <li role="none">
+            <a href="/seo-marketing-tools.html" role="menuitem"
+              >SEO & Marketing</a
+            >
+          </li>
+          <li role="none">
+            <a href="/privacy-security-tools.html" role="menuitem"
+              >Privacy & Security</a
+            >
           </li>
           <li role="none"><a href="/blog.html" role="menuitem">Blog</a></li>
           <li role="none">
@@ -490,8 +599,9 @@
         <div class="hero-subtitle">Get in Touch</div>
         <h1>Contact Us</h1>
         <p>
-          We would love to hear from you. Whether you have a question, feedback,
-          or want to explore investment opportunities, reach out to our team.
+          We'd love to hear from you! Whether you need help with our tools, have
+          feedback, feature requests, or just want to say hello, reach out to
+          our team.
         </p>
       </div>
     </section>
@@ -500,7 +610,7 @@
       <h1>Send us a Message</h1>
       <p>
         Fill out the form below or use one of our contact methods to get in
-        touch with our investment team.
+        touch with our support team. We typically respond within 24 hours.
       </p>
 
       <form class="contact-form" id="contactForm">
@@ -568,50 +678,54 @@
       </form>
 
       <div class="contact-methods">
-        <a href="tel:+6561234567" class="contact-method" aria-label="Call us">
-          <i class="fas fa-phone"></i>
-          <h3>Call Us</h3>
-          <p>+65 6123-4567</p>
-        </a>
-
         <a
-          href="mailto:contact@ioinnovationfund.com"
+          href="mailto:support@iowebtools.com"
           class="contact-method"
           aria-label="Email us"
         >
           <i class="fas fa-envelope"></i>
-          <h3>Email Us</h3>
-          <p>contact@ioinnovationfund.com</p>
+          <h3>Email Support</h3>
+          <p>support@iowebtools.com</p>
         </a>
 
-        <div
-          class="contact-method"
-          onclick="copyAddress()"
-          aria-label="Our address"
-        >
-          <i class="fas fa-map-marker-alt"></i>
-          <h3>Visit Us</h3>
-          <p>
-            1 Raffles Place, #20-01<br />One Raffles Place, Singapore 048616
-          </p>
-        </div>
-
         <a
-          href="https://calendly.com/ioinnovation"
+          href="https://github.com/iowebtools/issues"
           class="contact-method"
           target="_blank"
           rel="noopener"
-          aria-label="Schedule a meeting"
+          aria-label="Report issues on GitHub"
         >
-          <i class="fas fa-calendar-alt"></i>
-          <h3>Schedule Meeting</h3>
-          <p>Book a consultation</p>
+          <i class="fab fa-github"></i>
+          <h3>Report Issues</h3>
+          <p>GitHub Issues</p>
+        </a>
+
+        <a
+          href="/blog.html"
+          class="contact-method"
+          aria-label="Read our guides"
+        >
+          <i class="fas fa-book"></i>
+          <h3>Documentation</h3>
+          <p>Guides & Tutorials</p>
+        </a>
+
+        <a
+          href="https://discord.gg/iowebtools"
+          class="contact-method"
+          target="_blank"
+          rel="noopener"
+          aria-label="Join our community"
+        >
+          <i class="fab fa-discord"></i>
+          <h3>Community</h3>
+          <p>Join Discord</p>
         </a>
       </div>
 
       <div class="social-links">
         <a
-          href="https://twitter.com/ioinnovation"
+          href="https://twitter.com/iowebtools"
           class="social-link"
           target="_blank"
           rel="noopener"
@@ -620,7 +734,7 @@
           <i class="fab fa-twitter"></i>
         </a>
         <a
-          href="https://linkedin.com/company/ioinnovation"
+          href="https://linkedin.com/company/iowebtools"
           class="social-link"
           target="_blank"
           rel="noopener"
@@ -629,16 +743,7 @@
           <i class="fab fa-linkedin-in"></i>
         </a>
         <a
-          href="https://facebook.com/ioinnovation"
-          class="social-link"
-          target="_blank"
-          rel="noopener"
-          aria-label="Like us on Facebook"
-        >
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a
-          href="https://github.com/ioinnovation"
+          href="https://github.com/iowebtools"
           class="social-link"
           target="_blank"
           rel="noopener"
@@ -646,6 +751,107 @@
         >
           <i class="fab fa-github"></i>
         </a>
+        <a
+          href="https://discord.gg/iowebtools"
+          class="social-link"
+          target="_blank"
+          rel="noopener"
+          aria-label="Join our Discord"
+        >
+          <i class="fab fa-discord"></i>
+        </a>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Are your tools free to use?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes! All tools on IO Web Tools are completely free to use. No
+                registration, no hidden fees, and no limits on usage. We believe
+                in providing accessible tools for everyone.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Do you store my data when using the tools?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                No, we don't store any of your data. All calculations and
+                processing happen locally in your browser. Your information
+                never leaves your device, ensuring complete privacy and
+                security.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Can I suggest new tools or features?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Absolutely! We love hearing from our users. You can suggest new
+                tools or features by opening an issue on our GitHub repository
+                or joining our Discord community to discuss your ideas.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How do I report a bug or technical issue?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                The best way to report bugs is through our GitHub Issues page.
+                Please include details about what you were doing, what browser
+                you're using, and any error messages you saw.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Can I use these tools for commercial purposes?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes, you're free to use our tools for both personal and
+                commercial purposes. There are no restrictions on how you use
+                the calculations or results from our tools.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Do you have mobile apps?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Not yet, but our website is fully responsive and works great on
+                mobile devices. You can access all tools directly from your
+                mobile browser. Mobile apps may be considered in the future
+                based on user demand.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -661,7 +867,7 @@
       >
         <div style="display: flex; gap: 1.2rem">
           <a
-            href="https://twitter.com/ioinnovation"
+            href="https://twitter.com/iowebtools"
             class="share-button"
             title="Twitter"
             target="_blank"
@@ -669,7 +875,7 @@
             ><i class="fab fa-twitter"></i
           ></a>
           <a
-            href="https://linkedin.com/company/ioinnovation"
+            href="https://linkedin.com/company/iowebtools"
             class="share-button"
             title="LinkedIn"
             target="_blank"
@@ -677,20 +883,21 @@
             ><i class="fab fa-linkedin-in"></i
           ></a>
           <a
-            href="https://facebook.com/ioinnovation"
+            href="https://github.com/iowebtools"
             class="share-button"
-            title="Facebook"
+            title="GitHub"
             target="_blank"
             rel="noopener"
-            ><i class="fab fa-facebook-f"></i
+            ><i class="fab fa-github"></i
           ></a>
           <a href="/contact.html" class="share-button" title="Contact"
             ><i class="fas fa-envelope"></i
           ></a>
         </div>
         <div>
-          &copy; 2025 IO Innovation Fund. All rights reserved.
+          &copy; 2025 IO Web Tools. All rights reserved.
           <a href="/privacy.html" class="secret-link">Privacy Policy</a>
+          <a href="/terms.html" class="secret-link">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -927,6 +1134,31 @@
             firstElement.focus();
           }
         }
+      });
+
+      // FAQ Accordions
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
+
+          // Close all other FAQ items
+          faqItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.classList.remove("active");
+            }
+          });
+
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove("active");
+          } else {
+            item.classList.add("active");
+          }
+        });
       });
     </script>
   </body>

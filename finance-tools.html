@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tools | Free Financial Calculators & Investment Tools</title>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free finance tools and calculators: loan calculator, investment calculator, ROI calculator, currency converter, compound interest calculator, budget planner, and more professional financial tools."
+    />
+    <meta name="author" content="IO Web Tools" />
+    <meta
+      name="keywords"
+      content="finance calculator, loan calculator, investment calculator, ROI calculator, currency converter, compound interest, budget planner, financial tools, free finance tools"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Finance Tools | Free Financial Calculators & Investment Tools"
+    />
+    <meta
+      property="og:description"
+      content="Professional-grade free finance tools including loan calculators, investment calculators, ROI calculators, currency converters, and budget planners."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/finance-tools.html"
+    />
+    <meta property="og:site_name" content="IO Web Tools" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://iowebtools.com/finance-tools.html" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/shared-clean.css" />
+    <script src="js/theme-init.js"></script>
+
+    <style>
+      .page-header {
+        padding: 4rem 0 2rem;
+        text-align: center;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.1) 0%,
+          transparent 50%
+        );
+      }
+
+      .page-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .page-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .tool-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          var(--accent-primary) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+        z-index: 0;
+      }
+
+      .tool-card:hover::before {
+        opacity: 0.03;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .tool-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .tool-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+        box-shadow: 0 4px 15px var(--shadow-color);
+      }
+
+      .tool-info h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .tool-category {
+        font-size: 0.85rem;
+        color: var(--accent-primary);
+        font-weight: 500;
+      }
+
+      .tool-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .tool-features i {
+        color: var(--accent-primary);
+        width: 16px;
+      }
+
+      .tool-interface {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-label {
+        display: block;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+        transition: all var(--transition-normal);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .form-select {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+      }
+
+      .calculate-btn {
+        width: 100%;
+        padding: 0.75rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+      }
+
+      .calculate-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .result-display {
+        background: var(--bg-card);
+        border: 2px solid var(--accent-primary);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin-top: 1rem;
+        text-align: center;
+        display: none;
+      }
+
+      .result-display.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .result-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--accent-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .result-label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Web Tools</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li>
+            <a href="/finance-tools.html" class="active">Finance Tools</a>
+          </li>
+          <li><a href="/technology-tools.html">Tech Tools</a></li>
+          <li><a href="/seo-marketing-tools.html">SEO & Marketing</a></li>
+          <li><a href="/privacy-security-tools.html">Privacy & Security</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Finance Tools</h1>
+          <p class="page-description">
+            Professional-grade financial calculators and tools for loans,
+            investments, budgeting, and financial planning. All calculations are
+            performed locally for your privacy and security.
+          </p>
+        </div>
+      </section>
+
+      <!-- Tools Grid -->
+      <section class="container">
+        <div class="tools-grid">
+          <!-- Loan Calculator -->
+          <div class="tool-card" id="loan-calculator">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Loan Calculator</h3>
+                <div class="tool-category">Borrowing & Lending</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Calculate monthly loan payments, total interest, and amortization
+              schedules for mortgages, auto loans, personal loans, and more.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Monthly payment calculation</li>
+              <li><i class="fas fa-check"></i> Total interest computation</li>
+              <li><i class="fas fa-check"></i> Amortization schedule</li>
+              <li>
+                <i class="fas fa-check"></i> Multiple loan types supported
+              </li>
+            </ul>
+            <div class="tool-interface">
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Loan Amount ($)</label>
+                  <input
+                    type="number"
+                    id="loanAmount"
+                    class="form-input"
+                    placeholder="100000"
+                    step="1000"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Annual Interest Rate (%)</label>
+                  <input
+                    type="number"
+                    id="interestRate"
+                    class="form-input"
+                    placeholder="5.5"
+                    step="0.1"
+                  />
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Loan Term (Years)</label>
+                  <input
+                    type="number"
+                    id="loanTerm"
+                    class="form-input"
+                    placeholder="30"
+                    step="1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Payment Frequency</label>
+                  <select id="paymentFreq" class="form-select">
+                    <option value="12">Monthly</option>
+                    <option value="26">Bi-weekly</option>
+                    <option value="52">Weekly</option>
+                  </select>
+                </div>
+              </div>
+              <button class="calculate-btn" onclick="calculateLoan()">
+                Calculate Loan Payment
+              </button>
+              <div class="result-display" id="loanResult">
+                <div class="result-value" id="monthlyPayment">$0</div>
+                <div class="result-label">Monthly Payment</div>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                  "
+                >
+                  Total Interest:
+                  <span
+                    id="totalInterest"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                  | Total Amount:
+                  <span
+                    id="totalAmount"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Investment Calculator -->
+          <div class="tool-card" id="investment-calculator">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Investment Calculator</h3>
+                <div class="tool-category">Wealth Building</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Calculate future investment value with compound interest, regular
+              contributions, and various compounding frequencies.
+            </p>
+            <ul class="tool-features">
+              <li>
+                <i class="fas fa-check"></i> Compound interest calculation
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Regular contribution planning
+              </li>
+              <li><i class="fas fa-check"></i> Multiple compounding periods</li>
+              <li>
+                <i class="fas fa-check"></i> Investment growth visualization
+              </li>
+            </ul>
+            <div class="tool-interface">
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Initial Investment ($)</label>
+                  <input
+                    type="number"
+                    id="initialInvestment"
+                    class="form-input"
+                    placeholder="10000"
+                    step="100"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Monthly Contribution ($)</label>
+                  <input
+                    type="number"
+                    id="monthlyContribution"
+                    class="form-input"
+                    placeholder="500"
+                    step="50"
+                  />
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Annual Return Rate (%)</label>
+                  <input
+                    type="number"
+                    id="returnRate"
+                    class="form-input"
+                    placeholder="8"
+                    step="0.1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Investment Period (Years)</label>
+                  <input
+                    type="number"
+                    id="investmentYears"
+                    class="form-input"
+                    placeholder="20"
+                    step="1"
+                  />
+                </div>
+              </div>
+              <button class="calculate-btn" onclick="calculateInvestment()">
+                Calculate Investment Growth
+              </button>
+              <div class="result-display" id="investmentResult">
+                <div class="result-value" id="futureValue">$0</div>
+                <div class="result-label">Future Value</div>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                  "
+                >
+                  Total Contributed:
+                  <span
+                    id="totalContributed"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                  | Total Earnings:
+                  <span
+                    id="totalEarnings"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Currency Converter -->
+          <div class="tool-card" id="currency-converter">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Currency Converter</h3>
+                <div class="tool-category">Foreign Exchange</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Convert between major world currencies with real-time exchange
+              rates. Perfect for travel, business, and international
+              transactions.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> 100+ world currencies</li>
+              <li><i class="fas fa-check"></i> Real-time exchange rates</li>
+              <li><i class="fas fa-check"></i> Historical rate trends</li>
+              <li><i class="fas fa-check"></i> Popular currency pairs</li>
+            </ul>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Amount</label>
+                <input
+                  type="number"
+                  id="currencyAmount"
+                  class="form-input"
+                  placeholder="1000"
+                  step="0.01"
+                />
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">From Currency</label>
+                  <select id="fromCurrency" class="form-select">
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">To Currency</label>
+                  <select id="toCurrency" class="form-select">
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                  </select>
+                </div>
+              </div>
+              <button class="calculate-btn" onclick="convertCurrency()">
+                Convert Currency
+              </button>
+              <div class="result-display" id="currencyResult">
+                <div class="result-value" id="convertedAmount">$0</div>
+                <div class="result-label" id="conversionLabel">
+                  Converted Amount
+                </div>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                  "
+                >
+                  Exchange Rate:
+                  <span
+                    id="exchangeRate"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >1.00</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROI Calculator -->
+          <div class="tool-card" id="roi-calculator">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-percent"></i>
+              </div>
+              <div class="tool-info">
+                <h3>ROI Calculator</h3>
+                <div class="tool-category">Performance Analysis</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Calculate Return on Investment (ROI) for business investments,
+              marketing campaigns, stock purchases, and other financial
+              decisions.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> ROI percentage calculation</li>
+              <li><i class="fas fa-check"></i> Gain/loss analysis</li>
+              <li><i class="fas fa-check"></i> Time-based returns</li>
+              <li>
+                <i class="fas fa-check"></i> Multiple investment scenarios
+              </li>
+            </ul>
+            <div class="tool-interface">
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Initial Investment ($)</label>
+                  <input
+                    type="number"
+                    id="roiInitial"
+                    class="form-input"
+                    placeholder="10000"
+                    step="100"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Final Value ($)</label>
+                  <input
+                    type="number"
+                    id="roiFinal"
+                    class="form-input"
+                    placeholder="12000"
+                    step="100"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Investment Period (Optional)</label>
+                <input
+                  type="number"
+                  id="roiPeriod"
+                  class="form-input"
+                  placeholder="12"
+                  step="1"
+                />
+                <small style="color: var(--text-secondary); font-size: 0.8rem"
+                  >Enter months for annualized ROI calculation</small
+                >
+              </div>
+              <button class="calculate-btn" onclick="calculateROI()">
+                Calculate ROI
+              </button>
+              <div class="result-display" id="roiResult">
+                <div class="result-value" id="roiPercentage">0%</div>
+                <div class="result-label">Return on Investment</div>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                  "
+                >
+                  Gain/Loss:
+                  <span
+                    id="roiGainLoss"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                  |
+                  <span
+                    id="annualizedROI"
+                    style="color: var(--accent-primary); font-weight: 600"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Budget Planner -->
+          <div class="tool-card" id="budget-planner">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Budget Planner</h3>
+                <div class="tool-category">Financial Planning</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Plan your monthly budget with income and expense tracking. Get
+              insights into your spending patterns and savings potential.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Income vs. expense tracking</li>
+              <li><i class="fas fa-check"></i> Category-based budgeting</li>
+              <li><i class="fas fa-check"></i> Savings goal planning</li>
+              <li><i class="fas fa-check"></i> Budget balance analysis</li>
+            </ul>
+            <div class="tool-interface">
+              <div class="form-group">
+                <label class="form-label">Monthly Income ($)</label>
+                <input
+                  type="number"
+                  id="monthlyIncome"
+                  class="form-input"
+                  placeholder="5000"
+                  step="100"
+                />
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Housing ($)</label>
+                  <input
+                    type="number"
+                    id="housing"
+                    class="form-input"
+                    placeholder="1500"
+                    step="50"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Transportation ($)</label>
+                  <input
+                    type="number"
+                    id="transportation"
+                    class="form-input"
+                    placeholder="400"
+                    step="25"
+                  />
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Food & Dining ($)</label>
+                  <input
+                    type="number"
+                    id="food"
+                    class="form-input"
+                    placeholder="600"
+                    step="25"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Utilities ($)</label>
+                  <input
+                    type="number"
+                    id="utilities"
+                    class="form-input"
+                    placeholder="200"
+                    step="25"
+                  />
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Entertainment ($)</label>
+                  <input
+                    type="number"
+                    id="entertainment"
+                    class="form-input"
+                    placeholder="300"
+                    step="25"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Other Expenses ($)</label>
+                  <input
+                    type="number"
+                    id="otherExpenses"
+                    class="form-input"
+                    placeholder="200"
+                    step="25"
+                  />
+                </div>
+              </div>
+              <button class="calculate-btn" onclick="calculateBudget()">
+                Analyze Budget
+              </button>
+              <div class="result-display" id="budgetResult">
+                <div class="result-value" id="budgetBalance">$0</div>
+                <div class="result-label" id="budgetStatus">
+                  Monthly Balance
+                </div>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                  "
+                >
+                  Total Expenses:
+                  <span
+                    id="totalExpenses"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                  | Savings Rate:
+                  <span
+                    id="savingsRate"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >0%</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compound Interest Calculator -->
+          <div class="tool-card" id="compound-interest">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Compound Interest</h3>
+                <div class="tool-category">Wealth Building</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Calculate the power of compound interest with different
+              compounding frequencies and contribution schedules.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Multiple compounding periods</li>
+              <li><i class="fas fa-check"></i> Regular contribution support</li>
+              <li><i class="fas fa-check"></i> Interest earning breakdown</li>
+              <li><i class="fas fa-check"></i> Growth visualization</li>
+            </ul>
+            <div class="tool-interface">
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Principal Amount ($)</label>
+                  <input
+                    type="number"
+                    id="principal"
+                    class="form-input"
+                    placeholder="5000"
+                    step="100"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Annual Interest Rate (%)</label>
+                  <input
+                    type="number"
+                    id="compoundRate"
+                    class="form-input"
+                    placeholder="7"
+                    step="0.1"
+                  />
+                </div>
+              </div>
+              <div class="two-column">
+                <div class="form-group">
+                  <label class="form-label">Time Period (Years)</label>
+                  <input
+                    type="number"
+                    id="timePeriod"
+                    class="form-input"
+                    placeholder="10"
+                    step="1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Compounding Frequency</label>
+                  <select id="compoundFreq" class="form-select">
+                    <option value="1">Annually</option>
+                    <option value="4">Quarterly</option>
+                    <option value="12">Monthly</option>
+                    <option value="365">Daily</option>
+                  </select>
+                </div>
+              </div>
+              <button class="calculate-btn" onclick="calculateCompound()">
+                Calculate Compound Interest
+              </button>
+              <div class="result-display" id="compoundResult">
+                <div class="result-value" id="compoundAmount">$0</div>
+                <div class="result-label">Final Amount</div>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                  "
+                >
+                  Interest Earned:
+                  <span
+                    id="interestEarned"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >$0</span
+                  >
+                  | Growth Factor:
+                  <span
+                    id="growthFactor"
+                    style="color: var(--accent-primary); font-weight: 600"
+                    >0x</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              gap: 1.2rem;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <a href="/privacy.html" class="secret-link">Privacy Policy</a>
+            <a href="/terms.html" class="secret-link">Terms of Service</a>
+            <a href="/contact.html" class="secret-link">Contact</a>
+          </div>
+          <div
+            style="
+              max-width: 600px;
+              font-size: 0.85rem;
+              line-height: 1.5;
+              color: var(--text-secondary);
+            "
+          >
+            <p>&copy; 2025 IO Web Tools. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem">
+              All financial calculations are provided for informational purposes
+              only. Please consult with a qualified financial advisor for
+              important financial decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/shared-simple.js"></script>
+
+    <script>
+      // Loan Calculator
+      function calculateLoan() {
+        const amount = parseFloat(document.getElementById("loanAmount").value);
+        const rate =
+          parseFloat(document.getElementById("interestRate").value) / 100 / 12;
+        const years = parseFloat(document.getElementById("loanTerm").value);
+        const freq = parseFloat(document.getElementById("paymentFreq").value);
+
+        if (!amount || !rate || !years) {
+          alert("Please fill in all loan details");
+          return;
+        }
+
+        const payments = years * freq;
+        const monthlyRate = (rate * 12) / freq;
+        const monthlyPayment =
+          (amount * (monthlyRate * Math.pow(1 + monthlyRate, payments))) /
+          (Math.pow(1 + monthlyRate, payments) - 1);
+        const totalAmount = monthlyPayment * payments;
+        const totalInterest = totalAmount - amount;
+
+        document.getElementById("monthlyPayment").textContent =
+          "$" +
+          monthlyPayment.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("totalInterest").textContent =
+          "$" +
+          totalInterest.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("totalAmount").textContent =
+          "$" +
+          totalAmount.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("loanResult").classList.add("active");
+      }
+
+      // Investment Calculator
+      function calculateInvestment() {
+        const initial =
+          parseFloat(document.getElementById("initialInvestment").value) || 0;
+        const monthly =
+          parseFloat(document.getElementById("monthlyContribution").value) || 0;
+        const rate =
+          parseFloat(document.getElementById("returnRate").value) / 100 / 12;
+        const years = parseFloat(
+          document.getElementById("investmentYears").value
+        );
+
+        if (!rate || !years) {
+          alert("Please fill in return rate and investment period");
+          return;
+        }
+
+        const months = years * 12;
+        const futureValue =
+          initial * Math.pow(1 + rate, months) +
+          monthly * ((Math.pow(1 + rate, months) - 1) / rate);
+        const totalContributed = initial + monthly * months;
+        const totalEarnings = futureValue - totalContributed;
+
+        document.getElementById("futureValue").textContent =
+          "$" +
+          futureValue.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("totalContributed").textContent =
+          "$" +
+          totalContributed.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("totalEarnings").textContent =
+          "$" +
+          totalEarnings.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("investmentResult").classList.add("active");
+      }
+
+      // Currency Converter (Mock rates for demo)
+      function convertCurrency() {
+        const amount = parseFloat(
+          document.getElementById("currencyAmount").value
+        );
+        const from = document.getElementById("fromCurrency").value;
+        const to = document.getElementById("toCurrency").value;
+
+        if (!amount) {
+          alert("Please enter an amount to convert");
+          return;
+        }
+
+        // Mock exchange rates (in real app, would fetch from API)
+        const rates = {
+          USD: {
+            EUR: 0.85,
+            GBP: 0.73,
+            JPY: 110,
+            CAD: 1.25,
+            AUD: 1.35,
+            CHF: 0.92,
+            CNY: 6.45,
+          },
+          EUR: {
+            USD: 1.18,
+            GBP: 0.86,
+            JPY: 129,
+            CAD: 1.47,
+            AUD: 1.59,
+            CHF: 1.08,
+            CNY: 7.59,
+          },
+          GBP: {
+            USD: 1.37,
+            EUR: 1.16,
+            JPY: 150,
+            CAD: 1.71,
+            AUD: 1.85,
+            CHF: 1.26,
+            CNY: 8.83,
+          },
+        };
+
+        let rate = 1;
+        if (from !== to) {
+          rate = rates[from] ? rates[from][to] || 1 : 1;
+        }
+
+        const converted = amount * rate;
+
+        document.getElementById("convertedAmount").textContent =
+          converted.toLocaleString("en-US", {
+            style: "currency",
+            currency: to,
+          });
+        document.getElementById(
+          "conversionLabel"
+        ).textContent = `${amount} ${from} equals`;
+        document.getElementById(
+          "exchangeRate"
+        ).textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
+        document.getElementById("currencyResult").classList.add("active");
+      }
+
+      // ROI Calculator
+      function calculateROI() {
+        const initial = parseFloat(document.getElementById("roiInitial").value);
+        const final = parseFloat(document.getElementById("roiFinal").value);
+        const period =
+          parseFloat(document.getElementById("roiPeriod").value) || 0;
+
+        if (!initial || !final) {
+          alert("Please enter initial investment and final value");
+          return;
+        }
+
+        const gain = final - initial;
+        const roi = (gain / initial) * 100;
+        let annualized = "";
+
+        if (period > 0) {
+          const annualizedROI =
+            (Math.pow(final / initial, 12 / period) - 1) * 100;
+          annualized = `Annualized: ${annualizedROI.toFixed(2)}%`;
+        }
+
+        document.getElementById("roiPercentage").textContent =
+          roi.toFixed(2) + "%";
+        document.getElementById("roiGainLoss").textContent =
+          "$" +
+          gain.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("annualizedROI").textContent = annualized;
+        document.getElementById("roiResult").classList.add("active");
+      }
+
+      // Budget Planner
+      function calculateBudget() {
+        const income =
+          parseFloat(document.getElementById("monthlyIncome").value) || 0;
+        const housing =
+          parseFloat(document.getElementById("housing").value) || 0;
+        const transport =
+          parseFloat(document.getElementById("transportation").value) || 0;
+        const food = parseFloat(document.getElementById("food").value) || 0;
+        const utilities =
+          parseFloat(document.getElementById("utilities").value) || 0;
+        const entertainment =
+          parseFloat(document.getElementById("entertainment").value) || 0;
+        const other =
+          parseFloat(document.getElementById("otherExpenses").value) || 0;
+
+        const totalExpenses =
+          housing + transport + food + utilities + entertainment + other;
+        const balance = income - totalExpenses;
+        const savingsRate = income > 0 ? (balance / income) * 100 : 0;
+
+        document.getElementById("budgetBalance").textContent =
+          "$" +
+          balance.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("budgetStatus").textContent =
+          balance >= 0 ? "Monthly Surplus" : "Monthly Deficit";
+        document.getElementById("totalExpenses").textContent =
+          "$" +
+          totalExpenses.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("savingsRate").textContent =
+          savingsRate.toFixed(1) + "%";
+
+        const resultEl = document.getElementById("budgetResult");
+        resultEl.classList.add("active");
+        if (balance < 0) {
+          resultEl.style.borderColor = "#ff4757";
+          document.getElementById("budgetBalance").style.color = "#ff4757";
+        } else {
+          resultEl.style.borderColor = "var(--accent-primary)";
+          document.getElementById("budgetBalance").style.color =
+            "var(--accent-primary)";
+        }
+      }
+
+      // Compound Interest Calculator
+      function calculateCompound() {
+        const principal = parseFloat(
+          document.getElementById("principal").value
+        );
+        const rate =
+          parseFloat(document.getElementById("compoundRate").value) / 100;
+        const time = parseFloat(document.getElementById("timePeriod").value);
+        const freq = parseFloat(document.getElementById("compoundFreq").value);
+
+        if (!principal || !rate || !time) {
+          alert("Please fill in all compound interest details");
+          return;
+        }
+
+        const amount = principal * Math.pow(1 + rate / freq, freq * time);
+        const interest = amount - principal;
+        const growth = amount / principal;
+
+        document.getElementById("compoundAmount").textContent =
+          "$" +
+          amount.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("interestEarned").textContent =
+          "$" +
+          interest.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        document.getElementById("growthFactor").textContent =
+          growth.toFixed(2) + "x";
+        document.getElementById("compoundResult").classList.add("active");
+      }
+    </script>
+  </body>
+</html>
