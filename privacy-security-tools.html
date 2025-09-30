@@ -17,6 +17,10 @@
       name="keywords"
       content="privacy tools, security tools, password generator, encryption, privacy checker, secure file tools, data protection, cybersecurity"
     />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
 
     <!-- Open Graph -->
     <meta
@@ -56,6 +60,37 @@
     <link rel="stylesheet" href="css/shared-clean.css" />
     <script src="js/theme-init.js"></script>
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy & Security Tools | Digital Privacy Protection & Security Analysis",
+      "description": "Free privacy and security tools: VPN security audit, password manager analyzer, privacy checker, security scanner, and comprehensive digital protection utilities.",
+      "url": "https://iowebtools.com/privacy-security-tools.html",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Privacy & Security Tools Suite",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "VPN Security Audit",
+          "Password Manager Analyzer",
+          "Privacy Checker",
+          "Security Scanner",
+          "Digital Footprint Analyzer",
+          "Encryption Tools"
+        ]
+      }
+    }
+    </script>
+    <script src="js/theme-init.js"></script>
+
     <!-- Crypto JS for encryption -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
@@ -86,6 +121,222 @@
         max-width: 600px;
         margin: 0 auto 2rem;
         line-height: 1.6;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: all var(--transition-normal);
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .breadcrumb span {
+        color: var(--text-secondary);
+        margin: 0 0.5rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .quick-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 0 0 4rem;
+      }
+
+      .featured-section {
+        padding: 4rem 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(231, 76, 60, 0.05) 0%,
+          transparent 50%
+        );
+      }
+
+      .featured-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 3rem;
+        margin: 0 0 2rem;
+      }
+
+      .featured-tool-link-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .featured-tool-link-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          #e74c3c 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+        z-index: 0;
+      }
+
+      .featured-tool-link-card:hover::before {
+        opacity: 0.03;
+      }
+
+      .featured-tool-link-card:hover {
+        transform: translateY(-5px);
+        border-color: #e74c3c;
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .featured-tool-link-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .featured-tool-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        margin-top: 1.5rem;
+        transition: all var(--transition-normal);
+        border: none;
+        cursor: pointer;
+      }
+
+      .featured-tool-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .tool-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .tool-features i {
+        color: #e74c3c;
+        width: 16px;
+      }
+
+      .blog-section {
+        padding: 4rem 0;
+        background: var(--glass-bg);
+      }
+
+      .blog-posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0 0 2rem;
+      }
+
+      .blog-post-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-post-card:hover {
+        transform: translateY(-5px);
+        border-color: #e74c3c;
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .blog-post-header {
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-category {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .blog-post-excerpt {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-post-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #e74c3c;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all var(--transition-normal);
+      }
+
+      .blog-post-link:hover {
+        transform: translateX(5px);
       }
 
       .tools-grid {
@@ -393,7 +644,14 @@
       }
 
       @media (max-width: 768px) {
+        .quick-tools-grid,
+        .featured-tools-grid,
         .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .blog-posts-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }
@@ -406,8 +664,17 @@
           font-size: 2rem;
         }
 
+        .section-title {
+          font-size: 2rem;
+        }
+
         .action-buttons {
           justify-content: center;
+        }
+
+        .featured-section,
+        .blog-section {
+          padding: 2rem 0;
         }
       }
     </style>
@@ -460,9 +727,15 @@
         </div>
       </section>
 
-      <!-- Tools Grid -->
+      <!-- Quick Tools Section -->
       <section class="container">
-        <div class="tools-grid">
+        <div class="section-header">
+          <h2 class="section-title">Quick Tools</h2>
+          <p class="section-description">
+            Essential privacy and security tools for immediate protection
+          </p>
+        </div>
+        <div class="quick-tools-grid">
           <!-- Secure Password Generator -->
           <div class="tool-card" id="password-generator">
             <div class="tool-header">
@@ -601,8 +874,71 @@
               ></div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Privacy Checker -->
+      <!-- Featured Tools Section -->
+      <section class="container featured-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Tools</h2>
+          <p class="section-description">
+            Advanced privacy and security analysis tools
+          </p>
+        </div>
+        <div class="featured-tools-grid">
+          <!-- VPN Security Audit Page Link -->
+          <div class="featured-tool-link-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="tool-info">
+                <h3>VPN Security Audit</h3>
+                <div class="tool-category">Network Security</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Comprehensive VPN security audit tool with leak detection, encryption analysis, and privacy assessment.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> IP leak detection</li>
+              <li><i class="fas fa-check"></i> DNS leak testing</li>
+              <li><i class="fas fa-check"></i> WebRTC leak analysis</li>
+              <li><i class="fas fa-check"></i> Encryption strength check</li>
+            </ul>
+            <a href="/tools/vpn-security-audit.html" class="featured-tool-link">
+              <span>Use VPN Security Audit</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Password Manager Analyzer Page Link -->
+          <div class="featured-tool-link-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-key"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Password Manager Analyzer</h3>
+                <div class="tool-category">Credential Security</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Advanced password security analysis with breach checking, entropy calculation, and security recommendations.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Breach database check</li>
+              <li><i class="fas fa-check"></i> Password entropy analysis</li>
+              <li><i class="fas fa-check"></i> Security recommendations</li>
+              <li><i class="fas fa-check"></i> Bulk password analysis</li>
+            </ul>
+            <a href="/tools/password-manager-analyzer.html" class="featured-tool-link">
+              <span>Use Password Manager Analyzer</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
           <div class="tool-card" id="privacy-checker">
             <div class="tool-header">
               <div class="tool-icon">
@@ -667,7 +1003,64 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      <!-- Related Blog Posts Section -->
+      <section class="container blog-section">
+        <div class="section-header">
+          <h2 class="section-title">Related Articles</h2>
+          <p class="section-description">
+            Latest insights on privacy and cybersecurity
+          </p>
+        </div>
+        <div class="blog-posts-grid">
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Cybersecurity</div>
+              <h3 class="blog-post-title">
+                Essential Cybersecurity Practices for 2025
+              </h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Protect yourself and your business with these essential
+              cybersecurity best practices and tools.
+            </p>
+            <a href="/blog/blog7.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Privacy</div>
+              <h3 class="blog-post-title">Digital Privacy Protection Guide</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Learn how to protect your personal information and maintain
+              privacy in the digital age.
+            </p>
+            <a href="/blog/blog1.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Security Tools</div>
+              <h3 class="blog-post-title">Password Security Best Practices</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Create and manage strong passwords to keep your accounts secure
+              from cyber threats.
+            </p>
+            <a href="/blog/blog2.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+        </div>
+      </section>
+    </main>
           <!-- Secure File Hash Generator -->
           <div class="tool-card" id="file-hash">
             <div class="tool-header">
@@ -1543,6 +1936,18 @@
           document.getElementById("generateHashBtn").disabled = false;
         }
       }
+
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navToggle) {
+          navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+          });
+        }
+      });
     </script>
   </body>
 </html>

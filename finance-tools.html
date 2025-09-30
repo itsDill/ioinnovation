@@ -56,6 +56,36 @@
     <link rel="stylesheet" href="css/shared-clean.css" />
     <script src="js/theme-init.js"></script>
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Finance Tools | Free Financial Calculators & Investment Tools",
+        "description": "Professional-grade financial calculators and tools for loans, investments, budgeting, and financial planning. All calculations are performed locally for your privacy and security.",
+        "url": "https://iowebtools.com/finance-tools.html",
+        "mainEntity": {
+          "@type": "WebApplication",
+          "name": "Finance Tools Suite",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Loan Calculator",
+            "Investment Calculator",
+            "Currency Converter",
+            "ROI Calculator",
+            "Budget Planner",
+            "Compound Interest Calculator"
+          ]
+        }
+      }
+    </script>
+
     <style>
       .page-header {
         padding: 4rem 0 2rem;
@@ -87,6 +117,206 @@
         max-width: 600px;
         margin: 0 auto 2rem;
         line-height: 1.6;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .quick-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 0 0 4rem;
+      }
+
+      .featured-section {
+        padding: 4rem 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.05) 0%,
+          transparent 50%
+        );
+      }
+
+      .featured-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 3rem;
+        margin: 0 0 2rem;
+      }
+
+      .featured-tool-link-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .featured-tool-link-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          var(--accent-primary) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+        z-index: 0;
+      }
+
+      .featured-tool-link-card:hover::before {
+        opacity: 0.03;
+      }
+
+      .featured-tool-link-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .featured-tool-link-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .featured-tool-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        margin-top: 1.5rem;
+        transition: all var(--transition-normal);
+        border: none;
+        cursor: pointer;
+      }
+
+      .featured-tool-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .tool-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .tool-features i {
+        color: var(--accent-primary);
+        width: 16px;
+      }
+
+      .blog-section {
+        padding: 4rem 0;
+        background: var(--glass-bg);
+      }
+
+      .blog-posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0 0 2rem;
+      }
+
+      .blog-post-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-post-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .blog-post-header {
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-category {
+        display: inline-block;
+        background: var(--accent-primary);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .blog-post-excerpt {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-post-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent-primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all var(--transition-normal);
+      }
+
+      .blog-post-link:hover {
+        transform: translateX(5px);
       }
 
       .tools-grid {
@@ -313,7 +543,14 @@
       }
 
       @media (max-width: 768px) {
+        .quick-tools-grid,
+        .featured-tools-grid,
         .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .blog-posts-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }
@@ -324,6 +561,15 @@
 
         .page-title {
           font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .featured-section,
+        .blog-section {
+          padding: 2rem 0;
         }
       }
     </style>
@@ -374,9 +620,15 @@
         </div>
       </section>
 
-      <!-- Tools Grid -->
+      <!-- Quick Tools Section -->
       <section class="container">
-        <div class="tools-grid">
+        <div class="section-header">
+          <h2 class="section-title">Quick Tools</h2>
+          <p class="section-description">
+            Get instant results with our most popular finance calculators
+          </p>
+        </div>
+        <div class="quick-tools-grid">
           <!-- Loan Calculator -->
           <div class="tool-card" id="loan-calculator">
             <div class="tool-header">
@@ -472,9 +724,20 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Investment Calculator -->
-          <div class="tool-card" id="investment-calculator">
+      <!-- Featured Tools Section -->
+      <section class="container featured-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Tools</h2>
+          <p class="section-description">
+            Advanced financial calculators for detailed analysis
+          </p>
+        </div>
+        <div class="featured-tools-grid">
+          <!-- Investment Calculator Page Link -->
+          <div class="featured-tool-link-card">
             <div class="tool-header">
               <div class="tool-icon">
                 <i class="fas fa-chart-line"></i>
@@ -485,98 +748,32 @@
               </div>
             </div>
             <p class="tool-description">
-              Calculate future investment value with compound interest, regular
-              contributions, and various compounding frequencies.
+              Advanced investment calculator with compound interest, portfolio
+              analysis, and comprehensive reporting features.
             </p>
             <ul class="tool-features">
               <li>
                 <i class="fas fa-check"></i> Compound interest calculation
               </li>
               <li>
-                <i class="fas fa-check"></i> Regular contribution planning
+                <i class="fas fa-check"></i> Portfolio diversification analysis
               </li>
-              <li><i class="fas fa-check"></i> Multiple compounding periods</li>
+              <li><i class="fas fa-check"></i> Risk assessment tools</li>
               <li>
                 <i class="fas fa-check"></i> Investment growth visualization
               </li>
             </ul>
-            <div class="tool-interface">
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Initial Investment ($)</label>
-                  <input
-                    type="number"
-                    id="initialInvestment"
-                    class="form-input"
-                    placeholder="10000"
-                    step="100"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Monthly Contribution ($)</label>
-                  <input
-                    type="number"
-                    id="monthlyContribution"
-                    class="form-input"
-                    placeholder="500"
-                    step="50"
-                  />
-                </div>
-              </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Annual Return Rate (%)</label>
-                  <input
-                    type="number"
-                    id="returnRate"
-                    class="form-input"
-                    placeholder="8"
-                    step="0.1"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Investment Period (Years)</label>
-                  <input
-                    type="number"
-                    id="investmentYears"
-                    class="form-input"
-                    placeholder="20"
-                    step="1"
-                  />
-                </div>
-              </div>
-              <button class="calculate-btn" onclick="calculateInvestment()">
-                Calculate Investment Growth
-              </button>
-              <div class="result-display" id="investmentResult">
-                <div class="result-value" id="futureValue">$0</div>
-                <div class="result-label">Future Value</div>
-                <div
-                  style="
-                    margin-top: 1rem;
-                    font-size: 0.9rem;
-                    color: var(--text-secondary);
-                  "
-                >
-                  Total Contributed:
-                  <span
-                    id="totalContributed"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >$0</span
-                  >
-                  | Total Earnings:
-                  <span
-                    id="totalEarnings"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >$0</span
-                  >
-                </div>
-              </div>
-            </div>
+            <a
+              href="/tools/investment-calculator.html"
+              class="featured-tool-link"
+            >
+              <span>Use Investment Calculator</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
 
-          <!-- Currency Converter -->
-          <div class="tool-card" id="currency-converter">
+          <!-- Currency Converter Page Link -->
+          <div class="featured-tool-link-card">
             <div class="tool-header">
               <div class="tool-icon">
                 <i class="fas fa-exchange-alt"></i>
@@ -587,394 +784,85 @@
               </div>
             </div>
             <p class="tool-description">
-              Convert between major world currencies with real-time exchange
-              rates. Perfect for travel, business, and international
-              transactions.
+              Professional currency conversion tool with real-time exchange
+              rates, historical data, and multi-currency support.
             </p>
             <ul class="tool-features">
-              <li><i class="fas fa-check"></i> 100+ world currencies</li>
               <li><i class="fas fa-check"></i> Real-time exchange rates</li>
-              <li><i class="fas fa-check"></i> Historical rate trends</li>
-              <li><i class="fas fa-check"></i> Popular currency pairs</li>
+              <li><i class="fas fa-check"></i> 150+ world currencies</li>
+              <li><i class="fas fa-check"></i> Historical rate charts</li>
+              <li><i class="fas fa-check"></i> Currency trend analysis</li>
             </ul>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">Amount</label>
-                <input
-                  type="number"
-                  id="currencyAmount"
-                  class="form-input"
-                  placeholder="1000"
-                  step="0.01"
-                />
-              </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">From Currency</label>
-                  <select id="fromCurrency" class="form-select">
-                    <option value="USD">USD - US Dollar</option>
-                    <option value="EUR">EUR - Euro</option>
-                    <option value="GBP">GBP - British Pound</option>
-                    <option value="JPY">JPY - Japanese Yen</option>
-                    <option value="CAD">CAD - Canadian Dollar</option>
-                    <option value="AUD">AUD - Australian Dollar</option>
-                    <option value="CHF">CHF - Swiss Franc</option>
-                    <option value="CNY">CNY - Chinese Yuan</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">To Currency</label>
-                  <select id="toCurrency" class="form-select">
-                    <option value="EUR">EUR - Euro</option>
-                    <option value="USD">USD - US Dollar</option>
-                    <option value="GBP">GBP - British Pound</option>
-                    <option value="JPY">JPY - Japanese Yen</option>
-                    <option value="CAD">CAD - Canadian Dollar</option>
-                    <option value="AUD">AUD - Australian Dollar</option>
-                    <option value="CHF">CHF - Swiss Franc</option>
-                    <option value="CNY">CNY - Chinese Yuan</option>
-                  </select>
-                </div>
-              </div>
-              <button class="calculate-btn" onclick="convertCurrency()">
-                Convert Currency
-              </button>
-              <div class="result-display" id="currencyResult">
-                <div class="result-value" id="convertedAmount">$0</div>
-                <div class="result-label" id="conversionLabel">
-                  Converted Amount
-                </div>
-                <div
-                  style="
-                    margin-top: 1rem;
-                    font-size: 0.9rem;
-                    color: var(--text-secondary);
-                  "
-                >
-                  Exchange Rate:
-                  <span
-                    id="exchangeRate"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >1.00</span
-                  >
-                </div>
-              </div>
-            </div>
+            <a href="/tools/currency-converter.html" class="featured-tool-link">
+              <span>Use Currency Converter</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
+        </div>
+      </section>
 
-          <!-- ROI Calculator -->
-          <div class="tool-card" id="roi-calculator">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-percent"></i>
-              </div>
-              <div class="tool-info">
-                <h3>ROI Calculator</h3>
-                <div class="tool-category">Performance Analysis</div>
-              </div>
+      <!-- Related Blog Posts Section -->
+      <section class="container blog-section">
+        <div class="section-header">
+          <h2 class="section-title">Related Articles</h2>
+          <p class="section-description">
+            Learn more about finance and investing
+          </p>
+        </div>
+        <div class="blog-posts-grid">
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Investment Guide</div>
+              <h3 class="blog-post-title">
+                How to Invest in Southeast Asia: A Beginner's Guide
+              </h3>
             </div>
-            <p class="tool-description">
-              Calculate Return on Investment (ROI) for business investments,
-              marketing campaigns, stock purchases, and other financial
-              decisions.
+            <p class="blog-post-excerpt">
+              Discover the best investment strategies for Southeast Asian
+              markets, including stocks, bonds, and ETFs.
             </p>
-            <ul class="tool-features">
-              <li><i class="fas fa-check"></i> ROI percentage calculation</li>
-              <li><i class="fas fa-check"></i> Gain/loss analysis</li>
-              <li><i class="fas fa-check"></i> Time-based returns</li>
-              <li>
-                <i class="fas fa-check"></i> Multiple investment scenarios
-              </li>
-            </ul>
-            <div class="tool-interface">
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Initial Investment ($)</label>
-                  <input
-                    type="number"
-                    id="roiInitial"
-                    class="form-input"
-                    placeholder="10000"
-                    step="100"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Final Value ($)</label>
-                  <input
-                    type="number"
-                    id="roiFinal"
-                    class="form-input"
-                    placeholder="12000"
-                    step="100"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Investment Period (Optional)</label>
-                <input
-                  type="number"
-                  id="roiPeriod"
-                  class="form-input"
-                  placeholder="12"
-                  step="1"
-                />
-                <small style="color: var(--text-secondary); font-size: 0.8rem"
-                  >Enter months for annualized ROI calculation</small
-                >
-              </div>
-              <button class="calculate-btn" onclick="calculateROI()">
-                Calculate ROI
-              </button>
-              <div class="result-display" id="roiResult">
-                <div class="result-value" id="roiPercentage">0%</div>
-                <div class="result-label">Return on Investment</div>
-                <div
-                  style="
-                    margin-top: 1rem;
-                    font-size: 0.9rem;
-                    color: var(--text-secondary);
-                  "
-                >
-                  Gain/Loss:
-                  <span
-                    id="roiGainLoss"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >$0</span
-                  >
-                  |
-                  <span
-                    id="annualizedROI"
-                    style="color: var(--accent-primary); font-weight: 600"
-                  ></span>
-                </div>
-              </div>
-            </div>
-          </div>
+            <a
+              href="/blog/how-to-invest-southeast-asia-beginners-guide.html"
+              class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
 
-          <!-- Budget Planner -->
-          <div class="tool-card" id="budget-planner">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-wallet"></i>
-              </div>
-              <div class="tool-info">
-                <h3>Budget Planner</h3>
-                <div class="tool-category">Financial Planning</div>
-              </div>
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">ETF Analysis</div>
+              <h3 class="blog-post-title">
+                Singapore STI ETF Investing: Complete Guide
+              </h3>
             </div>
-            <p class="tool-description">
-              Plan your monthly budget with income and expense tracking. Get
-              insights into your spending patterns and savings potential.
+            <p class="blog-post-excerpt">
+              Everything you need to know about investing in Singapore's Straits
+              Times Index ETF.
             </p>
-            <ul class="tool-features">
-              <li><i class="fas fa-check"></i> Income vs. expense tracking</li>
-              <li><i class="fas fa-check"></i> Category-based budgeting</li>
-              <li><i class="fas fa-check"></i> Savings goal planning</li>
-              <li><i class="fas fa-check"></i> Budget balance analysis</li>
-            </ul>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">Monthly Income ($)</label>
-                <input
-                  type="number"
-                  id="monthlyIncome"
-                  class="form-input"
-                  placeholder="5000"
-                  step="100"
-                />
-              </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Housing ($)</label>
-                  <input
-                    type="number"
-                    id="housing"
-                    class="form-input"
-                    placeholder="1500"
-                    step="50"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Transportation ($)</label>
-                  <input
-                    type="number"
-                    id="transportation"
-                    class="form-input"
-                    placeholder="400"
-                    step="25"
-                  />
-                </div>
-              </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Food & Dining ($)</label>
-                  <input
-                    type="number"
-                    id="food"
-                    class="form-input"
-                    placeholder="600"
-                    step="25"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Utilities ($)</label>
-                  <input
-                    type="number"
-                    id="utilities"
-                    class="form-input"
-                    placeholder="200"
-                    step="25"
-                  />
-                </div>
-              </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Entertainment ($)</label>
-                  <input
-                    type="number"
-                    id="entertainment"
-                    class="form-input"
-                    placeholder="300"
-                    step="25"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Other Expenses ($)</label>
-                  <input
-                    type="number"
-                    id="otherExpenses"
-                    class="form-input"
-                    placeholder="200"
-                    step="25"
-                  />
-                </div>
-              </div>
-              <button class="calculate-btn" onclick="calculateBudget()">
-                Analyze Budget
-              </button>
-              <div class="result-display" id="budgetResult">
-                <div class="result-value" id="budgetBalance">$0</div>
-                <div class="result-label" id="budgetStatus">
-                  Monthly Balance
-                </div>
-                <div
-                  style="
-                    margin-top: 1rem;
-                    font-size: 0.9rem;
-                    color: var(--text-secondary);
-                  "
-                >
-                  Total Expenses:
-                  <span
-                    id="totalExpenses"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >$0</span
-                  >
-                  | Savings Rate:
-                  <span
-                    id="savingsRate"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >0%</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+            <a
+              href="/blog/singapore-sti-etf-investing-complete-guide.html"
+              class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
 
-          <!-- Compound Interest Calculator -->
-          <div class="tool-card" id="compound-interest">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-seedling"></i>
-              </div>
-              <div class="tool-info">
-                <h3>Compound Interest</h3>
-                <div class="tool-category">Wealth Building</div>
-              </div>
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Economic Analysis</div>
+              <h3 class="blog-post-title">
+                Understanding ASEAN Economic Indicators 2025
+              </h3>
             </div>
-            <p class="tool-description">
-              Calculate the power of compound interest with different
-              compounding frequencies and contribution schedules.
+            <p class="blog-post-excerpt">
+              Key economic indicators to watch when making investment decisions
+              in ASEAN countries.
             </p>
-            <ul class="tool-features">
-              <li><i class="fas fa-check"></i> Multiple compounding periods</li>
-              <li><i class="fas fa-check"></i> Regular contribution support</li>
-              <li><i class="fas fa-check"></i> Interest earning breakdown</li>
-              <li><i class="fas fa-check"></i> Growth visualization</li>
-            </ul>
-            <div class="tool-interface">
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Principal Amount ($)</label>
-                  <input
-                    type="number"
-                    id="principal"
-                    class="form-input"
-                    placeholder="5000"
-                    step="100"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Annual Interest Rate (%)</label>
-                  <input
-                    type="number"
-                    id="compoundRate"
-                    class="form-input"
-                    placeholder="7"
-                    step="0.1"
-                  />
-                </div>
-              </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Time Period (Years)</label>
-                  <input
-                    type="number"
-                    id="timePeriod"
-                    class="form-input"
-                    placeholder="10"
-                    step="1"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Compounding Frequency</label>
-                  <select id="compoundFreq" class="form-select">
-                    <option value="1">Annually</option>
-                    <option value="4">Quarterly</option>
-                    <option value="12">Monthly</option>
-                    <option value="365">Daily</option>
-                  </select>
-                </div>
-              </div>
-              <button class="calculate-btn" onclick="calculateCompound()">
-                Calculate Compound Interest
-              </button>
-              <div class="result-display" id="compoundResult">
-                <div class="result-value" id="compoundAmount">$0</div>
-                <div class="result-label">Final Amount</div>
-                <div
-                  style="
-                    margin-top: 1rem;
-                    font-size: 0.9rem;
-                    color: var(--text-secondary);
-                  "
-                >
-                  Interest Earned:
-                  <span
-                    id="interestEarned"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >$0</span
-                  >
-                  | Growth Factor:
-                  <span
-                    id="growthFactor"
-                    style="color: var(--accent-primary); font-weight: 600"
-                    >0x</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+            <a
+              href="/blog/understanding-asean-economic-indicators-2025.html"
+              class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
         </div>
       </section>
     </main>
@@ -1297,6 +1185,18 @@
           growth.toFixed(2) + "x";
         document.getElementById("compoundResult").classList.add("active");
       }
+
+      // Mobile menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.querySelector(".nav-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
+        if (navToggle) {
+          navToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+          });
+        }
+      });
     </script>
   </body>
 </html>

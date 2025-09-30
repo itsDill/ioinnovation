@@ -7,37 +7,109 @@
   
   <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://ioinnovationfund.com/</loc>
-    <lastmod>2025-09-16</lastmod>
+    <loc>https://iowebtools.com/</loc>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ioinnovationfund.com/" />
-    <xhtml:link rel="alternate" hreflang="en-sg" href="https://ioinnovationfund.com/" />
-    <xhtml:link rel="alternate" hreflang="en-th" href="https://ioinnovationfund.com/" />
-    <xhtml:link rel="alternate" hreflang="en-my" href="https://ioinnovationfund.com/" />
-    <xhtml:link rel="alternate" hreflang="en-id" href="https://ioinnovationfund.com/" />
-    <xhtml:link rel="alternate" hreflang="en-ph" href="https://ioinnovationfund.com/" />
-    <xhtml:link rel="alternate" hreflang="en-vn" href="https://ioinnovationfund.com/" />
   </url>
   
-  <!-- Core Service Pages - High Priority -->
+  <!-- Core Tool Category Pages - High Priority -->
   <url>
-    <loc>https://ioinnovationfund.com/markets.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://iowebtools.com/finance-tools.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
-    <loc>https://ioinnovationfund.com/tools.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/technology-tools.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/seo-marketing-tools.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/privacy-security-tools.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Individual Tool Pages - High Value -->
+  <url>
+    <loc>https://iowebtools.com/tools/investment-calculator.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/currency-converter.html</loc>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
-    <loc>https://ioinnovationfund.com/blog.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/tools/qr-code-generator.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/api-tester.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/website-audit.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/keyword-research.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/vpn-security-audit.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/password-manager-analyzer.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- General Tools & Blog Pages -->
+  <url>
+    <loc>https://iowebtools.com/tools.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog.html</loc>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>

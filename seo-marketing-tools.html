@@ -15,6 +15,10 @@
       name="keywords"
       content="SEO tools, marketing tools, keyword analyzer, SEO checker, meta tags generator, social media tools, link analyzer, website optimization"
     />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
 
     <!-- Open Graph -->
     <meta
@@ -54,6 +58,37 @@
     <link rel="stylesheet" href="css/shared-clean.css" />
     <script src="js/theme-init.js"></script>
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "SEO & Marketing Tools | Website Optimization & Analysis Tools",
+      "description": "Free SEO and marketing tools: SEO analyzer, keyword density checker, meta tag generator, social media tools, link analyzer, and more professional marketing utilities.",
+      "url": "https://iowebtools.com/seo-marketing-tools.html",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "SEO & Marketing Tools Suite",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Website Audit Tool",
+          "Keyword Research Tool",
+          "SEO Analyzer",
+          "Meta Tag Generator",
+          "Social Media Tools",
+          "Link Analyzer"
+        ]
+      }
+    }
+    </script>
+    <script src="js/theme-init.js"></script>
+
     <style>
       .page-header {
         padding: 4rem 0 2rem;
@@ -85,6 +120,226 @@
         max-width: 600px;
         margin: 0 auto 2rem;
         line-height: 1.6;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: all var(--transition-normal);
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .breadcrumb span {
+        color: var(--text-secondary);
+        margin: 0 0.5rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .quick-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 0 0 4rem;
+      }
+
+      .featured-section {
+        padding: 4rem 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.05) 0%,
+          transparent 50%
+        );
+      }
+
+      .featured-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 3rem;
+        margin: 0 0 2rem;
+      }
+
+      .featured-tool-link-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .featured-tool-link-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          var(--accent-primary) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+        z-index: 0;
+      }
+
+      .featured-tool-link-card:hover::before {
+        opacity: 0.03;
+      }
+
+      .featured-tool-link-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .featured-tool-link-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .featured-tool-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        margin-top: 1.5rem;
+        transition: all var(--transition-normal);
+        border: none;
+        cursor: pointer;
+      }
+
+      .featured-tool-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .tool-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .tool-features i {
+        color: var(--accent-primary);
+        width: 16px;
+      }
+
+      .blog-section {
+        padding: 4rem 0;
+        background: var(--glass-bg);
+      }
+
+      .blog-posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0 0 2rem;
+      }
+
+      .blog-post-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-post-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .blog-post-header {
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-category {
+        display: inline-block;
+        background: var(--accent-primary);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .blog-post-excerpt {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-post-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent-primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all var(--transition-normal);
+      }
+
+      .blog-post-link:hover {
+        transform: translateX(5px);
       }
 
       .tools-grid {
@@ -349,7 +604,14 @@
       }
 
       @media (max-width: 768px) {
+        .quick-tools-grid,
+        .featured-tools-grid,
         .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .blog-posts-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }
@@ -362,8 +624,17 @@
           font-size: 2rem;
         }
 
+        .section-title {
+          font-size: 2rem;
+        }
+
         .action-buttons {
           justify-content: center;
+        }
+
+        .featured-section,
+        .blog-section {
+          padding: 2rem 0;
         }
       }
     </style>
@@ -416,9 +687,15 @@
         </div>
       </section>
 
-      <!-- Tools Grid -->
+      <!-- Quick Tools Section -->
       <section class="container">
-        <div class="tools-grid">
+        <div class="section-header">
+          <h2 class="section-title">Quick Tools</h2>
+          <p class="section-description">
+            Essential SEO and marketing utilities for instant optimization
+          </p>
+        </div>
+        <div class="quick-tools-grid">
           <!-- SEO Analyzer -->
           <div class="tool-card" id="seo-analyzer">
             <div class="tool-header">
@@ -622,8 +899,71 @@
               ></div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Link Analyzer -->
+      <!-- Featured Tools Section -->
+      <section class="container featured-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Tools</h2>
+          <p class="section-description">
+            Advanced SEO analysis and optimization tools
+          </p>
+        </div>
+        <div class="featured-tools-grid">
+          <!-- Website Audit Tool Page Link -->
+          <div class="featured-tool-link-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Website Audit Tool</h3>
+                <div class="tool-category">SEO Analysis</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Comprehensive website audit tool with technical SEO analysis, performance metrics, and actionable recommendations.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Technical SEO analysis</li>
+              <li><i class="fas fa-check"></i> Performance metrics</li>
+              <li><i class="fas fa-check"></i> Mobile optimization</li>
+              <li><i class="fas fa-check"></i> Competitor analysis</li>
+            </ul>
+            <a href="/tools/website-audit.html" class="featured-tool-link">
+              <span>Use Website Audit Tool</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Keyword Research Tool Page Link -->
+          <div class="featured-tool-link-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-key"></i>
+              </div>
+              <div class="tool-info">
+                <h3>Keyword Research Tool</h3>
+                <div class="tool-category">Content Strategy</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Advanced keyword research tool with search volume data, competition analysis, and SERP feature tracking.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Search volume data</li>
+              <li><i class="fas fa-check"></i> Competition analysis</li>
+              <li><i class="fas fa-check"></i> SERP feature tracking</li>
+              <li><i class="fas fa-check"></i> Keyword clustering</li>
+            </ul>
+            <a href="/tools/keyword-research.html" class="featured-tool-link">
+              <span>Use Keyword Research Tool</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
           <div class="tool-card" id="link-analyzer">
             <div class="tool-header">
               <div class="tool-icon">
@@ -666,7 +1006,62 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      <!-- Related Blog Posts Section -->
+      <section class="container blog-section">
+        <div class="section-header">
+          <h2 class="section-title">Related Articles</h2>
+          <p class="section-description">
+            Latest insights on SEO and digital marketing
+          </p>
+        </div>
+        <div class="blog-posts-grid">
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">SEO Strategy</div>
+              <h3 class="blog-post-title">Advanced SEO Techniques for 2025</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Cutting-edge SEO strategies to boost your website's search engine
+              rankings and organic traffic.
+            </p>
+            <a href="/blog/blog4.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Content Marketing</div>
+              <h3 class="blog-post-title">Content Marketing Best Practices</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Create compelling content that ranks well and converts visitors
+              into customers.
+            </p>
+            <a href="/blog/blog5.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Analytics</div>
+              <h3 class="blog-post-title">Marketing Analytics Guide</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Measure and analyze your marketing performance to make data-driven
+              decisions.
+            </p>
+            <a href="/blog/blog6.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+        </div>
+      </section>
+    </main>
           <!-- Social Media Preview -->
           <div class="tool-card" id="social-preview">
             <div class="tool-header">
@@ -1430,6 +1825,18 @@
         document.getElementById("readabilityContent").value = "";
         document.getElementById("readabilityResult").style.display = "none";
       }
+
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navToggle) {
+          navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+          });
+        }
+      });
     </script>
   </body>
 </html>

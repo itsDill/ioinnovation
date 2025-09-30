@@ -15,6 +15,10 @@
       name="keywords"
       content="developer tools, JSON formatter, hash generator, QR code generator, API tester, code minifier, technology tools, programming utilities"
     />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
 
     <!-- Open Graph -->
     <meta
@@ -51,6 +55,37 @@
     <link rel="stylesheet" href="css/shared-clean.css" />
     <script src="js/theme-init.js"></script>
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Technology Tools | Developer Utilities & Code Tools",
+      "description": "Free technology tools for developers: JSON formatter, hash generator, QR code generator, API tester, code minifier, and more professional developer utilities.",
+      "url": "https://iowebtools.com/technology-tools.html",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Technology Tools Suite",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "JSON Formatter",
+          "QR Code Generator",
+          "API Tester",
+          "Hash Generator",
+          "Code Minifier",
+          "Base64 Encoder/Decoder"
+        ]
+      }
+    }
+    </script>
+    <script src="js/theme-init.js"></script>
+
     <style>
       .page-header {
         padding: 4rem 0 2rem;
@@ -82,6 +117,226 @@
         max-width: 600px;
         margin: 0 auto 2rem;
         line-height: 1.6;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: all var(--transition-normal);
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .breadcrumb span {
+        color: var(--text-secondary);
+        margin: 0 0.5rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .quick-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 0 0 4rem;
+      }
+
+      .featured-section {
+        padding: 4rem 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.05) 0%,
+          transparent 50%
+        );
+      }
+
+      .featured-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 3rem;
+        margin: 0 0 2rem;
+      }
+
+      .featured-tool-link-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .featured-tool-link-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          var(--accent-primary) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+        z-index: 0;
+      }
+
+      .featured-tool-link-card:hover::before {
+        opacity: 0.03;
+      }
+
+      .featured-tool-link-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .featured-tool-link-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .featured-tool-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        margin-top: 1.5rem;
+        transition: all var(--transition-normal);
+        border: none;
+        cursor: pointer;
+      }
+
+      .featured-tool-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .tool-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .tool-features i {
+        color: var(--accent-primary);
+        width: 16px;
+      }
+
+      .blog-section {
+        padding: 4rem 0;
+        background: var(--glass-bg);
+      }
+
+      .blog-posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0 0 2rem;
+      }
+
+      .blog-post-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-post-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .blog-post-header {
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-category {
+        display: inline-block;
+        background: var(--accent-primary);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .blog-post-excerpt {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-post-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent-primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all var(--transition-normal);
+      }
+
+      .blog-post-link:hover {
+        transform: translateX(5px);
       }
 
       .tools-grid {
@@ -295,7 +550,14 @@
       }
 
       @media (max-width: 768px) {
+        .quick-tools-grid,
+        .featured-tools-grid,
         .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .blog-posts-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }
@@ -309,8 +571,17 @@
           font-size: 2rem;
         }
 
+        .section-title {
+          font-size: 2rem;
+        }
+
         .action-buttons {
           justify-content: center;
+        }
+
+        .featured-section,
+        .blog-section {
+          padding: 2rem 0;
         }
       }
     </style>
@@ -361,9 +632,15 @@
         </div>
       </section>
 
-      <!-- Tools Grid -->
+      <!-- Quick Tools Section -->
       <section class="container">
-        <div class="tools-grid">
+        <div class="section-header">
+          <h2 class="section-title">Quick Tools</h2>
+          <p class="section-description">
+            Essential developer utilities for instant results
+          </p>
+        </div>
+        <div class="quick-tools-grid">
           <!-- JSON Formatter -->
           <div class="tool-card" id="json-formatter">
             <div class="tool-header">
@@ -465,9 +742,71 @@
               ></div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- QR Code Generator -->
-          <div class="tool-card" id="qr-generator">
+      <!-- Featured Tools Section -->
+      <section class="container featured-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Tools</h2>
+          <p class="section-description">
+            Advanced developer utilities for complex tasks
+          </p>
+        </div>
+        <div class="featured-tools-grid">
+          <!-- QR Code Generator Page Link -->
+          <div class="featured-tool-link-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-qrcode"></i>
+              </div>
+              <div class="tool-info">
+                <h3>QR Code Generator</h3>
+                <div class="tool-category">Visual Tools</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Advanced QR code generator with custom design options, batch processing, and analytics tracking capabilities.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Custom design options</li>
+              <li><i class="fas fa-check"></i> Batch QR code generation</li>
+              <li><i class="fas fa-check"></i> Analytics tracking</li>
+              <li><i class="fas fa-check"></i> High-resolution output</li>
+            </ul>
+            <a href="/tools/qr-code-generator.html" class="featured-tool-link">
+              <span>Use QR Code Generator</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- API Tester Page Link -->
+          <div class="featured-tool-link-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="tool-info">
+                <h3>API Tester</h3>
+                <div class="tool-category">Development Tools</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Professional API testing tool with request builder, response analyzer, and automated testing capabilities.
+            </p>
+            <ul class="tool-features">
+              <li><i class="fas fa-check"></i> Advanced request builder</li>
+              <li><i class="fas fa-check"></i> Response analysis</li>
+              <li><i class="fas fa-check"></i> Authentication support</li>
+              <li><i class="fas fa-check"></i> Test automation</li>
+            </ul>
+            <a href="/tools/api-tester.html" class="featured-tool-link">
+              <span>Use API Tester</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
             <div class="tool-header">
               <div class="tool-icon">
                 <i class="fas fa-qrcode"></i>
@@ -543,7 +882,62 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      <!-- Related Blog Posts Section -->
+      <section class="container blog-section">
+        <div class="section-header">
+          <h2 class="section-title">Related Articles</h2>
+          <p class="section-description">
+            Latest insights on technology and development
+          </p>
+        </div>
+        <div class="blog-posts-grid">
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Development</div>
+              <h3 class="blog-post-title">Best Developer Tools for 2025</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Essential tools and utilities every developer should have in their
+              toolkit for maximum productivity.
+            </p>
+            <a href="/blog/blog1.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Security</div>
+              <h3 class="blog-post-title">API Security Best Practices</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Learn how to secure your APIs and protect your applications from
+              common vulnerabilities.
+            </p>
+            <a href="/blog/blog2.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+
+          <article class="blog-post-card">
+            <div class="blog-post-header">
+              <div class="blog-post-category">Productivity</div>
+              <h3 class="blog-post-title">Code Optimization Techniques</h3>
+            </div>
+            <p class="blog-post-excerpt">
+              Proven techniques to optimize your code for better performance and
+              maintainability.
+            </p>
+            <a href="/blog/blog3.html" class="blog-post-link"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </article>
+        </div>
+      </section>
+    </main>
           <!-- URL Encoder/Decoder -->
           <div class="tool-card" id="url-encoder">
             <div class="tool-header">
@@ -1260,6 +1654,16 @@
       // Initialize QR fields on page load
       document.addEventListener("DOMContentLoaded", function () {
         updateQRFields();
+        
+        // Mobile menu functionality
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navToggle) {
+          navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+          });
+        }
       });
     </script>
   </body>

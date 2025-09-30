@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator | Create Custom QR Codes for Free</title>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free QR code generator - Create custom QR codes for URLs, text, WiFi, contact info, and more. Download high-quality PNG, SVG formats instantly."
+    />
+    <meta name="author" content="IO Web Tools" />
+    <meta
+      name="keywords"
+      content="QR code generator, QR code creator, custom QR codes, QR code maker, barcode generator, free QR codes, WiFi QR code, contact QR code"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="QR Code Generator | Create Custom QR Codes for Free"
+    />
+    <meta
+      property="og:description"
+      content="Generate professional QR codes for URLs, text, WiFi, contacts and more. Download in multiple formats with customization options."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/tools/qr-code-generator.html"
+    />
+    <meta property="og:site_name" content="IO Web Tools" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="canonical"
+      href="https://iowebtools.com/tools/qr-code-generator.html"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/shared-clean.css" />
+    <link rel="stylesheet" href="../css/tool-page.css" />
+    <script src="../js/theme-init.js"></script>
+
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "QR Code Generator",
+        "description": "Free QR code generator for creating custom QR codes with multiple format options",
+        "url": "https://iowebtools.com/tools/qr-code-generator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "URL QR codes",
+          "Text QR codes",
+          "WiFi QR codes",
+          "Contact QR codes",
+          "Custom colors and sizes",
+          "Multiple download formats"
+        ]
+      }
+    </script>
+
+    <style>
+      .tool-page-header {
+        padding: 3rem 0;
+        text-align: center;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(43, 226, 180, 0.1) 0%,
+          transparent 50%
+        );
+      }
+
+      .tool-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .generator-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .generator-controls {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: 0 4px 20px var(--shadow-color);
+      }
+
+      .qr-preview {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: 0 4px 20px var(--shadow-color);
+        text-align: center;
+        position: sticky;
+        top: 2rem;
+      }
+
+      .qr-type-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        background: var(--glass-bg);
+        padding: 0.5rem;
+        border-radius: var(--border-radius);
+      }
+
+      .qr-type-tab {
+        padding: 0.75rem;
+        background: none;
+        border: none;
+        border-radius: calc(var(--border-radius) - 2px);
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all var(--transition-normal);
+        text-align: center;
+      }
+
+      .qr-type-tab.active {
+        background: var(--accent-primary);
+        color: white;
+      }
+
+      .qr-input-section {
+        display: none;
+        margin-bottom: 2rem;
+      }
+
+      .qr-input-section.active {
+        display: block;
+      }
+
+      .wifi-fields {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .contact-fields {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .customization-section {
+        border-top: 1px solid var(--border-color);
+        padding-top: 2rem;
+        margin-top: 2rem;
+      }
+
+      .color-input-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .color-input {
+        width: 60px;
+        height: 40px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+      }
+
+      .size-options {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .size-option {
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background: var(--bg-card);
+        cursor: pointer;
+        text-align: center;
+        font-size: 0.9rem;
+        transition: all var(--transition-normal);
+      }
+
+      .size-option.active {
+        border-color: var(--accent-primary);
+        background: var(--accent-primary);
+        color: white;
+      }
+
+      .qr-canvas-container {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .download-section {
+        border-top: 1px solid var(--border-color);
+        padding-top: 1.5rem;
+      }
+
+      .download-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .download-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        background: var(--accent-primary);
+        color: white;
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        transition: all var(--transition-normal);
+        border: none;
+        cursor: pointer;
+      }
+
+      .download-btn:hover {
+        background: var(--accent-secondary);
+        transform: translateY(-2px);
+      }
+
+      .download-btn:disabled {
+        background: var(--text-secondary);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      @media (max-width: 768px) {
+        .generator-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .qr-type-tabs {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .download-buttons {
+          grid-template-columns: 1fr;
+        }
+
+        .tool-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="../index.html" class="logo">IO Web Tools</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../finance-tools.html">Finance Tools</a></li>
+          <li>
+            <a href="../technology-tools.html" class="active">Tech Tools</a>
+          </li>
+          <li><a href="../seo-marketing-tools.html">SEO & Marketing</a></li>
+          <li>
+            <a href="../privacy-security-tools.html">Privacy & Security</a>
+          </li>
+          <li><a href="../blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Tool Header -->
+      <section class="tool-page-header">
+        <div class="container">
+          <nav class="breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <a href="../technology-tools.html">Technology Tools</a>
+            <span class="separator">/</span>
+            <span class="current">QR Code Generator</span>
+          </nav>
+          <div class="tool-category-badge">
+            <i class="fas fa-qrcode"></i>
+            Code Generation
+          </div>
+          <h1 class="tool-title">QR Code Generator</h1>
+          <p class="tool-subtitle">
+            Create professional QR codes for URLs, text, WiFi networks, contact
+            information, and more. Customize colors, sizes, and download in
+            multiple formats.
+          </p>
+          <div class="tool-features-list">
+            <div class="tool-feature">
+              <i class="fas fa-link"></i>
+              Multiple Types
+            </div>
+            <div class="tool-feature">
+              <i class="fas fa-palette"></i>
+              Custom Colors
+            </div>
+            <div class="tool-feature">
+              <i class="fas fa-expand-arrows-alt"></i>
+              Size Options
+            </div>
+            <div class="tool-feature">
+              <i class="fas fa-download"></i>
+              Multiple Formats
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QR Code Generator -->
+      <section class="container" style="padding: 2rem 0">
+        <div class="generator-container">
+          <!-- Controls Panel -->
+          <div class="generator-controls">
+            <h3 style="margin-bottom: 1.5rem; color: var(--text-primary)">
+              <i class="fas fa-qrcode"></i> QR Code Settings
+            </h3>
+
+            <!-- QR Code Type Selection -->
+            <div class="qr-type-tabs">
+              <button class="qr-type-tab active" onclick="switchQRType('url')">
+                <i class="fas fa-link"></i><br />URL
+              </button>
+              <button class="qr-type-tab" onclick="switchQRType('text')">
+                <i class="fas fa-font"></i><br />Text
+              </button>
+              <button class="qr-type-tab" onclick="switchQRType('wifi')">
+                <i class="fas fa-wifi"></i><br />WiFi
+              </button>
+              <button class="qr-type-tab" onclick="switchQRType('contact')">
+                <i class="fas fa-user"></i><br />Contact
+              </button>
+            </div>
+
+            <!-- URL Input -->
+            <div class="qr-input-section active" id="url-section">
+              <div class="form-group">
+                <label class="form-label">Website URL</label>
+                <input
+                  type="url"
+                  id="urlInput"
+                  class="form-input"
+                  placeholder="https://example.com"
+                  oninput="generateQR()"
+                />
+              </div>
+            </div>
+
+            <!-- Text Input -->
+            <div class="qr-input-section" id="text-section">
+              <div class="form-group">
+                <label class="form-label">Text Content</label>
+                <textarea
+                  id="textInput"
+                  class="form-input"
+                  rows="4"
+                  placeholder="Enter your text here..."
+                  oninput="generateQR()"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- WiFi Input -->
+            <div class="qr-input-section" id="wifi-section">
+              <div class="wifi-fields">
+                <div class="form-group">
+                  <label class="form-label">Network Name (SSID)</label>
+                  <input
+                    type="text"
+                    id="wifiSSID"
+                    class="form-input"
+                    placeholder="My WiFi Network"
+                    oninput="generateQR()"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="text"
+                    id="wifiPassword"
+                    class="form-input"
+                    placeholder="password123"
+                    oninput="generateQR()"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Security Type</label>
+                  <select
+                    id="wifiSecurity"
+                    class="form-select"
+                    onchange="generateQR()"
+                  >
+                    <option value="WPA">WPA/WPA2</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">Open (No Password)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label
+                    style="display: flex; align-items: center; gap: 0.5rem"
+                  >
+                    <input
+                      type="checkbox"
+                      id="wifiHidden"
+                      onchange="generateQR()"
+                    />
+                    Hidden Network
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Input -->
+            <div class="qr-input-section" id="contact-section">
+              <div class="contact-fields">
+                <div class="form-group">
+                  <label class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    id="contactFirstName"
+                    class="form-input"
+                    placeholder="John"
+                    oninput="generateQR()"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    id="contactLastName"
+                    class="form-input"
+                    placeholder="Doe"
+                    oninput="generateQR()"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="contactPhone"
+                    class="form-input"
+                    placeholder="+1234567890"
+                    oninput="generateQR()"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    class="form-input"
+                    placeholder="john.doe@example.com"
+                    oninput="generateQR()"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Company</label>
+                  <input
+                    type="text"
+                    id="contactCompany"
+                    class="form-input"
+                    placeholder="Company Name"
+                    oninput="generateQR()"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Customization Options -->
+            <div class="customization-section">
+              <h4 style="margin-bottom: 1rem; color: var(--text-primary)">
+                <i class="fas fa-palette"></i> Customization
+              </h4>
+
+              <div class="form-group">
+                <label class="form-label">Foreground Color</label>
+                <div class="color-input-group">
+                  <input
+                    type="color"
+                    id="foregroundColor"
+                    class="color-input"
+                    value="#000000"
+                    onchange="generateQR()"
+                  />
+                  <span>Dark color (QR code)</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Background Color</label>
+                <div class="color-input-group">
+                  <input
+                    type="color"
+                    id="backgroundColor"
+                    class="color-input"
+                    value="#ffffff"
+                    onchange="generateQR()"
+                  />
+                  <span>Light color (background)</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Size</label>
+                <div class="size-options">
+                  <div
+                    class="size-option active"
+                    onclick="setSize(256)"
+                    data-size="256"
+                  >
+                    256px<br /><small>Small</small>
+                  </div>
+                  <div
+                    class="size-option"
+                    onclick="setSize(512)"
+                    data-size="512"
+                  >
+                    512px<br /><small>Medium</small>
+                  </div>
+                  <div
+                    class="size-option"
+                    onclick="setSize(1024)"
+                    data-size="1024"
+                  >
+                    1024px<br /><small>Large</small>
+                  </div>
+                  <div
+                    class="size-option"
+                    onclick="setSize(2048)"
+                    data-size="2048"
+                  >
+                    2048px<br /><small>XL</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview Panel -->
+          <div class="qr-preview">
+            <h3 style="margin-bottom: 1.5rem; color: var(--text-primary)">
+              <i class="fas fa-eye"></i> QR Code Preview
+            </h3>
+
+            <div class="qr-canvas-container" id="qrContainer">
+              <div style="text-align: center; color: var(--text-secondary)">
+                <i
+                  class="fas fa-qrcode"
+                  style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3"
+                ></i>
+                <div>Enter data above to generate QR code</div>
+              </div>
+            </div>
+
+            <div class="download-section">
+              <h4 style="margin-bottom: 1rem; color: var(--text-primary)">
+                <i class="fas fa-download"></i> Download
+              </h4>
+              <div class="download-buttons">
+                <button
+                  class="download-btn"
+                  id="downloadPng"
+                  onclick="downloadQR('png')"
+                  disabled
+                >
+                  <i class="fas fa-file-image"></i> PNG
+                </button>
+                <button
+                  class="download-btn"
+                  id="downloadSvg"
+                  onclick="downloadQR('svg')"
+                  disabled
+                >
+                  <i class="fas fa-file-code"></i> SVG
+                </button>
+              </div>
+              <div
+                style="
+                  margin-top: 1rem;
+                  font-size: 0.9rem;
+                  color: var(--text-secondary);
+                  text-align: center;
+                "
+              >
+                Right-click and "Save as..." for quick download
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Tools -->
+      <section class="container" style="padding: 2rem 0">
+        <div class="section-header">
+          <h2 class="section-title">Related Tools</h2>
+          <p class="section-description">
+            Other technology tools that might interest you
+          </p>
+        </div>
+        <div
+          class="tools-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+          "
+        >
+          <a
+            href="api-tester.html"
+            class="tool-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="tool-info">
+                <h3>API Tester</h3>
+                <div class="tool-category">Development</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Test and debug APIs with advanced request tools.
+            </p>
+          </a>
+          <a
+            href="../technology-tools.html"
+            class="tool-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="tool-info">
+                <h3>JSON Formatter</h3>
+                <div class="tool-category">Development</div>
+              </div>
+            </div>
+            <p class="tool-description">
+              Format and validate JSON data structures.
+            </p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              gap: 1.2rem;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <a href="../privacy.html" class="secret-link">Privacy Policy</a>
+            <a href="../terms.html" class="secret-link">Terms of Service</a>
+            <a href="../contact.html" class="secret-link">Contact</a>
+          </div>
+          <div
+            style="
+              max-width: 600px;
+              font-size: 0.85rem;
+              line-height: 1.5;
+              color: var(--text-secondary);
+            "
+          >
+            <p>&copy; 2025 IO Web Tools. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem">
+              QR codes are generated locally in your browser. No data is sent to
+              our servers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let currentQRType = "url";
+      let currentSize = 256;
+      let currentQRData = "";
+
+      function switchQRType(type) {
+        // Update active tab
+        document.querySelectorAll(".qr-type-tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        event.target.closest(".qr-type-tab").classList.add("active");
+
+        // Hide all sections
+        document.querySelectorAll(".qr-input-section").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // Show selected section
+        document.getElementById(type + "-section").classList.add("active");
+
+        currentQRType = type;
+        generateQR();
+      }
+
+      function setSize(size) {
+        document.querySelectorAll(".size-option").forEach((option) => {
+          option.classList.remove("active");
+        });
+        document.querySelector(`[data-size="${size}"]`).classList.add("active");
+
+        currentSize = size;
+        generateQR();
+      }
+
+      function getQRData() {
+        switch (currentQRType) {
+          case "url":
+            return document.getElementById("urlInput").value || "";
+
+          case "text":
+            return document.getElementById("textInput").value || "";
+
+          case "wifi":
+            const ssid = document.getElementById("wifiSSID").value;
+            const password = document.getElementById("wifiPassword").value;
+            const security = document.getElementById("wifiSecurity").value;
+            const hidden = document.getElementById("wifiHidden").checked;
+
+            if (!ssid) return "";
+
+            let wifiString = `WIFI:T:${security};S:${ssid};`;
+            if (password && security !== "nopass") {
+              wifiString += `P:${password};`;
+            }
+            if (hidden) {
+              wifiString += "H:true;";
+            }
+            wifiString += ";";
+            return wifiString;
+
+          case "contact":
+            const firstName = document.getElementById("contactFirstName").value;
+            const lastName = document.getElementById("contactLastName").value;
+            const phone = document.getElementById("contactPhone").value;
+            const email = document.getElementById("contactEmail").value;
+            const company = document.getElementById("contactCompany").value;
+
+            if (!firstName && !lastName && !phone && !email) return "";
+
+            const vcard = [
+              "BEGIN:VCARD",
+              "VERSION:3.0",
+              firstName || lastName ? `FN:${firstName} ${lastName}`.trim() : "",
+              firstName ? `N:${lastName};${firstName};;;` : "",
+              company ? `ORG:${company}` : "",
+              phone ? `TEL:${phone}` : "",
+              email ? `EMAIL:${email}` : "",
+              "END:VCARD",
+            ]
+              .filter((line) => line)
+              .join("\n");
+
+            return vcard;
+
+          default:
+            return "";
+        }
+      }
+
+      function generateQR() {
+        const data = getQRData();
+        const foregroundColor =
+          document.getElementById("foregroundColor").value;
+        const backgroundColor =
+          document.getElementById("backgroundColor").value;
+
+        if (!data) {
+          document.getElementById("qrContainer").innerHTML = `
+            <div style="text-align: center; color: var(--text-secondary);">
+              <i class="fas fa-qrcode" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+              <div>Enter data above to generate QR code</div>
+            </div>
+          `;
+          document.getElementById("downloadPng").disabled = true;
+          document.getElementById("downloadSvg").disabled = true;
+          return;
+        }
+
+        currentQRData = data;
+
+        const canvas = document.createElement("canvas");
+        QRCode.toCanvas(
+          canvas,
+          data,
+          {
+            width: currentSize,
+            margin: 2,
+            color: {
+              dark: foregroundColor,
+              light: backgroundColor,
+            },
+          },
+          function (error) {
+            if (error) {
+              console.error("QR Code generation error:", error);
+              document.getElementById("qrContainer").innerHTML = `
+              <div style="text-align: center; color: #ff4757;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                <div>Error generating QR code</div>
+              </div>
+            `;
+              return;
+            }
+
+            // Clear container and add canvas
+            const container = document.getElementById("qrContainer");
+            container.innerHTML = "";
+            canvas.style.maxWidth = "100%";
+            canvas.style.height = "auto";
+            container.appendChild(canvas);
+
+            // Enable download buttons
+            document.getElementById("downloadPng").disabled = false;
+            document.getElementById("downloadSvg").disabled = false;
+          }
+        );
+      }
+
+      function downloadQR(format) {
+        if (!currentQRData) return;
+
+        if (format === "png") {
+          const canvas = document.querySelector("#qrContainer canvas");
+          if (canvas) {
+            const link = document.createElement("a");
+            link.download = `qrcode-${Date.now()}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+          }
+        } else if (format === "svg") {
+          const foregroundColor =
+            document.getElementById("foregroundColor").value;
+          const backgroundColor =
+            document.getElementById("backgroundColor").value;
+
+          QRCode.toString(
+            currentQRData,
+            {
+              type: "svg",
+              width: currentSize,
+              margin: 2,
+              color: {
+                dark: foregroundColor,
+                light: backgroundColor,
+              },
+            },
+            function (error, svgString) {
+              if (error) {
+                console.error("SVG generation error:", error);
+                return;
+              }
+
+              const blob = new Blob([svgString], { type: "image/svg+xml" });
+              const link = document.createElement("a");
+              link.download = `qrcode-${Date.now()}.svg`;
+              link.href = URL.createObjectURL(blob);
+              link.click();
+              URL.revokeObjectURL(link.href);
+            }
+          );
+        }
+      }
+
+      // Mobile menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.querySelector(".nav-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
+        if (navToggle) {
+          navToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+          });
+        }
+
+        // Set default URL for demo
+        document.getElementById("urlInput").value = "https://iowebtools.com";
+        generateQR();
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              gap: 1.2rem;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <a href="../privacy.html" class="secret-link">Privacy Policy</a>
+            <a href="../terms.html" class="secret-link">Terms of Service</a>
+            <a href="../contact.html" class="secret-link">Contact</a>
+          </div>
+          <div
+            style="
+              max-width: 600px;
+              font-size: 0.85rem;
+              line-height: 1.5;
+              color: var(--text-secondary);
+            "
+          >
+            <p>&copy; 2025 IO Web Tools. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem">
+              QR codes are generated locally in your browser for maximum privacy
+              and security.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/shared-simple.js"></script>
+  </body>
+</html>
