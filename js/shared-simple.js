@@ -758,10 +758,13 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "exclamation-triangle"
         : "info-circle";
 
+    // Sanitize message to prevent XSS
+    const safeMessage = message.replace(/<[^>]*>/g, "");
+
     notification.innerHTML = `
             <div style="display: flex; align-items: center; gap: 0.5rem;">
                 <i class="fas fa-${icon}"></i>
-                <span>${message}</span>
+                <span>${safeMessage}</span>
             </div>
         `;
 
@@ -782,7 +785,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Announce to screen readers
     if (window.announceToScreenReader) {
-      window.announceToScreenReader(message);
+      window.announceToScreenReader(safeMessage);
     }
   };
 
@@ -802,11 +805,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Form submission helper
+  // Form submission helper with security
   window.handleFormSubmission = async function (form, endpoint, options = {}) {
     const formData = new FormData(form);
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton ? submitButton.innerHTML : "";
+
+    // Security: Check for honeypot
+    const honeypot = form.querySelector('input[name="website"]');
+    if (honeypot && honeypot.value) {
+      console.log("Spam detected via honeypot");
+      return false; // Silent fail for spam bots
+    }
+
+    // Rate limiting check
+    const lastSubmission = localStorage.getItem("lastFormSubmission");
+    const now = Date.now();
+    if (lastSubmission && now - parseInt(lastSubmission) < 60000) {
+      showNotification(
+        "Please wait before submitting another message.",
+        "error"
+      );
+      return false;
+    }
 
     try {
       // Add loading state
@@ -816,6 +837,9 @@ document.addEventListener("DOMContentLoaded", function () {
           '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitButton.disabled = true;
       }
+
+      // Store submission timestamp
+      localStorage.setItem("lastFormSubmission", now.toString());
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -831,12 +855,14 @@ document.addEventListener("DOMContentLoaded", function () {
         form.querySelectorAll(".form-success").forEach((field) => {
           field.classList.remove("form-success");
         });
+        return true;
       } else {
         throw new Error("Network response was not ok");
       }
     } catch (error) {
       showNotification("Failed to send message. Please try again.", "error");
       console.error("Form submission error:", error);
+      return false;
     } finally {
       // Remove loading state
       if (submitButton) {
@@ -845,6 +871,44 @@ document.addEventListener("DOMContentLoaded", function () {
         submitButton.disabled = false;
       }
     }
+  };
+
+  // Security utility functions
+  window.SecurityUtils = {
+    // Sanitize HTML to prevent XSS
+    sanitizeHTML: function (str) {
+      if (typeof str !== "string") return "";
+      return str.replace(/<[^>]*>/g, "").trim();
+    },
+
+    // Validate email format
+    isValidEmail: function (email) {
+      const sanitized = this.sanitizeHTML(email).toLowerCase();
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(sanitized) && sanitized.length <= 254;
+    },
+
+    // Validate and sanitize text input
+    validateText: function (text, minLength = 2, maxLength = 100) {
+      const sanitized = this.sanitizeHTML(text);
+      return {
+        isValid: sanitized.length >= minLength && sanitized.length <= maxLength,
+        sanitized: sanitized,
+        original: text,
+      };
+    },
+
+    // Check if file type is allowed
+    isAllowedFileType: function (file, allowedTypes = []) {
+      if (!file || !file.type) return false;
+      return allowedTypes.includes(file.type) || allowedTypes.includes("*");
+    },
+
+    // Check file size
+    isValidFileSize: function (file, maxSizeBytes = 10 * 1024 * 1024) {
+      if (!file) return false;
+      return file.size <= maxSizeBytes;
+    },
   };
 
   console.log("🚀 IO Innovation Fund - Shared functionality initialized");

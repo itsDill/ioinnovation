@@ -1092,15 +1092,18 @@
                   "
                 ></i>
                 <p>Click to select a file or drag and drop</p>
-                <small style="color: var(--text-secondary)"
-                  >Maximum file size: 100MB</small
-                >
+                <small style="color: var(--text-secondary)">
+                  Maximum file size: 10MB<br>
+                  Supported: Text, PDF, Images, ZIP files<br>
+                  Files are processed locally - never uploaded to servers
+                </small>
               </div>
               <input
                 type="file"
                 id="fileInput"
                 style="display: none"
                 onchange="handleFileSelect(event)"
+                accept=".txt,.pdf,.jpg,.jpeg,.png,.gif,.zip"
               />
               <div class="form-group" id="fileInfo" style="display: none">
                 <div
@@ -1315,7 +1318,6 @@
 
     <script>
       // Password Generator
-      let selectedFile = null;
 
       // Update password length display
       document
@@ -1622,18 +1624,42 @@
         document.getElementById("privacyResult").style.display = "none";
       }
 
-      // File Hash Generator
+      // File Hash Generator with Security
+      let selectedFile = null;
+      const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB limit
+      const ALLOWED_FILE_TYPES = [
+        'text/plain', 'application/pdf', 'image/jpeg', 'image/png', 
+        'image/gif', 'application/zip', 'application/x-zip-compressed',
+        'application/octet-stream' // For files without MIME type
+      ];
+
       function handleFileSelect(event) {
         const file = event.target.files[0];
-        if (file) {
-          selectedFile = file;
-          document.getElementById("fileName").textContent = file.name;
-          document.getElementById(
-            "fileSize"
-          ).textContent = `Size: ${formatFileSize(file.size)}`;
-          document.getElementById("fileInfo").style.display = "block";
-          document.getElementById("generateHashBtn").disabled = false;
+        if (!file) return;
+
+        // Validate file size
+        if (file.size > MAX_FILE_SIZE) {
+          showNotification(`File size exceeds ${MAX_FILE_SIZE / (1024 * 1024)}MB limit. Please select a smaller file.`, "error");
+          event.target.value = ''; // Clear the input
+          return;
         }
+
+        // Basic file type validation (can be spoofed, but good for UX)
+        const isAllowedType = ALLOWED_FILE_TYPES.includes(file.type) || file.type === '';
+        if (!isAllowedType) {
+          if (!confirm('This file type may not be supported or could be unsafe. Continue anyway?')) {
+            event.target.value = '';
+            return;
+          }
+        }
+
+        selectedFile = file;
+        document.getElementById("fileName").textContent = file.name;
+        document.getElementById(
+          "fileSize"
+        ).textContent = `Size: ${formatFileSize(file.size)}`;
+        document.getElementById("fileInfo").style.display = "block";
+        document.getElementById("generateHashBtn").disabled = false;
       }
 
       function formatFileSize(bytes) {
@@ -1646,7 +1672,7 @@
 
       function generateFileHashes() {
         if (!selectedFile) {
-          alert("Please select a file first");
+          showNotification("Please select a file first", "error");
           return;
         }
 
@@ -1703,7 +1729,7 @@
           document.getElementById("removeCreditCards").checked;
 
         if (!data) {
-          alert("Please enter data to sanitize");
+          showNotification("Please enter data to sanitize", "error");
           return;
         }
 
