@@ -35,30 +35,30 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <link rel="canonical" href="https://iowebtools.com/" />
-    
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "IO Web Tools",
-      "url": "https://iowebtools.com",
-      "description": "Free professional online tools for finance, technology, SEO & privacy. Access 100+ tools with no signup required.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://iowebtools.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "publisher": {
-        "@type": "Organization",
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
         "name": "IO Web Tools",
         "url": "https://iowebtools.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://iowebtools.com/assets/images/logo.png"
+        "description": "Free professional online tools for finance, technology, SEO & privacy. Access 100+ tools with no signup required.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://iowebtools.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "IO Web Tools",
+          "url": "https://iowebtools.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://iowebtools.com/assets/images/logo.png"
+          }
         }
       }
-    }
     </script>
 
     <!-- Enhanced Open Graph -->
@@ -102,10 +102,7 @@
       name="twitter:image"
       content="https://iowebtools.com/assets/images/og-tools-image.png"
     />
-    <meta
-      name="twitter:image:alt"
-      content="IO Web Tools Platform"
-    />
+    <meta name="twitter:image:alt" content="IO Web Tools Platform" />
 
     <!-- Investment Disclaimer -->
     <meta
@@ -378,22 +375,27 @@
         width: 200%;
         height: 200%;
         background: radial-gradient(
-          circle at 30% 20%,
-          rgba(43, 226, 180, 0.15) 0%,
-          transparent 40%
-        ),
-        radial-gradient(
-          circle at 70% 80%,
-          rgba(126, 254, 194, 0.1) 0%,
-          transparent 40%
-        );
+            circle at 30% 20%,
+            rgba(43, 226, 180, 0.15) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 70% 80%,
+            rgba(126, 254, 194, 0.1) 0%,
+            transparent 40%
+          );
         animation: heroGlow 20s ease-in-out infinite;
         pointer-events: none;
       }
 
       @keyframes heroGlow {
-        0%, 100% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(180deg) scale(1.1); }
+        0%,
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.1);
+        }
       }
 
       .hero-content {
@@ -489,7 +491,11 @@
         display: block;
         font-size: 2rem;
         font-weight: 800;
-        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -562,8 +568,13 @@
       }
 
       @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
       }
 
       .tool-icon {
@@ -582,16 +593,28 @@
         box-shadow: 0 8px 30px rgba(43, 226, 180, 0.1);
       }
 
-      .tool-icon:nth-child(1) { animation-delay: 0s; }
-      .tool-icon:nth-child(2) { animation-delay: 0.1s; }
-      .tool-icon:nth-child(3) { animation-delay: 0.2s; }
-      .tool-icon:nth-child(4) { animation-delay: 0.3s; }
+      .tool-icon:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .tool-icon:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .tool-icon:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .tool-icon:nth-child(4) {
+        animation-delay: 0.3s;
+      }
 
       .tool-icon:hover {
         transform: translateY(-8px) scale(1.05) rotate(5deg);
         border-color: var(--accent-primary);
         box-shadow: 0 15px 45px rgba(43, 226, 180, 0.25);
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.1), rgba(126, 254, 194, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.1),
+          rgba(126, 254, 194, 0.1)
+        );
       }
 
       /* Content sections */
@@ -787,7 +810,12 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
         transition: left 0.5s ease;
       }
 
@@ -2022,36 +2050,41 @@
     <!-- Scroll Reveal Animations -->
     <script>
       // Intersection Observer for scroll animations
-      document.addEventListener('DOMContentLoaded', function() {
-        const revealElements = document.querySelectorAll('.category-card, .section-title, .section-subtitle');
-        
-        const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-              setTimeout(() => {
-                entry.target.classList.add('scroll-reveal', 'revealed');
-              }, index * 100);
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        const revealElements = document.querySelectorAll(
+          ".category-card, .section-title, .section-subtitle"
+        );
 
-        revealElements.forEach(el => {
-          el.classList.add('scroll-reveal');
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.classList.add("scroll-reveal", "revealed");
+                }, index * 100);
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        revealElements.forEach((el) => {
+          el.classList.add("scroll-reveal");
           revealObserver.observe(el);
         });
       });
 
       // Enhanced category card interactions
-      document.querySelectorAll('.category-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-          if (!e.target.closest('.category-btn')) {
-            const btn = this.querySelector('.category-btn');
+      document.querySelectorAll(".category-card").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          if (!e.target.closest(".category-btn")) {
+            const btn = this.querySelector(".category-btn");
             if (btn) {
-              window.location.href = btn.getAttribute('href');
+              window.location.href = btn.getAttribute("href");
             }
           }
         });
