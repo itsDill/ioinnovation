@@ -58,7 +58,7 @@
     <style>
       /* Hero Section */
       .hero {
-        height: 60vh;
+        height: 70vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -66,12 +66,21 @@
         position: relative;
         z-index: 2;
         padding: 4rem 2rem 2rem;
+        background: radial-gradient(
+          circle at center,
+          rgba(43, 226, 180, 0.05),
+          transparent 70%
+        );
+      }
+
+      .hero-content {
+        max-width: 900px;
       }
 
       .hero h1 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(3rem, 7vw, 5rem);
         font-weight: 900;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         background: linear-gradient(
           135deg,
           var(--accent-primary),
@@ -83,13 +92,44 @@
         background-clip: text;
         filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.4));
         letter-spacing: -0.02em;
+        line-height: 1.1;
       }
 
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: var(--text-secondary);
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 650px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        justify-content: center;
+        margin-top: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        font-weight: 500;
       }
 
       /* Search Section */
@@ -393,39 +433,64 @@
         border-radius: 20px;
         box-shadow: 0 10px 40px var(--shadow-color);
         padding: 1.8rem;
-        transition: all 0.4s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         overflow: hidden;
         animation: fadeInUp 0.8s ease;
+        position: relative;
+      }
+
+      .post-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.03),
+          rgba(126, 254, 194, 0.03)
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .post-card:hover::before {
+        opacity: 1;
       }
 
       .post-card:hover {
         border-color: var(--accent-primary);
-        box-shadow: 0 20px 60px var(--shadow-color);
-        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 70px var(--shadow-color);
+        transform: translateY(-10px) scale(1.02);
       }
 
       .post-img {
         width: 100%;
-        height: 200px;
+        height: 220px;
         border-radius: 16px;
         margin-bottom: 1.5rem;
-        background: var(--glass-bg);
-        transition: transform 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
       }
 
-      .post-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 16px;
+      .post-img i {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .post-card:hover .post-img {
-        transform: scale(1.02);
+        transform: scale(1.05);
+        border-radius: 20px;
+      }
+
+      .post-card:hover .post-img i {
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
       }
 
       .post-category {
@@ -775,10 +840,24 @@
       <div class="hero-content">
         <h1>Tech Tools Blog</h1>
         <p>
-          Expert insights, tutorials, and guides for finance tools, technology
-          utilities, SEO & marketing strategies, and privacy & security best
-          practices.
+          Expert insights, tutorials, and guides on finance tools, technology
+          utilities, SEO strategies, and privacy & security best practices to
+          help you stay ahead in the digital world.
         </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-number">9</span>
+            <span class="stat-label">Expert Articles</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Tools Covered</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -886,11 +965,8 @@
         <div class="posts-grid" id="postsGrid">
           <!-- Post 1 -->
           <article class="post-card" data-category="finance">
-            <div class="post-img">
-              <img
-                src="photos/image.png"
-                alt="Financial Calculator Tools Guide"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #10b981, #16c784); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-calculator" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Finance Tools</span>
             <h3 class="post-title">
@@ -927,11 +1003,8 @@
 
           <!-- Post 2 -->
           <article class="post-card" data-category="technology">
-            <div class="post-img">
-              <img
-                src="photos/image copy.png"
-                alt="Developer Tools and Utilities Guide"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-code" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Technology</span>
             <h3 class="post-title">
@@ -971,11 +1044,8 @@
 
           <!-- Post 3 -->
           <article class="post-card" data-category="seo-marketing">
-            <div class="post-img">
-              <img
-                src="photos/image copy 2.png"
-                alt="SEO Tools and Marketing Analytics Guide"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #f59e0b, #eab308); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-search" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">SEO & Marketing</span>
             <h3 class="post-title">
@@ -1017,11 +1087,8 @@
 
           <!-- Post 4 -->
           <article class="post-card" data-category="privacy-security">
-            <div class="post-img">
-              <img
-                src="photos/image copy 3.png"
-                alt="Privacy and Security Tools Guide"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #ef4444, #dc2626); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-shield-alt" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Privacy & Security</span>
             <h3 class="post-title">
@@ -1061,11 +1128,8 @@
 
           <!-- Post 5 -->
           <article class="post-card" data-category="finance">
-            <div class="post-img">
-              <img
-                src="photos/image copy 4.png"
-                alt="Currency Converter and Exchange Rate Tools"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #0ea5e9, #06b6d4); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-exchange-alt" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Finance Tools</span>
             <h3 class="post-title">
@@ -1102,11 +1166,8 @@
 
           <!-- Post 6 -->
           <article class="post-card" data-category="technology">
-            <div class="post-img">
-              <img
-                src="photos/image copy 5.png"
-                alt="QR Code Generator and Mobile Technology"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #8b5cf6, #a855f7); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-qrcode" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Technology</span>
             <h3 class="post-title">
@@ -1145,9 +1206,8 @@
           <article class="post-card" data-category="seo-marketing">
             <div class="post-img">
               <img
-                src="assets/images/1.png"
-                alt="Social Media Optimization Guide"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #f97316, #fb923c); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-share-alt" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">SEO & Marketing</span>
             <h3 class="post-title">
@@ -1186,11 +1246,8 @@
 
           <!-- Post 8 - Data Privacy Guide -->
           <article class="post-card" data-category="privacy-security">
-            <div class="post-img">
-              <img
-                src="assets/images/1.png"
-                alt="Data Sanitization and Privacy Protection Guide"
-              />
+            <div class="post-img" style="background: linear-gradient(135deg, #dc2626, #b91c1c); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-user-shield" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Privacy & Security</span>
             <h3 class="post-title">
@@ -1228,8 +1285,8 @@
 
           <!-- Post 9 - Investment Strategy Guide -->
           <article class="post-card" data-category="finance">
-            <div class="post-img">
-              <img src="assets/images/1.png" alt="Investment Strategy Guide" />
+            <div class="post-img" style="background: linear-gradient(135deg, #14b8a6, #06b6d4); display: flex; align-items: center; justify-content: center; min-height: 200px;">
+              <i class="fas fa-chart-line" style="font-size: 4rem; color: white; opacity: 0.9;"></i>
             </div>
             <span class="post-category">Finance</span>
             <h3 class="post-title">
@@ -1348,5 +1405,118 @@
     </footer>
 
     <script src="js/shared-simple.js"></script>
+    <script>
+      // Blog Search and Filter Functionality
+      const searchInput = document.querySelector('.search-input');
+      const filterButtons = document.querySelectorAll('.tab-button');
+      const postCards = document.querySelectorAll('.post-card');
+      const categoryItems = document.querySelectorAll('.category-item');
+
+      // Search functionality
+      searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        filterPosts(searchTerm);
+      });
+
+      // Filter by category
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          const category = button.dataset.category;
+          filterByCategory(category);
+        });
+      });
+
+      // Category sidebar filtering
+      categoryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          categoryItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          
+          const category = item.dataset.category;
+          filterByCategory(category);
+          
+          // Update tab button as well
+          filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.category === category) {
+              btn.classList.add('active');
+            }
+          });
+        });
+      });
+
+      function filterPosts(searchTerm) {
+        postCards.forEach(card => {
+          const title = card.querySelector('.post-title').textContent.toLowerCase();
+          const excerpt = card.querySelector('.post-excerpt').textContent.toLowerCase();
+          const category = card.querySelector('.post-category').textContent.toLowerCase();
+          
+          if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.6s ease';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      function filterByCategory(category) {
+        postCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.6s ease';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletterForm');
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input').value;
+        alert(`Thank you for subscribing with ${email}! We'll keep you updated.`);
+        newsletterForm.reset();
+      });
+
+      // Load more functionality
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+          const loading = document.getElementById('loading');
+          loading.style.display = 'flex';
+          loadMoreBtn.style.display = 'none';
+          
+          setTimeout(() => {
+            loading.style.display = 'none';
+            alert('No more articles to load at this time. Check back soon!');
+          }, 1500);
+        });
+      }
+
+      // Share buttons functionality
+      document.querySelectorAll('.share-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+          if (button.title.includes('Twitter') || button.title.includes('LinkedIn')) {
+            e.preventDefault();
+            const postCard = button.closest('.post-card');
+            const postTitle = postCard ? postCard.querySelector('.post-title').textContent : 'IO Web Tools Blog';
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(postTitle);
+            
+            if (button.title.includes('Twitter')) {
+              window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+            } else if (button.title.includes('LinkedIn')) {
+              window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
