@@ -623,496 +623,491 @@
 
     <!-- Main Content -->
     <main>
-      <!-- Page Header -->
-      <section class="page-header">
-        <div class="container">
-          <h1 class="page-title">Technology Tools</h1>
-          <p class="page-description">
-            Professional developer utilities and code tools for formatting,
-            validation, generation, and testing. All processing is done
-            client-side for maximum security and privacy.
+      <!-- Hero Section -->
+      <div class="hero">
+        <h1>Analytics Dashboard</h1>
+        <p>
+          Powerful analytics and data visualization tools to track, analyze, and optimize your performance metrics.
+        </p>
+      </div>
+
+      <!-- Analytics Banner -->
+      <div style="max-width: 1200px; margin: 0 auto 3rem; padding: 0 2rem;">
+        <div style="background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); padding: 2rem; border-radius: 16px; text-align: center; color: white;">
+          <h3 style="color: white; margin-bottom: 1rem;">
+            📊 Real-Time Analytics & Insights
+          </h3>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
+            Track key metrics, visualize data trends, and make data-driven decisions with our comprehensive analytics suite.
           </p>
         </div>
-      </section>
+      </div>
 
-      <!-- Quick Tools Section -->
-      <section class="container">
-        <div class="section-header">
-          <h2 class="section-title">Quick Tools</h2>
-          <p class="section-description">
-            Essential developer utilities for instant results
-          </p>
-        </div>
-        <div class="quick-tools-grid">
-          <!-- JSON Formatter -->
-          <div class="tool-card" id="json-formatter">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <div class="tool-info">
-                <h3>JSON Formatter</h3>
-                <div class="tool-category">Data Processing</div>
-              </div>
+      <!-- Analytics Grid -->
+      <div class="tools-container">
+        <div class="tools-grid">
+          <!-- Traffic Analytics -->
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-chart-area"></i>
             </div>
+            <h3 class="tool-title">Traffic Analytics</h3>
             <p class="tool-description">
-              Format, validate, and beautify JSON data with syntax highlighting
-              and error detection. Perfect for API development and debugging.
+              Monitor website traffic, user behavior, and engagement metrics in real-time with interactive charts.
             </p>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">JSON Input</label>
-                <textarea
-                  id="jsonInput"
-                  class="form-textarea"
-                  placeholder='{"name":"example","data":[1,2,3]}'
-                ></textarea>
-              </div>
-              <div class="action-buttons">
-                <button class="btn-action" onclick="formatJSON()">
-                  Format JSON
-                </button>
-                <button class="btn-action btn-secondary" onclick="minifyJSON()">
-                  Minify JSON
-                </button>
-                <button
-                  class="btn-action btn-secondary"
-                  onclick="validateJSON()"
-                >
-                  Validate JSON
-                </button>
-                <button class="btn-action btn-secondary" onclick="clearJSON()">
-                  Clear
-                </button>
-              </div>
-              <div
-                class="result-display"
-                id="jsonOutput"
-                style="display: none"
-              ></div>
-            </div>
-          </div>
 
-          <!-- Hash Generator -->
-          <div class="tool-card" id="hash-generator">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-fingerprint"></i>
-              </div>
-              <div class="tool-info">
-                <h3>Hash Generator</h3>
-                <div class="tool-category">Cryptography</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Generate MD5, SHA-1, SHA-256, and other hash values for text
-              strings. Useful for data integrity verification and security
-              applications.
-            </p>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">Input Text</label>
-                <textarea
-                  id="hashInput"
-                  class="form-textarea"
-                  placeholder="Enter text to hash..."
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Hash Algorithm</label>
-                <select id="hashAlgorithm" class="form-select">
-                  <option value="MD5">MD5</option>
-                  <option value="SHA-1">SHA-1</option>
-                  <option value="SHA-256" selected>SHA-256</option>
-                  <option value="SHA-512">SHA-512</option>
-                </select>
-              </div>
-              <div class="action-buttons">
-                <button class="btn-action" onclick="generateHash()">
-                  Generate Hash
-                </button>
-                <button class="btn-action btn-secondary" onclick="copyHash()">
-                  Copy Hash
-                </button>
-                <button class="btn-action btn-secondary" onclick="clearHash()">
-                  Clear
-                </button>
-              </div>
-              <div
-                class="result-display"
-                id="hashOutput"
-                style="display: none"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured Tools Section -->
-      <section class="container featured-section">
-        <div class="section-header">
-          <h2 class="section-title">Featured Tools</h2>
-          <p class="section-description">
-            Advanced developer utilities for complex tasks
-          </p>
-        </div>
-        <div class="featured-tools-grid">
-          <!-- QR Code Generator Page Link -->
-          <div class="featured-tool-link-card">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-qrcode"></i>
-              </div>
-              <div class="tool-info">
-                <h3>QR Code Generator</h3>
-                <div class="tool-category">Visual Tools</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Advanced QR code generator with custom design options, batch processing, and analytics tracking capabilities.
-            </p>
-            <ul class="tool-features">
-              <li><i class="fas fa-check"></i> Custom design options</li>
-              <li><i class="fas fa-check"></i> Batch QR code generation</li>
-              <li><i class="fas fa-check"></i> Analytics tracking</li>
-              <li><i class="fas fa-check"></i> High-resolution output</li>
-            </ul>
-            <a href="/tools/qr-code-generator.html" class="featured-tool-link">
-              <span>Use QR Code Generator</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-
-          <!-- API Tester Page Link -->
-          <div class="featured-tool-link-card">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <div class="tool-info">
-                <h3>API Tester</h3>
-                <div class="tool-category">Development Tools</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Professional API testing tool with request builder, response analyzer, and automated testing capabilities.
-            </p>
-            <ul class="tool-features">
-              <li><i class="fas fa-check"></i> Advanced request builder</li>
-              <li><i class="fas fa-check"></i> Response analysis</li>
-              <li><i class="fas fa-check"></i> Authentication support</li>
-              <li><i class="fas fa-check"></i> Test automation</li>
-            </ul>
-            <a href="/tools/api-tester.html" class="featured-tool-link">
-              <span>Use API Tester</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-qrcode"></i>
-              </div>
-              <div class="tool-info">
-                <h3>QR Code Generator</h3>
-                <div class="tool-category">Visual Tools</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Create custom QR codes for URLs, text, contact information, WiFi
-              credentials, and more. Supports various sizes and error correction
-              levels.
-            </p>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">QR Code Type</label>
-                <select
-                  id="qrType"
-                  class="form-select"
-                  onchange="updateQRFields()"
-                >
-                  <option value="text">Plain Text</option>
-                  <option value="url">URL/Website</option>
-                  <option value="email">Email</option>
-                  <option value="phone">Phone Number</option>
-                  <option value="wifi">WiFi Credentials</option>
-                </select>
-              </div>
-              <div id="qrFields">
-                <div class="form-group">
-                  <label class="form-label">Text Content</label>
-                  <textarea
-                    id="qrContent"
-                    class="form-textarea"
-                    placeholder="Enter text or URL..."
-                  ></textarea>
+            <div class="tool-content">
+              <svg width="100%" height="200" viewBox="0 0 400 200" style="background: var(--glass-bg); border-radius: 8px;">
+                <!-- Traffic Line Chart -->
+                <g class="chart-area">
+                  <!-- Grid lines -->
+                  <line x1="40" y1="20" x2="40" y2="170" stroke="var(--border-color)" stroke-width="1"/>
+                  <line x1="40" y1="170" x2="380" y2="170" stroke="var(--border-color)" stroke-width="1"/>
+                  
+                  <!-- Y-axis labels -->
+                  <text x="30" y="25" fill="var(--text-secondary)" font-size="10" text-anchor="end">10k</text>
+                  <text x="30" y="70" fill="var(--text-secondary)" font-size="10" text-anchor="end">7.5k</text>
+                  <text x="30" y="115" fill="var(--text-secondary)" font-size="10" text-anchor="end">5k</text>
+                  <text x="30" y="160" fill="var(--text-secondary)" font-size="10" text-anchor="end">2.5k</text>
+                  
+                  <!-- X-axis labels -->
+                  <text x="70" y="185" fill="var(--text-secondary)" font-size="10" text-anchor="middle">Mon</text>
+                  <text x="130" y="185" fill="var(--text-secondary)" font-size="10" text-anchor="middle">Tue</text>
+                  <text x="190" y="185" fill="var(--text-secondary)" font-size="10" text-anchor="middle">Wed</text>
+                  <text x="250" y="185" fill="var(--text-secondary)" font-size="10" text-anchor="middle">Thu</text>
+                  <text x="310" y="185" fill="var(--text-secondary)" font-size="10" text-anchor="middle">Fri</text>
+                  <text x="370" y="185" fill="var(--text-secondary)" font-size="10" text-anchor="middle">Sat</text>
+                  
+                  <!-- Traffic Area -->
+                  <path d="M 50,120 L 100,80 L 150,60 L 200,40 L 250,70 L 300,50 L 350,30 L 380,45" 
+                        fill="none" stroke="var(--accent-primary)" stroke-width="3"/>
+                  
+                  <path d="M 50,120 L 100,80 L 150,60 L 200,40 L 250,70 L 300,50 L 350,30 L 380,45 L 380,170 L 50,170 Z" 
+                        fill="var(--accent-primary)" opacity="0.2"/>
+                  
+                  <!-- Data points -->
+                  <circle cx="50" cy="120" r="4" fill="var(--accent-primary)"/>
+                  <circle cx="100" cy="80" r="4" fill="var(--accent-primary)"/>
+                  <circle cx="150" cy="60" r="4" fill="var(--accent-primary)"/>
+                  <circle cx="200" cy="40" r="4" fill="var(--accent-primary)"/>
+                  <circle cx="250" cy="70" r="4" fill="var(--accent-primary)"/>
+                  <circle cx="300" cy="50" r="4" fill="var(--accent-primary)"/>
+                  <circle cx="350" cy="30" r="4" fill="var(--accent-primary)"/>
+                </g>
+              </svg>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 12px; font-size: 0.85rem;">
+                <div style="text-align: center;">
+                  <div style="color: var(--accent-primary); font-weight: 600; font-size: 1.1rem;">45.2K</div>
+                  <div style="color: var(--text-secondary); font-size: 0.8rem;">Total Visits</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="color: #16c784; font-weight: 600; font-size: 1.1rem;">+12.5%</div>
+                  <div style="color: var(--text-secondary); font-size: 0.8rem;">vs Last Week</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="color: var(--text-primary); font-weight: 600; font-size: 1.1rem;">3m 24s</div>
+                  <div style="color: var(--text-secondary); font-size: 0.8rem;">Avg. Duration</div>
                 </div>
               </div>
-              <div class="two-column">
-                <div class="form-group">
-                  <label class="form-label">Size</label>
-                  <select id="qrSize" class="form-select">
-                    <option value="200">Small (200px)</option>
-                    <option value="300" selected>Medium (300px)</option>
-                    <option value="400">Large (400px)</option>
-                    <option value="500">Extra Large (500px)</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Error Correction</label>
-                  <select id="qrErrorCorrection" class="form-select">
-                    <option value="L">Low (7%)</option>
-                    <option value="M" selected>Medium (15%)</option>
-                    <option value="Q">Quartile (25%)</option>
-                    <option value="H">High (30%)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="action-buttons">
-                <button class="btn-action" onclick="generateQR()">
-                  Generate QR Code
-                </button>
-                <button class="btn-action btn-secondary" onclick="downloadQR()">
-                  Download PNG
-                </button>
-                <button class="btn-action btn-secondary" onclick="clearQR()">
-                  Clear
-                </button>
-              </div>
-              <div class="qr-display" id="qrOutput" style="display: none">
-                <div class="qr-code" id="qrCodeContainer"></div>
-              </div>
             </div>
+
+            <button class="tool-action" onclick="viewTrafficDetails(event)">
+              <span class="fas fa-chart-line"></span>
+              View Details
+            </button>
           </div>
-        </div>
-      </section>
 
-      <!-- Related Blog Posts Section -->
-      <section class="container blog-section">
-        <div class="section-header">
-          <h2 class="section-title">Related Articles</h2>
-          <p class="section-description">
-            Latest insights on technology and development
-          </p>
-        </div>
-        <div class="blog-posts-grid">
-          <article class="blog-post-card">
-            <div class="blog-post-header">
-              <div class="blog-post-category">Development</div>
-              <h3 class="blog-post-title">Best Developer Tools for 2025</h3>
+          <!-- Conversion Funnel -->
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-filter"></i>
             </div>
-            <p class="blog-post-excerpt">
-              Essential tools and utilities every developer should have in their
-              toolkit for maximum productivity.
+            <h3 class="tool-title">Conversion Funnel</h3>
+            <p class="tool-description">
+              Track user journey from landing to conversion with visual funnel analysis and drop-off rates.
             </p>
-            <a href="/blog/blog1.html" class="blog-post-link"
-              >Read More <i class="fas fa-arrow-right"></i
-            ></a>
-          </article>
 
-          <article class="blog-post-card">
-            <div class="blog-post-header">
-              <div class="blog-post-category">Security</div>
-              <h3 class="blog-post-title">API Security Best Practices</h3>
+            <div class="tool-content">
+              <svg width="100%" height="280" viewBox="0 0 400 280" style="background: var(--glass-bg); border-radius: 8px;">
+                <!-- Funnel Chart -->
+                <g class="funnel">
+                  <!-- Stage 1: Visitors -->
+                  <path d="M 50,20 L 350,20 L 320,70 L 80,70 Z" fill="#2be2b4" opacity="0.9"/>
+                  <text x="200" y="50" text-anchor="middle" fill="white" font-size="14" font-weight="600">Visitors: 10,000</text>
+                  
+                  <!-- Stage 2: Product Views -->
+                  <path d="M 80,80 L 320,80 L 290,130 L 110,130 Z" fill="#16c784" opacity="0.9"/>
+                  <text x="200" y="110" text-anchor="middle" fill="white" font-size="14" font-weight="600">Product Views: 6,500</text>
+                  
+                  <!-- Stage 3: Add to Cart -->
+                  <path d="M 110,140 L 290,140 L 260,190 L 140,190 Z" fill="#10b981" opacity="0.9"/>
+                  <text x="200" y="170" text-anchor="middle" fill="white" font-size="14" font-weight="600">Add to Cart: 3,200</text>
+                  
+                  <!-- Stage 4: Checkout -->
+                  <path d="M 140,200 L 260,200 L 230,250 L 170,250 Z" fill="#14b8a6" opacity="0.9"/>
+                  <text x="200" y="230" text-anchor="middle" fill="white" font-size="13" font-weight="600">Checkout: 1,850</text>
+                  
+                  <!-- Stage 5: Purchase -->
+                  <path d="M 170,260 L 230,260 L 215,280 L 185,280 Z" fill="#0891b2" opacity="0.9"/>
+                  
+                  <!-- Conversion rates -->
+                  <text x="360" y="50" fill="var(--text-secondary)" font-size="11">100%</text>
+                  <text x="360" y="110" fill="var(--text-secondary)" font-size="11">65%</text>
+                  <text x="360" y="170" fill="var(--text-secondary)" font-size="11">32%</text>
+                  <text x="360" y="230" fill="var(--text-secondary)" font-size="11">18.5%</text>
+                </g>
+              </svg>
+              <div style="text-align: center; margin-top: 10px; padding: 10px; background: var(--bg-card); border-radius: 6px;">
+                <div style="color: var(--accent-primary); font-weight: 600; font-size: 1.3rem;">1,280 Purchases</div>
+                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">12.8% Overall Conversion Rate</div>
+              </div>
             </div>
-            <p class="blog-post-excerpt">
-              Learn how to secure your APIs and protect your applications from
-              common vulnerabilities.
-            </p>
-            <a href="/blog/blog2.html" class="blog-post-link"
-              >Read More <i class="fas fa-arrow-right"></i
-            ></a>
-          </article>
 
-          <article class="blog-post-card">
-            <div class="blog-post-header">
-              <div class="blog-post-category">Productivity</div>
-              <h3 class="blog-post-title">Code Optimization Techniques</h3>
+            <button class="tool-action" onclick="analyzeFunnel(event)">
+              <span class="fas fa-funnel-dollar"></span>
+              Analyze Funnel
+            </button>
+          </div>
+
+          <!-- User Retention -->
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-users"></i>
             </div>
-            <p class="blog-post-excerpt">
-              Proven techniques to optimize your code for better performance and
-              maintainability.
+            <h3 class="tool-title">User Retention</h3>
+            <p class="tool-description">
+              Measure user retention rates over time with cohort analysis and engagement patterns.
             </p>
-            <a href="/blog/blog3.html" class="blog-post-link"
-              >Read More <i class="fas fa-arrow-right"></i
-            ></a>
-          </article>
+
+            <div class="tool-content">
+              <svg width="100%" height="280" viewBox="0 0 400 280" style="background: var(--glass-bg); border-radius: 8px;">
+                <!-- Retention Cohort Heatmap -->
+                <g class="retention-matrix">
+                  <text x="10" y="25" fill="var(--text-secondary)" font-size="10" font-weight="600">Week</text>
+                  
+                  <!-- Column headers (Days) -->
+                  <text x="80" y="25" fill="var(--text-secondary)" font-size="10">D0</text>
+                  <text x="130" y="25" fill="var(--text-secondary)" font-size="10">D1</text>
+                  <text x="180" y="25" fill="var(--text-secondary)" font-size="10">D3</text>
+                  <text x="230" y="25" fill="var(--text-secondary)" font-size="10">D7</text>
+                  <text x="280" y="25" fill="var(--text-secondary)" font-size="10">D14</text>
+                  <text x="330" y="25" fill="var(--text-secondary)" font-size="10">D30</text>
+                  
+                  <!-- Week 1 -->
+                  <text x="35" y="55" fill="var(--text-secondary)" font-size="10">W1</text>
+                  <rect x="70" y="40" width="40" height="30" fill="#16c784" opacity="1"/>
+                  <text x="90" y="60" fill="white" font-size="11" text-anchor="middle">100%</text>
+                  
+                  <rect x="120" y="40" width="40" height="30" fill="#2be2b4" opacity="0.8"/>
+                  <text x="140" y="60" fill="white" font-size="11" text-anchor="middle">85%</text>
+                  
+                  <rect x="170" y="40" width="40" height="30" fill="#26a69a" opacity="0.7"/>
+                  <text x="190" y="60" fill="white" font-size="11" text-anchor="middle">72%</text>
+                  
+                  <rect x="220" y="40" width="40" height="30" fill="#14b8a6" opacity="0.6"/>
+                  <text x="240" y="60" fill="white" font-size="11" text-anchor="middle">58%</text>
+                  
+                  <rect x="270" y="40" width="40" height="30" fill="#f59e0b" opacity="0.5"/>
+                  <text x="290" y="60" fill="white" font-size="11" text-anchor="middle">42%</text>
+                  
+                  <rect x="320" y="40" width="40" height="30" fill="#f97316" opacity="0.4"/>
+                  <text x="340" y="60" fill="white" font-size="11" text-anchor="middle">28%</text>
+                  
+                  <!-- Week 2 -->
+                  <text x="35" y="95" fill="var(--text-secondary)" font-size="10">W2</text>
+                  <rect x="70" y="80" width="40" height="30" fill="#16c784" opacity="1"/>
+                  <text x="90" y="100" fill="white" font-size="11" text-anchor="middle">100%</text>
+                  
+                  <rect x="120" y="80" width="40" height="30" fill="#2be2b4" opacity="0.85"/>
+                  <text x="140" y="100" fill="white" font-size="11" text-anchor="middle">88%</text>
+                  
+                  <rect x="170" y="80" width="40" height="30" fill="#10b981" opacity="0.75"/>
+                  <text x="190" y="100" fill="white" font-size="11" text-anchor="middle">75%</text>
+                  
+                  <rect x="220" y="80" width="40" height="30" fill="#14b8a6" opacity="0.65"/>
+                  <text x="240" y="100" fill="white" font-size="11" text-anchor="middle">62%</text>
+                  
+                  <rect x="270" y="80" width="40" height="30" fill="#fbbf24" opacity="0.5"/>
+                  <text x="290" y="100" fill="white" font-size="11" text-anchor="middle">45%</text>
+                  
+                  <rect x="320" y="80" width="40" height="30" fill="#f97316" opacity="0.4"/>
+                  <text x="340" y="100" fill="white" font-size="11" text-anchor="middle">32%</text>
+                  
+                  <!-- Week 3 -->
+                  <text x="35" y="135" fill="var(--text-secondary)" font-size="10">W3</text>
+                  <rect x="70" y="120" width="40" height="30" fill="#16c784" opacity="1"/>
+                  <text x="90" y="140" fill="white" font-size="11" text-anchor="middle">100%</text>
+                  
+                  <rect x="120" y="120" width="40" height="30" fill="#2be2b4" opacity="0.9"/>
+                  <text x="140" y="140" fill="white" font-size="11" text-anchor="middle">90%</text>
+                  
+                  <rect x="170" y="120" width="40" height="30" fill="#10b981" opacity="0.8"/>
+                  <text x="190" y="140" fill="white" font-size="11" text-anchor="middle">78%</text>
+                  
+                  <rect x="220" y="120" width="40" height="30" fill="#14b8a6" opacity="0.7"/>
+                  <text x="240" y="140" fill="white" font-size="11" text-anchor="middle">65%</text>
+                  
+                  <rect x="270" y="120" width="40" height="30" fill="#fbbf24" opacity="0.55"/>
+                  <text x="290" y="140" fill="white" font-size="11" text-anchor="middle">48%</text>
+                  
+                  <!-- Week 4 -->
+                  <text x="35" y="175" fill="var(--text-secondary)" font-size="10">W4</text>
+                  <rect x="70" y="160" width="40" height="30" fill="#16c784" opacity="1"/>
+                  <text x="90" y="180" fill="white" font-size="11" text-anchor="middle">100%</text>
+                  
+                  <rect x="120" y="160" width="40" height="30" fill="#0ecb81" opacity="0.92"/>
+                  <text x="140" y="180" fill="white" font-size="11" text-anchor="middle">92%</text>
+                  
+                  <rect x="170" y="160" width="40" height="30" fill="#10b981" opacity="0.82"/>
+                  <text x="190" y="180" fill="white" font-size="11" text-anchor="middle">82%</text>
+                  
+                  <rect x="220" y="160" width="40" height="30" fill="#14b8a6" opacity="0.72"/>
+                  <text x="240" y="180" fill="white" font-size="11" text-anchor="middle">70%</text>
+                  
+                  <!-- Legend -->
+                  <text x="10" y="220" fill="var(--text-secondary)" font-size="10">Retention Rate:</text>
+                  <rect x="110" y="210" width="40" height="15" fill="#ea3943" opacity="0.4"/>
+                  <text x="155" y="220" fill="var(--text-secondary)" font-size="9">Low</text>
+                  
+                  <rect x="180" y="210" width="40" height="15" fill="#fbbf24" opacity="0.6"/>
+                  <text x="225" y="220" fill="var(--text-secondary)" font-size="9">Med</text>
+                  
+                  <rect x="250" y="210" width="40" height="15" fill="#16c784" opacity="0.9"/>
+                  <text x="295" y="220" fill="var(--text-secondary)" font-size="9">High</text>
+                  
+                  <!-- Key Insights -->
+                  <text x="10" y="250" fill="var(--accent-primary)" font-size="11" font-weight="600">Key Insight:</text>
+                  <text x="10" y="268" fill="var(--text-secondary)" font-size="10">Day 7 retention averaging 63.75% - strong engagement!</text>
+                </g>
+              </svg>
+            </div>
+
+            <button class="tool-action" onclick="viewRetentionReport(event)">
+              <span class="fas fa-chart-bar"></span>
+              Full Report
+            </button>
+          </div>
+
+          <!-- Revenue Analytics -->
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3 class="tool-title">Revenue Analytics</h3>
+            <p class="tool-description">
+              Track revenue streams, growth trends, and financial KPIs with detailed breakdowns and forecasts.
+            </p>
+
+            <div class="tool-content">
+              <svg width="100%" height="240" viewBox="0 0 400 240" style="background: var(--glass-bg); border-radius: 8px;">
+                <!-- Revenue Bar Chart -->
+                <g class="revenue-chart">
+                  <!-- Grid -->
+                  <line x1="40" y1="20" x2="40" y2="180" stroke="var(--border-color)" stroke-width="1"/>
+                  <line x1="40" y1="180" x2="380" y2="180" stroke="var(--border-color)" stroke-width="1"/>
+                  
+                  <!-- Y-axis labels -->
+                  <text x="30" y="25" fill="var(--text-secondary)" font-size="9" text-anchor="end">$150k</text>
+                  <text x="30" y="65" fill="var(--text-secondary)" font-size="9" text-anchor="end">$100k</text>
+                  <text x="30" y="105" fill="var(--text-secondary)" font-size="9" text-anchor="end">$50k</text>
+                  <text x="30" y="145" fill="var(--text-secondary)" font-size="9" text-anchor="end">$25k</text>
+                  <text x="30" y="180" fill="var(--text-secondary)" font-size="9" text-anchor="end">$0</text>
+                  
+                  <!-- Bars -->
+                  <!-- Jan -->
+                  <rect x="60" y="100" width="35" height="80" fill="#2be2b4" opacity="0.8" rx="3"/>
+                  <text x="77" y="95" fill="var(--text-secondary)" font-size="10" text-anchor="middle">$48k</text>
+                  <text x="77" y="200" fill="var(--text-secondary)" font-size="9" text-anchor="middle">Jan</text>
+                  
+                  <!-- Feb -->
+                  <rect x="110" y="80" width="35" height="100" fill="#16c784" opacity="0.8" rx="3"/>
+                  <text x="127" y="75" fill="var(--text-secondary)" font-size="10" text-anchor="middle">$62k</text>
+                  <text x="127" y="200" fill="var(--text-secondary)" font-size="9" text-anchor="middle">Feb</text>
+                  
+                  <!-- Mar -->
+                  <rect x="160" y="50" width="35" height="130" fill="#10b981" opacity="0.8" rx="3"/>
+                  <text x="177" y="45" fill="var(--text-secondary)" font-size="10" text-anchor="middle">$85k</text>
+                  <text x="177" y="200" fill="var(--text-secondary)" font-size="9" text-anchor="middle">Mar</text>
+                  
+                  <!-- Apr -->
+                  <rect x="210" y="60" width="35" height="120" fill="#14b8a6" opacity="0.8" rx="3"/>
+                  <text x="227" y="55" fill="var(--text-secondary)" font-size="10" text-anchor="middle">$78k</text>
+                  <text x="227" y="200" fill="var(--text-secondary)" font-size="9" text-anchor="middle">Apr</text>
+                  
+                  <!-- May -->
+                  <rect x="260" y="30" width="35" height="150" fill="#0891b2" opacity="0.8" rx="3"/>
+                  <text x="277" y="25" fill="var(--text-secondary)" font-size="10" text-anchor="middle">$98k</text>
+                  <text x="277" y="200" fill="var(--text-secondary)" font-size="9" text-anchor="middle">May</text>
+                  
+                  <!-- Jun -->
+                  <rect x="310" y="20" width="35" height="160" fill="#06b6d4" opacity="0.8" rx="3"/>
+                  <text x="327" y="15" fill="var(--accent-primary)" font-size="10" text-anchor="middle" font-weight="600">$112k</text>
+                  <text x="327" y="200" fill="var(--text-secondary)" font-size="9" text-anchor="middle">Jun</text>
+                </g>
+              </svg>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px;">
+                <div style="background: var(--bg-card); padding: 8px; border-radius: 6px; text-align: center;">
+                  <div style="color: var(--accent-primary); font-weight: 600; font-size: 1rem;">$483K</div>
+                  <div style="color: var(--text-secondary); font-size: 0.75rem;">Total Revenue</div>
+                </div>
+                <div style="background: var(--bg-card); padding: 8px; border-radius: 6px; text-align: center;">
+                  <div style="color: #16c784; font-weight: 600; font-size: 1rem;">+28.4%</div>
+                  <div style="color: var(--text-secondary); font-size: 0.75rem;">Growth Rate</div>
+                </div>
+                <div style="background: var(--bg-card); padding: 8px; border-radius: 6px; text-align: center;">
+                  <div style="color: var(--text-primary); font-weight: 600; font-size: 1rem;">$80.5K</div>
+                  <div style="color: var(--text-secondary); font-size: 0.75rem;">Avg/Month</div>
+                </div>
+              </div>
+            </div>
+
+            <button class="tool-action" onclick="viewRevenueBreakdown(event)">
+              <span class="fas fa-chart-pie"></span>
+              View Breakdown
+            </button>
+          </div>
+
+          <!-- A/B Testing Dashboard -->
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <h3 class="tool-title">A/B Testing Dashboard</h3>
+            <p class="tool-description">
+              Run and analyze A/B tests with statistical significance tracking and variant performance comparison.
+            </p>
+
+            <div class="tool-content">
+              <div style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                  <div>
+                    <div style="font-weight: 600; color: var(--text-primary);">Homepage CTA Test</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Running for 14 days • 15,420 visitors</div>
+                  </div>
+                  <div style="background: #16c784; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">
+                    95% Confident
+                  </div>
+                </div>
+              </div>
+
+              <div style="background: var(--glass-bg); padding: 15px; border-radius: 8px; margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-weight: 600; color: var(--text-primary);">Variant A (Control)</span>
+                  <span style="color: var(--text-secondary); font-size: 0.9rem;">7,710 users</span>
+                </div>
+                <div style="background: var(--bg-card); height: 30px; border-radius: 6px; overflow: hidden; position: relative;">
+                  <div style="background: #2be2b4; width: 45%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.9rem;">
+                    4.5%
+                  </div>
+                </div>
+                <div style="margin-top: 6px; font-size: 0.85rem; color: var(--text-secondary);">347 conversions</div>
+              </div>
+
+              <div style="background: var(--glass-bg); padding: 15px; border-radius: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-weight: 600; color: var(--text-primary);">Variant B (New)</span>
+                    <span style="background: var(--accent-primary); color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: 600;">WINNER</span>
+                  </div>
+                  <span style="color: var(--text-secondary); font-size: 0.9rem;">7,710 users</span>
+                </div>
+                <div style="background: var(--bg-card); height: 30px; border-radius: 6px; overflow: hidden; position: relative;">
+                  <div style="background: #16c784; width: 58%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.9rem;">
+                    5.8%
+                  </div>
+                </div>
+                <div style="margin-top: 6px; font-size: 0.85rem; color: var(--text-secondary);">447 conversions • <span style="color: #16c784; font-weight: 600;">+28.9% lift</span></div>
+              </div>
+            </div>
+
+            <button class="tool-action" onclick="viewTestDetails(event)">
+              <span class="fas fa-microscope"></span>
+              View Test Details
+            </button>
+          </div>
+
+          <!-- Performance Metrics -->
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3 class="tool-title">Performance Metrics</h3>
+            <p class="tool-description">
+              Monitor site speed, Core Web Vitals, and performance scores with real-time monitoring and alerts.
+            </p>
+
+            <div class="tool-content">
+              <svg width="100%" height="260" viewBox="0 0 400 260" style="background: var(--glass-bg); border-radius: 8px;">
+                <!-- Performance Gauges -->
+                <g class="gauges">
+                  <!-- LCP Gauge -->
+                  <g transform="translate(70, 80)">
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="#16c784" stroke-width="8" 
+                            stroke-dasharray="251.2" stroke-dashoffset="62.8" 
+                            transform="rotate(-90)" stroke-linecap="round"/>
+                    <text x="0" y="5" text-anchor="middle" fill="var(--accent-primary)" font-size="24" font-weight="600">1.8s</text>
+                    <text x="0" y="20" text-anchor="middle" fill="var(--text-secondary)" font-size="10">LCP</text>
+                    <text x="0" y="-65" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Largest Contentful Paint</text>
+                  </g>
+                  
+                  <!-- FID Gauge -->
+                  <g transform="translate(200, 80)">
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="#10b981" stroke-width="8" 
+                            stroke-dasharray="251.2" stroke-dashoffset="31.4" 
+                            transform="rotate(-90)" stroke-linecap="round"/>
+                    <text x="0" y="5" text-anchor="middle" fill="var(--accent-primary)" font-size="24" font-weight="600">45ms</text>
+                    <text x="0" y="20" text-anchor="middle" fill="var(--text-secondary)" font-size="10">FID</text>
+                    <text x="0" y="-65" text-anchor="middle" fill="var(--text-secondary)" font-size="9">First Input Delay</text>
+                  </g>
+                  
+                  <!-- CLS Gauge -->
+                  <g transform="translate(330, 80)">
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="var(--border-color)" stroke-width="8"/>
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="#2be2b4" stroke-width="8" 
+                            stroke-dasharray="251.2" stroke-dashoffset="50.24" 
+                            transform="rotate(-90)" stroke-linecap="round"/>
+                    <text x="0" y="5" text-anchor="middle" fill="var(--accent-primary)" font-size="24" font-weight="600">0.05</text>
+                    <text x="0" y="20" text-anchor="middle" fill="var(--text-secondary)" font-size="10">CLS</text>
+                    <text x="0" y="-65" text-anchor="middle" fill="var(--text-secondary)" font-size="9">Cumulative Layout Shift</text>
+                  </g>
+                  
+                  <!-- Overall Score -->
+                  <rect x="50" y="160" width="300" height="80" fill="var(--bg-card)" rx="8"/>
+                  <text x="200" y="185" text-anchor="middle" fill="var(--text-secondary)" font-size="11">Overall Performance Score</text>
+                  <text x="200" y="220" text-anchor="middle" fill="var(--accent-primary)" font-size="36" font-weight="700">94</text>
+                  <text x="228" y="220" text-anchor="start" fill="var(--text-secondary)" font-size="18">/100</text>
+                </g>
+              </svg>
+            </div>
+
+            <button class="tool-action" onclick="runPerformanceAudit(event)">
+              <span class="fas fa-bolt"></span>
+              Run Audit
+            </button>
+          </div>
+
         </div>
+      </div>
+
+      <!-- Newsletter Section -->
+      <section class="newsletter">
+        <h2>Stay Updated with Analytics Insights</h2>
+        <p>
+          Get the latest analytics tips, best practices, and feature updates delivered to your inbox.
+        </p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input
+            class="newsletter-input"
+            type="email"
+            placeholder="Enter your email address"
+            required
+          />
+          <button class="cta-button" type="submit">Subscribe</button>
+        </form>
       </section>
     </main>
-          <!-- URL Encoder/Decoder -->
-          <div class="tool-card" id="url-encoder">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-link"></i>
-              </div>
-              <div class="tool-info">
-                <h3>URL Encoder/Decoder</h3>
-                <div class="tool-category">Text Processing</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Encode and decode URLs for safe transmission over the internet.
-              Handle special characters, spaces, and international characters
-              properly.
-            </p>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">Input URL or Text</label>
-                <textarea
-                  id="urlInput"
-                  class="form-textarea"
-                  placeholder="Enter URL or text to encode/decode..."
-                ></textarea>
-              </div>
-              <div class="action-buttons">
-                <button class="btn-action" onclick="encodeURL()">
-                  Encode URL
-                </button>
-                <button class="btn-action btn-secondary" onclick="decodeURL()">
-                  Decode URL
-                </button>
-                <button class="btn-action btn-secondary" onclick="copyURL()">
-                  Copy Result
-                </button>
-                <button class="btn-action btn-secondary" onclick="clearURL()">
-                  Clear
-                </button>
-              </div>
-              <div
-                class="result-display"
-                id="urlOutput"
-                style="display: none"
-              ></div>
-            </div>
-          </div>
-
-          <!-- Base64 Encoder/Decoder -->
-          <div class="tool-card" id="base64-tool">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-exchange-alt"></i>
-              </div>
-              <div class="tool-info">
-                <h3>Base64 Encoder/Decoder</h3>
-                <div class="tool-category">Data Encoding</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Encode and decode Base64 strings for data transmission, email
-              attachments, and web applications. Supports both text and file
-              encoding.
-            </p>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">Input Text</label>
-                <textarea
-                  id="base64Input"
-                  class="form-textarea"
-                  placeholder="Enter text to encode or Base64 to decode..."
-                ></textarea>
-              </div>
-              <div class="action-buttons">
-                <button class="btn-action" onclick="encodeBase64()">
-                  Encode to Base64
-                </button>
-                <button
-                  class="btn-action btn-secondary"
-                  onclick="decodeBase64()"
-                >
-                  Decode from Base64
-                </button>
-                <button class="btn-action btn-secondary" onclick="copyBase64()">
-                  Copy Result
-                </button>
-                <button
-                  class="btn-action btn-secondary"
-                  onclick="clearBase64()"
-                >
-                  Clear
-                </button>
-              </div>
-              <div
-                class="result-display"
-                id="base64Output"
-                style="display: none"
-              ></div>
-            </div>
-          </div>
-
-          <!-- Password Strength Checker -->
-          <div class="tool-card" id="password-checker">
-            <div class="tool-header">
-              <div class="tool-icon">
-                <i class="fas fa-shield-alt"></i>
-              </div>
-              <div class="tool-info">
-                <h3>Password Strength Checker</h3>
-                <div class="tool-category">Security Analysis</div>
-              </div>
-            </div>
-            <p class="tool-description">
-              Analyze password strength and security with detailed feedback. Get
-              recommendations for creating stronger, more secure passwords.
-            </p>
-            <div class="tool-interface">
-              <div class="form-group">
-                <label class="form-label">Password to Check</label>
-                <input
-                  type="password"
-                  id="passwordInput"
-                  class="form-input"
-                  placeholder="Enter password to analyze..."
-                />
-                <div style="margin-top: 0.5rem">
-                  <label
-                    style="
-                      display: flex;
-                      align-items: center;
-                      gap: 0.5rem;
-                      font-size: 0.85rem;
-                      color: var(--text-secondary);
-                    "
-                  >
-                    <input
-                      type="checkbox"
-                      id="showPassword"
-                      onchange="togglePasswordVisibility()"
-                      style="margin: 0"
-                    />
-                    Show password
-                  </label>
-                </div>
-              </div>
-              <div class="action-buttons">
-                <button class="btn-action" onclick="checkPasswordStrength()">
-                  Check Strength
-                </button>
-                <button
-                  class="btn-action btn-secondary"
-                  onclick="generateStrongPassword()"
-                >
-                  Generate Strong Password
-                </button>
-                <button
-                  class="btn-action btn-secondary"
-                  onclick="clearPasswordCheck()"
-                >
-                  Clear
-                </button>
-              </div>
-              <div
-                class="result-display"
-                id="passwordResult"
-                style="display: none"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -1161,6 +1156,37 @@
     <script src="js/shared-simple.js"></script>
 
     <script>
+      // Analytics Tool Functions
+      function viewTrafficDetails(event) {
+        event.preventDefault();
+        alert('Traffic Analytics: This would open a detailed dashboard showing hourly/daily traffic trends, top pages, traffic sources, and user demographics.');
+      }
+
+      function analyzeFunnel(event) {
+        event.preventDefault();
+        alert('Conversion Funnel: This would provide detailed funnel analysis including drop-off points, segment comparison, and optimization recommendations.');
+      }
+
+      function viewRetentionReport(event) {
+        event.preventDefault();
+        alert('User Retention: This would display cohort analysis, retention curves, churn prediction, and engagement metrics over time.');
+      }
+
+      function viewRevenueBreakdown(event) {
+        event.preventDefault();
+        alert('Revenue Analytics: This would show revenue by product/service, customer segments, payment methods, and revenue forecasting.');
+      }
+
+      function viewTestDetails(event) {
+        event.preventDefault();
+        alert('A/B Testing: This would provide detailed test statistics, confidence intervals, sample size calculations, and variant comparison data.');
+      }
+
+      function runPerformanceAudit(event) {
+        event.preventDefault();
+        alert('Performance Audit: This would run a comprehensive performance scan checking Core Web Vitals, resource loading, rendering metrics, and provide actionable optimization suggestions.');
+      }
+
       // JSON Formatter Functions
       function formatJSON() {
         const input = document.getElementById("jsonInput").value;
