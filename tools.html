@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Professional SEA Trading Tools | IO Innovation Fund | Real-Time Market
-      Data & Analytics
+      Financial Visualization Tools | 13F Tracker, Market Heatmap, Stock Screener | IO Web Tools
     </title>
 
     <script
@@ -17,56 +16,71 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="Professional Southeast Asia trading tools: Real-time market clocks, dividend calculators, IPO calendar, AI sentiment analysis, currency converter. Essential tools for SEA market success."
+      content="Professional financial visualization tools - Track 13F filings, analyze market heatmaps, screen stocks, view economic calendar, analyze portfolios, and check correlations. Free tools for traders and investors."
     />
     <meta
       name="keywords"
-      content="SEA trading tools, Southeast Asia market hours, dividend calculator, IPO calendar Thailand Singapore Malaysia, AI sentiment analysis, currency converter, SET SGX KLSE PSE, portfolio tracker, market timing tools"
+      content="13F tracker, market heatmap, stock screener, economic calendar, portfolio analyzer, correlation matrix, financial tools, stock market analysis, investment tools, trading tools"
     />
-    <meta name="author" content="IO Innovation Fund" />
+    <meta name="author" content="IO Web Tools" />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
+    <link rel="canonical" href="https://iowebtools.com/tools.html" />
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IO Web Tools - Financial Visualization Suite",
+      "url": "https://iowebtools.com/tools.html",
+      "description": "Professional financial visualization tools including 13F tracker, market heatmap, stock screener, and more.",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": ["13F Visualizer", "Market Heatmap", "Economic Calendar", "Stock Screener", "Portfolio Analyzer", "Correlation Matrix"]
+    }
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/tools.html" />
+    <meta property="og:url" content="https://iowebtools.com/tools.html" />
     <meta
       property="og:title"
-      content="Professional SEA Trading Tools | IO Innovation Fund"
+      content="Financial Visualization Tools | IO Web Tools"
     />
     <meta
       property="og:description"
-      content="Professional Southeast Asia trading tools including real-time market clocks, calculators, and AI analysis for SEA markets."
+      content="Free professional financial tools - 13F tracker, market heatmap, stock screener, and more."
     />
     <meta
       property="og:image"
-      content="https://ioinnovationfund.com/assets/images/tools-og.jpg"
+      content="https://iowebtools.com/assets/images/tools-og.jpg"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://ioinnovationfund.com/tools.html"
+      content="https://iowebtools.com/tools.html"
     />
     <meta
       property="twitter:title"
-      content="Professional SEA Trading Tools | IO Innovation Fund"
+      content="Financial Visualization Tools | IO Web Tools"
     />
     <meta
       property="twitter:description"
-      content="Professional Southeast Asia trading tools including real-time market clocks, calculators, and AI analysis."
+      content="Free professional financial tools for traders and investors."
     />
     <meta
       property="twitter:image"
-      content="https://ioinnovationfund.com/assets/images/tools-og.jpg"
+      content="https://iowebtools.com/assets/images/tools-og.jpg"
     />
-
-    <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#2be2b4" />
-    <link rel="canonical" href="https://ioinnovationfund.com/tools.html" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -147,35 +161,58 @@
     <link rel="stylesheet" href="css/shared-clean.css?v=2025090102" />
 
     <style>
-      /* Simple Hero Section */
+      /* Enhanced Hero Section */
       .hero {
-        min-height: 60vh;
+        min-height: 65vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 6rem 2rem 2rem;
+        padding: 6rem 2rem 3rem;
+        position: relative;
+        background: radial-gradient(
+          circle at center,
+          rgba(43, 226, 180, 0.08) 0%,
+          transparent 60%
+        );
       }
 
       .hero h1 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
         font-weight: 900;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         background: linear-gradient(
           135deg,
           var(--accent-primary),
-          var(--accent-secondary)
+          var(--accent-secondary),
+          var(--accent-tertiary)
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
+        animation: fadeInUp 1s ease-out;
       }
 
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: var(--text-secondary);
-        max-width: 600px;
+        max-width: 700px;
         margin: 0 auto;
+        line-height: 1.7;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       /* Simple Tools Grid */
@@ -192,45 +229,81 @@
         margin-bottom: 4rem;
       }
 
-      /* Simple Tool Cards */
+      /* Enhanced Tool Cards */
       .tool-card {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 2rem;
-        transition: all 0.3s ease;
+        border-radius: 20px;
+        padding: 2.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(43, 226, 180, 0.08) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .tool-card:hover::before {
+        opacity: 1;
       }
 
       .tool-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px) scale(1.01);
         border-color: var(--accent-primary);
-        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.2);
+        box-shadow: 0 20px 50px rgba(43, 226, 180, 0.25);
       }
 
       .tool-icon {
-        width: 60px;
-        height: 60px;
-        background: var(--accent-primary);
-        border-radius: 12px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: 2rem;
         color: white;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.3);
+        transition: all 0.4s ease;
+      }
+
+      .tool-card:hover .tool-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 35px rgba(43, 226, 180, 0.4);
       }
 
       .tool-title {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: var(--accent-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
+        transition: color 0.3s ease;
+      }
+
+      .tool-card:hover .tool-title {
+        color: var(--accent-secondary);
       }
 
       .tool-description {
         color: var(--text-secondary);
-        margin-bottom: 1rem;
-        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1rem;
       }
 
       .tool-content {
@@ -538,6 +611,22 @@
         to {
           transform: translateX(400px);
           opacity: 0;
+        }
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Accessibility - Reduce motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>

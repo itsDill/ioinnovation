@@ -21,12 +21,12 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="🚀 IO Web Tools: Free comprehensive online tools for finance calculations, technology utilities, SEO & marketing analysis, and privacy & security tools. Professional-grade web tools for businesses, developers, marketers & individuals. 100+ tools across 4 categories."
+      content="IO Web Tools - Free professional online tools for finance, technology, SEO & privacy. Access 100+ tools including 13F visualizer, market heatmaps, SEO analyzers, and security tools. No signup required."
     />
     <meta name="author" content="IO Web Tools" />
     <meta
       name="keywords"
-      content="free online tools, web tools, finance calculator, technology tools, SEO tools, marketing tools, privacy tools, security tools, developer tools, business tools, online utilities, web utilities, financial calculators, tech utilities"
+      content="free online tools, finance tools, stock market analysis, SEO tools, meta tag analyzer, URL shortener, password analyzer, QR code generator, currency converter, web development tools, digital marketing tools, privacy tools, security tools, business tools"
     />
     <meta
       name="robots"
@@ -34,17 +34,32 @@
     />
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
-    <meta name="geo.region" content="SG" />
-    <meta name="geo.placename" content="Singapore" />
-    <meta name="geo.position" content="1.290270;103.851959" />
-    <meta name="ICBM" content="1.290270, 103.851959" />
-
-    <!-- Enhanced Keywords for Local SEO -->
-    <meta
-      name="keywords"
-      lang="en"
-      content="Southeast Asia investment fund, ASEAN stock market analysis, Thailand SET Index investing, Singapore STI investment, Malaysia KLCI stocks, Indonesia IDX Composite, Philippines PSEi index, Vietnam VN-Index, Asian emerging markets, regional investment expertise"
-    />
+    <link rel="canonical" href="https://iowebtools.com/" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "IO Web Tools",
+      "url": "https://iowebtools.com",
+      "description": "Free professional online tools for finance, technology, SEO & privacy. Access 100+ tools with no signup required.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://iowebtools.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "IO Web Tools",
+        "url": "https://iowebtools.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://iowebtools.com/assets/images/logo.png"
+        }
+      }
+    }
+    </script>
 
     <!-- Enhanced Open Graph -->
     <meta
@@ -53,18 +68,12 @@
     />
     <meta
       property="og:description"
-      content="Professional-grade free online tools for finance calculations, technology utilities, SEO & marketing analysis, and privacy & security. 100+ comprehensive web tools for businesses, developers, marketers & individuals."
+      content="Access 100+ free professional tools including stock market analyzers, SEO tools, privacy utilities, and more. No signup required."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://iowebtools.com" />
     <meta property="og:site_name" content="IO Web Tools" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="en_SG" />
-    <meta property="og:locale:alternate" content="en_TH" />
-    <meta property="og:locale:alternate" content="en_MY" />
-    <meta property="og:locale:alternate" content="en_ID" />
-    <meta property="og:locale:alternate" content="en_PH" />
-    <meta property="og:locale:alternate" content="en_VN" />
     <meta
       property="og:image"
       content="https://iowebtools.com/assets/images/og-tools-image.png"
@@ -73,7 +82,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="IO Web Tools - Free Online Tools for Finance, Technology, SEO & Privacy"
+      content="IO Web Tools - Free Online Tools Platform"
     />
     <meta property="og:image:type" content="image/png" />
 
@@ -83,11 +92,11 @@
     <meta name="twitter:creator" content="@iowebtools" />
     <meta
       name="twitter:title"
-      content="IO Web Tools | Free Online Tools for Finance, Technology, SEO & Privacy"
+      content="IO Web Tools | Free Online Tools Platform"
     />
     <meta
       name="twitter:description"
-      content="Professional-grade free online tools for finance, technology, SEO & marketing, and privacy & security. 100+ comprehensive web tools for professionals."
+      content="100+ free professional tools for finance, SEO, technology & privacy. No signup required."
     />
     <meta
       name="twitter:image"
@@ -95,7 +104,7 @@
     />
     <meta
       name="twitter:image:alt"
-      content="IO Web Tools - Comprehensive Online Tools Platform"
+      content="IO Web Tools Platform"
     />
 
     <!-- Investment Disclaimer -->
@@ -349,7 +358,7 @@
 
     <!-- Index page specific styles -->
     <style>
-      /* Hero Section */
+      /* Hero Section - Enhanced */
       .hero {
         min-height: 100vh;
         display: grid;
@@ -357,27 +366,59 @@
         gap: 4rem;
         align-items: center;
         padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
         background: radial-gradient(
-            circle at 30% 20%,
-            rgba(43, 226, 180, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 70% 80%,
-            rgba(0, 212, 117, 0.08) 0%,
-            transparent 50%
-          );
+          circle at 30% 20%,
+          rgba(43, 226, 180, 0.15) 0%,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 70% 80%,
+          rgba(126, 254, 194, 0.1) 0%,
+          transparent 40%
+        );
+        animation: heroGlow 20s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes heroGlow {
+        0%, 100% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.1); }
       }
 
       .hero-content {
         text-align: left;
+        position: relative;
+        z-index: 2;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .hero-badge {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 0.6rem 1.2rem;
         background: var(--glass-bg);
         border: 1px solid var(--border-color);
         border-radius: 50px;
@@ -386,59 +427,109 @@
         font-weight: 600;
         margin-bottom: 2rem;
         backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(43, 226, 180, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .hero-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(43, 226, 180, 0.2);
       }
 
       .hero h1 {
-        font-size: clamp(3rem, 8vw, 5rem);
+        font-size: clamp(3rem, 8vw, 5.5rem);
         font-weight: 900;
         margin-bottom: 1.5rem;
         background: linear-gradient(
           135deg,
           var(--accent-primary),
-          var(--accent-secondary)
+          var(--accent-secondary),
+          var(--accent-tertiary)
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         line-height: 1.1;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
       }
 
       .hero-description {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         color: var(--text-secondary);
-        margin-bottom: 2rem;
-        line-height: 1.6;
-        max-width: 500px;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+        max-width: 550px;
       }
 
       .hero-stats {
         display: flex;
-        gap: 2rem;
-        margin-bottom: 2rem;
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
       }
 
       .stat-item {
         text-align: center;
+        padding: 1rem 1.5rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.15);
       }
 
       .stat-number {
         display: block;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 800;
-        color: var(--accent-primary);
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         line-height: 1;
+        margin-bottom: 0.5rem;
       }
 
       .stat-label {
         font-size: 0.9rem;
         color: var(--text-secondary);
-        margin-top: 0.25rem;
+        font-weight: 500;
       }
 
       .hero-buttons {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
+      }
+
+      .btn {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .btn:hover::before {
+        width: 300px;
+        height: 300px;
       }
 
       .btn-secondary {
@@ -450,13 +541,16 @@
       .btn-secondary:hover {
         background: var(--glass-bg);
         border-color: var(--accent-primary);
-        transform: translateY(-2px);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.2);
       }
 
       .hero-visual {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 2;
       }
 
       .tools-preview {
@@ -464,6 +558,12 @@
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         padding: 2rem;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
       }
 
       .tool-icon {
@@ -478,13 +578,20 @@
         font-size: 2.5rem;
         color: var(--accent-primary);
         backdrop-filter: blur(10px);
-        transition: all var(--transition-normal);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 30px rgba(43, 226, 180, 0.1);
       }
 
+      .tool-icon:nth-child(1) { animation-delay: 0s; }
+      .tool-icon:nth-child(2) { animation-delay: 0.1s; }
+      .tool-icon:nth-child(3) { animation-delay: 0.2s; }
+      .tool-icon:nth-child(4) { animation-delay: 0.3s; }
+
       .tool-icon:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px var(--shadow-color);
+        transform: translateY(-8px) scale(1.05) rotate(5deg);
         border-color: var(--accent-primary);
+        box-shadow: 0 15px 45px rgba(43, 226, 180, 0.25);
+        background: linear-gradient(135deg, rgba(43, 226, 180, 0.1), rgba(126, 254, 194, 0.1));
       }
 
       /* Content sections */
@@ -517,10 +624,10 @@
         margin-right: auto;
       }
 
-      /* Categories Grid */
+      /* Categories Grid - Enhanced */
       .categories-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         margin-bottom: 4rem;
       }
@@ -528,12 +635,13 @@
       .category-card {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        padding: 2rem;
+        border-radius: 24px;
+        padding: 2.5rem;
         text-align: center;
-        transition: all var(--transition-normal);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
+        cursor: pointer;
       }
 
       .category-card::before {
@@ -546,21 +654,42 @@
         background: radial-gradient(
           circle,
           var(--accent-primary) 0%,
-          transparent 70%
+          transparent 60%
         );
         opacity: 0;
-        transition: opacity var(--transition-normal);
+        transition: opacity 0.4s ease;
+        z-index: 0;
+      }
+
+      .category-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(126, 254, 194, 0.05)
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
         z-index: 0;
       }
 
       .category-card:hover::before {
-        opacity: 0.03;
+        opacity: 0.05;
+      }
+
+      .category-card:hover::after {
+        opacity: 1;
       }
 
       .category-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-12px) scale(1.02);
         border-color: var(--accent-primary);
-        box-shadow: 0 20px 40px var(--shadow-color);
+        box-shadow: 0 25px 50px rgba(43, 226, 180, 0.2);
       }
 
       .category-card > * {
@@ -569,21 +698,27 @@
       }
 
       .category-icon {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
         margin: 0 auto 1.5rem;
         background: linear-gradient(
           135deg,
           var(--accent-primary),
           var(--accent-secondary)
         );
-        border-radius: var(--border-radius);
+        border-radius: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: white;
-        box-shadow: 0 4px 15px var(--shadow-color);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.3);
+        transition: all 0.4s ease;
+      }
+
+      .category-card:hover .category-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 35px rgba(43, 226, 180, 0.4);
       }
 
       .category-card h3 {
@@ -631,22 +766,48 @@
       .category-btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.8rem 1.5rem;
+        gap: 0.6rem;
+        padding: 0.9rem 1.8rem;
         background: transparent;
         color: var(--accent-primary);
         border: 2px solid var(--accent-primary);
         border-radius: 50px;
         text-decoration: none;
         font-weight: 600;
-        transition: all var(--transition-normal);
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .category-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .category-btn:hover::before {
+        left: 100%;
       }
 
       .category-btn:hover {
         background: var(--accent-primary);
         color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px var(--shadow-color);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.3);
+      }
+
+      .category-btn i {
+        transition: transform 0.3s ease;
+      }
+
+      .category-btn:hover i {
+        transform: translateX(4px);
       }
 
       /* Popular Tools Grid */
@@ -1041,6 +1202,40 @@
 
         .ad-horizontal {
           min-height: 100px;
+        }
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Scroll reveal animations */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Performance optimizations */
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Reduce motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
@@ -1822,6 +2017,45 @@
           });
         }
       })();
+    </script>
+
+    <!-- Scroll Reveal Animations -->
+    <script>
+      // Intersection Observer for scroll animations
+      document.addEventListener('DOMContentLoaded', function() {
+        const revealElements = document.querySelectorAll('.category-card, .section-title, .section-subtitle');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add('scroll-reveal', 'revealed');
+              }, index * 100);
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+          el.classList.add('scroll-reveal');
+          revealObserver.observe(el);
+        });
+      });
+
+      // Enhanced category card interactions
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          if (!e.target.closest('.category-btn')) {
+            const btn = this.querySelector('.category-btn');
+            if (btn) {
+              window.location.href = btn.getAttribute('href');
+            }
+          }
+        });
+      });
     </script>
   </body>
 </html>
