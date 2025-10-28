@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Innovation Across Sectors | Sustainable Technology & Global Innovation
+      10K Analysis & Business Intelligence | SEC Filings & Sector Analytics
     </title>
 
     <!-- Google AdSense -->
@@ -17,12 +17,12 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="Explore innovation and sustainability across 12 key sectors: renewable energy, smart cities, fintech, healthcare tech, clean transportation, circular economy, AI, space technology, and more. Discover breakthrough innovations transforming our world."
+      content="AI-powered 10K SEC filing analysis and sector intelligence. Get instant summaries of annual reports, financial metrics, risk analysis, and explore innovation across 12 key sectors including renewable energy, fintech, healthcare tech, and smart cities."
     />
     <meta name="author" content="IO Web Tools" />
     <meta
       name="keywords"
-      content="innovation sectors, sustainable technology, renewable energy, smart cities, fintech innovation, healthcare technology, clean transportation, circular economy, AI data science, green building, edtech, space technology, ocean marine tech, sustainable agriculture"
+      content="10K analysis, SEC filings analyzer, financial intelligence, company analysis, annual reports, business analytics, sector analysis, innovation sectors, sustainable technology, renewable energy, smart cities, fintech innovation, healthcare technology, AI analysis, financial metrics"
     />
     <meta
       name="robots"
@@ -35,57 +35,53 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Innovation Across Sectors | Sustainable Technology",
-        "description": "Explore breakthrough innovations across 12 key sectors transforming sustainability and technology.",
+        "name": "10K Analysis & Business Intelligence | SEC Filings & Sector Analytics",
+        "description": "AI-powered 10K SEC filing analysis and sector intelligence. Get instant summaries of annual reports, financial metrics, and risk analysis.",
         "url": "https://iowebtools.com/analytics.html",
         "mainEntity": {
-          "@type": "ItemList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Renewable Energy" },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Sustainable Agriculture"
-            },
-            { "@type": "ListItem", "position": 3, "name": "Smart Cities" },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Healthcare & Biotech"
-            },
-            { "@type": "ListItem", "position": 5, "name": "FinTech" },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "Clean Transportation"
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "name": "Ocean & Marine Tech"
-            },
-            { "@type": "ListItem", "position": 8, "name": "Space Technology" },
-            { "@type": "ListItem", "position": 9, "name": "Circular Economy" },
-            {
-              "@type": "ListItem",
-              "position": 10,
-              "name": "AI & Data Science"
-            },
-            { "@type": "ListItem", "position": 11, "name": "Green Building" },
-            { "@type": "ListItem", "position": 12, "name": "EdTech" }
+          "@type": "SoftwareApplication",
+          "name": "10K SEC Filings Analyzer",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "AI-Powered 10K Analysis",
+            "Financial Metrics Extraction",
+            "Risk Factor Analysis",
+            "Business Segment Overview",
+            "Growth Opportunity Identification",
+            "Sector Innovation Tracking"
           ]
-        }
+        },
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "SEC 10-K Filings"
+          },
+          {
+            "@type": "Thing",
+            "name": "Financial Analysis"
+          },
+          {
+            "@type": "Thing",
+            "name": "Business Intelligence"
+          }
+        ]
       }
     </script>
 
     <!-- Open Graph -->
     <meta
       property="og:title"
-      content="Innovation Across Sectors | Sustainable Technology & Global Innovation"
+      content="10K Analysis & Business Intelligence | SEC Filings & Sector Analytics"
     />
     <meta
       property="og:description"
-      content="Discover how innovation and sustainability converge across 12 key sectors—from renewable energy to space technology."
+      content="AI-powered 10K SEC filing analysis and sector intelligence. Get instant summaries, financial metrics, and risk analysis for any public company."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://iowebtools.com/analytics.html" />
@@ -623,12 +619,36 @@
         transition: all var(--transition-normal);
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
 
       .tool-card:hover {
         transform: translateY(-5px);
         border-color: var(--accent-primary);
         box-shadow: 0 15px 35px var(--shadow-color);
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-primary),
+          var(--accent-secondary),
+          var(--accent-tertiary)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: left;
+      }
+
+      .tool-card:hover::before {
+        transform: scaleX(1);
       }
 
       .tool-header {
@@ -660,6 +680,14 @@
         font-weight: 600;
         color: var(--text-primary);
         margin-bottom: 0.25rem;
+      }
+
+      .tool-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        line-height: 1.3;
       }
 
       .tool-category {
@@ -768,6 +796,11 @@
         box-shadow: 0 8px 25px var(--shadow-color);
       }
 
+      .btn-action:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+      }
+
       .btn-secondary {
         background: transparent;
         color: var(--accent-primary);
@@ -777,6 +810,11 @@
       .btn-secondary:hover {
         background: var(--accent-primary);
         color: white;
+      }
+
+      .btn-secondary:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
       }
 
       .result-display {
@@ -791,6 +829,128 @@
         word-break: break-all;
         max-height: 300px;
         overflow-y: auto;
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Loading spinner animation */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .fa-spinner.fa-spin {
+        animation: spin 1s linear infinite;
+      }
+
+      /* Pulse animation for featured badge */
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 4px 15px rgba(43, 226, 180, 0.3);
+        }
+        50% {
+          box-shadow: 0 4px 25px rgba(43, 226, 180, 0.5);
+        }
+      }
+
+      /* Enhanced hover effects for report items */
+      #reportsList > div > div:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 4px 15px rgba(43, 226, 180, 0.15);
+        transform: translateX(5px);
+      }
+
+      /* Improve readability of summary content */
+      #summaryContent ul li {
+        transition: all 0.3s ease;
+      }
+
+      #summaryContent ul li:hover {
+        transform: translateX(5px);
+        background: var(--glass-bg) !important;
+      }
+
+      /* Better button states */
+      .btn-action:active {
+        transform: translateY(1px);
+      }
+
+      .btn-secondary:active {
+        transform: translateY(1px);
+      }
+
+      /* Tool action buttons for sector cards */
+      .tool-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: all var(--transition-normal);
+        text-decoration: none;
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .tool-action:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.3);
+        background: linear-gradient(
+          135deg,
+          var(--accent-secondary),
+          var(--accent-tertiary)
+        );
+      }
+
+      .tool-action:active {
+        transform: translateY(-1px);
+      }
+
+      .tool-action .fas {
+        transition: transform 0.3s ease;
+      }
+
+      .tool-action:hover .fas {
+        transform: translateX(5px);
+      }
+
+      .tool-action:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+      }
+
+      /* Print styles for summaries */
+      @media print {
+        .header,
+        .footer,
+        .hero,
+        #tenKTool {
+          display: none;
+        }
+
+        #tenKSummary {
+          display: block !important;
+          page-break-inside: avoid;
+        }
       }
 
       .qr-display {
@@ -884,6 +1044,26 @@
         .blog-section {
           padding: 2rem 0;
         }
+
+        /* 10K Tool mobile improvements */
+        .tool-header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        /* Stack CTA buttons vertically on mobile */
+        #tenKSummary button,
+        .featured-tool-link {
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -921,47 +1101,639 @@
       <section class="hero">
         <div class="hero-content">
           <div class="hero-badge">
-            <i class="fas fa-globe"></i>
-            Innovation Insights & Analytics
+            <i class="fas fa-chart-line"></i>
+            Financial Intelligence & Sector Analytics
           </div>
-          <h1>Innovation Across Sectors</h1>
+          <h1>Business Intelligence Hub</h1>
           <p class="hero-description">
-            Explore breakthrough technologies and sustainable innovations
-            transforming 12 key industries worldwide. From renewable energy to
-            space exploration, discover how innovation is shaping our future.
+            Analyze SEC 10-K filings with AI-powered summaries, explore sector
+            innovations, and gain deep insights into company performance and
+            market trends. Your complete platform for financial and industry
+            intelligence.
           </p>
           <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">10K</span>
+              <span class="stat-label">AI Analysis</span>
+            </div>
             <div class="stat-item">
               <span class="stat-number">12</span>
               <span class="stat-label">Key Sectors</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">$4.5T</span>
-              <span class="stat-label">Market Size</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">Global</span>
-              <span class="stat-label">Impact</span>
+              <span class="stat-number">Real-Time</span>
+              <span class="stat-label">Insights</span>
             </div>
           </div>
           <div class="hero-buttons">
-            <a href="#sectors" class="btn btn-primary">
-              Explore Sectors <i class="fas fa-arrow-down"></i>
+            <a href="#tenKTool" class="btn btn-primary">
+              Analyze 10K Reports <i class="fas fa-file-invoice-dollar"></i>
             </a>
-            <a href="/blog.html" class="btn btn-secondary">
-              Read Insights <i class="fas fa-book-open"></i>
+            <a href="#sectors" class="btn btn-secondary">
+              Explore Sectors <i class="fas fa-arrow-down"></i>
             </a>
           </div>
         </div>
         <div class="hero-visual">
           <div class="tools-preview">
-            <div class="tool-icon"><i class="fas fa-solar-panel"></i></div>
-            <div class="tool-icon"><i class="fas fa-city"></i></div>
-            <div class="tool-icon"><i class="fas fa-heartbeat"></i></div>
-            <div class="tool-icon"><i class="fas fa-rocket"></i></div>
+            <div class="tool-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="tool-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="tool-icon"><i class="fas fa-brain"></i></div>
+            <div class="tool-icon"><i class="fas fa-globe-americas"></i></div>
           </div>
         </div>
       </section>
+
+      <!-- 10K Summaries Tool Section - FEATURED -->
+      <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem">
+        <div
+          class="tool-card"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(43, 226, 180, 0.05),
+              rgba(126, 254, 194, 0.05)
+            );
+            border: 2px solid var(--accent-primary);
+            position: relative;
+            overflow: visible;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              top: -12px;
+              left: 20px;
+              background: var(--accent-primary);
+              color: white;
+              padding: 0.4rem 1rem;
+              border-radius: 20px;
+              font-weight: 700;
+              font-size: 0.85rem;
+              box-shadow: 0 4px 15px rgba(43, 226, 180, 0.3);
+            "
+          >
+            ⭐ FEATURED TOOL
+          </div>
+
+          <div class="tool-header" style="margin-top: 1rem">
+            <div
+              class="tool-icon"
+              style="
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+                background: linear-gradient(
+                  135deg,
+                  var(--accent-primary),
+                  var(--accent-secondary)
+                );
+              "
+            >
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="tool-info">
+              <h3
+                style="
+                  font-size: 2rem;
+                  background: linear-gradient(
+                    135deg,
+                    var(--accent-primary),
+                    var(--accent-secondary)
+                  );
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;
+                "
+              >
+                10K SEC Filings Analyzer
+              </h3>
+              <p class="tool-category" style="font-size: 1rem">
+                AI-Powered Financial Intelligence
+              </p>
+            </div>
+          </div>
+
+          <p
+            class="tool-description"
+            style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem"
+          >
+            Get instant AI-generated summaries and insights from SEC 10-K annual
+            reports. Analyze company financials, risk factors, business
+            operations, and key metrics in seconds—perfect for investors,
+            analysts, and financial professionals.
+          </p>
+
+          <!-- Key Features -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 1rem;
+              margin-bottom: 2rem;
+            "
+          >
+            <div
+              style="
+                background: var(--glass-bg);
+                padding: 1rem;
+                border-radius: 12px;
+                border: 1px solid var(--border-color);
+              "
+            >
+              <i
+                class="fas fa-brain"
+                style="
+                  color: var(--accent-primary);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.5rem;
+                  display: block;
+                "
+              ></i>
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  font-weight: 600;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                AI-Powered Analysis
+              </h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.5;
+                "
+              >
+                Advanced NLP extracts key insights automatically
+              </p>
+            </div>
+            <div
+              style="
+                background: var(--glass-bg);
+                padding: 1rem;
+                border-radius: 12px;
+                border: 1px solid var(--border-color);
+              "
+            >
+              <i
+                class="fas fa-chart-line"
+                style="
+                  color: var(--accent-primary);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.5rem;
+                  display: block;
+                "
+              ></i>
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  font-weight: 600;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                Financial Metrics
+              </h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.5;
+                "
+              >
+                Revenue, earnings, assets, and key ratios
+              </p>
+            </div>
+            <div
+              style="
+                background: var(--glass-bg);
+                padding: 1rem;
+                border-radius: 12px;
+                border: 1px solid var(--border-color);
+              "
+            >
+              <i
+                class="fas fa-exclamation-triangle"
+                style="
+                  color: var(--accent-primary);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.5rem;
+                  display: block;
+                "
+              ></i>
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  font-weight: 600;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                Risk Analysis
+              </h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.5;
+                "
+              >
+                Identify critical risk factors and concerns
+              </p>
+            </div>
+            <div
+              style="
+                background: var(--glass-bg);
+                padding: 1rem;
+                border-radius: 12px;
+                border: 1px solid var(--border-color);
+              "
+            >
+              <i
+                class="fas fa-clock"
+                style="
+                  color: var(--accent-primary);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.5rem;
+                  display: block;
+                "
+              ></i>
+              <h4
+                style="
+                  font-size: 0.95rem;
+                  font-weight: 600;
+                  margin-bottom: 0.3rem;
+                "
+              >
+                Save Time
+              </h4>
+              <p
+                style="
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  line-height: 1.5;
+                "
+              >
+                Hours of reading condensed to minutes
+              </p>
+            </div>
+          </div>
+
+          <!-- Tool Interface -->
+          <div class="tool-interface" id="tenKTool">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-search"></i> Enter Company Ticker or Name
+              </label>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr auto;
+                  gap: 0.5rem;
+                "
+              >
+                <input
+                  type="text"
+                  id="companyTicker"
+                  class="form-input"
+                  placeholder="e.g., AAPL, TSLA, MSFT, or company name..."
+                  style="font-size: 1rem"
+                />
+                <button
+                  class="btn-action"
+                  onclick="search10K()"
+                  style="padding: 0.75rem 2rem; white-space: nowrap"
+                >
+                  <i class="fas fa-search"></i> Search
+                </button>
+              </div>
+            </div>
+
+            <div id="tenKResults" style="display: none; margin-top: 1.5rem">
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-color);
+                  border-radius: 12px;
+                  padding: 1.5rem;
+                "
+              >
+                <h4
+                  style="
+                    color: var(--accent-primary);
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                  "
+                >
+                  <i class="fas fa-file-alt"></i> Available Reports
+                </h4>
+                <div id="reportsList"></div>
+              </div>
+            </div>
+
+            <div id="tenKSummary" style="display: none; margin-top: 1.5rem">
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--accent-primary);
+                  border-radius: 12px;
+                  padding: 2rem;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    margin-bottom: 1.5rem;
+                  "
+                >
+                  <h4
+                    style="
+                      color: var(--accent-primary);
+                      font-size: 1.4rem;
+                      margin: 0;
+                    "
+                  >
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span id="summaryCompany"></span>
+                  </h4>
+                </div>
+
+                <div
+                  id="summaryContent"
+                  style="line-height: 1.8; color: var(--text-primary)"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example Companies -->
+          <div
+            style="
+              margin-top: 1.5rem;
+              padding-top: 1.5rem;
+              border-top: 1px solid var(--border-color);
+            "
+          >
+            <p
+              style="
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                margin-bottom: 0.75rem;
+              "
+            >
+              <i class="fas fa-star"></i> Try these popular companies:
+            </p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
+              <button
+                onclick="quickSearch('AAPL')"
+                class="btn-secondary"
+                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
+              >
+                Apple (AAPL)
+              </button>
+              <button
+                onclick="quickSearch('TSLA')"
+                class="btn-secondary"
+                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
+              >
+                Tesla (TSLA)
+              </button>
+              <button
+                onclick="quickSearch('MSFT')"
+                class="btn-secondary"
+                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
+              >
+                Microsoft (MSFT)
+              </button>
+              <button
+                onclick="quickSearch('GOOGL')"
+                class="btn-secondary"
+                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
+              >
+                Google (GOOGL)
+              </button>
+              <button
+                onclick="quickSearch('AMZN')"
+                class="btn-secondary"
+                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
+              >
+                Amazon (AMZN)
+              </button>
+              <button
+                onclick="quickSearch('NVDA')"
+                class="btn-secondary"
+                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
+              >
+                NVIDIA (NVDA)
+              </button>
+            </div>
+          </div>
+
+          <!-- Important Disclaimer -->
+          <div
+            style="
+              margin-top: 1.5rem;
+              padding: 1.25rem;
+              background: rgba(245, 158, 11, 0.1);
+              border-left: 4px solid #f59e0b;
+              border-radius: 8px;
+            "
+          >
+            <h4
+              style="
+                color: #f59e0b;
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+              "
+            >
+              <i class="fas fa-exclamation-triangle"></i> Important Disclaimer
+            </h4>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 0;
+                font-size: 0.9rem;
+              "
+            >
+              <strong
+                >This is a DEMONSTRATION tool with representative sample data
+                for educational and UI/UX purposes only.</strong
+              >
+              The financial metrics, analyses, and company information shown are
+              illustrative examples based on publicly available information and
+              are not official SEC filings. All data should be verified against
+              official sources. For authentic, legally binding financial
+              information and official 10-K filings, please visit the SEC EDGAR
+              database at
+              <a
+                href="https://www.sec.gov/edgar/searchedgar/companysearch.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: var(--accent-primary); text-decoration: underline"
+                >sec.gov/edgar</a
+              >. This tool is NOT intended for investment decisions, financial
+              advice, or any legal/regulatory purposes. No warranty or guarantee
+              of accuracy is provided.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10K Information Section -->
+      <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 2rem">
+        <div
+          style="
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+          "
+        >
+          <h3
+            style="
+              color: var(--accent-primary);
+              font-size: 1.4rem;
+              margin-bottom: 1.5rem;
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+            "
+          >
+            <i class="fas fa-question-circle"></i> What is a 10-K Filing?
+          </h3>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 2rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-file-contract"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Annual Report
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.95rem;
+                "
+              >
+                A 10-K is a comprehensive annual report filed with the SEC by
+                publicly traded companies. It provides a detailed overview of a
+                company's business, financial condition, and operations over the
+                past fiscal year.
+              </p>
+            </div>
+
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-search-dollar"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Why It Matters
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.95rem;
+                "
+              >
+                10-Ks are essential for investors, analysts, and researchers to
+                understand a company's financial health, business strategy,
+                competitive position, and risk factors. They're more detailed
+                than quarterly reports.
+              </p>
+            </div>
+
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-magic"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Our AI Advantage
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.95rem;
+                "
+              >
+                10-K filings can be 100+ pages long. Our AI analyzes the entire
+                document and extracts the most important information—saving you
+                hours of reading while ensuring you don't miss critical
+                insights.
+              </p>
+            </div>
+          </div>
+
+          <div
+            style="
+              background: rgba(43, 226, 180, 0.05);
+              border-left: 4px solid var(--accent-primary);
+              padding: 1.25rem;
+              border-radius: 8px;
+            "
+          >
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 0;
+                font-size: 0.95rem;
+              "
+            >
+              <i
+                class="fas fa-lightbulb"
+                style="color: var(--accent-primary)"
+              ></i>
+              <strong style="color: var(--text-primary)">Pro Tip:</strong> Use
+              our 10-K analyzer to quickly compare multiple companies in the
+              same industry, identify investment opportunities, or conduct due
+              diligence before making financial decisions.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <!-- Introduction Section -->
       <div style="max-width: 1200px; margin: 0 auto 3rem; padding: 0 2rem">
@@ -979,7 +1751,7 @@
           "
         >
           <h2 style="color: white; margin-bottom: 1rem; font-size: 1.8rem">
-            🌍 Technology Driving Global Change
+            🌍 Innovation & Financial Intelligence
           </h2>
           <p
             style="
@@ -990,10 +1762,11 @@
               margin: 0 auto;
             "
           >
-            Discover how innovation and sustainability converge across key
+            Analyze company financials with our AI-powered 10K analyzer, then
+            discover how innovation and sustainability converge across key
             sectors—from renewable energy to smart cities, healthcare to
-            fintech. Explore the technologies reshaping our world for a more
-            sustainable future.
+            fintech. Your complete platform for financial and sector
+            intelligence.
           </p>
         </div>
       </div>
@@ -2567,8 +3340,12 @@
       <div style="max-width: 1200px; margin: 4rem auto 3rem; padding: 0 2rem">
         <div
           style="
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
+            background: linear-gradient(
+              135deg,
+              rgba(43, 226, 180, 0.1),
+              rgba(126, 254, 194, 0.1)
+            );
+            border: 1px solid var(--accent-primary);
             padding: 3rem;
             border-radius: 16px;
             text-align: center;
@@ -2581,61 +3358,98 @@
               font-size: 2rem;
             "
           >
-            🚀 Shaping a Sustainable Future
+            🚀 Your Complete Intelligence Platform
           </h2>
           <p
             style="
               color: var(--text-secondary);
               margin-bottom: 2rem;
               font-size: 1.1rem;
-              max-width: 700px;
+              max-width: 800px;
               margin-left: auto;
               margin-right: auto;
               line-height: 1.6;
             "
           >
-            These innovations represent humanity's collective effort to build a
-            more sustainable, equitable, and technologically advanced world.
-            Stay informed about the latest breakthroughs across all sectors.
+            From AI-powered 10-K financial analysis to comprehensive sector
+            innovation tracking, we provide the tools and insights you need to
+            make informed decisions. Whether you're an investor, analyst,
+            researcher, or entrepreneur, our platform delivers actionable
+            intelligence.
           </p>
-          <a
-            href="/blog.html"
+          <div
             style="
-              display: inline-block;
-              background: var(--accent-primary);
-              color: white;
-              padding: 1rem 2.5rem;
-              border-radius: 8px;
-              text-decoration: none;
-              font-weight: 600;
-              font-size: 1.1rem;
-              transition: transform 0.2s;
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
             "
-            onmouseover="this.style.transform='translateY(-2px)'"
-            onmouseout="this.style.transform='translateY(0)'"
           >
-            Read Our Latest Articles
-          </a>
+            <a
+              href="#tenKTool"
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: var(--accent-primary);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1rem;
+                transition: transform 0.2s;
+              "
+              onmouseover="this.style.transform='translateY(-2px)'"
+              onmouseout="this.style.transform='translateY(0)'"
+            >
+              <i class="fas fa-file-invoice-dollar"></i> Analyze 10-K Reports
+            </a>
+            <a
+              href="#sectors"
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: transparent;
+                color: var(--accent-primary);
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1rem;
+                border: 2px solid var(--accent-primary);
+                transition: all 0.2s;
+              "
+              onmouseover="this.style.background='var(--accent-primary)'; this.style.color='white'; this.style.transform='translateY(-2px)'"
+              onmouseout="this.style.background='transparent'; this.style.color='var(--accent-primary)'; this.style.transform='translateY(0)'"
+            >
+              <i class="fas fa-globe"></i> Explore Sectors
+            </a>
+            <a
+              href="/blog.html"
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: transparent;
+                color: var(--accent-primary);
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1rem;
+                border: 2px solid var(--accent-primary);
+                transition: all 0.2s;
+              "
+              onmouseover="this.style.background='var(--accent-primary)'; this.style.color='white'; this.style.transform='translateY(-2px)'"
+              onmouseout="this.style.background='transparent'; this.style.color='var(--accent-primary)'; this.style.transform='translateY(0)'"
+            >
+              <i class="fas fa-book-open"></i> Read Insights
+            </a>
+          </div>
         </div>
       </div>
-
-      <!-- Newsletter Section -->
-      <section class="newsletter">
-        <h2>Stay Updated on Innovation</h2>
-        <p>
-          Get the latest insights on sustainable technology and innovation
-          across sectors delivered to your inbox.
-        </p>
-        <form class="newsletter-form" id="newsletterForm">
-          <input
-            class="newsletter-input"
-            type="email"
-            placeholder="Enter your email address"
-            required
-          />
-          <button class="cta-button" type="submit">Subscribe</button>
-        </form>
-      </section>
     </main>
     <!-- Footer -->
     <footer class="footer">
@@ -2685,6 +3499,878 @@
     <script src="js/shared-simple.js"></script>
 
     <script>
+      // 10K Analysis Functions
+      let currentSummaryData = null;
+
+      function quickSearch(ticker) {
+        document.getElementById("companyTicker").value = ticker;
+        search10K();
+      }
+
+      async function search10K() {
+        const ticker = document
+          .getElementById("companyTicker")
+          .value.trim()
+          .toUpperCase();
+        const resultsDiv = document.getElementById("tenKResults");
+        const reportsList = document.getElementById("reportsList");
+
+        if (!ticker) {
+          alert("Please enter a company ticker or name");
+          return;
+        }
+
+        // Show loading state
+        resultsDiv.style.display = "block";
+        reportsList.innerHTML =
+          '<div style="text-align: center; padding: 2rem; color: var(--text-secondary);"><i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>Searching SEC database...</div>';
+
+        // Simulate API call (in production, this would call SEC EDGAR API)
+        setTimeout(() => {
+          // Mock data - In production, this would come from SEC EDGAR API
+          const mockReports = generateMockReports(ticker);
+          displayReports(mockReports, ticker);
+        }, 1500);
+      }
+
+      function generateMockReports(ticker) {
+        const companies = {
+          AAPL: {
+            name: "Apple Inc.",
+            fiscal: "September",
+            reports: [
+              {
+                year: 2024,
+                filingDate: "2024-11-01",
+                fiscalYear: 2024,
+              },
+              {
+                year: 2023,
+                filingDate: "2023-11-03",
+                fiscalYear: 2023,
+              },
+              {
+                year: 2022,
+                filingDate: "2022-10-28",
+                fiscalYear: 2022,
+              },
+            ],
+          },
+          TSLA: {
+            name: "Tesla, Inc.",
+            fiscal: "December",
+            reports: [
+              {
+                year: 2024,
+                filingDate: "2024-01-29",
+                fiscalYear: 2023,
+              },
+              {
+                year: 2023,
+                filingDate: "2023-01-31",
+                fiscalYear: 2022,
+              },
+              {
+                year: 2022,
+                filingDate: "2022-02-07",
+                fiscalYear: 2021,
+              },
+            ],
+          },
+          MSFT: {
+            name: "Microsoft Corporation",
+            fiscal: "June",
+            reports: [
+              {
+                year: 2024,
+                filingDate: "2024-07-30",
+                fiscalYear: 2024,
+              },
+              {
+                year: 2023,
+                filingDate: "2023-07-27",
+                fiscalYear: 2023,
+              },
+              {
+                year: 2022,
+                filingDate: "2022-07-28",
+                fiscalYear: 2022,
+              },
+            ],
+          },
+          GOOGL: {
+            name: "Alphabet Inc.",
+            fiscal: "December",
+            reports: [
+              {
+                year: 2024,
+                filingDate: "2024-02-02",
+                fiscalYear: 2023,
+              },
+              {
+                year: 2023,
+                filingDate: "2023-02-03",
+                fiscalYear: 2022,
+              },
+              {
+                year: 2022,
+                filingDate: "2022-02-02",
+                fiscalYear: 2021,
+              },
+            ],
+          },
+          AMZN: {
+            name: "Amazon.com, Inc.",
+            fiscal: "December",
+            reports: [
+              {
+                year: 2024,
+                filingDate: "2024-02-02",
+                fiscalYear: 2023,
+              },
+              {
+                year: 2023,
+                filingDate: "2023-02-03",
+                fiscalYear: 2022,
+              },
+              {
+                year: 2022,
+                filingDate: "2022-02-04",
+                fiscalYear: 2021,
+              },
+            ],
+          },
+          NVDA: {
+            name: "NVIDIA Corporation",
+            fiscal: "January",
+            reports: [
+              {
+                year: 2024,
+                filingDate: "2024-02-21",
+                fiscalYear: 2024,
+              },
+              {
+                year: 2023,
+                filingDate: "2023-02-24",
+                fiscalYear: 2023,
+              },
+              {
+                year: 2022,
+                filingDate: "2022-02-18",
+                fiscalYear: 2022,
+              },
+            ],
+          },
+        };
+
+        const company = companies[ticker] || {
+          name: `${ticker} Corporation`,
+          fiscal: "December",
+          reports: [
+            { year: 2024, filingDate: "2024-10-28", fiscalYear: 2024 },
+            { year: 2023, filingDate: "2023-10-27", fiscalYear: 2023 },
+            { year: 2022, filingDate: "2022-10-28", fiscalYear: 2022 },
+          ],
+        };
+
+        return company.reports.map((report) => ({
+          ...report,
+          company: company.name,
+          ticker: ticker,
+        }));
+      }
+
+      function displayReports(reports, ticker) {
+        const reportsList = document.getElementById("reportsList");
+
+        if (reports.length === 0) {
+          reportsList.innerHTML =
+            '<p style="color: var(--text-secondary); text-align: center; padding: 2rem;">No reports found for this company. Try a different ticker.</p>';
+          return;
+        }
+
+        let html = '<div style="display: grid; gap: 1rem;">';
+        reports.forEach((report) => {
+          html += `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--glass-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s;">
+              <div>
+                <h5 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text-primary);">
+                  ${report.company} - Fiscal Year ${report.fiscalYear}
+                </h5>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                  <i class="fas fa-calendar"></i> Filed: ${new Date(
+                    report.filingDate
+                  ).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+              <button onclick="generate10KSummary('${report.ticker}', ${
+            report.fiscalYear
+          })" class="btn-action" style="padding: 0.6rem 1.5rem; white-space: nowrap;">
+                <i class="fas fa-magic"></i> Generate Summary
+              </button>
+            </div>
+          `;
+        });
+        html += "</div>";
+
+        reportsList.innerHTML = html;
+      }
+
+      async function generate10KSummary(ticker, year) {
+        const summaryDiv = document.getElementById("tenKSummary");
+        const companySpan = document.getElementById("summaryCompany");
+        const contentDiv = document.getElementById("summaryContent");
+
+        summaryDiv.style.display = "block";
+        companySpan.textContent = `${ticker} - ${year} Analysis`;
+        contentDiv.innerHTML =
+          '<div style="text-align: center; padding: 3rem; color: var(--text-secondary);"><i class="fas fa-spinner fa-spin" style="font-size: 2.5rem; margin-bottom: 1rem; display: block;"></i><p style="font-size: 1.1rem;">Analyzing 10-K filing with AI...<br><span style="font-size: 0.9rem; opacity: 0.8;">This may take a few moments</span></p></div>';
+
+        // Scroll to summary
+        summaryDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Simulate AI processing (in production, this would call OpenAI or similar)
+        setTimeout(() => {
+          const summary = generateMockSummary(ticker, year);
+          currentSummaryData = summary;
+          displaySummary(summary);
+        }, 3000);
+      }
+
+      function generateMockSummary(ticker, year) {
+        // Company data organized by ticker and fiscal year
+        const companyData = {
+          AAPL: {
+            2024: {
+              company: "Apple Inc.",
+              ticker: "AAPL",
+              year: 2024,
+              executiveSummary:
+                "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. FY2024 marked record revenue driven by strong iPhone 15 and Services growth, with continued expansion in high-margin services and wearables categories.",
+              financialHighlights: {
+                revenue: "$394.3 billion",
+                netIncome: "$99.8 billion",
+                totalAssets: "$365.7 billion",
+                rndExpense: "$30.1 billion",
+                eps: "$6.43",
+                grossMargin: "45.6%",
+              },
+              businessSegments: [
+                "iPhone (52% of revenue): iPhone 15 line with strong global demand, especially Pro models",
+                "Services (22% of revenue): App Store, Apple Music, iCloud, AppleCare, Apple Pay hitting new highs",
+                "Mac (10% of revenue): Mac sales benefiting from M3 chip transition",
+                "iPad (7% of revenue): iPad sales stabilizing with new Air and Pro models",
+                "Wearables/Home/Accessories (9% of revenue): Apple Watch and AirPods maintaining strong momentum",
+              ],
+              riskFactors: [
+                "Global economic conditions affecting consumer spending",
+                "Intense competition in all markets, especially from Chinese smartphone makers",
+                "Dependence on third-party suppliers and manufacturers",
+                "Regulatory challenges in EU and China regarding App Store and privacy",
+                "Foreign exchange volatility impacting international revenue",
+                "Cybersecurity threats and data privacy compliance requirements",
+              ],
+              opportunities: [
+                "Apple Vision Pro expanding into spatial computing market",
+                "AI integration across product line (Apple Intelligence)",
+                "Services revenue growth with high margins (65%+)",
+                "India market expansion with local manufacturing",
+                "Health and fitness features driving Watch adoption",
+              ],
+              management:
+                "CEO Tim Cook with CFO Luca Maestri lead strong execution focused on innovation, sustainability, and shareholder returns. Proven track record of ecosystem integration and premium positioning.",
+            },
+            2023: {
+              company: "Apple Inc.",
+              ticker: "AAPL",
+              year: 2023,
+              executiveSummary:
+                "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. FY2023 showed resilience despite macroeconomic headwinds, with Services reaching all-time highs and strong performance in wearables.",
+              financialHighlights: {
+                revenue: "$383.3 billion",
+                netIncome: "$97.0 billion",
+                totalAssets: "$352.8 billion",
+                rndExpense: "$29.9 billion",
+                eps: "$6.16",
+                grossMargin: "44.1%",
+              },
+              businessSegments: [
+                "iPhone (52% of revenue): iPhone 14 Pro models driving growth despite economic uncertainty",
+                "Services (20% of revenue): App Store, subscriptions, and payment services growing double-digits",
+                "Mac (11% of revenue): Mac benefiting from M2 chip introduction",
+                "iPad (8% of revenue): iPad facing soft demand in education and consumer markets",
+                "Wearables/Home/Accessories (9% of revenue): Apple Watch Ultra and AirPods Pro driving category",
+              ],
+              riskFactors: [
+                "Macroeconomic headwinds and inflation affecting consumer demand",
+                "Supply chain challenges from COVID-related disruptions in China",
+                "Intense regulatory scrutiny of App Store business model",
+                "Component shortages affecting product availability",
+                "Geopolitical tensions impacting China operations",
+                "Competitive pressure in emerging markets",
+              ],
+              opportunities: [
+                "Services expansion with new subscription offerings",
+                "Mac transition to Apple Silicon completing across product line",
+                "Wearables category expansion with health features",
+                "Emerging markets growth, particularly India",
+                "Augmented reality development continuing",
+              ],
+              management:
+                "CEO Tim Cook navigating supply chain challenges while maintaining product excellence. Strong capital return program with $90B+ returned to shareholders.",
+            },
+            2022: {
+              company: "Apple Inc.",
+              ticker: "AAPL",
+              year: 2022,
+              executiveSummary:
+                "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. FY2022 delivered record revenue despite supply constraints, driven by strong iPhone 13 demand and continued Services momentum.",
+              financialHighlights: {
+                revenue: "$394.3 billion",
+                netIncome: "$99.8 billion",
+                totalAssets: "$352.8 billion",
+                rndExpense: "$26.3 billion",
+                eps: "$6.13",
+                grossMargin: "43.3%",
+              },
+              businessSegments: [
+                "iPhone (52% of revenue): iPhone 13 and iPhone SE driving record smartphone revenue",
+                "Services (19% of revenue): Subscriptions surpassing 900 million, App Store fees strong",
+                "Mac (11% of revenue): M1 chip Macs exceeding expectations across all models",
+                "iPad (9% of revenue): iPad benefiting from remote work and education demand",
+                "Wearables/Home/Accessories (9% of revenue): AirPods and Apple Watch maintaining category leadership",
+              ],
+              riskFactors: [
+                "Supply chain constraints limiting product availability",
+                "Component shortages particularly in legacy nodes",
+                "COVID-19 impacts on manufacturing in China",
+                "App Store antitrust challenges in multiple jurisdictions",
+                "Foreign exchange headwinds with strong dollar",
+                "Increased R&D costs for future products",
+              ],
+              opportunities: [
+                "Apple Silicon transition expanding across Mac lineup",
+                "Services business achieving critical scale",
+                "5G iPhone adoption accelerating globally",
+                "Wearables market expansion continuing",
+                "Subscription bundling with Apple One",
+              ],
+              management:
+                "CEO Tim Cook managing through unprecedented supply challenges. CFO Luca Maestri maintaining strong financial discipline and capital allocation.",
+            },
+          },
+          TSLA: {
+            2023: {
+              company: "Tesla, Inc.",
+              ticker: "TSLA",
+              year: 2023,
+              executiveSummary:
+                "Tesla, Inc. designs, develops, manufactures, and sells electric vehicles and energy products. FY2023 marked record deliveries despite price cuts, with continued focus on scaling production and reducing costs across all vehicle programs.",
+              financialHighlights: {
+                revenue: "$96.8 billion",
+                netIncome: "$15.0 billion",
+                totalAssets: "$106.6 billion",
+                rndExpense: "$3.7 billion",
+                eps: "$4.73",
+                grossMargin: "18.2%",
+              },
+              businessSegments: [
+                "Automotive (86% of revenue): Model 3/Y mass market vehicles, Model S/X premium segment",
+                "Energy Generation & Storage (6% of revenue): Megapack, Powerwall, Solar systems",
+                "Services & Other (8% of revenue): Supercharging, vehicle services, used cars",
+              ],
+              riskFactors: [
+                "Intense competition from legacy and new EV manufacturers globally",
+                "Price cuts impacting margins to maintain market share",
+                "Autopilot/FSD regulatory scrutiny and safety investigations",
+                "Cybertruck production ramp presenting engineering challenges",
+                "Lithium and battery material cost volatility",
+                "Elon Musk management bandwidth with Twitter acquisition",
+              ],
+              opportunities: [
+                "Cybertruck production beginning, targeting new market segment",
+                "Next-generation vehicle platform for $25K mass market EV",
+                "Energy storage business scaling with utility deployments",
+                "Full Self-Driving technology advancement",
+                "New factory locations reducing shipping costs",
+              ],
+              management:
+                "CEO Elon Musk leading aggressive expansion while managing Twitter. Strong manufacturing team executing on production scaling and cost reduction.",
+            },
+            2022: {
+              company: "Tesla, Inc.",
+              ticker: "TSLA",
+              year: 2022,
+              executiveSummary:
+                "Tesla, Inc. designs, develops, manufactures, and sells electric vehicles and energy products. FY2022 achieved 40% delivery growth despite supply chain challenges, with new factories in Berlin and Texas ramping production.",
+              financialHighlights: {
+                revenue: "$81.5 billion",
+                netIncome: "$12.6 billion",
+                totalAssets: "$82.3 billion",
+                rndExpense: "$3.1 billion",
+                eps: "$4.02",
+                grossMargin: "25.6%",
+              },
+              businessSegments: [
+                "Automotive (88% of revenue): Model Y becoming best-selling vehicle globally, Model 3 strong",
+                "Energy Generation & Storage (6% of revenue): Megapack deployments accelerating",
+                "Services & Other (6% of revenue): Supercharger network expansion, insurance launch",
+              ],
+              riskFactors: [
+                "New factory ramp challenges in Berlin and Austin",
+                "Supply chain constraints limiting production growth",
+                "Rising raw material costs impacting profitability",
+                "Competition intensifying from traditional automakers",
+                "Autopilot safety concerns and regulatory scrutiny",
+                "Elon Musk Twitter acquisition creating distraction",
+              ],
+              opportunities: [
+                "Cybertruck development nearing production",
+                "4680 battery cell production scaling",
+                "Gigafactory Texas and Berlin reaching full capacity",
+                "Energy storage market expanding rapidly",
+                "Full Self-Driving beta program progressing",
+              ],
+              management:
+                "CEO Elon Musk overseeing global expansion. Experienced manufacturing leadership driving efficiency improvements and cost reduction initiatives.",
+            },
+            2021: {
+              company: "Tesla, Inc.",
+              ticker: "TSLA",
+              year: 2021,
+              executiveSummary:
+                "Tesla, Inc. designs, develops, manufactures, and sells electric vehicles and energy products. FY2021 delivered record profitability with 87% delivery growth, establishing Tesla as the most valuable automaker globally.",
+              financialHighlights: {
+                revenue: "$53.8 billion",
+                netIncome: "$5.5 billion",
+                totalAssets: "$62.1 billion",
+                rndExpense: "$2.6 billion",
+                eps: "$2.26",
+                grossMargin: "25.3%",
+              },
+              businessSegments: [
+                "Automotive (90% of revenue): Model 3 and Model Y driving mass market adoption",
+                "Energy Generation & Storage (5% of revenue): Megapack gaining utility-scale traction",
+                "Services & Other (5% of revenue): Supercharging and service operations expanding",
+              ],
+              riskFactors: [
+                "Global semiconductor shortage constraining production",
+                "Supply chain disruptions from COVID-19",
+                "New factory construction delays in Berlin and Texas",
+                "Increasing competition from legacy automakers' EV launches",
+                "Regulatory challenges for Autopilot features",
+                "Bitcoin investment volatility on balance sheet",
+              ],
+              opportunities: [
+                "New Gigafactories in Berlin and Texas under construction",
+                "Model Y production scaling globally",
+                "4680 battery cell development progressing",
+                "Energy storage business inflection point",
+                "Full Self-Driving subscription model launching",
+              ],
+              management:
+                "CEO Elon Musk driving rapid execution and innovation. Focus on vertical integration and manufacturing efficiency delivering improving margins.",
+            },
+          },
+        };
+
+        // Get the data for the specific ticker and year
+        if (companyData[ticker] && companyData[ticker][year]) {
+          return companyData[ticker][year];
+        }
+
+        // If no specific year data, try to find any year for that ticker
+        if (companyData[ticker]) {
+          const years = Object.keys(companyData[ticker])
+            .map(Number)
+            .sort((a, b) => b - a);
+          if (years.length > 0) {
+            const latestYear = years[0];
+            const data = { ...companyData[ticker][latestYear] };
+            data.year = year; // Override with requested year
+            return data;
+          }
+        }
+
+        // This is mock data - in production, this would come from AI analysis of actual 10-K
+        const summaries = {
+          AAPL: {
+            company: "Apple Inc.",
+            ticker: "AAPL",
+            year: year,
+            executiveSummary:
+              "Apple Inc. is a leading technology company that designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company operates through iPhone, Mac, iPad, Wearables/Home/Accessories, and Services segments.",
+            financialHighlights: {
+              revenue: "$394.3 billion",
+              netIncome: "$99.8 billion",
+              totalAssets: "$352.8 billion",
+              marketCap: "$2.8 trillion",
+              eps: "$6.13",
+              peRatio: "29.5",
+            },
+            businessSegments: [
+              "iPhone (52% of revenue): Flagship smartphone line with global market leadership",
+              "Services (22% of revenue): App Store, Apple Music, iCloud, AppleCare, and payment services",
+              "Mac (11% of revenue): Desktop and laptop computers",
+              "iPad (8% of revenue): Tablet computers",
+              "Wearables/Home/Accessories (7% of revenue): Apple Watch, AirPods, HomePod",
+            ],
+            riskFactors: [
+              "Global economic conditions and foreign exchange volatility",
+              "Intense competition in all markets served",
+              "Dependence on third-party suppliers and manufacturers",
+              "Rapid technological change requiring continuous innovation",
+              "Regulatory challenges and legal proceedings worldwide",
+              "Cybersecurity threats and data privacy concerns",
+            ],
+            opportunities: [
+              "Growing services revenue with high margins",
+              "Expansion in emerging markets, particularly India",
+              "AI and machine learning integration across products",
+              "Health and fitness technology development",
+              "Augmented reality and wearables innovation",
+            ],
+            management:
+              "Led by CEO Tim Cook with a strong executive team focused on innovation, sustainability, and shareholder value. The company has a proven track record of product excellence and ecosystem integration.",
+          },
+          TSLA: {
+            company: "Tesla, Inc.",
+            ticker: "TSLA",
+            year: year,
+            executiveSummary:
+              "Tesla, Inc. designs, develops, manufactures, sells, and leases electric vehicles and energy generation and storage systems. The company operates through Automotive and Energy Generation and Storage segments, leading the global transition to sustainable energy.",
+            financialHighlights: {
+              revenue: "$96.8 billion",
+              netIncome: "$15.0 billion",
+              totalAssets: "$106.6 billion",
+              marketCap: "$650 billion",
+              eps: "$4.73",
+              peRatio: "52.8",
+            },
+            businessSegments: [
+              "Automotive (88% of revenue): Electric vehicles including Model 3, Y, S, X, and Cybertruck",
+              "Energy Generation & Storage (6% of revenue): Solar panels, Solar Roof, Powerwall, Megapack",
+              "Services & Other (6% of revenue): Vehicle servicing, Supercharging, insurance, and used vehicle sales",
+            ],
+            riskFactors: [
+              "Production and delivery challenges with scaling manufacturing",
+              "Intense competition from traditional and new EV manufacturers",
+              "Battery supply constraints and raw material costs",
+              "Dependence on government incentives and regulations",
+              "Autonomous driving technology development and regulatory approval",
+              "Leadership concentration with CEO influence",
+            ],
+            opportunities: [
+              "Expanding production capacity with new Gigafactories",
+              "Next-generation vehicle platform for affordable EVs",
+              "Full Self-Driving technology development",
+              "Energy storage market growth",
+              "Vertical integration advantages in battery production",
+            ],
+            management:
+              "CEO Elon Musk leads an innovative team focused on accelerating sustainable energy adoption. The company emphasizes vertical integration, manufacturing efficiency, and technological advancement.",
+          },
+          MSFT: {
+            company: "Microsoft Corporation",
+            ticker: "MSFT",
+            year: year,
+            executiveSummary:
+              "Microsoft Corporation develops, licenses, and supports software, services, devices, and solutions worldwide. The company is a leader in cloud computing, productivity software, gaming, and artificial intelligence.",
+            financialHighlights: {
+              revenue: "$227.6 billion",
+              netIncome: "$88.1 billion",
+              totalAssets: "$512.2 billion",
+              marketCap: "$3.1 trillion",
+              eps: "$11.86",
+              peRatio: "35.2",
+            },
+            businessSegments: [
+              "Intelligent Cloud (42% of revenue): Azure, SQL Server, Windows Server, enterprise services",
+              "Productivity & Business Processes (33% of revenue): Office 365, LinkedIn, Dynamics 365",
+              "More Personal Computing (25% of revenue): Windows, Xbox, Surface, Search advertising",
+            ],
+            riskFactors: [
+              "Intense competition in cloud computing from AWS and Google Cloud",
+              "Cybersecurity threats and data breaches",
+              "Regulatory scrutiny and antitrust concerns",
+              "Rapid technological change in AI and cloud services",
+              "Dependence on enterprise customer spending",
+              "Geopolitical risks affecting international operations",
+            ],
+            opportunities: [
+              "AI integration with ChatGPT and Copilot across products",
+              "Cloud infrastructure growth as enterprises migrate",
+              "Gaming expansion with Xbox Game Pass and cloud gaming",
+              "LinkedIn professional network monetization",
+              "Hybrid work solutions driving Microsoft 365 adoption",
+            ],
+            management:
+              "CEO Satya Nadella has successfully transformed Microsoft into a cloud-first, AI-focused company. Strong executive leadership in cloud, AI, and enterprise solutions.",
+          },
+          GOOGL: {
+            company: "Alphabet Inc.",
+            ticker: "GOOGL",
+            year: year,
+            executiveSummary:
+              "Alphabet Inc. is a global technology leader specializing in internet-related services and products, including search, advertising, cloud computing, software, hardware, and artificial intelligence. The company operates through Google Services, Google Cloud, and Other Bets segments.",
+            financialHighlights: {
+              revenue: "$307.4 billion",
+              netIncome: "$73.8 billion",
+              totalAssets: "$402.4 billion",
+              marketCap: "$2.0 trillion",
+              eps: "$5.80",
+              peRatio: "26.4",
+            },
+            businessSegments: [
+              "Google Services (90% of revenue): Search, YouTube, Google Play, Google Maps, Gmail, Android",
+              "Google Cloud (9% of revenue): Google Cloud Platform, Google Workspace, cloud infrastructure",
+              "Other Bets (1% of revenue): Waymo, Verily, Calico, CapitalG, and other emerging businesses",
+            ],
+            riskFactors: [
+              "Heavy dependence on advertising revenue",
+              "Intense regulatory scrutiny and antitrust investigations globally",
+              "Competition in cloud services from AWS and Microsoft Azure",
+              "Privacy concerns and data protection regulations",
+              "Content liability and misinformation challenges",
+              "International operations exposure to geopolitical risks",
+            ],
+            opportunities: [
+              "AI and machine learning integration across all products (Bard, Gemini)",
+              "YouTube growth in short-form video and creator monetization",
+              "Google Cloud Platform expansion in enterprise market",
+              "Hardware ecosystem development (Pixel, Nest)",
+              "Autonomous vehicle technology through Waymo",
+            ],
+            management:
+              "CEO Sundar Pichai leads Alphabet with focus on AI innovation, responsible growth, and diversification beyond advertising. Strong technical leadership driving next-generation products.",
+          },
+          AMZN: {
+            company: "Amazon.com, Inc.",
+            ticker: "AMZN",
+            year: year,
+            executiveSummary:
+              "Amazon.com, Inc. is a global e-commerce and cloud computing leader offering online retail, subscription services, web services, and logistics. The company operates through North America, International, and Amazon Web Services (AWS) segments.",
+            financialHighlights: {
+              revenue: "$574.8 billion",
+              netIncome: "$30.4 billion",
+              totalAssets: "$527.9 billion",
+              marketCap: "$1.8 trillion",
+              eps: "$2.90",
+              peRatio: "58.2",
+            },
+            businessSegments: [
+              "North America (62% of revenue): E-commerce retail, Prime membership, advertising",
+              "Amazon Web Services (16% of revenue): Cloud infrastructure, computing, storage, databases",
+              "International (22% of revenue): E-commerce operations outside North America",
+            ],
+            riskFactors: [
+              "Intense competition in e-commerce and cloud services",
+              "Labor relations and workforce management challenges",
+              "Regulatory scrutiny over market dominance and antitrust concerns",
+              "Supply chain disruptions and logistics costs",
+              "Cybersecurity and data privacy concerns",
+              "International operations exposure to economic and political risks",
+            ],
+            opportunities: [
+              "AWS growth as enterprise cloud adoption accelerates",
+              "Advertising business expansion leveraging customer data",
+              "Healthcare sector entry through One Medical and Amazon Pharmacy",
+              "AI and machine learning capabilities across operations",
+              "International market expansion, particularly in India and emerging markets",
+            ],
+            management:
+              "CEO Andy Jassy, formerly AWS leader, drives innovation in cloud services while optimizing retail operations. Strong focus on operational excellence and long-term value creation.",
+          },
+          NVDA: {
+            company: "NVIDIA Corporation",
+            ticker: "NVDA",
+            year: year,
+            executiveSummary:
+              "NVIDIA Corporation is a leader in accelerated computing and artificial intelligence, designing and manufacturing graphics processing units (GPUs) and related technologies. The company operates through Compute & Networking and Graphics segments.",
+            financialHighlights: {
+              revenue: "$60.9 billion",
+              netIncome: "$29.8 billion",
+              totalAssets: "$77.1 billion",
+              marketCap: "$2.9 trillion",
+              eps: "$11.93",
+              peRatio: "66.5",
+            },
+            businessSegments: [
+              "Compute & Networking (87% of revenue): Data center GPUs, AI chips, networking solutions, automotive",
+              "Graphics (13% of revenue): GeForce gaming GPUs, professional visualization, cryptocurrency mining",
+            ],
+            riskFactors: [
+              "Concentration of revenue from large cloud service providers",
+              "Cyclical demand in gaming and cryptocurrency markets",
+              "Export controls and restrictions on sales to China",
+              "Supply chain dependencies on TSMC for chip manufacturing",
+              "Intense competition from AMD, Intel, and custom AI chip developers",
+              "Rapid technological change requiring continuous R&D investment",
+            ],
+            opportunities: [
+              "Explosive growth in AI training and inference compute demand",
+              "Expansion in autonomous vehicle platforms (NVIDIA DRIVE)",
+              "Enterprise AI adoption driving data center GPU sales",
+              "Omniverse platform for digital twins and virtual collaboration",
+              "Grace CPU and networking products expanding total addressable market",
+            ],
+            management:
+              "CEO Jensen Huang has led NVIDIA's transformation from gaming graphics to AI computing leader. Visionary leadership in identifying and capitalizing on AI/ML trends.",
+          },
+        };
+
+        // Default summary for companies not in mock data
+        const defaultSummary = {
+          company: `${ticker} Corporation`,
+          ticker: ticker,
+          year: year,
+          executiveSummary: `This analysis provides a comprehensive overview of ${ticker}'s business operations, financial performance, and strategic direction based on their ${year} 10-K filing.`,
+          financialHighlights: {
+            revenue: "Data available in full report",
+            netIncome: "Data available in full report",
+            totalAssets: "Data available in full report",
+            marketCap: "Data available in full report",
+            eps: "Data available in full report",
+            peRatio: "Data available in full report",
+          },
+          businessSegments: [
+            "Primary business operations and revenue streams",
+            "Geographic market distribution",
+            "Product and service offerings",
+          ],
+          riskFactors: [
+            "Market and competitive risks",
+            "Operational and technology risks",
+            "Regulatory and compliance risks",
+            "Financial and macroeconomic risks",
+          ],
+          opportunities: [
+            "Market expansion and growth opportunities",
+            "Product and service innovation",
+            "Strategic partnerships and acquisitions",
+            "Operational efficiency improvements",
+          ],
+          management:
+            "Executive team focused on delivering shareholder value through strategic execution and operational excellence.",
+        };
+
+        return summaries[ticker] || defaultSummary;
+      }
+
+      function displaySummary(summary) {
+        const contentDiv = document.getElementById("summaryContent");
+
+        const html = `
+          <div style="margin-bottom: 2rem;">
+            <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-primary); margin-bottom: 2rem;">
+              <h5 style="color: var(--accent-primary); font-size: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                <i class="fas fa-file-alt"></i> Executive Summary
+              </h5>
+              <p style="line-height: 1.8; margin: 0;">${
+                summary.executiveSummary
+              }</p>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 2.5rem;">
+            <h5 style="color: var(--accent-primary); font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-chart-bar"></i> Financial Highlights (FY ${
+                summary.year
+              })
+            </h5>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+              ${Object.entries(summary.financialHighlights)
+                .map(
+                  ([key, value]) => `
+                <div style="background: var(--glass-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.5rem;">${key
+                    .replace(/([A-Z])/g, " $1")
+                    .trim()}</div>
+                  <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-primary);">${value}</div>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          </div>
+
+          <div style="margin-bottom: 2.5rem;">
+            <h5 style="color: var(--accent-primary); font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-briefcase"></i> Business Segments
+            </h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              ${summary.businessSegments
+                .map(
+                  (segment) => `
+                <li style="padding: 0.75rem; margin-bottom: 0.5rem; background: var(--glass-bg); border-radius: 8px; border-left: 3px solid var(--accent-primary); display: flex; align-items: start; gap: 0.75rem;">
+                  <i class="fas fa-check-circle" style="color: var(--accent-primary); margin-top: 0.2rem;"></i>
+                  <span>${segment}</span>
+                </li>
+              `
+                )
+                .join("")}
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 2.5rem;">
+            <h5 style="color: #f59e0b; font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-exclamation-triangle"></i> Key Risk Factors
+            </h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              ${summary.riskFactors
+                .map(
+                  (risk) => `
+                <li style="padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(245, 158, 11, 0.05); border-radius: 8px; border-left: 3px solid #f59e0b; display: flex; align-items: start; gap: 0.75rem;">
+                  <i class="fas fa-exclamation-circle" style="color: #f59e0b; margin-top: 0.2rem;"></i>
+                  <span>${risk}</span>
+                </li>
+              `
+                )
+                .join("")}
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 2.5rem;">
+            <h5 style="color: #10b981; font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-rocket"></i> Growth Opportunities
+            </h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              ${summary.opportunities
+                .map(
+                  (opportunity) => `
+                <li style="padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(16, 185, 129, 0.05); border-radius: 8px; border-left: 3px solid #10b981; display: flex; align-items: start; gap: 0.75rem;">
+                  <i class="fas fa-arrow-trend-up" style="color: #10b981; margin-top: 0.2rem;"></i>
+                  <span>${opportunity}</span>
+                </li>
+              `
+                )
+                .join("")}
+            </ul>
+          </div>
+
+          <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-primary);">
+            <h5 style="color: var(--accent-primary); font-size: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
+              <i class="fas fa-users"></i> Management & Leadership
+            </h5>
+            <p style="line-height: 1.8; margin: 0;">${summary.management}</p>
+          </div>
+
+          <div style="margin-top: 2rem; padding: 1.25rem; background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; border-radius: 8px;">
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.7;">
+              <i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i> 
+              <strong style="color: var(--text-primary);">Disclaimer:</strong> This is a demonstration with mock data for educational purposes only. This does not represent actual SEC 10-K filing data. For real financial information, visit 
+              <a href="https://www.sec.gov/edgar" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: underline;">SEC EDGAR</a>.
+            </p>
+          </div>
+        `;
+
+        contentDiv.innerHTML = html;
+      }
+
       // Sector Exploration Functions
       function exploreSector(sector, event) {
         event.preventDefault();
