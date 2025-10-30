@@ -1,0 +1,157 @@
+/* Google AdSense Optimization Styles */
+/* Centered, responsive, and UX-optimized ad placements */
+
+.ad-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem;
+  background: transparent;
+  margin: 2rem 0;
+}
+
+.ad-section .container {
+  max-width: 970px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Ad unit styling */
+.adsbygoogle {
+  display: block !important;
+  text-align: center;
+  margin: 0 auto !important;
+  max-width: 970px;
+  min-height: 90px;
+  background: transparent;
+}
+
+/* Spacing between content and ads */
+.ad-section + section,
+section + .ad-section {
+  margin-top: 2rem;
+}
+
+/* Ad container for inline ads */
+.ad-container {
+  width: 100%;
+  max-width: 970px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Horizontal ad formats */
+.ad-horizontal {
+  max-width: 970px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Responsive ad behavior */
+.ad-responsive {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 768px) {
+  .ad-section {
+    padding: 1.5rem 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .ad-section .container {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .adsbygoogle {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-height: 50px;
+  }
+
+  .ad-container {
+    padding: 0.75rem;
+    margin: 1.5rem auto;
+  }
+
+  .ad-section + section,
+  section + .ad-section {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Tablet devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ad-section .container {
+    max-width: 728px;
+  }
+
+  .adsbygoogle {
+    max-width: 728px;
+  }
+
+  .ad-container {
+    max-width: 728px;
+  }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+  .ad-section {
+    padding: 3rem 1rem;
+  }
+
+  .ad-section .container {
+    max-width: 970px;
+  }
+}
+
+/* Prevent layout shift */
+.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
+/* Smooth transitions */
+.ad-section,
+.ad-container,
+.adsbygoogle {
+  transition: all 0.3s ease;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .ad-section {
+  background: transparent;
+}
+
+[data-theme="dark"] .ad-container {
+  background: transparent;
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .ad-section {
+  background: transparent;
+}
+
+[data-theme="light"] .ad-container {
+  background: transparent;
+}
+
+/* Accessibility - ensure ads don't interfere with focus */
+.ad-section:focus-within {
+  outline: none;
+}
+
+/* Print styles - hide ads when printing */
+@media print {
+  .ad-section,
+  .ad-container,
+  .adsbygoogle {
+    display: none !important;
+  }
+}
