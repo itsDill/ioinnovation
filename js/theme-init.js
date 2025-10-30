@@ -10,10 +10,10 @@
       navigator.userAgent
     );
 
-  // Get saved theme or use system preference
+  // Get saved theme or default to light
   const savedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-  const theme = savedTheme || (prefersDark.matches ? "dark" : "light");
+  const theme = savedTheme || "light"; // Default to light theme
 
   console.log("Theme init - applying theme:", theme, "| Mobile:", isMobile);
 

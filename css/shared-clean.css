@@ -32,17 +32,20 @@
   --transition-normal: 0.3s ease;
 }
 
-/* Light theme - Enhanced mobile compatibility */
+/* Light theme - Enhanced and improved */
 [data-theme="light"],
 .light-theme {
-  --bg-primary: #ffffff;
-  --bg-secondary: rgba(255, 255, 255, 0.95);
-  --bg-card: rgba(0, 0, 0, 0.03);
-  --glass-bg: rgba(0, 0, 0, 0.05);
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.9);
   --text-primary: #1a1a1a;
-  --text-secondary: rgba(26, 26, 26, 0.7);
-  --border-color: rgba(0, 0, 0, 0.1);
-  --shadow-color: rgba(43, 226, 180, 0.2);
+  --text-secondary: #4a5568;
+  --border-color: rgba(0, 0, 0, 0.12);
+  --shadow-color: rgba(43, 226, 180, 0.15);
+  --accent-primary: #00b894;
+  --accent-secondary: #00d68f;
+  --accent-tertiary: #00cec9;
 }
 
 /* Mobile-specific theme overrides */
@@ -53,8 +56,9 @@
   }
 
   [data-theme="light"] {
-    --glass-bg: rgba(0, 0, 0, 0.08);
-    --bg-card: rgba(0, 0, 0, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --bg-card: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.15);
   }
 }
 
