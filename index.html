@@ -7,7 +7,7 @@
     <!-- Security Headers -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://cdnjs.cloudflare.com https://adservice.google.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; object-src 'none'; base-uri 'self';"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
@@ -1555,32 +1555,18 @@
               ></a>
             </div>
 
-            <div
-              class="tool-card"
-              style="
-                background: var(--glass-bg);
-                border: 2px dashed var(--border-color);
-              "
-            >
-              <div style="text-align: center; padding: 2rem 0">
-                <script
-                  async
-                  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
-                  crossorigin="anonymous"
-                ></script>
-                <!-- Navigate IO Ad -->
-                <ins
-                  class="adsbygoogle"
-                  style="display: block"
-                  data-ad-client="ca-pub-2456627863532019"
-                  data-ad-slot="1234567890"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"
-                ></ins>
-                <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-bolt"></i>
               </div>
+              <h3>Energy</h3>
+              <p>
+                Monitor energy sector dynamics, renewable developments, oil &
+                gas trends, and utilities performance in evolving markets.
+              </p>
+              <a href="/sectors/energy.html" class="tool-link"
+                >Explore Sector <i class="fas fa-arrow-right"></i
+              ></a>
             </div>
 
             <div class="tool-card">
