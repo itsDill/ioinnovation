@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Financial Visualization Tools | 13F Tracker, Market Heatmap, Stock
-      Screener | IO Web Tools
+      Financial Visualization Tools | 13F Tracker, Market Heatmap, Economic Calendar | IO Innovate
     </title>
 
     <script
@@ -17,13 +16,13 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="Professional financial visualization tools - Track 13F filings, analyze market heatmaps, screen stocks, view economic calendar, analyze portfolios, and check correlations. Free tools for traders and investors."
+      content="Professional financial visualization tools - Track 13F filings, analyze market heatmaps, and view economic calendar. Free tools for traders and investors."
     />
     <meta
       name="keywords"
-      content="13F tracker, market heatmap, stock screener, economic calendar, portfolio analyzer, correlation matrix, financial tools, stock market analysis, investment tools, trading tools"
+      content="13F tracker, market heatmap, economic calendar, financial tools, stock market analysis, investment tools, trading tools, 13F visualizer"
     />
-    <meta name="author" content="IO Web Tools" />
+    <meta name="author" content="IO Innovate" />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -35,9 +34,9 @@
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "IO Web Tools - Financial Visualization Suite",
+        "name": "IO Innovate - Financial Visualization Suite",
         "url": "https://iowebtools.com/tools.html",
-        "description": "Professional financial visualization tools including 13F tracker, market heatmap, stock screener, and more.",
+        "description": "Professional financial visualization tools including 13F tracker, market heatmap, and economic calendar.",
         "applicationCategory": "FinanceApplication",
         "offers": {
           "@type": "Offer",
@@ -47,10 +46,7 @@
         "featureList": [
           "13F Visualizer",
           "Market Heatmap",
-          "Economic Calendar",
-          "Stock Screener",
-          "Portfolio Analyzer",
-          "Correlation Matrix"
+          "Economic Calendar"
         ]
       }
     </script>
@@ -60,11 +56,11 @@
     <meta property="og:url" content="https://iowebtools.com/tools.html" />
     <meta
       property="og:title"
-      content="Financial Visualization Tools | IO Web Tools"
+      content="Financial Visualization Tools | IO Innovate"
     />
     <meta
       property="og:description"
-      content="Free professional financial tools - 13F tracker, market heatmap, stock screener, and more."
+      content="Free professional financial tools - 13F tracker, market heatmap, economic calendar, and more."
     />
     <meta
       property="og:image"
@@ -76,7 +72,7 @@
     <meta property="twitter:url" content="https://iowebtools.com/tools.html" />
     <meta
       property="twitter:title"
-      content="Financial Visualization Tools | IO Web Tools"
+      content="Financial Visualization Tools | IO Innovate"
     />
     <meta
       property="twitter:description"
@@ -648,7 +644,7 @@
       <div class="mobile-overlay" id="mobileOverlay"></div>
 
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/index.html" class="logo">IO Web Tools</a>
+        <a href="/index.html" class="logo">IO Innovate</a>
 
         <ul
           class="nav-links"
@@ -692,59 +688,17 @@
       </nav>
     </header>
 
-    <!-- Hero Section -->
+      <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Finance Tools</h1>
+        <h1>Financial Tools</h1>
         <p>
-          Professional trading tools for Southeast Asian markets. Real-time
-          data, calculators, and AI-powered insights.
+          Professional financial visualization tools for investors and traders. 
+          Track institutional holdings, monitor market movements, and stay informed 
+          about economic events - all in real-time.
         </p>
       </div>
-    </section>
-
-    <!-- Educational Content Banner -->
-    <div style="display: flex; justify-content: center; margin: 2rem 0">
-      <div
-        style="
-          background: linear-gradient(
-            135deg,
-            rgba(43, 226, 180, 0.1),
-            rgba(91, 33, 182, 0.1)
-          );
-          border-radius: 12px;
-          padding: 2rem;
-          text-align: center;
-          max-width: 728px;
-          width: 100%;
-          border: 1px solid var(--border-color);
-        "
-      >
-        <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-          📚 Free Trading Education
-        </h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
-          Learn professional trading strategies and risk management techniques
-          for Southeast Asian markets
-        </p>
-        <a
-          href="/blog.html"
-          style="
-            display: inline-block;
-            background: var(--accent-primary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-          "
-        >
-          Explore Articles
-        </a>
-      </div>
-    </div>
-
-    <!-- Tools Grid -->
+    </section>    <!-- Tools Grid -->
     <div class="tools-container">
       <div class="tools-grid">
         <!-- 13F Visualizer -->
@@ -1550,924 +1504,120 @@
             View Full Calendar
           </button>
         </div>
-
-        <!-- Stock Screener -->
-        <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-filter"></i>
-          </div>
-          <h3 class="tool-title">Stock Screener</h3>
-          <p class="tool-description">
-            Filter and discover stocks based on custom criteria like P/E ratio,
-            market cap, and growth metrics.
-          </p>
-
-          <div class="tool-content">
-            <div class="calc-inputs">
-              <div class="input-group">
-                <label class="input-label">Market Cap</label>
-                <select class="calc-input" id="marketCap">
-                  <option value="all">All</option>
-                  <option value="mega">Mega Cap ($200B+)</option>
-                  <option value="large">Large Cap ($10B-$200B)</option>
-                  <option value="mid">Mid Cap ($2B-$10B)</option>
-                  <option value="small">Small Cap (< $2B)</option>
-                </select>
-              </div>
-              <div class="input-group">
-                <label class="input-label">P/E Ratio</label>
-                <select class="calc-input" id="peRatio">
-                  <option value="all">All</option>
-                  <option value="low">Low (< 15)</option>
-                  <option value="mid">Medium (15-25)</option>
-                  <option value="high">High (> 25)</option>
-                </select>
-              </div>
-              <div class="input-group">
-                <label class="input-label">Dividend Yield</label>
-                <select class="calc-input" id="dividend">
-                  <option value="all">All</option>
-                  <option value="high">High (> 4%)</option>
-                  <option value="med">Medium (2-4%)</option>
-                  <option value="low">Low (< 2%)</option>
-                </select>
-              </div>
-            </div>
-            <div
-              style="
-                margin-top: 15px;
-                padding: 12px;
-                background: var(--glass-bg);
-                border-radius: 6px;
-              "
-            >
-              <div
-                style="
-                  font-size: 0.9rem;
-                  color: var(--text-secondary);
-                  margin-bottom: 8px;
-                "
-              >
-                Top Results:
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 8px">
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 8px;
-                    background: var(--bg-card);
-                    border-radius: 4px;
-                  "
-                >
-                  <span style="font-weight: 600; color: var(--text-primary)"
-                    >AAPL</span
-                  >
-                  <span style="color: var(--accent-primary)"
-                    >$175.23 +2.1%</span
-                  >
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 8px;
-                    background: var(--bg-card);
-                    border-radius: 4px;
-                  "
-                >
-                  <span style="font-weight: 600; color: var(--text-primary)"
-                    >MSFT</span
-                  >
-                  <span style="color: var(--accent-primary)"
-                    >$378.91 +1.8%</span
-                  >
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 8px;
-                    background: var(--bg-card);
-                    border-radius: 4px;
-                  "
-                >
-                  <span style="font-weight: 600; color: var(--text-primary)"
-                    >GOOGL</span
-                  >
-                  <span style="color: var(--accent-primary)"
-                    >$142.55 +1.5%</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button class="tool-action" onclick="runScreener(event)">
-            <span class="fas fa-search"></span>
-            Run Screener
-          </button>
-        </div>
-
-        <!-- Portfolio Analyzer -->
-        <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-chart-pie"></i>
-          </div>
-          <h3 class="tool-title">Portfolio Analyzer</h3>
-          <p class="tool-description">
-            Analyze your portfolio allocation, risk metrics, and diversification
-            with interactive charts.
-          </p>
-
-          <div class="tool-content">
-            <svg
-              id="portfolioChart"
-              width="100%"
-              height="200"
-              viewBox="0 0 400 200"
-              style="background: var(--glass-bg); border-radius: 8px"
-            >
-              <!-- Portfolio Pie Chart -->
-              <g transform="translate(200, 100)">
-                <!-- Tech Sector -->
-                <path
-                  d="M 0,-80 A 80,80 0 0,1 69.28,-40"
-                  fill="#2be2b4"
-                  opacity="0.9"
-                />
-                <text
-                  x="40"
-                  y="-50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  Tech 40%
-                </text>
-
-                <!-- Finance -->
-                <path
-                  d="M 69.28,-40 A 80,80 0 0,1 69.28,40"
-                  fill="#16c784"
-                  opacity="0.9"
-                />
-                <text
-                  x="75"
-                  y="0"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  Fin 25%
-                </text>
-
-                <!-- Healthcare -->
-                <path
-                  d="M 69.28,40 A 80,80 0 0,1 0,80"
-                  fill="#10b981"
-                  opacity="0.9"
-                />
-                <text
-                  x="40"
-                  y="55"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  Health 20%
-                </text>
-
-                <!-- Others -->
-                <path
-                  d="M 0,80 A 80,80 0 0,1 -69.28,40"
-                  fill="#14b8a6"
-                  opacity="0.8"
-                />
-                <text
-                  x="-50"
-                  y="50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  Other 10%
-                </text>
-
-                <!-- Cash -->
-                <path
-                  d="M -69.28,40 A 80,80 0 0,1 -69.28,-40"
-                  fill="#0891b2"
-                  opacity="0.7"
-                />
-                <text
-                  x="-75"
-                  y="0"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  Cash 5%
-                </text>
-
-                <path
-                  d="M -69.28,-40 A 80,80 0 0,1 0,-80"
-                  fill="#06b6d4"
-                  opacity="0.7"
-                />
-              </g>
-            </svg>
-            <div
-              style="
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-                margin-top: 12px;
-              "
-            >
-              <div
-                style="
-                  background: var(--glass-bg);
-                  padding: 10px;
-                  border-radius: 6px;
-                  text-align: center;
-                "
-              >
-                <div style="font-size: 0.85rem; color: var(--text-secondary)">
-                  Total Value
-                </div>
-                <div
-                  style="
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                    color: var(--accent-primary);
-                  "
-                >
-                  $125,430
-                </div>
-              </div>
-              <div
-                style="
-                  background: var(--glass-bg);
-                  padding: 10px;
-                  border-radius: 6px;
-                  text-align: center;
-                "
-              >
-                <div style="font-size: 0.85rem; color: var(--text-secondary)">
-                  YTD Return
-                </div>
-                <div
-                  style="font-size: 1.2rem; font-weight: 600; color: #16c784"
-                >
-                  +18.5%
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button class="tool-action" onclick="analyzePortfolio(event)">
-            <span class="fas fa-chart-line"></span>
-            Deep Analysis
-          </button>
-        </div>
-
-        <!-- Correlation Matrix -->
-        <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h3 class="tool-title">Correlation Matrix</h3>
-          <p class="tool-description">
-            Visualize correlations between assets to optimize diversification
-            and reduce portfolio risk.
-          </p>
-
-          <div class="tool-content">
-            <svg
-              id="correlationMatrix"
-              width="100%"
-              height="280"
-              viewBox="0 0 400 280"
-              style="background: var(--glass-bg); border-radius: 8px"
-            >
-              <!-- Correlation Matrix Heatmap -->
-              <g class="matrix">
-                <!-- Labels -->
-                <text x="60" y="15" fill="var(--text-secondary)" font-size="10">
-                  AAPL
-                </text>
-                <text
-                  x="110"
-                  y="15"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  MSFT
-                </text>
-                <text
-                  x="160"
-                  y="15"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  GOOGL
-                </text>
-                <text
-                  x="210"
-                  y="15"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  TSLA
-                </text>
-                <text
-                  x="260"
-                  y="15"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  SPY
-                </text>
-
-                <text x="10" y="50" fill="var(--text-secondary)" font-size="10">
-                  AAPL
-                </text>
-                <text x="10" y="90" fill="var(--text-secondary)" font-size="10">
-                  MSFT
-                </text>
-                <text
-                  x="10"
-                  y="130"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  GOOGL
-                </text>
-                <text
-                  x="10"
-                  y="170"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  TSLA
-                </text>
-                <text
-                  x="10"
-                  y="210"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  SPY
-                </text>
-
-                <!-- Matrix Cells -->
-                <!-- Row 1 -->
-                <rect
-                  x="50"
-                  y="30"
-                  width="40"
-                  height="30"
-                  fill="#16c784"
-                  opacity="1"
-                />
-                <text
-                  x="70"
-                  y="50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  1.0
-                </text>
-
-                <rect
-                  x="100"
-                  y="30"
-                  width="40"
-                  height="30"
-                  fill="#2be2b4"
-                  opacity="0.8"
-                />
-                <text
-                  x="120"
-                  y="50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.8
-                </text>
-
-                <rect
-                  x="150"
-                  y="30"
-                  width="40"
-                  height="30"
-                  fill="#26a69a"
-                  opacity="0.7"
-                />
-                <text
-                  x="170"
-                  y="50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.7
-                </text>
-
-                <rect
-                  x="200"
-                  y="30"
-                  width="40"
-                  height="30"
-                  fill="#f59e0b"
-                  opacity="0.5"
-                />
-                <text
-                  x="220"
-                  y="50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.3
-                </text>
-
-                <rect
-                  x="250"
-                  y="30"
-                  width="40"
-                  height="30"
-                  fill="#2be2b4"
-                  opacity="0.9"
-                />
-                <text
-                  x="270"
-                  y="50"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.9
-                </text>
-
-                <!-- Row 2 -->
-                <rect
-                  x="50"
-                  y="70"
-                  width="40"
-                  height="30"
-                  fill="#2be2b4"
-                  opacity="0.8"
-                />
-                <text
-                  x="70"
-                  y="90"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.8
-                </text>
-
-                <rect
-                  x="100"
-                  y="70"
-                  width="40"
-                  height="30"
-                  fill="#16c784"
-                  opacity="1"
-                />
-                <text
-                  x="120"
-                  y="90"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  1.0
-                </text>
-
-                <rect
-                  x="150"
-                  y="70"
-                  width="40"
-                  height="30"
-                  fill="#10b981"
-                  opacity="0.8"
-                />
-                <text
-                  x="170"
-                  y="90"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.8
-                </text>
-
-                <rect
-                  x="200"
-                  y="70"
-                  width="40"
-                  height="30"
-                  fill="#fbbf24"
-                  opacity="0.4"
-                />
-                <text
-                  x="220"
-                  y="90"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.2
-                </text>
-
-                <rect
-                  x="250"
-                  y="70"
-                  width="40"
-                  height="30"
-                  fill="#0ecb81"
-                  opacity="0.9"
-                />
-                <text
-                  x="270"
-                  y="90"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.9
-                </text>
-
-                <!-- Row 3 -->
-                <rect
-                  x="50"
-                  y="110"
-                  width="40"
-                  height="30"
-                  fill="#26a69a"
-                  opacity="0.7"
-                />
-                <text
-                  x="70"
-                  y="130"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.7
-                </text>
-
-                <rect
-                  x="100"
-                  y="110"
-                  width="40"
-                  height="30"
-                  fill="#10b981"
-                  opacity="0.8"
-                />
-                <text
-                  x="120"
-                  y="130"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.8
-                </text>
-
-                <rect
-                  x="150"
-                  y="110"
-                  width="40"
-                  height="30"
-                  fill="#16c784"
-                  opacity="1"
-                />
-                <text
-                  x="170"
-                  y="130"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  1.0
-                </text>
-
-                <rect
-                  x="200"
-                  y="110"
-                  width="40"
-                  height="30"
-                  fill="#fbbf24"
-                  opacity="0.4"
-                />
-                <text
-                  x="220"
-                  y="130"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.2
-                </text>
-
-                <rect
-                  x="250"
-                  y="110"
-                  width="40"
-                  height="30"
-                  fill="#14b8a6"
-                  opacity="0.8"
-                />
-                <text
-                  x="270"
-                  y="130"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.8
-                </text>
-
-                <!-- Row 4 -->
-                <rect
-                  x="50"
-                  y="150"
-                  width="40"
-                  height="30"
-                  fill="#f59e0b"
-                  opacity="0.5"
-                />
-                <text
-                  x="70"
-                  y="170"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.3
-                </text>
-
-                <rect
-                  x="100"
-                  y="150"
-                  width="40"
-                  height="30"
-                  fill="#fbbf24"
-                  opacity="0.4"
-                />
-                <text
-                  x="120"
-                  y="170"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.2
-                </text>
-
-                <rect
-                  x="150"
-                  y="150"
-                  width="40"
-                  height="30"
-                  fill="#fbbf24"
-                  opacity="0.4"
-                />
-                <text
-                  x="170"
-                  y="170"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.2
-                </text>
-
-                <rect
-                  x="200"
-                  y="150"
-                  width="40"
-                  height="30"
-                  fill="#16c784"
-                  opacity="1"
-                />
-                <text
-                  x="220"
-                  y="170"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  1.0
-                </text>
-
-                <rect
-                  x="250"
-                  y="150"
-                  width="40"
-                  height="30"
-                  fill="#f97316"
-                  opacity="0.3"
-                />
-                <text
-                  x="270"
-                  y="170"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.1
-                </text>
-
-                <!-- Row 5 -->
-                <rect
-                  x="50"
-                  y="190"
-                  width="40"
-                  height="30"
-                  fill="#2be2b4"
-                  opacity="0.9"
-                />
-                <text
-                  x="70"
-                  y="210"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.9
-                </text>
-
-                <rect
-                  x="100"
-                  y="190"
-                  width="40"
-                  height="30"
-                  fill="#0ecb81"
-                  opacity="0.9"
-                />
-                <text
-                  x="120"
-                  y="210"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.9
-                </text>
-
-                <rect
-                  x="150"
-                  y="190"
-                  width="40"
-                  height="30"
-                  fill="#14b8a6"
-                  opacity="0.8"
-                />
-                <text
-                  x="170"
-                  y="210"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.8
-                </text>
-
-                <rect
-                  x="200"
-                  y="190"
-                  width="40"
-                  height="30"
-                  fill="#f97316"
-                  opacity="0.3"
-                />
-                <text
-                  x="220"
-                  y="210"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  0.1
-                </text>
-
-                <rect
-                  x="250"
-                  y="190"
-                  width="40"
-                  height="30"
-                  fill="#16c784"
-                  opacity="1"
-                />
-                <text
-                  x="270"
-                  y="210"
-                  fill="white"
-                  font-size="11"
-                  text-anchor="middle"
-                >
-                  1.0
-                </text>
-
-                <!-- Legend -->
-                <text
-                  x="10"
-                  y="250"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  Low Correlation
-                </text>
-                <rect
-                  x="100"
-                  y="240"
-                  width="30"
-                  height="15"
-                  fill="#f97316"
-                  opacity="0.3"
-                />
-                <rect
-                  x="140"
-                  y="240"
-                  width="30"
-                  height="15"
-                  fill="#fbbf24"
-                  opacity="0.5"
-                />
-                <rect
-                  x="180"
-                  y="240"
-                  width="30"
-                  height="15"
-                  fill="#26a69a"
-                  opacity="0.7"
-                />
-                <rect
-                  x="220"
-                  y="240"
-                  width="30"
-                  height="15"
-                  fill="#10b981"
-                  opacity="0.9"
-                />
-                <rect
-                  x="260"
-                  y="240"
-                  width="30"
-                  height="15"
-                  fill="#16c784"
-                  opacity="1"
-                />
-                <text
-                  x="300"
-                  y="250"
-                  fill="var(--text-secondary)"
-                  font-size="10"
-                >
-                  High
-                </text>
-              </g>
-            </svg>
-          </div>
-
-          <button class="tool-action" onclick="updateCorrelation(event)">
-            <span class="fas fa-sync"></span>
-            Update Matrix
-          </button>
-        </div>
       </div>
     </div>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-      <h2>Stay Updated</h2>
-      <p>
-        Get the latest SEA market insights and tool updates delivered to your
-        inbox.
-      </p>
-      <form class="newsletter-form" id="newsletterForm">
-        <input
-          class="newsletter-input"
-          type="email"
-          placeholder="Enter your email address"
-          required
-        />
-        <button class="cta-button" type="submit">Subscribe</button>
-      </form>
-    </section>
+    <!-- Ad Placement Section - Below the Fold -->
+    <div class="ad-section" style="padding: 3rem 2rem">
+      <div class="container" style="max-width: 970px; margin: 0 auto">
+        <!-- Large Horizontal Ad -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-2456627863532019"
+          data-ad-slot="1234567890"
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
 
+    <!-- Additional Information Section -->
+    <div class="tools-container" style="margin-top: 3rem">
+      <div
+        style="
+          text-align: center;
+          padding: 3rem 2rem;
+          background: var(--bg-card);
+          border-radius: 20px;
+          border: 1px solid var(--border-color);
+        "
+      >
+        <h2
+          style="
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+          "
+        >
+          Professional Financial Analysis Tools
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto; line-height: 1.7">
+          Our suite of financial visualization tools helps you make informed investment decisions. 
+          Track institutional holdings with the 13F Visualizer, monitor real-time market movements 
+          with the Market Heatmap, and stay ahead of important events with the Economic Calendar. 
+          All tools are free, always up-to-date, and designed for both professional and retail investors.
+        </p>
+      </div>
+    </div>
+
+    <!-- Another Ad Placement Section -->
+    <div class="ad-section" style="padding: 3rem 2rem; margin-top: 2rem">
+      <div class="container" style="max-width: 728px; margin: 0 auto">
+        <!-- Medium Rectangle Ad -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-2456627863532019"
+          data-ad-slot="0987654321"
+          data-ad-format="rectangle"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+    <!-- CTA Section Moved Here -->
+    <div class="tools-container" style="margin-top: 2rem; margin-bottom: 4rem">
+      <div
+        style="
+          text-align: center;
+          padding: 3rem 2rem;
+          background: linear-gradient(
+            135deg,
+            rgba(43, 226, 180, 0.1),
+            rgba(91, 33, 182, 0.1)
+          );
+          border-radius: 20px;
+          border: 1px solid var(--border-color);
+        "
+      >
+        <h3 style="color: var(--accent-primary); margin-bottom: 1rem; font-size: 1.8rem">
+          Ready to Make Smarter Investment Decisions?
+        </h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto">
+          Join thousands of investors using our tools to track markets, analyze data, and stay informed about financial events.
+        </p>
+        <a
+          href="/blog.html"
+          style="
+            display: inline-block;
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(43, 226, 180, 0.3)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+        >
+          Learn More <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Newsletter Section Removed - Cleanup -->
     <!-- Footer -->
     <footer class="footer">
       <p>
-        &copy; 2024 IO Innovation Fund. All rights reserved.
+        &copy; 2025 IO Innovate. All rights reserved.
         <a href="/secret" class="secret-link">🔒</a>
       </p>
     </footer>
@@ -2476,11 +1626,10 @@
     <script>
       // New tool functionality
       document.addEventListener("DOMContentLoaded", function () {
-        // Initialize all tools
+        // Initialize only the 3 tools
         init13FVisualizer();
         initHeatmap();
         initEconomicCalendar();
-        setupNewsletterForm();
       });
 
       // Initialize 13F Visualizer
@@ -2530,37 +1679,6 @@
         showNotification("Opening full calendar view...", "info");
       }
 
-      function runScreener(event) {
-        event.preventDefault();
-        const button = event.target.closest("button");
-        const originalText = button.innerHTML;
-        button.innerHTML =
-          '<span class="fas fa-spinner fa-spin"></span> Screening...';
-
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          showNotification("Screener results updated!", "success");
-        }, 1200);
-      }
-
-      function analyzePortfolio(event) {
-        event.preventDefault();
-        showNotification("Loading portfolio analysis...", "info");
-      }
-
-      function updateCorrelation(event) {
-        event.preventDefault();
-        const button = event.target.closest("button");
-        const originalText = button.innerHTML;
-        button.innerHTML =
-          '<span class="fas fa-spinner fa-spin"></span> Calculating...';
-
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          showNotification("Correlation matrix updated!", "success");
-        }, 1500);
-      }
-
       // Notification system
       function showNotification(message, type = "info") {
         const notification = document.createElement("div");
@@ -2593,737 +1711,9 @@
         }, 3000);
       }
 
-      // Legacy function placeholder - keeping for compatibility
-      function initializeMarketClocks() {
-        const markets = [
-          { name: "SGX", timezone: "Asia/Singapore", open: 9, close: 17 },
-          { name: "KLSE", timezone: "Asia/Kuala_Lumpur", open: 9, close: 17 },
-          { name: "SET", timezone: "Asia/Bangkok", open: 10, close: 16 },
-          { name: "PSE", timezone: "Asia/Manila", open: 9.5, close: 15.5 },
-          { name: "IDX", timezone: "Asia/Jakarta", open: 9, close: 16 },
-          { name: "HOSE", timezone: "Asia/Ho_Chi_Minh", open: 9, close: 15 },
-        ];
-
-        function updateClocks() {
-          const clocksContainer = document.getElementById("marketClocks");
-          if (!clocksContainer) return;
-
-          clocksContainer.innerHTML = "";
-
-          markets.forEach((market) => {
-            const now = new Date();
-            const marketTime = new Intl.DateTimeFormat("en-GB", {
-              timeZone: market.timezone,
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
-              hour12: false,
-            }).format(now);
-
-            const marketDate = new Date(
-              now.toLocaleString("en-US", { timeZone: market.timezone })
-            );
-            const hours = marketDate.getHours() + marketDate.getMinutes() / 60;
-            const isWeekend =
-              marketDate.getDay() === 0 || marketDate.getDay() === 6;
-
-            let status = "closed";
-            let statusClass = "status-closed";
-
-            if (!isWeekend) {
-              if (hours >= market.open && hours < market.close) {
-                status = "open";
-                statusClass = "status-open";
-              } else if (hours >= market.open - 1 && hours < market.open) {
-                status = "pre-market";
-                statusClass = "status-pre-market";
-              }
-            }
-
-            const clockElement = document.createElement("div");
-            clockElement.className = "market-clock";
-            clockElement.innerHTML = `
-              <div class="market-name">${market.name}</div>
-              <div class="market-time">${marketTime}</div>
-              <div class="market-status ${statusClass}">${status.replace(
-              "-",
-              " "
-            )}</div>
-            `;
-
-            clocksContainer.appendChild(clockElement);
-          });
-        }
-
-        // Update clocks immediately and then every second
-        updateClocks();
-        setInterval(updateClocks, 1000);
-      }
-
-      // Enhanced Position Size Calculator
-      function initializeCalculators() {
-        const positionInputs = [
-          "account-balance",
-          "risk-percentage",
-          "entry-price",
-          "stop-loss",
-        ];
-        const compoundInputs = [
-          "initial-amount",
-          "monthly-addition",
-          "annual-return",
-          "years",
-        ];
-
-        // Position Size Calculator
-        positionInputs.forEach((id) => {
-          const input = document.getElementById(id);
-          if (input) {
-            input.addEventListener("input", calculatePositionSize);
-          }
-        });
-
-        // Compound Interest Calculator
-        compoundInputs.forEach((id) => {
-          const input = document.getElementById(id);
-          if (input) {
-            input.addEventListener("input", calculateCompoundInterest);
-          }
-        });
-
-        function calculatePositionSize() {
-          try {
-            const accountBalance =
-              parseFloat(document.getElementById("account-balance")?.value) ||
-              0;
-            const riskPercentage =
-              parseFloat(document.getElementById("risk-percentage")?.value) ||
-              0;
-            const entryPrice =
-              parseFloat(document.getElementById("entry-price")?.value) || 0;
-            const stopLoss =
-              parseFloat(document.getElementById("stop-loss")?.value) || 0;
-
-            if (
-              accountBalance > 0 &&
-              riskPercentage > 0 &&
-              entryPrice > 0 &&
-              stopLoss > 0 &&
-              entryPrice !== stopLoss
-            ) {
-              const riskAmount = accountBalance * (riskPercentage / 100);
-              const priceRisk = Math.abs(entryPrice - stopLoss);
-              const positionSize = Math.floor(riskAmount / priceRisk);
-
-              const resultElement = document.querySelector(
-                "#position-result .result-value"
-              );
-              if (resultElement) {
-                resultElement.textContent = `${positionSize.toLocaleString()} shares`;
-              }
-            }
-          } catch (error) {
-            console.error("Position calculation error:", error);
-          }
-        }
-
-        function calculateCompoundInterest() {
-          try {
-            const initial =
-              parseFloat(document.getElementById("initial-amount")?.value) || 0;
-            const monthly =
-              parseFloat(document.getElementById("monthly-addition")?.value) ||
-              0;
-            const annualReturn =
-              parseFloat(document.getElementById("annual-return")?.value) || 0;
-            const years =
-              parseFloat(document.getElementById("years")?.value) || 0;
-
-            if (initial >= 0 && monthly >= 0 && annualReturn > 0 && years > 0) {
-              const monthlyRate = annualReturn / 100 / 12;
-              const months = years * 12;
-
-              // Compound interest formula with regular contributions
-              const futureValue =
-                initial * Math.pow(1 + monthlyRate, months) +
-                monthly *
-                  ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-
-              const resultElement = document.querySelector(
-                "#compound-result .result-value"
-              );
-              if (resultElement) {
-                resultElement.textContent = `$${Math.round(
-                  futureValue
-                ).toLocaleString()}`;
-              }
-            }
-          } catch (error) {
-            console.error("Compound calculation error:", error);
-          }
-        }
-
-        // Initialize with default calculations
-        calculatePositionSize();
-        calculateCompoundInterest();
-      }
-
-      // Enhanced IPO Calendar with Dynamic Data
-      function initializeIPOCalendar() {
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
-
-        // Sample IPO data - in a real application, this would come from an API
-        const ipoData = {
-          "2024-1": [
-            {
-              company: "SEA Tech Holdings",
-              sector: "Technology",
-              date: "2024-02-15",
-              priceRange: "$12-15",
-            },
-            {
-              company: "Asean Green Energy",
-              sector: "Energy",
-              date: "2024-02-22",
-              priceRange: "$8-12",
-            },
-            {
-              company: "Digital Bank Asia",
-              sector: "FinTech",
-              date: "2024-02-28",
-              priceRange: "$18-25",
-            },
-          ],
-          "2024-2": [
-            {
-              company: "Indo Property REIT",
-              sector: "Real Estate",
-              date: "2024-03-08",
-              priceRange: "$10-14",
-            },
-            {
-              company: "Thai E-commerce Co",
-              sector: "Technology",
-              date: "2024-03-15",
-              priceRange: "$15-20",
-            },
-            {
-              company: "Vietnam Manufacturing",
-              sector: "Industrial",
-              date: "2024-03-22",
-              priceRange: "$6-9",
-            },
-            {
-              company: "Singapore Biotech",
-              sector: "Healthcare",
-              date: "2024-03-29",
-              priceRange: "$25-32",
-            },
-          ],
-          "2024-3": [
-            {
-              company: "Malaysia Solar Power",
-              sector: "Energy",
-              date: "2024-04-05",
-              priceRange: "$11-16",
-            },
-            {
-              company: "Philippines Mining Corp",
-              sector: "Materials",
-              date: "2024-04-12",
-              priceRange: "$7-11",
-            },
-            {
-              company: "SEA Logistics Hub",
-              sector: "Transportation",
-              date: "2024-04-19",
-              priceRange: "$13-18",
-            },
-          ],
-        };
-
-        function updateIPOCalendar() {
-          const monthNames = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ];
-
-          const monthYearElement = document.getElementById("currentMonth");
-          const eventsContainer = document.getElementById("ipoEvents");
-
-          if (!monthYearElement || !eventsContainer) return;
-
-          monthYearElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
-
-          const key = `${currentYear}-${currentMonth}`;
-          const events = ipoData[key] || [];
-
-          eventsContainer.innerHTML = "";
-
-          if (events.length === 0) {
-            eventsContainer.innerHTML = `
-              <div style="text-align: center; padding: 2rem; color: var(--text-secondary);">
-                <i class="fas fa-calendar-times" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-                <p>No IPO events scheduled for this month</p>
-              </div>
-            `;
-          } else {
-            events.forEach((event, index) => {
-              const eventElement = document.createElement("div");
-              eventElement.className = "ipo-item";
-              eventElement.style.animationDelay = `${index * 0.1}s`;
-              eventElement.innerHTML = `
-                <div class="ipo-date">${new Date(event.date).toLocaleDateString(
-                  "en-US",
-                  { month: "short", day: "numeric" }
-                )}</div>
-                <div class="ipo-details">
-                  <h4>${event.company}</h4>
-                  <p>${event.sector}</p>
-                </div>
-                <div class="ipo-price">${event.priceRange}</div>
-              `;
-              eventsContainer.appendChild(eventElement);
-            });
-          }
-        }
-
-        // Navigation handlers
-        const navButtons = document.querySelectorAll(".calendar-nav");
-        if (navButtons.length >= 2) {
-          navButtons[0].addEventListener("click", () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-              currentMonth = 11;
-              currentYear--;
-            }
-            updateIPOCalendar();
-          });
-          navButtons[1].addEventListener("click", () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-              currentMonth = 0;
-              currentYear++;
-            }
-            updateIPOCalendar();
-          });
-        }
-
-        // Initialize calendar
-        updateIPOCalendar();
-      }
-
-      // Enhanced AI Sentiment Analysis with Live Data Simulation
-      function initializeAISentiment() {
-        // Simulate real-time sentiment data
-        const sentimentData = {
-          bullish: Math.floor(Math.random() * 30) + 50,
-          neutral: Math.floor(Math.random() * 20) + 15,
-          bearish: Math.floor(Math.random() * 25) + 10,
-        };
-
-        const signals = [
-          { stock: "DBS", sentiment: "bullish", confidence: "92%" },
-          { stock: "GRAB", sentiment: "neutral", confidence: "78%" },
-          { stock: "SEA", sentiment: "bullish", confidence: "85%" },
-          { stock: "GENTING", sentiment: "bearish", confidence: "73%" },
-          { stock: "TOP", sentiment: "bullish", confidence: "88%" },
-          { stock: "PTT", sentiment: "neutral", confidence: "65%" },
-        ];
-
-        function updateSentimentMetrics() {
-          // Update overview metrics
-          const bullishElement = document.querySelector(".metric-bullish");
-          const neutralElement = document.querySelector(".metric-neutral");
-          const bearishElement = document.querySelector(".metric-bearish");
-
-          if (bullishElement)
-            bullishElement.textContent = `${sentimentData.bullish}%`;
-          if (neutralElement)
-            neutralElement.textContent = `${sentimentData.neutral}%`;
-          if (bearishElement)
-            bearishElement.textContent = `${sentimentData.bearish}%`;
-
-          // Update signals list
-          const signalsContainer = document.getElementById("sentimentSignals");
-          if (signalsContainer) {
-            signalsContainer.innerHTML = "";
-
-            signals.forEach((signal, index) => {
-              const signalElement = document.createElement("div");
-              signalElement.className = "signal-item";
-              signalElement.style.animationDelay = `${index * 0.1}s`;
-              signalElement.innerHTML = `
-                <span class="signal-stock">${signal.stock}</span>
-                <span class="signal-sentiment sentiment-${
-                  signal.sentiment
-                }">${signal.sentiment.toUpperCase()}</span>
-              `;
-              signalsContainer.appendChild(signalElement);
-            });
-          }
-        }
-
-        // Update sentiment data periodically
-        updateSentimentMetrics();
-        setInterval(() => {
-          // Simulate small changes in sentiment
-          sentimentData.bullish = Math.max(
-            20,
-            Math.min(80, sentimentData.bullish + (Math.random() - 0.5) * 10)
-          );
-          sentimentData.neutral = Math.max(
-            10,
-            Math.min(40, sentimentData.neutral + (Math.random() - 0.5) * 5)
-          );
-          sentimentData.bearish = Math.max(
-            5,
-            Math.min(50, sentimentData.bearish + (Math.random() - 0.5) * 8)
-          );
-
-          updateSentimentMetrics();
-        }, 30000); // Update every 30 seconds
-      }
-
-      // Enhanced Newsletter Form
-      function setupNewsletterForm() {
-        const form = document.getElementById("newsletterForm");
-        const input = form?.querySelector(".newsletter-input");
-        const button = form?.querySelector(".cta-button");
-
-        if (!form || !input || !button) return;
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const email = input.value.trim();
-
-          if (!email) {
-            showNotification("Please enter your email address.", "error");
-            return;
-          }
-
-          if (!isValidEmail(email)) {
-            showNotification("Please enter a valid email address.", "error");
-            return;
-          }
-
-          // Show loading state
-          const originalText = button.textContent;
-          button.textContent = "Subscribing...";
-          button.disabled = true;
-
-          // Simulate API call
-          setTimeout(() => {
-            showNotification(
-              "Successfully subscribed to our newsletter!",
-              "success"
-            );
-            input.value = "";
-            button.textContent = originalText;
-            button.disabled = false;
-          }, 1500);
-        });
-
-        function isValidEmail(email) {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return emailRegex.test(email);
-        }
-        // End of setupNewsletterForm
-        // (Removed duplicate showNotification function. Use the helper function defined below.)
-
-        function createConfettiEffect() {
-          const colors = [
-            "var(--accent-primary)",
-            "var(--accent-secondary)",
-            "var(--accent-tertiary)",
-          ];
-
-          for (let i = 0; i < 50; i++) {
-            const confetti = document.createElement("div");
-            confetti.style.cssText = `
-              position: fixed;
-              width: 10px;
-              height: 10px;
-              background: ${colors[Math.floor(Math.random() * colors.length)]};
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              border-radius: 50%;
-              pointer-events: none;
-              z-index: 10000;
-              animation: confetti 3s ease-out forwards;
-            `;
-
-            confetti.style.setProperty(
-              "--random-x",
-              Math.random() * 400 - 200 + "px"
-            );
-            confetti.style.setProperty(
-              "--random-y",
-              Math.random() * 400 - 200 + "px"
-            );
-            confetti.style.setProperty(
-              "--random-rotation",
-              Math.random() * 360 + "deg"
-            );
-
-            document.body.appendChild(confetti);
-
-            setTimeout(() => {
-              document.body.removeChild(confetti);
-            }, 3000);
-          }
-        }
-
-        // Add confetti animation keyframes
-        const style = document.createElement("style");
-        style.textContent = `
-          @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-          }
-
-          @keyframes slideOutRight {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-          }
-
-          @keyframes confetti {
-            0% {
-              transform: translate(-50%, -50%) rotate(0deg);
-              opacity: 1;
-            }
-            100% {
-              transform: translate(calc(-50% + var(--random-x)), calc(-50% + var(--random-y))) rotate(var(--random-rotation));
-              opacity: 0;
-            }
-          }
-        `;
-        document.head.appendChild(style);
-      }
-
-      // Missing interactive functions for tool buttons
-      function refreshClocks(event) {
-        event.preventDefault();
-        const button = event.target;
-        const originalText = button.innerHTML;
-
-        button.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
-        button.disabled = true;
-
-        setTimeout(() => {
-          initializeMarketClocks();
-          button.innerHTML = originalText;
-          button.disabled = false;
-          showNotification("Market clocks refreshed!", "success");
-        }, 1000);
-      }
-
-      function calculateDividend(event) {
-        event.preventDefault();
-        const sharePrice =
-          parseFloat(document.getElementById("sharePrice")?.value) || 0;
-        const annualDividend =
-          parseFloat(document.getElementById("annualDividend")?.value) || 0;
-        const numShares =
-          parseFloat(document.getElementById("numShares")?.value) || 0;
-        const investmentYears =
-          parseFloat(document.getElementById("investmentYears")?.value) || 0;
-
-        if (
-          sharePrice > 0 &&
-          annualDividend > 0 &&
-          numShares > 0 &&
-          investmentYears > 0
-        ) {
-          const dividendYield = (annualDividend / sharePrice) * 100;
-          const totalAnnualIncome = annualDividend * numShares;
-          const totalIncome = totalAnnualIncome * investmentYears;
-
-          const resultElement = document.querySelector(
-            "#dividendResult .result-value"
-          );
-          if (resultElement) {
-            resultElement.innerHTML = `
-              <div style="margin-bottom: 0.5rem;">${dividendYield.toFixed(
-                2
-              )}% Yield</div>
-              <div style="font-size: 1rem; opacity: 0.8;">$${totalIncome.toLocaleString()} Total Income</div>
-            `;
-          }
-
-          showNotification("Dividend calculation complete!", "success");
-        } else {
-          showNotification(
-            "Please fill in all fields with valid numbers",
-            "error"
-          );
-        }
-      }
-
-      function changeMonth(direction) {
-        // This function is handled by the IPO calendar initialization
-        const buttons = document.querySelectorAll(".calendar-nav");
-        buttons.forEach((btn) => {
-          btn.style.transform = "scale(0.95)";
-          setTimeout(() => (btn.style.transform = "scale(1)"), 100);
-        });
-      }
-
-      function refreshIPOs(event) {
-        event.preventDefault();
-        const button = event.target;
-        const originalText = button.innerHTML;
-
-        button.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
-        button.disabled = true;
-
-        setTimeout(() => {
-          initializeIPOCalendar();
-          button.innerHTML = originalText;
-          button.disabled = false;
-          showNotification("IPO calendar refreshed!", "success");
-        }, 1500);
-      }
-
-      function refreshSentiment(event) {
-        event.preventDefault();
-        const button = event.target;
-        const originalText = button.innerHTML;
-
-        button.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
-        button.disabled = true;
-
-        setTimeout(() => {
-          initializeAISentiment();
-          button.innerHTML = originalText;
-          button.disabled = false;
-          showNotification("AI sentiment analysis updated!", "success");
-        }, 2000);
-      }
-
-      function convertCurrency(event) {
-        event.preventDefault();
-        const fromCurrency = document.getElementById("fromCurrency")?.value;
-        const toCurrency = document.getElementById("toCurrency")?.value;
-        const amount =
-          parseFloat(document.getElementById("currencyAmount")?.value) || 0;
-
-        if (
-          amount > 0 &&
-          fromCurrency &&
-          toCurrency &&
-          fromCurrency !== toCurrency
-        ) {
-          // Simulated exchange rates (in a real app, this would be from an API)
-          const exchangeRates = {
-            USD: { SGD: 1.35, THB: 33.5, MYR: 4.65, PHP: 56.2 },
-            SGD: { USD: 0.74, THB: 24.8, MYR: 3.45, PHP: 41.6 },
-            THB: { USD: 0.03, SGD: 0.04, MYR: 0.14, PHP: 1.68 },
-            MYR: { USD: 0.215, SGD: 0.29, THB: 7.2, PHP: 12.1 },
-            PHP: { USD: 0.018, SGD: 0.024, THB: 0.595, MYR: 0.083 },
-          };
-
-          const rate = exchangeRates[fromCurrency]?.[toCurrency] || 1;
-          const convertedAmount = amount * rate;
-
-          const resultElement = document.querySelector(
-            "#currencyResult .result-value"
-          );
-          if (resultElement) {
-            resultElement.textContent = `${convertedAmount.toLocaleString()} ${toCurrency}`;
-          }
-
-          showNotification("Currency conversion complete!", "success");
-        } else {
-          showNotification("Please fill in all fields correctly", "error");
-        }
-      }
-
-      function openPortfolio(event) {
-        event.preventDefault();
-        showNotification("Portfolio tracker feature coming soon!", "info");
-
-        // In a real application, this would navigate to the portfolio page
-        setTimeout(() => {
-          console.log("Would navigate to portfolio tracker");
-        }, 1000);
-      }
-
-      // Helper function for notifications
-      function showNotification(message, type = "info") {
-        const notification = document.createElement("div");
-        const colors = {
-          success: "linear-gradient(135deg, #10b981, #059669)",
-          error: "linear-gradient(135deg, #ef4444, #dc2626)",
-          info: "linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))",
-        };
-
-        notification.innerHTML = `
-          <div style="
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${colors[type]};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 500;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            z-index: 10000;
-            animation: slideInRight 0.3s ease;
-            max-width: 300px;
-          ">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <i class="fas fa-${
-                type === "success"
-                  ? "check-circle"
-                  : type === "error"
-                  ? "exclamation-triangle"
-                  : "info-circle"
-              }"></i>
-              ${message}
-            </div>
-          </div>
-        `;
-
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-          notification.style.animation = "slideOutRight 0.3s ease";
-          setTimeout(() => {
-            if (document.body.contains(notification)) {
-              document.body.removeChild(notification);
-            }
-          }, 300);
-        }, 3000);
-      }
-
-      // Error handling and performance optimization
+      // Error handling
       window.addEventListener("error", function (e) {
         console.error("Script error:", e.error);
       });
-
-      // Preload next month's IPO data (simulated)
-      setTimeout(() => {
-        console.log("Background data loading completed");
-      }, 3000);
     </script>
     <script src="js/shared-simple.js"></script>
-  </body>
-</html>

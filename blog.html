@@ -53,7 +53,7 @@
       name="keywords"
       content="finance tools blog, technology tutorials, SEO guides, marketing strategies, privacy tools, security best practices, web tools, online utilities, digital guides"
     />
-    <meta name="author" content="IO Web Tools" />
+    <meta name="author" content="IO Innovate" />
     <meta name="robots" content="index, follow" />
 
     <style>
@@ -891,6 +891,26 @@
       </div>
     </section>
 
+    <!-- Ad Placement Section - Below Hero -->
+    <div
+      class="ad-section"
+      style="padding: 2rem; background: var(--bg-secondary)"
+    >
+      <div class="container" style="max-width: 728px; margin: 0 auto">
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-2456627863532019"
+          data-ad-slot="1111111111"
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
     <!-- Featured Post -->
     <section class="featured-section">
       <article class="featured-post">
@@ -1434,23 +1454,42 @@
     </div>
 
     <!-- Newsletter Section -->
+    <!-- Ad Placement Section - Before Newsletter -->
+    <div class="ad-section" style="padding: 3rem 2rem">
+      <div class="container" style="max-width: 728px; margin: 0 auto">
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-2456627863532019"
+          data-ad-slot="2222222222"
+          data-ad-format="rectangle"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
     <section class="newsletter">
-      <h2>Stay Updated</h2>
+      <h2>Stay Updated on SEA Markets</h2>
       <p>
-        Get the latest tool guides, tutorials, and tech insights delivered to
-        your inbox. Never miss an update!
+        Get weekly insights, market analysis, and investment opportunities
+        delivered to your inbox. No spam, unsubscribe anytime.
       </p>
       <form class="newsletter-form" id="newsletterForm">
         <input
           class="newsletter-input"
           type="email"
-          placeholder="Enter your email address"
+          placeholder="Enter your email"
           required
         />
-        <button class="cta-button" type="submit">Subscribe</button>
+        <button class="newsletter-btn" type="submit">
+          Subscribe <i class="fas fa-paper-plane"></i>
+        </button>
       </form>
     </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div
@@ -1617,7 +1656,7 @@
             const postCard = button.closest(".post-card");
             const postTitle = postCard
               ? postCard.querySelector(".post-title").textContent
-              : "IO Web Tools Blog";
+              : "IO Innovate Blog";
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(postTitle);
 
