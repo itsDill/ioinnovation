@@ -1,0 +1,577 @@
+/* IO Innovate - UX/UI Enhancements */
+/* Enhanced interactions, animations, and polish */
+
+/* ==================== SMOOTH SCROLLING & PAGE TRANSITIONS ==================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Page load animation */
+@keyframes pageLoadFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: pageLoadFade 0.6s ease-out;
+}
+
+/* ==================== ENHANCED BUTTONS ==================== */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Button ripple effect on click */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+}
+
+.btn:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(30);
+  }
+}
+
+/* ==================== ENHANCED CARDS ==================== */
+
+.tool-card,
+.category-card,
+.post-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Card shine effect on hover */
+.tool-card::after,
+.category-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+  pointer-events: none;
+}
+
+.tool-card:hover::after,
+.category-card:hover::after {
+  transform: translateX(100%);
+}
+
+/* 3D tilt effect on hover */
+.tool-card:hover,
+.category-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 0 25px 50px rgba(43, 226, 180, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== SMOOTH ICON ANIMATIONS ==================== */
+
+.tool-icon,
+.category-icon {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+}
+
+.tool-card:hover .tool-icon,
+.category-card:hover .category-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(1.1);
+}
+
+/* Icon pulse animation */
+@keyframes iconPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 25px rgba(43, 226, 180, 0.3);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(43, 226, 180, 0.5);
+  }
+}
+
+.tool-icon,
+.category-icon {
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+/* ==================== TEXT SELECTION ==================== */
+
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* ==================== SCROLL REVEAL ANIMATIONS ==================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for grid items */
+.scroll-reveal:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.scroll-reveal:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.scroll-reveal:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.scroll-reveal:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.scroll-reveal:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.scroll-reveal:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+/* ==================== ENHANCED LINKS ==================== */
+
+a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Smooth underline animation */
+.tool-link,
+.category-btn,
+.read-more {
+  position: relative;
+  display: inline-block;
+}
+
+.tool-link::after,
+.read-more::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.tool-link:hover::after,
+.read-more:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==================== LOADING STATES ==================== */
+
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--accent-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== ENHANCED FORM INPUTS ==================== */
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(43, 226, 180, 0.2);
+}
+
+/* Floating label effect */
+.input-group {
+  position: relative;
+}
+
+.input-label {
+  transition: all 0.3s ease;
+}
+
+input:focus + .input-label,
+input:not(:placeholder-shown) + .input-label {
+  transform: translateY(-20px) scale(0.85);
+  color: var(--accent-primary);
+}
+
+/* ==================== STAT COUNTERS ANIMATION ==================== */
+
+.stat-number {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover .stat-number {
+  transform: scale(1.1);
+}
+
+/* Counter animation on page load */
+@keyframes countUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.stat-number {
+  animation: countUp 0.8s ease-out backwards;
+}
+
+/* ==================== HERO SECTION ENHANCEMENTS ==================== */
+
+.hero-badge {
+  animation: badgeBounce 2s ease-in-out infinite;
+}
+
+@keyframes badgeBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.hero h1 {
+  animation: titleGradient 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes titleGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ==================== NAVBAR ENHANCEMENTS ==================== */
+
+.header {
+  transition: all 0.3s ease;
+}
+
+/* Scrolled state */
+.header.scrolled {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+
+.nav-links a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated underline */
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.nav-links a:hover::before {
+  left: 100%;
+}
+
+/* ==================== TOOLTIP SYSTEM ==================== */
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+[data-tooltip]::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-12px);
+}
+
+/* ==================== SMOOTH SECTION TRANSITIONS ==================== */
+
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: sectionFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ==================== FOCUS STATES ==================== */
+
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline-offset: 2px;
+}
+
+/* ==================== SKELETON LOADING ==================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--glass-bg) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--border-radius);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==================== PROGRESS INDICATORS ==================== */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+/* ==================== MOBILE OPTIMIZATIONS ==================== */
+
+@media (max-width: 768px) {
+  .tool-card:hover,
+  .category-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  /* Reduce motion for mobile */
+  .tool-card::after,
+  .category-card::after {
+    display: none;
+  }
+
+  /* Simpler animations for performance */
+  @keyframes iconPulse {
+    0%,
+    100% {
+      box-shadow: 0 4px 15px rgba(43, 226, 180, 0.2);
+    }
+    50% {
+      box-shadow: 0 6px 20px rgba(43, 226, 180, 0.3);
+    }
+  }
+}
+
+/* ==================== REDUCE MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==================== PRINT STYLES ==================== */
+
+@media print {
+  .header,
+  .footer,
+  .ad-section {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .tool-card,
+  .category-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

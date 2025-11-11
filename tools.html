@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Financial Visualization Tools | 13F Tracker, Market Heatmap, Economic Calendar | IO Innovate
+      Financial Visualization Tools | 13F Tracker, Market Heatmap, Economic
+      Calendar | IO Innovate
     </title>
 
     <script
@@ -43,11 +44,7 @@
           "price": "0",
           "priceCurrency": "USD"
         },
-        "featureList": [
-          "13F Visualizer",
-          "Market Heatmap",
-          "Economic Calendar"
-        ]
+        "featureList": ["13F Visualizer", "Market Heatmap", "Economic Calendar"]
       }
     </script>
 
@@ -160,6 +157,7 @@
     <script src="js/theme-init.js"></script>
 
     <link rel="stylesheet" href="css/shared-clean.css?v=2025090102" />
+    <link rel="stylesheet" href="css/enhancements.css?v=2025090801" />
     <link rel="stylesheet" href="css/ads.css" />
 
     <style>
@@ -542,61 +540,6 @@
         border-color: var(--accent-primary);
       }
 
-      /* Newsletter section */
-      .newsletter {
-        padding: 4rem 2rem;
-        background: var(--bg-secondary);
-        text-align: center;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .newsletter h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: var(--accent-primary);
-      }
-
-      .newsletter p {
-        color: var(--text-secondary);
-        margin-bottom: 2rem;
-      }
-
-      .newsletter-form {
-        display: flex;
-        gap: 1rem;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .newsletter-input {
-        flex: 1;
-        padding: 0.75rem;
-        border: 1px solid var(--border-color);
-        border-radius: 25px;
-        background: var(--glass-bg);
-        color: var(--text-primary);
-      }
-
-      .newsletter-input:focus {
-        border-color: var(--accent-primary);
-        outline: none;
-      }
-
-      .cta-button {
-        background: var(--accent-primary);
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 25px;
-        cursor: pointer;
-      }
-
-      @media (max-width: 480px) {
-        .newsletter-form {
-          flex-direction: column;
-        }
-      }
-
       /* Animation styles */
       @keyframes slideIn {
         from {
@@ -688,17 +631,18 @@
       </nav>
     </header>
 
-      <!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
         <h1>Financial Tools</h1>
         <p>
-          Professional financial visualization tools for investors and traders. 
-          Track institutional holdings, monitor market movements, and stay informed 
-          about economic events - all in real-time.
+          Professional financial visualization tools for investors and traders.
+          Track institutional holdings, monitor market movements, and stay
+          informed about economic events - all in real-time.
         </p>
       </div>
-    </section>    <!-- Tools Grid -->
+    </section>
+    <!-- Tools Grid -->
     <div class="tools-container">
       <div class="tools-grid">
         <!-- 13F Visualizer -->
@@ -1545,11 +1489,20 @@
         >
           Professional Financial Analysis Tools
         </h2>
-        <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto; line-height: 1.7">
-          Our suite of financial visualization tools helps you make informed investment decisions. 
-          Track institutional holdings with the 13F Visualizer, monitor real-time market movements 
-          with the Market Heatmap, and stay ahead of important events with the Economic Calendar. 
-          All tools are free, always up-to-date, and designed for both professional and retail investors.
+        <p
+          style="
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+          "
+        >
+          Our suite of financial visualization tools helps you make informed
+          investment decisions. Track institutional holdings with the 13F
+          Visualizer, monitor real-time market movements with the Market
+          Heatmap, and stay ahead of important events with the Economic
+          Calendar. All tools are free, always up-to-date, and designed for both
+          professional and retail investors.
         </p>
       </div>
     </div>
@@ -1587,11 +1540,26 @@
           border: 1px solid var(--border-color);
         "
       >
-        <h3 style="color: var(--accent-primary); margin-bottom: 1rem; font-size: 1.8rem">
+        <h3
+          style="
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+          "
+        >
           Ready to Make Smarter Investment Decisions?
         </h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto">
-          Join thousands of investors using our tools to track markets, analyze data, and stay informed about financial events.
+        <p
+          style="
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Join thousands of investors using our tools to track markets, analyze
+          data, and stay informed about financial events.
         </p>
         <a
           href="/blog.html"
@@ -1717,3 +1685,6 @@
       });
     </script>
     <script src="js/shared-simple.js"></script>
+    <script src="js/ux-enhancements.js?v=2025090801" defer></script>
+  </body>
+</html>
