@@ -117,23 +117,6 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-primary),
-    var(--accent-secondary),
-    transparent
-  );
-  opacity: 0.3;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -194,7 +177,7 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -203,45 +186,81 @@ body {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: var(--font-weight-medium);
-  padding: 0.5rem 0;
+  padding: 0.625rem 1.25rem;
   position: relative;
-  transition: all var(--transition-normal);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.95rem;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
-  transition: width var(--transition-normal);
-  border-radius: 2px;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--text-primary);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
+  border-radius: 10px;
+  overflow: visible;
+  border: 1px solid transparent;
 }
 
 .nav-links a:hover {
+  color: var(--text-primary);
+  background: var(--glass-bg);
   transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 2px 10px rgba(43, 226, 180, 0.1);
 }
 
 .nav-links a.active {
+  color: white;
   font-weight: var(--font-weight-semibold);
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  box-shadow: 0 4px 15px var(--shadow-color), 0 0 0 0 rgba(43, 226, 180, 0.4);
+  animation: navPulse 2s ease-in-out infinite;
+  border-color: transparent;
+}
+
+@keyframes navPulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 15px var(--shadow-color), 0 0 0 0 rgba(43, 226, 180, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px var(--shadow-color),
+      0 0 0 4px rgba(43, 226, 180, 0.1);
+  }
+}
+
+.nav-links a.active:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 25px var(--shadow-color), 0 0 0 0 rgba(43, 226, 180, 0.4);
+}
+
+/* Light theme nav enhancements */
+[data-theme="light"] .nav-links a:hover {
+  background: rgba(0, 184, 148, 0.08);
+  border-color: var(--accent-primary);
+  box-shadow: 0 2px 10px rgba(0, 184, 148, 0.15);
+}
+
+[data-theme="light"] .nav-links a.active {
+  box-shadow: 0 4px 20px rgba(0, 184, 148, 0.3), 0 0 0 0 rgba(0, 184, 148, 0.4);
+}
+
+[data-theme="light"] .nav-links a.active:hover {
+  box-shadow: 0 6px 30px rgba(0, 184, 148, 0.4), 0 0 0 0 rgba(0, 184, 148, 0.4);
+}
+
+@keyframes navPulseLight {
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(0, 184, 148, 0.3),
+      0 0 0 0 rgba(0, 184, 148, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(0, 184, 148, 0.4),
+      0 0 0 4px rgba(0, 184, 148, 0.15);
+  }
+}
+
+[data-theme="light"] .nav-links a.active {
+  animation: navPulseLight 2s ease-in-out infinite;
 }
 
 /* Mobile menu button - Enhanced */
@@ -521,6 +540,8 @@ body {
     width: 100%;
     border-bottom: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    border-radius: 0;
+    margin: 0;
   }
 
   .nav-links a:hover {
@@ -529,6 +550,17 @@ body {
     padding-left: 2.5rem;
   }
 
+  .nav-links a.active {
+    background: linear-gradient(
+      135deg,
+      var(--accent-primary),
+      var(--accent-secondary)
+    );
+    color: white;
+    border-left: 4px solid var(--accent-tertiary);
+  }
+
+  .nav-links a::before,
   .nav-links a::after {
     display: none;
   }
