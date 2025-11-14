@@ -145,33 +145,20 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-decoration: none;
-  transition: all var(--transition-normal);
+  transition: opacity 0.2s ease;
   position: relative;
   letter-spacing: -0.02em;
 }
 
+/* Ensure no pseudo-elements on logo */
+.logo::before,
 .logo::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
-  transition: width 0.4s ease;
+  display: none !important;
+  content: none !important;
 }
 
 .logo:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 2px 12px var(--shadow-color));
-}
-
-.logo:hover::after {
-  width: 100%;
+  opacity: 0.8;
 }
 
 .nav-links {
