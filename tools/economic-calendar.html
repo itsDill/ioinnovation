@@ -336,6 +336,116 @@
         color: #22c55e;
       }
 
+      /* Search Box */
+      .search-box {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 1rem 1rem 1rem 3rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+      }
+
+      /* Date Group */
+      .date-group {
+        margin-bottom: 2rem;
+      }
+
+      .date-header {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      /* Loading State */
+      .loading {
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-secondary);
+      }
+
+      .loading i {
+        font-size: 2rem;
+        color: var(--accent-primary);
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Empty State */
+      .empty-state {
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-secondary);
+      }
+
+      .empty-state i {
+        font-size: 3rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+
+      /* Timezone Selector */
+      .timezone-selector {
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--glass-bg);
+        border-radius: 12px;
+      }
+
+      .timezone-selector label {
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .timezone-selector select {
+        padding: 0.5rem 1rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
       @media (max-width: 768px) {
         .page-container {
           padding: 1rem;
@@ -463,129 +573,56 @@
             </button>
           </div>
 
+          <!-- Timezone Selector -->
+          <div class="timezone-selector">
+            <label for="timezoneSelect">
+              <i class="fas fa-globe"></i> Timezone:
+            </label>
+            <select id="timezoneSelect" onchange="updateTimezone()">
+              <option value="America/New_York">Eastern Time (ET)</option>
+              <option value="America/Chicago">Central Time (CT)</option>
+              <option value="America/Denver">Mountain Time (MT)</option>
+              <option value="America/Los_Angeles">Pacific Time (PT)</option>
+              <option value="UTC">UTC</option>
+              <option value="Europe/London">London (GMT)</option>
+              <option value="Asia/Tokyo">Tokyo (JST)</option>
+            </select>
+          </div>
+
+          <!-- Search Box -->
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search events (e.g., CPI, FOMC, earnings...)"
+              oninput="searchEvents()"
+            />
+          </div>
+
           <!-- Filter Tabs -->
           <div class="filter-tabs">
-            <button class="filter-tab active" onclick="filterEvents('all')">
+            <button class="filter-tab active" data-filter="all">
               All Events
             </button>
-            <button class="filter-tab" onclick="filterEvents('economic')">
+            <button class="filter-tab" data-filter="economic">
               Economic Data
             </button>
-            <button class="filter-tab" onclick="filterEvents('earnings')">
-              Earnings
-            </button>
-            <button class="filter-tab" onclick="filterEvents('central-bank')">
+            <button class="filter-tab" data-filter="earnings">Earnings</button>
+            <button class="filter-tab" data-filter="central-bank">
               Central Banks
             </button>
-            <button class="filter-tab" onclick="filterEvents('high-impact')">
+            <button class="filter-tab" data-filter="high">
               High Impact Only
             </button>
           </div>
 
           <!-- Events List -->
           <div id="eventsContainer">
-            <!-- Sample Events - Replace with dynamic content -->
-            <div class="event-item" style="border-left-color: #ea3943">
-              <div class="event-info">
-                <div class="event-title">
-                  <i
-                    class="fas fa-flag-usa"
-                    style="color: #ea3943; margin-right: 0.5rem"
-                  ></i>
-                  FOMC Interest Rate Decision
-                </div>
-                <div class="event-description">
-                  Federal Reserve announces monetary policy decision and
-                  interest rate changes
-                </div>
-                <span class="event-badge badge-high">HIGH IMPACT</span>
-              </div>
-              <div class="event-meta">
-                <div class="event-time">2:00 PM EST</div>
-                <div class="event-date">Today</div>
-              </div>
-            </div>
-
-            <div class="event-item" style="border-left-color: #f59e0b">
-              <div class="event-info">
-                <div class="event-title">
-                  <i
-                    class="fas fa-chart-line"
-                    style="color: #f59e0b; margin-right: 0.5rem"
-                  ></i>
-                  Apple Inc. (AAPL) Earnings
-                </div>
-                <div class="event-description">
-                  Q4 2024 earnings report and conference call
-                </div>
-                <span class="event-badge badge-medium">MEDIUM IMPACT</span>
-              </div>
-              <div class="event-meta">
-                <div class="event-time">After Close</div>
-                <div class="event-date">Tomorrow</div>
-              </div>
-            </div>
-
-            <div class="event-item" style="border-left-color: #2be2b4">
-              <div class="event-info">
-                <div class="event-title">
-                  <i
-                    class="fas fa-briefcase"
-                    style="color: #2be2b4; margin-right: 0.5rem"
-                  ></i>
-                  US Non-Farm Payrolls (NFP)
-                </div>
-                <div class="event-description">
-                  Monthly employment report showing job creation and
-                  unemployment rate
-                </div>
-                <span class="event-badge badge-high">HIGH IMPACT</span>
-              </div>
-              <div class="event-meta">
-                <div class="event-time">8:30 AM EST</div>
-                <div class="event-date">Friday, Nov 22</div>
-              </div>
-            </div>
-
-            <div class="event-item" style="border-left-color: #8b5cf6">
-              <div class="event-info">
-                <div class="event-title">
-                  <i
-                    class="fas fa-percentage"
-                    style="color: #8b5cf6; margin-right: 0.5rem"
-                  ></i>
-                  Consumer Price Index (CPI)
-                </div>
-                <div class="event-description">
-                  Inflation data for October 2024
-                </div>
-                <span class="event-badge badge-high">HIGH IMPACT</span>
-              </div>
-              <div class="event-meta">
-                <div class="event-time">8:30 AM EST</div>
-                <div class="event-date">Next Week</div>
-              </div>
-            </div>
-
-            <div class="event-item" style="border-left-color: #22c55e">
-              <div class="event-info">
-                <div class="event-title">
-                  <i
-                    class="fas fa-chart-bar"
-                    style="color: #22c55e; margin-right: 0.5rem"
-                  ></i>
-                  Retail Sales Data
-                </div>
-                <div class="event-description">
-                  Monthly retail sales figures indicating consumer spending
-                  trends
-                </div>
-                <span class="event-badge badge-medium">MEDIUM IMPACT</span>
-              </div>
-              <div class="event-meta">
-                <div class="event-time">8:30 AM EST</div>
-                <div class="event-date">Nov 20</div>
-              </div>
+            <div class="loading">
+              <i class="fas fa-spinner"></i>
+              <p>Loading economic events...</p>
             </div>
           </div>
         </div>
@@ -712,44 +749,584 @@
 
     <!-- JavaScript -->
     <script>
+      // Economic events data for rest of 2025
+      const economicEvents = [
+        // November 2025
+        {
+          date: "2025-11-18",
+          time: "08:30",
+          title: "Building Permits",
+          description:
+            "Monthly data on building permits issued for new residential construction",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-home",
+        },
+        {
+          date: "2025-11-18",
+          time: "08:30",
+          title: "Housing Starts",
+          description:
+            "Number of new residential construction projects started",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-hammer",
+        },
+        {
+          date: "2025-11-19",
+          time: "10:00",
+          title: "Existing Home Sales",
+          description: "Sales of previously owned homes",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-house-user",
+        },
+        {
+          date: "2025-11-20",
+          time: "08:30",
+          title: "Initial Jobless Claims",
+          description: "Weekly unemployment insurance claims",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-users",
+        },
+        {
+          date: "2025-11-21",
+          time: "09:45",
+          title: "S&P Flash PMI",
+          description:
+            "Purchasing Managers Index for manufacturing and services sectors",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-industry",
+        },
+        {
+          date: "2025-11-25",
+          time: "08:30",
+          title: "Durable Goods Orders",
+          description: "Orders for long-lasting manufactured goods",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-truck-loading",
+        },
+        {
+          date: "2025-11-26",
+          time: "10:00",
+          title: "Consumer Confidence",
+          description: "Conference Board Consumer Confidence Index",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-smile",
+        },
+        {
+          date: "2025-11-26",
+          time: "10:00",
+          title: "New Home Sales",
+          description: "Sales of newly constructed homes",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-home",
+        },
+        {
+          date: "2025-11-27",
+          time: "All Day",
+          title: "Thanksgiving Holiday",
+          description: "US Markets Closed",
+          category: "holiday",
+          impact: "low",
+          country: "US",
+          icon: "fa-calendar-times",
+        },
+
+        // December 2025
+        {
+          date: "2025-12-01",
+          time: "08:30",
+          title: "ISM Manufacturing PMI",
+          description: "Institute for Supply Management Manufacturing Index",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-industry",
+        },
+        {
+          date: "2025-12-03",
+          time: "08:30",
+          title: "ISM Services PMI",
+          description: "Institute for Supply Management Services Index",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-briefcase",
+        },
+        {
+          date: "2025-12-05",
+          time: "08:30",
+          title: "Non-Farm Payrolls (NFP)",
+          description: "Monthly employment report - most important jobs data",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-chart-line",
+        },
+        {
+          date: "2025-12-05",
+          time: "08:30",
+          title: "Unemployment Rate",
+          description: "Percentage of labor force that is unemployed",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-percentage",
+        },
+        {
+          date: "2025-12-10",
+          time: "08:30",
+          title: "Consumer Price Index (CPI)",
+          description: "Key inflation indicator measuring consumer prices",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-dollar-sign",
+        },
+        {
+          date: "2025-12-10",
+          time: "08:30",
+          title: "Core CPI",
+          description: "CPI excluding food and energy prices",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-chart-bar",
+        },
+        {
+          date: "2025-12-11",
+          time: "08:30",
+          title: "Producer Price Index (PPI)",
+          description: "Wholesale inflation measure",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-industry",
+        },
+        {
+          date: "2025-12-16",
+          time: "08:30",
+          title: "Retail Sales",
+          description: "Monthly retail sales data",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-shopping-cart",
+        },
+        {
+          date: "2025-12-17",
+          time: "08:30",
+          title: "Building Permits",
+          description: "Monthly building permits data",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-home",
+        },
+        {
+          date: "2025-12-17",
+          time: "08:30",
+          title: "Housing Starts",
+          description: "New residential construction projects",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-hammer",
+        },
+        {
+          date: "2025-12-17",
+          time: "14:00",
+          title: "FOMC Interest Rate Decision",
+          description:
+            "Federal Reserve monetary policy announcement and rate decision",
+          category: "central-bank",
+          impact: "high",
+          country: "US",
+          icon: "fa-landmark",
+        },
+        {
+          date: "2025-12-17",
+          time: "14:30",
+          title: "FOMC Press Conference",
+          description: "Federal Reserve Chair Jerome Powell press conference",
+          category: "central-bank",
+          impact: "high",
+          country: "US",
+          icon: "fa-microphone",
+        },
+        {
+          date: "2025-12-18",
+          time: "08:30",
+          title: "Initial Jobless Claims",
+          description: "Weekly unemployment insurance claims",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-users",
+        },
+        {
+          date: "2025-12-18",
+          time: "08:30",
+          title: "Philadelphia Fed Manufacturing Index",
+          description: "Regional manufacturing activity indicator",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-industry",
+        },
+        {
+          date: "2025-12-20",
+          time: "08:30",
+          title: "GDP (Third Estimate)",
+          description: "Final estimate of Q3 2025 economic growth",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-chart-line",
+        },
+        {
+          date: "2025-12-23",
+          time: "08:30",
+          title: "Personal Income & Spending",
+          description: "Monthly data on consumer income and expenditures",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-wallet",
+        },
+        {
+          date: "2025-12-23",
+          time: "08:30",
+          title: "PCE Price Index",
+          description: "Fed's preferred inflation gauge",
+          category: "economic",
+          impact: "high",
+          country: "US",
+          icon: "fa-chart-bar",
+        },
+        {
+          date: "2025-12-24",
+          time: "10:00",
+          title: "Consumer Confidence",
+          description: "University of Michigan Consumer Sentiment (Final)",
+          category: "economic",
+          impact: "medium",
+          country: "US",
+          icon: "fa-smile",
+        },
+        {
+          date: "2025-12-25",
+          time: "All Day",
+          title: "Christmas Holiday",
+          description: "US Markets Closed",
+          category: "holiday",
+          impact: "low",
+          country: "US",
+          icon: "fa-calendar-times",
+        },
+
+        // Major Earnings (Sample - Q4 2025 season)
+        {
+          date: "2025-11-18",
+          time: "After Close",
+          title: "NVIDIA (NVDA) Q3 Earnings",
+          description: "AI chip leader quarterly earnings report",
+          category: "earnings",
+          impact: "high",
+          country: "US",
+          icon: "fa-microchip",
+        },
+        {
+          date: "2025-11-25",
+          time: "Before Open",
+          title: "Salesforce (CRM) Q3 Earnings",
+          description: "Cloud software company earnings",
+          category: "earnings",
+          impact: "high",
+          country: "US",
+          icon: "fa-cloud",
+        },
+        {
+          date: "2025-12-02",
+          time: "After Close",
+          title: "Marvell Technology (MRVL) Earnings",
+          description: "Semiconductor company earnings",
+          category: "earnings",
+          impact: "medium",
+          country: "US",
+          icon: "fa-microchip",
+        },
+        {
+          date: "2025-12-03",
+          time: "After Close",
+          title: "Broadcom (AVGO) Q4 Earnings",
+          description: "Semiconductor and infrastructure software earnings",
+          category: "earnings",
+          impact: "high",
+          country: "US",
+          icon: "fa-microchip",
+        },
+        {
+          date: "2025-12-10",
+          time: "After Close",
+          title: "Adobe (ADBE) Q4 Earnings",
+          description: "Creative software company earnings",
+          category: "earnings",
+          impact: "high",
+          country: "US",
+          icon: "fa-palette",
+        },
+        {
+          date: "2025-12-16",
+          time: "Before Open",
+          title: "FedEx (FDX) Q2 Earnings",
+          description: "Logistics bellwether earnings report",
+          category: "earnings",
+          impact: "high",
+          country: "US",
+          icon: "fa-shipping-fast",
+        },
+      ];
+
       let currentWeek = 0;
+      let currentFilter = "all";
+      let currentTimezone = "America/New_York";
+      let allEvents = [...economicEvents];
+
+      function initCalendar() {
+        // Detect user's timezone
+        const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const tzSelect = document.getElementById("timezoneSelect");
+        for (let option of tzSelect.options) {
+          if (option.value === userTz) {
+            option.selected = true;
+            currentTimezone = userTz;
+            break;
+          }
+        }
+
+        // Setup filter tabs
+        document.querySelectorAll(".filter-tab").forEach((tab) => {
+          tab.addEventListener("click", function () {
+            document
+              .querySelectorAll(".filter-tab")
+              .forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+            currentFilter = this.dataset.filter;
+            renderEvents();
+          });
+        });
+
+        renderEvents();
+      }
 
       function changeWeek(direction) {
         currentWeek += direction;
-        updateCalendar();
-        showNotification(
-          direction > 0 ? "Loading next week..." : "Loading previous week...",
-          "info"
-        );
+        updatePeriodDisplay();
+        renderEvents();
       }
 
-      function updateCalendar() {
-        // Placeholder - implement your calendar update logic here
-        console.log("Updating calendar to week:", currentWeek);
+      function updatePeriodDisplay() {
+        const today = new Date();
+        const weekStart = new Date(today);
+        weekStart.setDate(today.getDate() - today.getDay() + currentWeek * 7);
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 6);
 
-        // Update period display
-        const periodElement = document.getElementById("currentPeriod");
-        if (currentWeek === 0) {
-          periodElement.textContent = "November 17-23, 2025";
-        } else if (currentWeek > 0) {
-          periodElement.textContent = `Week +${currentWeek}`;
-        } else {
-          periodElement.textContent = `Week ${currentWeek}`;
-        }
+        const options = { month: "long", day: "numeric", year: "numeric" };
+        const startStr = weekStart.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+        });
+        const endStr = weekEnd.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        });
+
+        document.getElementById("currentPeriod").textContent =
+          startStr + " - " + endStr;
       }
 
       function filterEvents(filter) {
-        // Remove active class from all tabs
-        document.querySelectorAll(".filter-tab").forEach((tab) => {
-          tab.classList.remove("active");
+        currentFilter = filter;
+        renderEvents();
+      }
+
+      function searchEvents() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        renderEvents(searchTerm);
+      }
+
+      function updateTimezone() {
+        currentTimezone = document.getElementById("timezoneSelect").value;
+        renderEvents();
+      }
+
+      function renderEvents(searchTerm = "") {
+        const container = document.getElementById("eventsContainer");
+        const today = new Date();
+        const weekStart = new Date(today);
+        weekStart.setDate(today.getDate() - today.getDay() + currentWeek * 7);
+        weekStart.setHours(0, 0, 0, 0);
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 7);
+
+        // Filter events
+        let filtered = allEvents.filter((event) => {
+          const eventDate = new Date(event.date + "T00:00:00");
+          if (eventDate < weekStart || eventDate >= weekEnd) return false;
+
+          // Apply category filter
+          if (currentFilter !== "all") {
+            if (currentFilter === "high") {
+              if (event.impact !== "high") return false;
+            } else if (event.category !== currentFilter) {
+              return false;
+            }
+          }
+
+          // Apply search filter
+          if (searchTerm) {
+            const searchLower = searchTerm.toLowerCase();
+            return (
+              event.title.toLowerCase().includes(searchLower) ||
+              event.description.toLowerCase().includes(searchLower)
+            );
+          }
+
+          return true;
         });
 
-        // Add active class to clicked tab
-        event.target.classList.add("active");
+        // Sort by date and time
+        filtered.sort((a, b) => {
+          const dateA = new Date(a.date + "T" + a.time);
+          const dateB = new Date(b.date + "T" + b.time);
+          return dateA - dateB;
+        });
 
-        // Placeholder - implement your filtering logic here
-        console.log("Filtering events by:", filter);
-        showNotification("Filtering events: " + filter, "info");
+        // Group by date
+        const groupedEvents = {};
+        filtered.forEach((event) => {
+          if (!groupedEvents[event.date]) {
+            groupedEvents[event.date] = [];
+          }
+          groupedEvents[event.date].push(event);
+        });
+
+        // Render
+        if (filtered.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <i class="fas fa-calendar-times"></i>
+              <h3>No events found</h3>
+              <p>Try adjusting your filters or search terms</p>
+            </div>
+          `;
+          return;
+        }
+
+        let html = "";
+        Object.keys(groupedEvents)
+          .sort()
+          .forEach((date) => {
+            const dateObj = new Date(date + "T00:00:00");
+            const isToday =
+              dateObj.toDateString() === new Date().toDateString();
+            const dateStr = dateObj.toLocaleDateString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            });
+
+            html += `
+            <div class="date-group">
+              <div class="date-header">
+                <i class="fas fa-calendar-day"></i>
+                ${dateStr}
+                ${
+                  isToday
+                    ? '<span style="margin-left: 1rem; font-size: 0.85rem; color: #2be2b4;">Today</span>'
+                    : ""
+                }
+              </div>
+          `;
+
+            groupedEvents[date].forEach((event) => {
+              const color = getImpactColor(event.impact);
+              const badgeClass = `badge-${event.impact}`;
+              const icon = event.icon || "fa-calendar";
+
+              // Convert time to user's timezone
+              let timeStr = event.time;
+              if (
+                event.time !== "All Day" &&
+                event.time !== "After Close" &&
+                event.time !== "Before Open"
+              ) {
+                const eventDateTime = new Date(
+                  event.date + "T" + event.time + ":00-05:00"
+                ); // EST
+                timeStr = eventDateTime.toLocaleTimeString("en-US", {
+                  hour: "numeric",
+                  minute: "2-digit",
+                  timeZone: currentTimezone,
+                  timeZoneName: "short",
+                });
+              }
+
+              html += `
+              <div class="event-item" style="border-left-color: ${color}">
+                <div class="event-info">
+                  <div class="event-title">
+                    <i class="fas ${icon}" style="color: ${color}; margin-right: 0.5rem"></i>
+                    ${event.title}
+                  </div>
+                  <div class="event-description">${event.description}</div>
+                  <span class="event-badge ${badgeClass}">${event.impact.toUpperCase()} IMPACT</span>
+                </div>
+                <div class="event-meta">
+                  <div class="event-time">${timeStr}</div>
+                  <div class="event-date">${event.country}</div>
+                </div>
+              </div>
+            `;
+            });
+
+            html += `</div>`;
+          });
+
+        container.innerHTML = html;
+      }
+
+      function getImpactColor(impact) {
+        switch (impact) {
+          case "high":
+            return "#ea3943";
+          case "medium":
+            return "#f59e0b";
+          case "low":
+            return "#22c55e";
+          default:
+            return "#2be2b4";
+        }
       }
 
       function showNotification(message, type = "info") {
@@ -781,6 +1358,9 @@
           setTimeout(() => notification.remove(), 300);
         }, 3000);
       }
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", initCalendar);
     </script>
     <script src="../js/shared-simple.js"></script>
     <script src="../js/ux-enhancements.js?v=2025090801" defer></script>

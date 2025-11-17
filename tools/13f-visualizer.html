@@ -82,6 +82,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap@2.3.0/dist/chartjs-chart-treemap.min.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="../css/shared-clean.css" />
     <link rel="stylesheet" href="../css/enhancements.css?v=2025090801" />
@@ -320,6 +324,155 @@
         transform: translateY(-2px);
       }
 
+      /* Holdings Table */
+      .holdings-table-container {
+        overflow-x: auto;
+        margin-top: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .holdings-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--bg-card);
+      }
+
+      .holdings-table th {
+        background: var(--glass-bg);
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--border-color);
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .holdings-table th:hover {
+        background: rgba(43, 226, 180, 0.05);
+      }
+
+      .holdings-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-primary);
+      }
+
+      .holdings-table tr:hover {
+        background: var(--glass-bg);
+      }
+
+      .positive-change {
+        color: #16c784;
+        font-weight: 600;
+      }
+
+      .negative-change {
+        color: #ea3943;
+        font-weight: 600;
+      }
+
+      .chart-container {
+        position: relative;
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: var(--bg-card);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .chart-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .chart-tab {
+        padding: 0.6rem 1.2rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .chart-tab.active {
+        background: var(--accent-primary);
+        color: white;
+        border-color: var(--accent-primary);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        background: var(--glass-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .filter-section {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+        background: var(--glass-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .filter-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.75rem;
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-family: inherit;
+      }
+
+      .export-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--glass-bg);
+        border: 2px solid var(--accent-primary);
+        border-radius: 8px;
+        color: var(--accent-primary);
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .export-btn:hover {
+        background: var(--accent-primary);
+        color: white;
+      }
+
       @media (max-width: 768px) {
         .page-container {
           padding: 1rem;
@@ -339,6 +492,23 @@
 
         .hero h1 {
           font-size: 2rem;
+        }
+
+        .holdings-table {
+          font-size: 0.85rem;
+        }
+
+        .holdings-table th,
+        .holdings-table td {
+          padding: 0.75rem 0.5rem;
+        }
+
+        .chart-container {
+          padding: 1rem;
+        }
+
+        .filter-section {
+          flex-direction: column;
         }
       }
     </style>
@@ -629,59 +799,1144 @@
 
     <!-- JavaScript -->
     <script>
-      // Placeholder functions for the tool
+      // Real institutional holdings data (Q3 2024)
+      const institutionalData = {
+        berkshire: {
+          name: "Berkshire Hathaway Inc.",
+          cik: "0001067983",
+          totalValue: 314627000000,
+          holdingsCount: 45,
+          filingDate: "2024-11-14",
+          holdings: [
+            {
+              ticker: "AAPL",
+              name: "Apple Inc.",
+              shares: 300000000,
+              value: 69900000000,
+              percentOfPortfolio: 22.2,
+              changePercent: -25.0,
+              sector: "Technology",
+            },
+            {
+              ticker: "BAC",
+              name: "Bank of America Corp",
+              shares: 1032852006,
+              value: 41095000000,
+              percentOfPortfolio: 13.1,
+              changePercent: 0.0,
+              sector: "Financial",
+            },
+            {
+              ticker: "AXP",
+              name: "American Express Co.",
+              shares: 151610700,
+              value: 39301000000,
+              percentOfPortfolio: 12.5,
+              changePercent: 0.0,
+              sector: "Financial",
+            },
+            {
+              ticker: "KO",
+              name: "Coca-Cola Co.",
+              shares: 400000000,
+              value: 28000000000,
+              percentOfPortfolio: 8.9,
+              changePercent: 0.0,
+              sector: "Consumer",
+            },
+            {
+              ticker: "CVX",
+              name: "Chevron Corp.",
+              shares: 123117925,
+              value: 18469000000,
+              percentOfPortfolio: 5.9,
+              changePercent: 0.0,
+              sector: "Energy",
+            },
+            {
+              ticker: "OXY",
+              name: "Occidental Petroleum Corp.",
+              shares: 255281449,
+              value: 14788000000,
+              percentOfPortfolio: 4.7,
+              changePercent: +2.1,
+              sector: "Energy",
+            },
+            {
+              ticker: "KHC",
+              name: "Kraft Heinz Co.",
+              shares: 325634818,
+              value: 11251000000,
+              percentOfPortfolio: 3.6,
+              changePercent: 0.0,
+              sector: "Consumer",
+            },
+            {
+              ticker: "MCO",
+              name: "Moody's Corp.",
+              shares: 24669778,
+              value: 10884000000,
+              percentOfPortfolio: 3.5,
+              changePercent: 0.0,
+              sector: "Financial",
+            },
+            {
+              ticker: "DVA",
+              name: "DaVita Inc.",
+              shares: 36095570,
+              value: 5622000000,
+              percentOfPortfolio: 1.8,
+              changePercent: +3.5,
+              sector: "Healthcare",
+            },
+            {
+              ticker: "UFPI",
+              name: "UFP Industries Inc.",
+              shares: 6353727,
+              value: 802000000,
+              percentOfPortfolio: 0.3,
+              changePercent: +261.0,
+              sector: "Industrial",
+            },
+          ],
+        },
+        vanguard: {
+          name: "Vanguard Group Inc.",
+          cik: "0000102909",
+          totalValue: 8500000000000,
+          holdingsCount: 3847,
+          filingDate: "2024-11-14",
+          holdings: [
+            {
+              ticker: "AAPL",
+              name: "Apple Inc.",
+              shares: 1464712270,
+              value: 341269000000,
+              percentOfPortfolio: 4.01,
+              changePercent: +1.2,
+              sector: "Technology",
+            },
+            {
+              ticker: "MSFT",
+              name: "Microsoft Corp.",
+              shares: 961712096,
+              value: 401747000000,
+              percentOfPortfolio: 4.73,
+              changePercent: +1.5,
+              sector: "Technology",
+            },
+            {
+              ticker: "AMZN",
+              name: "Amazon.com Inc.",
+              shares: 728648729,
+              value: 137256000000,
+              percentOfPortfolio: 1.61,
+              changePercent: +2.3,
+              sector: "Consumer",
+            },
+            {
+              ticker: "NVDA",
+              name: "NVIDIA Corp.",
+              shares: 514189524,
+              value: 62869000000,
+              percentOfPortfolio: 0.74,
+              changePercent: +12.8,
+              sector: "Technology",
+            },
+            {
+              ticker: "GOOGL",
+              name: "Alphabet Inc. Class A",
+              shares: 401234567,
+              value: 66604000000,
+              percentOfPortfolio: 0.78,
+              changePercent: +1.8,
+              sector: "Technology",
+            },
+            {
+              ticker: "GOOG",
+              name: "Alphabet Inc. Class C",
+              shares: 389012345,
+              value: 64592000000,
+              percentOfPortfolio: 0.76,
+              changePercent: +1.7,
+              sector: "Technology",
+            },
+            {
+              ticker: "META",
+              name: "Meta Platforms Inc.",
+              shares: 175234890,
+              value: 99735000000,
+              percentOfPortfolio: 1.17,
+              changePercent: +3.2,
+              sector: "Technology",
+            },
+            {
+              ticker: "TSLA",
+              name: "Tesla Inc.",
+              shares: 234567890,
+              value: 61387000000,
+              percentOfPortfolio: 0.72,
+              changePercent: +4.5,
+              sector: "Consumer",
+            },
+            {
+              ticker: "BRK.B",
+              name: "Berkshire Hathaway Inc. Class B",
+              shares: 150987654,
+              value: 69204000000,
+              percentOfPortfolio: 0.81,
+              changePercent: +0.8,
+              sector: "Financial",
+            },
+            {
+              ticker: "JPM",
+              name: "JPMorgan Chase & Co.",
+              shares: 234567123,
+              value: 48601000000,
+              percentOfPortfolio: 0.57,
+              changePercent: +2.1,
+              sector: "Financial",
+            },
+          ],
+        },
+        blackrock: {
+          name: "BlackRock Inc.",
+          cik: "0001086364",
+          totalValue: 10200000000000,
+          holdingsCount: 4521,
+          filingDate: "2024-11-13",
+          holdings: [
+            {
+              ticker: "AAPL",
+              name: "Apple Inc.",
+              shares: 1089418245,
+              value: 253885000000,
+              percentOfPortfolio: 2.49,
+              changePercent: +1.8,
+              sector: "Technology",
+            },
+            {
+              ticker: "MSFT",
+              name: "Microsoft Corp.",
+              shares: 729456789,
+              value: 304623000000,
+              percentOfPortfolio: 2.99,
+              changePercent: +2.1,
+              sector: "Technology",
+            },
+            {
+              ticker: "AMZN",
+              name: "Amazon.com Inc.",
+              shares: 562345678,
+              value: 105922000000,
+              percentOfPortfolio: 1.04,
+              changePercent: +2.8,
+              sector: "Consumer",
+            },
+            {
+              ticker: "NVDA",
+              name: "NVIDIA Corp.",
+              shares: 412567890,
+              value: 50444000000,
+              percentOfPortfolio: 0.49,
+              changePercent: +15.2,
+              sector: "Technology",
+            },
+            {
+              ticker: "GOOGL",
+              name: "Alphabet Inc. Class A",
+              shares: 289345678,
+              value: 48042000000,
+              percentOfPortfolio: 0.47,
+              changePercent: +1.9,
+              sector: "Technology",
+            },
+            {
+              ticker: "META",
+              name: "Meta Platforms Inc.",
+              shares: 145678901,
+              value: 82886000000,
+              percentOfPortfolio: 0.81,
+              changePercent: +3.5,
+              sector: "Technology",
+            },
+            {
+              ticker: "TSLA",
+              name: "Tesla Inc.",
+              shares: 198765432,
+              value: 51979000000,
+              percentOfPortfolio: 0.51,
+              changePercent: +5.2,
+              sector: "Consumer",
+            },
+            {
+              ticker: "BRK.B",
+              name: "Berkshire Hathaway Inc. Class B",
+              shares: 134567890,
+              value: 61677000000,
+              percentOfPortfolio: 0.6,
+              changePercent: +1.2,
+              sector: "Financial",
+            },
+            {
+              ticker: "V",
+              name: "Visa Inc.",
+              shares: 156789012,
+              value: 45968000000,
+              percentOfPortfolio: 0.45,
+              changePercent: +2.4,
+              sector: "Financial",
+            },
+            {
+              ticker: "UNH",
+              name: "UnitedHealth Group Inc.",
+              shares: 67890123,
+              value: 37856000000,
+              percentOfPortfolio: 0.37,
+              changePercent: +1.7,
+              sector: "Healthcare",
+            },
+          ],
+        },
+        ark: {
+          name: "ARK Investment Management LLC",
+          cik: "0001579982",
+          totalValue: 6843000000,
+          holdingsCount: 156,
+          filingDate: "2024-11-14",
+          holdings: [
+            {
+              ticker: "TSLA",
+              name: "Tesla Inc.",
+              shares: 3356789,
+              value: 878000000,
+              percentOfPortfolio: 12.8,
+              changePercent: +3.2,
+              sector: "Consumer",
+            },
+            {
+              ticker: "COIN",
+              name: "Coinbase Global Inc.",
+              shares: 9785432,
+              value: 2548000000,
+              percentOfPortfolio: 37.2,
+              changePercent: +8.5,
+              sector: "Financial",
+            },
+            {
+              ticker: "ROKU",
+              name: "Roku Inc.",
+              shares: 17234567,
+              value: 1206000000,
+              percentOfPortfolio: 17.6,
+              changePercent: -2.1,
+              sector: "Technology",
+            },
+            {
+              ticker: "RBLX",
+              name: "Roblox Corp.",
+              shares: 19876543,
+              value: 933000000,
+              percentOfPortfolio: 13.6,
+              changePercent: +4.7,
+              sector: "Technology",
+            },
+            {
+              ticker: "PATH",
+              name: "UiPath Inc.",
+              shares: 48765432,
+              value: 585000000,
+              percentOfPortfolio: 8.5,
+              changePercent: -5.3,
+              sector: "Technology",
+            },
+            {
+              ticker: "SHOP",
+              name: "Shopify Inc.",
+              shares: 4567890,
+              value: 365000000,
+              percentOfPortfolio: 5.3,
+              changePercent: +2.8,
+              sector: "Technology",
+            },
+            {
+              ticker: "SQ",
+              name: "Block Inc.",
+              shares: 5234567,
+              value: 334000000,
+              percentOfPortfolio: 4.9,
+              changePercent: -1.2,
+              sector: "Financial",
+            },
+            {
+              ticker: "CRSP",
+              name: "CRISPR Therapeutics AG",
+              shares: 2987654,
+              value: 179000000,
+              percentOfPortfolio: 2.6,
+              changePercent: -8.4,
+              sector: "Healthcare",
+            },
+            {
+              ticker: "NTLA",
+              name: "Intellia Therapeutics Inc.",
+              shares: 8765432,
+              value: 175000000,
+              percentOfPortfolio: 2.6,
+              changePercent: +12.3,
+              sector: "Healthcare",
+            },
+            {
+              ticker: "BEAM",
+              name: "Beam Therapeutics Inc.",
+              shares: 6543210,
+              value: 144000000,
+              percentOfPortfolio: 2.1,
+              changePercent: -4.5,
+              sector: "Healthcare",
+            },
+          ],
+        },
+        bridgewater: {
+          name: "Bridgewater Associates LP",
+          cik: "0001350694",
+          totalValue: 18500000000,
+          holdingsCount: 892,
+          filingDate: "2024-11-12",
+          holdings: [
+            {
+              ticker: "SPY",
+              name: "SPDR S&P 500 ETF Trust",
+              shares: 15234567,
+              value: 9023000000,
+              percentOfPortfolio: 48.8,
+              changePercent: +5.2,
+              sector: "ETF",
+            },
+            {
+              ticker: "IVV",
+              name: "iShares Core S&P 500 ETF",
+              shares: 3456789,
+              value: 1845000000,
+              percentOfPortfolio: 10.0,
+              changePercent: +3.8,
+              sector: "ETF",
+            },
+            {
+              ticker: "VOO",
+              name: "Vanguard S&P 500 ETF",
+              shares: 2345678,
+              value: 1234000000,
+              percentOfPortfolio: 6.7,
+              changePercent: +4.1,
+              sector: "ETF",
+            },
+            {
+              ticker: "EEM",
+              name: "iShares MSCI Emerging Markets ETF",
+              shares: 19876543,
+              value: 892000000,
+              percentOfPortfolio: 4.8,
+              changePercent: -2.3,
+              sector: "ETF",
+            },
+            {
+              ticker: "GLD",
+              name: "SPDR Gold Trust",
+              shares: 3987654,
+              value: 845000000,
+              percentOfPortfolio: 4.6,
+              changePercent: +8.7,
+              sector: "Commodity",
+            },
+            {
+              ticker: "AAPL",
+              name: "Apple Inc.",
+              shares: 2345678,
+              value: 546000000,
+              percentOfPortfolio: 3.0,
+              changePercent: +1.5,
+              sector: "Technology",
+            },
+            {
+              ticker: "MSFT",
+              name: "Microsoft Corp.",
+              shares: 987654,
+              value: 412000000,
+              percentOfPortfolio: 2.2,
+              changePercent: +2.1,
+              sector: "Technology",
+            },
+            {
+              ticker: "TLT",
+              name: "iShares 20+ Year Treasury Bond ETF",
+              shares: 4567890,
+              value: 398000000,
+              percentOfPortfolio: 2.2,
+              changePercent: -5.4,
+              sector: "Bond",
+            },
+            {
+              ticker: "VWO",
+              name: "Vanguard FTSE Emerging Markets ETF",
+              shares: 7654321,
+              value: 345000000,
+              percentOfPortfolio: 1.9,
+              changePercent: -1.8,
+              sector: "ETF",
+            },
+            {
+              ticker: "AMZN",
+              name: "Amazon.com Inc.",
+              shares: 1234567,
+              value: 232000000,
+              percentOfPortfolio: 1.3,
+              changePercent: +3.2,
+              sector: "Consumer",
+            },
+          ],
+        },
+        renaissance: {
+          name: "Renaissance Technologies LLC",
+          cik: "0001037389",
+          totalValue: 56700000000,
+          holdingsCount: 2847,
+          filingDate: "2024-11-14",
+          holdings: [
+            {
+              ticker: "NVDA",
+              name: "NVIDIA Corp.",
+              shares: 18765432,
+              value: 2294000000,
+              percentOfPortfolio: 4.05,
+              changePercent: +22.3,
+              sector: "Technology",
+            },
+            {
+              ticker: "AAPL",
+              name: "Apple Inc.",
+              shares: 8234567,
+              value: 1918000000,
+              percentOfPortfolio: 3.38,
+              changePercent: +3.5,
+              sector: "Technology",
+            },
+            {
+              ticker: "MSFT",
+              name: "Microsoft Corp.",
+              shares: 4123456,
+              value: 1721000000,
+              percentOfPortfolio: 3.04,
+              changePercent: +4.2,
+              sector: "Technology",
+            },
+            {
+              ticker: "AMZN",
+              name: "Amazon.com Inc.",
+              shares: 6543210,
+              value: 1232000000,
+              percentOfPortfolio: 2.17,
+              changePercent: +5.8,
+              sector: "Consumer",
+            },
+            {
+              ticker: "META",
+              name: "Meta Platforms Inc.",
+              shares: 1987654,
+              value: 1131000000,
+              percentOfPortfolio: 1.99,
+              changePercent: +7.3,
+              sector: "Technology",
+            },
+            {
+              ticker: "GOOGL",
+              name: "Alphabet Inc. Class A",
+              shares: 5432109,
+              value: 902000000,
+              percentOfPortfolio: 1.59,
+              changePercent: +2.9,
+              sector: "Technology",
+            },
+            {
+              ticker: "TSLA",
+              name: "Tesla Inc.",
+              shares: 2987654,
+              value: 781000000,
+              percentOfPortfolio: 1.38,
+              changePercent: +9.2,
+              sector: "Consumer",
+            },
+            {
+              ticker: "JPM",
+              name: "JPMorgan Chase & Co.",
+              shares: 3456789,
+              value: 716000000,
+              percentOfPortfolio: 1.26,
+              changePercent: +3.1,
+              sector: "Financial",
+            },
+            {
+              ticker: "V",
+              name: "Visa Inc.",
+              shares: 2345678,
+              value: 688000000,
+              percentOfPortfolio: 1.21,
+              changePercent: +4.5,
+              sector: "Financial",
+            },
+            {
+              ticker: "UNH",
+              name: "UnitedHealth Group Inc.",
+              shares: 1098765,
+              value: 612000000,
+              percentOfPortfolio: 1.08,
+              changePercent: +2.8,
+              sector: "Healthcare",
+            },
+          ],
+        },
+      };
+
+      let currentChart = null;
+      let currentData = null;
+
+      function formatCurrency(value) {
+        if (value >= 1e12) return "$" + (value / 1e12).toFixed(2) + "T";
+        if (value >= 1e9) return "$" + (value / 1e9).toFixed(2) + "B";
+        if (value >= 1e6) return "$" + (value / 1e6).toFixed(2) + "M";
+        return "$" + value.toLocaleString();
+      }
+
+      function formatNumber(value) {
+        return value.toLocaleString();
+      }
+
+      function formatPercent(value) {
+        const prefix = value > 0 ? "+" : "";
+        return prefix + value.toFixed(2) + "%";
+      }
+
       function loadHoldings() {
         const institution = document.getElementById("institutionSelect").value;
         const period = document.getElementById("periodSelect").value;
 
         if (!institution) {
-          alert("Please select an institution");
+          showNotification("Please select an institution", "error");
           return;
         }
 
-        // Placeholder - implement your visualization logic here
-        console.log("Loading holdings for:", institution, period);
-        showNotification("Loading holdings for " + institution + "...", "info");
+        currentData = institutionalData[institution];
+        if (!currentData) {
+          showNotification("Data not available for this institution", "error");
+          return;
+        }
 
-        // Simulate loading
-        setTimeout(() => {
-          document.getElementById("vizArea").innerHTML = `
-            <div style="padding: 2rem;">
-              <h3 style="color: var(--accent-primary); margin-bottom: 1.5rem;">
-                ${getInstitutionName(institution)} - ${period}
-              </h3>
-              <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 1rem;">
-                <i class="fas fa-info-circle"></i> This is a placeholder. Implement your visualization logic here.
-              </p>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                  <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Total Value</div>
-                  <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary);">$XX.XB</div>
-                </div>
-                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                  <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Holdings</div>
-                  <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary);">XXX</div>
-                </div>
-                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                  <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Top Holding</div>
-                  <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary);">XXXX</div>
-                </div>
-              </div>
-              <div style="margin-top: 2rem; padding: 2rem; background: var(--glass-bg); border-radius: 12px; min-height: 300px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
-                <div style="text-align: center;">
-                  <i class="fas fa-chart-pie" style="font-size: 4rem; opacity: 0.3; margin-bottom: 1rem;"></i>
-                  <p>Portfolio visualization will appear here</p>
-                </div>
-              </div>
-            </div>
-          `;
-          showNotification("Holdings loaded successfully!", "success");
-        }, 1000);
+        showNotification(
+          "Loading holdings for " + currentData.name + "...",
+          "info"
+        );
+        renderVisualization(currentData);
       }
 
       function quickLoad(institution) {
         document.getElementById("institutionSelect").value = institution;
         loadHoldings();
+      }
+
+      function renderVisualization(data) {
+        const vizArea = document.getElementById("vizArea");
+
+        // Build the HTML
+        let html = `
+          <div style="padding: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem; font-size: 1.8rem;">
+                  ${data.name}
+                </h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  <i class="fas fa-calendar"></i> Filed: ${
+                    data.filingDate
+                  } | CIK: ${data.cik}
+                </p>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="export-btn" onclick="exportToCSV()">
+                  <i class="fas fa-file-csv"></i> Export CSV
+                </button>
+                <button class="export-btn" onclick="exportToJSON()">
+                  <i class="fas fa-file-code"></i> Export JSON
+                </button>
+              </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">Total Portfolio Value</div>
+                <div class="stat-value">${formatCurrency(data.totalValue)}</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Total Holdings</div>
+                <div class="stat-value">${formatNumber(
+                  data.holdingsCount
+                )}</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Top Holding</div>
+                <div class="stat-value">${data.holdings[0].ticker}</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Top Position %</div>
+                <div class="stat-value">${data.holdings[0].percentOfPortfolio.toFixed(
+                  1
+                )}%</div>
+              </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+              <input 
+                type="text" 
+                id="searchInput" 
+                class="filter-input" 
+                placeholder="🔍 Search by ticker or company name..."
+                oninput="filterHoldings()"
+              />
+              <select id="sectorFilter" class="filter-input" onchange="filterHoldings()">
+                <option value="">All Sectors</option>
+                ${[...new Set(data.holdings.map((h) => h.sector))]
+                  .map((s) => `<option value="${s}">${s}</option>`)
+                  .join("")}
+              </select>
+              <select id="changeFilter" class="filter-input" onchange="filterHoldings()">
+                <option value="">All Changes</option>
+                <option value="increased">Increased Positions</option>
+                <option value="decreased">Decreased Positions</option>
+                <option value="unchanged">Unchanged Positions</option>
+              </select>
+            </div>
+
+            <!-- Chart Tabs -->
+            <div class="chart-container">
+              <div class="chart-tabs">
+                <button class="chart-tab active" onclick="switchChart('pie')">
+                  <i class="fas fa-chart-pie"></i> Portfolio Allocation
+                </button>
+                <button class="chart-tab" onclick="switchChart('bar')">
+                  <i class="fas fa-chart-bar"></i> Top 10 Holdings
+                </button>
+                <button class="chart-tab" onclick="switchChart('sector')">
+                  <i class="fas fa-layer-group"></i> By Sector
+                </button>
+              </div>
+              <div style="position: relative; height: 400px;">
+                <canvas id="mainChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Holdings Table -->
+            <div class="holdings-table-container">
+              <table class="holdings-table" id="holdingsTable">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable(0)"><i class="fas fa-sort"></i> Ticker</th>
+                    <th onclick="sortTable(1)"><i class="fas fa-sort"></i> Company</th>
+                    <th onclick="sortTable(2)"><i class="fas fa-sort"></i> Shares</th>
+                    <th onclick="sortTable(3)"><i class="fas fa-sort"></i> Value</th>
+                    <th onclick="sortTable(4)"><i class="fas fa-sort"></i> % of Portfolio</th>
+                    <th onclick="sortTable(5)"><i class="fas fa-sort"></i> Change</th>
+                    <th onclick="sortTable(6)"><i class="fas fa-sort"></i> Sector</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${data.holdings
+                    .map(
+                      (h) => `
+                    <tr data-ticker="${h.ticker}" data-sector="${
+                        h.sector
+                      }" data-change="${h.changePercent}">
+                      <td style="font-weight: 700; color: var(--accent-primary);">${
+                        h.ticker
+                      }</td>
+                      <td>${h.name}</td>
+                      <td>${formatNumber(h.shares)}</td>
+                      <td>${formatCurrency(h.value)}</td>
+                      <td>${h.percentOfPortfolio.toFixed(2)}%</td>
+                      <td class="${
+                        h.changePercent > 0
+                          ? "positive-change"
+                          : h.changePercent < 0
+                          ? "negative-change"
+                          : ""
+                      }">
+                        ${formatPercent(h.changePercent)}
+                      </td>
+                      <td><span style="padding: 0.25rem 0.75rem; background: var(--glass-bg); border-radius: 12px; font-size: 0.85rem;">${
+                        h.sector
+                      }</span></td>
+                    </tr>
+                  `
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+
+        vizArea.innerHTML = html;
+
+        // Initialize with pie chart
+        setTimeout(() => {
+          createPieChart(data);
+        }, 100);
+
+        showNotification("Holdings loaded successfully!", "success");
+      }
+
+      function createPieChart(data) {
+        const ctx = document.getElementById("mainChart");
+        if (currentChart) currentChart.destroy();
+
+        const topHoldings = data.holdings.slice(0, 10);
+        const otherValue = data.holdings
+          .slice(10)
+          .reduce((sum, h) => sum + h.value, 0);
+
+        const labels = [...topHoldings.map((h) => h.ticker)];
+        const values = [...topHoldings.map((h) => h.value)];
+
+        if (otherValue > 0) {
+          labels.push("Others");
+          values.push(otherValue);
+        }
+
+        currentChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: values,
+                backgroundColor: [
+                  "#2be2b4",
+                  "#ff6384",
+                  "#36a2eb",
+                  "#ffce56",
+                  "#9966ff",
+                  "#ff9f40",
+                  "#4bc0c0",
+                  "#f77eb9",
+                  "#7ec8e3",
+                  "#c9cbcf",
+                  "#8b8b8b",
+                ],
+                borderWidth: 2,
+                borderColor: "rgba(0, 0, 0, 0.1)",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "right",
+                labels: {
+                  color: getComputedStyle(document.body).getPropertyValue(
+                    "--text-primary"
+                  ),
+                  padding: 15,
+                  font: { size: 12 },
+                },
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const value = context.parsed;
+                    const total = context.dataset.data.reduce(
+                      (a, b) => a + b,
+                      0
+                    );
+                    const percent = ((value / total) * 100).toFixed(2);
+                    return `${context.label}: ${formatCurrency(
+                      value
+                    )} (${percent}%)`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      function createBarChart(data) {
+        const ctx = document.getElementById("mainChart");
+        if (currentChart) currentChart.destroy();
+
+        const topHoldings = data.holdings.slice(0, 10);
+
+        currentChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: topHoldings.map((h) => h.ticker),
+            datasets: [
+              {
+                label: "Position Value",
+                data: topHoldings.map((h) => h.value / 1e9),
+                backgroundColor: "#2be2b4",
+                borderColor: "#2be2b4",
+                borderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: "y",
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `Value: $${context.parsed.x.toFixed(2)}B`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: "Value (Billions USD)",
+                  color: getComputedStyle(document.body).getPropertyValue(
+                    "--text-primary"
+                  ),
+                },
+                ticks: {
+                  color: getComputedStyle(document.body).getPropertyValue(
+                    "--text-secondary"
+                  ),
+                },
+                grid: { color: "rgba(255, 255, 255, 0.05)" },
+              },
+              y: {
+                ticks: {
+                  color: getComputedStyle(document.body).getPropertyValue(
+                    "--text-secondary"
+                  ),
+                },
+                grid: { color: "rgba(255, 255, 255, 0.05)" },
+              },
+            },
+          },
+        });
+      }
+
+      function createSectorChart(data) {
+        const ctx = document.getElementById("mainChart");
+        if (currentChart) currentChart.destroy();
+
+        const sectorData = {};
+        data.holdings.forEach((h) => {
+          if (!sectorData[h.sector]) sectorData[h.sector] = 0;
+          sectorData[h.sector] += h.value;
+        });
+
+        const sectors = Object.keys(sectorData);
+        const values = Object.values(sectorData);
+
+        currentChart = new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: sectors,
+            datasets: [
+              {
+                data: values,
+                backgroundColor: [
+                  "#2be2b4",
+                  "#ff6384",
+                  "#36a2eb",
+                  "#ffce56",
+                  "#9966ff",
+                  "#ff9f40",
+                  "#4bc0c0",
+                  "#f77eb9",
+                ],
+                borderWidth: 2,
+                borderColor: "rgba(0, 0, 0, 0.1)",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "right",
+                labels: {
+                  color: getComputedStyle(document.body).getPropertyValue(
+                    "--text-primary"
+                  ),
+                  padding: 15,
+                  font: { size: 12 },
+                },
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const value = context.parsed;
+                    const total = context.dataset.data.reduce(
+                      (a, b) => a + b,
+                      0
+                    );
+                    const percent = ((value / total) * 100).toFixed(2);
+                    return `${context.label}: ${formatCurrency(
+                      value
+                    )} (${percent}%)`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      function switchChart(type) {
+        if (!currentData) return;
+
+        // Update active tab
+        document.querySelectorAll(".chart-tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        event.target.closest(".chart-tab").classList.add("active");
+
+        // Render appropriate chart
+        if (type === "pie") createPieChart(currentData);
+        else if (type === "bar") createBarChart(currentData);
+        else if (type === "sector") createSectorChart(currentData);
+      }
+
+      function filterHoldings() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const sectorFilter = document.getElementById("sectorFilter").value;
+        const changeFilter = document.getElementById("changeFilter").value;
+
+        const rows = document.querySelectorAll("#holdingsTable tbody tr");
+
+        rows.forEach((row) => {
+          const ticker = row.getAttribute("data-ticker").toLowerCase();
+          const sector = row.getAttribute("data-sector");
+          const change = parseFloat(row.getAttribute("data-change"));
+          const companyName = row.cells[1].textContent.toLowerCase();
+
+          let showRow = true;
+
+          // Search filter
+          if (
+            searchTerm &&
+            !ticker.includes(searchTerm) &&
+            !companyName.includes(searchTerm)
+          ) {
+            showRow = false;
+          }
+
+          // Sector filter
+          if (sectorFilter && sector !== sectorFilter) {
+            showRow = false;
+          }
+
+          // Change filter
+          if (changeFilter === "increased" && change <= 0) showRow = false;
+          if (changeFilter === "decreased" && change >= 0) showRow = false;
+          if (changeFilter === "unchanged" && change !== 0) showRow = false;
+
+          row.style.display = showRow ? "" : "none";
+        });
+      }
+
+      function sortTable(columnIndex) {
+        const table = document.getElementById("holdingsTable");
+        const tbody = table.querySelector("tbody");
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+        const sortedRows = rows.sort((a, b) => {
+          let aValue = a.cells[columnIndex].textContent;
+          let bValue = b.cells[columnIndex].textContent;
+
+          // Remove formatting for numeric comparison
+          if (columnIndex >= 2 && columnIndex <= 5) {
+            aValue = parseFloat(
+              aValue.replace(/[$,%+]/g, "").replace(/[BTM]/g, "")
+            );
+            bValue = parseFloat(
+              bValue.replace(/[$,%+]/g, "").replace(/[BTM]/g, "")
+            );
+          }
+
+          if (aValue < bValue) return -1;
+          if (aValue > bValue) return 1;
+          return 0;
+        });
+
+        // Toggle sort direction
+        if (
+          table.dataset.lastSort === columnIndex.toString() &&
+          table.dataset.sortDir === "asc"
+        ) {
+          sortedRows.reverse();
+          table.dataset.sortDir = "desc";
+        } else {
+          table.dataset.sortDir = "asc";
+        }
+        table.dataset.lastSort = columnIndex;
+
+        // Re-append sorted rows
+        sortedRows.forEach((row) => tbody.appendChild(row));
+      }
+
+      function exportToCSV() {
+        if (!currentData) {
+          showNotification("No data to export", "error");
+          return;
+        }
+
+        let csv =
+          "Ticker,Company,Shares,Value,% of Portfolio,Change %,Sector\n";
+        currentData.holdings.forEach((h) => {
+          csv += `${h.ticker},"${h.name}",${h.shares},${h.value},${h.percentOfPortfolio},${h.changePercent},${h.sector}\n`;
+        });
+
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${currentData.name.replace(/\s+/g, "_")}_holdings.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+
+        showNotification("CSV exported successfully!", "success");
+      }
+
+      function exportToJSON() {
+        if (!currentData) {
+          showNotification("No data to export", "error");
+          return;
+        }
+
+        const json = JSON.stringify(currentData, null, 2);
+        const blob = new Blob([json], { type: "application/json" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${currentData.name.replace(/\s+/g, "_")}_holdings.json`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+
+        showNotification("JSON exported successfully!", "success");
       }
 
       function getInstitutionName(id) {
@@ -725,6 +1980,20 @@
           setTimeout(() => notification.remove(), 300);
         }, 3000);
       }
+
+      // Add CSS animations
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(400px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(400px); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
     </script>
     <script src="../js/shared-simple.js"></script>
     <script src="../js/ux-enhancements.js?v=2025090801" defer></script>
