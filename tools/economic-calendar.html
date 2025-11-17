@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Economic Calendar | Market Events & Earnings | IO Innovate</title>
+
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Track important economic events, earnings releases, and market-moving announcements. Stay informed with our comprehensive economic calendar."
+    />
+    <meta name="author" content="IO Innovate" />
+    <meta
+      name="keywords"
+      content="economic calendar, earnings calendar, market events, FOMC, CPI, NFP, economic indicators, financial calendar"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+    <link
+      rel="canonical"
+      href="https://iowebtools.com/tools/economic-calendar.html"
+    />
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Economic Calendar",
+        "description": "Track important economic events, earnings releases, and market-moving announcements.",
+        "url": "https://iowebtools.com/tools/economic-calendar.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Economic Events",
+          "Earnings Calendar",
+          "Central Bank Decisions",
+          "Market Indicators"
+        ]
+      }
+    </script>
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Economic Calendar | Market Events & Earnings"
+    />
+    <meta
+      property="og:description"
+      content="Track important economic events, earnings releases, and market-moving announcements."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/tools/economic-calendar.html"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/shared-clean.css" />
+    <link rel="stylesheet" href="../css/enhancements.css?v=2025090801" />
+    <link rel="stylesheet" href="../css/ads.css" />
+    <script src="../js/theme-init.js"></script>
+
+    <style>
+      /* Page Container */
+      .page-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem 3rem;
+        position: relative;
+        background: radial-gradient(
+          circle at center,
+          rgba(43, 226, 180, 0.08) 0%,
+          transparent 60%
+        );
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        color: var(--accent-primary);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(43, 226, 180, 0.1);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary),
+          var(--accent-tertiary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Main Tool Card */
+      .tool-card {
+        background: var(--bg-card);
+        border: 2px solid var(--accent-primary);
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(43, 226, 180, 0.15);
+      }
+
+      /* Feature Grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature-card {
+        background: var(--glass-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.15);
+      }
+
+      .feature-icon {
+        color: var(--accent-primary);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .feature-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+
+      .feature-description {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Calendar Navigation */
+      .calendar-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: var(--glass-bg);
+        border-radius: 12px;
+      }
+
+      .nav-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .nav-btn:hover {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.1);
+      }
+
+      .current-period {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      /* Filter Tabs */
+      .filter-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-tab {
+        padding: 0.75rem 1.5rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .filter-tab:hover,
+      .filter-tab.active {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.1);
+        color: var(--accent-primary);
+      }
+
+      /* Event Item */
+      .event-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        background: var(--glass-bg);
+        border-left: 4px solid var(--accent-primary);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .event-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 4px 15px rgba(43, 226, 180, 0.15);
+      }
+
+      .event-info {
+        flex: 1;
+      }
+
+      .event-title {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .event-description {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .event-meta {
+        text-align: right;
+      }
+
+      .event-time {
+        font-weight: 600;
+        color: var(--accent-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .event-date {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+
+      .event-badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+
+      .badge-high {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+      }
+
+      .badge-medium {
+        background: rgba(245, 158, 11, 0.2);
+        color: #f59e0b;
+      }
+
+      .badge-low {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+      }
+
+      @media (max-width: 768px) {
+        .page-container {
+          padding: 1rem;
+        }
+
+        .tool-card {
+          padding: 1.5rem;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .event-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .event-meta {
+          text-align: left;
+          margin-top: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .calendar-nav {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Innovate</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-badge">
+          <i class="fas fa-calendar-day"></i>
+          Market Events & Indicators
+        </div>
+        <h1>Economic Calendar</h1>
+        <p class="hero-description">
+          Track important economic events, earnings releases, Federal Reserve
+          meetings, and market-moving announcements. Never miss a key market
+          event with our comprehensive economic calendar.
+        </p>
+      </section>
+
+      <!-- Main Tool Section -->
+      <div class="page-container">
+        <!-- Features Grid -->
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-flag-usa feature-icon"></i>
+            <h3 class="feature-title">Economic Indicators</h3>
+            <p class="feature-description">
+              Track CPI, NFP, GDP, and other key economic data releases
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-line feature-icon"></i>
+            <h3 class="feature-title">Earnings Calendar</h3>
+            <p class="feature-description">
+              Monitor earnings reports from major companies and market leaders
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-landmark feature-icon"></i>
+            <h3 class="feature-title">Central Banks</h3>
+            <p class="feature-description">
+              FOMC meetings, interest rate decisions, and policy announcements
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-bell feature-icon"></i>
+            <h3 class="feature-title">Real-Time Alerts</h3>
+            <p class="feature-description">
+              Get notified about upcoming events and market-moving announcements
+            </p>
+          </div>
+        </div>
+
+        <!-- Main Tool Card -->
+        <div class="tool-card">
+          <!-- Calendar Navigation -->
+          <div class="calendar-nav">
+            <button class="nav-btn" onclick="changeWeek(-1)">
+              <i class="fas fa-chevron-left"></i> Previous Week
+            </button>
+            <div class="current-period" id="currentPeriod">
+              November 17-23, 2025
+            </div>
+            <button class="nav-btn" onclick="changeWeek(1)">
+              Next Week <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterEvents('all')">
+              All Events
+            </button>
+            <button class="filter-tab" onclick="filterEvents('economic')">
+              Economic Data
+            </button>
+            <button class="filter-tab" onclick="filterEvents('earnings')">
+              Earnings
+            </button>
+            <button class="filter-tab" onclick="filterEvents('central-bank')">
+              Central Banks
+            </button>
+            <button class="filter-tab" onclick="filterEvents('high-impact')">
+              High Impact Only
+            </button>
+          </div>
+
+          <!-- Events List -->
+          <div id="eventsContainer">
+            <!-- Sample Events - Replace with dynamic content -->
+            <div class="event-item" style="border-left-color: #ea3943">
+              <div class="event-info">
+                <div class="event-title">
+                  <i
+                    class="fas fa-flag-usa"
+                    style="color: #ea3943; margin-right: 0.5rem"
+                  ></i>
+                  FOMC Interest Rate Decision
+                </div>
+                <div class="event-description">
+                  Federal Reserve announces monetary policy decision and
+                  interest rate changes
+                </div>
+                <span class="event-badge badge-high">HIGH IMPACT</span>
+              </div>
+              <div class="event-meta">
+                <div class="event-time">2:00 PM EST</div>
+                <div class="event-date">Today</div>
+              </div>
+            </div>
+
+            <div class="event-item" style="border-left-color: #f59e0b">
+              <div class="event-info">
+                <div class="event-title">
+                  <i
+                    class="fas fa-chart-line"
+                    style="color: #f59e0b; margin-right: 0.5rem"
+                  ></i>
+                  Apple Inc. (AAPL) Earnings
+                </div>
+                <div class="event-description">
+                  Q4 2024 earnings report and conference call
+                </div>
+                <span class="event-badge badge-medium">MEDIUM IMPACT</span>
+              </div>
+              <div class="event-meta">
+                <div class="event-time">After Close</div>
+                <div class="event-date">Tomorrow</div>
+              </div>
+            </div>
+
+            <div class="event-item" style="border-left-color: #2be2b4">
+              <div class="event-info">
+                <div class="event-title">
+                  <i
+                    class="fas fa-briefcase"
+                    style="color: #2be2b4; margin-right: 0.5rem"
+                  ></i>
+                  US Non-Farm Payrolls (NFP)
+                </div>
+                <div class="event-description">
+                  Monthly employment report showing job creation and
+                  unemployment rate
+                </div>
+                <span class="event-badge badge-high">HIGH IMPACT</span>
+              </div>
+              <div class="event-meta">
+                <div class="event-time">8:30 AM EST</div>
+                <div class="event-date">Friday, Nov 22</div>
+              </div>
+            </div>
+
+            <div class="event-item" style="border-left-color: #8b5cf6">
+              <div class="event-info">
+                <div class="event-title">
+                  <i
+                    class="fas fa-percentage"
+                    style="color: #8b5cf6; margin-right: 0.5rem"
+                  ></i>
+                  Consumer Price Index (CPI)
+                </div>
+                <div class="event-description">
+                  Inflation data for October 2024
+                </div>
+                <span class="event-badge badge-high">HIGH IMPACT</span>
+              </div>
+              <div class="event-meta">
+                <div class="event-time">8:30 AM EST</div>
+                <div class="event-date">Next Week</div>
+              </div>
+            </div>
+
+            <div class="event-item" style="border-left-color: #22c55e">
+              <div class="event-info">
+                <div class="event-title">
+                  <i
+                    class="fas fa-chart-bar"
+                    style="color: #22c55e; margin-right: 0.5rem"
+                  ></i>
+                  Retail Sales Data
+                </div>
+                <div class="event-description">
+                  Monthly retail sales figures indicating consumer spending
+                  trends
+                </div>
+                <span class="event-badge badge-medium">MEDIUM IMPACT</span>
+              </div>
+              <div class="event-meta">
+                <div class="event-time">8:30 AM EST</div>
+                <div class="event-date">Nov 20</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Information Section -->
+        <div
+          style="
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+          "
+        >
+          <h3
+            style="
+              color: var(--accent-primary);
+              font-size: 1.5rem;
+              margin-bottom: 1.5rem;
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+            "
+          >
+            <i class="fas fa-info-circle"></i> Key Economic Indicators
+          </h3>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 2rem;
+            "
+          >
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-chart-line"
+                  style="color: var(--accent-primary); margin-right: 0.5rem"
+                ></i>
+                High Impact Events
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.9rem;
+                "
+              >
+                FOMC meetings, NFP, CPI, GDP - these events typically cause
+                significant market volatility and should be monitored closely by
+                all traders and investors.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-building"
+                  style="color: var(--accent-primary); margin-right: 0.5rem"
+                ></i>
+                Earnings Season
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.9rem;
+                "
+              >
+                Quarterly earnings reports from major companies can drive
+                individual stock and sector movements. Pay attention to guidance
+                and forward-looking statements.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-clock"
+                  style="color: var(--accent-primary); margin-right: 0.5rem"
+                ></i>
+                Time Zones Matter
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.9rem;
+                "
+              >
+                Economic data releases follow strict schedules. US data
+                typically releases at 8:30 AM EST. European data varies. Plan
+                your trading around these times.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        &copy; 2025 IO Innovate. All rights reserved.
+        <a href="/secret" class="secret-link">🔒</a>
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      let currentWeek = 0;
+
+      function changeWeek(direction) {
+        currentWeek += direction;
+        updateCalendar();
+        showNotification(
+          direction > 0 ? "Loading next week..." : "Loading previous week...",
+          "info"
+        );
+      }
+
+      function updateCalendar() {
+        // Placeholder - implement your calendar update logic here
+        console.log("Updating calendar to week:", currentWeek);
+
+        // Update period display
+        const periodElement = document.getElementById("currentPeriod");
+        if (currentWeek === 0) {
+          periodElement.textContent = "November 17-23, 2025";
+        } else if (currentWeek > 0) {
+          periodElement.textContent = `Week +${currentWeek}`;
+        } else {
+          periodElement.textContent = `Week ${currentWeek}`;
+        }
+      }
+
+      function filterEvents(filter) {
+        // Remove active class from all tabs
+        document.querySelectorAll(".filter-tab").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Add active class to clicked tab
+        event.target.classList.add("active");
+
+        // Placeholder - implement your filtering logic here
+        console.log("Filtering events by:", filter);
+        showNotification("Filtering events: " + filter, "info");
+      }
+
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 1rem 1.5rem;
+          background: ${
+            type === "success"
+              ? "#16c784"
+              : type === "error"
+              ? "#ea3943"
+              : "#2be2b4"
+          };
+          color: white;
+          border-radius: 8px;
+          font-weight: 600;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 10000;
+          animation: slideIn 0.3s ease-out;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.animation = "slideOut 0.3s ease-out";
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+    </script>
+    <script src="../js/shared-simple.js"></script>
+    <script src="../js/ux-enhancements.js?v=2025090801" defer></script>
+  </body>
+</html>

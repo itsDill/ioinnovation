@@ -1383,158 +1383,131 @@
             </div>
           </div>
 
-          <!-- Tool Interface -->
+          <!-- Tool Preview - Links to Full Tool -->
           <div class="tool-interface" id="tenKTool">
-            <div class="form-group">
-              <label class="form-label">
-                <i class="fas fa-search"></i> Enter Company Ticker or Name
-              </label>
+            <div style="text-align: center; padding: 3rem 2rem">
+              <div style="margin-bottom: 2rem">
+                <i
+                  class="fas fa-file-invoice-dollar"
+                  style="
+                    font-size: 4rem;
+                    color: var(--accent-primary);
+                    margin-bottom: 1rem;
+                    display: block;
+                  "
+                ></i>
+                <h3
+                  style="
+                    font-size: 1.8rem;
+                    color: var(--text-primary);
+                    margin-bottom: 1rem;
+                    font-weight: 700;
+                  "
+                >
+                  Ready to Analyze 10K Filings?
+                </h3>
+                <p
+                  style="
+                    font-size: 1.1rem;
+                    color: var(--text-secondary);
+                    max-width: 600px;
+                    margin: 0 auto 2rem;
+                    line-height: 1.7;
+                  "
+                >
+                  Access the full-featured 10K analyzer with advanced AI-powered
+                  summaries, financial metrics extraction, risk analysis, and
+                  more.
+                </p>
+              </div>
+
+              <a
+                href="/tools/10k-summary.html"
+                class="btn-action"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.75rem;
+                  padding: 1.2rem 3rem;
+                  font-size: 1.2rem;
+                  text-decoration: none;
+                  margin-bottom: 2rem;
+                "
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Open Full Tool
+              </a>
+
               <div
                 style="
                   display: grid;
-                  grid-template-columns: 1fr auto;
-                  gap: 0.5rem;
-                "
-              >
-                <input
-                  type="text"
-                  id="companyTicker"
-                  class="form-input"
-                  placeholder="e.g., AAPL, TSLA, MSFT, or company name..."
-                  style="font-size: 1rem"
-                />
-                <button
-                  class="btn-action"
-                  onclick="search10K()"
-                  style="padding: 0.75rem 2rem; white-space: nowrap"
-                >
-                  <i class="fas fa-search"></i> Search
-                </button>
-              </div>
-            </div>
-
-            <div id="tenKResults" style="display: none; margin-top: 1.5rem">
-              <div
-                style="
-                  background: var(--bg-card);
-                  border: 1px solid var(--border-color);
-                  border-radius: 12px;
-                  padding: 1.5rem;
-                "
-              >
-                <h4
-                  style="
-                    color: var(--accent-primary);
-                    font-size: 1.2rem;
-                    margin-bottom: 1rem;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                  "
-                >
-                  <i class="fas fa-file-alt"></i> Available Reports
-                </h4>
-                <div id="reportsList"></div>
-              </div>
-            </div>
-
-            <div id="tenKSummary" style="display: none; margin-top: 1.5rem">
-              <div
-                style="
-                  background: var(--bg-card);
-                  border: 1px solid var(--accent-primary);
-                  border-radius: 12px;
-                  padding: 2rem;
+                  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                  gap: 1rem;
+                  margin-top: 2rem;
+                  text-align: left;
                 "
               >
                 <div
                   style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: start;
-                    margin-bottom: 1.5rem;
+                    padding: 1rem;
+                    background: var(--glass-bg);
+                    border-radius: 8px;
                   "
                 >
-                  <h4
-                    style="
-                      color: var(--accent-primary);
-                      font-size: 1.4rem;
-                      margin: 0;
-                    "
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="color: var(--text-secondary); font-size: 0.9rem"
+                    >Quick Search Interface</span
                   >
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <span id="summaryCompany"></span>
-                  </h4>
                 </div>
-
                 <div
-                  id="summaryContent"
-                  style="line-height: 1.8; color: var(--text-primary)"
-                ></div>
+                  style="
+                    padding: 1rem;
+                    background: var(--glass-bg);
+                    border-radius: 8px;
+                  "
+                >
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="color: var(--text-secondary); font-size: 0.9rem"
+                    >Sample Data Examples</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 1rem;
+                    background: var(--glass-bg);
+                    border-radius: 8px;
+                  "
+                >
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="color: var(--text-secondary); font-size: 0.9rem"
+                    >Popular Companies</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 1rem;
+                    background: var(--glass-bg);
+                    border-radius: 8px;
+                  "
+                >
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="color: var(--text-secondary); font-size: 0.9rem"
+                    >Export & Share Results</span
+                  >
+                </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Example Companies -->
-          <div
-            style="
-              margin-top: 1.5rem;
-              padding-top: 1.5rem;
-              border-top: 1px solid var(--border-color);
-            "
-          >
-            <p
-              style="
-                font-size: 0.9rem;
-                color: var(--text-secondary);
-                margin-bottom: 0.75rem;
-              "
-            >
-              <i class="fas fa-star"></i> Try these popular companies:
-            </p>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
-              <button
-                onclick="quickSearch('AAPL')"
-                class="btn-secondary"
-                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
-              >
-                Apple (AAPL)
-              </button>
-              <button
-                onclick="quickSearch('TSLA')"
-                class="btn-secondary"
-                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
-              >
-                Tesla (TSLA)
-              </button>
-              <button
-                onclick="quickSearch('MSFT')"
-                class="btn-secondary"
-                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
-              >
-                Microsoft (MSFT)
-              </button>
-              <button
-                onclick="quickSearch('GOOGL')"
-                class="btn-secondary"
-                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
-              >
-                Google (GOOGL)
-              </button>
-              <button
-                onclick="quickSearch('AMZN')"
-                class="btn-secondary"
-                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
-              >
-                Amazon (AMZN)
-              </button>
-              <button
-                onclick="quickSearch('NVDA')"
-                class="btn-secondary"
-                style="padding: 0.4rem 0.9rem; font-size: 0.85rem"
-              >
-                NVIDIA (NVDA)
-              </button>
             </div>
           </div>
 

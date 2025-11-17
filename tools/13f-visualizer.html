@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13F Visualizer | Track Institutional Holdings | IO Innovate</title>
+
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Visualize institutional investor holdings and track what major funds are buying or selling. Interactive 13F filings analysis tool."
+    />
+    <meta name="author" content="IO Innovate" />
+    <meta
+      name="keywords"
+      content="13F filings, institutional holdings, hedge fund tracker, investment analysis, SEC filings, portfolio holdings"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+    <link
+      rel="canonical"
+      href="https://iowebtools.com/tools/13f-visualizer.html"
+    />
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "13F Visualizer",
+        "description": "Visualize institutional investor holdings and track major fund positions.",
+        "url": "https://iowebtools.com/tools/13f-visualizer.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Portfolio Visualization",
+          "Holdings Tracking",
+          "Institutional Analysis",
+          "Position Changes"
+        ]
+      }
+    </script>
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="13F Visualizer | Track Institutional Holdings"
+    />
+    <meta
+      property="og:description"
+      content="Visualize institutional investor holdings and track what major funds are buying or selling."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/tools/13f-visualizer.html"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/shared-clean.css" />
+    <link rel="stylesheet" href="../css/enhancements.css?v=2025090801" />
+    <link rel="stylesheet" href="../css/ads.css" />
+    <script src="../js/theme-init.js"></script>
+
+    <style>
+      /* Page Container */
+      .page-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem 3rem;
+        position: relative;
+        background: radial-gradient(
+          circle at center,
+          rgba(43, 226, 180, 0.08) 0%,
+          transparent 60%
+        );
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        color: var(--accent-primary);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(43, 226, 180, 0.1);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary),
+          var(--accent-tertiary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Main Tool Card */
+      .tool-card {
+        background: var(--bg-card);
+        border: 2px solid var(--accent-primary);
+        border-radius: 20px;
+        padding: 3rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 10px 40px rgba(43, 226, 180, 0.15);
+      }
+
+      .tool-interface {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+      }
+
+      .form-input,
+      .form-select {
+        width: 100%;
+        padding: 1rem;
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 1.1rem;
+        transition: all var(--transition-normal);
+      }
+
+      .form-input:focus,
+      .form-select:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
+      }
+
+      .btn-action {
+        padding: 1rem 2.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: all var(--transition-normal);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.3);
+      }
+
+      /* Feature Grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature-card {
+        background: var(--glass-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.15);
+      }
+
+      .feature-icon {
+        color: var(--accent-primary);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .feature-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+
+      .feature-description {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Visualization Area */
+      .viz-container {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-top: 2rem;
+        min-height: 400px;
+      }
+
+      .viz-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 350px;
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      .viz-placeholder i {
+        font-size: 5rem;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+        opacity: 0.5;
+      }
+
+      /* Quick Access Buttons */
+      .quick-access {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      .quick-btn {
+        padding: 0.6rem 1.2rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        color: var(--text-primary);
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .quick-btn:hover {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.1);
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .page-container {
+          padding: 1rem;
+        }
+
+        .tool-card {
+          padding: 1.5rem;
+        }
+
+        .tool-interface {
+          padding: 1.5rem;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-theme="dark">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Innovate</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-badge">
+          <i class="fas fa-chart-network"></i>
+          Institutional Holdings Tracker
+        </div>
+        <h1>13F Visualizer</h1>
+        <p class="hero-description">
+          Visualize institutional investor holdings and track what major hedge
+          funds and investment firms are buying or selling. Analyze portfolio
+          changes, position sizes, and investment trends from SEC 13F filings.
+        </p>
+      </section>
+
+      <!-- Main Tool Section -->
+      <div class="page-container">
+        <!-- Features Grid -->
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-chart-pie feature-icon"></i>
+            <h3 class="feature-title">Portfolio Visualization</h3>
+            <p class="feature-description">
+              Interactive treemap and charts showing institutional portfolio
+              allocations
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-exchange-alt feature-icon"></i>
+            <h3 class="feature-title">Position Changes</h3>
+            <p class="feature-description">
+              Track quarter-over-quarter changes in holdings and new positions
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-building feature-icon"></i>
+            <h3 class="feature-title">Top Institutions</h3>
+            <p class="feature-description">
+              Browse holdings from major funds like Berkshire, Bridgewater, and
+              more
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-search-dollar feature-icon"></i>
+            <h3 class="feature-title">Deep Analysis</h3>
+            <p class="feature-description">
+              Compare holdings, identify trends, and discover investment
+              insights
+            </p>
+          </div>
+        </div>
+
+        <!-- Main Tool Card -->
+        <div class="tool-card">
+          <div class="tool-interface">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-building"></i> Select Institution or Fund
+              </label>
+              <select id="institutionSelect" class="form-select">
+                <option value="">Choose an institution...</option>
+                <option value="berkshire">
+                  Berkshire Hathaway (Warren Buffett)
+                </option>
+                <option value="bridgewater">Bridgewater Associates</option>
+                <option value="vanguard">Vanguard Group</option>
+                <option value="blackrock">BlackRock</option>
+                <option value="ark">ARK Investment Management</option>
+                <option value="renaissance">Renaissance Technologies</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-calendar-alt"></i> Filing Period
+              </label>
+              <select id="periodSelect" class="form-select">
+                <option value="2024q3">Q3 2024</option>
+                <option value="2024q2">Q2 2024</option>
+                <option value="2024q1">Q1 2024</option>
+                <option value="2023q4">Q4 2023</option>
+              </select>
+            </div>
+
+            <button class="btn-action" onclick="loadHoldings()">
+              <i class="fas fa-chart-network"></i> Load Holdings
+            </button>
+
+            <!-- Quick Access -->
+            <div style="margin-top: 1.5rem">
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--text-secondary);
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i class="fas fa-star"></i> Popular institutions:
+              </p>
+              <div class="quick-access">
+                <button onclick="quickLoad('berkshire')" class="quick-btn">
+                  Berkshire Hathaway
+                </button>
+                <button onclick="quickLoad('bridgewater')" class="quick-btn">
+                  Bridgewater
+                </button>
+                <button onclick="quickLoad('vanguard')" class="quick-btn">
+                  Vanguard
+                </button>
+                <button onclick="quickLoad('ark')" class="quick-btn">
+                  ARK Invest
+                </button>
+                <button onclick="quickLoad('blackrock')" class="quick-btn">
+                  BlackRock
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visualization Area -->
+          <div class="viz-container" id="vizArea">
+            <div class="viz-placeholder">
+              <i class="fas fa-chart-network"></i>
+              <h3 style="margin-bottom: 0.5rem; color: var(--text-primary)">
+                Select an institution to visualize holdings
+              </h3>
+              <p style="max-width: 500px">
+                Choose an institution and filing period above to see an
+                interactive visualization of their portfolio holdings, top
+                positions, and recent changes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Information Section -->
+        <div
+          style="
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+          "
+        >
+          <h3
+            style="
+              color: var(--accent-primary);
+              font-size: 1.5rem;
+              margin-bottom: 1.5rem;
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+            "
+          >
+            <i class="fas fa-question-circle"></i> About 13F Filings
+          </h3>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 2rem;
+            "
+          >
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-file-contract"
+                  style="color: var(--accent-primary); margin-right: 0.5rem"
+                ></i>
+                What is a 13F?
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.95rem;
+                "
+              >
+                A 13F is a quarterly report filed with the SEC by institutional
+                investment managers with over $100 million in assets under
+                management, disclosing their equity holdings.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-users"
+                  style="color: var(--accent-primary); margin-right: 0.5rem"
+                ></i>
+                Who Files?
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.95rem;
+                "
+              >
+                Major hedge funds, pension funds, asset managers, and
+                institutional investors. Following these "smart money" moves can
+                provide valuable investment insights and trend identification.
+              </p>
+            </div>
+            <div>
+              <h4
+                style="
+                  color: var(--text-primary);
+                  font-size: 1.1rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                <i
+                  class="fas fa-lightbulb"
+                  style="color: var(--accent-primary); margin-right: 0.5rem"
+                ></i>
+                Why It Matters
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  line-height: 1.7;
+                  font-size: 0.95rem;
+                "
+              >
+                Track what the world's most successful investors are buying and
+                selling. Identify emerging trends, sector rotations, and
+                high-conviction positions from industry leaders.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        &copy; 2025 IO Innovate. All rights reserved.
+        <a href="/secret" class="secret-link">🔒</a>
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Placeholder functions for the tool
+      function loadHoldings() {
+        const institution = document.getElementById("institutionSelect").value;
+        const period = document.getElementById("periodSelect").value;
+
+        if (!institution) {
+          alert("Please select an institution");
+          return;
+        }
+
+        // Placeholder - implement your visualization logic here
+        console.log("Loading holdings for:", institution, period);
+        showNotification("Loading holdings for " + institution + "...", "info");
+
+        // Simulate loading
+        setTimeout(() => {
+          document.getElementById("vizArea").innerHTML = `
+            <div style="padding: 2rem;">
+              <h3 style="color: var(--accent-primary); margin-bottom: 1.5rem;">
+                ${getInstitutionName(institution)} - ${period}
+              </h3>
+              <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 1rem;">
+                <i class="fas fa-info-circle"></i> This is a placeholder. Implement your visualization logic here.
+              </p>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Total Value</div>
+                  <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary);">$XX.XB</div>
+                </div>
+                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Holdings</div>
+                  <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary);">XXX</div>
+                </div>
+                <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Top Holding</div>
+                  <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary);">XXXX</div>
+                </div>
+              </div>
+              <div style="margin-top: 2rem; padding: 2rem; background: var(--glass-bg); border-radius: 12px; min-height: 300px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+                <div style="text-align: center;">
+                  <i class="fas fa-chart-pie" style="font-size: 4rem; opacity: 0.3; margin-bottom: 1rem;"></i>
+                  <p>Portfolio visualization will appear here</p>
+                </div>
+              </div>
+            </div>
+          `;
+          showNotification("Holdings loaded successfully!", "success");
+        }, 1000);
+      }
+
+      function quickLoad(institution) {
+        document.getElementById("institutionSelect").value = institution;
+        loadHoldings();
+      }
+
+      function getInstitutionName(id) {
+        const names = {
+          berkshire: "Berkshire Hathaway",
+          bridgewater: "Bridgewater Associates",
+          vanguard: "Vanguard Group",
+          blackrock: "BlackRock",
+          ark: "ARK Investment Management",
+          renaissance: "Renaissance Technologies",
+        };
+        return names[id] || id;
+      }
+
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 1rem 1.5rem;
+          background: ${
+            type === "success"
+              ? "#16c784"
+              : type === "error"
+              ? "#ea3943"
+              : "#2be2b4"
+          };
+          color: white;
+          border-radius: 8px;
+          font-weight: 600;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 10000;
+          animation: slideIn 0.3s ease-out;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.animation = "slideOut 0.3s ease-out";
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+    </script>
+    <script src="../js/shared-simple.js"></script>
+    <script src="../js/ux-enhancements.js?v=2025090801" defer></script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Financial Visualization Tools | 13F Tracker, Market Heatmap, Economic
+      Financial Visualization Tools | 13F Tracker, 10K Analyzer, Economic
       Calendar | IO Innovate
     </title>
 
@@ -17,11 +17,11 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="Professional financial visualization tools - Track 13F filings, analyze market heatmaps, and view economic calendar. Free tools for traders and investors."
+      content="Professional financial visualization tools - Track 13F filings, analyze 10K reports, and view economic calendar. Free tools for traders and investors."
     />
     <meta
       name="keywords"
-      content="13F tracker, market heatmap, economic calendar, financial tools, stock market analysis, investment tools, trading tools, 13F visualizer"
+      content="13F tracker, 10K analyzer, economic calendar, financial tools, stock market analysis, investment tools, trading tools, 13F visualizer, SEC filings"
     />
     <meta name="author" content="IO Innovate" />
     <meta
@@ -37,14 +37,14 @@
         "@type": "WebApplication",
         "name": "IO Innovate - Financial Visualization Suite",
         "url": "https://iowebtools.com/tools.html",
-        "description": "Professional financial visualization tools including 13F tracker, market heatmap, and economic calendar.",
+        "description": "Professional financial visualization tools including 13F tracker, 10K analyzer, and economic calendar.",
         "applicationCategory": "FinanceApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
         },
-        "featureList": ["13F Visualizer", "Market Heatmap", "Economic Calendar"]
+        "featureList": ["13F Visualizer", "10K Analyzer", "Economic Calendar"]
       }
     </script>
 
@@ -57,7 +57,7 @@
     />
     <meta
       property="og:description"
-      content="Free professional financial tools - 13F tracker, market heatmap, economic calendar, and more."
+      content="Free professional financial tools - 13F tracker, 10K analyzer, economic calendar, and more."
     />
     <meta
       property="og:image"
@@ -826,419 +826,168 @@
             </div>
           </div>
 
-          <button class="tool-action" onclick="load13FData(event)">
-            <span class="fas fa-search-dollar"></span>
-            Load Filings
-          </button>
+          <a
+            href="/tools/13f-visualizer.html"
+            class="tool-action"
+            style="text-decoration: none"
+          >
+            <span class="fas fa-external-link-alt"></span>
+            Open 13F Visualizer
+          </a>
         </div>
 
-        <!-- Market Heatmap -->
+        <!-- 10K Summary Tool -->
         <div class="tool-card">
           <div class="tool-icon">
-            <i class="fas fa-th"></i>
+            <i class="fas fa-file-invoice-dollar"></i>
           </div>
-          <h3 class="tool-title">Market Heatmap</h3>
+          <h3 class="tool-title">10K Summary Analyzer</h3>
           <p class="tool-description">
-            Real-time market performance heatmap showing sector and stock
-            movements at a glance.
+            AI-powered analysis of SEC 10-K filings. Get instant summaries,
+            financial metrics, and risk insights from annual reports.
           </p>
 
           <div class="tool-content">
-            <svg
-              id="heatmap"
-              width="100%"
-              height="280"
-              viewBox="0 0 400 280"
-              style="background: var(--glass-bg); border-radius: 8px"
-            >
-              <!-- Market Heatmap Grid -->
-              <g class="heatmap-grid">
-                <!-- Tech Sector -->
-                <rect
-                  x="10"
-                  y="10"
-                  width="85"
-                  height="60"
-                  fill="#16c784"
-                  rx="3"
-                />
-                <text
-                  x="52"
-                  y="35"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                  font-weight="600"
+            <div style="padding: 2rem; text-align: center">
+              <div style="margin-bottom: 1.5rem">
+                <i
+                  class="fas fa-brain"
+                  style="
+                    font-size: 3rem;
+                    color: var(--accent-primary);
+                    margin-bottom: 1rem;
+                    display: block;
+                  "
+                ></i>
+                <h4
+                  style="
+                    color: var(--text-primary);
+                    font-size: 1.2rem;
+                    margin-bottom: 0.75rem;
+                  "
                 >
-                  TECH
-                </text>
-                <text
-                  x="52"
-                  y="50"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
+                  Analyze Any Public Company
+                </h4>
+                <p
+                  style="
+                    color: var(--text-secondary);
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                  "
                 >
-                  +2.4%
-                </text>
+                  Extract key insights from complex financial documents in
+                  seconds
+                </p>
+              </div>
 
-                <!-- Finance -->
-                <rect
-                  x="105"
-                  y="10"
-                  width="85"
-                  height="60"
-                  fill="#2be2b4"
-                  rx="3"
-                />
-                <text
-                  x="147"
-                  y="35"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                  font-weight="600"
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 1rem;
+                  margin-bottom: 1.5rem;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    padding: 0.75rem;
+                    background: var(--glass-bg);
+                    border-radius: 6px;
+                    border: 1px solid var(--border-color);
+                  "
                 >
-                  FIN
-                </text>
-                <text
-                  x="147"
-                  y="50"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
+                  <i
+                    class="fas fa-chart-line"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
+                    >Financial Metrics</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 0.75rem;
+                    background: var(--glass-bg);
+                    border-radius: 6px;
+                    border: 1px solid var(--border-color);
+                  "
                 >
-                  +1.8%
-                </text>
+                  <i
+                    class="fas fa-exclamation-triangle"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
+                    >Risk Analysis</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 0.75rem;
+                    background: var(--glass-bg);
+                    border-radius: 6px;
+                    border: 1px solid var(--border-color);
+                  "
+                >
+                  <i
+                    class="fas fa-building"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
+                    >Business Overview</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding: 0.75rem;
+                    background: var(--glass-bg);
+                    border-radius: 6px;
+                    border: 1px solid var(--border-color);
+                  "
+                >
+                  <i
+                    class="fas fa-clock"
+                    style="color: var(--accent-primary); margin-right: 0.5rem"
+                  ></i>
+                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
+                    >Save Hours</span
+                  >
+                </div>
+              </div>
 
-                <!-- Healthcare -->
-                <rect
-                  x="200"
-                  y="10"
-                  width="85"
-                  height="60"
-                  fill="#0ecb81"
-                  rx="3"
-                />
-                <text
-                  x="242"
-                  y="35"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                  font-weight="600"
+              <div
+                style="
+                  padding: 1rem;
+                  background: rgba(43, 226, 180, 0.1);
+                  border-radius: 8px;
+                  border: 1px dashed var(--accent-primary);
+                "
+              >
+                <p
+                  style="
+                    color: var(--text-secondary);
+                    font-size: 0.85rem;
+                    margin: 0;
+                  "
                 >
-                  HLTH
-                </text>
-                <text
-                  x="242"
-                  y="50"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                >
-                  +1.2%
-                </text>
-
-                <!-- Energy -->
-                <rect
-                  x="295"
-                  y="10"
-                  width="95"
-                  height="60"
-                  fill="#ea3943"
-                  rx="3"
-                />
-                <text
-                  x="342"
-                  y="35"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                  font-weight="600"
-                >
-                  ENRG
-                </text>
-                <text
-                  x="342"
-                  y="50"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                >
-                  -1.5%
-                </text>
-
-                <!-- Consumer -->
-                <rect
-                  x="10"
-                  y="80"
-                  width="90"
-                  height="55"
-                  fill="#26a69a"
-                  rx="3"
-                />
-                <text
-                  x="55"
-                  y="103"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  CONS
-                </text>
-                <text
-                  x="55"
-                  y="118"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  +0.8%
-                </text>
-
-                <!-- Industrial -->
-                <rect
-                  x="110"
-                  y="80"
-                  width="80"
-                  height="55"
-                  fill="#f6465d"
-                  rx="3"
-                />
-                <text
-                  x="150"
-                  y="103"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  IND
-                </text>
-                <text
-                  x="150"
-                  y="118"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  -0.6%
-                </text>
-
-                <!-- Materials -->
-                <rect
-                  x="200"
-                  y="80"
-                  width="95"
-                  height="55"
-                  fill="#14b8a6"
-                  rx="3"
-                />
-                <text
-                  x="247"
-                  y="103"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  MAT
-                </text>
-                <text
-                  x="247"
-                  y="118"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  +0.4%
-                </text>
-
-                <!-- Real Estate -->
-                <rect
-                  x="305"
-                  y="80"
-                  width="85"
-                  height="55"
-                  fill="#ef4444"
-                  rx="3"
-                />
-                <text
-                  x="347"
-                  y="103"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  REAL
-                </text>
-                <text
-                  x="347"
-                  y="118"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  -1.2%
-                </text>
-
-                <!-- Utilities -->
-                <rect
-                  x="10"
-                  y="145"
-                  width="88"
-                  height="55"
-                  fill="#22c55e"
-                  rx="3"
-                />
-                <text
-                  x="54"
-                  y="168"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  UTIL
-                </text>
-                <text
-                  x="54"
-                  y="183"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  +0.5%
-                </text>
-
-                <!-- Telecom -->
-                <rect
-                  x="108"
-                  y="145"
-                  width="87"
-                  height="55"
-                  fill="#10b981"
-                  rx="3"
-                />
-                <text
-                  x="151"
-                  y="168"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  TEL
-                </text>
-                <text
-                  x="151"
-                  y="183"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  +0.3%
-                </text>
-
-                <!-- Crypto -->
-                <rect
-                  x="205"
-                  y="145"
-                  width="90"
-                  height="55"
-                  fill="#f59e0b"
-                  rx="3"
-                />
-                <text
-                  x="250"
-                  y="168"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  CRYPTO
-                </text>
-                <text
-                  x="250"
-                  y="183"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  +3.2%
-                </text>
-
-                <!-- Commodities -->
-                <rect
-                  x="305"
-                  y="145"
-                  width="85"
-                  height="55"
-                  fill="#dc2626"
-                  rx="3"
-                />
-                <text
-                  x="347"
-                  y="168"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                  font-weight="600"
-                >
-                  COM
-                </text>
-                <text
-                  x="347"
-                  y="183"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="9"
-                >
-                  -2.1%
-                </text>
-
-                <!-- Market Summary -->
-                <rect
-                  x="10"
-                  y="210"
-                  width="380"
-                  height="60"
-                  fill="var(--bg-card)"
-                  stroke="var(--border-color)"
-                  stroke-width="1"
-                  rx="4"
-                />
-                <text
-                  x="200"
-                  y="235"
-                  text-anchor="middle"
-                  fill="var(--accent-primary)"
-                  font-size="14"
-                  font-weight="600"
-                >
-                  S&P 500: +0.8%
-                </text>
-                <text
-                  x="200"
-                  y="255"
-                  text-anchor="middle"
-                  fill="var(--text-secondary)"
-                  font-size="11"
-                >
-                  Updated: Just now
-                </text>
-              </g>
-            </svg>
+                  <i
+                    class="fas fa-star"
+                    style="color: var(--accent-primary)"
+                  ></i>
+                  Try companies like AAPL, TSLA, MSFT, GOOGL, AMZN, NVDA
+                </p>
+              </div>
+            </div>
           </div>
 
-          <button class="tool-action" onclick="refreshHeatmap(event)">
-            <span class="fas fa-sync-alt"></span>
-            Refresh Data
-          </button>
+          <a
+            href="/tools/10k-summary.html"
+            class="tool-action"
+            style="text-decoration: none"
+          >
+            <span class="fas fa-external-link-alt"></span>
+            Open 10K Analyzer
+          </a>
         </div>
 
         <!-- Economic Calendar -->
@@ -1443,10 +1192,14 @@
             </div>
           </div>
 
-          <button class="tool-action" onclick="viewFullCalendar(event)">
-            <span class="fas fa-calendar-alt"></span>
-            View Full Calendar
-          </button>
+          <a
+            href="/tools/economic-calendar.html"
+            class="tool-action"
+            style="text-decoration: none"
+          >
+            <span class="fas fa-external-link-alt"></span>
+            Open Full Calendar
+          </a>
         </div>
       </div>
     </div>
@@ -1594,9 +1347,8 @@
     <script>
       // New tool functionality
       document.addEventListener("DOMContentLoaded", function () {
-        // Initialize only the 3 tools
+        // Initialize the 2 active tools
         init13FVisualizer();
-        initHeatmap();
         initEconomicCalendar();
       });
 
@@ -1605,47 +1357,13 @@
         console.log("13F Visualizer initialized");
       }
 
-      // Initialize Heatmap
-      function initHeatmap() {
-        console.log("Heatmap initialized");
-      }
-
       // Initialize Economic Calendar
       function initEconomicCalendar() {
         console.log("Economic Calendar initialized");
       }
 
-      // Tool action functions
-      function load13FData(event) {
-        event.preventDefault();
-        const button = event.target.closest("button");
-        const originalText = button.innerHTML;
-        button.innerHTML =
-          '<span class="fas fa-spinner fa-spin"></span> Loading...';
-
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          showNotification("13F data loaded successfully!", "success");
-        }, 1500);
-      }
-
-      function refreshHeatmap(event) {
-        event.preventDefault();
-        const button = event.target.closest("button");
-        const originalText = button.innerHTML;
-        button.innerHTML =
-          '<span class="fas fa-spinner fa-spin"></span> Updating...';
-
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          showNotification("Heatmap refreshed!", "success");
-        }, 1000);
-      }
-
-      function viewFullCalendar(event) {
-        event.preventDefault();
-        showNotification("Opening full calendar view...", "info");
-      }
+      // Tool action functions - These now redirect to dedicated pages
+      // Keeping init functions for any embedded tool functionality
 
       // Notification system
       function showNotification(message, type = "info") {
