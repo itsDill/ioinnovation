@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Healthcare Sector Analysis | IO Innovate</title>
+
+    <meta
+      name="description"
+      content="Discover healthcare sector insights including biotech breakthroughs, pharmaceutical trends, medical innovation, and healthcare technology developments."
+    />
+    <meta
+      name="keywords"
+      content="healthcare sector, biotech, pharmaceuticals, medical innovation, healthcare technology, drug development, clinical research"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/shared-clean.css" />
+
+    <!-- Theme initialization -->
+    <script src="/js/theme-init.js"></script>
+
+    <style>
+      .sector-hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.1),
+          rgba(126, 254, 194, 0.05)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(43, 226, 180, 0.15) 0%,
+          transparent 40%
+        );
+        animation: heroGlow 20s ease-in-out infinite;
+      }
+
+      @keyframes heroGlow {
+        0%,
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.1);
+        }
+      }
+
+      .sector-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .sector-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        box-shadow: 0 12px 35px rgba(43, 226, 180, 0.4);
+      }
+
+      .sector-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .sector-hero p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .section {
+        padding: 4rem 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .content-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .content-card h2 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .content-card p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--glass-bg);
+        border-radius: 16px;
+        border: 2px dashed var(--border-color);
+      }
+
+      .coming-soon i {
+        font-size: 4rem;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .coming-soon h3 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      /* Stats Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .stat-box {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 20px rgba(43, 226, 180, 0.15);
+      }
+
+      .stat-box i {
+        font-size: 2rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      /* Subsectors Grid */
+      .subsectors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .subsector-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .subsector-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.2);
+      }
+
+      .subsector-card i {
+        font-size: 2.5rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .subsector-card h3 {
+        font-size: 1.4rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .subsector-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Trends List */
+      .trends-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .trends-list li {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background: var(--glass-bg);
+        border-left: 4px solid var(--accent-primary);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .trends-list li:hover {
+        transform: translateX(5px);
+        background: rgba(43, 226, 180, 0.1);
+      }
+
+      .trends-list strong {
+        color: var(--accent-primary);
+        font-weight: 600;
+      }
+
+      /* Key Players */
+      .players-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .player-tag {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+      }
+
+      .player-tag:hover {
+        border-color: var(--accent-primary);
+        transform: scale(1.05);
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        padding: 1rem 2rem;
+        background: var(--bg-secondary);
+      }
+
+      .breadcrumb-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .breadcrumb-nav a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .breadcrumb-nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* Two Column Layout */
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .stats-grid,
+        .subsectors-grid,
+        .players-grid,
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+
+        .sector-hero {
+          min-height: auto;
+          padding: 3rem 1rem;
+        }
+
+        .section {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Innovate</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <nav class="breadcrumb-nav">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <a href="/index.html#sectors">Sectors</a>
+        <span>/</span>
+        <span>Healthcare</span>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="sector-hero">
+      <div class="sector-hero-content">
+        <div class="sector-icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <h1>Healthcare Sector</h1>
+        <p>
+          Discover comprehensive healthcare sector insights including biotech
+          breakthroughs, pharmaceutical trends, medical innovation, and
+          healthcare technology developments transforming patient care.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Overview Section -->
+      <section class="section">
+        <div class="container">
+          <div class="content-card">
+            <h2>About Healthcare Sector</h2>
+            <p>
+              The healthcare sector encompasses companies involved in medical
+              services, pharmaceutical development, biotechnology research,
+              medical devices, and healthcare technology. This sector is
+              critical to human well-being and continues to evolve with
+              scientific advancement.
+            </p>
+            <p>
+              From groundbreaking gene therapies to innovative medical devices
+              and digital health solutions, the healthcare sector drives
+              improvements in quality of life and longevity worldwide. With an
+              aging global population and increasing healthcare access in
+              emerging markets, the sector offers significant long-term growth
+              potential.
+            </p>
+          </div>
+
+          <!-- Key Statistics -->
+          <div class="content-card">
+            <h2>Key Healthcare Market Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <i class="fas fa-hospital"></i>
+                <div class="stat-value">$12T</div>
+                <div class="stat-label">Global Healthcare Market</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-pills"></i>
+                <div class="stat-value">$1.6T</div>
+                <div class="stat-label">Pharmaceutical Market</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-dna"></i>
+                <div class="stat-value">$500B</div>
+                <div class="stat-label">Biotech Market Value</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-chart-line"></i>
+                <div class="stat-value">7.5%</div>
+                <div class="stat-label">Annual Growth Rate (CAGR)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subsectors -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <h2
+            class="section-title"
+            style="text-align: center; margin-bottom: 3rem"
+          >
+            Healthcare Subsectors
+          </h2>
+
+          <div class="subsectors-grid">
+            <div class="subsector-card">
+              <i class="fas fa-prescription-bottle-alt"></i>
+              <h3>Pharmaceuticals</h3>
+              <p>
+                Drug discovery, development, and manufacturing. Major players
+                developing innovative therapies for chronic diseases, rare
+                conditions, and emerging health threats. Patent cliffs and
+                generic competition drive innovation.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-dna"></i>
+              <h3>Biotechnology</h3>
+              <p>
+                Gene therapy, cell therapy, monoclonal antibodies, and
+                personalized medicine. Cutting-edge science addressing
+                previously untreatable conditions with breakthrough therapies.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-stethoscope"></i>
+              <h3>Medical Devices</h3>
+              <p>
+                Diagnostic equipment, surgical instruments, implantable devices,
+                and monitoring systems. Innovation in minimally invasive
+                procedures and smart connected devices improving outcomes.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-hospital-alt"></i>
+              <h3>Healthcare Services</h3>
+              <p>
+                Hospitals, clinics, outpatient care facilities, and home health
+                services. Shift toward value-based care and outpatient settings
+                reshaping delivery models.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-laptop-medical"></i>
+              <h3>Digital Health & Telemedicine</h3>
+              <p>
+                Remote patient monitoring, telehealth platforms, health apps,
+                and AI diagnostics. Technology enabling accessible, efficient
+                healthcare delivery especially post-pandemic.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-flask"></i>
+              <h3>Diagnostics & Lab Services</h3>
+              <p>
+                Clinical laboratories, diagnostic testing, imaging, and genetic
+                screening. Precision medicine and early detection driving demand
+                for advanced diagnostic capabilities.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-brain"></i>
+              <h3>Mental Health</h3>
+              <p>
+                Psychiatric services, therapy platforms, and mental wellness
+                apps. Growing recognition of mental health importance driving
+                investment and reducing stigma.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-shield-virus"></i>
+              <h3>Managed Care & Insurance</h3>
+              <p>
+                Health insurance providers, pharmacy benefit managers, and care
+                coordination services. Focus on cost containment while improving
+                quality and patient outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Healthcare Innovation -->
+      <section class="section">
+        <div class="container">
+          <div class="content-card">
+            <h2>Healthcare Innovation & Trends 2025</h2>
+            <ul class="trends-list">
+              <li>
+                <strong>Artificial Intelligence in Healthcare:</strong>
+                AI-powered diagnostics, drug discovery, treatment optimization,
+                and administrative automation transforming healthcare delivery
+                and reducing costs.
+              </li>
+              <li>
+                <strong>Precision Medicine:</strong> Genomic sequencing and
+                biomarker analysis enabling personalized treatment plans
+                tailored to individual patient genetics, lifestyle, and
+                environment.
+              </li>
+              <li>
+                <strong>Gene & Cell Therapies:</strong> CRISPR gene editing,
+                CAR-T cell therapies, and gene replacement treatments offering
+                potential cures for genetic diseases and cancers.
+              </li>
+              <li>
+                <strong>Continuous Health Monitoring:</strong> Wearables and
+                implantable devices providing real-time health data, enabling
+                early intervention and chronic disease management.
+              </li>
+              <li>
+                <strong>Value-Based Care Model:</strong> Shift from
+                fee-for-service to outcomes-based reimbursement, incentivizing
+                prevention and quality over volume of services.
+              </li>
+              <li>
+                <strong>Aging Population Demographics:</strong> Growing elderly
+                population driving demand for chronic disease treatment,
+                long-term care, and age-related therapeutics globally.
+              </li>
+              <li>
+                <strong>Decentralized Clinical Trials:</strong> Remote patient
+                recruitment, virtual visits, and home-based data collection
+                accelerating drug development and improving diversity.
+              </li>
+              <li>
+                <strong>Biosimilars & Competition:</strong> Generic versions of
+                biologic drugs increasing affordability and access to advanced
+                therapies as patents expire.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Two Column Company Sections -->
+          <div class="two-column">
+            <div class="content-card">
+              <h2>Major Pharmaceutical Companies</h2>
+              <p style="margin-bottom: 1.5rem; color: var(--text-secondary)">
+                Leading global pharmaceutical manufacturers:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">Johnson & Johnson</div>
+                <div class="player-tag">Pfizer</div>
+                <div class="player-tag">Roche</div>
+                <div class="player-tag">Novartis</div>
+                <div class="player-tag">Merck</div>
+                <div class="player-tag">AbbVie</div>
+                <div class="player-tag">Sanofi</div>
+                <div class="player-tag">GSK</div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h2>Biotech Innovators</h2>
+              <p style="margin-bottom: 1.5rem; color: var(--text-secondary)">
+                Cutting-edge biotechnology companies:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">Moderna</div>
+                <div class="player-tag">Amgen</div>
+                <div class="player-tag">Gilead Sciences</div>
+                <div class="player-tag">Regeneron</div>
+                <div class="player-tag">Biogen</div>
+                <div class="player-tag">Vertex</div>
+                <div class="player-tag">BioNTech</div>
+                <div class="player-tag">CRISPR Therapeutics</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medical Devices & Healthcare Services -->
+          <div class="content-card">
+            <h2>Medical Devices & Healthcare Services Leaders</h2>
+            <div class="players-grid">
+              <div class="player-tag">Medtronic</div>
+              <div class="player-tag">Abbott Labs</div>
+              <div class="player-tag">Boston Scientific</div>
+              <div class="player-tag">Stryker</div>
+              <div class="player-tag">UnitedHealth Group</div>
+              <div class="player-tag">CVS Health</div>
+              <div class="player-tag">HCA Healthcare</div>
+              <div class="player-tag">Intuitive Surgical</div>
+              <div class="player-tag">Danaher</div>
+              <div class="player-tag">Thermo Fisher</div>
+              <div class="player-tag">Elevance Health</div>
+              <div class="player-tag">Cigna</div>
+            </div>
+          </div>
+
+          <!-- Investment Considerations -->
+          <div class="content-card">
+            <h2>Investment Considerations</h2>
+            <p>
+              <strong>Growth Drivers:</strong> Aging demographics, chronic
+              disease prevalence, emerging market healthcare expansion,
+              technological innovation, and increasing R&D productivity driving
+              long-term sector growth.
+            </p>
+            <p>
+              <strong>Key Risks:</strong> Regulatory approval uncertainty,
+              patent cliffs, drug pricing pressure, clinical trial failures,
+              healthcare policy changes, and litigation risks require careful
+              evaluation.
+            </p>
+            <p>
+              <strong>Valuation Metrics:</strong> Pipeline value, drug approval
+              timelines, patent expiration dates, R&D efficiency, profit
+              margins, and competitive positioning are critical for healthcare
+              stock analysis.
+            </p>
+            <p>
+              <strong>Regulatory Environment:</strong> FDA approval process,
+              pricing negotiations, healthcare reform, and international
+              regulations significantly impact company valuations and market
+              dynamics.
+            </p>
+          </div>
+
+          <!-- R&D Focus Areas -->
+          <div class="content-card">
+            <h2>Major R&D Focus Areas</h2>
+            <p style="margin-bottom: 1rem">
+              The healthcare industry is investing heavily in breakthrough
+              therapeutic areas with significant unmet medical needs:
+            </p>
+            <ul class="trends-list">
+              <li>
+                <strong>Oncology:</strong> Cancer immunotherapy, targeted
+                therapies, and combination treatments leading R&D spending and
+                showing remarkable efficacy improvements.
+              </li>
+              <li>
+                <strong>Neurology:</strong> Alzheimer's, Parkinson's, and other
+                neurodegenerative diseases receiving major investment despite
+                high failure rates.
+              </li>
+              <li>
+                <strong>Rare Diseases:</strong> Orphan drugs with premium
+                pricing and regulatory incentives attracting significant capital
+                and innovation.
+              </li>
+              <li>
+                <strong>Metabolic Diseases:</strong> Obesity, diabetes, and
+                cardiovascular treatments addressing growing global health
+                crisis.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Future Outlook -->
+          <div class="content-card">
+            <h2>2025-2030 Outlook</h2>
+            <p>
+              Healthcare stands at the cusp of revolutionary changes driven by
+              genomics, AI, and personalized medicine. The sector's defensive
+              characteristics, combined with innovation potential, make it
+              attractive for long-term investors seeking growth and stability.
+            </p>
+            <p>
+              <strong>Key Developments:</strong> Gene editing therapies moving
+              to market, AI-designed drugs entering clinical trials, obesity
+              drugs becoming blockbusters, Alzheimer's treatments showing real
+              efficacy, and digital health tools becoming standard care
+              protocol.
+            </p>
+            <p>
+              <strong>Investment Opportunity:</strong> The sector offers
+              diversification from large-cap pharma with predictable cash flows
+              to high-risk/high-reward biotech. Focus on companies with strong
+              pipelines, proven R&D capabilities, and favorable regulatory
+              environments. Healthcare spending as percentage of GDP continues
+              rising globally, ensuring long-term sector tailwinds.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <div class="content-card" style="text-align: center">
+            <h2>Explore More Sectors</h2>
+            <p style="margin-bottom: 2rem">
+              Discover investment opportunities across other key market sectors
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="/sectors/technology.html" class="btn btn-secondary">
+                <i class="fas fa-microchip"></i> Technology
+              </a>
+              <a href="/sectors/financials.html" class="btn btn-secondary">
+                <i class="fas fa-landmark"></i> Financials
+              </a>
+              <a href="/sectors/consumer.html" class="btn btn-secondary">
+                <i class="fas fa-shopping-cart"></i> Consumer
+              </a>
+              <a href="/index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>IO Innovate</h3>
+            <p>Professional digital solutions and analytics platform.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/tools.html">Tools</a></li>
+              <li><a href="/analytics.html">Analytics</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy.html">Privacy Policy</a></li>
+              <li><a href="/terms.html">Terms of Service</a></li>
+              <li><a href="/disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/shared-simple.js"></script>
+  </body>
+</html>

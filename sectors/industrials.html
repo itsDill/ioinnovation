@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Industrials Sector Analysis | IO Innovate</title>
+
+    <meta
+      name="description"
+      content="Analyze manufacturing trends, infrastructure development, defense sector dynamics, and industrial automation advances shaping the global economy."
+    />
+    <meta
+      name="keywords"
+      content="industrials sector, manufacturing, infrastructure, defense, automation, construction, aerospace, logistics"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/shared-clean.css" />
+
+    <!-- Theme initialization -->
+    <script src="/js/theme-init.js"></script>
+
+    <style>
+      .sector-hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.1),
+          rgba(126, 254, 194, 0.05)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(43, 226, 180, 0.15) 0%,
+          transparent 40%
+        );
+        animation: heroGlow 20s ease-in-out infinite;
+      }
+
+      @keyframes heroGlow {
+        0%,
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.1);
+        }
+      }
+
+      .sector-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .sector-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        box-shadow: 0 12px 35px rgba(43, 226, 180, 0.4);
+      }
+
+      .sector-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .sector-hero p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .section {
+        padding: 4rem 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .content-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .content-card h2 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .content-card p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--glass-bg);
+        border-radius: 16px;
+        border: 2px dashed var(--border-color);
+      }
+
+      .coming-soon i {
+        font-size: 4rem;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .coming-soon h3 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      /* Stats Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .stat-box {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 20px rgba(43, 226, 180, 0.15);
+      }
+
+      .stat-box i {
+        font-size: 2rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      /* Subsectors Grid */
+      .subsectors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .subsector-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .subsector-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.2);
+      }
+
+      .subsector-card i {
+        font-size: 2.5rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .subsector-card h3 {
+        font-size: 1.4rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .subsector-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Trends List */
+      .trends-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .trends-list li {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background: var(--glass-bg);
+        border-left: 4px solid var(--accent-primary);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .trends-list li:hover {
+        transform: translateX(5px);
+        background: rgba(43, 226, 180, 0.1);
+      }
+
+      .trends-list strong {
+        color: var(--accent-primary);
+        font-weight: 600;
+      }
+
+      /* Key Players */
+      .players-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .player-tag {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+      }
+
+      .player-tag:hover {
+        border-color: var(--accent-primary);
+        transform: scale(1.05);
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        padding: 1rem 2rem;
+        background: var(--bg-secondary);
+      }
+
+      .breadcrumb-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .breadcrumb-nav a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .breadcrumb-nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* Three Column Layout */
+      .three-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
+        .three-column {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .stats-grid,
+        .subsectors-grid,
+        .players-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sector-hero {
+          min-height: auto;
+          padding: 3rem 1rem;
+        }
+
+        .section {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Innovate</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <nav class="breadcrumb-nav">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <a href="/index.html#sectors">Sectors</a>
+        <span>/</span>
+        <span>Industrials</span>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="sector-hero">
+      <div class="sector-hero-content">
+        <div class="sector-icon">
+          <i class="fas fa-industry"></i>
+        </div>
+        <h1>Industrials Sector</h1>
+        <p>
+          Analyze comprehensive manufacturing trends, infrastructure
+          development, defense sector dynamics, and industrial automation
+          advances shaping the global economy and industrial landscape.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Overview Section -->
+      <section class="section">
+        <div class="container">
+          <div class="content-card">
+            <h2>About Industrials Sector</h2>
+            <p>
+              The industrials sector includes companies involved in
+              manufacturing, construction, aerospace, defense, machinery,
+              infrastructure development, and industrial automation. This
+              foundational sector drives economic growth and modernization
+              across global markets.
+            </p>
+            <p>
+              From heavy equipment manufacturers to logistics providers and
+              aerospace innovators, the industrials sector encompasses the
+              backbone of modern infrastructure and industrial progress. The
+              sector is experiencing transformation through automation,
+              digitalization, and sustainability initiatives reshaping
+              traditional manufacturing and construction.
+            </p>
+          </div>
+
+          <!-- Key Statistics -->
+          <div class="content-card">
+            <h2>Key Industrials Market Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <i class="fas fa-industry"></i>
+                <div class="stat-value">$15T</div>
+                <div class="stat-label">Global Industrials Market</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-robot"></i>
+                <div class="stat-value">$75B</div>
+                <div class="stat-label">Industrial Automation Market</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-tools"></i>
+                <div class="stat-value">$2T</div>
+                <div class="stat-label">Global Infrastructure Spending</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-plane"></i>
+                <div class="stat-value">$900B</div>
+                <div class="stat-label">Aerospace & Defense Market</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subsectors -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <h2
+            class="section-title"
+            style="text-align: center; margin-bottom: 3rem"
+          >
+            Industrials Subsectors
+          </h2>
+
+          <div class="subsectors-grid">
+            <div class="subsector-card">
+              <i class="fas fa-plane-departure"></i>
+              <h3>Aerospace & Defense</h3>
+              <p>
+                Commercial aircraft, military equipment, satellites, and space
+                exploration. Strong government contracts and commercial aviation
+                recovery driving growth. Major players include Boeing, Airbus,
+                and Lockheed Martin.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-hard-hat"></i>
+              <h3>Construction & Engineering</h3>
+              <p>
+                Infrastructure projects, commercial and residential
+                construction, engineering services. Global urbanization and
+                infrastructure renewal driving long-term demand.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-cogs"></i>
+              <h3>Machinery & Equipment</h3>
+              <p>
+                Heavy machinery, industrial equipment, tools, and capital goods.
+                Agricultural equipment, construction machinery, and
+                manufacturing tools essential for production.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-truck"></i>
+              <h3>Transportation & Logistics</h3>
+              <p>
+                Freight services, airlines, railroads, shipping, and package
+                delivery. E-commerce growth and global trade driving logistics
+                demand and efficiency improvements.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-robot"></i>
+              <h3>Industrial Automation</h3>
+              <p>
+                Robotics, factory automation, process control, and smart
+                manufacturing. Industry 4.0 transformation accelerating adoption
+                of connected, intelligent systems.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-box"></i>
+              <h3>Packaging & Containers</h3>
+              <p>
+                Industrial packaging, shipping containers, and materials
+                handling. E-commerce boom and sustainable packaging trends
+                reshaping the industry.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-bolt"></i>
+              <h3>Electrical Equipment</h3>
+              <p>
+                Power generation equipment, electrical components, and
+                industrial electrical systems. Grid modernization and
+                electrification driving demand.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-building"></i>
+              <h3>Building Products</h3>
+              <p>
+                Construction materials, HVAC systems, security systems, and
+                building infrastructure. Green building standards and energy
+                efficiency creating new opportunities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Industrial Trends -->
+      <section class="section">
+        <div class="container">
+          <div class="content-card">
+            <h2>Industrial Transformation & Trends 2025</h2>
+            <ul class="trends-list">
+              <li>
+                <strong>Industry 4.0 & Smart Manufacturing:</strong> IoT
+                sensors, AI-driven predictive maintenance, digital twins, and
+                connected factories optimizing production efficiency and
+                reducing downtime.
+              </li>
+              <li>
+                <strong>Infrastructure Renewal:</strong> Massive government
+                spending on roads, bridges, ports, and digital infrastructure
+                driving demand for construction, materials, and engineering
+                services.
+              </li>
+              <li>
+                <strong>Supply Chain Reshoring:</strong> Companies relocating
+                manufacturing closer to end markets for resilience, reducing
+                dependence on distant suppliers and benefiting domestic
+                manufacturers.
+              </li>
+              <li>
+                <strong>Sustainability & Decarbonization:</strong> Industrial
+                companies investing in carbon reduction, circular economy
+                models, and sustainable manufacturing processes to meet ESG
+                goals.
+              </li>
+              <li>
+                <strong>Defense Modernization:</strong> Geopolitical tensions
+                driving increased defense budgets, focus on cyber warfare,
+                autonomous systems, and hypersonic weapons development.
+              </li>
+              <li>
+                <strong>Commercial Aviation Recovery:</strong> Air travel
+                rebounding post-pandemic, aircraft orders increasing, and focus
+                on fuel-efficient, sustainable aviation technologies.
+              </li>
+              <li>
+                <strong>Automation & Robotics Adoption:</strong> Labor shortages
+                and efficiency demands accelerating industrial robot deployment
+                across manufacturing, warehousing, and logistics.
+              </li>
+              <li>
+                <strong>3D Printing & Advanced Manufacturing:</strong> Additive
+                manufacturing enabling rapid prototyping, custom parts
+                production, and supply chain simplification for complex
+                components.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Three Column Company Sections -->
+          <div class="three-column">
+            <div class="content-card">
+              <h2>Aerospace & Defense</h2>
+              <p
+                style="
+                  margin-bottom: 1.5rem;
+                  color: var(--text-secondary);
+                  font-size: 0.9rem;
+                "
+              >
+                Leading aerospace and defense contractors:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">Boeing</div>
+                <div class="player-tag">Lockheed Martin</div>
+                <div class="player-tag">Raytheon</div>
+                <div class="player-tag">Northrop Grumman</div>
+                <div class="player-tag">General Dynamics</div>
+                <div class="player-tag">Airbus</div>
+                <div class="player-tag">BAE Systems</div>
+                <div class="player-tag">L3Harris</div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h2>Machinery & Equipment</h2>
+              <p
+                style="
+                  margin-bottom: 1.5rem;
+                  color: var(--text-secondary);
+                  font-size: 0.9rem;
+                "
+              >
+                Major industrial equipment manufacturers:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">Caterpillar</div>
+                <div class="player-tag">Deere & Company</div>
+                <div class="player-tag">3M</div>
+                <div class="player-tag">Honeywell</div>
+                <div class="player-tag">Siemens</div>
+                <div class="player-tag">General Electric</div>
+                <div class="player-tag">Emerson Electric</div>
+                <div class="player-tag">ABB</div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h2>Transportation & Logistics</h2>
+              <p
+                style="
+                  margin-bottom: 1.5rem;
+                  color: var(--text-secondary);
+                  font-size: 0.9rem;
+                "
+              >
+                Leading logistics and transport companies:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">UPS</div>
+                <div class="player-tag">FedEx</div>
+                <div class="player-tag">Union Pacific</div>
+                <div class="player-tag">CSX</div>
+                <div class="player-tag">Norfolk Southern</div>
+                <div class="player-tag">Canadian Pacific</div>
+                <div class="player-tag">Maersk</div>
+                <div class="player-tag">DHL</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Construction & Automation -->
+          <div class="content-card">
+            <h2>Construction, Automation & Building Products Leaders</h2>
+            <div class="players-grid">
+              <div class="player-tag">Johnson Controls</div>
+              <div class="player-tag">Fluor Corp</div>
+              <div class="player-tag">AECOM</div>
+              <div class="player-tag">Jacobs Engineering</div>
+              <div class="player-tag">Rockwell Automation</div>
+              <div class="player-tag">Fanuc</div>
+              <div class="player-tag">KUKA</div>
+              <div class="player-tag">ABB Robotics</div>
+              <div class="player-tag">Schneider Electric</div>
+              <div class="player-tag">Carrier Global</div>
+              <div class="player-tag">Trane Technologies</div>
+              <div class="player-tag">Stanley Black & Decker</div>
+            </div>
+          </div>
+
+          <!-- Investment Considerations -->
+          <div class="content-card">
+            <h2>Investment Considerations</h2>
+            <p>
+              <strong>Growth Drivers:</strong> Infrastructure spending,
+              manufacturing reshoring, defense modernization, commercial
+              aviation recovery, automation adoption, and emerging market
+              industrialization provide long-term tailwinds.
+            </p>
+            <p>
+              <strong>Key Risks:</strong> Economic cyclicality, commodity price
+              volatility, labor costs, trade policies, supply chain disruptions,
+              and technology disruption impact profitability and require active
+              management.
+            </p>
+            <p>
+              <strong>Valuation Metrics:</strong> Order backlog, capacity
+              utilization, operating leverage, return on invested capital
+              (ROIC), and free cash flow generation are critical for evaluating
+              industrial companies.
+            </p>
+            <p>
+              <strong>Competitive Dynamics:</strong> Scale advantages,
+              technology leadership, aftermarket services, and global
+              distribution networks create durable competitive moats in
+              industrial markets.
+            </p>
+          </div>
+
+          <!-- Future Outlook -->
+          <div class="content-card">
+            <h2>2025-2030 Outlook</h2>
+            <p>
+              The industrials sector is undergoing digital transformation while
+              benefiting from structural trends including infrastructure
+              renewal, supply chain reshoring, and defense spending increases.
+              The shift toward smart manufacturing and sustainable operations
+              creates opportunities for technology-enabled companies.
+            </p>
+            <p>
+              <strong>Key Developments:</strong> Autonomous systems in logistics
+              and construction, AI-optimized supply chains, carbon-neutral
+              manufacturing facilities, hypersonic flight commercialization,
+              space economy expansion, and quantum sensors for industrial
+              applications.
+            </p>
+            <p>
+              <strong>Investment Opportunity:</strong> The sector offers
+              exposure to infrastructure mega-trends, defense spending, and
+              manufacturing innovation. Focus on companies with strong order
+              backlogs, pricing power, technology differentiation, and exposure
+              to secular growth themes like automation and sustainability.
+              Cyclical recovery combined with structural growth creates
+              compelling opportunities.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <div class="content-card" style="text-align: center">
+            <h2>Explore More Sectors</h2>
+            <p style="margin-bottom: 2rem">
+              Discover investment opportunities across other key market sectors
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="/sectors/technology.html" class="btn btn-secondary">
+                <i class="fas fa-microchip"></i> Technology
+              </a>
+              <a href="/sectors/energy.html" class="btn btn-secondary">
+                <i class="fas fa-bolt"></i> Energy
+              </a>
+              <a href="/sectors/consumer.html" class="btn btn-secondary">
+                <i class="fas fa-shopping-cart"></i> Consumer
+              </a>
+              <a href="/index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>IO Innovate</h3>
+            <p>Professional digital solutions and analytics platform.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/tools.html">Tools</a></li>
+              <li><a href="/analytics.html">Analytics</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy.html">Privacy Policy</a></li>
+              <li><a href="/terms.html">Terms of Service</a></li>
+              <li><a href="/disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/shared-simple.js"></script>
+  </body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Energy Sector Analysis | IO Innovate</title>
+
+    <meta
+      name="description"
+      content="Monitor energy sector dynamics, renewable developments, oil & gas trends, and utilities performance in evolving global energy markets."
+    />
+    <meta
+      name="keywords"
+      content="energy sector, renewable energy, oil and gas, utilities, clean energy, solar, wind, fossil fuels, energy transition"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/shared-clean.css" />
+
+    <!-- Theme initialization -->
+    <script src="/js/theme-init.js"></script>
+
+    <style>
+      .sector-hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.1),
+          rgba(126, 254, 194, 0.05)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(43, 226, 180, 0.15) 0%,
+          transparent 40%
+        );
+        animation: heroGlow 20s ease-in-out infinite;
+      }
+
+      @keyframes heroGlow {
+        0%,
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.1);
+        }
+      }
+
+      .sector-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .sector-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        box-shadow: 0 12px 35px rgba(43, 226, 180, 0.4);
+      }
+
+      .sector-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .sector-hero p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .section {
+        padding: 4rem 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .content-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .content-card h2 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .content-card p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--glass-bg);
+        border-radius: 16px;
+        border: 2px dashed var(--border-color);
+      }
+
+      .coming-soon i {
+        font-size: 4rem;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .coming-soon h3 {
+        font-size: 2rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      /* Stats Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .stat-box {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 20px rgba(43, 226, 180, 0.15);
+      }
+
+      .stat-box i {
+        font-size: 2rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      /* Subsectors Grid */
+      .subsectors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .subsector-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .subsector-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.2);
+      }
+
+      .subsector-card i {
+        font-size: 2.5rem;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+
+      .subsector-card h3 {
+        font-size: 1.4rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .subsector-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Trends List */
+      .trends-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .trends-list li {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background: var(--glass-bg);
+        border-left: 4px solid var(--accent-primary);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .trends-list li:hover {
+        transform: translateX(5px);
+        background: rgba(43, 226, 180, 0.1);
+      }
+
+      .trends-list strong {
+        color: var(--accent-primary);
+        font-weight: 600;
+      }
+
+      /* Key Players */
+      .players-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .player-tag {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+      }
+
+      .player-tag:hover {
+        border-color: var(--accent-primary);
+        transform: scale(1.05);
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        padding: 1rem 2rem;
+        background: var(--bg-secondary);
+      }
+
+      .breadcrumb-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .breadcrumb-nav a {
+        color: var(--accent-primary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .breadcrumb-nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* Two Column Layout */
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .stats-grid,
+        .subsectors-grid,
+        .players-grid,
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+
+        .sector-hero {
+          min-height: auto;
+          padding: 3rem 1rem;
+        }
+
+        .section {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+      <div class="mobile-overlay" id="mobileOverlay"></div>
+      <nav class="nav">
+        <a href="/index.html" class="logo">IO Innovate</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <nav class="breadcrumb-nav">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <a href="/index.html#sectors">Sectors</a>
+        <span>/</span>
+        <span>Energy</span>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="sector-hero">
+      <div class="sector-hero-content">
+        <div class="sector-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h1>Energy Sector</h1>
+        <p>
+          Monitor comprehensive energy sector dynamics including renewable
+          developments, oil & gas trends, utilities performance, and the global
+          energy transition shaping our sustainable future.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Overview Section -->
+      <section class="section">
+        <div class="container">
+          <div class="content-card">
+            <h2>About Energy Sector</h2>
+            <p>
+              The energy sector encompasses companies involved in oil and gas
+              exploration, renewable energy development, utilities, and energy
+              infrastructure. This critical sector powers the global economy and
+              is undergoing a historic transition toward sustainable energy
+              sources.
+            </p>
+            <p>
+              From traditional fossil fuel producers to cutting-edge renewable
+              energy innovators and utility providers, the energy sector is at
+              the forefront of addressing climate change while meeting growing
+              global energy demands. The sector is experiencing unprecedented
+              transformation as the world shifts toward net-zero emissions by
+              2050.
+            </p>
+          </div>
+
+          <!-- Key Statistics -->
+          <div class="content-card">
+            <h2>Key Energy Market Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <i class="fas fa-chart-line"></i>
+                <div class="stat-value">$8T</div>
+                <div class="stat-label">Global Energy Market</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-leaf"></i>
+                <div class="stat-value">30%</div>
+                <div class="stat-label">Renewable Energy Share (2025)</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-solar-panel"></i>
+                <div class="stat-value">$1.8T</div>
+                <div class="stat-label">Clean Energy Investment (2024)</div>
+              </div>
+              <div class="stat-box">
+                <i class="fas fa-globe"></i>
+                <div class="stat-value">580 EJ</div>
+                <div class="stat-label">Global Energy Consumption</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subsectors -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <h2
+            class="section-title"
+            style="text-align: center; margin-bottom: 3rem"
+          >
+            Energy Subsectors
+          </h2>
+
+          <div class="subsectors-grid">
+            <div class="subsector-card">
+              <i class="fas fa-sun"></i>
+              <h3>Solar Energy</h3>
+              <p>
+                Photovoltaic technology, solar farms, and distributed solar
+                systems. Fastest growing renewable segment with declining costs
+                and increasing efficiency driving mass adoption.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-wind"></i>
+              <h3>Wind Power</h3>
+              <p>
+                Onshore and offshore wind farms generating clean electricity.
+                Technological advances in turbine design and offshore
+                installations expanding capacity globally.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-oil-can"></i>
+              <h3>Oil & Gas</h3>
+              <p>
+                Exploration, production, refining, and distribution of fossil
+                fuels. Traditional energy source adapting to transition with
+                carbon capture and efficiency improvements.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-plug"></i>
+              <h3>Utilities & Power Grid</h3>
+              <p>
+                Electricity generation, transmission, and distribution networks.
+                Modernizing infrastructure for renewable integration and smart
+                grid technologies.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-battery-full"></i>
+              <h3>Energy Storage</h3>
+              <p>
+                Battery systems, pumped hydro, and emerging storage solutions.
+                Critical for renewable energy reliability and grid stabilization
+                as adoption grows.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-atom"></i>
+              <h3>Nuclear Energy</h3>
+              <p>
+                Traditional nuclear power plants and next-generation small
+                modular reactors (SMRs). Clean baseload power gaining renewed
+                interest for decarbonization.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-water"></i>
+              <h3>Hydroelectric Power</h3>
+              <p>
+                Dam-based electricity generation and run-of-river systems.
+                Established renewable technology providing reliable baseload
+                power in suitable regions.
+              </p>
+            </div>
+
+            <div class="subsector-card">
+              <i class="fas fa-fire"></i>
+              <h3>Hydrogen & Alternative Fuels</h3>
+              <p>
+                Green hydrogen production, fuel cells, and biofuels. Emerging
+                solutions for hard-to-electrify sectors like heavy industry and
+                aviation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Energy Transition -->
+      <section class="section">
+        <div class="container">
+          <div class="content-card">
+            <h2>The Energy Transition: Key Trends 2025</h2>
+            <ul class="trends-list">
+              <li>
+                <strong>Accelerating Renewable Adoption:</strong> Solar and wind
+                costs continuing to decline below fossil fuels, driving rapid
+                deployment. Renewables expected to provide 50% of global
+                electricity by 2030.
+              </li>
+              <li>
+                <strong>Grid Modernization:</strong> Investment in smart grids,
+                energy storage, and transmission infrastructure to handle
+                variable renewable energy and distributed generation.
+              </li>
+              <li>
+                <strong>Electrification of Everything:</strong> Transportation,
+                heating, and industrial processes transitioning from fossil
+                fuels to electricity, increasing power demand.
+              </li>
+              <li>
+                <strong>Hydrogen Economy Emerging:</strong> Green hydrogen
+                production scaling up for industrial applications, shipping, and
+                aviation where electrification is challenging.
+              </li>
+              <li>
+                <strong>Carbon Capture & Storage:</strong> Technology
+                development for capturing emissions from power plants and
+                industrial facilities, enabling continued fossil fuel use during
+                transition.
+              </li>
+              <li>
+                <strong>Decentralized Energy Systems:</strong> Growth of
+                distributed generation, microgrids, and virtual power plants
+                enabling energy independence and resilience.
+              </li>
+              <li>
+                <strong>ESG & Net Zero Commitments:</strong> Major corporations
+                and countries committing to net-zero emissions, driving massive
+                capital reallocation toward clean energy.
+              </li>
+              <li>
+                <strong>Energy Security Focus:</strong> Geopolitical tensions
+                accelerating domestic renewable energy and reducing dependence
+                on imported fossil fuels.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Two Column Content -->
+          <div class="two-column">
+            <div class="content-card">
+              <h2>Renewable Energy Leaders</h2>
+              <p style="margin-bottom: 1.5rem; color: var(--text-secondary)">
+                Major companies driving the clean energy transition:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">NextEra Energy</div>
+                <div class="player-tag">Ørsted</div>
+                <div class="player-tag">Iberdrola</div>
+                <div class="player-tag">Enel Green Power</div>
+                <div class="player-tag">First Solar</div>
+                <div class="player-tag">Vestas Wind</div>
+                <div class="player-tag">Tesla Energy</div>
+                <div class="player-tag">Enphase Energy</div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h2>Traditional Energy Giants</h2>
+              <p style="margin-bottom: 1.5rem; color: var(--text-secondary)">
+                Major oil & gas companies transitioning operations:
+              </p>
+              <div class="players-grid" style="grid-template-columns: 1fr">
+                <div class="player-tag">ExxonMobil</div>
+                <div class="player-tag">Chevron</div>
+                <div class="player-tag">BP</div>
+                <div class="player-tag">Shell</div>
+                <div class="player-tag">TotalEnergies</div>
+                <div class="player-tag">ConocoPhillips</div>
+                <div class="player-tag">Equinor</div>
+                <div class="player-tag">Saudi Aramco</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Investment Considerations -->
+          <div class="content-card">
+            <h2>Investment Considerations</h2>
+            <p>
+              <strong>Growth Opportunities:</strong> Renewable energy
+              infrastructure, battery storage, grid modernization, hydrogen
+              technology, and carbon capture present massive investment
+              opportunities as the world decarbonizes.
+            </p>
+            <p>
+              <strong>Transition Risks:</strong> Stranded fossil fuel assets,
+              policy changes, technology disruption, and commodity price
+              volatility. Traditional energy companies must adapt or face
+              obsolescence.
+            </p>
+            <p>
+              <strong>Key Metrics:</strong> Production capacity (MW/GW),
+              levelized cost of energy (LCOE), renewable energy percentage,
+              carbon intensity, reserve life, and transition capital allocation.
+            </p>
+            <p>
+              <strong>Policy Impact:</strong> Government subsidies, carbon
+              pricing, renewable energy mandates, and climate legislation
+              significantly influence sector dynamics and company valuations.
+            </p>
+          </div>
+
+          <!-- Future Outlook -->
+          <div class="content-card">
+            <h2>2025-2030 Outlook</h2>
+            <p>
+              The energy sector is at an inflection point. Renewable energy is
+              becoming the default choice for new power generation globally,
+              while fossil fuel demand is expected to peak before 2030.
+              Investment is flowing into clean energy at unprecedented rates,
+              with annual clean energy investment surpassing fossil fuel
+              investment by 2:1 in 2024.
+            </p>
+            <p>
+              Key developments to watch: breakthrough battery technologies,
+              small modular nuclear reactors reaching commercialization, green
+              hydrogen cost competitiveness, offshore wind expansion, and
+              continued solar efficiency improvements. The energy transition
+              represents one of the largest investment opportunities in history,
+              estimated at over $130 trillion through 2050.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <div class="content-card" style="text-align: center">
+            <h2>Explore More Sectors</h2>
+            <p style="margin-bottom: 2rem">
+              Discover investment opportunities across other key market sectors
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="/sectors/technology.html" class="btn btn-secondary">
+                <i class="fas fa-microchip"></i> Technology
+              </a>
+              <a href="/sectors/industrials.html" class="btn btn-secondary">
+                <i class="fas fa-industry"></i> Industrials
+              </a>
+              <a href="/sectors/consumer.html" class="btn btn-secondary">
+                <i class="fas fa-shopping-cart"></i> Consumer
+              </a>
+              <a href="/index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>IO Innovate</h3>
+            <p>Professional digital solutions and analytics platform.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/tools.html">Tools</a></li>
+              <li><a href="/analytics.html">Analytics</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy.html">Privacy Policy</a></li>
+              <li><a href="/terms.html">Terms of Service</a></li>
+              <li><a href="/disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/shared-simple.js"></script>
+  </body>
+</html>
