@@ -8,20 +8,18 @@ html {
   scroll-padding-top: 80px;
 }
 
-/* Page load animation - simplified */
+/* Page load animation - simplified and faster */
 @keyframes pageLoadFade {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 body {
-  animation: pageLoadFade 0.4s ease-out;
+  animation: pageLoadFade 0.3s ease-out;
 }
 
 /* ==================== ENHANCED BUTTONS ==================== */
@@ -29,58 +27,18 @@ body {
 .btn {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
-  isolation: isolate;
 }
 
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  width: 300px;
-  height: 300px;
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43, 226, 180, 0.2);
 }
 
 .btn:active {
-  transform: scale(0.97);
-}
-
-/* Button ripple effect on click */
-.btn::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  pointer-events: none;
-}
-
-.btn:active::after {
-  animation: ripple 0.6s ease-out;
-}
-
-@keyframes ripple {
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(30);
-  }
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(43, 226, 180, 0.15);
 }
 
 /* ==================== ENHANCED CARDS ==================== */
@@ -89,36 +47,33 @@ body {
 .category-card,
 .post-card {
   position: relative;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 /* Clean hover effect - subtle elevation and border glow */
 .tool-card:hover,
 .category-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--accent-primary);
-  box-shadow: 0 8px 24px rgba(43, 226, 180, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(43, 226, 180, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Remove pseudo-element shine effects */
-.tool-card::after,
-.category-card::after {
-  display: none;
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ==================== SMOOTH ICON ANIMATIONS ==================== */
 
 .tool-icon,
 .category-icon {
-  transition: transform 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
 .tool-card:hover .tool-icon,
 .category-card:hover .category-icon {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
-
-/* Remove pulsing animation - keep icons static */
 
 /* ==================== TEXT SELECTION ==================== */
 
@@ -136,8 +91,8 @@ body {
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
+  transform: translateY(15px);
+  transition: all 0.4s ease;
 }
 
 .scroll-reveal.revealed {
@@ -169,7 +124,7 @@ body {
 
 a {
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 /* Smooth underline animation */
@@ -191,7 +146,7 @@ a {
   background: var(--accent-primary);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .tool-link:hover::after,
@@ -233,14 +188,13 @@ a {
 input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(43, 226, 180, 0.2);
+  box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.15);
 }
 
 /* Floating label effect */
@@ -262,58 +216,53 @@ input:not(:placeholder-shown) + .input-label {
 
 .stat-number {
   display: inline-block;
-  transition: transform 0.25s ease;
+  transition: color 0.2s ease;
 }
 
 .stat-item:hover .stat-number {
-  transform: scale(1.03);
+  color: var(--accent-primary);
 }
 
 /* Simplified counter animation on page load */
 @keyframes countUp {
   from {
-    transform: translateY(10px);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
     opacity: 1;
   }
 }
 
 .stat-number {
-  animation: countUp 0.5s ease-out backwards;
+  animation: countUp 0.3s ease-out backwards;
 }
 
 /* ==================== HERO SECTION ENHANCEMENTS ==================== */
 
 .hero-badge {
-  transition: transform 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .hero-badge:hover {
   transform: translateY(-2px);
-}
-
-/* Remove excessive gradient animation */
-.hero h1 {
-  background-size: 100% 100%;
+  box-shadow: 0 4px 12px rgba(43, 226, 180, 0.2);
 }
 
 /* ==================== NAVBAR ENHANCEMENTS ==================== */
 
 .header {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 /* Scrolled state */
 .header.scrolled {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px) saturate(180%);
 }
 
 .nav-links a {
   position: relative;
+  transition: color 0.2s ease;
 }
 
 /* ==================== TOOLTIP SYSTEM ==================== */
@@ -337,7 +286,7 @@ input:not(:placeholder-shown) + .input-label {
   border-radius: 6px;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   z-index: 1000;
 }
 
@@ -350,7 +299,7 @@ input:not(:placeholder-shown) + .input-label {
   border: 5px solid transparent;
   border-top-color: rgba(0, 0, 0, 0.9);
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 [data-tooltip]:hover::before,
@@ -363,14 +312,12 @@ input:not(:placeholder-shown) + .input-label {
 
 .section {
   opacity: 0;
-  transform: translateY(15px);
-  animation: sectionFadeIn 0.5s ease-out forwards;
+  animation: sectionFadeIn 0.4s ease-out forwards;
 }
 
 @keyframes sectionFadeIn {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -434,24 +381,34 @@ a:focus-visible {
   );
   transform-origin: left;
   transform: scaleX(0);
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
   z-index: 9999;
 }
 
 /* ==================== MOBILE OPTIMIZATIONS ==================== */
 
 @media (max-width: 768px) {
-  /* Keep hover effects subtle on mobile */
+  /* Keep hover effects minimal on mobile/touch devices */
   .tool-card:hover,
   .category-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(43, 226, 180, 0.08),
-      0 1px 4px rgba(0, 0, 0, 0.06);
+    transform: none;
+    box-shadow: 0 6px 16px rgba(43, 226, 180, 0.12);
   }
 
   .tool-card:hover .tool-icon,
   .category-card:hover .category-icon {
-    transform: scale(1.02);
+    transform: scale(1.05);
+  }
+
+  /* Remove hover transforms on mobile for better performance */
+  .btn:hover {
+    transform: none;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    box-shadow: 0 0 0 2px rgba(43, 226, 180, 0.2);
   }
 }
 

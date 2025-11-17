@@ -152,35 +152,11 @@
     statNumbers.forEach((stat) => counterObserver.observe(stat));
   }
 
-  // ==================== CARD TILT EFFECT ====================
+  // ==================== CARD HOVER EFFECT ====================
 
-  function initCardTilt() {
-    const cards = document.querySelectorAll(".tool-card, .category-card");
-
-    cards.forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        card.style.transform = `
-          translateY(-8px) 
-          rotateX(${rotateX}deg) 
-          rotateY(${rotateY}deg) 
-          scale(1.02)
-        `;
-      });
-
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
-      });
-    });
+  function initCardHover() {
+    // Simple, clean hover effects handled by CSS
+    // This function can be expanded for additional interactions if needed
   }
 
   // ==================== LAZY LOAD IMAGES ====================
@@ -210,6 +186,7 @@
   // ==================== ENHANCED BUTTON RIPPLE ====================
 
   function initButtonRipple() {
+    // Simplified ripple effect - cleaner and less distracting
     document
       .querySelectorAll(".btn, .tool-action, .category-btn")
       .forEach((button) => {
@@ -226,15 +203,17 @@
           height: ${size}px;
           left: ${x}px;
           top: ${y}px;
-          background: rgba(255, 255, 255, 0.5);
+          background: rgba(255, 255, 255, 0.3);
           border-radius: 50%;
           transform: scale(0);
-          animation: rippleEffect 0.6s ease-out;
+          animation: rippleEffect 0.4s ease-out;
           pointer-events: none;
         `;
 
+          this.style.position = "relative";
+          this.style.overflow = "hidden";
           this.appendChild(ripple);
-          setTimeout(() => ripple.remove(), 600);
+          setTimeout(() => ripple.remove(), 400);
         });
       });
   }
@@ -414,6 +393,21 @@
       return;
     }
 
+    // Add ripple animation styles if not already present
+    if (!document.getElementById("ripple-styles")) {
+      const style = document.createElement("style");
+      style.id = "ripple-styles";
+      style.textContent = `
+        @keyframes rippleEffect {
+          to {
+            transform: scale(2.5);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
     // Initialize all features
     initScrollReveal();
     initNavbarScroll();
@@ -428,11 +422,6 @@
     initCopyButtons();
     initBackToTop();
     initKeyboardNav();
-
-    // Optional: Only on desktop
-    if (window.innerWidth > 1024) {
-      initCardTilt();
-    }
 
     // Development only
     if (window.location.hostname === "localhost") {

@@ -569,23 +569,6 @@ body {
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  /* Force hardware acceleration on mobile for smooth theme transitions */
-  .theme-toggle,
-  .theme-icon {
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  /* Mobile-specific theme transition optimizations */
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
   }
 
   /* Improve mobile theme switching performance */
