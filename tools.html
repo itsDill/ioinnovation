@@ -620,6 +620,7 @@
     </section>
     <!-- Tools Grid -->
     <div class="tools-container">
+      <!-- First Row: 3 Tools -->
       <div class="tools-grid">
         <!-- 13F Visualizer -->
         <div class="tool-card">
@@ -1176,6 +1177,326 @@
             <span class="fas fa-external-link-alt"></span>
             Open Full Calendar
           </a>
+        </div>
+      </div>
+
+      <!-- Ad Placement Section - After First 3 Tools -->
+      <div class="ad-section" style="padding: 2rem 0; margin: 2rem 0">
+        <div class="container" style="max-width: 970px; margin: 0 auto">
+          <ins
+            class="adsbygoogle"
+            style="display: block"
+            data-ad-client="ca-pub-2456627863532019"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </div>
+
+      <!-- Second Row: 3 More Tools -->
+      <div class="tools-grid">
+        <!-- Market Sentiment Analyzer -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3 class="tool-title">Market Sentiment</h3>
+          <p class="tool-description">
+            Analyze market sentiment, social media trends, and investor behavior
+            to gauge market mood and potential moves.
+          </p>
+
+          <div class="tool-content">
+            <div class="sentiment-overview">
+              <div class="sentiment-metric">
+                <div class="metric-value metric-bullish">68%</div>
+                <div class="metric-label">Bullish</div>
+              </div>
+              <div class="sentiment-metric">
+                <div class="metric-value metric-neutral">22%</div>
+                <div class="metric-label">Neutral</div>
+              </div>
+              <div class="sentiment-metric">
+                <div class="metric-value metric-bearish">10%</div>
+                <div class="metric-label">Bearish</div>
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 1rem;
+                padding: 1rem;
+                background: var(--glass-bg);
+                border-radius: 8px;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 0.75rem;
+                  font-size: 0.9rem;
+                "
+              >
+                <span style="color: var(--text-secondary)"
+                  ><i class="fas fa-fire"></i> Trending: Tech Stocks</span
+                >
+                <span style="color: #16c784; font-weight: 600">+12.4%</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.9rem;
+                "
+              >
+                <span style="color: var(--text-secondary)"
+                  ><i class="fas fa-users"></i> Social Volume</span
+                >
+                <span style="color: var(--accent-primary); font-weight: 600"
+                  >High</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="tool-action"
+            onclick="showNotification('Market Sentiment analyzer coming soon!', 'info')"
+          >
+            <span class="fas fa-chart-pie"></span>
+            Analyze Sentiment
+          </button>
+        </div>
+
+        <!-- Portfolio Tracker -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <h3 class="tool-title">Portfolio Tracker</h3>
+          <p class="tool-description">
+            Track your investment portfolio performance, allocation, and returns
+            across multiple assets and accounts.
+          </p>
+
+          <div class="tool-content">
+            <div
+              style="
+                text-align: center;
+                padding: 2rem 1rem;
+                background: rgba(43, 226, 180, 0.05);
+                border-radius: 8px;
+              "
+            >
+              <div
+                style="
+                  font-size: 2.5rem;
+                  font-weight: 800;
+                  color: #16c784;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                +24.7%
+              </div>
+              <div
+                style="
+                  font-size: 0.9rem;
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Total Portfolio Return (YTD)
+              </div>
+
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 1rem;
+                  text-align: left;
+                "
+              >
+                <div
+                  style="
+                    padding: 0.75rem;
+                    background: var(--glass-bg);
+                    border-radius: 6px;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 0.75rem;
+                      color: var(--text-secondary);
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Total Value
+                  </div>
+                  <div
+                    style="
+                      font-size: 1.2rem;
+                      font-weight: 700;
+                      color: var(--accent-primary);
+                    "
+                  >
+                    $125.4K
+                  </div>
+                </div>
+                <div
+                  style="
+                    padding: 0.75rem;
+                    background: var(--glass-bg);
+                    border-radius: 6px;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 0.75rem;
+                      color: var(--text-secondary);
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Day Change
+                  </div>
+                  <div
+                    style="font-size: 1.2rem; font-weight: 700; color: #16c784"
+                  >
+                    +$1,234
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="tool-action"
+            onclick="showNotification('Portfolio tracker coming soon!', 'info')"
+          >
+            <span class="fas fa-wallet"></span>
+            Track Portfolio
+          </button>
+        </div>
+
+        <!-- Stock Screener -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-filter"></i>
+          </div>
+          <h3 class="tool-title">Stock Screener</h3>
+          <p class="tool-description">
+            Filter and discover stocks based on fundamental metrics, technical
+            indicators, and custom criteria.
+          </p>
+
+          <div class="tool-content">
+            <div
+              style="
+                padding: 1.5rem;
+                background: var(--glass-bg);
+                border-radius: 8px;
+              "
+            >
+              <div style="margin-bottom: 1rem">
+                <div
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--text-secondary);
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  <i class="fas fa-filter"></i> Active Filters
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
+                  <span
+                    style="
+                      padding: 0.4rem 0.8rem;
+                      background: rgba(43, 226, 180, 0.1);
+                      border: 1px solid var(--accent-primary);
+                      border-radius: 12px;
+                      font-size: 0.8rem;
+                      color: var(--accent-primary);
+                    "
+                    >Market Cap > $10B</span
+                  >
+                  <span
+                    style="
+                      padding: 0.4rem 0.8rem;
+                      background: rgba(43, 226, 180, 0.1);
+                      border: 1px solid var(--accent-primary);
+                      border-radius: 12px;
+                      font-size: 0.8rem;
+                      color: var(--accent-primary);
+                    "
+                    >P/E < 25</span
+                  >
+                  <span
+                    style="
+                      padding: 0.4rem 0.8rem;
+                      background: rgba(43, 226, 180, 0.1);
+                      border: 1px solid var(--accent-primary);
+                      border-radius: 12px;
+                      font-size: 0.8rem;
+                      color: var(--accent-primary);
+                    "
+                    >Dividend > 2%</span
+                  >
+                </div>
+              </div>
+
+              <div
+                style="
+                  padding-top: 1rem;
+                  border-top: 1px solid var(--border-color);
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <div>
+                    <div
+                      style="font-size: 0.85rem; color: var(--text-secondary)"
+                    >
+                      Matching Stocks
+                    </div>
+                    <div
+                      style="
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        color: var(--accent-primary);
+                      "
+                    >
+                      247
+                    </div>
+                  </div>
+                  <i
+                    class="fas fa-search"
+                    style="
+                      font-size: 2rem;
+                      color: var(--accent-primary);
+                      opacity: 0.3;
+                    "
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="tool-action"
+            onclick="showNotification('Stock screener coming soon!', 'info')"
+          >
+            <span class="fas fa-filter"></span>
+            Screen Stocks
+          </button>
         </div>
       </div>
     </div>
