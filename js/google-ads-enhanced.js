@@ -260,10 +260,10 @@
       window.declinePrivacy = function () {
         localStorage.setItem("ads_consent", "false");
         document.getElementById("privacy-notice").remove();
-        // Disable personalized ads
+        // Keep non-personalized ads (still shows ads, just not personalized)
         if (typeof gtag !== "undefined") {
           gtag("consent", "update", {
-            ad_storage: "denied",
+            ad_storage: "granted",
             ad_user_data: "denied",
             ad_personalization: "denied",
           });

@@ -1,31 +1,20 @@
-# IO Innovation Fund - Southeast Asia Investment Specialists
-# https://ioinnovationfund.com
+# IO Innovate - Professional Digital Tools
+# https://iowebtools.com
 
 # Default crawl rules for all bots
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
-Disallow: /debug.html
-Disallow: /system.html
-Disallow: /client.html
 Allow: /*.js$
 Allow: /*.css$
 
-# Crawl delay to be respectful of server resources
-Crawl-delay: 1
-
-# Allow all major search engines with specific rules
+# Allow all major search engines
 User-agent: Googlebot
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /debug.html
 
 User-agent: Bingbot
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 
 User-agent: Slurp
 Allow: /
@@ -42,7 +31,7 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Block problematic or unwanted bots
+# Block AI crawlers (optional - keeps content exclusive)
 User-agent: CCBot
 Disallow: /
 
@@ -62,7 +51,7 @@ User-agent: Claude-Web
 Disallow: /
 
 # Sitemap location
-Sitemap: https://ioinnovationfund.com/sitemap.xml
+Sitemap: https://iowebtools.com/sitemap.xml
 
-# Host directive (helps with canonicalization)
-Host: https://ioinnovationfund.com
+# Host directive
+Host: https://iowebtools.com

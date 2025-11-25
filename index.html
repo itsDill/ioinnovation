@@ -284,11 +284,11 @@
         dataLayer.push(arguments);
       }
 
-      // Enhanced privacy controls
+      // Consent settings - allow ads for revenue
       gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
         analytics_storage: "granted",
       });
 
@@ -1636,7 +1636,7 @@
         </div>
       </section>
 
-      <!-- Ad Placement - In-Feed After Navigate IO -->
+      <!-- Ad Placement - Auto Ad Container -->
       <div
         class="ad-section"
         style="padding: 2.5rem 1rem; background: var(--bg-secondary)"
@@ -1645,10 +1645,9 @@
           <ins
             class="adsbygoogle"
             style="display: block"
-            data-ad-format="fluid"
-            data-ad-layout-key="-6t+ed+2i-1n-4w"
             data-ad-client="ca-pub-2456627863532019"
-            data-ad-slot="YOUR_INFEED_AD_SLOT"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
           ></ins>
           <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
@@ -1759,7 +1758,6 @@
             class="adsbygoogle"
             style="display: block"
             data-ad-client="ca-pub-2456627863532019"
-            data-ad-slot="YOUR_DISPLAY_AD_SLOT"
             data-ad-format="auto"
             data-full-width-responsive="true"
           ></ins>
@@ -1858,7 +1856,6 @@
             style="display: block"
             data-ad-format="autorelaxed"
             data-ad-client="ca-pub-2456627863532019"
-            data-ad-slot="YOUR_MULTIPLEX_AD_SLOT"
           ></ins>
           <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
@@ -1874,7 +1871,6 @@
             class="adsbygoogle"
             style="display: block"
             data-ad-client="ca-pub-2456627863532019"
-            data-ad-slot="YOUR_DISPLAY_AD_SLOT"
             data-ad-format="auto"
             data-full-width-responsive="true"
           ></ins>

@@ -1,266 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml" 
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <!-- Homepage - Highest Priority -->
+  <!-- Homepage -->
   <url>
     <loc>https://iowebtools.com/</loc>
-    <lastmod>2025-09-30</lastmod>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Core Tool Category Pages - High Priority -->
-  <url>
-    <loc>https://iowebtools.com/finance-tools.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/technology-tools.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/seo-marketing-tools.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/privacy-security-tools.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  
-  <!-- Individual Tool Pages - High Value -->
-  <url>
-    <loc>https://iowebtools.com/tools/investment-calculator.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/tools/currency-converter.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/tools/qr-code-generator.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/tools/api-tester.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-  
-
-  <url>
-    <loc>https://iowebtools.com/tools/meta-tag-analyzer.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.87</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/tools/url-shortener.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  
-  <url>
-    <loc>https://iowebtools.com/tools/password-manager-analyzer.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  
-  <!-- General Tools & Blog Pages -->
+  <!-- Main Navigation Pages -->
   <url>
     <loc>https://iowebtools.com/tools.html</loc>
-    <lastmod>2025-09-30</lastmod>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/analytics.html</loc>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://iowebtools.com/blog.html</loc>
-    <lastmod>2025-09-30</lastmod>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-  </url>
-  
-  <!-- Blog Posts - Important Content -->
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog1.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog2.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog3.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog4.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog5.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog6.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/blog/blog7.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <!-- About & Company Info -->
-  <url>
-    <loc>https://ioinnovationfund.com/about.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/contact.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  
-  <!-- Legal & Policy Pages -->
-  <url>
-    <loc>https://ioinnovationfund.com/privacy.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/terms.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/content-policy.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  
-  <!-- Mobile-specific pages -->
-  <url>
-    <loc>https://ioinnovationfund.com/mobile-index.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.40</priority>
-    <mobile:mobile />
-  </url>
-  
-  <!-- SEO Landing Pages - High Value Content -->
-  <url>
-    <loc>https://ioinnovationfund.com/set-index-thailand.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
-    <loc>https://ioinnovationfund.com/asean-investment-opportunities-2025.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/about.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/contact.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+  <!-- Tool Pages - High Value -->
+  <url>
+    <loc>https://iowebtools.com/tools/13f-visualizer.html</loc>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/10k-summary.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/tools/economic-calendar.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Sector Pages -->
+  <url>
+    <loc>https://iowebtools.com/sectors/technology.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/sectors/healthcare.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/sectors/financials.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/sectors/energy.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/sectors/industrials.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/sectors/consumer.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Blog Posts - High Value Content -->
+  <url>
+    <loc>https://iowebtools.com/blog/understanding-13f-filings-guide.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog/understanding-10k-filings-annual-reports-guide.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog/fire-financial-independence-early-retirement-guide-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
   
-  <!-- AdSense-Optimized Content Pages -->
   <url>
-    <loc>https://ioinnovationfund.com/disclaimer.html</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  
-  <url>
-    <loc>https://ioinnovationfund.com/our-team.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/blog/best-brokerages-robo-advisors-comparison-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.88</priority>
   </url>
   
   <url>
-    <loc>https://ioinnovationfund.com/blog/how-to-invest-southeast-asia-beginners-guide.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/blog/best-credit-cards-banks-personal-loans-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog/alternative-investing-guide-crypto-real-estate-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
-    <loc>https://ioinnovationfund.com/blog/singapore-sti-etf-investing-complete-guide.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/blog/debt-management-credit-score-improvement-guide.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog/personal-budgeting-cost-of-living-guide-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog/essential-finance-calculators-tools-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/blog/understanding-asean-economic-indicators-2025.html</loc>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.83</priority>
   </url>
   
+  <!-- Legal Pages -->
   <url>
-    <loc>https://ioinnovationfund.com/blog/understanding-asean-economic-indicators-2025.html</loc>
-    <lastmod>2025-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
+    <loc>https://iowebtools.com/privacy.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
   </url>
   
-  <!-- Admin (Lower Priority) -->
   <url>
-    <loc>https://ioinnovationfund.com/admin.html</loc>
-    <lastmod>2025-09-11</lastmod>
+    <loc>https://iowebtools.com/terms.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/disclaimer.html</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+  
+  <url>
+    <loc>https://iowebtools.com/our-team.html</loc>
+    <lastmod>2025-11-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.20</priority>
+    <priority>0.50</priority>
   </url>
   
 </urlset>

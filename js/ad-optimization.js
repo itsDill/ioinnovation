@@ -139,8 +139,8 @@
       adUnit.className = "adsbygoogle";
       adUnit.style.cssText = "display: block;";
       adUnit.setAttribute("data-ad-client", "ca-pub-2456627863532019");
-      adUnit.setAttribute("data-ad-slot", "YOUR_ANCHOR_AD_SLOT");
-      adUnit.setAttribute("data-ad-format", "rectangle");
+      adUnit.setAttribute("data-ad-format", "auto");
+      adUnit.setAttribute("data-full-width-responsive", "true");
 
       adContainer.appendChild(closeBtn);
       adContainer.appendChild(adUnit);
