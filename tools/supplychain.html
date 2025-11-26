@@ -1,0 +1,4545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Real-time global supply chain visualization. Track shipments, ports, and logistics across the world."
+    />
+    <meta
+      name="keywords"
+      content="supply chain, logistics, shipping, ports, cargo, global trade, visualization"
+    />
+    <meta name="theme-color" content="#1e40af" />
+    <title>SupplyChain Global - Real-Time Logistics Visualization</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #334155 100%
+        );
+        min-height: 100vh;
+        color: #e2e8f0;
+      }
+
+      .header {
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+      }
+
+      .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo svg {
+        width: 36px;
+        height: 36px;
+        color: #3b82f6;
+      }
+
+      .logo h1 {
+        font-size: 1.75rem;
+        color: #f1f5f9;
+        font-weight: 700;
+      }
+
+      .tagline {
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .live-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(34, 197, 94, 0.2);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        color: #22c55e;
+        font-weight: 600;
+      }
+
+      .live-dot {
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        animation: livePulse 2s infinite;
+      }
+
+      @keyframes livePulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.2);
+        }
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .search-box {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 1rem 1rem 1rem 3rem;
+        border-radius: 50px;
+        border: 2px solid #334155;
+        background: #1e293b;
+        color: #f1f5f9;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .search-input::placeholder {
+        color: #64748b;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      }
+
+      .controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid #334155;
+        background: #1e293b;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #94a3b8;
+      }
+
+      .filter-btn:hover {
+        border-color: #3b82f6;
+        color: #3b82f6;
+      }
+
+      .filter-btn.active {
+        background: #3b82f6;
+        color: white;
+        border-color: #3b82f6;
+      }
+
+      .sort-select {
+        padding: 0.5rem 1rem;
+        border: 2px solid #334155;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        background: #1e293b;
+        color: #f1f5f9;
+        cursor: pointer;
+        transition: border-color 0.3s;
+      }
+
+      .sort-select:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+
+      .stats-summary {
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        margin-bottom: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #3b82f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .stat-value.live::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        animation: livePulse 2s infinite;
+      }
+
+      .stat-label {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 3rem;
+        color: #94a3b8;
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .no-results svg {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+        color: #475569;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .loading {
+        text-align: center;
+        padding: 2rem;
+        color: #94a3b8;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #64748b;
+      }
+
+      .map-container {
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        margin-bottom: 2rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .map-container h2 {
+        margin-bottom: 0;
+        color: #f1f5f9;
+      }
+
+      .map-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .map-title-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .shipment-counter {
+        background: rgba(34, 197, 94, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        color: #22c55e;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .map-toggles {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .map-toggle {
+        padding: 0.5rem 1rem;
+        border: 2px solid #334155;
+        background: #1e293b;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .map-toggle:hover {
+        border-color: #3b82f6;
+        color: #3b82f6;
+      }
+
+      .map-toggle.active {
+        border-color: #3b82f6;
+        background: rgba(59, 130, 246, 0.2);
+        color: #3b82f6;
+      }
+
+      .map-toggle svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .map-legend {
+        position: absolute;
+        bottom: 2rem;
+        right: 1rem;
+        background: rgba(30, 41, 59, 0.95);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        min-width: 200px;
+        display: none;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .map-legend.active {
+        display: block;
+      }
+
+      .legend-title {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #f1f5f9;
+        font-size: 0.875rem;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        color: #94a3b8;
+      }
+
+      .legend-color {
+        width: 24px;
+        height: 12px;
+        border-radius: 2px;
+      }
+
+      #map {
+        height: 500px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        position: relative;
+        background: #0f172a;
+      }
+
+      .cities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .city-card {
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .city-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+        border-color: rgba(59, 130, 246, 0.4);
+      }
+
+      .city-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 1rem;
+      }
+
+      .city-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #f1f5f9;
+      }
+
+      .city-type {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-top: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .city-score {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .city-score small {
+        font-size: 0.625rem;
+        font-weight: 500;
+        opacity: 0.8;
+      }
+
+      .score-excellent {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+      }
+
+      .score-good {
+        background: rgba(59, 130, 246, 0.2);
+        color: #3b82f6;
+      }
+
+      .score-moderate {
+        background: rgba(251, 146, 60, 0.2);
+        color: #fb923c;
+      }
+
+      .city-stats {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #94a3b8;
+        font-size: 0.875rem;
+      }
+
+      .stat svg {
+        color: #3b82f6;
+      }
+
+      .factors {
+        margin-top: 1rem;
+      }
+
+      .factor {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .factor-name {
+        font-size: 0.875rem;
+        color: #94a3b8;
+      }
+
+      .factor-bar {
+        flex: 1;
+        height: 8px;
+        background: #334155;
+        border-radius: 4px;
+        margin: 0 1rem;
+        overflow: hidden;
+      }
+
+      .factor-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #22c55e);
+        border-radius: 4px;
+        transition: width 0.5s;
+      }
+
+      .factor-value {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #f1f5f9;
+        min-width: 30px;
+        text-align: right;
+      }
+
+      .city-description {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #334155;
+        color: #94a3b8;
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      .activity-feed {
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        margin-bottom: 2rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .activity-feed h3 {
+        color: #f1f5f9;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .activity-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #334155;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      .activity-item:last-child {
+        border-bottom: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .activity-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .activity-icon.ship {
+        background: rgba(59, 130, 246, 0.2);
+        color: #3b82f6;
+      }
+
+      .activity-icon.plane {
+        background: rgba(168, 85, 247, 0.2);
+        color: #a855f7;
+      }
+
+      .activity-icon.truck {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+      }
+
+      .activity-icon.warehouse {
+        background: rgba(251, 146, 60, 0.2);
+        color: #fb923c;
+      }
+
+      .activity-text {
+        flex: 1;
+        font-size: 0.875rem;
+        color: #e2e8f0;
+      }
+
+      .activity-time {
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+
+      .leaflet-popup-content-wrapper {
+        border-radius: 0.5rem;
+        background: #1e293b;
+        color: #f1f5f9;
+      }
+
+      .leaflet-popup-tip {
+        background: #1e293b;
+      }
+
+      .popup-content {
+        text-align: center;
+      }
+
+      .popup-content h3 {
+        margin-bottom: 0.5rem;
+        color: #f1f5f9;
+      }
+
+      .popup-score {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #22c55e;
+      }
+
+      .popup-details {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        color: #94a3b8;
+      }
+
+      /* Animated route styles */
+      .animated-route {
+        stroke-dasharray: 10, 10;
+        animation: dash 20s linear infinite;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -1000;
+        }
+      }
+
+      /* Moving cargo marker */
+      .cargo-marker {
+        transition: all 0.1s linear;
+      }
+
+      .leaflet-marker-icon.cargo-icon {
+        background: none;
+        border: none;
+      }
+
+      /* Enhanced Ship Markers */
+      .ship-marker {
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .ship-marker:hover {
+        transform: scale(1.4) !important;
+        z-index: 10000 !important;
+      }
+
+      .ship-icon-container {
+        position: relative;
+        animation: shipFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes shipFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-3px);
+        }
+      }
+
+      .wake-effect {
+        position: absolute;
+        width: 25px;
+        height: 6px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        border-radius: 50%;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        opacity: 0.6;
+      }
+
+      .port-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid;
+        animation: portRing 2s ease-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes portRing {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
+
+      .port-activity-ring {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid;
+        animation: activityPulse 2s ease-out infinite;
+        left: -17px;
+        top: -17px;
+        pointer-events: none;
+      }
+
+      @keyframes activityPulse {
+        0% {
+          transform: scale(0.8);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2.5);
+          opacity: 0;
+        }
+      }
+
+      .congestion-glow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        left: -12px;
+        top: -12px;
+        animation: congestionPulse 1.5s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes congestionPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.3);
+          opacity: 0.8;
+        }
+      }
+
+      .route-glow-effect {
+        filter: drop-shadow(0 0 8px currentColor);
+      }
+
+      /* Compass Rose */
+      .compass-rose {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 60px;
+        height: 60px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 50%;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+      }
+
+      .compass-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .compass-needle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 4px;
+        height: 36px;
+        transform: translate(-50%, -50%);
+      }
+
+      .compass-needle::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 16px solid #ef4444;
+      }
+
+      .compass-needle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 16px solid #64748b;
+      }
+
+      .compass-label {
+        position: absolute;
+        font-size: 9px;
+        font-weight: bold;
+        color: #94a3b8;
+      }
+
+      .compass-label.n {
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #ef4444;
+      }
+      .compass-label.s {
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .compass-label.e {
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .compass-label.w {
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      /* Scale Bar */
+      .scale-bar-container {
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 8px;
+        padding: 8px 14px;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+      }
+
+      .scale-label {
+        font-size: 10px;
+        color: #94a3b8;
+        margin-bottom: 4px;
+      }
+
+      .scale-bar {
+        width: 80px;
+        height: 6px;
+        background: repeating-linear-gradient(
+          90deg,
+          #3b82f6 0px,
+          #3b82f6 20px,
+          #1e293b 20px,
+          #1e293b 40px
+        );
+        border-radius: 2px;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+
+      /* Route Distance Tooltip */
+      .route-tooltip {
+        position: absolute;
+        background: rgba(15, 23, 42, 0.98);
+        border: 1px solid rgba(59, 130, 246, 0.5);
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 12px;
+        color: white;
+        pointer-events: none;
+        z-index: 2000;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        min-width: 160px;
+      }
+
+      .route-tooltip-header {
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #3b82f6;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .route-tooltip-stat {
+        display: flex;
+        justify-content: space-between;
+        margin: 3px 0;
+        font-size: 11px;
+      }
+
+      .route-tooltip-stat span:first-child {
+        color: #94a3b8;
+      }
+
+      /* Shipping Lane Labels */
+      .lane-label {
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Ocean Current Effect */
+      .ocean-current-particle {
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(59, 130, 246, 0.4),
+          transparent
+        );
+        animation: currentFlow 4s linear infinite;
+        pointer-events: none;
+        border-radius: 2px;
+      }
+
+      @keyframes currentFlow {
+        0% {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.6;
+        }
+        80% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      /* Map Statistics Overlay */
+      .map-stats-overlay {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 12px;
+        padding: 12px 16px;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        min-width: 140px;
+      }
+
+      .map-stats-title {
+        font-size: 10px;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+
+      .map-stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 6px 0;
+        font-size: 12px;
+      }
+
+      .map-stat-row span:first-child {
+        color: #94a3b8;
+      }
+
+      .map-stat-row span:last-child {
+        font-weight: 600;
+        color: white;
+      }
+
+      .map-stat-row.highlight span:last-child {
+        color: #22c55e;
+      }
+
+      /* Animated Water Effect */
+      .water-shimmer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent 40%,
+          rgba(59, 130, 246, 0.03) 50%,
+          transparent 60%
+        );
+        animation: shimmer 8s linear infinite;
+        pointer-events: none;
+        z-index: 400;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) translateY(-100%);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%);
+        }
+      }
+
+      /* Port Hover Card */
+      .port-hover-card {
+        background: rgba(15, 23, 42, 0.98) !important;
+        border: 1px solid rgba(59, 130, 246, 0.5) !important;
+        border-radius: 14px !important;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+        padding: 0 !important;
+        overflow: hidden;
+      }
+
+      .port-hover-card .leaflet-popup-content-wrapper {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .port-hover-card .leaflet-popup-content {
+        margin: 0 !important;
+        width: 220px !important;
+      }
+
+      .port-hover-card .leaflet-popup-tip-container {
+        display: none;
+      }
+
+      .port-card-header {
+        padding: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.2),
+          rgba(139, 92, 246, 0.2)
+        );
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .port-card-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 4px;
+      }
+
+      .port-card-type {
+        font-size: 11px;
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .port-card-body {
+        padding: 12px 14px;
+      }
+
+      .port-card-stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .port-card-stat:last-child {
+        border-bottom: none;
+      }
+
+      .port-card-stat-label {
+        font-size: 11px;
+        color: #94a3b8;
+      }
+
+      .port-card-stat-value {
+        font-size: 12px;
+        font-weight: 600;
+        color: white;
+      }
+
+      .port-card-stat-value.good {
+        color: #22c55e;
+      }
+      .port-card-stat-value.warning {
+        color: #f59e0b;
+      }
+      .port-card-stat-value.bad {
+        color: #ef4444;
+      }
+
+      .port-card-footer {
+        padding: 10px 14px;
+        background: rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 6px;
+      }
+
+      .port-card-badge {
+        padding: 4px 8px;
+        border-radius: 20px;
+        font-size: 9px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .port-card-badge.active {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+      }
+
+      .port-card-badge.busy {
+        background: rgba(245, 158, 11, 0.2);
+        color: #f59e0b;
+      }
+
+      /* Weather Alert Banner */
+      .weather-alert {
+        background: linear-gradient(
+          90deg,
+          rgba(234, 88, 12, 0.9),
+          rgba(220, 38, 38, 0.9)
+        );
+        color: white;
+        padding: 0.75rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .weather-alert-content {
+        display: flex;
+        animation: scrollAlert 20s linear infinite;
+        white-space: nowrap;
+        gap: 4rem;
+      }
+
+      .weather-alert-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      @keyframes scrollAlert {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Quick Info Bar on Map */
+      .map-quick-bar {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 1000;
+        padding: 10px 16px;
+        background: rgba(15, 23, 42, 0.95);
+        border-radius: 50px;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+      }
+
+      .quick-stat {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 12px;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .quick-stat:last-child {
+        border-right: none;
+      }
+
+      .quick-stat-icon {
+        font-size: 16px;
+      }
+
+      .quick-stat-value {
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+      }
+
+      .quick-stat-label {
+        font-size: 10px;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .quick-stat-value.live {
+        color: #22c55e;
+        animation: valuePulse 2s infinite;
+      }
+
+      @keyframes valuePulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+
+      /* Weather Indicators on Map */
+      .weather-zone {
+        position: absolute;
+        pointer-events: none;
+        border-radius: 50%;
+        opacity: 0.4;
+        animation: weatherPulse 4s ease-in-out infinite;
+      }
+
+      @keyframes weatherPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.4;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.6;
+        }
+      }
+
+      /* Ocean Currents Animation */
+      .ocean-flow {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(59, 130, 246, 0.5),
+          transparent
+        );
+        animation: oceanFlow 3s linear infinite;
+        pointer-events: none;
+        border-radius: 2px;
+      }
+
+      @keyframes oceanFlow {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100vw);
+        }
+      }
+
+      /* Port Ripple Effect */
+      .port-ripple {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid;
+        animation: ripple 3s ease-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+
+      /* Vessel Trail Effect */
+      .vessel-trail {
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3)
+        );
+        border-radius: 2px;
+        pointer-events: none;
+      }
+
+      /* Hotspot Indicator */
+      .traffic-hotspot {
+        position: absolute;
+        border-radius: 50%;
+        animation: hotspotGlow 2s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes hotspotGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px currentColor;
+        }
+        50% {
+          box-shadow: 0 0 40px currentColor, 0 0 60px currentColor;
+        }
+      }
+
+      /* Mini World Clock on Map */
+      .map-clock {
+        position: absolute;
+        top: 90px;
+        right: 20px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 12px;
+        padding: 12px;
+        z-index: 1000;
+        min-width: 120px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .map-clock-title {
+        font-size: 9px;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+
+      .map-clock-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+        font-size: 11px;
+      }
+
+      .map-clock-city {
+        color: #94a3b8;
+      }
+
+      .map-clock-time {
+        color: white;
+        font-weight: 600;
+        font-family: "SF Mono", monospace;
+      }
+
+      /* Zoom Controls Enhancement */
+      .leaflet-control-zoom {
+        border: 1px solid rgba(59, 130, 246, 0.3) !important;
+        border-radius: 8px !important;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+      }
+
+      .leaflet-control-zoom a {
+        background: rgba(15, 23, 42, 0.95) !important;
+        color: #94a3b8 !important;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2) !important;
+        transition: all 0.2s !important;
+      }
+
+      .leaflet-control-zoom a:hover {
+        background: rgba(59, 130, 246, 0.3) !important;
+        color: white !important;
+      }
+
+      .leaflet-control-zoom a:last-child {
+        border-bottom: none !important;
+      }
+
+      /* Day/Night Terminator Effect */
+      .terminator-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 450;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.3) 0%,
+          rgba(0, 0, 0, 0.1) 30%,
+          transparent 50%,
+          rgba(255, 200, 100, 0.05) 70%,
+          rgba(255, 200, 100, 0.1) 100%
+        );
+        animation: terminatorMove 120s linear infinite;
+      }
+
+      @keyframes terminatorMove {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      /* Ocean Particle Effects */
+      .ocean-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 420;
+        overflow: hidden;
+      }
+
+      .ocean-particle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: rgba(59, 130, 246, 0.4);
+        border-radius: 50%;
+        animation: floatParticle 15s linear infinite;
+      }
+
+      @keyframes floatParticle {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translate(200px, -100px) scale(0.5);
+          opacity: 0;
+        }
+      }
+
+      /* Flying Plane Animation */
+      .plane-marker {
+        transition: transform 0.5s ease;
+      }
+
+      .plane-icon-container {
+        font-size: 20px;
+        filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.8));
+        animation: planeBob 2s ease-in-out infinite;
+      }
+
+      @keyframes planeBob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      .plane-trail {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(168, 85, 247, 0.5)
+        );
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      /* Sea Lane Markers */
+      .sea-lane-marker {
+        background: rgba(15, 23, 42, 0.9);
+        border: 2px solid;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        animation: laneMarkerPulse 3s ease-in-out infinite;
+      }
+
+      @keyframes laneMarkerPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Arriving/Departing Ship Animations */
+      .ship-arriving {
+        animation: shipArrive 2s ease-out;
+      }
+
+      @keyframes shipArrive {
+        0% {
+          transform: scale(0.3);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .ship-departing {
+        animation: shipDepart 2s ease-in;
+      }
+
+      @keyframes shipDepart {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(0.3);
+          opacity: 0;
+        }
+      }
+
+      /* Port Vessel Count Badge */
+      .vessel-count-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        min-width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+      }
+
+      /* Chokepoint Warning Markers */
+      .chokepoint-marker {
+        position: relative;
+      }
+
+      .chokepoint-icon {
+        width: 30px;
+        height: 30px;
+        background: rgba(245, 158, 11, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        border: 3px solid white;
+        box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+        animation: chokepointPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes chokepointPulse {
+        0%,
+        100% {
+          box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(245, 158, 11, 0.9),
+            0 0 45px rgba(245, 158, 11, 0.4);
+        }
+      }
+
+      /* Sea Zone Gradient Overlays */
+      .sea-zone-overlay {
+        position: absolute;
+        pointer-events: none;
+        border-radius: 50%;
+        opacity: 0.15;
+        animation: seaZonePulse 6s ease-in-out infinite;
+      }
+
+      @keyframes seaZonePulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.15;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.2;
+        }
+      }
+
+      /* Distance Arc Lines */
+      .distance-arc {
+        stroke-dasharray: 5, 10;
+        stroke-opacity: 0.3;
+        fill: none;
+      }
+
+      /* Live Data Ping Effect */
+      .data-ping {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: dataPing 1.5s ease-out infinite;
+      }
+
+      @keyframes dataPing {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
+
+      /* Route Highlight Effect */
+      .route-highlight {
+        stroke-width: 8px !important;
+        stroke-opacity: 0.8 !important;
+        filter: drop-shadow(0 0 12px currentColor);
+      }
+
+      /* Animated Grid Lines */
+      .map-grid-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 410;
+        background-image: linear-gradient(
+            rgba(59, 130, 246, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+
+      /* Info Tooltip Enhancement */
+      .enhanced-tooltip {
+        background: rgba(15, 23, 42, 0.98) !important;
+        border: 1px solid rgba(59, 130, 246, 0.5) !important;
+        border-radius: 10px !important;
+        padding: 12px 16px !important;
+        color: white !important;
+        font-size: 12px !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+        backdrop-filter: blur(10px);
+      }
+
+      .enhanced-tooltip::before {
+        border-top-color: rgba(59, 130, 246, 0.5) !important;
+      }
+
+      /* Mini Analytics Dashboard */
+      .analytics-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .analytics-card {
+        background: rgba(30, 41, 59, 0.8);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .analytics-card h4 {
+        color: #94a3b8;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+
+      .mini-chart {
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+        height: 60px;
+      }
+
+      .mini-bar {
+        flex: 1;
+        background: linear-gradient(to top, #3b82f6, #60a5fa);
+        border-radius: 2px 2px 0 0;
+        animation: growBar 1s ease-out forwards;
+        transform-origin: bottom;
+      }
+
+      @keyframes growBar {
+        from {
+          transform: scaleY(0);
+        }
+        to {
+          transform: scaleY(1);
+        }
+      }
+
+      .donut-chart {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #3b82f6 0deg 120deg,
+          #22c55e 120deg 200deg,
+          #f59e0b 200deg 280deg,
+          #a855f7 280deg 360deg
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      .donut-hole {
+        width: 50px;
+        height: 50px;
+        background: #1e293b;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #f1f5f9;
+      }
+
+      .chart-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        justify-content: center;
+      }
+
+      .legend-dot {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.625rem;
+        color: #94a3b8;
+      }
+
+      .legend-dot span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .trend-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+
+      .trend-up {
+        color: #22c55e;
+      }
+
+      .trend-down {
+        color: #ef4444;
+      }
+
+      .trend-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f1f5f9;
+      }
+
+      .trend-change {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      /* Cargo Trail Effect */
+      .cargo-trail {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        opacity: 0;
+        animation: trailFade 1s ease-out forwards;
+        pointer-events: none;
+      }
+
+      @keyframes trailFade {
+        0% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+      }
+
+      /* Port Congestion Indicators */
+      .congestion-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid;
+        animation: congestionPulse 2s ease-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes congestionPulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(2.5);
+          opacity: 0;
+        }
+      }
+
+      /* Enhanced Glow Effects */
+      .glow-blue {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+          0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+      }
+
+      .glow-green {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.5),
+          0 0 40px rgba(34, 197, 94, 0.3);
+      }
+
+      /* Floating Action Button */
+      .fab-container {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 999;
+      }
+
+      .fab {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        transition: all 0.3s;
+      }
+
+      .fab:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+      }
+
+      .fab-menu {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        transition: all 0.3s;
+      }
+
+      .fab-container.open .fab-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .fab-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(30, 41, 59, 0.95);
+        padding: 0.75rem 1rem;
+        border-radius: 50px;
+        color: #f1f5f9;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .fab-item:hover {
+        background: rgba(59, 130, 246, 0.2);
+        transform: translateX(-5px);
+      }
+
+      .fab-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+
+      /* Connection Status */
+      .connection-status {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(15, 23, 42, 0.9);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        color: #94a3b8;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        z-index: 999;
+      }
+
+      .connection-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: livePulse 2s infinite;
+      }
+
+      /* Time Zone Clock */
+      .timezone-bar {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        padding: 0.75rem;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .timezone-item {
+        text-align: center;
+      }
+
+      .timezone-city {
+        font-size: 0.625rem;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .timezone-time {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #f1f5f9;
+        font-variant-numeric: tabular-nums;
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .logo h1 {
+          font-size: 1.5rem;
+        }
+
+        .cities-grid {
+          grid-template-columns: 1fr;
+        }
+
+        #map {
+          height: 350px;
+        }
+
+        .controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .filter-buttons {
+          justify-content: center;
+        }
+
+        .stats-summary {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .map-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .map-toggles {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .map-legend {
+          left: 1rem;
+          right: 1rem;
+          bottom: 1rem;
+        }
+
+        .map-quick-bar {
+          top: 10px;
+          padding: 6px 10px;
+          gap: 6px;
+        }
+
+        .quick-stat {
+          padding: 0 6px;
+        }
+
+        .quick-stat-value {
+          font-size: 12px;
+        }
+
+        .quick-stat-label {
+          font-size: 8px;
+        }
+
+        .map-clock {
+          display: none;
+        }
+
+        .fab-container {
+          bottom: 1rem;
+          right: 1rem;
+        }
+
+        .timezone-bar {
+          gap: 1rem;
+        }
+
+        .analytics-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Weather Alert Banner -->
+    <div class="weather-alert">
+      <div class="weather-alert-content">
+        <div class="weather-alert-item">
+          ⚠️ Typhoon Warning: South China Sea routes experiencing delays
+        </div>
+        <div class="weather-alert-item">
+          🌊 High Waves: Singapore Strait advisory in effect
+        </div>
+        <div class="weather-alert-item">
+          ❄️ Winter Storm: Rotterdam port operations reduced 20%
+        </div>
+        <div class="weather-alert-item">
+          🔥 Port Strike: Los Angeles terminals 3-5 affected
+        </div>
+        <div class="weather-alert-item">
+          ⚠️ Typhoon Warning: South China Sea routes experiencing delays
+        </div>
+        <div class="weather-alert-item">
+          🌊 High Waves: Singapore Strait advisory in effect
+        </div>
+        <div class="weather-alert-item">
+          ❄️ Winter Storm: Rotterdam port operations reduced 20%
+        </div>
+        <div class="weather-alert-item">
+          🔥 Port Strike: Los Angeles terminals 3-5 affected
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <h1>SupplyChain Global</h1>
+        </div>
+        <div class="tagline">
+          <span>Real-time logistics visualization</span>
+          <span class="live-indicator">
+            <span class="live-dot"></span>
+            LIVE
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="search-box">
+        <svg
+          class="search-icon"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+        <input
+          type="text"
+          class="search-input"
+          id="searchInput"
+          placeholder="Search ports, routes, or shipments..."
+          aria-label="Search supply chain"
+        />
+      </div>
+
+      <!-- Time Zone Bar -->
+      <div class="timezone-bar">
+        <div class="timezone-item">
+          <div class="timezone-city">Shanghai</div>
+          <div class="timezone-time" id="time-shanghai">--:--</div>
+        </div>
+        <div class="timezone-item">
+          <div class="timezone-city">Singapore</div>
+          <div class="timezone-time" id="time-singapore">--:--</div>
+        </div>
+        <div class="timezone-item">
+          <div class="timezone-city">Dubai</div>
+          <div class="timezone-time" id="time-dubai">--:--</div>
+        </div>
+        <div class="timezone-item">
+          <div class="timezone-city">Rotterdam</div>
+          <div class="timezone-time" id="time-rotterdam">--:--</div>
+        </div>
+        <div class="timezone-item">
+          <div class="timezone-city">New York</div>
+          <div class="timezone-time" id="time-newyork">--:--</div>
+        </div>
+        <div class="timezone-item">
+          <div class="timezone-city">Los Angeles</div>
+          <div class="timezone-time" id="time-losangeles">--:--</div>
+        </div>
+      </div>
+
+      <div class="stats-summary">
+        <div class="stat-item">
+          <div class="stat-value live" id="activeShipments">2,847</div>
+          <div class="stat-label">Active Shipments</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="totalPorts">12</div>
+          <div class="stat-label">Major Hubs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="topPort">Shanghai</div>
+          <div class="stat-label">Busiest Hub</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value live" id="containersToday">48.2K</div>
+          <div class="stat-label">Containers Today</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="onTimeRate">94.2%</div>
+          <div class="stat-label">On-Time Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value live" id="co2Saved">12.4K</div>
+          <div class="stat-label">Tons CO₂ Saved</div>
+        </div>
+      </div>
+
+      <!-- Mini Analytics Dashboard -->
+      <div class="analytics-row">
+        <div class="analytics-card">
+          <h4>Weekly Throughput</h4>
+          <div class="mini-chart" id="weeklyChart"></div>
+          <div class="trend-indicator">
+            <span class="trend-value" id="weeklyTotal">2.4M</span>
+            <span class="trend-change trend-up">↑ 12.3%</span>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h4>Transport Mode Split</h4>
+          <div class="donut-chart">
+            <div class="donut-hole">100%</div>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-dot">
+              <span style="background: #3b82f6"></span> Sea 68%
+            </div>
+            <div class="legend-dot">
+              <span style="background: #22c55e"></span> Air 18%
+            </div>
+            <div class="legend-dot">
+              <span style="background: #f59e0b"></span> Rail 9%
+            </div>
+            <div class="legend-dot">
+              <span style="background: #a855f7"></span> Road 5%
+            </div>
+          </div>
+        </div>
+        <div class="analytics-card">
+          <h4>Global Efficiency Index</h4>
+          <div style="text-align: center; padding: 1rem 0">
+            <div class="trend-value" style="font-size: 2.5rem; color: #22c55e">
+              92.4
+            </div>
+            <div
+              style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem"
+            >
+              out of 100
+            </div>
+          </div>
+          <div class="trend-indicator" style="justify-content: center">
+            <span class="trend-change trend-up">↑ 2.1 pts from last week</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-feed" id="activityFeed">
+        <h3>
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            ></path>
+          </svg>
+          Live Activity
+        </h3>
+        <div id="activityList"></div>
+      </div>
+
+      <div class="map-container">
+        <div class="map-header">
+          <div class="map-title-group">
+            <h2>Global Supply Chain Network</h2>
+            <div class="shipment-counter">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                ></path>
+              </svg>
+              <span id="movingShipments">24</span> vessels in transit
+            </div>
+          </div>
+          <div
+            class="map-toggles"
+            role="group"
+            aria-label="Map overlay options"
+          >
+            <button
+              class="map-toggle active"
+              data-layer="routes"
+              aria-label="Toggle shipping routes"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                ></path>
+              </svg>
+              Routes
+            </button>
+            <button
+              class="map-toggle"
+              data-layer="traffic"
+              aria-label="Toggle traffic density"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
+              </svg>
+              Traffic
+            </button>
+            <button
+              class="map-toggle"
+              data-layer="delays"
+              aria-label="Toggle delay information"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Delays
+            </button>
+            <button
+              class="map-toggle"
+              data-layer="capacity"
+              aria-label="Toggle port capacity"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                ></path>
+              </svg>
+              Capacity
+            </button>
+          </div>
+        </div>
+        <div
+          id="map"
+          role="img"
+          aria-label="Interactive map showing global supply chain network"
+        >
+          <div class="water-shimmer"></div>
+          <div class="terminator-overlay"></div>
+          <div class="map-grid-overlay"></div>
+          <div class="ocean-particles" id="oceanParticles"></div>
+          <div id="mapLegend" class="map-legend"></div>
+
+          <!-- Quick Stats Bar -->
+          <div class="map-quick-bar">
+            <div class="quick-stat">
+              <span class="quick-stat-icon">🚢</span>
+              <div>
+                <div class="quick-stat-value live" id="quickVessels">42</div>
+                <div class="quick-stat-label">Vessels</div>
+              </div>
+            </div>
+            <div class="quick-stat">
+              <span class="quick-stat-icon">✈️</span>
+              <div>
+                <div
+                  class="quick-stat-value"
+                  id="quickPlanes"
+                  style="color: #a855f7"
+                >
+                  12
+                </div>
+                <div class="quick-stat-label">Aircraft</div>
+              </div>
+            </div>
+            <div class="quick-stat">
+              <span class="quick-stat-icon">⚡</span>
+              <div>
+                <div class="quick-stat-value" id="quickSpeed">18.2 kn</div>
+                <div class="quick-stat-label">Avg Speed</div>
+              </div>
+            </div>
+            <div class="quick-stat">
+              <span class="quick-stat-icon">📦</span>
+              <div>
+                <div class="quick-stat-value" id="quickCargo">385K TEU</div>
+                <div class="quick-stat-label">In Transit</div>
+              </div>
+            </div>
+            <div class="quick-stat">
+              <span class="quick-stat-icon">🌊</span>
+              <div>
+                <div class="quick-stat-value" style="color: #f59e0b">3</div>
+                <div class="quick-stat-label">Alerts</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compass Rose -->
+          <div class="compass-rose">
+            <div class="compass-inner">
+              <span class="compass-label n">N</span>
+              <span class="compass-label s">S</span>
+              <span class="compass-label e">E</span>
+              <span class="compass-label w">W</span>
+              <div class="compass-needle"></div>
+            </div>
+          </div>
+
+          <!-- Scale Bar -->
+          <div class="scale-bar-container">
+            <div class="scale-label" id="scaleLabel">~500 km</div>
+            <div class="scale-bar"></div>
+          </div>
+
+          <!-- Mini Clock Panel -->
+          <div class="map-clock">
+            <div class="map-clock-title">Trading Hours</div>
+            <div class="map-clock-row">
+              <span class="map-clock-city">🇨🇳 Shanghai</span>
+              <span class="map-clock-time" id="mapClock1">--:--</span>
+            </div>
+            <div class="map-clock-row">
+              <span class="map-clock-city">🇸🇬 Singapore</span>
+              <span class="map-clock-time" id="mapClock2">--:--</span>
+            </div>
+            <div class="map-clock-row">
+              <span class="map-clock-city">🇳🇱 Rotterdam</span>
+              <span class="map-clock-time" id="mapClock3">--:--</span>
+            </div>
+            <div class="map-clock-row">
+              <span class="map-clock-city">🇺🇸 New York</span>
+              <span class="map-clock-time" id="mapClock4">--:--</span>
+            </div>
+          </div>
+
+          <!-- Map Live Stats -->
+          <div class="map-stats-overlay">
+            <div class="map-stats-title">Live Traffic</div>
+            <div class="map-stat-row">
+              <span>Ships in view</span>
+              <span id="shipsInView">24</span>
+            </div>
+            <div class="map-stat-row highlight">
+              <span>Avg speed</span>
+              <span id="avgSpeed">18.5 kn</span>
+            </div>
+            <div class="map-stat-row">
+              <span>Active routes</span>
+              <span id="activeRoutesCount">8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="filter-buttons" role="group" aria-label="Filter by type">
+          <button class="filter-btn active" data-filter="all">All Hubs</button>
+          <button class="filter-btn" data-filter="port">🚢 Seaports</button>
+          <button class="filter-btn" data-filter="airport">✈️ Airports</button>
+          <button class="filter-btn" data-filter="warehouse">
+            📦 Warehouses
+          </button>
+        </div>
+        <select class="sort-select" id="sortSelect" aria-label="Sort hubs">
+          <option value="throughput-desc">Highest Throughput</option>
+          <option value="throughput-asc">Lowest Throughput</option>
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="name-desc">Name (Z-A)</option>
+          <option value="efficiency-desc">Best Efficiency</option>
+          <option value="delays-asc">Least Delays</option>
+        </select>
+      </div>
+
+      <div class="cities-grid" id="citiesGrid" role="list"></div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container" id="fabContainer">
+      <div class="fab-menu">
+        <div
+          class="fab-item"
+          onclick="alert('Export report feature coming soon!')"
+        >
+          <div class="fab-icon">📊</div>
+          Export Report
+        </div>
+        <div
+          class="fab-item"
+          onclick="alert('Add shipment feature coming soon!')"
+        >
+          <div class="fab-icon">➕</div>
+          Add Shipment
+        </div>
+        <div class="fab-item" onclick="alert('Set alert feature coming soon!')">
+          <div class="fab-icon">🔔</div>
+          Set Alert
+        </div>
+      </div>
+      <button class="fab" onclick="toggleFab()">
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Connection Status -->
+    <div class="connection-status">
+      <div class="connection-dot"></div>
+      <span>Connected to 847 data sources</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+      // State management
+      let currentFilter = "all";
+      let currentSort = "throughput-desc";
+      let movingMarkers = [];
+      let routeLines = [];
+      let animationFrame = null;
+
+      // Supply chain hubs data
+      const hubs = [
+        {
+          name: "Shanghai Port",
+          type: "port",
+          lat: 31.2304,
+          lon: 121.4737,
+          throughput: 47.03,
+          efficiency: 94,
+          delays: 2,
+          factors: {
+            capacity: 98,
+            automation: 95,
+            connectivity: 92,
+            turnaround: 90,
+            reliability: 96,
+          },
+          containersDaily: 12500,
+          vessels: 42,
+          description:
+            "World's busiest container port, handling over 47 million TEUs annually. Key gateway for Asian manufacturing exports.",
+        },
+        {
+          name: "Singapore Port",
+          type: "port",
+          lat: 1.2644,
+          lon: 103.8222,
+          throughput: 37.2,
+          efficiency: 96,
+          delays: 1,
+          factors: {
+            capacity: 95,
+            automation: 98,
+            connectivity: 97,
+            turnaround: 94,
+            reliability: 98,
+          },
+          containersDaily: 10200,
+          vessels: 38,
+          description:
+            "Premier transshipment hub connecting East-West trade routes. Known for exceptional efficiency and minimal delays.",
+        },
+        {
+          name: "Rotterdam Port",
+          type: "port",
+          lat: 51.9244,
+          lon: 4.4777,
+          throughput: 14.5,
+          efficiency: 92,
+          delays: 3,
+          factors: {
+            capacity: 88,
+            automation: 94,
+            connectivity: 96,
+            turnaround: 89,
+            reliability: 91,
+          },
+          containersDaily: 4100,
+          vessels: 28,
+          description:
+            "Europe's largest port and primary gateway. Deep-water access and extensive inland connections.",
+        },
+        {
+          name: "Los Angeles Port",
+          type: "port",
+          lat: 33.7405,
+          lon: -118.2608,
+          throughput: 9.2,
+          efficiency: 85,
+          delays: 5,
+          factors: {
+            capacity: 82,
+            automation: 78,
+            connectivity: 90,
+            turnaround: 75,
+            reliability: 83,
+          },
+          containersDaily: 2800,
+          vessels: 22,
+          description:
+            "Busiest US port complex, critical for trans-Pacific trade. Major distribution center for North America.",
+        },
+        {
+          name: "Dubai Jebel Ali",
+          type: "port",
+          lat: 25.0145,
+          lon: 55.0634,
+          throughput: 14.1,
+          efficiency: 93,
+          delays: 2,
+          factors: {
+            capacity: 91,
+            automation: 92,
+            connectivity: 94,
+            turnaround: 91,
+            reliability: 93,
+          },
+          containersDaily: 3900,
+          vessels: 31,
+          description:
+            "Middle East's largest port and free trade zone. Strategic location connecting Asia, Europe, and Africa.",
+        },
+        {
+          name: "Hong Kong Port",
+          type: "port",
+          lat: 22.2855,
+          lon: 114.1577,
+          throughput: 17.8,
+          efficiency: 91,
+          delays: 3,
+          factors: {
+            capacity: 86,
+            automation: 90,
+            connectivity: 95,
+            turnaround: 88,
+            reliability: 90,
+          },
+          containersDaily: 4900,
+          vessels: 35,
+          description:
+            "Historic trading hub with excellent deep-water access. Major transshipment point for South China.",
+        },
+        {
+          name: "Memphis Hub",
+          type: "airport",
+          lat: 35.0421,
+          lon: -89.9792,
+          throughput: 4.5,
+          efficiency: 97,
+          delays: 1,
+          factors: {
+            capacity: 96,
+            automation: 98,
+            connectivity: 92,
+            turnaround: 98,
+            reliability: 97,
+          },
+          containersDaily: 1250,
+          vessels: 156,
+          description:
+            "World's busiest cargo airport, FedEx global superhub. Processes over 4 million packages daily.",
+        },
+        {
+          name: "Frankfurt Hub",
+          type: "airport",
+          lat: 50.0379,
+          lon: 8.5622,
+          throughput: 2.1,
+          efficiency: 94,
+          delays: 2,
+          factors: {
+            capacity: 90,
+            automation: 95,
+            connectivity: 98,
+            turnaround: 92,
+            reliability: 94,
+          },
+          containersDaily: 580,
+          vessels: 89,
+          description:
+            "Europe's largest cargo airport. Critical hub for European distribution and pharma logistics.",
+        },
+        {
+          name: "Shenzhen Distribution",
+          type: "warehouse",
+          lat: 22.5431,
+          lon: 114.0579,
+          throughput: 8.2,
+          efficiency: 95,
+          delays: 2,
+          factors: {
+            capacity: 94,
+            automation: 97,
+            connectivity: 91,
+            turnaround: 96,
+            reliability: 94,
+          },
+          containersDaily: 2300,
+          vessels: 0,
+          description:
+            "Massive e-commerce fulfillment center. Processes millions of packages for global retailers.",
+        },
+        {
+          name: "Amazon EU Central",
+          type: "warehouse",
+          lat: 50.1109,
+          lon: 8.6821,
+          throughput: 5.8,
+          efficiency: 96,
+          delays: 1,
+          factors: {
+            capacity: 92,
+            automation: 99,
+            connectivity: 93,
+            turnaround: 98,
+            reliability: 96,
+          },
+          containersDaily: 1600,
+          vessels: 0,
+          description:
+            "Highly automated European distribution center. Advanced robotics and AI-driven logistics.",
+        },
+        {
+          name: "Busan Port",
+          type: "port",
+          lat: 35.1796,
+          lon: 129.0756,
+          throughput: 21.6,
+          efficiency: 93,
+          delays: 2,
+          factors: {
+            capacity: 92,
+            automation: 94,
+            connectivity: 91,
+            turnaround: 92,
+            reliability: 93,
+          },
+          containersDaily: 5900,
+          vessels: 39,
+          description:
+            "South Korea's largest port and major transshipment hub for Northeast Asia.",
+        },
+        {
+          name: "Ningbo-Zhoushan",
+          type: "port",
+          lat: 29.8683,
+          lon: 121.544,
+          throughput: 31.1,
+          efficiency: 92,
+          delays: 3,
+          factors: {
+            capacity: 96,
+            automation: 91,
+            connectivity: 89,
+            turnaround: 88,
+            reliability: 91,
+          },
+          containersDaily: 8500,
+          vessels: 44,
+          description:
+            "Second-largest port in China by cargo tonnage. Major export gateway for Yangtze River Delta.",
+        },
+        {
+          name: "New York/NJ Port",
+          type: "port",
+          lat: 40.6892,
+          lon: -74.0445,
+          throughput: 8.9,
+          efficiency: 87,
+          delays: 4,
+          factors: {
+            capacity: 85,
+            automation: 82,
+            connectivity: 94,
+            turnaround: 80,
+            reliability: 86,
+          },
+          containersDaily: 2500,
+          vessels: 26,
+          description:
+            "Largest port on US East Coast. Gateway for trans-Atlantic trade and Northeast distribution.",
+        },
+        {
+          name: "Hamburg Port",
+          type: "port",
+          lat: 53.5461,
+          lon: 10.0036,
+          throughput: 8.7,
+          efficiency: 91,
+          delays: 3,
+          factors: {
+            capacity: 87,
+            automation: 92,
+            connectivity: 95,
+            turnaround: 88,
+            reliability: 90,
+          },
+          containersDaily: 2400,
+          vessels: 24,
+          description:
+            "Germany's largest port and third-busiest in Europe. Major gateway for Central European markets.",
+        },
+        {
+          name: "Tokyo Haneda",
+          type: "airport",
+          lat: 35.5494,
+          lon: 139.7798,
+          throughput: 2.8,
+          efficiency: 96,
+          delays: 1,
+          factors: {
+            capacity: 93,
+            automation: 97,
+            connectivity: 96,
+            turnaround: 95,
+            reliability: 97,
+          },
+          containersDaily: 780,
+          vessels: 125,
+          description:
+            "Major Japanese cargo hub with cutting-edge automation. Critical for high-value electronics export.",
+        },
+        {
+          name: "Houston Port",
+          type: "port",
+          lat: 29.7604,
+          lon: -95.3698,
+          throughput: 6.2,
+          efficiency: 88,
+          delays: 3,
+          factors: {
+            capacity: 84,
+            automation: 80,
+            connectivity: 88,
+            turnaround: 82,
+            reliability: 85,
+          },
+          containersDaily: 1700,
+          vessels: 18,
+          description:
+            "Major Gulf Coast port handling petroleum and chemical shipments. Growing container operations.",
+        },
+      ];
+
+      // Shipping routes for animated lines - Enhanced with more data
+      const shippingRoutes = [
+        {
+          from: [31.2304, 121.4737],
+          to: [33.7405, -118.2608],
+          name: "Trans-Pacific Main",
+          color: "#3b82f6",
+          distance: 10500,
+          transitDays: 14,
+          shipType: "container",
+          vessels: 47,
+        },
+        {
+          from: [1.2644, 103.8222],
+          to: [51.9244, 4.4777],
+          name: "Asia-Europe",
+          color: "#22c55e",
+          distance: 15200,
+          transitDays: 28,
+          shipType: "container",
+          vessels: 62,
+        },
+        {
+          from: [51.9244, 4.4777],
+          to: [40.6892, -74.0445],
+          name: "Trans-Atlantic",
+          color: "#a855f7",
+          distance: 5800,
+          transitDays: 8,
+          shipType: "container",
+          vessels: 38,
+        },
+        {
+          from: [31.2304, 121.4737],
+          to: [1.2644, 103.8222],
+          name: "Intra-Asia",
+          color: "#f59e0b",
+          distance: 2800,
+          transitDays: 4,
+          shipType: "feeder",
+          vessels: 85,
+        },
+        {
+          from: [25.0145, 55.0634],
+          to: [51.9244, 4.4777],
+          name: "Middle East-Europe",
+          color: "#ec4899",
+          distance: 6500,
+          transitDays: 12,
+          shipType: "container",
+          vessels: 29,
+        },
+        {
+          from: [22.2855, 114.1577],
+          to: [33.7405, -118.2608],
+          name: "HK-LA Express",
+          color: "#06b6d4",
+          distance: 11200,
+          transitDays: 15,
+          shipType: "container",
+          vessels: 34,
+        },
+        {
+          from: [35.1796, 129.0756],
+          to: [33.7405, -118.2608],
+          name: "Korea-Americas",
+          color: "#84cc16",
+          distance: 9800,
+          transitDays: 13,
+          shipType: "container",
+          vessels: 28,
+        },
+        {
+          from: [1.2644, 103.8222],
+          to: [25.0145, 55.0634],
+          name: "SE Asia-Gulf",
+          color: "#f97316",
+          distance: 5400,
+          transitDays: 9,
+          shipType: "container",
+          vessels: 31,
+        },
+        // Additional routes for more coverage
+        {
+          from: [31.2304, 121.4737],
+          to: [35.1796, 129.0756],
+          name: "China-Korea",
+          color: "#14b8a6",
+          distance: 850,
+          transitDays: 2,
+          shipType: "feeder",
+          vessels: 42,
+        },
+        {
+          from: [22.2855, 114.1577],
+          to: [1.2644, 103.8222],
+          name: "HK-Singapore",
+          color: "#8b5cf6",
+          distance: 2500,
+          transitDays: 3,
+          shipType: "feeder",
+          vessels: 56,
+        },
+        {
+          from: [51.9244, 4.4777],
+          to: [53.5461, 10.0036],
+          name: "Europe North",
+          color: "#0ea5e9",
+          distance: 450,
+          transitDays: 1,
+          shipType: "feeder",
+          vessels: 24,
+        },
+        {
+          from: [40.6892, -74.0445],
+          to: [33.7405, -118.2608],
+          name: "US Coastal",
+          color: "#f43f5e",
+          distance: 4800,
+          transitDays: 12,
+          shipType: "container",
+          vessels: 19,
+        },
+        {
+          from: [29.7604, -95.3698],
+          to: [51.9244, 4.4777],
+          name: "Gulf-Europe",
+          color: "#10b981",
+          distance: 8200,
+          transitDays: 16,
+          shipType: "tanker",
+          vessels: 22,
+        },
+        {
+          from: [35.4437, 139.638],
+          to: [33.7405, -118.2608],
+          name: "Japan-LA",
+          color: "#6366f1",
+          distance: 8900,
+          transitDays: 11,
+          shipType: "container",
+          vessels: 25,
+        },
+      ];
+
+      // Activity messages
+      const activities = [
+        {
+          type: "ship",
+          messages: [
+            "Container vessel MSC AURORA departed Shanghai for Los Angeles",
+            "Maersk Essentials completed docking at Singapore terminal 3",
+            "CMA CGM Marco Polo arriving Rotterdam in 4 hours",
+            "COSCO Shipping Universe cleared Hong Kong customs",
+            "Evergreen Ever Given passing through Suez Canal",
+          ],
+        },
+        {
+          type: "plane",
+          messages: [
+            "FedEx cargo flight FX892 departed Memphis for Frankfurt",
+            "DHL Express A380F landed at Hong Kong Cargo Terminal",
+            "UPS flight 5X247 en route to Singapore",
+            "Emirates SkyCargo delivering pharmaceuticals to Dubai",
+            "Cathay Pacific Cargo cleared for priority handling",
+          ],
+        },
+        {
+          type: "truck",
+          messages: [
+            "Convoy of 12 trucks departed Rotterdam for German distribution",
+            "Priority shipment dispatched from Shenzhen warehouse",
+            "Last-mile delivery initiated from Amazon EU Central",
+            "Intermodal transfer completed at Los Angeles rail yard",
+            "Express delivery fleet deployed for peak season",
+          ],
+        },
+        {
+          type: "warehouse",
+          messages: [
+            "Inventory restocking completed at Singapore free zone",
+            "New automation system online at Frankfurt hub",
+            "Cross-docking operation successful at Dubai Jebel Ali",
+            "Quality inspection passed for electronics batch #47291",
+            "Temperature-controlled storage activated for pharma shipment",
+          ],
+        },
+      ];
+
+      // Initialize map with dark theme
+      const map = L.map("map", {
+        zoomControl: true,
+        scrollWheelZoom: true,
+      }).setView([25, 30], 2);
+
+      // Dark theme map tiles
+      L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+        {
+          attribution:
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
+          maxZoom: 18,
+        }
+      ).addTo(map);
+
+      // Overlay layers storage
+      let currentOverlay = "routes";
+      let overlayLayers = {};
+      let routeLayerGroup = L.layerGroup().addTo(map);
+
+      // Create curved line between two points
+      function getCurvedLine(from, to, numPoints = 50) {
+        const latlngs = [];
+        const offsetX = (to[1] - from[1]) * 0.2;
+        const offsetY = (to[0] - from[0]) * 0.2;
+        const midLat = (from[0] + to[0]) / 2 + offsetY;
+        const midLon = (from[1] + to[1]) / 2 + offsetX;
+
+        for (let i = 0; i <= numPoints; i++) {
+          const t = i / numPoints;
+          const lat =
+            (1 - t) * (1 - t) * from[0] +
+            2 * (1 - t) * t * midLat +
+            t * t * to[0];
+          const lon =
+            (1 - t) * (1 - t) * from[1] +
+            2 * (1 - t) * t * midLon +
+            t * t * to[1];
+          latlngs.push([lat, lon]);
+        }
+        return latlngs;
+      }
+
+      // Ship icons based on type
+      const shipIcons = {
+        container: "🚢",
+        feeder: "🛳️",
+        tanker: "⛽",
+      };
+
+      // Calculate heading angle between two points
+      function getHeading(from, to) {
+        const dLon = ((to[1] - from[1]) * Math.PI) / 180;
+        const lat1 = (from[0] * Math.PI) / 180;
+        const lat2 = (to[0] * Math.PI) / 180;
+        const y = Math.sin(dLon) * Math.cos(lat2);
+        const x =
+          Math.cos(lat1) * Math.sin(lat2) -
+          Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+        let heading = (Math.atan2(y, x) * 180) / Math.PI;
+        return (heading + 360) % 360;
+      }
+
+      // Route tooltip element
+      let routeTooltip = null;
+
+      function showRouteTooltip(route, e) {
+        if (!routeTooltip) {
+          routeTooltip = document.createElement("div");
+          routeTooltip.className = "route-tooltip";
+          document.getElementById("map").appendChild(routeTooltip);
+        }
+
+        routeTooltip.innerHTML = `
+          <div class="route-tooltip-header">
+            <span style="color: ${route.color}">●</span> ${route.name}
+          </div>
+          <div class="route-tooltip-stat">
+            <span>Distance</span>
+            <span style="color: white">${route.distance.toLocaleString()} km</span>
+          </div>
+          <div class="route-tooltip-stat">
+            <span>Transit Time</span>
+            <span style="color: white">${route.transitDays} days</span>
+          </div>
+          <div class="route-tooltip-stat">
+            <span>Active Vessels</span>
+            <span style="color: #22c55e">${route.vessels}</span>
+          </div>
+        `;
+
+        const mapRect = document.getElementById("map").getBoundingClientRect();
+        routeTooltip.style.left = e.containerPoint.x + 15 + "px";
+        routeTooltip.style.top = e.containerPoint.y - 40 + "px";
+        routeTooltip.style.display = "block";
+      }
+
+      function hideRouteTooltip() {
+        if (routeTooltip) {
+          routeTooltip.style.display = "none";
+        }
+      }
+
+      // Create shipping routes with animation
+      function createShippingRoutes() {
+        routeLayerGroup.clearLayers();
+        routeLines = [];
+        movingMarkers = [];
+
+        shippingRoutes.forEach((route, index) => {
+          const curvedPath = getCurvedLine(route.from, route.to);
+
+          // Background glow line
+          const glowLine = L.polyline(curvedPath, {
+            color: route.color,
+            weight: 6,
+            opacity: 0.15,
+            lineCap: "round",
+            lineJoin: "round",
+          }).addTo(routeLayerGroup);
+
+          // Background line (static)
+          const bgLine = L.polyline(curvedPath, {
+            color: route.color,
+            weight: 3,
+            opacity: 0.4,
+            lineCap: "round",
+          }).addTo(routeLayerGroup);
+
+          // Animated dashed line
+          const animatedLine = L.polyline(curvedPath, {
+            color: route.color,
+            weight: 2,
+            opacity: 0.9,
+            dashArray: "8, 12",
+            className: "animated-route",
+          }).addTo(routeLayerGroup);
+
+          // Interactive hover zone
+          const hoverLine = L.polyline(curvedPath, {
+            color: "transparent",
+            weight: 20,
+            opacity: 0,
+          }).addTo(routeLayerGroup);
+
+          hoverLine.on("mouseover", (e) => {
+            bgLine.setStyle({ weight: 5, opacity: 0.7 });
+            glowLine.setStyle({ weight: 12, opacity: 0.3 });
+            showRouteTooltip(route, e);
+          });
+
+          hoverLine.on("mouseout", () => {
+            bgLine.setStyle({ weight: 3, opacity: 0.4 });
+            glowLine.setStyle({ weight: 6, opacity: 0.15 });
+            hideRouteTooltip();
+          });
+
+          hoverLine.on("mousemove", (e) => {
+            if (routeTooltip) {
+              routeTooltip.style.left = e.containerPoint.x + 15 + "px";
+              routeTooltip.style.top = e.containerPoint.y - 40 + "px";
+            }
+          });
+
+          // Add route label at midpoint
+          const midIndex = Math.floor(curvedPath.length / 2);
+          const labelIcon = L.divIcon({
+            className: "lane-label-marker",
+            html: `<div class="lane-label" style="border-color: ${route.color}; color: ${route.color}">${route.name}</div>`,
+            iconSize: [100, 24],
+            iconAnchor: [50, 12],
+          });
+
+          // Only add label for major routes
+          if (route.distance > 5000) {
+            L.marker(curvedPath[midIndex], {
+              icon: labelIcon,
+              interactive: false,
+              keyboard: false,
+            }).addTo(routeLayerGroup);
+          }
+
+          routeLines.push({
+            line: animatedLine,
+            path: curvedPath,
+            color: route.color,
+            route: route,
+          });
+
+          // Create enhanced moving ship markers
+          const numShips =
+            route.shipType === "feeder" ? 2 : 3 + Math.floor(Math.random() * 2);
+          for (let i = 0; i < numShips; i++) {
+            const startOffset = i / numShips + Math.random() * 0.1;
+            const speed = 0.0003 + Math.random() * 0.0003;
+
+            const shipIcon = shipIcons[route.shipType] || "🚢";
+            const shipSize = route.shipType === "feeder" ? 18 : 24;
+
+            const cargoIcon = L.divIcon({
+              className: "ship-marker",
+              html: `
+                <div class="ship-icon-container" style="font-size: ${shipSize}px; filter: drop-shadow(0 0 6px ${route.color});">
+                  <div class="wake-effect"></div>
+                  <span style="display: inline-block; transform: rotate(0deg);">${shipIcon}</span>
+                </div>
+              `,
+              iconSize: [shipSize + 10, shipSize + 10],
+              iconAnchor: [(shipSize + 10) / 2, (shipSize + 10) / 2],
+            });
+
+            const marker = L.marker(curvedPath[0], { icon: cargoIcon }).addTo(
+              routeLayerGroup
+            );
+
+            // Add hover popup for ships
+            const shipId = `${route.name.split(" ")[0].toUpperCase()}-${String(
+              Math.floor(Math.random() * 9000) + 1000
+            )}`;
+            marker.bindPopup(
+              `
+              <div style="min-width: 140px;">
+                <div style="font-weight: 600; margin-bottom: 6px;">${shipId}</div>
+                <div style="font-size: 11px; color: #94a3b8;">
+                  <div style="margin: 3px 0;">Route: <span style="color: white">${
+                    route.name
+                  }</span></div>
+                  <div style="margin: 3px 0;">Speed: <span style="color: #22c55e">${(
+                    16 +
+                    Math.random() * 8
+                  ).toFixed(1)} knots</span></div>
+                  <div style="margin: 3px 0;">Cargo: <span style="color: white">${Math.floor(
+                    Math.random() * 15000 + 5000
+                  )} TEU</span></div>
+                </div>
+              </div>
+            `,
+              { className: "port-hover-card" }
+            );
+
+            movingMarkers.push({
+              marker,
+              path: curvedPath,
+              progress: startOffset,
+              speed,
+              routeIndex: index,
+              heading: 0,
+              route: route,
+            });
+          }
+        });
+
+        // Update map stats
+        const totalShips = movingMarkers.length;
+        document.getElementById("shipsInView").textContent = totalShips;
+        document.getElementById("activeRoutesCount").textContent =
+          shippingRoutes.length;
+      }
+
+      // Animate cargo markers along routes with rotation
+      function animateCargo() {
+        movingMarkers.forEach((cargo) => {
+          cargo.progress += cargo.speed;
+          if (cargo.progress >= 1) {
+            cargo.progress = 0;
+          }
+
+          const pathIndex = Math.floor(
+            cargo.progress * (cargo.path.length - 1)
+          );
+          const nextIndex = Math.min(pathIndex + 1, cargo.path.length - 1);
+          const t = (cargo.progress * (cargo.path.length - 1)) % 1;
+
+          const lat =
+            cargo.path[pathIndex][0] +
+            t * (cargo.path[nextIndex][0] - cargo.path[pathIndex][0]);
+          const lon =
+            cargo.path[pathIndex][1] +
+            t * (cargo.path[nextIndex][1] - cargo.path[pathIndex][1]);
+
+          cargo.marker.setLatLng([lat, lon]);
+
+          // Update ship rotation based on heading
+          if (pathIndex < cargo.path.length - 1) {
+            const heading = getHeading(
+              cargo.path[pathIndex],
+              cargo.path[nextIndex]
+            );
+            const iconEl = cargo.marker.getElement();
+            if (iconEl) {
+              const shipSpan = iconEl.querySelector("span");
+              if (shipSpan) {
+                shipSpan.style.transform = `rotate(${heading - 90}deg)`;
+              }
+            }
+          }
+        });
+
+        // Update average speed display
+        if (Math.random() < 0.02) {
+          const avgSpeed = (17 + Math.random() * 4).toFixed(1);
+          document.getElementById("avgSpeed").textContent = avgSpeed + " kn";
+        }
+
+        animationFrame = requestAnimationFrame(animateCargo);
+      }
+
+      // Layer configurations
+      const layerConfigs = {
+        routes: {
+          name: "Shipping Routes",
+          legend: [
+            { color: "#3b82f6", label: "Trans-Pacific" },
+            { color: "#22c55e", label: "Asia-Europe" },
+            { color: "#a855f7", label: "Trans-Atlantic" },
+            { color: "#f59e0b", label: "Regional" },
+            { color: "#ec4899", label: "Middle East" },
+            { color: "#06b6d4", label: "Express Lines" },
+          ],
+        },
+        traffic: {
+          name: "Traffic Density",
+          getCityColor: (hub) => {
+            if (hub.throughput > 30) return "rgba(220, 38, 38, 0.6)";
+            if (hub.throughput > 15) return "rgba(251, 146, 60, 0.6)";
+            return "rgba(34, 197, 94, 0.6)";
+          },
+          legend: [
+            { color: "rgba(220, 38, 38, 0.8)", label: "Very High (>30M TEU)" },
+            { color: "rgba(251, 146, 60, 0.8)", label: "High (15-30M TEU)" },
+            { color: "rgba(34, 197, 94, 0.8)", label: "Normal (<15M TEU)" },
+          ],
+        },
+        delays: {
+          name: "Current Delays",
+          getCityColor: (hub) => {
+            if (hub.delays >= 5) return "rgba(220, 38, 38, 0.6)";
+            if (hub.delays >= 3) return "rgba(251, 146, 60, 0.6)";
+            return "rgba(34, 197, 94, 0.6)";
+          },
+          legend: [
+            { color: "rgba(220, 38, 38, 0.8)", label: "Significant (5+ days)" },
+            { color: "rgba(251, 146, 60, 0.8)", label: "Moderate (3-4 days)" },
+            { color: "rgba(34, 197, 94, 0.8)", label: "Minimal (<3 days)" },
+          ],
+        },
+        capacity: {
+          name: "Port Capacity",
+          getCityColor: (hub) => {
+            if (hub.factors.capacity > 93) return "rgba(220, 38, 38, 0.6)";
+            if (hub.factors.capacity > 88) return "rgba(251, 146, 60, 0.6)";
+            return "rgba(34, 197, 94, 0.6)";
+          },
+          legend: [
+            { color: "rgba(220, 38, 38, 0.8)", label: "Near Capacity (>93%)" },
+            { color: "rgba(251, 146, 60, 0.8)", label: "High Usage (88-93%)" },
+            { color: "rgba(34, 197, 94, 0.8)", label: "Available (<88%)" },
+          ],
+        },
+      };
+
+      // Create overlay layer based on type
+      function createOverlayLayer(layerType) {
+        const config = layerConfigs[layerType];
+        const layerGroup = L.layerGroup();
+
+        if (layerType === "routes") {
+          createShippingRoutes();
+          animateCargo();
+        } else {
+          // Stop animation when not showing routes
+          if (animationFrame) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+          }
+          routeLayerGroup.clearLayers();
+
+          // Create city-specific circles
+          hubs.forEach((hub) => {
+            const color = config.getCityColor(hub);
+            const radius = 100000 + hub.throughput * 5000;
+            L.circle([hub.lat, hub.lon], {
+              radius: radius,
+              color: "transparent",
+              fillColor: color,
+              fillOpacity: 0.5,
+              weight: 0,
+            }).addTo(layerGroup);
+          });
+        }
+
+        return layerGroup;
+      }
+
+      // Toggle overlay layer
+      function toggleOverlay(layerType) {
+        const legendEl = document.getElementById("mapLegend");
+
+        // Remove current overlay
+        if (currentOverlay && overlayLayers[currentOverlay]) {
+          map.removeLayer(overlayLayers[currentOverlay]);
+        }
+
+        // Stop animation if switching away from routes
+        if (layerType !== "routes" && animationFrame) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+          routeLayerGroup.clearLayers();
+        }
+
+        // Create layer if it doesn't exist or recreate for routes
+        if (!overlayLayers[layerType] || layerType === "routes") {
+          overlayLayers[layerType] = createOverlayLayer(layerType);
+        }
+
+        // Add new overlay (if not routes, routes are handled separately)
+        if (layerType !== "routes") {
+          overlayLayers[layerType].addTo(map);
+        } else {
+          createShippingRoutes();
+          animateCargo();
+        }
+
+        currentOverlay = layerType;
+
+        // Update legend
+        const config = layerConfigs[layerType];
+        legendEl.innerHTML = `
+          <div class="legend-title">${config.name}</div>
+          ${config.legend
+            .map(
+              (item) => `
+            <div class="legend-item">
+              <div class="legend-color" style="background: ${item.color}"></div>
+              <span>${item.label}</span>
+            </div>
+          `
+            )
+            .join("")}
+        `;
+        legendEl.classList.add("active");
+      }
+
+      // Custom marker icons based on hub type
+      const getMarkerColor = (hub) => {
+        if (hub.type === "port") return "#3b82f6";
+        if (hub.type === "airport") return "#a855f7";
+        return "#f59e0b";
+      };
+
+      const getMarkerIcon = (hub) => {
+        if (hub.type === "port") return "🚢";
+        if (hub.type === "airport") return "✈️";
+        return "📦";
+      };
+
+      // Get congestion level
+      const getCongestionLevel = (hub) => {
+        if (hub.factors.capacity > 93)
+          return { level: "high", color: "#ef4444" };
+        if (hub.factors.capacity > 88)
+          return { level: "medium", color: "#f59e0b" };
+        return { level: "low", color: "#22c55e" };
+      };
+
+      // Add markers to map with enhanced visuals
+      hubs.forEach((hub, index) => {
+        const color = getMarkerColor(hub);
+        const congestion = getCongestionLevel(hub);
+        const markerSize = 20 + Math.min(hub.throughput, 30) * 0.5;
+
+        // Enhanced pulsing marker with activity rings
+        const pulseIcon = L.divIcon({
+          className: "pulse-icon",
+          html: `
+            <div style="position: relative; cursor: pointer;">
+              <!-- Outer activity ring -->
+              <div class="port-activity-ring" style="border-color: ${color}; animation-delay: 0s;"></div>
+              <div class="port-activity-ring" style="border-color: ${color}; animation-delay: 0.7s;"></div>
+              
+              <!-- Congestion glow -->
+              <div class="congestion-glow" style="background: radial-gradient(circle, ${
+                congestion.color
+              }40 0%, transparent 70%);"></div>
+              
+              <!-- Main marker -->
+              <div style="
+                width: ${markerSize}px;
+                height: ${markerSize}px;
+                background: linear-gradient(135deg, ${color}, ${color}dd);
+                border: 3px solid white;
+                border-radius: 50%;
+                box-shadow: 0 4px 15px ${color}80, 0 0 30px ${color}40;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: ${markerSize * 0.5}px;
+                position: relative;
+                z-index: 10;
+              ">${getMarkerIcon(hub)}</div>
+              
+              <!-- Status indicator -->
+              <div style="
+                position: absolute;
+                bottom: -4px;
+                right: -4px;
+                width: 10px;
+                height: 10px;
+                background: ${congestion.color};
+                border: 2px solid white;
+                border-radius: 50%;
+                box-shadow: 0 0 6px ${congestion.color};
+                z-index: 20;
+              "></div>
+              
+              <!-- Throughput indicator bar -->
+              <div style="
+                position: absolute;
+                bottom: -12px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: ${Math.min(hub.throughput * 2, 60)}px;
+                height: 3px;
+                background: linear-gradient(90deg, ${color}, ${color}80);
+                border-radius: 2px;
+                box-shadow: 0 0 4px ${color}60;
+              "></div>
+            </div>
+          `,
+          iconSize: [markerSize + 20, markerSize + 20],
+          iconAnchor: [(markerSize + 20) / 2, (markerSize + 20) / 2],
+        });
+
+        const marker = L.marker([hub.lat, hub.lon], { icon: pulseIcon }).addTo(
+          map
+        );
+
+        // Enhanced popup with card design
+        marker.bindPopup(
+          `
+          <div class="port-card-header">
+            <div class="port-card-name">${hub.name}</div>
+            <div class="port-card-type">${getMarkerIcon(hub)} ${
+            hub.type.charAt(0).toUpperCase() + hub.type.slice(1)
+          } ${hub.vessels > 0 ? `• ${hub.vessels} vessels at berth` : ""}</div>
+          </div>
+          <div class="port-card-body">
+            <div class="port-card-stat">
+              <span class="port-card-stat-label">Annual Throughput</span>
+              <span class="port-card-stat-value">${hub.throughput}M TEU</span>
+            </div>
+            <div class="port-card-stat">
+              <span class="port-card-stat-label">Efficiency Rating</span>
+              <span class="port-card-stat-value ${
+                hub.efficiency >= 95
+                  ? "good"
+                  : hub.efficiency >= 90
+                  ? "warning"
+                  : "bad"
+              }">${hub.efficiency}%</span>
+            </div>
+            <div class="port-card-stat">
+              <span class="port-card-stat-label">Avg Delay</span>
+              <span class="port-card-stat-value ${
+                hub.delays <= 2 ? "good" : hub.delays <= 4 ? "warning" : "bad"
+              }">${hub.delays} days</span>
+            </div>
+            <div class="port-card-stat">
+              <span class="port-card-stat-label">Daily Containers</span>
+              <span class="port-card-stat-value">${hub.containersDaily.toLocaleString()}</span>
+            </div>
+            <div class="port-card-stat">
+              <span class="port-card-stat-label">Capacity Usage</span>
+              <span class="port-card-stat-value ${
+                hub.factors.capacity <= 88
+                  ? "good"
+                  : hub.factors.capacity <= 93
+                  ? "warning"
+                  : "bad"
+              }">${hub.factors.capacity}%</span>
+            </div>
+          </div>
+          <div class="port-card-footer">
+            <span class="port-card-badge active">● Online</span>
+            <span class="port-card-badge busy">${
+              congestion.level
+            } traffic</span>
+          </div>
+        `,
+          { className: "port-hover-card", maxWidth: 250 }
+        );
+
+        marker.on("click", () => {
+          const element = document.getElementById(`hub-${index}`);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
+            element.style.animation = "pulse 1s";
+            setTimeout(() => (element.style.animation = ""), 1000);
+          }
+        });
+      });
+
+      // Initialize routes
+      createShippingRoutes();
+      animateCargo();
+
+      // Get score class
+      function getScoreClass(efficiency) {
+        if (efficiency >= 95) return "score-excellent";
+        if (efficiency >= 90) return "score-good";
+        return "score-moderate";
+      }
+
+      // Update statistics
+      function updateStats(hubsToShow) {
+        document.getElementById("totalPorts").textContent = hubsToShow.length;
+
+        const topHub = hubsToShow.reduce((top, hub) =>
+          hub.throughput > top.throughput ? hub : top
+        );
+        document.getElementById("topPort").textContent =
+          topHub.name.split(" ")[0];
+
+        // Animate shipment counter
+        const baseShipments = 2800 + Math.floor(Math.random() * 100);
+        document.getElementById("activeShipments").textContent =
+          baseShipments.toLocaleString();
+
+        const containers = (45 + Math.random() * 5).toFixed(1);
+        document.getElementById("containersToday").textContent =
+          containers + "K";
+      }
+
+      // Filter hubs
+      function filterHubs(hubs, filter) {
+        if (filter === "all") return hubs;
+        return hubs.filter((h) => h.type === filter);
+      }
+
+      // Sort hubs
+      function sortHubs(hubs, sortBy) {
+        const sorted = [...hubs];
+        switch (sortBy) {
+          case "throughput-desc":
+            return sorted.sort((a, b) => b.throughput - a.throughput);
+          case "throughput-asc":
+            return sorted.sort((a, b) => a.throughput - b.throughput);
+          case "name-asc":
+            return sorted.sort((a, b) => a.name.localeCompare(b.name));
+          case "name-desc":
+            return sorted.sort((a, b) => b.name.localeCompare(a.name));
+          case "efficiency-desc":
+            return sorted.sort((a, b) => b.efficiency - a.efficiency);
+          case "delays-asc":
+            return sorted.sort((a, b) => a.delays - b.delays);
+          default:
+            return sorted;
+        }
+      }
+
+      // Render hub cards
+      function renderHubs(hubsToRender) {
+        const grid = document.getElementById("citiesGrid");
+
+        if (hubsToRender.length === 0) {
+          grid.innerHTML = `
+            <div class="no-results">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h3>No hubs found</h3>
+              <p>Try adjusting your search or filters</p>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = hubsToRender
+          .map(
+            (hub, index) => `
+              <div class="city-card" id="hub-${hubs.indexOf(
+                hub
+              )}" role="listitem" tabindex="0">
+                <div class="city-header">
+                  <div>
+                    <h3 class="city-name">${hub.name}</h3>
+                    <div class="city-type">
+                      ${getMarkerIcon(hub)} ${
+              hub.type.charAt(0).toUpperCase() + hub.type.slice(1)
+            }
+                      ${hub.vessels > 0 ? `• ${hub.vessels} vessels` : ""}
+                    </div>
+                  </div>
+                  <div class="city-score ${getScoreClass(hub.efficiency)}">
+                    ${hub.throughput}M
+                    <small>TEU/year</small>
+                  </div>
+                </div>
+                
+                <div class="city-stats">
+                  <div class="stat">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    ${hub.efficiency}% efficient
+                  </div>
+                  <div class="stat">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    ${hub.delays} day delay
+                  </div>
+                  <div class="stat">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    </svg>
+                    ${hub.containersDaily.toLocaleString()}/day
+                  </div>
+                </div>
+
+                <div class="factors">
+                  ${Object.entries(hub.factors)
+                    .map(
+                      ([key, value]) => `
+                      <div class="factor">
+                        <span class="factor-name">${
+                          key.charAt(0).toUpperCase() + key.slice(1)
+                        }</span>
+                        <div class="factor-bar">
+                          <div class="factor-fill" style="width: ${value}%"></div>
+                        </div>
+                        <span class="factor-value">${value}%</span>
+                      </div>
+                    `
+                    )
+                    .join("")}
+                </div>
+
+                <div class="city-description">${hub.description}</div>
+              </div>
+            `
+          )
+          .join("");
+
+        updateStats(hubsToRender);
+      }
+
+      // Generate live activity
+      function generateActivity() {
+        const activityList = document.getElementById("activityList");
+        const typeIndex = Math.floor(Math.random() * activities.length);
+        const activityType = activities[typeIndex];
+        const messageIndex = Math.floor(
+          Math.random() * activityType.messages.length
+        );
+        const message = activityType.messages[messageIndex];
+
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        const newItem = document.createElement("div");
+        newItem.className = "activity-item";
+        newItem.innerHTML = `
+          <div class="activity-icon ${activityType.type}">
+            ${
+              activityType.type === "ship"
+                ? "🚢"
+                : activityType.type === "plane"
+                ? "✈️"
+                : activityType.type === "truck"
+                ? "🚛"
+                : "📦"
+            }
+          </div>
+          <span class="activity-text">${message}</span>
+          <span class="activity-time">${timeStr}</span>
+        `;
+
+        activityList.insertBefore(newItem, activityList.firstChild);
+
+        // Keep only last 5 activities
+        while (activityList.children.length > 5) {
+          activityList.removeChild(activityList.lastChild);
+        }
+      }
+
+      // Update moving shipments counter
+      function updateMovingCounter() {
+        const count = 20 + Math.floor(Math.random() * 10);
+        document.getElementById("movingShipments").textContent = count;
+      }
+
+      // Process and render hubs based on current state
+      function processAndRender() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        let filtered = hubs.filter((hub) =>
+          hub.name.toLowerCase().includes(searchTerm)
+        );
+        filtered = filterHubs(filtered, currentFilter);
+        filtered = sortHubs(filtered, currentSort);
+        renderHubs(filtered);
+      }
+
+      // Initial render
+      processAndRender();
+      toggleOverlay("routes");
+
+      // Weather zones data for visualization
+      const weatherZones = [
+        {
+          lat: 20,
+          lon: 150,
+          type: "typhoon",
+          name: "Pacific Storm Zone",
+          severity: "high",
+        },
+        {
+          lat: 45,
+          lon: -40,
+          type: "storm",
+          name: "North Atlantic Low",
+          severity: "medium",
+        },
+        {
+          lat: 10,
+          lon: 80,
+          type: "monsoon",
+          name: "Indian Ocean Monsoon",
+          severity: "low",
+        },
+      ];
+
+      // Traffic hotspots data
+      const trafficHotspots = [
+        { lat: 1.3, lon: 103.8, intensity: "high", name: "Singapore Strait" },
+        { lat: 30.5, lon: 122, intensity: "high", name: "East China Sea" },
+        { lat: 51.9, lon: 4.5, intensity: "medium", name: "English Channel" },
+        { lat: 29.5, lon: 32.5, intensity: "medium", name: "Suez Canal" },
+      ];
+
+      // Create weather overlay on map
+      function createWeatherOverlay() {
+        weatherZones.forEach((zone) => {
+          const colors = {
+            typhoon: "#ef4444",
+            storm: "#f59e0b",
+            monsoon: "#3b82f6",
+          };
+          const sizes = {
+            high: 300000,
+            medium: 200000,
+            low: 150000,
+          };
+
+          // Outer warning circle
+          L.circle([zone.lat, zone.lon], {
+            radius: sizes[zone.severity],
+            color: colors[zone.type],
+            fillColor: colors[zone.type],
+            fillOpacity: 0.1,
+            weight: 2,
+            dashArray: "10, 5",
+            className: "weather-warning-zone",
+          })
+            .addTo(map)
+            .bindPopup(
+              `
+            <div style="min-width: 120px;">
+              <div style="font-weight: 600; color: ${
+                colors[zone.type]
+              }; margin-bottom: 4px;">⚠️ ${zone.name}</div>
+              <div style="font-size: 11px; color: #94a3b8;">Severity: <span style="color: ${
+                colors[zone.type]
+              }">${zone.severity.toUpperCase()}</span></div>
+              <div style="font-size: 11px; color: #94a3b8;">Ships advised to reroute</div>
+            </div>
+          `,
+              { className: "port-hover-card" }
+            );
+        });
+      }
+
+      // Create traffic hotspot indicators
+      function createTrafficHotspots() {
+        trafficHotspots.forEach((spot) => {
+          const colors = {
+            high: "#ef4444",
+            medium: "#f59e0b",
+            low: "#22c55e",
+          };
+
+          // Pulsing hotspot
+          const hotspotIcon = L.divIcon({
+            className: "traffic-hotspot-marker",
+            html: `
+              <div style="position: relative;">
+                <div style="
+                  width: 20px;
+                  height: 20px;
+                  background: ${colors[spot.intensity]};
+                  border-radius: 50%;
+                  opacity: 0.3;
+                  animation: hotspotPulse 2s infinite;
+                "></div>
+                <div style="
+                  position: absolute;
+                  top: 5px;
+                  left: 5px;
+                  width: 10px;
+                  height: 10px;
+                  background: ${colors[spot.intensity]};
+                  border-radius: 50%;
+                  box-shadow: 0 0 10px ${colors[spot.intensity]};
+                "></div>
+              </div>
+            `,
+            iconSize: [20, 20],
+            iconAnchor: [10, 10],
+          });
+
+          L.marker([spot.lat, spot.lon], { icon: hotspotIcon })
+            .addTo(map)
+            .bindPopup(
+              `
+              <div style="min-width: 100px;">
+                <div style="font-weight: 600; margin-bottom: 4px;">🚦 ${
+                  spot.name
+                }</div>
+                <div style="font-size: 11px; color: ${
+                  colors[spot.intensity]
+                };">Traffic: ${spot.intensity.toUpperCase()}</div>
+              </div>
+            `,
+              { className: "port-hover-card" }
+            );
+        });
+      }
+
+      // Update quick stats bar
+      function updateQuickStats() {
+        const totalVessels = movingMarkers.length;
+        document.getElementById("quickVessels").textContent = totalVessels;
+
+        const avgSpeed = (17 + Math.random() * 5).toFixed(1);
+        document.getElementById("quickSpeed").textContent = avgSpeed + " kn";
+
+        const totalCargo = Math.floor(
+          totalVessels * 8500 + Math.random() * 10000
+        );
+        document.getElementById("quickCargo").textContent =
+          (totalCargo / 1000).toFixed(0) + "K TEU";
+      }
+
+      // Update map mini clocks
+      function updateMapClocks() {
+        const cities = [
+          { id: "mapClock1", city: "SH", zone: "Asia/Shanghai" },
+          { id: "mapClock2", city: "SG", zone: "Asia/Singapore" },
+          { id: "mapClock3", city: "RTM", zone: "Europe/Amsterdam" },
+          { id: "mapClock4", city: "NYC", zone: "America/New_York" },
+        ];
+
+        cities.forEach((c) => {
+          const el = document.getElementById(c.id);
+          if (el) {
+            const time = new Date().toLocaleTimeString("en-US", {
+              timeZone: c.zone,
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+            });
+            el.textContent = time;
+          }
+        });
+      }
+
+      // Toggle FAB menu
+      function toggleFab() {
+        document.getElementById("fabContainer").classList.toggle("open");
+      }
+
+      // Update world clocks
+      function updateWorldClocks() {
+        const zones = {
+          shanghai: "Asia/Shanghai",
+          singapore: "Asia/Singapore",
+          dubai: "Asia/Dubai",
+          rotterdam: "Europe/Amsterdam",
+          newyork: "America/New_York",
+          losangeles: "America/Los_Angeles",
+        };
+
+        Object.entries(zones).forEach(([city, zone]) => {
+          const time = new Date().toLocaleTimeString("en-US", {
+            timeZone: zone,
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          });
+          document.getElementById(`time-${city}`).textContent = time;
+        });
+      }
+
+      // Render weekly chart
+      function renderWeeklyChart() {
+        const chart = document.getElementById("weeklyChart");
+        const data = [65, 78, 82, 71, 88, 95, 89];
+        chart.innerHTML = data
+          .map(
+            (val, i) =>
+              `<div class="mini-bar" style="height: ${val}%; animation-delay: ${
+                i * 0.1
+              }s"></div>`
+          )
+          .join("");
+      }
+
+      // Periodically update weather effects
+      function updateWeatherEffects() {
+        // Randomly update traffic hotspot intensities
+        trafficHotspots.forEach((spot) => {
+          if (Math.random() < 0.3) {
+            const intensities = ["low", "medium", "high"];
+            spot.intensity =
+              intensities[Math.floor(Math.random() * intensities.length)];
+          }
+        });
+      }
+
+      // Update scale bar based on zoom level
+      function updateScaleBar() {
+        const zoom = map.getZoom();
+        const scaleKm = {
+          2: "~2000 km",
+          3: "~1000 km",
+          4: "~500 km",
+          5: "~250 km",
+          6: "~100 km",
+          7: "~50 km",
+          8: "~25 km",
+        };
+        const label = scaleKm[Math.min(Math.max(zoom, 2), 8)] || "~500 km";
+        document.getElementById("scaleLabel").textContent = label;
+      }
+
+      // Map zoom event listener
+      map.on("zoomend", updateScaleBar);
+      updateScaleBar();
+
+      // Air cargo routes
+      const airRoutes = [
+        {
+          from: [35.0421, -89.9792],
+          to: [50.0379, 8.5622],
+          name: "Memphis-Frankfurt",
+          color: "#a855f7",
+        },
+        {
+          from: [22.308, 113.9185],
+          to: [1.3644, 103.9915],
+          name: "HK-Singapore",
+          color: "#8b5cf6",
+        },
+        {
+          from: [25.2532, 55.3657],
+          to: [51.47, -0.4543],
+          name: "Dubai-London",
+          color: "#7c3aed",
+        },
+        {
+          from: [35.5494, 139.7798],
+          to: [33.9425, -118.4081],
+          name: "Tokyo-LA",
+          color: "#6366f1",
+        },
+        {
+          from: [40.6413, -73.7781],
+          to: [51.9244, 4.4777],
+          name: "NYC-Rotterdam",
+          color: "#818cf8",
+        },
+      ];
+
+      let planeMarkers = [];
+
+      // Create air routes with animated planes
+      function createAirRoutes() {
+        airRoutes.forEach((route, index) => {
+          const curvedPath = getCurvedLine(route.from, route.to, 30);
+
+          // Dashed air route line
+          L.polyline(curvedPath, {
+            color: route.color,
+            weight: 1.5,
+            opacity: 0.4,
+            dashArray: "5, 10",
+          }).addTo(routeLayerGroup);
+
+          // Add plane marker
+          const planeIcon = L.divIcon({
+            className: "plane-marker",
+            html: `
+              <div class="plane-icon-container">
+                <div class="plane-trail"></div>
+                <span style="display: inline-block;">✈️</span>
+              </div>
+            `,
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+          });
+
+          const marker = L.marker(curvedPath[0], { icon: planeIcon }).addTo(
+            routeLayerGroup
+          );
+
+          const flightId = `${["FX", "UPS", "DHL", "CX", "EK"][index]}${
+            Math.floor(Math.random() * 900) + 100
+          }`;
+          marker.bindPopup(
+            `
+            <div style="min-width: 130px;">
+              <div style="font-weight: 600; margin-bottom: 6px; color: ${
+                route.color
+              };">✈️ ${flightId}</div>
+              <div style="font-size: 11px; color: #94a3b8;">
+                <div style="margin: 3px 0;">Route: <span style="color: white">${
+                  route.name
+                }</span></div>
+                <div style="margin: 3px 0;">Altitude: <span style="color: #22c55e">${Math.floor(
+                  35000 + Math.random() * 6000
+                )} ft</span></div>
+                <div style="margin: 3px 0;">Speed: <span style="color: white">${Math.floor(
+                  450 + Math.random() * 100
+                )} kts</span></div>
+              </div>
+            </div>
+          `,
+            { className: "port-hover-card" }
+          );
+
+          planeMarkers.push({
+            marker,
+            path: curvedPath,
+            progress: Math.random(),
+            speed: 0.001 + Math.random() * 0.0005,
+          });
+        });
+
+        document.getElementById("quickPlanes").textContent =
+          planeMarkers.length;
+      }
+
+      // Animate planes
+      function animatePlanes() {
+        planeMarkers.forEach((plane) => {
+          plane.progress += plane.speed;
+          if (plane.progress >= 1) plane.progress = 0;
+
+          const pathIndex = Math.floor(
+            plane.progress * (plane.path.length - 1)
+          );
+          const nextIndex = Math.min(pathIndex + 1, plane.path.length - 1);
+          const t = (plane.progress * (plane.path.length - 1)) % 1;
+
+          const lat =
+            plane.path[pathIndex][0] +
+            t * (plane.path[nextIndex][0] - plane.path[pathIndex][0]);
+          const lon =
+            plane.path[pathIndex][1] +
+            t * (plane.path[nextIndex][1] - plane.path[pathIndex][1]);
+
+          plane.marker.setLatLng([lat, lon]);
+
+          // Rotate plane
+          if (pathIndex < plane.path.length - 1) {
+            const heading = getHeading(
+              plane.path[pathIndex],
+              plane.path[nextIndex]
+            );
+            const iconEl = plane.marker.getElement();
+            if (iconEl) {
+              const planeSpan = iconEl.querySelector("span");
+              if (planeSpan) {
+                planeSpan.style.transform = `rotate(${heading}deg)`;
+              }
+            }
+          }
+        });
+
+        requestAnimationFrame(animatePlanes);
+      }
+
+      // Create ocean particles
+      function createOceanParticles() {
+        const container = document.getElementById("oceanParticles");
+        if (!container) return;
+
+        for (let i = 0; i < 30; i++) {
+          const particle = document.createElement("div");
+          particle.className = "ocean-particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 15 + "s";
+          particle.style.animationDuration = 10 + Math.random() * 10 + "s";
+          container.appendChild(particle);
+        }
+      }
+
+      // Add chokepoint markers
+      function createChokepointMarkers() {
+        const chokepoints = [
+          {
+            lat: 30.0,
+            lon: 32.5,
+            name: "Suez Canal",
+            traffic: "~50 ships/day",
+          },
+          {
+            lat: 1.25,
+            lon: 103.75,
+            name: "Singapore Strait",
+            traffic: "~1000 ships/day",
+          },
+          {
+            lat: 35.98,
+            lon: -5.5,
+            name: "Gibraltar Strait",
+            traffic: "~300 ships/day",
+          },
+          {
+            lat: 12.5,
+            lon: 43.5,
+            name: "Bab el-Mandeb",
+            traffic: "~60 ships/day",
+          },
+          {
+            lat: 26.5,
+            lon: 56.5,
+            name: "Hormuz Strait",
+            traffic: "~85 ships/day",
+          },
+        ];
+
+        chokepoints.forEach((cp) => {
+          const chokepointIcon = L.divIcon({
+            className: "chokepoint-marker",
+            html: `
+              <div class="chokepoint-icon">⚓</div>
+            `,
+            iconSize: [30, 30],
+            iconAnchor: [15, 15],
+          });
+
+          L.marker([cp.lat, cp.lon], { icon: chokepointIcon })
+            .addTo(map)
+            .bindPopup(
+              `
+              <div style="min-width: 140px;">
+                <div style="font-weight: 600; margin-bottom: 6px; color: #f59e0b;">⚓ ${cp.name}</div>
+                <div style="font-size: 11px; color: #94a3b8;">
+                  <div style="margin: 3px 0;">Type: <span style="color: white">Maritime Chokepoint</span></div>
+                  <div style="margin: 3px 0;">Traffic: <span style="color: #22c55e">${cp.traffic}</span></div>
+                  <div style="margin: 3px 0;">Status: <span style="color: #22c55e">Open</span></div>
+                </div>
+              </div>
+            `,
+              { className: "port-hover-card" }
+            );
+        });
+      }
+
+      // Add sea zone overlays
+      function createSeaZones() {
+        const seaZones = [
+          {
+            lat: 25,
+            lon: 140,
+            radius: 800000,
+            name: "Pacific Trade Zone",
+            color: "#3b82f6",
+          },
+          {
+            lat: 5,
+            lon: 75,
+            radius: 600000,
+            name: "Indian Ocean Zone",
+            color: "#22c55e",
+          },
+          {
+            lat: 50,
+            lon: -30,
+            radius: 500000,
+            name: "Atlantic Zone",
+            color: "#8b5cf6",
+          },
+          {
+            lat: 25,
+            lon: 120,
+            radius: 400000,
+            name: "South China Sea",
+            color: "#f59e0b",
+          },
+        ];
+
+        seaZones.forEach((zone) => {
+          L.circle([zone.lat, zone.lon], {
+            radius: zone.radius,
+            color: zone.color,
+            fillColor: zone.color,
+            fillOpacity: 0.05,
+            weight: 1,
+            opacity: 0.2,
+            dashArray: "10, 10",
+          }).addTo(map);
+        });
+      }
+
+      // Initialize enhanced map features
+      createWeatherOverlay();
+      createTrafficHotspots();
+      createAirRoutes();
+      createOceanParticles();
+      createChokepointMarkers();
+      createSeaZones();
+      animatePlanes();
+
+      // Start live updates
+      generateActivity();
+      renderWeeklyChart();
+      updateWorldClocks();
+      updateQuickStats();
+      updateMapClocks();
+      setInterval(generateActivity, 5000);
+      setInterval(updateMovingCounter, 3000);
+      setInterval(updateWorldClocks, 1000);
+      setInterval(updateQuickStats, 2000);
+      setInterval(updateMapClocks, 1000);
+      setInterval(updateWeatherEffects, 15000);
+      setInterval(() => {
+        const shipments = 2800 + Math.floor(Math.random() * 100);
+        document.getElementById("activeShipments").textContent =
+          shipments.toLocaleString();
+
+        const onTime = (93 + Math.random() * 3).toFixed(1);
+        document.getElementById("onTimeRate").textContent = onTime + "%";
+
+        const co2 = (12 + Math.random() * 2).toFixed(1);
+        document.getElementById("co2Saved").textContent = co2 + "K";
+      }, 4000);
+
+      // Search functionality
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", processAndRender);
+
+      // Filter buttons
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          e.target.classList.add("active");
+          currentFilter = e.target.dataset.filter;
+          processAndRender();
+        });
+      });
+
+      // Sort select
+      document.getElementById("sortSelect").addEventListener("change", (e) => {
+        currentSort = e.target.value;
+        processAndRender();
+      });
+
+      // Map overlay toggles
+      document.querySelectorAll(".map-toggle").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const layerType = e.currentTarget.dataset.layer;
+
+          // Update button states
+          document
+            .querySelectorAll(".map-toggle")
+            .forEach((b) => b.classList.remove("active"));
+          e.currentTarget.classList.add("active");
+
+          toggleOverlay(layerType);
+        });
+      });
+
+      // Keyboard navigation for hub cards
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && e.target.classList.contains("city-card")) {
+          e.target.click();
+        }
+      });
+
+      // Animation for factor bars
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          document.querySelectorAll(".factor-fill").forEach((bar) => {
+            bar.style.width = bar.style.width;
+          });
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
