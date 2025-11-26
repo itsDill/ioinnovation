@@ -15,13 +15,13 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <title>
-      Innovate with IO | Professional Digital Solutions & Analytics Platform
+      IO Innovate | Free Financial Tools, 13F Visualizer & Market Analytics
     </title>
 
     <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="IO Innovate - Professional digital solutions, advanced analytics, and comprehensive tools for businesses and professionals. Transform your workflow with cutting-edge technology and data-driven insights."
+      content="Free professional financial tools including 13F Visualizer, Economic Calendar, 10K Summaries, and market sector analysis. Track institutional investors and make data-driven investment decisions."
     />
     <meta name="author" content="IO Innovate" />
     <meta
@@ -490,9 +490,32 @@
       }
 
       .hero h1 {
-        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
         font-weight: 900;
         margin-bottom: 1.5rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-title-line {
+        display: block;
+        color: var(--text-primary);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: titleReveal 0.6s ease forwards;
+      }
+
+      .hero-title-line:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .hero-title-line:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .hero-title-line:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .hero-title-line.highlight {
         background: linear-gradient(
           135deg,
           var(--accent-primary),
@@ -502,9 +525,54 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
         filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
+      }
+
+      @keyframes titleReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-top: 1.5rem;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease 0.8s forwards;
+      }
+
+      .hero-trust-badge i {
+        color: var(--accent-primary);
+      }
+
+      .btn-glow {
+        position: relative;
+        overflow: visible;
+      }
+
+      .btn-glow::after {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0;
+        filter: blur(12px);
+        transition: opacity 0.3s ease;
+      }
+
+      .btn-glow:hover::after {
+        opacity: 0.6;
       }
 
       .hero-description {
@@ -564,6 +632,16 @@
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
+      }
+
+      .hero-buttons .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .hero-buttons .btn i {
+        font-size: 1rem;
       }
 
       .btn {
@@ -666,6 +744,24 @@
           rgba(43, 226, 180, 0.1),
           rgba(126, 254, 194, 0.1)
         );
+      }
+
+      .tool-icon .tool-label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+        text-decoration: none;
+      }
+
+      .tool-icon:hover .tool-label {
+        color: var(--accent-primary);
+      }
+
+      .tools-preview a.tool-icon {
+        text-decoration: none;
+        flex-direction: column;
       }
 
       /* Content sections */
@@ -892,9 +988,15 @@
       /* Popular Tools Grid */
       .popular-tools-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 1.5rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
+      }
+
+      @media (min-width: 900px) {
+        .popular-tools-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
 
       .tool-card {
@@ -938,6 +1040,32 @@
       .tool-card > * {
         position: relative;
         z-index: 1;
+      }
+
+      .tool-card.featured {
+        border-color: var(--accent-primary);
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          transparent
+        );
+      }
+
+      .tool-badge {
+        position: absolute;
+        top: -10px;
+        right: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(43, 226, 180, 0.3);
       }
 
       .tool-card .tool-icon {
@@ -1172,21 +1300,45 @@
           text-align: center;
           padding: 1rem;
           min-height: auto;
-          padding-top: 3rem;
+          padding-top: 4rem;
+          padding-bottom: 2rem;
         }
 
         .hero-content {
           text-align: center;
         }
 
+        .hero-title-line {
+          display: inline;
+        }
+
+        .hero-title-line::after {
+          content: " ";
+        }
+
+        .hero-trust-badge {
+          justify-content: center;
+          flex-wrap: wrap;
+          text-align: center;
+        }
+
         .hero-stats {
           justify-content: center;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.75rem;
         }
 
         .stat-item {
-          padding: 1rem;
+          padding: 0.75rem 0.5rem;
+        }
+
+        .stat-number {
+          font-size: 1.5rem;
+        }
+
+        .stat-label {
+          font-size: 0.75rem;
         }
 
         .hero-buttons {
@@ -1201,13 +1353,18 @@
 
         .tools-preview {
           grid-template-columns: repeat(4, 1fr);
-          gap: 1rem;
+          gap: 0.75rem;
+          padding: 1rem;
         }
 
         .tool-icon {
-          width: 60px;
-          height: 60px;
-          font-size: 1.5rem;
+          width: 70px;
+          height: 70px;
+          font-size: 1.4rem;
+        }
+
+        .tool-icon .tool-label {
+          font-size: 0.6rem;
         }
 
         .categories-grid {
@@ -1357,9 +1514,64 @@
         background: #ffffff;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       }
+
+      /* FAQ Styling */
+      .faq-item {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        background: var(--bg-card);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        border-color: var(--accent-primary);
+        transform: translateX(5px);
+      }
+
+      .faq-item h3 {
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .faq-item p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      /* Keyboard focus styles for accessibility */
+      .btn:focus-visible,
+      .tool-link:focus-visible,
+      .category-btn:focus-visible {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+      }
+
+      /* Skip to content link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--accent-primary);
+        color: white;
+        padding: 8px 16px;
+        z-index: 1000;
+        transition: top 0.3s;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
     </style>
   </head>
   <body data-theme="light">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -1403,84 +1615,120 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <!-- Hero Section -->
-      <section class="hero">
+      <section class="hero" role="banner">
         <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-lightbulb"></i>
-            Innovate with IO
+          <div class="hero-badge" aria-label="Welcome badge">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+            <span class="badge-text">Free Financial Intelligence</span>
           </div>
-          <h1>IO Innovate</h1>
+          <h1>
+            <span class="hero-title-line">Track</span>
+            <span class="hero-title-line highlight">Institutional</span>
+            <span class="hero-title-line">Investors</span>
+          </h1>
           <p class="hero-description">
-            Transform your digital workflow with cutting-edge tools, advanced
-            analytics, and actionable insights. Empowering businesses,
-            developers, and professionals to achieve more through innovation and
-            technology.
+            Access powerful financial tools used by professionals. Visualize 13F
+            filings, analyze 10K reports, track economic events, and explore
+            market sectors — all completely free.
           </p>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">100+</span>
-              <span class="stat-label">Professional Tools</span>
+          <div class="hero-stats" role="list" aria-label="Platform statistics">
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-count="50">50+</span>
+              <span class="stat-label">Financial Tools</span>
             </div>
-            <div class="stat-item">
-              <span class="stat-number">24/7</span>
-              <span class="stat-label">Real-Time Analytics</span>
+            <div class="stat-item" role="listitem">
+              <span class="stat-number">Live</span>
+              <span class="stat-label">Market Data</span>
             </div>
-            <div class="stat-item">
-              <span class="stat-number">10K+</span>
-              <span class="stat-label">Active Users</span>
+            <div class="stat-item" role="listitem">
+              <span class="stat-number">6</span>
+              <span class="stat-label">Market Sectors</span>
             </div>
           </div>
           <div class="hero-buttons">
-            <a href="/tools.html" class="btn btn-primary">
-              13F Visualizer <i class="fas fa-chart-pie"></i>
+            <a
+              href="/tools/13f-visualizer.html"
+              class="btn btn-primary btn-glow"
+            >
+              <i class="fas fa-chart-pie" aria-hidden="true"></i>
+              13F Visualizer
             </a>
-            <a href="/tools.html" class="btn btn-secondary">
-              Economic Calendar <i class="fas fa-calendar-alt"></i>
+            <a href="/tools/economic-calendar.html" class="btn btn-secondary">
+              <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+              Economic Calendar
             </a>
-            <a href="/tools.html" class="btn btn-secondary">
-              10K Summaries <i class="fas fa-file-alt"></i>
+            <a href="/tools/10k-summary.html" class="btn btn-secondary">
+              <i class="fas fa-file-alt" aria-hidden="true"></i>
+              10K Summaries
             </a>
           </div>
+          <p class="hero-trust-badge">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            No signup required • 100% Free • Privacy-first
+          </p>
         </div>
-        <div class="hero-visual">
+        <div class="hero-visual" aria-hidden="true">
           <div class="tools-preview">
-            <div class="tool-icon"><i class="fas fa-tools"></i></div>
-            <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="tool-icon"><i class="fas fa-blog"></i></div>
-            <div class="tool-icon"><i class="fas fa-lightbulb"></i></div>
+            <a
+              href="/tools/13f-visualizer.html"
+              class="tool-icon"
+              title="13F Visualizer"
+            >
+              <i class="fas fa-chart-pie"></i>
+              <span class="tool-label">13F</span>
+            </a>
+            <a
+              href="/tools/economic-calendar.html"
+              class="tool-icon"
+              title="Economic Calendar"
+            >
+              <i class="fas fa-calendar-alt"></i>
+              <span class="tool-label">Calendar</span>
+            </a>
+            <a
+              href="/tools/10k-summary.html"
+              class="tool-icon"
+              title="10K Summaries"
+            >
+              <i class="fas fa-file-alt"></i>
+              <span class="tool-label">10K</span>
+            </a>
+            <a href="/analytics.html" class="tool-icon" title="Analytics">
+              <i class="fas fa-chart-line"></i>
+              <span class="tool-label">Analytics</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- Main Pages Section -->
+      <!-- Main Tools Section -->
       <section class="section" id="tools-categories">
         <div class="container">
-          <h2 class="section-title">Explore Our Platform</h2>
+          <h2 class="section-title">Explore Our Tools</h2>
           <p class="section-subtitle">
-            Everything you need to innovate, analyze, and grow - comprehensive
-            solutions designed for modern businesses and professionals
+            Free financial intelligence tools for individual investors and
+            professionals
           </p>
 
           <div class="categories-grid">
             <div class="category-card" data-category="tools">
               <div class="category-icon">
-                <i class="fas fa-tools"></i>
+                <i class="fas fa-chart-pie"></i>
               </div>
-              <h3>Professional Tools</h3>
+              <h3>Investment Research</h3>
               <p>
-                Access our comprehensive suite of 100+ professional-grade tools
-                designed to streamline your workflow. From advanced calculators
-                and converters to powerful generators and formatters -
-                everything you need to boost productivity and efficiency.
+                Dive deep into SEC filings with our 13F Visualizer and 10K
+                Summary tools. See exactly what Warren Buffett, Ray Dalio, and
+                other legendary investors are buying and selling. Understand
+                company fundamentals at a glance.
               </p>
-              <div class="tools-count">All-in-One Suite</div>
+              <div class="tools-count">Core Tools</div>
               <div class="category-tools">
-                <span class="tool-tag">Calculators</span>
-                <span class="tool-tag">Converters</span>
-                <span class="tool-tag">Generators</span>
-                <span class="tool-tag">Formatters</span>
+                <span class="tool-tag">13F Visualizer</span>
+                <span class="tool-tag">10K Summaries</span>
+                <span class="tool-tag">Supply Chain</span>
               </div>
               <a href="/tools.html" class="category-btn">
                 Explore Tools <i class="fas fa-arrow-right"></i>
@@ -1489,62 +1737,58 @@
 
             <div class="category-card" data-category="analytics">
               <div class="category-icon">
-                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-calendar-alt"></i>
               </div>
-              <h3>Advanced Analytics</h3>
+              <h3>Market Intelligence</h3>
               <p>
-                Unlock the power of data with our real-time analytics platform.
-                Track key metrics, monitor performance, visualize trends, and
-                make data-driven decisions that propel your business forward.
-                Get actionable insights instantly.
+                Stay ahead of market-moving events with our Economic Calendar.
+                Track Fed meetings, earnings announcements, economic indicators,
+                and more. Never miss an important market event again.
               </p>
-              <div class="tools-count">Data Insights</div>
+              <div class="tools-count">Market Data</div>
               <div class="category-tools">
-                <span class="tool-tag">Data Analysis</span>
-                <span class="tool-tag">Metrics Tracking</span>
-                <span class="tool-tag">Performance Monitor</span>
-                <span class="tool-tag">Trend Analysis</span>
+                <span class="tool-tag">Economic Calendar</span>
+                <span class="tool-tag">Earnings Dates</span>
+                <span class="tool-tag">Fed Meetings</span>
               </div>
-              <a href="/analytics.html" class="category-btn">
-                Explore Analytics <i class="fas fa-arrow-right"></i>
+              <a href="/tools/economic-calendar.html" class="category-btn">
+                View Calendar <i class="fas fa-arrow-right"></i>
               </a>
             </div>
 
             <div class="category-card" data-category="blog">
               <div class="category-icon">
-                <i class="fas fa-blog"></i>
+                <i class="fas fa-graduation-cap"></i>
               </div>
-              <h3>Knowledge Hub</h3>
+              <h3>Learning Center</h3>
               <p>
-                Stay ahead with expert insights, in-depth tutorials,
-                comprehensive guides, and industry best practices. Learn from
-                real-world case studies and discover strategies to maximize your
-                productivity and achieve your goals.
+                Level up your investment knowledge with guides on reading 13F
+                filings, understanding annual reports, and analyzing market
+                sectors. Written for beginners and experienced investors alike.
               </p>
-              <div class="tools-count">Latest Articles</div>
+              <div class="tools-count">Education</div>
               <div class="category-tools">
-                <span class="tool-tag">Tutorials</span>
-                <span class="tool-tag">Guides</span>
-                <span class="tool-tag">Best Practices</span>
-                <span class="tool-tag">Updates</span>
+                <span class="tool-tag">13F Guide</span>
+                <span class="tool-tag">10K Analysis</span>
+                <span class="tool-tag">Sector Research</span>
               </div>
               <a href="/blog.html" class="category-btn">
-                Read Blog <i class="fas fa-arrow-right"></i>
+                Start Learning <i class="fas fa-arrow-right"></i>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Navigate IO - Sector Links -->
+      <!-- Sector Analysis Section -->
       <section
         class="section"
         style="background: var(--bg-secondary); padding: 4rem 0"
       >
         <div class="container">
-          <h2 class="section-title">Navigate IO</h2>
+          <h2 class="section-title">Market Sector Analysis</h2>
           <p class="section-subtitle">
-            Explore key market sectors and investment opportunities
+            Deep-dive research into key market sectors and investment themes
           </p>
 
           <div class="popular-tools-grid">
@@ -1658,88 +1902,84 @@
       <!-- Features Section -->
       <section class="section" id="features">
         <div class="container">
-          <h2 class="section-title">Why Choose IO Innovate?</h2>
+          <h2 class="section-title">Why Investors Choose Us</h2>
           <div class="features-content">
             <div class="features-text">
-              <h3>Innovation Meets Simplicity</h3>
+              <h3>Professional-Grade Tools, Zero Cost</h3>
               <p>
-                IO Innovate is built on the foundation of cutting-edge
-                technology combined with intuitive design. We believe powerful
-                tools shouldn't be complicated. Our platform delivers
-                enterprise-grade capabilities with consumer-friendly simplicity,
-                making advanced features accessible to everyone.
+                Access the same data that institutional investors use to make
+                informed decisions. Our 13F Visualizer reveals the holdings of
+                the world's top hedge funds, while our 10K summaries distill
+                complex annual reports into actionable insights.
               </p>
               <p>
-                From startups to enterprises, developers to business leaders,
-                our comprehensive ecosystem adapts to your needs. Every tool,
-                every insight, every feature is designed with one goal: to help
-                you innovate faster and achieve more.
+                Built for individual investors, researchers, and finance
+                professionals who want powerful analysis without expensive
+                subscriptions.
               </p>
               <ul class="features-list">
                 <li>
-                  <i class="fas fa-bolt"></i> Lightning-fast performance &
-                  optimization
+                  <i class="fas fa-chart-pie"></i> 13F filing visualization for
+                  1000+ institutions
                 </li>
                 <li>
-                  <i class="fas fa-shield-alt"></i> Bank-level security &
-                  privacy protection
+                  <i class="fas fa-file-alt"></i> AI-powered 10K annual report
+                  summaries
                 </li>
                 <li>
-                  <i class="fas fa-mobile-alt"></i> Seamless cross-device
-                  experience
+                  <i class="fas fa-calendar-check"></i> Real-time economic event
+                  calendar
                 </li>
                 <li>
-                  <i class="fas fa-heart"></i> 100% free - no hidden costs ever
+                  <i class="fas fa-industry"></i> 6 market sector deep-dives
                 </li>
                 <li>
-                  <i class="fas fa-sync"></i> Continuous innovation & feature
-                  updates
+                  <i class="fas fa-network-wired"></i> Supply chain relationship
+                  mapping
                 </li>
                 <li>
-                  <i class="fas fa-users"></i> Trusted by 10,000+ professionals
-                  worldwide
+                  <i class="fas fa-lock"></i> No account required, 100% private
                 </li>
                 <li>
-                  <i class="fas fa-clock"></i> 24/7 availability with 99.9%
-                  uptime
+                  <i class="fas fa-mobile-alt"></i> Works on desktop and mobile
                 </li>
                 <li>
-                  <i class="fas fa-graduation-cap"></i> Comprehensive learning
-                  resources included
+                  <i class="fas fa-sync-alt"></i> Data updated quarterly from
+                  SEC
                 </li>
               </ul>
             </div>
             <div class="features-visual">
               <div class="features-grid">
                 <div class="feature-item">
-                  <i class="fas fa-tools"></i>
-                  <h4>Tools</h4>
-                  <p>Essential utilities</p>
+                  <i class="fas fa-chart-pie"></i>
+                  <h4>13F Data</h4>
+                  <p>Hedge fund holdings</p>
                 </div>
                 <div class="feature-item">
-                  <i class="fas fa-chart-line"></i>
-                  <h4>Analytics</h4>
-                  <p>Data insights</p>
+                  <i class="fas fa-file-alt"></i>
+                  <h4>10K Analysis</h4>
+                  <p>Annual reports</p>
                 </div>
                 <div class="feature-item">
-                  <i class="fas fa-blog"></i>
-                  <h4>Blog</h4>
-                  <p>Learning resources</p>
+                  <i class="fas fa-calendar-alt"></i>
+                  <h4>Calendar</h4>
+                  <p>Economic events</p>
                 </div>
                 <div class="feature-item">
-                  <i class="fas fa-rocket"></i>
-                  <h4>Performance</h4>
-                  <p>Lightning fast</p>
+                  <i class="fas fa-industry"></i>
+                  <h4>Sectors</h4>
+                  <p>Market analysis</p>
                 </div>
                 <div class="feature-item">
                   <i class="fas fa-lock"></i>
-                  <h4>Secure</h4>
-                  <p>Privacy first</p>
+                  <h4>Privacy</h4>
+                  <p>No tracking</p>
                 </div>
                 <div class="feature-item">
-                  <i class="fas fa-mobile-alt"></i>
-                  <h4>Responsive</h4>
-                  <p>Any device</p>
+                  <i class="fas fa-bolt"></i>
+                  <h4>Fast</h4>
+                  <p>Instant access</p>
                 </div>
               </div>
             </div>
@@ -1770,59 +2010,77 @@
       <!-- Quick Access Section -->
       <section class="section">
         <div class="container">
-          <h2 class="section-title">Quick Access</h2>
+          <h2 class="section-title">Popular Tools</h2>
+          <p class="section-subtitle">
+            Most-used financial analysis tools by our community
+          </p>
           <div class="popular-tools-grid">
-            <div class="tool-card">
+            <div class="tool-card featured">
+              <div class="tool-badge">Most Popular</div>
               <div class="tool-icon">
-                <i class="fas fa-tools"></i>
+                <i class="fas fa-chart-pie"></i>
               </div>
-              <h3>All Tools</h3>
+              <h3>13F Visualizer</h3>
               <p>
-                Access our complete suite of professional tools including
-                calculators, converters, generators, and utilities.
+                Visualize institutional investor holdings from SEC 13F filings.
+                Track hedge funds, asset managers, and investment strategies.
               </p>
-              <a href="/tools.html" class="tool-link"
-                >View Tools <i class="fas fa-external-link-alt"></i
+              <a href="/tools/13f-visualizer.html" class="tool-link"
+                >Open Tool <i class="fas fa-arrow-right"></i
               ></a>
             </div>
 
             <div class="tool-card">
               <div class="tool-icon">
-                <i class="fas fa-chart-bar"></i>
+                <i class="fas fa-calendar-alt"></i>
               </div>
-              <h3>Analytics Dashboard</h3>
+              <h3>Economic Calendar</h3>
               <p>
-                Track metrics, analyze data, monitor performance, and gain
-                insights with our analytics tools.
+                Stay ahead with upcoming economic events, earnings releases, Fed
+                meetings, and market-moving announcements.
               </p>
-              <a href="/analytics.html" class="tool-link"
-                >View Analytics <i class="fas fa-external-link-alt"></i
+              <a href="/tools/economic-calendar.html" class="tool-link"
+                >Open Tool <i class="fas fa-arrow-right"></i
               ></a>
             </div>
 
             <div class="tool-card">
               <div class="tool-icon">
-                <i class="fas fa-book-open"></i>
+                <i class="fas fa-file-alt"></i>
               </div>
-              <h3>Latest Articles</h3>
+              <h3>10K Summaries</h3>
               <p>
-                Read our latest blog posts, tutorials, guides, and best
-                practices to get the most out of our platform.
+                Get AI-powered summaries of annual reports. Understand key
+                financials, risks, and business strategies quickly.
               </p>
-              <a href="/blog.html" class="tool-link"
-                >Read Blog <i class="fas fa-external-link-alt"></i
+              <a href="/tools/10k-summary.html" class="tool-link"
+                >Open Tool <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h3>Supply Chain Mapper</h3>
+              <p>
+                Explore company supply chains and relationships. Discover
+                suppliers, customers, and business dependencies.
+              </p>
+              <a href="/tools/supplychain.html" class="tool-link"
+                >Open Tool <i class="fas fa-arrow-right"></i
               ></a>
             </div>
           </div>
 
           <div class="cta-section">
             <div class="cta-content">
-              <h2>Ready to Transform Your Workflow?</h2>
+              <h2>Start Analyzing Markets Today</h2>
               <p>
-                Join 10,000+ professionals worldwide who trust IO Innovate for
-                their digital needs. Access powerful tools, gain actionable
-                insights, and accelerate your success - all completely free with
-                no hidden costs or limitations.
+                Whether you're tracking institutional investors, researching
+                annual reports, or staying ahead of economic events — our free
+                tools give you the edge. No signup, no credit card, just
+                powerful financial intelligence.
               </p>
               <div
                 style="
@@ -1833,14 +2091,14 @@
                   margin-top: 2rem;
                 "
               >
-                <a href="/tools.html" class="btn btn-primary">
-                  Explore Tools <i class="fas fa-tools"></i>
+                <a href="/tools/13f-visualizer.html" class="btn btn-primary">
+                  <i class="fas fa-chart-pie"></i> 13F Visualizer
                 </a>
-                <a href="/analytics.html" class="btn btn-primary">
-                  View Analytics <i class="fas fa-chart-line"></i>
+                <a href="/tools.html" class="btn btn-secondary">
+                  <i class="fas fa-th-large"></i> All Tools
                 </a>
-                <a href="/contact.html" class="btn btn-secondary">
-                  Contact Us <i class="fas fa-envelope"></i>
+                <a href="/blog.html" class="btn btn-secondary">
+                  <i class="fas fa-book-open"></i> Learn More
                 </a>
               </div>
             </div>
@@ -1885,112 +2143,47 @@
         <div class="container">
           <h2 class="section-title">Frequently Asked Questions</h2>
           <div style="max-width: 800px; margin: 0 auto">
-            <div
-              style="
-                margin-bottom: 2rem;
-                padding: 1.5rem;
-                background: var(--bg-card);
-                border-radius: var(--border-radius);
-                border: 1px solid var(--border-color);
-              "
-            >
-              <h3
-                style="
-                  color: var(--accent-primary);
-                  margin-bottom: 1rem;
-                  font-size: 1.3rem;
-                "
-              >
-                Are all IO Innovate services completely free to use?
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                Yes! All tools, analytics, and resources on IO Innovate are 100%
-                free to use with no hidden fees, subscriptions, or limitations.
-                We believe cutting-edge technology should be accessible to
-                everyone. Our platform is supported by ethical advertising and
-                optional donations from satisfied users.
+            <div class="faq-item">
+              <h3>What is a 13F filing and how can I use the visualizer?</h3>
+              <p>
+                A 13F filing is a quarterly SEC report that institutional
+                investment managers with over $100 million in assets must file.
+                Our 13F Visualizer lets you explore holdings of hedge funds like
+                Berkshire Hathaway, Bridgewater, and Renaissance Technologies to
+                understand their investment strategies and track changes over
+                time.
               </p>
             </div>
 
-            <div
-              style="
-                margin-bottom: 2rem;
-                padding: 1.5rem;
-                background: var(--bg-card);
-                border-radius: var(--border-radius);
-                border: 1px solid var(--border-color);
-              "
-            >
-              <h3
-                style="
-                  color: var(--accent-primary);
-                  margin-bottom: 1rem;
-                  font-size: 1.3rem;
-                "
-              >
-                How secure are your tools? Do you store my data?
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                Privacy and security are our top priorities. Most of our tools
-                process data client-side (in your browser), meaning your data
-                never leaves your device. For tools that require server
-                processing, data is immediately deleted after use and never
-                stored permanently.
+            <div class="faq-item">
+              <h3>Are all IO Innovate tools really free?</h3>
+              <p>
+                Yes! All our financial tools, market analysis, and educational
+                resources are 100% free. No account signup required, no hidden
+                fees, no premium tiers. We're supported by non-intrusive
+                advertising to keep everything accessible to everyone.
               </p>
             </div>
 
-            <div
-              style="
-                margin-bottom: 2rem;
-                padding: 1.5rem;
-                background: var(--bg-card);
-                border-radius: var(--border-radius);
-                border: 1px solid var(--border-color);
-              "
-            >
-              <h3
-                style="
-                  color: var(--accent-primary);
-                  margin-bottom: 1rem;
-                  font-size: 1.3rem;
-                "
-              >
-                What services and tools does IO Innovate offer?
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                IO Innovate provides 100+ professional tools including
-                calculators, converters, generators, and formatters. We also
-                offer real-time analytics dashboards for tracking performance
-                metrics, comprehensive blog content with tutorials and guides,
-                and enterprise-grade security features. Everything is designed
-                to streamline your workflow and boost productivity.
+            <div class="faq-item">
+              <h3>How often is the market data updated?</h3>
+              <p>
+                Our 13F data is updated quarterly as new filings become
+                available (typically 45 days after quarter end). The Economic
+                Calendar is updated daily with upcoming events, and 10K
+                summaries are generated as companies file their annual reports
+                with the SEC.
               </p>
             </div>
 
-            <div
-              style="
-                margin-bottom: 2rem;
-                padding: 1.5rem;
-                background: var(--bg-card);
-                border-radius: var(--border-radius);
-                border: 1px solid var(--border-color);
-              "
-            >
-              <h3
-                style="
-                  color: var(--accent-primary);
-                  margin-bottom: 1rem;
-                  font-size: 1.3rem;
-                "
-              >
-                Can I use IO Innovate for commercial and business purposes?
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                Absolutely! All our tools, analytics, and resources are free for
-                both personal and commercial use. Whether you're a freelancer,
-                startup founder, business owner, developer, or enterprise team,
-                you can use our entire platform without any restrictions,
-                licensing requirements, or usage limitations. Scale freely!
+            <div class="faq-item">
+              <h3>Can I use these tools for investment decisions?</h3>
+              <p>
+                Our tools provide data and analysis to help you research
+                investments, but they should not be considered financial advice.
+                Past performance doesn't guarantee future results. Always
+                consult with a qualified financial advisor before making
+                investment decisions.
               </p>
             </div>
           </div>
@@ -2372,7 +2565,7 @@
       // Intersection Observer for scroll animations
       document.addEventListener("DOMContentLoaded", function () {
         const revealElements = document.querySelectorAll(
-          ".category-card, .section-title, .section-subtitle"
+          ".category-card, .tool-card, .section-title, .section-subtitle, .faq-item"
         );
 
         const revealObserver = new IntersectionObserver(
@@ -2409,6 +2602,39 @@
           }
         });
       });
+
+      // Animated counter for stats
+      function animateCounters() {
+        const counters = document.querySelectorAll(".stat-number[data-count]");
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-count"));
+          const suffix = counter.textContent.replace(/[0-9]/g, "");
+          let current = 0;
+          const increment = target / 30;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              counter.textContent = target + suffix;
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.floor(current) + suffix;
+            }
+          }, 50);
+        });
+      }
+
+      // Run counter animation when hero is visible
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            heroObserver.disconnect();
+          }
+        });
+      });
+
+      const heroSection = document.querySelector(".hero");
+      if (heroSection) heroObserver.observe(heroSection);
     </script>
   </body>
 </html>
