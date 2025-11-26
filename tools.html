@@ -173,53 +173,108 @@
     <link rel="stylesheet" href="css/ads.css" />
 
     <style>
-      /* Enhanced Hero Section */
+      /* ========== ENHANCED HERO SECTION ========== */
       .hero {
-        min-height: 65vh;
+        min-height: 50vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 6rem 2rem 3rem;
+        padding: 5rem 2rem 3rem;
         position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: radial-gradient(
-          circle at center,
-          rgba(43, 226, 180, 0.08) 0%,
-          transparent 60%
-        );
+            ellipse 80% 50% at 50% -20%,
+            rgba(43, 226, 180, 0.15),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 80% 80%,
+            rgba(139, 92, 246, 0.1),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 50% 30% at 20% 60%,
+            rgba(43, 226, 180, 0.08),
+            transparent
+          );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
       }
 
       .hero h1 {
-        font-size: clamp(2.5rem, 7vw, 4.5rem);
+        font-size: clamp(2.5rem, 6vw, 4rem);
         font-weight: 900;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
         background: linear-gradient(
           135deg,
-          var(--accent-primary),
-          var(--accent-secondary),
-          var(--accent-tertiary)
+          var(--accent-primary) 0%,
+          var(--accent-secondary) 50%,
+          var(--accent-tertiary) 100%
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        letter-spacing: -0.02em;
-        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
-        animation: fadeInUp 1s ease-out;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        animation: heroFadeIn 0.8s ease-out;
       }
 
       .hero p {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
         color: var(--text-secondary);
-        max-width: 700px;
-        margin: 0 auto;
+        max-width: 650px;
+        margin: 0 auto 2rem;
         line-height: 1.7;
-        animation: fadeInUp 1s ease-out 0.2s both;
+        animation: heroFadeIn 0.8s ease-out 0.15s both;
       }
 
-      @keyframes fadeInUp {
+      /* Hero Stats */
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        animation: heroFadeIn 0.8s ease-out 0.3s both;
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .hero-stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--accent-primary);
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      @keyframes heroFadeIn {
         from {
           opacity: 0;
-          transform: translateY(30px);
+          transform: translateY(20px);
         }
         to {
           opacity: 1;
@@ -227,308 +282,674 @@
         }
       }
 
-      /* Simple Tools Grid */
+      /* ========== TOOLS CONTAINER ========== */
       .tools-container {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 2rem;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
       }
 
+      /* Section Header */
+      .section-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(43, 226, 180, 0.1);
+        border: 1px solid rgba(43, 226, 180, 0.2);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .section-subtitle {
+        color: var(--text-secondary);
+        font-size: 1rem;
+      }
+
+      /* ========== TOOLS GRID ========== */
       .tools-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-bottom: 4rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 3rem;
       }
 
-      /* Enhanced Tool Cards */
+      @media (max-width: 1024px) {
+        .tools-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+        }
+      }
+
+      /* ========== ENHANCED TOOL CARDS ========== */
       .tool-card {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: 20px;
-        padding: 2.5rem;
-        transition: all 0.3s ease;
+        padding: 1.75rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
       .tool-card:hover {
         border-color: var(--accent-primary);
-        box-shadow: 0 4px 12px rgba(43, 226, 180, 0.15);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(43, 226, 180, 0.1);
+      }
+
+      .tool-card:hover::before {
+        opacity: 1;
+      }
+
+      /* Tool Header */
+      .tool-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
       }
 
       .tool-icon {
-        width: 70px;
-        height: 70px;
+        width: 56px;
+        height: 56px;
         background: linear-gradient(
           135deg,
           var(--accent-primary),
           var(--accent-secondary)
         );
-        border-radius: 16px;
+        border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: white;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 12px rgba(43, 226, 180, 0.2);
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(43, 226, 180, 0.25);
         transition: all 0.3s ease;
       }
 
       .tool-card:hover .tool-icon {
-        box-shadow: 0 6px 16px rgba(43, 226, 180, 0.3);
+        transform: scale(1.05) rotate(-3deg);
+        box-shadow: 0 6px 20px rgba(43, 226, 180, 0.35);
+      }
+
+      .tool-header-content {
+        flex: 1;
+        min-width: 0;
       }
 
       .tool-title {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 700;
-        color: var(--accent-primary);
-        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
         transition: color 0.3s ease;
       }
 
       .tool-card:hover .tool-title {
-        color: var(--accent-secondary);
+        color: var(--accent-primary);
+      }
+
+      .tool-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .tool-badge.live {
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+      }
+
+      .tool-badge.new {
+        background: rgba(139, 92, 246, 0.15);
+        color: #8b5cf6;
+      }
+
+      .tool-badge.coming-soon {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
       }
 
       .tool-description {
         color: var(--text-secondary);
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
         line-height: 1.6;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        flex-grow: 0;
       }
 
+      /* Tool Preview/Content Area */
       .tool-content {
         background: var(--glass-bg);
         border-radius: 12px;
         padding: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      /* Simple Market Clocks */
-      .clock-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1rem;
-      }
-
-      .market-clock {
-        text-align: center;
-        padding: 1rem;
-        background: var(--glass-bg);
-        border-radius: 8px;
+        margin-bottom: 1.25rem;
+        flex-grow: 1;
         border: 1px solid var(--border-color);
       }
 
-      .market-name {
-        font-weight: 600;
-        color: var(--accent-primary);
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .market-time {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        font-family: monospace;
-        color: var(--text-primary);
-      }
-
-      .market-status {
-        padding: 0.3rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-      }
-
-      .status-open {
-        background: rgba(34, 197, 94, 0.2);
-        color: #22c55e;
-      }
-
-      .status-closed {
-        background: rgba(239, 68, 68, 0.2);
-        color: #ef4444;
-      }
-
-      /* Simple Calculator Inputs */
-      .calc-inputs {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .input-group {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .input-label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-      }
-
-      .calc-input,
-      .calc-select {
-        padding: 0.75rem;
-        background: var(--glass-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        color: var(--text-primary);
-        font-size: 0.9rem;
-      }
-
-      .calc-input:focus,
-      .calc-select:focus {
-        border-color: var(--accent-primary);
-        outline: none;
-      }
-
-      .calc-result {
-        text-align: center;
-        padding: 1rem;
-        background: rgba(43, 226, 180, 0.1);
-        border-radius: 8px;
-        border: 1px solid var(--accent-primary);
-      }
-
-      .result-label {
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-        margin-bottom: 0.5rem;
-      }
-
-      .result-value {
-        font-size: 1.3rem;
-        font-weight: 800;
-        color: var(--accent-primary);
-      }
-
-      /* Simple Action Buttons */
+      /* Tool Action Button */
       .tool-action {
-        background: var(--accent-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
         color: white;
         border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 25px;
+        border-radius: 12px;
         font-weight: 600;
+        font-size: 0.95rem;
         cursor: pointer;
         transition: all 0.3s ease;
         text-decoration: none;
-        display: inline-block;
-        text-align: center;
+        margin-top: auto;
       }
 
       .tool-action:hover {
-        background: var(--accent-secondary);
         transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(43, 226, 180, 0.35);
       }
 
-      /* Simple responsive design */
-      @media (max-width: 768px) {
-        .tools-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .calc-inputs {
-          grid-template-columns: 1fr;
-        }
-
-        .clock-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .tool-card {
-          padding: 1.5rem;
-        }
+      .tool-action.secondary {
+        background: var(--glass-bg);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-color);
       }
 
-      /* Simple lists and events */
-      .event-item,
-      .ipo-item,
-      .signal-item {
+      .tool-action.secondary:hover {
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+        box-shadow: none;
+      }
+
+      /* ========== TOOL-SPECIFIC STYLES ========== */
+
+      /* 13F Visualizer Preview */
+      .holdings-preview {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+
+      .holding-item {
+        padding: 0.6rem 0.75rem;
+        background: rgba(43, 226, 180, 0.08);
+        border-radius: 8px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.75rem;
-        margin-bottom: 0.5rem;
-        background: var(--glass-bg);
-        border-radius: 8px;
+        font-size: 0.85rem;
       }
 
-      .event-date,
-      .ipo-date {
-        font-weight: 600;
+      .holding-ticker {
+        font-weight: 700;
         color: var(--accent-primary);
-        font-size: 0.8rem;
-        background: rgba(43, 226, 180, 0.1);
-        padding: 0.3rem 0.6rem;
-        border-radius: 6px;
       }
 
-      .sentiment-overview {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1rem;
-        margin-bottom: 1rem;
+      .holding-value {
+        color: var(--text-secondary);
       }
 
-      .sentiment-metric {
-        text-align: center;
-        padding: 1rem;
+      /* Calendar Events */
+      .event-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .event-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 0.75rem;
         background: var(--glass-bg);
         border-radius: 8px;
+        border-left: 3px solid var(--accent-primary);
       }
 
-      .metric-value {
+      .event-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+
+      .event-icon.high {
+        background: rgba(234, 57, 67, 0.15);
+        color: #ea3943;
+      }
+      .event-icon.medium {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+      }
+      .event-icon.low {
+        background: rgba(43, 226, 180, 0.15);
+        color: #2be2b4;
+      }
+
+      .event-details {
+        flex: 1;
+        min-width: 0;
+      }
+      .event-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .event-time {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+      }
+
+      /* Sentiment Meters */
+      .sentiment-meters {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .sentiment-meter {
+        flex: 1;
+        text-align: center;
+        padding: 0.75rem 0.5rem;
+        background: var(--glass-bg);
+        border-radius: 10px;
+      }
+
+      .sentiment-value {
         font-size: 1.5rem;
         font-weight: 800;
-        margin-bottom: 0.3rem;
+        line-height: 1;
+        margin-bottom: 0.25rem;
       }
 
-      .metric-label {
+      .sentiment-value.bullish {
+        color: #22c55e;
+      }
+      .sentiment-value.neutral {
+        color: #f59e0b;
+      }
+      .sentiment-value.bearish {
+        color: #ef4444;
+      }
+
+      .sentiment-label {
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      /* Backtester Stats */
+      .backtest-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .backtest-stat {
+        padding: 0.75rem;
+        background: var(--glass-bg);
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .backtest-stat-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        margin-bottom: 0.15rem;
+      }
+
+      .backtest-stat-value.positive {
+        color: #22c55e;
+      }
+
+      .backtest-stat-label {
         font-size: 0.7rem;
         color: var(--text-secondary);
         text-transform: uppercase;
       }
 
-      .metric-bullish {
-        color: #22c55e;
-      }
-      .metric-neutral {
-        color: #f59e0b;
-      }
-      .metric-bearish {
-        color: #ef4444;
-      }
-
-      /* Calendar navigation */
-      .calendar-header {
+      /* Supply Chain Preview */
+      .supply-chain-preview {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
+        flex-direction: column;
+        gap: 0.75rem;
       }
 
-      .calendar-nav {
+      .route-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .route-tag {
+        padding: 0.35rem 0.7rem;
+        background: rgba(43, 226, 180, 0.1);
+        border: 1px solid rgba(43, 226, 180, 0.2);
+        border-radius: 20px;
+        font-size: 0.75rem;
+        color: var(--accent-primary);
+        font-weight: 500;
+      }
+
+      .supply-stats {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .supply-stat {
+        text-align: center;
+      }
+
+      .supply-stat-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .supply-stat-label {
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+      }
+
+      /* ========== AD SECTION ========== */
+      .ad-section {
+        padding: 2rem 0;
+        margin: 1rem 0;
+      }
+
+      .ad-container {
+        max-width: 970px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .ad-wrapper {
         background: var(--glass-bg);
         border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        color: var(--text-primary);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .calendar-nav:hover {
+      .ad-label {
+        font-size: 0.65rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+      }
+
+      /* ========== FEATURES SECTION ========== */
+      .features-section {
+        padding: 4rem 0;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(43, 226, 180, 0.02),
+          transparent
+        );
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+
+      @media (max-width: 900px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .feature-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .feature-item:hover {
         border-color: var(--accent-primary);
+        transform: translateY(-4px);
       }
 
-      /* Animation styles */
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 1rem;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.15),
+          rgba(139, 92, 246, 0.1)
+        );
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: var(--accent-primary);
+      }
+
+      .feature-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-desc {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      /* ========== CTA SECTION ========== */
+      .cta-section {
+        padding: 4rem 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-card {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.08),
+          rgba(139, 92, 246, 0.08)
+        );
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(43, 226, 180, 0.05) 0%,
+          transparent 50%
+        );
+        animation: ctaPulse 8s ease-in-out infinite;
+      }
+
+      @keyframes ctaPulse {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(10%, 10%);
+        }
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+      }
+
+      .cta-text {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.3);
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 768px) {
+        .hero {
+          min-height: 40vh;
+          padding: 4rem 1.5rem 2rem;
+        }
+        .hero-stats {
+          gap: 2rem;
+        }
+        .hero-stat-value {
+          font-size: 2rem;
+        }
+        .tools-container {
+          padding: 0 1rem;
+        }
+        .tool-card {
+          padding: 1.5rem;
+        }
+        .tool-icon {
+          width: 48px;
+          height: 48px;
+          font-size: 1.25rem;
+          border-radius: 12px;
+        }
+        .tool-title {
+          font-size: 1.1rem;
+        }
+        .cta-card {
+          padding: 2rem 1.5rem;
+        }
+        .cta-title {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* ========== ANIMATIONS ========== */
       @keyframes slideIn {
         from {
           transform: translateX(400px);
@@ -556,7 +977,7 @@
         scroll-behavior: smooth;
       }
 
-      /* Accessibility - Reduce motion */
+      /* Reduced motion */
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -624,624 +1045,329 @@
       <div class="hero-content">
         <h1>Financial Tools</h1>
         <p>
-          Professional financial visualization tools for investors and traders.
-          Track institutional holdings, monitor market movements, and stay
-          informed about economic events - all in real-time.
+          Professional-grade visualization tools for investors and traders.
+          Track institutional holdings, analyze SEC filings, and monitor global
+          markets.
         </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">6</div>
+            <div class="hero-stat-label">Pro Tools</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">100%</div>
+            <div class="hero-stat-label">Free Access</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">Real-Time</div>
+            <div class="hero-stat-label">Data Updates</div>
+          </div>
+        </div>
       </div>
     </section>
+
     <!-- Tools Grid -->
     <div class="tools-container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-badge"
+          ><i class="fas fa-chart-line"></i> Analysis Suite</span
+        >
+        <h2 class="section-title">Data & Analytics Tools</h2>
+        <p class="section-subtitle">
+          Track institutional investors and analyze company financials
+        </p>
+      </div>
+
       <!-- First Row: 3 Tools -->
       <div class="tools-grid">
         <!-- 13F Visualizer -->
         <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-chart-network"></i>
+          <div class="tool-header">
+            <div class="tool-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="tool-header-content">
+              <h3 class="tool-title">13F Visualizer</h3>
+              <span class="tool-badge live"
+                ><i class="fas fa-circle"></i> Live</span
+              >
+            </div>
           </div>
-          <h3 class="tool-title">13F Visualizer</h3>
           <p class="tool-description">
-            Visualize institutional investor holdings and track what major funds
-            are buying or selling.
+            Visualize institutional investor holdings and track what major hedge
+            funds are buying or selling.
           </p>
-
           <div class="tool-content">
-            <svg
-              id="f13Viz"
-              width="100%"
-              height="280"
-              viewBox="0 0 400 280"
-              style="background: var(--glass-bg); border-radius: 8px"
-            >
-              <!-- Sample 13F Holdings Visualization -->
-              <g class="holdings-treemap">
-                <rect
-                  x="10"
-                  y="10"
-                  width="180"
-                  height="120"
-                  fill="#2be2b4"
-                  fill-opacity="0.8"
-                  rx="4"
-                />
-                <text
-                  x="100"
-                  y="60"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="14"
-                  font-weight="600"
-                >
-                  AAPL
-                </text>
-                <text
-                  x="100"
-                  y="80"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="12"
-                >
-                  $2.4B (25%)
-                </text>
-
-                <rect
-                  x="200"
-                  y="10"
-                  width="190"
-                  height="120"
-                  fill="#00d475"
-                  fill-opacity="0.7"
-                  rx="4"
-                />
-                <text
-                  x="295"
-                  y="60"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="14"
-                  font-weight="600"
-                >
-                  MSFT
-                </text>
-                <text
-                  x="295"
-                  y="80"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="12"
-                >
-                  $1.8B (18%)
-                </text>
-
-                <rect
-                  x="10"
-                  y="140"
-                  width="120"
-                  height="130"
-                  fill="#1abc9c"
-                  fill-opacity="0.6"
-                  rx="4"
-                />
-                <text
-                  x="70"
-                  y="195"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="12"
-                  font-weight="600"
-                >
-                  GOOGL
-                </text>
-                <text
-                  x="70"
-                  y="215"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                >
-                  $1.2B (12%)
-                </text>
-
-                <rect
-                  x="140"
-                  y="140"
-                  width="130"
-                  height="130"
-                  fill="#16a085"
-                  fill-opacity="0.6"
-                  rx="4"
-                />
-                <text
-                  x="205"
-                  y="195"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="12"
-                  font-weight="600"
-                >
-                  AMZN
-                </text>
-                <text
-                  x="205"
-                  y="215"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                >
-                  $980M (10%)
-                </text>
-
-                <rect
-                  x="280"
-                  y="140"
-                  width="110"
-                  height="130"
-                  fill="#0f8b6f"
-                  fill-opacity="0.5"
-                  rx="4"
-                />
-                <text
-                  x="335"
-                  y="195"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="11"
-                  font-weight="600"
-                >
-                  Others
-                </text>
-                <text
-                  x="335"
-                  y="215"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="10"
-                >
-                  $3.5B (35%)
-                </text>
-              </g>
-            </svg>
+            <div class="holdings-preview">
+              <div class="holding-item">
+                <span class="holding-ticker">AAPL</span>
+                <span class="holding-value">$2.4B</span>
+              </div>
+              <div class="holding-item">
+                <span class="holding-ticker">MSFT</span>
+                <span class="holding-value">$1.8B</span>
+              </div>
+              <div class="holding-item">
+                <span class="holding-ticker">GOOGL</span>
+                <span class="holding-value">$1.2B</span>
+              </div>
+              <div class="holding-item">
+                <span class="holding-ticker">AMZN</span>
+                <span class="holding-value">$980M</span>
+              </div>
+            </div>
             <div
               style="
+                margin-top: 0.75rem;
+                padding-top: 0.75rem;
+                border-top: 1px solid var(--border-color);
                 display: flex;
                 justify-content: space-between;
-                margin-top: 12px;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 color: var(--text-secondary);
               "
             >
               <span><i class="fas fa-building"></i> Berkshire Hathaway</span>
-              <span><i class="fas fa-calendar"></i> Q3 2025</span>
+              <span>Q3 2025</span>
             </div>
           </div>
-
-          <a
-            href="/tools/13f-visualizer.html"
-            class="tool-action"
-            style="text-decoration: none"
-          >
-            <span class="fas fa-external-link-alt"></span>
+          <a href="/tools/13f-visualizer.html" class="tool-action">
+            <i class="fas fa-external-link-alt"></i>
             Open 13F Visualizer
           </a>
         </div>
 
         <!-- 10K Summary Tool -->
         <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-file-invoice-dollar"></i>
-          </div>
-          <h3 class="tool-title">10K Summary Analyzer</h3>
-          <p class="tool-description">
-            AI-powered analysis of SEC 10-K filings. Get instant summaries,
-            financial metrics, and risk insights from annual reports.
-          </p>
-
-          <div class="tool-content">
-            <div style="padding: 2rem; text-align: center">
-              <div style="margin-bottom: 1.5rem">
-                <i
-                  class="fas fa-brain"
-                  style="
-                    font-size: 3rem;
-                    color: var(--accent-primary);
-                    margin-bottom: 1rem;
-                    display: block;
-                  "
-                ></i>
-                <h4
-                  style="
-                    color: var(--text-primary);
-                    font-size: 1.2rem;
-                    margin-bottom: 0.75rem;
-                  "
-                >
-                  Analyze Any Public Company
-                </h4>
-                <p
-                  style="
-                    color: var(--text-secondary);
-                    font-size: 0.9rem;
-                    line-height: 1.6;
-                  "
-                >
-                  Extract key insights from complex financial documents in
-                  seconds
-                </p>
-              </div>
-
-              <div
-                style="
-                  display: grid;
-                  grid-template-columns: 1fr 1fr;
-                  gap: 1rem;
-                  margin-bottom: 1.5rem;
-                  text-align: left;
-                "
+          <div class="tool-header">
+            <div class="tool-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="tool-header-content">
+              <h3 class="tool-title">10K Summary Analyzer</h3>
+              <span class="tool-badge live"
+                ><i class="fas fa-circle"></i> Live</span
               >
-                <div
-                  style="
-                    padding: 0.75rem;
-                    background: var(--glass-bg);
-                    border-radius: 6px;
-                    border: 1px solid var(--border-color);
-                  "
-                >
-                  <i
-                    class="fas fa-chart-line"
-                    style="color: var(--accent-primary); margin-right: 0.5rem"
-                  ></i>
-                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >Financial Metrics</span
-                  >
-                </div>
-                <div
-                  style="
-                    padding: 0.75rem;
-                    background: var(--glass-bg);
-                    border-radius: 6px;
-                    border: 1px solid var(--border-color);
-                  "
-                >
-                  <i
-                    class="fas fa-exclamation-triangle"
-                    style="color: var(--accent-primary); margin-right: 0.5rem"
-                  ></i>
-                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >Risk Analysis</span
-                  >
-                </div>
-                <div
-                  style="
-                    padding: 0.75rem;
-                    background: var(--glass-bg);
-                    border-radius: 6px;
-                    border: 1px solid var(--border-color);
-                  "
-                >
-                  <i
-                    class="fas fa-building"
-                    style="color: var(--accent-primary); margin-right: 0.5rem"
-                  ></i>
-                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >Business Overview</span
-                  >
-                </div>
-                <div
-                  style="
-                    padding: 0.75rem;
-                    background: var(--glass-bg);
-                    border-radius: 6px;
-                    border: 1px solid var(--border-color);
-                  "
-                >
-                  <i
-                    class="fas fa-clock"
-                    style="color: var(--accent-primary); margin-right: 0.5rem"
-                  ></i>
-                  <span style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >Save Hours</span
-                  >
-                </div>
-              </div>
-
-              <div
-                style="
-                  padding: 1rem;
-                  background: rgba(43, 226, 180, 0.1);
-                  border-radius: 8px;
-                  border: 1px dashed var(--accent-primary);
-                "
-              >
-                <p
-                  style="
-                    color: var(--text-secondary);
-                    font-size: 0.85rem;
-                    margin: 0;
-                  "
-                >
-                  <i
-                    class="fas fa-star"
-                    style="color: var(--accent-primary)"
-                  ></i>
-                  Try companies like AAPL, TSLA, MSFT, GOOGL, AMZN, NVDA
-                </p>
-              </div>
             </div>
           </div>
-
-          <a
-            href="/tools/10k-summary.html"
-            class="tool-action"
-            style="text-decoration: none"
+          <p class="tool-description">
+            AI-powered analysis of SEC 10-K filings. Get instant summaries,
+            metrics, and risk insights.
+          </p>
+          <div
+            class="tool-content"
+            style="text-align: center; padding: 1.25rem"
           >
-            <span class="fas fa-external-link-alt"></span>
+            <i
+              class="fas fa-brain"
+              style="
+                font-size: 2.5rem;
+                color: var(--accent-primary);
+                margin-bottom: 0.75rem;
+                display: block;
+              "
+            ></i>
+            <div
+              style="
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: 0.5rem;
+              "
+            >
+              AI-Powered Analysis
+            </div>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                margin-bottom: 1rem;
+              "
+            >
+              Extract key insights from complex financial documents in seconds
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+              "
+            >
+              <span
+                style="
+                  padding: 0.35rem 0.7rem;
+                  background: var(--glass-bg);
+                  border-radius: 20px;
+                  font-size: 0.75rem;
+                  color: var(--text-secondary);
+                "
+                ><i
+                  class="fas fa-chart-line"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Metrics</span
+              >
+              <span
+                style="
+                  padding: 0.35rem 0.7rem;
+                  background: var(--glass-bg);
+                  border-radius: 20px;
+                  font-size: 0.75rem;
+                  color: var(--text-secondary);
+                "
+                ><i
+                  class="fas fa-exclamation-triangle"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Risks</span
+              >
+              <span
+                style="
+                  padding: 0.35rem 0.7rem;
+                  background: var(--glass-bg);
+                  border-radius: 20px;
+                  font-size: 0.75rem;
+                  color: var(--text-secondary);
+                "
+                ><i
+                  class="fas fa-building"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Overview</span
+              >
+            </div>
+          </div>
+          <a href="/tools/10k-summary.html" class="tool-action">
+            <i class="fas fa-external-link-alt"></i>
             Open 10K Analyzer
           </a>
         </div>
 
         <!-- Economic Calendar -->
         <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-calendar-day"></i>
+          <div class="tool-header">
+            <div class="tool-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="tool-header-content">
+              <h3 class="tool-title">Economic Calendar</h3>
+              <span class="tool-badge live"
+                ><i class="fas fa-circle"></i> Live</span
+              >
+            </div>
           </div>
-          <h3 class="tool-title">Economic Calendar</h3>
           <p class="tool-description">
             Track important economic events, earnings releases, and
             market-moving announcements.
           </p>
-
           <div class="tool-content">
-            <div class="calendar-events" id="economicEvents">
-              <div
-                class="event-item"
-                style="
-                  border-left: 3px solid #ea3943;
-                  padding: 12px;
-                  margin-bottom: 10px;
-                  background: var(--glass-bg);
-                  border-radius: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  "
-                >
-                  <div>
-                    <div
-                      style="
-                        font-weight: 600;
-                        color: var(--text-primary);
-                        margin-bottom: 4px;
-                      "
-                    >
-                      <i class="fas fa-flag-usa" style="color: #ea3943"></i>
-                      FOMC Meeting
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      Federal Reserve Interest Rate Decision
-                    </div>
-                  </div>
-                  <div style="text-align: right">
-                    <div style="font-weight: 600; color: var(--accent-primary)">
-                      Today
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      2:00 PM EST
-                    </div>
-                  </div>
+            <div class="event-list">
+              <div class="event-item" style="border-left-color: #ea3943">
+                <div class="event-icon high">
+                  <i class="fas fa-flag-usa"></i>
+                </div>
+                <div class="event-details">
+                  <div class="event-name">FOMC Meeting</div>
+                  <div class="event-time">Today • 2:00 PM EST</div>
                 </div>
               </div>
-
-              <div
-                class="event-item"
-                style="
-                  border-left: 3px solid #f59e0b;
-                  padding: 12px;
-                  margin-bottom: 10px;
-                  background: var(--glass-bg);
-                  border-radius: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  "
-                >
-                  <div>
-                    <div
-                      style="
-                        font-weight: 600;
-                        color: var(--text-primary);
-                        margin-bottom: 4px;
-                      "
-                    >
-                      <i class="fas fa-chart-line" style="color: #f59e0b"></i>
-                      AAPL Earnings
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      Apple Inc. Q4 Earnings Report
-                    </div>
-                  </div>
-                  <div style="text-align: right">
-                    <div style="font-weight: 600; color: var(--accent-primary)">
-                      Tomorrow
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      After Close
-                    </div>
-                  </div>
+              <div class="event-item" style="border-left-color: #f59e0b">
+                <div class="event-icon medium">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="event-details">
+                  <div class="event-name">AAPL Earnings</div>
+                  <div class="event-time">Tomorrow • After Close</div>
                 </div>
               </div>
-
-              <div
-                class="event-item"
-                style="
-                  border-left: 3px solid #2be2b4;
-                  padding: 12px;
-                  margin-bottom: 10px;
-                  background: var(--glass-bg);
-                  border-radius: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  "
-                >
-                  <div>
-                    <div
-                      style="
-                        font-weight: 600;
-                        color: var(--text-primary);
-                        margin-bottom: 4px;
-                      "
-                    >
-                      <i class="fas fa-briefcase" style="color: #2be2b4"></i>
-                      Jobs Report
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      US Non-Farm Payrolls
-                    </div>
-                  </div>
-                  <div style="text-align: right">
-                    <div style="font-weight: 600; color: var(--text-secondary)">
-                      Friday
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      8:30 AM EST
-                    </div>
-                  </div>
+              <div class="event-item" style="border-left-color: #2be2b4">
+                <div class="event-icon low">
+                  <i class="fas fa-briefcase"></i>
                 </div>
-              </div>
-
-              <div
-                class="event-item"
-                style="
-                  border-left: 3px solid #8b5cf6;
-                  padding: 12px;
-                  background: var(--glass-bg);
-                  border-radius: 6px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  "
-                >
-                  <div>
-                    <div
-                      style="
-                        font-weight: 600;
-                        color: var(--text-primary);
-                        margin-bottom: 4px;
-                      "
-                    >
-                      <i class="fas fa-percentage" style="color: #8b5cf6"></i>
-                      CPI Data
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      Consumer Price Index Release
-                    </div>
-                  </div>
-                  <div style="text-align: right">
-                    <div style="font-weight: 600; color: var(--text-secondary)">
-                      Next Week
-                    </div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      8:30 AM EST
-                    </div>
-                  </div>
+                <div class="event-details">
+                  <div class="event-name">Jobs Report</div>
+                  <div class="event-time">Friday • 8:30 AM EST</div>
                 </div>
               </div>
             </div>
           </div>
-
-          <a
-            href="/tools/economic-calendar.html"
-            class="tool-action"
-            style="text-decoration: none"
-          >
-            <span class="fas fa-external-link-alt"></span>
+          <a href="/tools/economic-calendar.html" class="tool-action">
+            <i class="fas fa-external-link-alt"></i>
             Open Full Calendar
           </a>
         </div>
       </div>
 
-      <!-- Ad Placement Section - After First 3 Tools -->
-      <div class="ad-section" style="padding: 2rem 0; margin: 2rem 0">
-        <div class="container" style="max-width: 970px; margin: 0 auto">
-          <ins
-            class="adsbygoogle"
-            style="display: block"
-            data-ad-client="ca-pub-2456627863532019"
-            data-ad-slot="YOUR_DISPLAY_AD_SLOT"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          ></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+      <!-- Native Ad Placement - Blends with Content -->
+      <div class="ad-section">
+        <div class="ad-container">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-wrapper">
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-2456627863532019"
+              data-ad-slot="YOUR_DISPLAY_AD_SLOT"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
         </div>
+      </div>
+
+      <!-- Section Header for Row 2 -->
+      <div class="section-header">
+        <span class="section-badge"
+          ><i class="fas fa-globe"></i> Market Tools</span
+        >
+        <h2 class="section-title">Trading & Visualization</h2>
+        <p class="section-subtitle">
+          Portfolio simulation and global market insights
+        </p>
       </div>
 
       <!-- Second Row: 3 More Tools -->
       <div class="tools-grid">
         <!-- Market Sentiment Analyzer -->
         <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-chart-pie"></i>
+          <div class="tool-header">
+            <div class="tool-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="tool-header-content">
+              <h3 class="tool-title">Market Sentiment</h3>
+              <span class="tool-badge coming-soon"
+                ><i class="fas fa-clock"></i> Coming Soon</span
+              >
+            </div>
           </div>
-          <h3 class="tool-title">Market Sentiment</h3>
           <p class="tool-description">
             Analyze market sentiment, social media trends, and investor behavior
-            to gauge market mood and potential moves.
+            to gauge market mood.
           </p>
-
           <div class="tool-content">
-            <div class="sentiment-overview">
-              <div class="sentiment-metric">
-                <div class="metric-value metric-bullish">68%</div>
-                <div class="metric-label">Bullish</div>
+            <div class="sentiment-meters">
+              <div class="sentiment-meter">
+                <div class="sentiment-value bullish">68%</div>
+                <div class="sentiment-label">Bullish</div>
               </div>
-              <div class="sentiment-metric">
-                <div class="metric-value metric-neutral">22%</div>
-                <div class="metric-label">Neutral</div>
+              <div class="sentiment-meter">
+                <div class="sentiment-value neutral">22%</div>
+                <div class="sentiment-label">Neutral</div>
               </div>
-              <div class="sentiment-metric">
-                <div class="metric-value metric-bearish">10%</div>
-                <div class="metric-label">Bearish</div>
+              <div class="sentiment-meter">
+                <div class="sentiment-value bearish">10%</div>
+                <div class="sentiment-label">Bearish</div>
               </div>
             </div>
-
             <div
               style="
-                margin-top: 1rem;
-                padding: 1rem;
+                margin-top: 0.75rem;
+                padding: 0.75rem;
                 background: var(--glass-bg);
                 border-radius: 8px;
               "
@@ -1250,20 +1376,22 @@
                 style="
                   display: flex;
                   justify-content: space-between;
-                  margin-bottom: 0.75rem;
-                  font-size: 0.9rem;
+                  font-size: 0.8rem;
+                  margin-bottom: 0.4rem;
                 "
               >
                 <span style="color: var(--text-secondary)"
-                  ><i class="fas fa-fire"></i> Trending: Tech Stocks</span
+                  ><i class="fas fa-fire"></i> Trending</span
                 >
-                <span style="color: #16c784; font-weight: 600">+12.4%</span>
+                <span style="color: #22c55e; font-weight: 600"
+                  >Tech +12.4%</span
+                >
               </div>
               <div
                 style="
                   display: flex;
                   justify-content: space-between;
-                  font-size: 0.9rem;
+                  font-size: 0.8rem;
                 "
               >
                 <span style="color: var(--text-secondary)"
@@ -1275,375 +1403,218 @@
               </div>
             </div>
           </div>
-
           <button
-            class="tool-action"
+            class="tool-action secondary"
             onclick="showNotification('Market Sentiment analyzer coming soon!', 'info')"
           >
-            <span class="fas fa-chart-pie"></span>
-            Analyze Sentiment
+            <i class="fas fa-bell"></i>
+            Notify Me
           </button>
         </div>
 
-        <!-- Portfolio Tracker -->
+        <!-- Portfolio Backtester -->
         <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-wallet"></i>
+          <div class="tool-header">
+            <div class="tool-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="tool-header-content">
+              <h3 class="tool-title">Investment Backtester</h3>
+              <span class="tool-badge new"
+                ><i class="fas fa-star"></i> New</span
+              >
+            </div>
           </div>
-          <h3 class="tool-title">Portfolio Tracker</h3>
           <p class="tool-description">
-            Track your investment portfolio performance, allocation, and returns
-            across multiple assets and accounts.
+            Simulate portfolio performance with different asset allocations and
+            Monte Carlo analysis.
           </p>
-
           <div class="tool-content">
-            <div
-              style="
-                text-align: center;
-                padding: 2rem 1rem;
-                background: rgba(43, 226, 180, 0.05);
-                border-radius: 8px;
-              "
-            >
+            <div style="text-align: center; padding: 0.5rem 0 1rem">
               <div
                 style="
-                  font-size: 2.5rem;
+                  font-size: 2.25rem;
                   font-weight: 800;
-                  color: #16c784;
-                  margin-bottom: 0.5rem;
+                  color: #22c55e;
+                  line-height: 1;
                 "
               >
                 +24.7%
               </div>
               <div
                 style="
-                  font-size: 0.9rem;
+                  font-size: 0.8rem;
                   color: var(--text-secondary);
-                  margin-bottom: 1.5rem;
+                  margin-bottom: 1rem;
                 "
               >
-                Total Portfolio Return (YTD)
+                Simulated 5-Year Return
               </div>
-
-              <div
-                style="
-                  display: grid;
-                  grid-template-columns: 1fr 1fr;
-                  gap: 1rem;
-                  text-align: left;
-                "
-              >
-                <div
-                  style="
-                    padding: 0.75rem;
-                    background: var(--glass-bg);
-                    border-radius: 6px;
-                  "
-                >
-                  <div
-                    style="
-                      font-size: 0.75rem;
-                      color: var(--text-secondary);
-                      margin-bottom: 0.25rem;
-                    "
-                  >
-                    Total Value
-                  </div>
-                  <div
-                    style="
-                      font-size: 1.2rem;
-                      font-weight: 700;
-                      color: var(--accent-primary);
-                    "
-                  >
-                    $125.4K
-                  </div>
-                </div>
-                <div
-                  style="
-                    padding: 0.75rem;
-                    background: var(--glass-bg);
-                    border-radius: 6px;
-                  "
-                >
-                  <div
-                    style="
-                      font-size: 0.75rem;
-                      color: var(--text-secondary);
-                      margin-bottom: 0.25rem;
-                    "
-                  >
-                    Day Change
-                  </div>
-                  <div
-                    style="font-size: 1.2rem; font-weight: 700; color: #16c784"
-                  >
-                    +$1,234
-                  </div>
-                </div>
+            </div>
+            <div class="backtest-stats">
+              <div class="backtest-stat">
+                <div class="backtest-stat-value">500</div>
+                <div class="backtest-stat-label">Monte Carlo Sims</div>
+              </div>
+              <div class="backtest-stat">
+                <div class="backtest-stat-value positive">1.24</div>
+                <div class="backtest-stat-label">Sharpe Ratio</div>
+              </div>
+              <div class="backtest-stat">
+                <div class="backtest-stat-value">12.8%</div>
+                <div class="backtest-stat-label">Max Drawdown</div>
+              </div>
+              <div class="backtest-stat">
+                <div class="backtest-stat-value positive">68%</div>
+                <div class="backtest-stat-label">Win Rate</div>
               </div>
             </div>
           </div>
-
-          <button
-            class="tool-action"
-            onclick="showNotification('Portfolio tracker coming soon!', 'info')"
-          >
-            <span class="fas fa-wallet"></span>
-            Track Portfolio
-          </button>
+          <a href="/tools/backtester.html" class="tool-action">
+            <i class="fas fa-external-link-alt"></i>
+            Open Backtester
+          </a>
         </div>
 
-        <!-- Stock Screener -->
+        <!-- Supply Chain Map -->
         <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-filter"></i>
+          <div class="tool-header">
+            <div class="tool-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <div class="tool-header-content">
+              <h3 class="tool-title">Supply Chain Map</h3>
+              <span class="tool-badge live"
+                ><i class="fas fa-circle"></i> Live</span
+              >
+            </div>
           </div>
-          <h3 class="tool-title">Stock Screener</h3>
           <p class="tool-description">
-            Filter and discover stocks based on fundamental metrics, technical
-            indicators, and custom criteria.
+            Interactive global visualization of major supply chain routes, trade
+            hubs, and shipping corridors.
           </p>
-
           <div class="tool-content">
-            <div
-              style="
-                padding: 1.5rem;
-                background: var(--glass-bg);
-                border-radius: 8px;
-              "
-            >
-              <div style="margin-bottom: 1rem">
-                <div
-                  style="
-                    font-size: 0.85rem;
-                    color: var(--text-secondary);
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  <i class="fas fa-filter"></i> Active Filters
-                </div>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
-                  <span
-                    style="
-                      padding: 0.4rem 0.8rem;
-                      background: rgba(43, 226, 180, 0.1);
-                      border: 1px solid var(--accent-primary);
-                      border-radius: 12px;
-                      font-size: 0.8rem;
-                      color: var(--accent-primary);
-                    "
-                    >Market Cap > $10B</span
-                  >
-                  <span
-                    style="
-                      padding: 0.4rem 0.8rem;
-                      background: rgba(43, 226, 180, 0.1);
-                      border: 1px solid var(--accent-primary);
-                      border-radius: 12px;
-                      font-size: 0.8rem;
-                      color: var(--accent-primary);
-                    "
-                    >P/E < 25</span
-                  >
-                  <span
-                    style="
-                      padding: 0.4rem 0.8rem;
-                      background: rgba(43, 226, 180, 0.1);
-                      border: 1px solid var(--accent-primary);
-                      border-radius: 12px;
-                      font-size: 0.8rem;
-                      color: var(--accent-primary);
-                    "
-                    >Dividend > 2%</span
-                  >
-                </div>
-              </div>
-
+            <div class="supply-chain-preview">
               <div
                 style="
-                  padding-top: 1rem;
-                  border-top: 1px solid var(--border-color);
+                  font-size: 0.8rem;
+                  color: var(--text-secondary);
+                  margin-bottom: 0.5rem;
                 "
               >
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                  "
-                >
-                  <div>
-                    <div
-                      style="font-size: 0.85rem; color: var(--text-secondary)"
-                    >
-                      Matching Stocks
-                    </div>
-                    <div
-                      style="
-                        font-size: 1.5rem;
-                        font-weight: 700;
-                        color: var(--accent-primary);
-                      "
-                    >
-                      247
-                    </div>
-                  </div>
-                  <i
-                    class="fas fa-search"
-                    style="
-                      font-size: 2rem;
-                      color: var(--accent-primary);
-                      opacity: 0.3;
-                    "
-                  ></i>
+                <i class="fas fa-ship"></i> Active Trade Routes
+              </div>
+              <div class="route-tags">
+                <span class="route-tag">Pacific Routes</span>
+                <span class="route-tag">Atlantic Routes</span>
+                <span class="route-tag">Suez Canal</span>
+                <span class="route-tag">Panama Canal</span>
+              </div>
+              <div class="supply-stats">
+                <div class="supply-stat">
+                  <div class="supply-stat-value">20+</div>
+                  <div class="supply-stat-label">Trade Hubs</div>
+                </div>
+                <div class="supply-stat">
+                  <div class="supply-stat-value">15+</div>
+                  <div class="supply-stat-label">Shipping Routes</div>
+                </div>
+                <div class="supply-stat">
+                  <div class="supply-stat-value">🌍</div>
+                  <div class="supply-stat-label">Global Coverage</div>
                 </div>
               </div>
             </div>
           </div>
-
-          <button
-            class="tool-action"
-            onclick="showNotification('Stock screener coming soon!', 'info')"
-          >
-            <span class="fas fa-filter"></span>
-            Screen Stocks
-          </button>
+          <a href="/tools/supplychain.html" class="tool-action">
+            <i class="fas fa-external-link-alt"></i>
+            View Map
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Ad Placement Section - Below the Fold -->
-    <div class="ad-section" style="padding: 3rem 2rem">
-      <div class="container" style="max-width: 970px; margin: 0 auto">
-        <!-- Large Horizontal Ad -->
-        <ins
-          class="adsbygoogle"
-          style="display: block"
-          data-ad-client="ca-pub-2456627863532019"
-          data-ad-slot="1234567890"
-          data-ad-format="horizontal"
-          data-full-width-responsive="true"
-        ></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="tools-container">
+        <div class="section-header">
+          <span class="section-badge"
+            ><i class="fas fa-check-circle"></i> Why Choose Us</span
+          >
+          <h2 class="section-title">Built for Serious Investors</h2>
+          <p class="section-subtitle">
+            Professional-grade tools without the premium price tag
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+            <div class="feature-title">Real-Time Data</div>
+            <div class="feature-desc">
+              Live market data and instant updates for timely decisions
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-lock"></i></div>
+            <div class="feature-title">100% Free</div>
+            <div class="feature-desc">
+              No subscriptions, no hidden fees. All tools completely free
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="feature-title">Mobile Ready</div>
+            <div class="feature-desc">
+              Works seamlessly on desktop, tablet, and mobile devices
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="feature-title">Privacy First</div>
+            <div class="feature-desc">
+              Your data stays private. No account required
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Placement Section - Below Features -->
+    <div class="ad-section">
+      <div class="ad-container">
+        <div class="ad-label">Advertisement</div>
+        <div class="ad-wrapper">
+          <ins
+            class="adsbygoogle"
+            style="display: block"
+            data-ad-client="ca-pub-2456627863532019"
+            data-ad-slot="1234567890"
+            data-ad-format="horizontal"
+            data-full-width-responsive="true"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       </div>
     </div>
 
-    <!-- Additional Information Section -->
-    <div class="tools-container" style="margin-top: 3rem">
-      <div
-        style="
-          text-align: center;
-          padding: 3rem 2rem;
-          background: var(--bg-card);
-          border-radius: 20px;
-          border: 1px solid var(--border-color);
-        "
-      >
-        <h2
-          style="
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--accent-primary);
-          "
-        >
-          Professional Financial Analysis Tools
-        </h2>
-        <p
-          style="
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.7;
-          "
-        >
-          Our suite of financial visualization tools helps you make informed
-          investment decisions. Track institutional holdings with the 13F
-          Visualizer, monitor real-time market movements with the Market
-          Heatmap, and stay ahead of important events with the Economic
-          Calendar. All tools are free, always up-to-date, and designed for both
-          professional and retail investors.
-        </p>
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h3 class="cta-title">Ready to Make Smarter Investment Decisions?</h3>
+          <p class="cta-text">
+            Join thousands of investors using our tools to track markets,
+            analyze data, and stay ahead of the curve.
+          </p>
+          <a href="/blog.html" class="cta-button">
+            <span>Explore Our Insights</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
-    </div>
-
-    <!-- Another Ad Placement Section -->
-    <div class="ad-section" style="padding: 3rem 2rem; margin-top: 2rem">
-      <div class="container" style="max-width: 728px; margin: 0 auto">
-        <!-- Medium Rectangle Ad -->
-        <ins
-          class="adsbygoogle"
-          style="display: block"
-          data-ad-client="ca-pub-2456627863532019"
-          data-ad-slot="0987654321"
-          data-ad-format="rectangle"
-          data-full-width-responsive="true"
-        ></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </div>
-
-    <!-- CTA Section Moved Here -->
-    <div class="tools-container" style="margin-top: 2rem; margin-bottom: 4rem">
-      <div
-        style="
-          text-align: center;
-          padding: 3rem 2rem;
-          background: linear-gradient(
-            135deg,
-            rgba(43, 226, 180, 0.1),
-            rgba(91, 33, 182, 0.1)
-          );
-          border-radius: 20px;
-          border: 1px solid var(--border-color);
-        "
-      >
-        <h3
-          style="
-            color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-          "
-        >
-          Ready to Make Smarter Investment Decisions?
-        </h3>
-        <p
-          style="
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-          "
-        >
-          Join thousands of investors using our tools to track markets, analyze
-          data, and stay informed about financial events.
-        </p>
-        <a
-          href="/blog.html"
-          style="
-            display: inline-block;
-            background: var(--accent-primary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-          "
-          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(43, 226, 180, 0.3)'"
-          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
-        >
-          Learn More <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- Newsletter Section Removed - Cleanup -->
+    </section>
     <!-- Footer -->
     <footer class="footer">
       <p>

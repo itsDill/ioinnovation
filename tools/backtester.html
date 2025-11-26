@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Backtester | Portfolio Simulator | IO Innovate</title>
+    <meta
+      name="description"
+      content="Free investment backtesting tool. Test portfolio strategies, run Monte Carlo simulations, compare to benchmarks, and analyze risk metrics."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/shared-clean.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
+        );
+        color: #e2e8f0;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+      }
+      .header h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+      }
+      .header p {
+        color: #94a3b8;
+        font-size: 1.1rem;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #3b82f6;
+        text-decoration: none;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+      .back-link:hover {
+        color: #60a5fa;
+      }
+
+      .grid-layout {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 2rem;
+      }
+      @media (max-width: 1024px) {
+        .grid-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        backdrop-filter: blur(10px);
+      }
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Presets */
+      .presets-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .preset-btn {
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: left;
+      }
+      .preset-btn:hover {
+        border-color: #3b82f6;
+        background: rgba(59, 130, 246, 0.1);
+      }
+      .preset-btn.active {
+        border-color: #3b82f6;
+        background: rgba(59, 130, 246, 0.2);
+      }
+      .preset-name {
+        font-weight: 600;
+        color: #f1f5f9;
+        font-size: 0.9rem;
+      }
+      .preset-desc {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-top: 2px;
+      }
+
+      /* Form inputs */
+      .form-group {
+        margin-bottom: 1.25rem;
+      }
+      .form-label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #94a3b8;
+        margin-bottom: 0.5rem;
+      }
+      .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #f1f5f9;
+        font-size: 1rem;
+        font-family: inherit;
+      }
+      .form-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      /* Allocation sliders */
+      .allocation-item {
+        margin-bottom: 1rem;
+      }
+      .allocation-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      .allocation-name {
+        font-size: 0.9rem;
+        color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .allocation-value {
+        font-weight: 600;
+        color: #3b82f6;
+      }
+      .allocation-slider {
+        width: 100%;
+        height: 6px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .allocation-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        background: #3b82f6;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .allocation-total {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+      .total-label {
+        color: #94a3b8;
+      }
+      .total-value {
+        font-weight: 700;
+      }
+      .total-valid {
+        color: #22c55e;
+      }
+      .total-invalid {
+        color: #ef4444;
+      }
+
+      /* Run button */
+      .run-btn {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .run-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+      }
+      .run-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Results */
+      .results-section {
+        display: none;
+      }
+      .results-section.active {
+        display: block;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .metric-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+      }
+      .metric-label {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+      }
+      .metric-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .metric-positive {
+        color: #22c55e;
+      }
+      .metric-negative {
+        color: #ef4444;
+      }
+      .metric-neutral {
+        color: #f1f5f9;
+      }
+
+      /* Chart */
+      .chart-container {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .chart-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .chart-tab {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #94a3b8;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+      }
+      .chart-tab:hover {
+        border-color: #3b82f6;
+        color: #f1f5f9;
+      }
+      .chart-tab.active {
+        background: rgba(59, 130, 246, 0.2);
+        border-color: #3b82f6;
+        color: #f1f5f9;
+      }
+
+      /* Monte Carlo */
+      .monte-carlo-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      @media (max-width: 768px) {
+        .monte-carlo-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .mc-item {
+        text-align: center;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+      }
+      .mc-label {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-bottom: 0.25rem;
+      }
+      .mc-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .mc-5 {
+        color: #ef4444;
+      }
+      .mc-25 {
+        color: #f59e0b;
+      }
+      .mc-50 {
+        color: #22c55e;
+      }
+      .mc-75 {
+        color: #3b82f6;
+      }
+      .mc-95 {
+        color: #8b5cf6;
+      }
+
+      /* Footer disclaimer */
+      .disclaimer {
+        text-align: center;
+        padding: 2rem;
+        color: #64748b;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/tools.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Tools
+      </a>
+
+      <div class="header">
+        <h1>📊 Investment Backtester</h1>
+        <p>Simulate portfolio performance with Monte Carlo analysis</p>
+      </div>
+
+      <div class="grid-layout">
+        <!-- Left Panel: Configuration -->
+        <div class="config-panel">
+          <!-- Presets -->
+          <div class="card" style="margin-bottom: 1.5rem">
+            <div class="card-title">
+              <i class="fas fa-magic"></i> Quick Presets
+            </div>
+            <div class="presets-grid">
+              <button class="preset-btn" data-preset="conservative">
+                <div class="preset-name">🛡️ Conservative</div>
+                <div class="preset-desc">Lower risk, stable</div>
+              </button>
+              <button class="preset-btn" data-preset="moderate">
+                <div class="preset-name">⚖️ Moderate</div>
+                <div class="preset-desc">Balanced approach</div>
+              </button>
+              <button class="preset-btn" data-preset="aggressive">
+                <div class="preset-name">🚀 Aggressive</div>
+                <div class="preset-desc">Growth focused</div>
+              </button>
+              <button class="preset-btn" data-preset="allWeather">
+                <div class="preset-name">🌦️ All Weather</div>
+                <div class="preset-desc">Dalio inspired</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Investment Settings -->
+          <div class="card" style="margin-bottom: 1.5rem">
+            <div class="card-title">
+              <i class="fas fa-dollar-sign"></i> Investment Settings
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Initial Investment ($)</label>
+              <input
+                type="number"
+                id="initialInvestment"
+                class="form-input"
+                value="10000"
+                min="0"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Monthly Contribution ($)</label>
+              <input
+                type="number"
+                id="monthlyContribution"
+                class="form-input"
+                value="500"
+                min="0"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Start Date</label>
+                <input
+                  type="date"
+                  id="startDate"
+                  class="form-input"
+                  value="2019-01-01"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">End Date</label>
+                <input
+                  type="date"
+                  id="endDate"
+                  class="form-input"
+                  value="2024-01-01"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Asset Allocation -->
+          <div class="card" style="margin-bottom: 1.5rem">
+            <div class="card-title">
+              <i class="fas fa-chart-pie"></i> Asset Allocation
+            </div>
+
+            <div id="allocationSliders">
+              <!-- Dynamically generated -->
+            </div>
+
+            <div class="allocation-total">
+              <span class="total-label">Total Allocation</span>
+              <span id="totalAllocation" class="total-value total-valid"
+                >100%</span
+              >
+            </div>
+          </div>
+
+          <!-- Run Button -->
+          <button id="runBacktest" class="run-btn">
+            <i class="fas fa-play"></i> Run Backtest
+          </button>
+        </div>
+
+        <!-- Right Panel: Results -->
+        <div class="results-panel">
+          <div id="resultsSection" class="results-section">
+            <!-- Key Metrics -->
+            <div class="metrics-grid" id="metricsGrid">
+              <!-- Dynamically generated -->
+            </div>
+
+            <!-- Chart -->
+            <div class="card chart-container">
+              <div class="chart-tabs">
+                <button class="chart-tab active" data-chart="growth">
+                  📈 Portfolio Growth
+                </button>
+                <button class="chart-tab" data-chart="benchmark">
+                  📊 vs Benchmark
+                </button>
+                <button class="chart-tab" data-chart="monteCarlo">
+                  🎲 Monte Carlo
+                </button>
+              </div>
+              <canvas id="mainChart" height="300"></canvas>
+
+              <div id="monteCarloResults" style="display: none">
+                <div class="monte-carlo-grid">
+                  <div class="mc-item">
+                    <div class="mc-label">Worst Case (5%)</div>
+                    <div class="mc-value mc-5" id="mc5">-</div>
+                  </div>
+                  <div class="mc-item">
+                    <div class="mc-label">Pessimistic (25%)</div>
+                    <div class="mc-value mc-25" id="mc25">-</div>
+                  </div>
+                  <div class="mc-item">
+                    <div class="mc-label">Expected (50%)</div>
+                    <div class="mc-value mc-50" id="mc50">-</div>
+                  </div>
+                  <div class="mc-item">
+                    <div class="mc-label">Optimistic (75%)</div>
+                    <div class="mc-value mc-75" id="mc75">-</div>
+                  </div>
+                  <div class="mc-item">
+                    <div class="mc-label">Best Case (95%)</div>
+                    <div class="mc-value mc-95" id="mc95">-</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Stats -->
+            <div class="card">
+              <div class="card-title">
+                <i class="fas fa-chart-bar"></i> Performance Summary
+              </div>
+              <div class="metrics-grid" id="secondaryMetrics">
+                <!-- Dynamically generated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Initial State -->
+          <div
+            id="initialState"
+            class="card"
+            style="text-align: center; padding: 4rem 2rem"
+          >
+            <i
+              class="fas fa-chart-line"
+              style="font-size: 4rem; color: #3b82f6; margin-bottom: 1.5rem"
+            ></i>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #f1f5f9">
+              Configure Your Strategy
+            </h3>
+            <p style="color: #94a3b8; max-width: 400px; margin: 0 auto">
+              Set your investment parameters and asset allocation on the left,
+              then click "Run Backtest" to simulate your portfolio performance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        ⚠️ This tool uses simulated returns for educational purposes only. Past
+        performance does not guarantee future results.<br />
+        Always consult a financial advisor before making investment decisions.
+      </div>
+    </div>
+
+    <script>
+      // Asset classes configuration
+      const ASSET_CLASSES = {
+        stocks: {
+          name: "US Stocks",
+          icon: "📈",
+          color: "#3b82f6",
+          return: 0.1,
+          vol: 0.18,
+        },
+        intlStocks: {
+          name: "Intl Stocks",
+          icon: "🌍",
+          color: "#8b5cf6",
+          return: 0.08,
+          vol: 0.2,
+        },
+        bonds: {
+          name: "Bonds",
+          icon: "📊",
+          color: "#10b981",
+          return: 0.04,
+          vol: 0.06,
+        },
+        reits: {
+          name: "REITs",
+          icon: "🏢",
+          color: "#f59e0b",
+          return: 0.09,
+          vol: 0.22,
+        },
+        commodities: {
+          name: "Commodities",
+          icon: "🛢️",
+          color: "#ef4444",
+          return: 0.05,
+          vol: 0.25,
+        },
+        cash: {
+          name: "Cash/MMF",
+          icon: "💵",
+          color: "#6b7280",
+          return: 0.03,
+          vol: 0.01,
+        },
+      };
+
+      // Presets
+      const PRESETS = {
+        conservative: {
+          stocks: 25,
+          intlStocks: 10,
+          bonds: 45,
+          reits: 5,
+          commodities: 0,
+          cash: 15,
+        },
+        moderate: {
+          stocks: 40,
+          intlStocks: 15,
+          bonds: 30,
+          reits: 10,
+          commodities: 0,
+          cash: 5,
+        },
+        aggressive: {
+          stocks: 55,
+          intlStocks: 25,
+          bonds: 10,
+          reits: 5,
+          commodities: 5,
+          cash: 0,
+        },
+        allWeather: {
+          stocks: 30,
+          intlStocks: 0,
+          bonds: 40,
+          reits: 0,
+          commodities: 15,
+          cash: 15,
+        },
+      };
+
+      // State
+      let allocation = {
+        stocks: 60,
+        intlStocks: 10,
+        bonds: 20,
+        reits: 5,
+        commodities: 0,
+        cash: 5,
+      };
+      let chartInstance = null;
+      let backtestData = null;
+
+      // Initialize allocation sliders
+      function initSliders() {
+        const container = document.getElementById("allocationSliders");
+        container.innerHTML = "";
+
+        Object.entries(ASSET_CLASSES).forEach(([key, asset]) => {
+          const div = document.createElement("div");
+          div.className = "allocation-item";
+          div.innerHTML = `
+                    <div class="allocation-header">
+                        <span class="allocation-name">${asset.icon} ${asset.name}</span>
+                        <span class="allocation-value" id="val-${key}">${allocation[key]}%</span>
+                    </div>
+                    <input type="range" class="allocation-slider" id="slider-${key}" 
+                           min="0" max="100" value="${allocation[key]}" data-asset="${key}">
+                `;
+          container.appendChild(div);
+        });
+
+        // Add event listeners
+        document.querySelectorAll(".allocation-slider").forEach((slider) => {
+          slider.addEventListener("input", (e) => {
+            const asset = e.target.dataset.asset;
+            allocation[asset] = parseInt(e.target.value);
+            document.getElementById(`val-${asset}`).textContent =
+              allocation[asset] + "%";
+            updateTotalAllocation();
+            clearActivePreset();
+          });
+        });
+      }
+
+      function updateTotalAllocation() {
+        const total = Object.values(allocation).reduce((a, b) => a + b, 0);
+        const elem = document.getElementById("totalAllocation");
+        elem.textContent = total + "%";
+        elem.className =
+          "total-value " + (total === 100 ? "total-valid" : "total-invalid");
+        document.getElementById("runBacktest").disabled = total !== 100;
+      }
+
+      function clearActivePreset() {
+        document
+          .querySelectorAll(".preset-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+      }
+
+      function applyPreset(presetName) {
+        allocation = { ...PRESETS[presetName] };
+        Object.keys(allocation).forEach((key) => {
+          document.getElementById(`slider-${key}`).value = allocation[key];
+          document.getElementById(`val-${key}`).textContent =
+            allocation[key] + "%";
+        });
+        updateTotalAllocation();
+
+        // Update active state
+        document.querySelectorAll(".preset-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.preset === presetName);
+        });
+      }
+
+      // Backtest logic
+      function runBacktest() {
+        const initial =
+          parseFloat(document.getElementById("initialInvestment").value) ||
+          10000;
+        const monthly =
+          parseFloat(document.getElementById("monthlyContribution").value) ||
+          500;
+        const startDate = new Date(document.getElementById("startDate").value);
+        const endDate = new Date(document.getElementById("endDate").value);
+        const months = Math.round(
+          (endDate - startDate) / (1000 * 60 * 60 * 24 * 30)
+        );
+
+        if (months < 1) {
+          alert("End date must be after start date");
+          return;
+        }
+
+        // Generate returns
+        const data = [];
+        let portfolio = initial;
+        let benchmark = initial;
+        let totalContributions = initial;
+        let peak = portfolio;
+        let maxDrawdown = 0;
+        let monthlyReturns = [];
+
+        for (let i = 0; i < months; i++) {
+          portfolio += monthly;
+          benchmark += monthly;
+          totalContributions += monthly;
+
+          // Calculate weighted return
+          let weightedReturn = 0;
+          Object.keys(allocation).forEach((asset) => {
+            const { return: expRet, vol } = ASSET_CLASSES[asset];
+            const monthlyRet = expRet / 12;
+            const monthlyVol = vol / Math.sqrt(12);
+            const z =
+              (Math.random() + Math.random() + Math.random() - 1.5) * 1.5; // Approx normal
+            const ret = monthlyRet + z * monthlyVol;
+            weightedReturn += (allocation[asset] / 100) * ret;
+          });
+
+          // Benchmark (S&P 500 approx)
+          const benchZ =
+            (Math.random() + Math.random() + Math.random() - 1.5) * 1.5;
+          const benchRet = 0.1 / 12 + benchZ * (0.16 / Math.sqrt(12));
+
+          monthlyReturns.push(weightedReturn);
+          portfolio *= 1 + weightedReturn;
+          benchmark *= 1 + benchRet;
+
+          if (portfolio > peak) peak = portfolio;
+          const dd = ((peak - portfolio) / peak) * 100;
+          if (dd > maxDrawdown) maxDrawdown = dd;
+
+          const date = new Date(startDate);
+          date.setMonth(date.getMonth() + i);
+
+          data.push({
+            date: date.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+            }),
+            portfolio: Math.round(portfolio),
+            benchmark: Math.round(benchmark),
+            contributions: totalContributions,
+          });
+        }
+
+        // Calculate metrics
+        const totalGains = portfolio - totalContributions;
+        const totalReturn =
+          ((portfolio - totalContributions) / totalContributions) * 100;
+        const annualizedReturn =
+          (Math.pow(portfolio / initial, 12 / months) - 1) * 100;
+        const avgMonthly = monthlyReturns.reduce((a, b) => a + b, 0) / months;
+        const variance =
+          monthlyReturns.reduce(
+            (sum, r) => sum + Math.pow(r - avgMonthly, 2),
+            0
+          ) / months;
+        const annualizedVol = Math.sqrt(variance) * Math.sqrt(12) * 100;
+        const sharpeRatio = (annualizedReturn - 3) / annualizedVol;
+        const alpha =
+          totalReturn -
+          ((benchmark - totalContributions) / totalContributions) * 100;
+
+        // Monte Carlo
+        const mcResults = runMonteCarlo(months, initial, monthly);
+
+        backtestData = {
+          data,
+          metrics: {
+            finalValue: portfolio,
+            totalContributions,
+            totalGains,
+            totalReturn,
+            annualizedReturn,
+            maxDrawdown,
+            sharpeRatio,
+            annualizedVol,
+            alpha,
+            months,
+            benchmarkFinal: benchmark,
+          },
+          monteCarlo: mcResults,
+        };
+
+        displayResults();
+      }
+
+      function runMonteCarlo(months, initial, monthly, simulations = 500) {
+        const outcomes = [];
+
+        for (let s = 0; s < simulations; s++) {
+          let portfolio = initial;
+          for (let i = 0; i < months; i++) {
+            portfolio += monthly;
+            let weightedReturn = 0;
+            Object.keys(allocation).forEach((asset) => {
+              const { return: expRet, vol } = ASSET_CLASSES[asset];
+              const z =
+                (Math.random() + Math.random() + Math.random() - 1.5) * 1.5;
+              const ret = expRet / 12 + z * (vol / Math.sqrt(12));
+              weightedReturn += (allocation[asset] / 100) * ret;
+            });
+            portfolio *= 1 + weightedReturn;
+          }
+          outcomes.push(portfolio);
+        }
+
+        outcomes.sort((a, b) => a - b);
+        return {
+          p5: outcomes[Math.floor(simulations * 0.05)],
+          p25: outcomes[Math.floor(simulations * 0.25)],
+          p50: outcomes[Math.floor(simulations * 0.5)],
+          p75: outcomes[Math.floor(simulations * 0.75)],
+          p95: outcomes[Math.floor(simulations * 0.95)],
+        };
+      }
+
+      function displayResults() {
+        document.getElementById("initialState").style.display = "none";
+        document.getElementById("resultsSection").classList.add("active");
+
+        const { metrics, monteCarlo } = backtestData;
+
+        // Primary metrics
+        document.getElementById("metricsGrid").innerHTML = `
+                <div class="metric-card">
+                    <div class="metric-label">Final Value</div>
+                    <div class="metric-value metric-positive">$${metrics.finalValue.toLocaleString()}</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Return</div>
+                    <div class="metric-value ${
+                      metrics.totalReturn >= 0
+                        ? "metric-positive"
+                        : "metric-negative"
+                    }">
+                        ${
+                          metrics.totalReturn >= 0 ? "+" : ""
+                        }${metrics.totalReturn.toFixed(1)}%
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Annualized</div>
+                    <div class="metric-value ${
+                      metrics.annualizedReturn >= 0
+                        ? "metric-positive"
+                        : "metric-negative"
+                    }">
+                        ${
+                          metrics.annualizedReturn >= 0 ? "+" : ""
+                        }${metrics.annualizedReturn.toFixed(1)}%
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Sharpe Ratio</div>
+                    <div class="metric-value metric-neutral">${metrics.sharpeRatio.toFixed(
+                      2
+                    )}</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Max Drawdown</div>
+                    <div class="metric-value metric-negative">-${metrics.maxDrawdown.toFixed(
+                      1
+                    )}%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Alpha vs S&P</div>
+                    <div class="metric-value ${
+                      metrics.alpha >= 0 ? "metric-positive" : "metric-negative"
+                    }">
+                        ${metrics.alpha >= 0 ? "+" : ""}${metrics.alpha.toFixed(
+          1
+        )}%
+                    </div>
+                </div>
+            `;
+
+        // Secondary metrics
+        document.getElementById("secondaryMetrics").innerHTML = `
+                <div class="metric-card">
+                    <div class="metric-label">Contributions</div>
+                    <div class="metric-value metric-neutral">$${metrics.totalContributions.toLocaleString()}</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Gains</div>
+                    <div class="metric-value ${
+                      metrics.totalGains >= 0
+                        ? "metric-positive"
+                        : "metric-negative"
+                    }">
+                        $${metrics.totalGains.toLocaleString()}
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Volatility (Ann.)</div>
+                    <div class="metric-value metric-neutral">${metrics.annualizedVol.toFixed(
+                      1
+                    )}%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Period</div>
+                    <div class="metric-value metric-neutral">${
+                      metrics.months
+                    } months</div>
+                </div>
+            `;
+
+        // Monte Carlo results
+        document.getElementById("mc5").textContent =
+          "$" + Math.round(monteCarlo.p5).toLocaleString();
+        document.getElementById("mc25").textContent =
+          "$" + Math.round(monteCarlo.p25).toLocaleString();
+        document.getElementById("mc50").textContent =
+          "$" + Math.round(monteCarlo.p50).toLocaleString();
+        document.getElementById("mc75").textContent =
+          "$" + Math.round(monteCarlo.p75).toLocaleString();
+        document.getElementById("mc95").textContent =
+          "$" + Math.round(monteCarlo.p95).toLocaleString();
+
+        // Draw chart
+        drawChart("growth");
+      }
+
+      function drawChart(type) {
+        const ctx = document.getElementById("mainChart").getContext("2d");
+
+        if (chartInstance) {
+          chartInstance.destroy();
+        }
+
+        const { data, monteCarlo } = backtestData;
+
+        let config;
+
+        if (type === "growth") {
+          document.getElementById("monteCarloResults").style.display = "none";
+          config = {
+            type: "line",
+            data: {
+              labels: data.map((d) => d.date),
+              datasets: [
+                {
+                  label: "Portfolio Value",
+                  data: data.map((d) => d.portfolio),
+                  borderColor: "#3b82f6",
+                  backgroundColor: "rgba(59, 130, 246, 0.1)",
+                  fill: true,
+                  tension: 0.3,
+                },
+                {
+                  label: "Contributions",
+                  data: data.map((d) => d.contributions),
+                  borderColor: "#10b981",
+                  backgroundColor: "rgba(16, 185, 129, 0.1)",
+                  fill: true,
+                  tension: 0.3,
+                },
+              ],
+            },
+            options: getChartOptions("$"),
+          };
+        } else if (type === "benchmark") {
+          document.getElementById("monteCarloResults").style.display = "none";
+          config = {
+            type: "line",
+            data: {
+              labels: data.map((d) => d.date),
+              datasets: [
+                {
+                  label: "Your Portfolio",
+                  data: data.map((d) => d.portfolio),
+                  borderColor: "#3b82f6",
+                  backgroundColor: "transparent",
+                  tension: 0.3,
+                },
+                {
+                  label: "S&P 500 Benchmark",
+                  data: data.map((d) => d.benchmark),
+                  borderColor: "#f59e0b",
+                  backgroundColor: "transparent",
+                  borderDash: [5, 5],
+                  tension: 0.3,
+                },
+              ],
+            },
+            options: getChartOptions("$"),
+          };
+        } else if (type === "monteCarlo") {
+          document.getElementById("monteCarloResults").style.display = "block";
+          config = {
+            type: "bar",
+            data: {
+              labels: [
+                "5th %ile",
+                "25th %ile",
+                "Median",
+                "75th %ile",
+                "95th %ile",
+              ],
+              datasets: [
+                {
+                  label: "Outcome",
+                  data: [
+                    monteCarlo.p5,
+                    monteCarlo.p25,
+                    monteCarlo.p50,
+                    monteCarlo.p75,
+                    monteCarlo.p95,
+                  ],
+                  backgroundColor: [
+                    "#ef4444",
+                    "#f59e0b",
+                    "#22c55e",
+                    "#3b82f6",
+                    "#8b5cf6",
+                  ],
+                  borderRadius: 6,
+                },
+              ],
+            },
+            options: getChartOptions("$"),
+          };
+        }
+
+        chartInstance = new Chart(ctx, config);
+      }
+
+      function getChartOptions(prefix) {
+        return {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: "#94a3b8" },
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) =>
+                  `${
+                    ctx.dataset.label
+                  }: ${prefix}${ctx.parsed.y.toLocaleString()}`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: "rgba(255,255,255,0.05)" },
+              ticks: { color: "#64748b", maxTicksLimit: 8 },
+            },
+            y: {
+              grid: { color: "rgba(255,255,255,0.05)" },
+              ticks: {
+                color: "#64748b",
+                callback: (v) =>
+                  prefix + (v >= 1000 ? (v / 1000).toFixed(0) + "k" : v),
+              },
+            },
+          },
+        };
+      }
+
+      // Event listeners
+      document.addEventListener("DOMContentLoaded", () => {
+        initSliders();
+        updateTotalAllocation();
+
+        // Preset buttons
+        document.querySelectorAll(".preset-btn").forEach((btn) => {
+          btn.addEventListener("click", () => applyPreset(btn.dataset.preset));
+        });
+
+        // Run backtest
+        document
+          .getElementById("runBacktest")
+          .addEventListener("click", runBacktest);
+
+        // Chart tabs
+        document.querySelectorAll(".chart-tab").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            document
+              .querySelectorAll(".chart-tab")
+              .forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            if (backtestData) {
+              drawChart(tab.dataset.chart);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

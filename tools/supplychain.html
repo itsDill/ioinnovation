@@ -667,7 +667,7 @@
       /* Animated route styles */
       .animated-route {
         stroke-dasharray: 10, 10;
-        animation: dash 20s linear infinite;
+        animation: dash 45s linear infinite;
       }
 
       @keyframes dash {
@@ -699,7 +699,7 @@
 
       .ship-icon-container {
         position: relative;
-        animation: shipFloat 3s ease-in-out infinite;
+        animation: shipFloat 5s ease-in-out infinite;
       }
 
       @keyframes shipFloat {
@@ -732,7 +732,7 @@
         position: absolute;
         border-radius: 50%;
         border: 2px solid;
-        animation: portRing 2s ease-out infinite;
+        animation: portRing 4s ease-out infinite;
         pointer-events: none;
       }
 
@@ -753,7 +753,7 @@
         height: 50px;
         border-radius: 50%;
         border: 3px solid;
-        animation: activityPulse 2s ease-out infinite;
+        animation: activityPulse 4s ease-out infinite;
         left: -17px;
         top: -17px;
         pointer-events: none;
@@ -777,7 +777,7 @@
         border-radius: 50%;
         left: -12px;
         top: -12px;
-        animation: congestionPulse 1.5s ease-in-out infinite;
+        animation: congestionPulse 3s ease-in-out infinite;
         pointer-events: none;
       }
 
@@ -1918,6 +1918,135 @@
           0 0 40px rgba(34, 197, 94, 0.3);
       }
 
+      /* Filter Panel Styles */
+      .filter-panel {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 12px;
+        padding: 1rem;
+        z-index: 1000;
+        width: 280px;
+        max-height: 70vh;
+        overflow-y: auto;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      }
+
+      .filter-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .filter-panel-header h4 {
+        font-size: 0.9rem;
+        color: #f1f5f9;
+        margin: 0;
+      }
+
+      .filter-reset-btn {
+        background: rgba(239, 68, 68, 0.2);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.7rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .filter-reset-btn:hover {
+        background: rgba(239, 68, 68, 0.3);
+      }
+
+      .filter-section {
+        margin-bottom: 1rem;
+      }
+
+      .filter-label {
+        display: block;
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .filter-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+      }
+
+      .filter-chip {
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        color: #94a3b8;
+        padding: 0.375rem 0.625rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .filter-chip:hover {
+        border-color: rgba(59, 130, 246, 0.5);
+        color: #f1f5f9;
+      }
+
+      .filter-chip.active {
+        background: rgba(59, 130, 246, 0.3);
+        border-color: #3b82f6;
+        color: #f1f5f9;
+      }
+
+      .filter-range {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .filter-range input[type="range"] {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        background: rgba(59, 130, 246, 0.2);
+        border-radius: 3px;
+        outline: none;
+      }
+
+      .filter-range input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: #3b82f6;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
+      }
+
+      .filter-range span {
+        font-size: 0.7rem;
+        color: #3b82f6;
+        min-width: 70px;
+        text-align: right;
+      }
+
+      @media (max-width: 768px) {
+        .filter-panel {
+          width: calc(100% - 20px);
+          right: 10px;
+          left: 10px;
+          max-height: 50vh;
+        }
+      }
+
       /* Floating Action Button */
       .fab-container {
         position: fixed;
@@ -2426,6 +2555,109 @@
               </svg>
               Capacity
             </button>
+            <button
+              class="map-toggle"
+              data-layer="weather"
+              aria-label="Toggle weather zones"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                ></path>
+              </svg>
+              Weather
+            </button>
+          </div>
+        </div>
+
+        <!-- NEW: Filter Panel -->
+        <div class="filter-panel" id="filterPanel">
+          <div class="filter-panel-header">
+            <h4>🔍 Advanced Filters</h4>
+            <button class="filter-reset-btn" id="resetFilters">
+              Reset All
+            </button>
+          </div>
+          <div class="filter-section">
+            <label class="filter-label">Hub Type</label>
+            <div class="filter-chips">
+              <button class="filter-chip active" data-hub-type="all">
+                All
+              </button>
+              <button class="filter-chip" data-hub-type="port">⚓ Ports</button>
+              <button class="filter-chip" data-hub-type="airport">
+                ✈️ Airports
+              </button>
+              <button class="filter-chip" data-hub-type="warehouse">
+                📦 Warehouses
+              </button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <label class="filter-label">Region</label>
+            <div class="filter-chips">
+              <button class="filter-chip active" data-region="all">All</button>
+              <button class="filter-chip" data-region="asia">🌏 Asia</button>
+              <button class="filter-chip" data-region="europe">
+                🌍 Europe
+              </button>
+              <button class="filter-chip" data-region="americas">
+                🌎 Americas
+              </button>
+              <button class="filter-chip" data-region="mideast">
+                🏜️ Middle East
+              </button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <label class="filter-label">Efficiency</label>
+            <div class="filter-chips">
+              <button class="filter-chip active" data-efficiency="all">
+                All
+              </button>
+              <button class="filter-chip" data-efficiency="high">
+                🟢 High (90%+)
+              </button>
+              <button class="filter-chip" data-efficiency="medium">
+                🟡 Medium (80-90%)
+              </button>
+              <button class="filter-chip" data-efficiency="low">
+                🔴 Low (&lt;80%)
+              </button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <label class="filter-label">Route Type</label>
+            <div class="filter-chips">
+              <button class="filter-chip active" data-route-type="all">
+                All
+              </button>
+              <button class="filter-chip" data-route-type="container">
+                🚢 Container
+              </button>
+              <button class="filter-chip" data-route-type="feeder">
+                🛳️ Feeder
+              </button>
+              <button class="filter-chip" data-route-type="tanker">
+                ⛽ Tanker
+              </button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <label class="filter-label">Throughput (M TEU)</label>
+            <div class="filter-range">
+              <input
+                type="range"
+                id="throughputFilter"
+                min="0"
+                max="50"
+                value="0"
+              />
+              <span id="throughputValue">0+ M TEU</span>
+            </div>
           </div>
         </div>
         <div
@@ -2623,8 +2855,8 @@
         {
           name: "Shanghai Port",
           type: "port",
-          lat: 31.2304,
-          lon: 121.4737,
+          lat: 30.6295,
+          lon: 122.0693,
           throughput: 47.03,
           efficiency: 94,
           delays: 2,
@@ -2643,8 +2875,8 @@
         {
           name: "Singapore Port",
           type: "port",
-          lat: 1.2644,
-          lon: 103.8222,
+          lat: 1.2632,
+          lon: 103.8052,
           throughput: 37.2,
           efficiency: 96,
           delays: 1,
@@ -2663,8 +2895,8 @@
         {
           name: "Rotterdam Port",
           type: "port",
-          lat: 51.9244,
-          lon: 4.4777,
+          lat: 51.948,
+          lon: 4.035,
           throughput: 14.5,
           efficiency: 92,
           delays: 3,
@@ -2683,8 +2915,8 @@
         {
           name: "Los Angeles Port",
           type: "port",
-          lat: 33.7405,
-          lon: -118.2608,
+          lat: 33.7395,
+          lon: -118.2614,
           throughput: 9.2,
           efficiency: 85,
           delays: 5,
@@ -2703,8 +2935,8 @@
         {
           name: "Dubai Jebel Ali",
           type: "port",
-          lat: 25.0145,
-          lon: 55.0634,
+          lat: 25.0015,
+          lon: 55.062,
           throughput: 14.1,
           efficiency: 93,
           delays: 2,
@@ -2723,8 +2955,8 @@
         {
           name: "Hong Kong Port",
           type: "port",
-          lat: 22.2855,
-          lon: 114.1577,
+          lat: 22.3195,
+          lon: 114.115,
           throughput: 17.8,
           efficiency: 91,
           delays: 3,
@@ -2823,8 +3055,8 @@
         {
           name: "Busan Port",
           type: "port",
-          lat: 35.1796,
-          lon: 129.0756,
+          lat: 35.075,
+          lon: 128.845,
           throughput: 21.6,
           efficiency: 93,
           delays: 2,
@@ -2843,8 +3075,8 @@
         {
           name: "Ningbo-Zhoushan",
           type: "port",
-          lat: 29.8683,
-          lon: 121.544,
+          lat: 29.9487,
+          lon: 121.889,
           throughput: 31.1,
           efficiency: 92,
           delays: 3,
@@ -2863,8 +3095,8 @@
         {
           name: "New York/NJ Port",
           type: "port",
-          lat: 40.6892,
-          lon: -74.0445,
+          lat: 40.669,
+          lon: -74.147,
           throughput: 8.9,
           efficiency: 87,
           delays: 4,
@@ -2945,8 +3177,8 @@
       // Shipping routes for animated lines - Enhanced with more data
       const shippingRoutes = [
         {
-          from: [31.2304, 121.4737],
-          to: [33.7405, -118.2608],
+          from: [30.6295, 122.0693],
+          to: [33.7395, -118.2614],
           name: "Trans-Pacific Main",
           color: "#3b82f6",
           distance: 10500,
@@ -2955,8 +3187,8 @@
           vessels: 47,
         },
         {
-          from: [1.2644, 103.8222],
-          to: [51.9244, 4.4777],
+          from: [1.2632, 103.8052],
+          to: [51.948, 4.035],
           name: "Asia-Europe",
           color: "#22c55e",
           distance: 15200,
@@ -2965,8 +3197,8 @@
           vessels: 62,
         },
         {
-          from: [51.9244, 4.4777],
-          to: [40.6892, -74.0445],
+          from: [51.948, 4.035],
+          to: [40.669, -74.147],
           name: "Trans-Atlantic",
           color: "#a855f7",
           distance: 5800,
@@ -2975,8 +3207,8 @@
           vessels: 38,
         },
         {
-          from: [31.2304, 121.4737],
-          to: [1.2644, 103.8222],
+          from: [30.6295, 122.0693],
+          to: [1.2632, 103.8052],
           name: "Intra-Asia",
           color: "#f59e0b",
           distance: 2800,
@@ -2985,8 +3217,8 @@
           vessels: 85,
         },
         {
-          from: [25.0145, 55.0634],
-          to: [51.9244, 4.4777],
+          from: [25.0015, 55.062],
+          to: [51.948, 4.035],
           name: "Middle East-Europe",
           color: "#ec4899",
           distance: 6500,
@@ -2995,8 +3227,8 @@
           vessels: 29,
         },
         {
-          from: [22.2855, 114.1577],
-          to: [33.7405, -118.2608],
+          from: [22.3195, 114.115],
+          to: [33.7395, -118.2614],
           name: "HK-LA Express",
           color: "#06b6d4",
           distance: 11200,
@@ -3005,8 +3237,8 @@
           vessels: 34,
         },
         {
-          from: [35.1796, 129.0756],
-          to: [33.7405, -118.2608],
+          from: [35.075, 128.845],
+          to: [33.7395, -118.2614],
           name: "Korea-Americas",
           color: "#84cc16",
           distance: 9800,
@@ -3015,8 +3247,8 @@
           vessels: 28,
         },
         {
-          from: [1.2644, 103.8222],
-          to: [25.0145, 55.0634],
+          from: [1.2632, 103.8052],
+          to: [25.0015, 55.062],
           name: "SE Asia-Gulf",
           color: "#f97316",
           distance: 5400,
@@ -3026,8 +3258,8 @@
         },
         // Additional routes for more coverage
         {
-          from: [31.2304, 121.4737],
-          to: [35.1796, 129.0756],
+          from: [30.6295, 122.0693],
+          to: [35.075, 128.845],
           name: "China-Korea",
           color: "#14b8a6",
           distance: 850,
@@ -3036,8 +3268,8 @@
           vessels: 42,
         },
         {
-          from: [22.2855, 114.1577],
-          to: [1.2644, 103.8222],
+          from: [22.3195, 114.115],
+          to: [1.2632, 103.8052],
           name: "HK-Singapore",
           color: "#8b5cf6",
           distance: 2500,
@@ -3046,7 +3278,7 @@
           vessels: 56,
         },
         {
-          from: [51.9244, 4.4777],
+          from: [51.948, 4.035],
           to: [53.5461, 10.0036],
           name: "Europe North",
           color: "#0ea5e9",
@@ -3056,8 +3288,8 @@
           vessels: 24,
         },
         {
-          from: [40.6892, -74.0445],
-          to: [33.7405, -118.2608],
+          from: [40.669, -74.147],
+          to: [33.7395, -118.2614],
           name: "US Coastal",
           color: "#f43f5e",
           distance: 4800,
@@ -3067,7 +3299,7 @@
         },
         {
           from: [29.7604, -95.3698],
-          to: [51.9244, 4.4777],
+          to: [51.948, 4.035],
           name: "Gulf-Europe",
           color: "#10b981",
           distance: 8200,
@@ -3076,8 +3308,8 @@
           vessels: 22,
         },
         {
-          from: [35.4437, 139.638],
-          to: [33.7405, -118.2608],
+          from: [35.5494, 139.7798],
+          to: [33.7395, -118.2614],
           name: "Japan-LA",
           color: "#6366f1",
           distance: 8900,
@@ -3131,19 +3363,26 @@
         },
       ];
 
-      // Initialize map with dark theme
+      // Initialize map with dark theme - LOOPING WORLD VIEW
       const map = L.map("map", {
         zoomControl: true,
         scrollWheelZoom: true,
-      }).setView([25, 30], 2);
+        worldCopyJump: true, // Seamless world wrapping
+        maxBoundsViscosity: 0, // Allow free panning
+        minZoom: 2,
+        maxZoom: 8,
+        center: [20, 0], // Center on Atlantic for good route visibility
+        zoom: 2,
+      });
 
-      // Dark theme map tiles
+      // Dark theme map tiles - with wrapping enabled
       L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
         {
           attribution:
             '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
           maxZoom: 18,
+          noWrap: false, // Allow tile wrapping for seamless loop
         }
       ).addTo(map);
 
@@ -3152,13 +3391,30 @@
       let overlayLayers = {};
       let routeLayerGroup = L.layerGroup().addTo(map);
 
-      // Create curved line between two points
+      // Create curved line between two points - handles world wrapping for trans-Pacific routes
       function getCurvedLine(from, to, numPoints = 50) {
         const latlngs = [];
-        const offsetX = (to[1] - from[1]) * 0.2;
+
+        // Calculate the longitude difference
+        let lonDiff = to[1] - from[1];
+
+        // Check if route crosses the date line (Pacific routes)
+        // If the direct distance is > 180 degrees, go the other way around
+        let crossesDateLine = false;
+        if (Math.abs(lonDiff) > 180) {
+          crossesDateLine = true;
+          // Adjust the destination longitude to go the shorter way
+          if (lonDiff > 0) {
+            lonDiff = lonDiff - 360;
+          } else {
+            lonDiff = lonDiff + 360;
+          }
+        }
+
+        const offsetX = lonDiff * 0.2;
         const offsetY = (to[0] - from[0]) * 0.2;
         const midLat = (from[0] + to[0]) / 2 + offsetY;
-        const midLon = (from[1] + to[1]) / 2 + offsetX;
+        const midLon = from[1] + lonDiff / 2 + offsetX;
 
         for (let i = 0; i <= numPoints; i++) {
           const t = i / numPoints;
@@ -3166,10 +3422,15 @@
             (1 - t) * (1 - t) * from[0] +
             2 * (1 - t) * t * midLat +
             t * t * to[0];
-          const lon =
+          let lon =
             (1 - t) * (1 - t) * from[1] +
             2 * (1 - t) * t * midLon +
-            t * t * to[1];
+            t * t * (from[1] + lonDiff);
+
+          // Normalize longitude to -180 to 180 range
+          while (lon > 180) lon -= 360;
+          while (lon < -180) lon += 360;
+
           latlngs.push([lat, lon]);
         }
         return latlngs;
@@ -3235,7 +3496,41 @@
         }
       }
 
-      // Create shipping routes with animation
+      // Helper: offset a path by longitude for world wrapping
+      function offsetPath(path, lonOffset) {
+        return path.map((p) => [p[0], p[1] + lonOffset]);
+      }
+
+      // Helper: create route lines (used for main and offset copies)
+      function createRouteLines(curvedPath, route, routeLayerGroup) {
+        // Background glow line
+        L.polyline(curvedPath, {
+          color: route.color,
+          weight: 6,
+          opacity: 0.15,
+          lineCap: "round",
+          lineJoin: "round",
+        }).addTo(routeLayerGroup);
+
+        // Background line (static)
+        L.polyline(curvedPath, {
+          color: route.color,
+          weight: 3,
+          opacity: 0.4,
+          lineCap: "round",
+        }).addTo(routeLayerGroup);
+
+        // Animated dashed line
+        L.polyline(curvedPath, {
+          color: route.color,
+          weight: 2,
+          opacity: 0.9,
+          dashArray: "8, 12",
+          className: "animated-route",
+        }).addTo(routeLayerGroup);
+      }
+
+      // Create shipping routes with animation - with world copy duplicates
       function createShippingRoutes() {
         routeLayerGroup.clearLayers();
         routeLines = [];
@@ -3244,33 +3539,18 @@
         shippingRoutes.forEach((route, index) => {
           const curvedPath = getCurvedLine(route.from, route.to);
 
-          // Background glow line
-          const glowLine = L.polyline(curvedPath, {
-            color: route.color,
-            weight: 6,
-            opacity: 0.15,
-            lineCap: "round",
-            lineJoin: "round",
-          }).addTo(routeLayerGroup);
+          // Create routes on main view
+          createRouteLines(curvedPath, route, routeLayerGroup);
 
-          // Background line (static)
-          const bgLine = L.polyline(curvedPath, {
-            color: route.color,
-            weight: 3,
-            opacity: 0.4,
-            lineCap: "round",
-          }).addTo(routeLayerGroup);
+          // Create duplicate routes offset by ±360° for seamless world wrapping
+          createRouteLines(offsetPath(curvedPath, 360), route, routeLayerGroup);
+          createRouteLines(
+            offsetPath(curvedPath, -360),
+            route,
+            routeLayerGroup
+          );
 
-          // Animated dashed line
-          const animatedLine = L.polyline(curvedPath, {
-            color: route.color,
-            weight: 2,
-            opacity: 0.9,
-            dashArray: "8, 12",
-            className: "animated-route",
-          }).addTo(routeLayerGroup);
-
-          // Interactive hover zone
+          // Interactive hover zone (main view only)
           const hoverLine = L.polyline(curvedPath, {
             color: "transparent",
             weight: 20,
@@ -3278,14 +3558,10 @@
           }).addTo(routeLayerGroup);
 
           hoverLine.on("mouseover", (e) => {
-            bgLine.setStyle({ weight: 5, opacity: 0.7 });
-            glowLine.setStyle({ weight: 12, opacity: 0.3 });
             showRouteTooltip(route, e);
           });
 
           hoverLine.on("mouseout", () => {
-            bgLine.setStyle({ weight: 3, opacity: 0.4 });
-            glowLine.setStyle({ weight: 6, opacity: 0.15 });
             hideRouteTooltip();
           });
 
@@ -3296,7 +3572,7 @@
             }
           });
 
-          // Add route label at midpoint
+          // Add route label at midpoint - on all world copies
           const midIndex = Math.floor(curvedPath.length / 2);
           const labelIcon = L.divIcon({
             className: "lane-label-marker",
@@ -3305,9 +3581,24 @@
             iconAnchor: [50, 12],
           });
 
-          // Only add label for major routes
+          // Only add label for major routes - on all three world copies
           if (route.distance > 5000) {
+            // Main view label
             L.marker(curvedPath[midIndex], {
+              icon: labelIcon,
+              interactive: false,
+              keyboard: false,
+            }).addTo(routeLayerGroup);
+
+            // World copy labels
+            const leftPath = offsetPath(curvedPath, -360);
+            const rightPath = offsetPath(curvedPath, 360);
+            L.marker(leftPath[midIndex], {
+              icon: labelIcon,
+              interactive: false,
+              keyboard: false,
+            }).addTo(routeLayerGroup);
+            L.marker(rightPath[midIndex], {
               icon: labelIcon,
               interactive: false,
               keyboard: false,
@@ -3315,73 +3606,84 @@
           }
 
           routeLines.push({
-            line: animatedLine,
             path: curvedPath,
             color: route.color,
             route: route,
           });
 
-          // Create enhanced moving ship markers
+          // Create enhanced moving ship markers - more ships, slower speed
+          // Create ships on all three world copies for seamless wrapping
+          const pathsToAnimate = [
+            curvedPath, // Main view
+            offsetPath(curvedPath, 360), // Right world copy
+            offsetPath(curvedPath, -360), // Left world copy
+          ];
+
           const numShips =
-            route.shipType === "feeder" ? 2 : 3 + Math.floor(Math.random() * 2);
-          for (let i = 0; i < numShips; i++) {
-            const startOffset = i / numShips + Math.random() * 0.1;
-            const speed = 0.0003 + Math.random() * 0.0003;
+            route.shipType === "feeder" ? 3 : 5 + Math.floor(Math.random() * 3);
 
-            const shipIcon = shipIcons[route.shipType] || "🚢";
-            const shipSize = route.shipType === "feeder" ? 18 : 24;
+          pathsToAnimate.forEach((animPath, pathIndex) => {
+            for (let i = 0; i < numShips; i++) {
+              const startOffset = i / numShips + Math.random() * 0.1;
+              const speed = 0.00008 + Math.random() * 0.00006;
 
-            const cargoIcon = L.divIcon({
-              className: "ship-marker",
-              html: `
-                <div class="ship-icon-container" style="font-size: ${shipSize}px; filter: drop-shadow(0 0 6px ${route.color});">
-                  <div class="wake-effect"></div>
-                  <span style="display: inline-block; transform: rotate(0deg);">${shipIcon}</span>
+              const shipIcon = shipIcons[route.shipType] || "🚢";
+              const shipSize = route.shipType === "feeder" ? 18 : 24;
+
+              const cargoIcon = L.divIcon({
+                className: "ship-marker",
+                html: `
+                  <div class="ship-icon-container" style="font-size: ${shipSize}px; filter: drop-shadow(0 0 6px ${route.color});">
+                    <div class="wake-effect"></div>
+                    <span style="display: inline-block; transform: rotate(0deg);">${shipIcon}</span>
+                  </div>
+                `,
+                iconSize: [shipSize + 10, shipSize + 10],
+                iconAnchor: [(shipSize + 10) / 2, (shipSize + 10) / 2],
+              });
+
+              const marker = L.marker(animPath[0], { icon: cargoIcon }).addTo(
+                routeLayerGroup
+              );
+
+              // Add hover popup for ships
+              const shipId = `${route.name
+                .split(" ")[0]
+                .toUpperCase()}-${String(
+                Math.floor(Math.random() * 9000) + 1000
+              )}`;
+              marker.bindPopup(
+                `
+                <div style="min-width: 140px;">
+                  <div style="font-weight: 600; margin-bottom: 6px;">${shipId}</div>
+                  <div style="font-size: 11px; color: #94a3b8;">
+                    <div style="margin: 3px 0;">Route: <span style="color: white">${
+                      route.name
+                    }</span></div>
+                    <div style="margin: 3px 0;">Speed: <span style="color: #22c55e">${(
+                      16 +
+                      Math.random() * 8
+                    ).toFixed(1)} knots</span></div>
+                    <div style="margin: 3px 0;">Cargo: <span style="color: white">${Math.floor(
+                      Math.random() * 15000 + 5000
+                    )} TEU</span></div>
+                  </div>
                 </div>
               `,
-              iconSize: [shipSize + 10, shipSize + 10],
-              iconAnchor: [(shipSize + 10) / 2, (shipSize + 10) / 2],
-            });
+                { className: "port-hover-card" }
+              );
 
-            const marker = L.marker(curvedPath[0], { icon: cargoIcon }).addTo(
-              routeLayerGroup
-            );
-
-            // Add hover popup for ships
-            const shipId = `${route.name.split(" ")[0].toUpperCase()}-${String(
-              Math.floor(Math.random() * 9000) + 1000
-            )}`;
-            marker.bindPopup(
-              `
-              <div style="min-width: 140px;">
-                <div style="font-weight: 600; margin-bottom: 6px;">${shipId}</div>
-                <div style="font-size: 11px; color: #94a3b8;">
-                  <div style="margin: 3px 0;">Route: <span style="color: white">${
-                    route.name
-                  }</span></div>
-                  <div style="margin: 3px 0;">Speed: <span style="color: #22c55e">${(
-                    16 +
-                    Math.random() * 8
-                  ).toFixed(1)} knots</span></div>
-                  <div style="margin: 3px 0;">Cargo: <span style="color: white">${Math.floor(
-                    Math.random() * 15000 + 5000
-                  )} TEU</span></div>
-                </div>
-              </div>
-            `,
-              { className: "port-hover-card" }
-            );
-
-            movingMarkers.push({
-              marker,
-              path: curvedPath,
-              progress: startOffset,
-              speed,
-              routeIndex: index,
-              heading: 0,
-              route: route,
-            });
-          }
+              movingMarkers.push({
+                marker,
+                path: animPath,
+                progress: startOffset,
+                speed,
+                routeIndex: index,
+                heading: 0,
+                route: route,
+              });
+            }
+          });
         });
 
         // Update map stats
@@ -3597,7 +3899,57 @@
         return { level: "low", color: "#22c55e" };
       };
 
-      // Add markers to map with enhanced visuals
+      // Function to create a marker at a specific position
+      function createHubMarker(hub, lat, lon) {
+        const color = getMarkerColor(hub);
+        const congestion = getCongestionLevel(hub);
+        const markerSize = 20 + Math.min(hub.throughput, 30) * 0.5;
+
+        const pulseIcon = L.divIcon({
+          className: "pulse-icon",
+          html: `
+            <div style="position: relative; cursor: pointer;">
+              <div class="port-activity-ring" style="border-color: ${color}; animation-delay: 0s;"></div>
+              <div class="port-activity-ring" style="border-color: ${color}; animation-delay: 0.7s;"></div>
+              <div class="congestion-glow" style="background: radial-gradient(circle, ${
+                congestion.color
+              }40 0%, transparent 70%);"></div>
+              <div style="
+                width: ${markerSize}px;
+                height: ${markerSize}px;
+                background: linear-gradient(135deg, ${color}, ${color}dd);
+                border: 3px solid white;
+                border-radius: 50%;
+                box-shadow: 0 4px 15px ${color}80, 0 0 30px ${color}40;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: ${markerSize * 0.5}px;
+                position: relative;
+                z-index: 10;
+              ">${getMarkerIcon(hub)}</div>
+              <div style="
+                position: absolute;
+                bottom: -4px;
+                right: -4px;
+                width: 10px;
+                height: 10px;
+                background: ${congestion.color};
+                border: 2px solid white;
+                border-radius: 50%;
+                box-shadow: 0 0 6px ${congestion.color};
+                z-index: 20;
+              "></div>
+            </div>
+          `,
+          iconSize: [markerSize + 20, markerSize + 20],
+          iconAnchor: [(markerSize + 20) / 2, (markerSize + 20) / 2],
+        });
+
+        return L.marker([lat, lon], { icon: pulseIcon });
+      }
+
+      // Add markers to map with enhanced visuals - including world copies for seamless wrapping
       hubs.forEach((hub, index) => {
         const color = getMarkerColor(hub);
         const congestion = getCongestionLevel(hub);
@@ -3732,6 +4084,12 @@
             setTimeout(() => (element.style.animation = ""), 1000);
           }
         });
+
+        // Create world copy markers for seamless wrapping
+        // Left world copy (-360 degrees)
+        createHubMarker(hub, hub.lat, hub.lon - 360).addTo(map);
+        // Right world copy (+360 degrees)
+        createHubMarker(hub, hub.lat, hub.lon + 360).addTo(map);
       });
 
       // Initialize routes
@@ -4540,6 +4898,206 @@
           });
         }, 100);
       });
+
+      // ========================================
+      // ADVANCED FILTER FUNCTIONALITY
+      // ========================================
+
+      // Store current filter state
+      const filterState = {
+        hubType: "all",
+        region: "all",
+        efficiency: "all",
+        routeType: "all",
+        minThroughput: 0,
+      };
+
+      // Region mapping for hubs
+      function getHubRegion(hub) {
+        const lat = hub.lat;
+        const lon = hub.lon;
+
+        // Asia
+        if (lon > 60 && lon < 145 && lat > -10 && lat < 60) return "asia";
+        // Europe
+        if (lon > -15 && lon < 60 && lat > 35 && lat < 75) return "europe";
+        // Americas
+        if (lon < -30) return "americas";
+        // Middle East
+        if (lon > 30 && lon < 65 && lat > 10 && lat < 45) return "mideast";
+
+        return "other";
+      }
+
+      // Get efficiency category
+      function getEfficiencyCategory(efficiency) {
+        if (efficiency >= 90) return "high";
+        if (efficiency >= 80) return "medium";
+        return "low";
+      }
+
+      // Apply filters to hubs
+      function applyHubFilters() {
+        const markers = document.querySelectorAll(".leaflet-marker-icon");
+
+        hubs.forEach((hub, index) => {
+          let visible = true;
+
+          // Hub type filter
+          if (
+            filterState.hubType !== "all" &&
+            hub.type !== filterState.hubType
+          ) {
+            visible = false;
+          }
+
+          // Region filter
+          if (
+            filterState.region !== "all" &&
+            getHubRegion(hub) !== filterState.region
+          ) {
+            visible = false;
+          }
+
+          // Efficiency filter
+          if (
+            filterState.efficiency !== "all" &&
+            getEfficiencyCategory(hub.efficiency) !== filterState.efficiency
+          ) {
+            visible = false;
+          }
+
+          // Throughput filter
+          if (hub.throughput < filterState.minThroughput) {
+            visible = false;
+          }
+
+          // Update visibility in the city cards
+          const cityCards = document.querySelectorAll(".city-card");
+          cityCards.forEach((card) => {
+            const cardName = card.querySelector("h3")?.textContent;
+            if (cardName && cardName.includes(hub.name.split(" ")[0])) {
+              card.style.display = visible ? "" : "none";
+            }
+          });
+        });
+
+        // Re-render city grid
+        processAndRender();
+      }
+
+      // Apply filters to routes
+      function applyRouteFilters() {
+        // Route filtering is handled by toggling visibility
+        const routeType = filterState.routeType;
+
+        if (routeType === "all") {
+          routeLayerGroup.addTo(map);
+        } else {
+          // Filter routes based on shipType
+          shippingRoutes.forEach((route, index) => {
+            const matchesFilter = route.shipType === routeType;
+            // Routes are redrawn with filtered data
+          });
+        }
+      }
+
+      // Filter chip click handlers
+      document
+        .querySelectorAll(".filter-chip[data-hub-type]")
+        .forEach((chip) => {
+          chip.addEventListener("click", () => {
+            document
+              .querySelectorAll(".filter-chip[data-hub-type]")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            filterState.hubType = chip.dataset.hubType;
+            applyHubFilters();
+          });
+        });
+
+      document.querySelectorAll(".filter-chip[data-region]").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-chip[data-region]")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          filterState.region = chip.dataset.region;
+          applyHubFilters();
+        });
+      });
+
+      document
+        .querySelectorAll(".filter-chip[data-efficiency]")
+        .forEach((chip) => {
+          chip.addEventListener("click", () => {
+            document
+              .querySelectorAll(".filter-chip[data-efficiency]")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            filterState.efficiency = chip.dataset.efficiency;
+            applyHubFilters();
+          });
+        });
+
+      document
+        .querySelectorAll(".filter-chip[data-route-type]")
+        .forEach((chip) => {
+          chip.addEventListener("click", () => {
+            document
+              .querySelectorAll(".filter-chip[data-route-type]")
+              .forEach((c) => c.classList.remove("active"));
+            chip.classList.add("active");
+            filterState.routeType = chip.dataset.routeType;
+            applyRouteFilters();
+          });
+        });
+
+      // Throughput slider
+      const throughputSlider = document.getElementById("throughputFilter");
+      const throughputValue = document.getElementById("throughputValue");
+
+      if (throughputSlider) {
+        throughputSlider.addEventListener("input", (e) => {
+          filterState.minThroughput = parseInt(e.target.value);
+          throughputValue.textContent = filterState.minThroughput + "+ M TEU";
+          applyHubFilters();
+        });
+      }
+
+      // Reset filters button
+      const resetBtn = document.getElementById("resetFilters");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          // Reset filter state
+          filterState.hubType = "all";
+          filterState.region = "all";
+          filterState.efficiency = "all";
+          filterState.routeType = "all";
+          filterState.minThroughput = 0;
+
+          // Reset UI
+          document.querySelectorAll(".filter-chip").forEach((chip) => {
+            chip.classList.remove("active");
+            if (
+              chip.dataset.hubType === "all" ||
+              chip.dataset.region === "all" ||
+              chip.dataset.efficiency === "all" ||
+              chip.dataset.routeType === "all"
+            ) {
+              chip.classList.add("active");
+            }
+          });
+
+          if (throughputSlider) {
+            throughputSlider.value = 0;
+            throughputValue.textContent = "0+ M TEU";
+          }
+
+          applyHubFilters();
+          applyRouteFilters();
+        });
+      }
     </script>
   </body>
 </html>
