@@ -5,14 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Real-time global supply chain visualization. Track shipments, ports, and logistics across the world."
+      content="Free interactive supply chain visualization tool. Track global shipping routes, port activity, and logistics in real-time. Explore maritime trade lanes and cargo movements worldwide."
     />
     <meta
       name="keywords"
-      content="supply chain, logistics, shipping, ports, cargo, global trade, visualization"
+      content="supply chain visualization, shipping routes, port tracking, maritime logistics, global trade, cargo tracking, container shipping, supply chain analytics, trade route map"
     />
     <meta name="theme-color" content="#1e40af" />
-    <title>SupplyChain Global - Real-Time Logistics Visualization</title>
+    <meta name="author" content="IO Innovate" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://iowebtools.com/tools/supplychain.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Supply Chain Mapper | IO Innovate" />
+    <meta
+      property="og:description"
+      content="Interactive global supply chain visualization. Track shipping routes, ports, and logistics in real-time."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://iowebtools.com/tools/supplychain.html"
+    />
+
+    <title>
+      Supply Chain Mapper | Global Logistics Visualization - IO Innovate
+    </title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
@@ -37,11 +61,32 @@
         color: #e2e8f0;
       }
 
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #3b82f6;
+        color: white;
+        padding: 8px 16px;
+        z-index: 10000;
+        transition: top 0.3s;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+
       .header {
         background: rgba(15, 23, 42, 0.95);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        padding: 1.5rem 2rem;
+        padding: 1rem 2rem;
         border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
       }
 
       .header-content {
@@ -54,6 +99,31 @@
         gap: 1rem;
       }
 
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .back-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        color: #3b82f6;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        background: rgba(59, 130, 246, 0.2);
+        transform: translateX(-3px);
+      }
+
       .logo {
         display: flex;
         align-items: center;
@@ -61,15 +131,136 @@
       }
 
       .logo svg {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         color: #3b82f6;
       }
 
       .logo h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         color: #f1f5f9;
         font-weight: 700;
+      }
+
+      .header-nav {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .nav-link {
+        padding: 0.5rem 1rem;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+
+      .nav-link:hover {
+        color: #f1f5f9;
+        background: rgba(59, 130, 246, 0.1);
+      }
+
+      .help-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        color: #94a3b8;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .help-btn:hover {
+        background: rgba(59, 130, 246, 0.2);
+        color: #f1f5f9;
+      }
+
+      /* Shortcuts Modal */
+      .shortcuts-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+      }
+
+      .shortcuts-modal.active {
+        display: flex;
+      }
+
+      .shortcuts-content {
+        background: #1e293b;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .shortcuts-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .shortcuts-header h3 {
+        color: #f1f5f9;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .close-modal {
+        background: none;
+        border: none;
+        color: #94a3b8;
+        font-size: 1.5rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      .close-modal:hover {
+        color: #f1f5f9;
+      }
+
+      .shortcuts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .shortcut-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+      }
+
+      .shortcut-item kbd {
+        background: rgba(59, 130, 246, 0.2);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: #3b82f6;
+      }
+
+      .shortcut-item span {
+        color: #94a3b8;
+        font-size: 0.875rem;
       }
 
       .tagline {
@@ -2179,14 +2370,140 @@
         font-variant-numeric: tabular-nums;
       }
 
+      /* Intro Section */
+      .intro-section {
+        text-align: center;
+        padding: 2rem 1rem;
+        max-width: 700px;
+        margin: 0 auto 1.5rem;
+      }
+
+      .intro-section h2 {
+        font-size: 1.75rem;
+        color: #f1f5f9;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+      }
+
+      .intro-section p {
+        color: #94a3b8;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* Educational Section */
+      .edu-section {
+        margin-top: 3rem;
+        padding: 2rem;
+        background: rgba(30, 41, 59, 0.6);
+        border-radius: 1rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .edu-section h3 {
+        text-align: center;
+        color: #f1f5f9;
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+      }
+
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .edu-card {
+        background: rgba(15, 23, 42, 0.6);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(59, 130, 246, 0.1);
+        transition: all 0.3s;
+      }
+
+      .edu-card:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .edu-icon {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+
+      .edu-card h4 {
+        color: #f1f5f9;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .edu-card p {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      /* Footer */
+      .site-footer {
+        background: rgba(15, 23, 42, 0.95);
+        border-top: 1px solid rgba(59, 130, 246, 0.2);
+        padding: 1.5rem 2rem;
+        margin-top: 3rem;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-content p {
+        color: #64748b;
+        font-size: 0.875rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .footer-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: #3b82f6;
+      }
+
       @media (max-width: 768px) {
         .header-content {
           justify-content: center;
           text-align: center;
         }
 
+        .header-nav {
+          display: none;
+        }
+
         .logo h1 {
+          font-size: 1.25rem;
+        }
+
+        .intro-section h2 {
           font-size: 1.5rem;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
         }
 
         .cities-grid {
@@ -2294,18 +2611,39 @@
       </div>
     </div>
 
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header class="header">
       <div class="header-content">
-        <div class="logo">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          <h1>SupplyChain Global</h1>
+        <div class="logo-section">
+          <a href="/" class="back-link" title="Back to IO Innovate">
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              ></path>
+            </svg>
+          </a>
+          <div class="logo">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <h1>Supply Chain Mapper</h1>
+          </div>
         </div>
         <div class="tagline">
           <span>Real-time logistics visualization</span>
@@ -2314,510 +2652,615 @@
             LIVE
           </span>
         </div>
+        <nav class="header-nav">
+          <a href="/tools.html" class="nav-link">All Tools</a>
+          <a href="/tools/13f-visualizer.html" class="nav-link"
+            >13F Visualizer</a
+          >
+          <a href="/tools/economic-calendar.html" class="nav-link">Calendar</a>
+          <button
+            class="help-btn"
+            onclick="showKeyboardShortcuts()"
+            title="Keyboard shortcuts"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </button>
+        </nav>
       </div>
     </header>
 
-    <div class="container">
-      <div class="search-box">
-        <svg
-          class="search-icon"
-          width="20"
-          height="20"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          ></path>
-        </svg>
-        <input
-          type="text"
-          class="search-input"
-          id="searchInput"
-          placeholder="Search ports, routes, or shipments..."
-          aria-label="Search supply chain"
-        />
-      </div>
+    <main id="main-content">
+      <div class="container">
+        <!-- Intro Section -->
+        <div class="intro-section">
+          <h2>Global Supply Chain Intelligence</h2>
+          <p>
+            Track real-time shipping routes, port activity, and cargo movements
+            across the world's major trade lanes. Explore how goods flow through
+            the global economy.
+          </p>
+        </div>
 
-      <!-- Time Zone Bar -->
-      <div class="timezone-bar">
-        <div class="timezone-item">
-          <div class="timezone-city">Shanghai</div>
-          <div class="timezone-time" id="time-shanghai">--:--</div>
-        </div>
-        <div class="timezone-item">
-          <div class="timezone-city">Singapore</div>
-          <div class="timezone-time" id="time-singapore">--:--</div>
-        </div>
-        <div class="timezone-item">
-          <div class="timezone-city">Dubai</div>
-          <div class="timezone-time" id="time-dubai">--:--</div>
-        </div>
-        <div class="timezone-item">
-          <div class="timezone-city">Rotterdam</div>
-          <div class="timezone-time" id="time-rotterdam">--:--</div>
-        </div>
-        <div class="timezone-item">
-          <div class="timezone-city">New York</div>
-          <div class="timezone-time" id="time-newyork">--:--</div>
-        </div>
-        <div class="timezone-item">
-          <div class="timezone-city">Los Angeles</div>
-          <div class="timezone-time" id="time-losangeles">--:--</div>
-        </div>
-      </div>
-
-      <div class="stats-summary">
-        <div class="stat-item">
-          <div class="stat-value live" id="activeShipments">2,847</div>
-          <div class="stat-label">Active Shipments</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" id="totalPorts">12</div>
-          <div class="stat-label">Major Hubs</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" id="topPort">Shanghai</div>
-          <div class="stat-label">Busiest Hub</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value live" id="containersToday">48.2K</div>
-          <div class="stat-label">Containers Today</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" id="onTimeRate">94.2%</div>
-          <div class="stat-label">On-Time Rate</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value live" id="co2Saved">12.4K</div>
-          <div class="stat-label">Tons CO₂ Saved</div>
-        </div>
-      </div>
-
-      <!-- Mini Analytics Dashboard -->
-      <div class="analytics-row">
-        <div class="analytics-card">
-          <h4>Weekly Throughput</h4>
-          <div class="mini-chart" id="weeklyChart"></div>
-          <div class="trend-indicator">
-            <span class="trend-value" id="weeklyTotal">2.4M</span>
-            <span class="trend-change trend-up">↑ 12.3%</span>
-          </div>
-        </div>
-        <div class="analytics-card">
-          <h4>Transport Mode Split</h4>
-          <div class="donut-chart">
-            <div class="donut-hole">100%</div>
-          </div>
-          <div class="chart-legend">
-            <div class="legend-dot">
-              <span style="background: #3b82f6"></span> Sea 68%
-            </div>
-            <div class="legend-dot">
-              <span style="background: #22c55e"></span> Air 18%
-            </div>
-            <div class="legend-dot">
-              <span style="background: #f59e0b"></span> Rail 9%
-            </div>
-            <div class="legend-dot">
-              <span style="background: #a855f7"></span> Road 5%
-            </div>
-          </div>
-        </div>
-        <div class="analytics-card">
-          <h4>Global Efficiency Index</h4>
-          <div style="text-align: center; padding: 1rem 0">
-            <div class="trend-value" style="font-size: 2.5rem; color: #22c55e">
-              92.4
-            </div>
-            <div
-              style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem"
-            >
-              out of 100
-            </div>
-          </div>
-          <div class="trend-indicator" style="justify-content: center">
-            <span class="trend-change trend-up">↑ 2.1 pts from last week</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="activity-feed" id="activityFeed">
-        <h3>
+        <div class="search-box">
           <svg
-            width="16"
-            height="16"
+            class="search-icon"
+            width="20"
+            height="20"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M13 10V3L4 14h7v7l9-11h-7z"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
-          Live Activity
-        </h3>
-        <div id="activityList"></div>
-      </div>
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search ports, cities, or regions (e.g., Shanghai, Rotterdam, Pacific)..."
+            aria-label="Search supply chain hubs"
+          />
+        </div>
 
-      <div class="map-container">
-        <div class="map-header">
-          <div class="map-title-group">
-            <h2>Global Supply Chain Network</h2>
-            <div class="shipment-counter">
-              <svg
-                width="16"
-                height="16"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+        <!-- Time Zone Bar -->
+        <div class="timezone-bar">
+          <div class="timezone-item">
+            <div class="timezone-city">Shanghai</div>
+            <div class="timezone-time" id="time-shanghai">--:--</div>
+          </div>
+          <div class="timezone-item">
+            <div class="timezone-city">Singapore</div>
+            <div class="timezone-time" id="time-singapore">--:--</div>
+          </div>
+          <div class="timezone-item">
+            <div class="timezone-city">Dubai</div>
+            <div class="timezone-time" id="time-dubai">--:--</div>
+          </div>
+          <div class="timezone-item">
+            <div class="timezone-city">Rotterdam</div>
+            <div class="timezone-time" id="time-rotterdam">--:--</div>
+          </div>
+          <div class="timezone-item">
+            <div class="timezone-city">New York</div>
+            <div class="timezone-time" id="time-newyork">--:--</div>
+          </div>
+          <div class="timezone-item">
+            <div class="timezone-city">Los Angeles</div>
+            <div class="timezone-time" id="time-losangeles">--:--</div>
+          </div>
+        </div>
+
+        <div
+          class="stats-summary"
+          role="region"
+          aria-label="Supply chain statistics"
+        >
+          <div class="stat-item">
+            <div class="stat-value live" id="activeShipments">2,847</div>
+            <div class="stat-label">Active Shipments</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="totalPorts">16</div>
+            <div class="stat-label">Global Hubs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="topPort">Shanghai</div>
+            <div class="stat-label">Busiest Hub</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value live" id="containersToday">48.2K</div>
+            <div class="stat-label">Containers Today</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="onTimeRate">94.2%</div>
+            <div class="stat-label">On-Time Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value live" id="co2Saved">12.4K</div>
+            <div class="stat-label">Tons CO₂ Saved</div>
+          </div>
+        </div>
+
+        <!-- Mini Analytics Dashboard -->
+        <div
+          class="analytics-row"
+          role="region"
+          aria-label="Supply chain analytics"
+        >
+          <div class="analytics-card">
+            <h4>Weekly Container Throughput</h4>
+            <div class="mini-chart" id="weeklyChart" aria-hidden="true"></div>
+            <div class="trend-indicator">
+              <span class="trend-value" id="weeklyTotal">2.4M TEU</span>
+              <span class="trend-change trend-up" title="Compared to last week"
+                >↑ 12.3%</span
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                ></path>
-              </svg>
-              <span id="movingShipments">24</span> vessels in transit
+            </div>
+          </div>
+          <div class="analytics-card">
+            <h4>Global Transport Mode Split</h4>
+            <div class="donut-chart" aria-hidden="true">
+              <div class="donut-hole">100%</div>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-dot">
+                <span style="background: #3b82f6"></span> Sea 68%
+              </div>
+              <div class="legend-dot">
+                <span style="background: #22c55e"></span> Air 18%
+              </div>
+              <div class="legend-dot">
+                <span style="background: #f59e0b"></span> Rail 9%
+              </div>
+              <div class="legend-dot">
+                <span style="background: #a855f7"></span> Road 5%
+              </div>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <h4>Global Supply Chain Efficiency</h4>
+            <div style="text-align: center; padding: 1rem 0">
+              <div
+                class="trend-value efficiency-score"
+                style="font-size: 2.5rem; color: #22c55e"
+                title="Composite efficiency index based on port turnaround, on-time delivery, and capacity utilization"
+              >
+                92.4
+              </div>
+              <div
+                style="color: #64748b; font-size: 0.75rem; margin-top: 0.25rem"
+              >
+                out of 100
+              </div>
+            </div>
+            <div class="trend-indicator" style="justify-content: center">
+              <span class="trend-change trend-up"
+                >↑ 2.1 pts from last week</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-feed" id="activityFeed">
+          <h3>
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              ></path>
+            </svg>
+            Live Activity
+          </h3>
+          <div id="activityList"></div>
+        </div>
+
+        <div class="map-container">
+          <div class="map-header">
+            <div class="map-title-group">
+              <h2>Global Supply Chain Network</h2>
+              <div class="shipment-counter">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                  ></path>
+                </svg>
+                <span id="movingShipments">24</span> vessels in transit
+              </div>
+            </div>
+            <div
+              class="map-toggles"
+              role="group"
+              aria-label="Map overlay options"
+            >
+              <button
+                class="map-toggle active"
+                data-layer="routes"
+                aria-label="Toggle shipping routes"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                  ></path>
+                </svg>
+                Routes
+              </button>
+              <button
+                class="map-toggle"
+                data-layer="traffic"
+                aria-label="Toggle traffic density"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  ></path>
+                </svg>
+                Traffic
+              </button>
+              <button
+                class="map-toggle"
+                data-layer="delays"
+                aria-label="Toggle delay information"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                Delays
+              </button>
+              <button
+                class="map-toggle"
+                data-layer="capacity"
+                aria-label="Toggle port capacity"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  ></path>
+                </svg>
+                Capacity
+              </button>
+              <button
+                class="map-toggle"
+                data-layer="weather"
+                aria-label="Toggle weather zones"
+              >
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                  ></path>
+                </svg>
+                Weather
+              </button>
+            </div>
+          </div>
+
+          <!-- NEW: Filter Panel -->
+          <div class="filter-panel" id="filterPanel">
+            <div class="filter-panel-header">
+              <h4>🔍 Advanced Filters</h4>
+              <button class="filter-reset-btn" id="resetFilters">
+                Reset All
+              </button>
+            </div>
+            <div class="filter-section">
+              <label class="filter-label">Hub Type</label>
+              <div class="filter-chips">
+                <button class="filter-chip active" data-hub-type="all">
+                  All
+                </button>
+                <button class="filter-chip" data-hub-type="port">
+                  ⚓ Ports
+                </button>
+                <button class="filter-chip" data-hub-type="airport">
+                  ✈️ Airports
+                </button>
+                <button class="filter-chip" data-hub-type="warehouse">
+                  📦 Warehouses
+                </button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <label class="filter-label">Region</label>
+              <div class="filter-chips">
+                <button class="filter-chip active" data-region="all">
+                  All
+                </button>
+                <button class="filter-chip" data-region="asia">🌏 Asia</button>
+                <button class="filter-chip" data-region="europe">
+                  🌍 Europe
+                </button>
+                <button class="filter-chip" data-region="americas">
+                  🌎 Americas
+                </button>
+                <button class="filter-chip" data-region="mideast">
+                  🏜️ Middle East
+                </button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <label class="filter-label">Efficiency</label>
+              <div class="filter-chips">
+                <button class="filter-chip active" data-efficiency="all">
+                  All
+                </button>
+                <button class="filter-chip" data-efficiency="high">
+                  🟢 High (90%+)
+                </button>
+                <button class="filter-chip" data-efficiency="medium">
+                  🟡 Medium (80-90%)
+                </button>
+                <button class="filter-chip" data-efficiency="low">
+                  🔴 Low (&lt;80%)
+                </button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <label class="filter-label">Route Type</label>
+              <div class="filter-chips">
+                <button class="filter-chip active" data-route-type="all">
+                  All
+                </button>
+                <button class="filter-chip" data-route-type="container">
+                  🚢 Container
+                </button>
+                <button class="filter-chip" data-route-type="feeder">
+                  🛳️ Feeder
+                </button>
+                <button class="filter-chip" data-route-type="tanker">
+                  ⛽ Tanker
+                </button>
+              </div>
+            </div>
+            <div class="filter-section">
+              <label class="filter-label">Throughput (M TEU)</label>
+              <div class="filter-range">
+                <input
+                  type="range"
+                  id="throughputFilter"
+                  min="0"
+                  max="50"
+                  value="0"
+                />
+                <span id="throughputValue">0+ M TEU</span>
+              </div>
             </div>
           </div>
           <div
-            class="map-toggles"
-            role="group"
-            aria-label="Map overlay options"
+            id="map"
+            role="img"
+            aria-label="Interactive map showing global supply chain network"
           >
-            <button
-              class="map-toggle active"
-              data-layer="routes"
-              aria-label="Toggle shipping routes"
-            >
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                ></path>
-              </svg>
-              Routes
-            </button>
-            <button
-              class="map-toggle"
-              data-layer="traffic"
-              aria-label="Toggle traffic density"
-            >
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                ></path>
-              </svg>
-              Traffic
-            </button>
-            <button
-              class="map-toggle"
-              data-layer="delays"
-              aria-label="Toggle delay information"
-            >
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              Delays
-            </button>
-            <button
-              class="map-toggle"
-              data-layer="capacity"
-              aria-label="Toggle port capacity"
-            >
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                ></path>
-              </svg>
-              Capacity
-            </button>
-            <button
-              class="map-toggle"
-              data-layer="weather"
-              aria-label="Toggle weather zones"
-            >
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                ></path>
-              </svg>
-              Weather
-            </button>
-          </div>
-        </div>
+            <div class="water-shimmer"></div>
+            <div class="terminator-overlay"></div>
+            <div class="map-grid-overlay"></div>
+            <div class="ocean-particles" id="oceanParticles"></div>
+            <div id="mapLegend" class="map-legend"></div>
 
-        <!-- NEW: Filter Panel -->
-        <div class="filter-panel" id="filterPanel">
-          <div class="filter-panel-header">
-            <h4>🔍 Advanced Filters</h4>
-            <button class="filter-reset-btn" id="resetFilters">
-              Reset All
-            </button>
-          </div>
-          <div class="filter-section">
-            <label class="filter-label">Hub Type</label>
-            <div class="filter-chips">
-              <button class="filter-chip active" data-hub-type="all">
-                All
-              </button>
-              <button class="filter-chip" data-hub-type="port">⚓ Ports</button>
-              <button class="filter-chip" data-hub-type="airport">
-                ✈️ Airports
-              </button>
-              <button class="filter-chip" data-hub-type="warehouse">
-                📦 Warehouses
-              </button>
-            </div>
-          </div>
-          <div class="filter-section">
-            <label class="filter-label">Region</label>
-            <div class="filter-chips">
-              <button class="filter-chip active" data-region="all">All</button>
-              <button class="filter-chip" data-region="asia">🌏 Asia</button>
-              <button class="filter-chip" data-region="europe">
-                🌍 Europe
-              </button>
-              <button class="filter-chip" data-region="americas">
-                🌎 Americas
-              </button>
-              <button class="filter-chip" data-region="mideast">
-                🏜️ Middle East
-              </button>
-            </div>
-          </div>
-          <div class="filter-section">
-            <label class="filter-label">Efficiency</label>
-            <div class="filter-chips">
-              <button class="filter-chip active" data-efficiency="all">
-                All
-              </button>
-              <button class="filter-chip" data-efficiency="high">
-                🟢 High (90%+)
-              </button>
-              <button class="filter-chip" data-efficiency="medium">
-                🟡 Medium (80-90%)
-              </button>
-              <button class="filter-chip" data-efficiency="low">
-                🔴 Low (&lt;80%)
-              </button>
-            </div>
-          </div>
-          <div class="filter-section">
-            <label class="filter-label">Route Type</label>
-            <div class="filter-chips">
-              <button class="filter-chip active" data-route-type="all">
-                All
-              </button>
-              <button class="filter-chip" data-route-type="container">
-                🚢 Container
-              </button>
-              <button class="filter-chip" data-route-type="feeder">
-                🛳️ Feeder
-              </button>
-              <button class="filter-chip" data-route-type="tanker">
-                ⛽ Tanker
-              </button>
-            </div>
-          </div>
-          <div class="filter-section">
-            <label class="filter-label">Throughput (M TEU)</label>
-            <div class="filter-range">
-              <input
-                type="range"
-                id="throughputFilter"
-                min="0"
-                max="50"
-                value="0"
-              />
-              <span id="throughputValue">0+ M TEU</span>
-            </div>
-          </div>
-        </div>
-        <div
-          id="map"
-          role="img"
-          aria-label="Interactive map showing global supply chain network"
-        >
-          <div class="water-shimmer"></div>
-          <div class="terminator-overlay"></div>
-          <div class="map-grid-overlay"></div>
-          <div class="ocean-particles" id="oceanParticles"></div>
-          <div id="mapLegend" class="map-legend"></div>
-
-          <!-- Quick Stats Bar -->
-          <div class="map-quick-bar">
-            <div class="quick-stat">
-              <span class="quick-stat-icon">🚢</span>
-              <div>
-                <div class="quick-stat-value live" id="quickVessels">42</div>
-                <div class="quick-stat-label">Vessels</div>
-              </div>
-            </div>
-            <div class="quick-stat">
-              <span class="quick-stat-icon">✈️</span>
-              <div>
-                <div
-                  class="quick-stat-value"
-                  id="quickPlanes"
-                  style="color: #a855f7"
-                >
-                  12
+            <!-- Quick Stats Bar -->
+            <div class="map-quick-bar">
+              <div class="quick-stat">
+                <span class="quick-stat-icon">🚢</span>
+                <div>
+                  <div class="quick-stat-value live" id="quickVessels">42</div>
+                  <div class="quick-stat-label">Vessels</div>
                 </div>
-                <div class="quick-stat-label">Aircraft</div>
+              </div>
+              <div class="quick-stat">
+                <span class="quick-stat-icon">✈️</span>
+                <div>
+                  <div
+                    class="quick-stat-value"
+                    id="quickPlanes"
+                    style="color: #a855f7"
+                  >
+                    12
+                  </div>
+                  <div class="quick-stat-label">Aircraft</div>
+                </div>
+              </div>
+              <div class="quick-stat">
+                <span class="quick-stat-icon">⚡</span>
+                <div>
+                  <div class="quick-stat-value" id="quickSpeed">18.2 kn</div>
+                  <div class="quick-stat-label">Avg Speed</div>
+                </div>
+              </div>
+              <div class="quick-stat">
+                <span class="quick-stat-icon">📦</span>
+                <div>
+                  <div class="quick-stat-value" id="quickCargo">385K TEU</div>
+                  <div class="quick-stat-label">In Transit</div>
+                </div>
+              </div>
+              <div class="quick-stat">
+                <span class="quick-stat-icon">🌊</span>
+                <div>
+                  <div class="quick-stat-value" style="color: #f59e0b">3</div>
+                  <div class="quick-stat-label">Alerts</div>
+                </div>
               </div>
             </div>
-            <div class="quick-stat">
-              <span class="quick-stat-icon">⚡</span>
-              <div>
-                <div class="quick-stat-value" id="quickSpeed">18.2 kn</div>
-                <div class="quick-stat-label">Avg Speed</div>
+
+            <!-- Compass Rose -->
+            <div class="compass-rose">
+              <div class="compass-inner">
+                <span class="compass-label n">N</span>
+                <span class="compass-label s">S</span>
+                <span class="compass-label e">E</span>
+                <span class="compass-label w">W</span>
+                <div class="compass-needle"></div>
               </div>
             </div>
-            <div class="quick-stat">
-              <span class="quick-stat-icon">📦</span>
-              <div>
-                <div class="quick-stat-value" id="quickCargo">385K TEU</div>
-                <div class="quick-stat-label">In Transit</div>
+
+            <!-- Scale Bar -->
+            <div class="scale-bar-container">
+              <div class="scale-label" id="scaleLabel">~500 km</div>
+              <div class="scale-bar"></div>
+            </div>
+
+            <!-- Mini Clock Panel -->
+            <div class="map-clock">
+              <div class="map-clock-title">Trading Hours</div>
+              <div class="map-clock-row">
+                <span class="map-clock-city">🇨🇳 Shanghai</span>
+                <span class="map-clock-time" id="mapClock1">--:--</span>
+              </div>
+              <div class="map-clock-row">
+                <span class="map-clock-city">🇸🇬 Singapore</span>
+                <span class="map-clock-time" id="mapClock2">--:--</span>
+              </div>
+              <div class="map-clock-row">
+                <span class="map-clock-city">🇳🇱 Rotterdam</span>
+                <span class="map-clock-time" id="mapClock3">--:--</span>
+              </div>
+              <div class="map-clock-row">
+                <span class="map-clock-city">🇺🇸 New York</span>
+                <span class="map-clock-time" id="mapClock4">--:--</span>
               </div>
             </div>
-            <div class="quick-stat">
-              <span class="quick-stat-icon">🌊</span>
-              <div>
-                <div class="quick-stat-value" style="color: #f59e0b">3</div>
-                <div class="quick-stat-label">Alerts</div>
+
+            <!-- Map Live Stats -->
+            <div class="map-stats-overlay">
+              <div class="map-stats-title">Live Traffic</div>
+              <div class="map-stat-row">
+                <span>Ships in view</span>
+                <span id="shipsInView">24</span>
+              </div>
+              <div class="map-stat-row highlight">
+                <span>Avg speed</span>
+                <span id="avgSpeed">18.5 kn</span>
+              </div>
+              <div class="map-stat-row">
+                <span>Active routes</span>
+                <span id="activeRoutesCount">8</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Compass Rose -->
-          <div class="compass-rose">
-            <div class="compass-inner">
-              <span class="compass-label n">N</span>
-              <span class="compass-label s">S</span>
-              <span class="compass-label e">E</span>
-              <span class="compass-label w">W</span>
-              <div class="compass-needle"></div>
-            </div>
+        <div class="controls">
+          <div class="filter-buttons" role="group" aria-label="Filter by type">
+            <button class="filter-btn active" data-filter="all">
+              All Hubs
+            </button>
+            <button class="filter-btn" data-filter="port">🚢 Seaports</button>
+            <button class="filter-btn" data-filter="airport">
+              ✈️ Airports
+            </button>
+            <button class="filter-btn" data-filter="warehouse">
+              📦 Warehouses
+            </button>
           </div>
+          <select class="sort-select" id="sortSelect" aria-label="Sort hubs">
+            <option value="throughput-desc">Highest Throughput</option>
+            <option value="throughput-asc">Lowest Throughput</option>
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="efficiency-desc">Best Efficiency</option>
+            <option value="delays-asc">Least Delays</option>
+          </select>
+        </div>
 
-          <!-- Scale Bar -->
-          <div class="scale-bar-container">
-            <div class="scale-label" id="scaleLabel">~500 km</div>
-            <div class="scale-bar"></div>
-          </div>
+        <div class="cities-grid" id="citiesGrid" role="list"></div>
 
-          <!-- Mini Clock Panel -->
-          <div class="map-clock">
-            <div class="map-clock-title">Trading Hours</div>
-            <div class="map-clock-row">
-              <span class="map-clock-city">🇨🇳 Shanghai</span>
-              <span class="map-clock-time" id="mapClock1">--:--</span>
+        <!-- Educational Footer -->
+        <div class="edu-section">
+          <h3>Understanding Global Supply Chains</h3>
+          <div class="edu-grid">
+            <div class="edu-card">
+              <span class="edu-icon">🚢</span>
+              <h4>Container Shipping</h4>
+              <p>
+                Over 90% of world trade travels by sea. Major container vessels
+                can carry 20,000+ TEU (twenty-foot equivalent units).
+              </p>
             </div>
-            <div class="map-clock-row">
-              <span class="map-clock-city">🇸🇬 Singapore</span>
-              <span class="map-clock-time" id="mapClock2">--:--</span>
+            <div class="edu-card">
+              <span class="edu-icon">⚓</span>
+              <h4>Maritime Chokepoints</h4>
+              <p>
+                Strategic straits like Suez, Hormuz, and Singapore handle
+                billions in daily trade—disruptions can impact global markets.
+              </p>
             </div>
-            <div class="map-clock-row">
-              <span class="map-clock-city">🇳🇱 Rotterdam</span>
-              <span class="map-clock-time" id="mapClock3">--:--</span>
-            </div>
-            <div class="map-clock-row">
-              <span class="map-clock-city">🇺🇸 New York</span>
-              <span class="map-clock-time" id="mapClock4">--:--</span>
-            </div>
-          </div>
-
-          <!-- Map Live Stats -->
-          <div class="map-stats-overlay">
-            <div class="map-stats-title">Live Traffic</div>
-            <div class="map-stat-row">
-              <span>Ships in view</span>
-              <span id="shipsInView">24</span>
-            </div>
-            <div class="map-stat-row highlight">
-              <span>Avg speed</span>
-              <span id="avgSpeed">18.5 kn</span>
-            </div>
-            <div class="map-stat-row">
-              <span>Active routes</span>
-              <span id="activeRoutesCount">8</span>
+            <div class="edu-card">
+              <span class="edu-icon">📊</span>
+              <h4>Port Efficiency</h4>
+              <p>
+                Top ports like Singapore and Shanghai achieve 90%+ efficiency
+                through automation, AI-powered scheduling, and 24/7 operations.
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </main>
 
-      <div class="controls">
-        <div class="filter-buttons" role="group" aria-label="Filter by type">
-          <button class="filter-btn active" data-filter="all">All Hubs</button>
-          <button class="filter-btn" data-filter="port">🚢 Seaports</button>
-          <button class="filter-btn" data-filter="airport">✈️ Airports</button>
-          <button class="filter-btn" data-filter="warehouse">
-            📦 Warehouses
-          </button>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2025 IO Innovate. Free supply chain visualization tool.</p>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/tools.html">All Tools</a>
+          <a href="/blog.html">Blog</a>
+          <a href="/privacy.html">Privacy</a>
         </div>
-        <select class="sort-select" id="sortSelect" aria-label="Sort hubs">
-          <option value="throughput-desc">Highest Throughput</option>
-          <option value="throughput-asc">Lowest Throughput</option>
-          <option value="name-asc">Name (A-Z)</option>
-          <option value="name-desc">Name (Z-A)</option>
-          <option value="efficiency-desc">Best Efficiency</option>
-          <option value="delays-asc">Least Delays</option>
-        </select>
       </div>
-
-      <div class="cities-grid" id="citiesGrid" role="list"></div>
-    </div>
+    </footer>
 
     <!-- Floating Action Button -->
     <div class="fab-container" id="fabContainer">
       <div class="fab-menu">
-        <div
-          class="fab-item"
-          onclick="alert('Export report feature coming soon!')"
-        >
+        <div class="fab-item" onclick="exportMapView()">
           <div class="fab-icon">📊</div>
-          Export Report
+          Export View
         </div>
-        <div
-          class="fab-item"
-          onclick="alert('Add shipment feature coming soon!')"
-        >
-          <div class="fab-icon">➕</div>
-          Add Shipment
+        <div class="fab-item" onclick="resetMapView()">
+          <div class="fab-icon">🌍</div>
+          Reset Map
         </div>
-        <div class="fab-item" onclick="alert('Set alert feature coming soon!')">
-          <div class="fab-icon">🔔</div>
-          Set Alert
+        <div class="fab-item" onclick="showKeyboardShortcuts()">
+          <div class="fab-icon">⌨️</div>
+          Shortcuts
+        </div>
+        <div class="fab-item" onclick="toggleFullscreen()">
+          <div class="fab-icon">🔲</div>
+          Fullscreen
         </div>
       </div>
-      <button class="fab" onclick="toggleFab()">
+      <button class="fab" onclick="toggleFab()" aria-label="Quick actions menu">
         <svg
           width="24"
           height="24"
@@ -2833,6 +3276,44 @@
           ></path>
         </svg>
       </button>
+    </div>
+
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="shortcuts-modal" id="shortcutsModal">
+      <div class="shortcuts-content">
+        <div class="shortcuts-header">
+          <h3>⌨️ Keyboard Shortcuts</h3>
+          <button class="close-modal" onclick="hideKeyboardShortcuts()">
+            &times;
+          </button>
+        </div>
+        <div class="shortcuts-list">
+          <div class="shortcut-item">
+            <kbd>/</kbd>
+            <span>Focus search</span>
+          </div>
+          <div class="shortcut-item">
+            <kbd>Esc</kbd>
+            <span>Clear search / Close menu</span>
+          </div>
+          <div class="shortcut-item">
+            <kbd>R</kbd>
+            <span>Toggle routes layer</span>
+          </div>
+          <div class="shortcut-item">
+            <kbd>T</kbd>
+            <span>Toggle traffic layer</span>
+          </div>
+          <div class="shortcut-item">
+            <kbd>+</kbd> / <kbd>-</kbd>
+            <span>Zoom in / out</span>
+          </div>
+          <div class="shortcut-item">
+            <kbd>Arrow keys</kbd>
+            <span>Pan map</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Connection Status -->
@@ -4476,6 +4957,78 @@
         document.getElementById("fabContainer").classList.toggle("open");
       }
 
+      // Show keyboard shortcuts modal
+      function showKeyboardShortcuts() {
+        document.getElementById("shortcutsModal").classList.add("active");
+        document.getElementById("fabContainer").classList.remove("open");
+      }
+
+      // Hide keyboard shortcuts modal
+      function hideKeyboardShortcuts() {
+        document.getElementById("shortcutsModal").classList.remove("active");
+      }
+
+      // Reset map view to default
+      function resetMapView() {
+        map.setView([20, 0], 2);
+        document.getElementById("fabContainer").classList.remove("open");
+      }
+
+      // Export map view (takes screenshot info)
+      function exportMapView() {
+        const bounds = map.getBounds();
+        const center = map.getCenter();
+        const zoom = map.getZoom();
+
+        const exportData = {
+          center: [center.lat.toFixed(4), center.lng.toFixed(4)],
+          zoom: zoom,
+          bounds: {
+            north: bounds.getNorth().toFixed(4),
+            south: bounds.getSouth().toFixed(4),
+            east: bounds.getEast().toFixed(4),
+            west: bounds.getWest().toFixed(4),
+          },
+          timestamp: new Date().toISOString(),
+          activeHubs: hubs.length,
+          activeRoutes: shippingRoutes.length,
+        };
+
+        // Create downloadable JSON
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `supplychain-view-${new Date()
+          .toISOString()
+          .slice(0, 10)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+
+        document.getElementById("fabContainer").classList.remove("open");
+      }
+
+      // Toggle fullscreen
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+        document.getElementById("fabContainer").classList.remove("open");
+      }
+
+      // Close modal on outside click
+      document
+        .getElementById("shortcutsModal")
+        .addEventListener("click", (e) => {
+          if (e.target.classList.contains("shortcuts-modal")) {
+            hideKeyboardShortcuts();
+          }
+        });
+
       // Update world clocks
       function updateWorldClocks() {
         const zones = {
@@ -4887,6 +5440,34 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Enter" && e.target.classList.contains("city-card")) {
           e.target.click();
+        }
+
+        // Keyboard shortcuts
+        // Press '/' to focus search
+        if (e.key === "/" && !e.target.matches("input, textarea")) {
+          e.preventDefault();
+          document.getElementById("searchInput").focus();
+        }
+
+        // Press 'Escape' to clear search and close filter panel
+        if (e.key === "Escape") {
+          const searchInput = document.getElementById("searchInput");
+          if (document.activeElement === searchInput) {
+            searchInput.blur();
+            searchInput.value = "";
+            processAndRender();
+          }
+          document.getElementById("fabContainer").classList.remove("open");
+        }
+
+        // Press 'r' to toggle routes layer
+        if (e.key === "r" && !e.target.matches("input, textarea")) {
+          document.querySelector('[data-layer="routes"]').click();
+        }
+
+        // Press 't' to toggle traffic layer
+        if (e.key === "t" && !e.target.matches("input, textarea")) {
+          document.querySelector('[data-layer="traffic"]').click();
         }
       });
 
