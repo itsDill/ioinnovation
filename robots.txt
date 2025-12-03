@@ -1,5 +1,5 @@
 # IO Innovate - Professional Digital Tools
-# https://iowebtools.com
+# https://ioinnovationfund.com
 
 # Default crawl rules for all bots
 User-agent: *
@@ -51,7 +51,7 @@ User-agent: Claude-Web
 Disallow: /
 
 # Sitemap location
-Sitemap: https://iowebtools.com/sitemap.xml
+Sitemap: https://ioinnovationfund.com/sitemap.xml
 
 # Host directive
-Host: https://iowebtools.com
+Host: https://ioinnovationfund.com
