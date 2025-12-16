@@ -1,20 +1,32 @@
-# IO Innovate - Professional Digital Tools
+# IO Innovate - Professional Financial Tools
 # https://ioinnovationfund.com
+# Last Updated: 2025-12-16
 
 # Default crawl rules for all bots
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /*.json$
+Allow: /manifest.json
 Allow: /*.js$
 Allow: /*.css$
+Allow: /sitemap.xml
 
-# Allow all major search engines
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engines with no restrictions
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
@@ -22,6 +34,7 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+# Social media crawlers
 User-agent: facebookexternalhit
 Allow: /
 
@@ -29,6 +42,9 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
 Allow: /
 
 # Block AI crawlers (optional - keeps content exclusive)
@@ -48,6 +64,9 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Claude-Web
+Disallow: /
+
+User-agent: Bytespider
 Disallow: /
 
 # Sitemap location

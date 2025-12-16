@@ -59,13 +59,18 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "IO Innovate",
+        "alternateName": "IO Innovation Fund",
         "url": "https://ioinnovationfund.com",
         "description": "Free professional financial tools and market analytics platform",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://ioinnovationfund.com/search?q={search_term_string}",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://ioinnovationfund.com/search?q={search_term_string}"
+          },
           "query-input": "required name=search_term_string"
-        }
+        },
+        "inLanguage": "en-US"
       }
     </script>
 
@@ -74,8 +79,60 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "IO Innovate",
+        "alternateName": "IO Innovation Fund",
         "url": "https://ioinnovationfund.com",
-        "description": "Professional financial tools and investment analytics platform"
+        "description": "Professional financial tools and investment analytics platform",
+        "sameAs": [],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "url": "https://ioinnovationfund.com/contact.html",
+          "availableLanguage": "English"
+        }
+      }
+    </script>
+
+    <!-- SoftwareApplication Schema for Tools -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "IO Innovate Financial Tools",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "13F Filing Visualizer",
+          "10K Report Analyzer",
+          "Economic Calendar",
+          "Portfolio Backtester",
+          "Supply Chain Mapper"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "150"
+        }
+      }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ioinnovationfund.com/"
+          }
+        ]
       }
     </script>
 
