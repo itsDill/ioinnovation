@@ -3,15 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      About IO Innovation Fund | Southeast Asia Investment Specialists
-    </title>
 
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Primary Meta Tags -->
+    <title>
+      About IO Innovate | Free Financial Tools & Investment Insights
+    </title>
+    <meta
+      name="title"
+      content="About IO Innovate | Free Financial Tools & Investment Insights"
+    />
+    <meta
+      name="description"
+      content="IO Innovate provides free professional financial tools and educational resources for individual investors. Learn about our mission to democratize investment analytics."
+    />
+    <meta
+      name="keywords"
+      content="about IO Innovate, financial tools platform, investment education, free finance tools"
+    />
+    <meta name="author" content="IO Innovate" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ioinnovationfund.com/about.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ioinnovationfund.com/about.html" />
+    <meta property="og:title" content="About IO Innovate" />
+    <meta
+      property="og:description"
+      content="Free professional financial tools and educational resources for investors."
+    />
+    <meta property="og:site_name" content="IO Innovate" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About IO Innovate",
+        "url": "https://ioinnovationfund.com/about.html",
+        "description": "IO Innovate provides free professional financial tools and educational resources for investors.",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "IO Innovate",
+          "url": "https://ioinnovationfund.com"
+        }
+      }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ioinnovationfund.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://ioinnovationfund.com/about.html"
+          }
+        ]
+      }
+    </script>
 
     <!-- Google Analytics -->
     <script
@@ -27,35 +86,12 @@
       gtag("config", "G-MRHXEVRZN9");
     </script>
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Learn about IO Innovation Fund, Southeast Asia's leading investment specialists. Our mission, vision, and commitment to providing innovative investment insights for ASEAN markets."
-    />
-    <meta name="author" content="IO Innovation Fund" />
-    <meta
-      name="keywords"
-      content="about us, IO Innovation Fund, Southeast Asia investment experts, ASEAN market specialists, investment team, company mission"
-    />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="About IO Innovation Fund" />
-    <meta
-      property="og:description"
-      content="Southeast Asia's leading investment specialists providing innovative insights and professional analysis."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/about.html" />
-
-    <!-- Investment Disclaimer -->
-    <meta
-      name="disclaimer"
-      content="Investment involves risk. Past performance does not guarantee future results. Professional financial advice recommended."
-    />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -69,272 +105,348 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/shared-clean.css" />
-    <link rel="stylesheet" href="css/enhancements.css?v=2025090801" />
+    <!-- Theme Init -->
     <script src="js/theme-init.js"></script>
 
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/site.css?v=2025121602" />
+
     <style>
-      .hero {
+      /* About page specific styles */
+      .about-hero {
+        padding: 5rem 1.5rem 4rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          ellipse 80% 50% at 50% -20%,
+          rgba(43, 226, 180, 0.12),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .about-hero-content {
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(43, 226, 180, 0.1);
+        border: 1px solid rgba(43, 226, 180, 0.2);
+        border-radius: 100px;
+        color: var(--accent-primary);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-hero-title {
+        font-size: clamp(2.25rem, 5vw, 3rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.03em;
+      }
+
+      .about-hero-title .highlight {
         background: linear-gradient(
           135deg,
-          rgba(43, 226, 180, 0.1),
-          rgba(91, 33, 182, 0.1)
+          var(--accent-primary),
+          var(--accent-secondary)
         );
-        padding: 8rem 0 6rem;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .about-hero-desc {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      /* Content Container */
+      .about-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.5rem 4rem;
+      }
+
+      /* Mission Section */
+      .mission-section {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-xl);
+        padding: 3rem;
+        margin-bottom: 4rem;
         text-align: center;
       }
 
-      .content-section {
-        padding: 4rem 0;
+      .mission-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--accent-primary);
       }
 
-      .content-grid {
+      .mission-text {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Values Grid */
+      .values-section {
+        margin-bottom: 4rem;
+      }
+
+      .values-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .values-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        margin: 3rem 0;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
       }
 
       .value-card {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
+        border-radius: var(--radius-lg);
         padding: 2rem;
         text-align: center;
         transition: all 0.3s ease;
       }
 
       .value-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px var(--shadow-color);
+        border-color: rgba(43, 226, 180, 0.3);
+        transform: translateY(-4px);
       }
 
       .value-icon {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         background: linear-gradient(
           135deg,
           var(--accent-primary),
           var(--accent-secondary)
         );
-        border-radius: 50%;
+        border-radius: var(--radius-md);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 1.5rem;
-        color: white;
+        margin: 0 auto 1.25rem;
         font-size: 1.5rem;
+        color: #000;
       }
 
-      .disclaimer-section {
+      .value-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .value-desc {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* What We Offer */
+      .offer-section {
+        margin-bottom: 4rem;
+      }
+
+      .offer-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .offer-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .offer-item {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        padding: 2rem;
-        margin: 3rem 0;
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        transition: all 0.3s ease;
       }
 
-      .disclaimer-section h3 {
+      .offer-item:hover {
+        border-color: rgba(43, 226, 180, 0.3);
+      }
+
+      .offer-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(43, 226, 180, 0.1);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: var(--accent-primary);
+        flex-shrink: 0;
+      }
+
+      .offer-content h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .offer-content p {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      /* Disclaimer */
+      .disclaimer-section {
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .disclaimer-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #f59e0b;
         margin-bottom: 1rem;
       }
 
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
+      .disclaimer-text {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.7;
       }
 
-      .team-member {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .member-avatar {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-secondary)
-        );
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1rem;
-        color: white;
-        font-size: 2rem;
-        font-weight: 600;
+      @media (max-width: 640px) {
+        .mission-section {
+          padding: 2rem 1.5rem;
+        }
       }
     </style>
   </head>
 
   <body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
     <!-- Header -->
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/index.html" class="logo">IO Innovate</a>
+        <a href="/" class="logo">IO Innovate</a>
 
-        <ul class="nav-links" id="mobileNav" role="menu" aria-expanded="false">
-          <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
-          <li role="none">
-            <a href="/tools.html" role="menuitem">Tools</a>
-          </li>
-          <li role="none">
-            <a href="/analytics.html" role="menuitem">Analytics</a>
-          </li>
-          <li role="none"><a href="/blog.html" role="menuitem">Blog</a></li>
-          <li role="none">
-            <a href="/about.html" class="active" role="menuitem">About</a>
-          </li>
-          <li role="none">
-            <a href="/contact.html" role="menuitem">Contact</a>
-          </li>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html" class="active">About</a></li>
         </ul>
 
         <div class="nav-actions">
           <button
             class="theme-toggle"
             id="themeToggle"
-            aria-label="Toggle dark/light theme"
+            aria-label="Toggle theme"
           >
-            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+            <i class="fas fa-sun" id="themeIcon"></i>
           </button>
-
-          <button
-            class="mobile-menu-btn"
-            id="menuBtn"
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-            aria-controls="mobileNav"
-            type="button"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
           </button>
         </div>
       </nav>
     </header>
 
-    <!-- Main Content -->
-    <main>
+    <main id="main-content">
       <!-- Hero Section -->
-      <section class="hero">
-        <div class="container">
-          <h1
-            style="
-              font-size: 3rem;
-              margin-bottom: 1rem;
-              color: var(--text-primary);
-            "
-          >
-            About IO Innovation Fund
+      <section class="about-hero">
+        <div class="about-hero-content">
+          <div class="about-hero-badge">
+            <i class="fas fa-info-circle"></i>
+            About Us
+          </div>
+          <h1 class="about-hero-title">
+            Empowering <span class="highlight">Individual Investors</span>
           </h1>
-          <p
-            style="
-              font-size: 1.25rem;
-              color: var(--text-secondary);
-              max-width: 800px;
-              margin: 0 auto;
-            "
-          >
-            Southeast Asia's leading investment specialists, providing
-            innovative insights and professional analysis for modern investors
-            navigating ASEAN markets.
+          <p class="about-hero-desc">
+            IO Innovate provides free, professional-grade financial tools and
+            educational resources to help individual investors make more
+            informed decisions.
           </p>
         </div>
       </section>
 
-      <!-- Mission Section -->
-      <section class="content-section">
-        <div class="container">
-          <div style="max-width: 800px; margin: 0 auto; text-align: center">
-            <h2
-              style="
-                font-size: 2.5rem;
-                margin-bottom: 2rem;
-                color: var(--text-primary);
-              "
-            >
-              Our Mission
-            </h2>
-            <p
-              style="
-                font-size: 1.1rem;
-                line-height: 1.8;
-                color: var(--text-secondary);
-                margin-bottom: 2rem;
-              "
-            >
-              At IO Innovation Fund, we are dedicated to democratizing access to
-              Southeast Asian investment opportunities. Our mission is to
-              provide individual and institutional investors with comprehensive
-              market research, innovative analytical tools, and educational
-              resources that enable informed investment decisions across ASEAN
-              markets.
-            </p>
-            <p
-              style="
-                font-size: 1.1rem;
-                line-height: 1.8;
-                color: var(--text-secondary);
-              "
-            >
-              We believe that Southeast Asia represents one of the world's most
-              dynamic and promising investment frontiers, and we are committed
-              to helping our clients navigate these markets with confidence and
-              expertise.
-            </p>
-          </div>
-        </div>
-      </section>
+      <!-- Content -->
+      <div class="about-container">
+        <!-- Mission -->
+        <section class="mission-section">
+          <h2 class="mission-title">Our Mission</h2>
+          <p class="mission-text">
+            We believe everyone deserves access to the same quality of financial
+            analysis tools that institutional investors use. Our mission is to
+            democratize investment analytics by providing free, powerful tools
+            that help individual investors understand markets, track
+            institutional holdings, and make data-driven decisions.
+          </p>
+        </section>
 
-      <!-- Values Section -->
-      <section class="content-section" style="background: var(--bg-secondary)">
-        <div class="container">
-          <h2
-            style="
-              text-align: center;
-              font-size: 2.5rem;
-              margin-bottom: 3rem;
-              color: var(--text-primary);
-            "
-          >
-            Our Core Values
-          </h2>
-
-          <div class="content-grid">
+        <!-- Values -->
+        <section class="values-section">
+          <h2 class="values-title">What We Stand For</h2>
+          <div class="values-grid">
             <div class="value-card">
-              <div class="value-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                Innovation
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                We continuously develop cutting-edge analytical tools and
-                methodologies to identify emerging opportunities in Southeast
-                Asian markets.
+              <div class="value-icon"><i class="fas fa-lock-open"></i></div>
+              <h3 class="value-title">Free Access</h3>
+              <p class="value-desc">
+                All our tools are completely free. No paywalls, no premium
+                tiers, no credit card required.
               </p>
             </div>
 
             <div class="value-card">
-              <div class="value-icon">
-                <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                Integrity
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                We maintain the highest standards of transparency and ethical
-                conduct in all our research, analysis, and client interactions.
+              <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="value-title">Privacy First</h3>
+              <p class="value-desc">
+                We don't sell your data. Most tools work without any account or
+                personal information.
               </p>
             </div>
 
@@ -342,448 +454,134 @@
               <div class="value-icon">
                 <i class="fas fa-graduation-cap"></i>
               </div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                Education
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                We believe in empowering investors through comprehensive
-                education about Southeast Asian markets, risks, and
-                opportunities.
+              <h3 class="value-title">Education Focus</h3>
+              <p class="value-desc">
+                Beyond tools, we provide guides and resources to help you become
+                a better investor.
               </p>
             </div>
 
             <div class="value-card">
-              <div class="value-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                Collaboration
-              </h3>
-              <p style="color: var(--text-secondary); line-height: 1.6">
-                We work closely with local partners and experts across Southeast
-                Asia to provide the most accurate and timely market insights.
+              <div class="value-icon"><i class="fas fa-code"></i></div>
+              <h3 class="value-title">Quality First</h3>
+              <p class="value-desc">
+                We build tools we'd want to use ourselves. Professional quality,
+                always improving.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- What We Do Section -->
-      <section class="content-section">
-        <div class="container">
-          <h2
+        <!-- What We Offer -->
+        <section class="offer-section">
+          <h2 class="offer-title">What We Offer</h2>
+          <div class="offer-list">
+            <div class="offer-item">
+              <div class="offer-icon"><i class="fas fa-file-alt"></i></div>
+              <div class="offer-content">
+                <h3>13F Visualizer</h3>
+                <p>
+                  Track what institutional investors are buying and selling
+                  through SEC 13F filings.
+                </p>
+              </div>
+            </div>
+
+            <div class="offer-item">
+              <div class="offer-icon"><i class="fas fa-calendar-alt"></i></div>
+              <div class="offer-content">
+                <h3>Economic Calendar</h3>
+                <p>
+                  Stay ahead of market-moving economic events and data releases.
+                </p>
+              </div>
+            </div>
+
+            <div class="offer-item">
+              <div class="offer-icon"><i class="fas fa-file-invoice"></i></div>
+              <div class="offer-content">
+                <h3>10K Analyzer</h3>
+                <p>
+                  Quickly understand company annual reports with key metrics
+                  highlighted.
+                </p>
+              </div>
+            </div>
+
+            <div class="offer-item">
+              <div class="offer-icon"><i class="fas fa-book-open"></i></div>
+              <div class="offer-content">
+                <h3>Investment Guides</h3>
+                <p>
+                  In-depth articles on investing strategies, personal finance,
+                  and market analysis.
+                </p>
+              </div>
+            </div>
+
+            <div class="offer-item">
+              <div class="offer-icon"><i class="fas fa-chart-pie"></i></div>
+              <div class="offer-content">
+                <h3>Sector Analysis</h3>
+                <p>
+                  Deep dives into major market sectors including tech,
+                  healthcare, and financials.
+                </p>
+              </div>
+            </div>
+
+            <div class="offer-item">
+              <div class="offer-icon"><i class="fas fa-history"></i></div>
+              <div class="offer-content">
+                <h3>Strategy Backtester</h3>
+                <p>
+                  Test your investment strategies against historical market
+                  data.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <section class="disclaimer-section">
+          <h3 class="disclaimer-title">
+            <i class="fas fa-exclamation-triangle"></i>
+            Investment Disclaimer
+          </h3>
+          <p class="disclaimer-text">
+            The information provided on IO Innovate is for educational and
+            informational purposes only. It should not be considered financial
+            advice. Investing involves risk, including the potential loss of
+            principal. Past performance does not guarantee future results.
+            Before making any investment decisions, please consult with a
+            qualified financial advisor. IO Innovate is not a registered
+            investment advisor.
+          </p>
+        </section>
+      </div>
+
+      <!-- CTA -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Get Started?</h2>
+          <p class="cta-desc">
+            Explore our free tools and start making more informed investment
+            decisions today.
+          </p>
+          <div
             style="
-              text-align: center;
-              font-size: 2.5rem;
-              margin-bottom: 3rem;
-              color: var(--text-primary);
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
             "
           >
-            What We Do
-          </h2>
-
-          <div style="max-width: 1000px; margin: 0 auto">
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-              "
-            >
-              <div style="padding: 2rem">
-                <h3
-                  style="
-                    color: var(--accent-primary);
-                    margin-bottom: 1rem;
-                    font-size: 1.5rem;
-                  "
-                >
-                  📊 Market Research & Analysis
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  Comprehensive analysis of Southeast Asian equity markets,
-                  including fundamental and technical research on major indices
-                  like SET, STI, KLCI, and PSEi.
-                </p>
-              </div>
-
-              <div style="padding: 2rem">
-                <h3
-                  style="
-                    color: var(--accent-primary);
-                    margin-bottom: 1rem;
-                    font-size: 1.5rem;
-                  "
-                >
-                  🛠️ Investment Tools
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  Professional-grade calculators, market timing tools, and
-                  portfolio analyzers designed specifically for Southeast Asian
-                  market participants.
-                </p>
-              </div>
-
-              <div style="padding: 2rem">
-                <h3
-                  style="
-                    color: var(--accent-primary);
-                    margin-bottom: 1rem;
-                    font-size: 1.5rem;
-                  "
-                >
-                  📈 Trading Signals
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  AI-powered trading signals and market alerts based on
-                  quantitative analysis of regional market patterns and global
-                  correlations.
-                </p>
-              </div>
-
-              <div style="padding: 2rem">
-                <h3
-                  style="
-                    color: var(--accent-primary);
-                    margin-bottom: 1rem;
-                    font-size: 1.5rem;
-                  "
-                >
-                  📚 Educational Content
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  Regular blog posts, market commentary, and educational
-                  resources to help investors understand Southeast Asian market
-                  dynamics.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Team Section -->
-      <section class="content-section" style="background: var(--bg-secondary)">
-        <div class="container">
-          <h2
-            style="
-              text-align: center;
-              font-size: 2.5rem;
-              margin-bottom: 3rem;
-              color: var(--text-primary);
-            "
-          >
-            Our Team
-          </h2>
-
-          <div class="team-grid">
-            <div class="team-member">
-              <div class="member-avatar">AS</div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem">
-                Research Team
-              </h3>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  font-size: 0.95rem;
-                  margin-bottom: 1rem;
-                "
-              >
-                Senior Analysts
-              </p>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  line-height: 1.6;
-                  font-size: 0.9rem;
-                "
-              >
-                Experienced analysts with deep expertise in Southeast Asian
-                markets and quantitative research methodologies.
-              </p>
-            </div>
-
-            <div class="team-member">
-              <div class="member-avatar">TD</div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem">
-                Technology Team
-              </h3>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  font-size: 0.95rem;
-                  margin-bottom: 1rem;
-                "
-              >
-                Platform Development
-              </p>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  line-height: 1.6;
-                  font-size: 0.9rem;
-                "
-              >
-                Technology specialists focused on developing innovative tools
-                and platforms for market analysis and investment research.
-              </p>
-            </div>
-
-            <div class="team-member">
-              <div class="member-avatar">CS</div>
-              <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem">
-                Client Services
-              </h3>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  font-size: 0.95rem;
-                  margin-bottom: 1rem;
-                "
-              >
-                Support & Education
-              </p>
-              <p
-                style="
-                  color: var(--text-secondary);
-                  line-height: 1.6;
-                  font-size: 0.9rem;
-                "
-              >
-                Dedicated team providing client support, educational resources,
-                and assistance with our platform and services.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Company Information Section -->
-      <section class="content-section">
-        <div class="container">
-          <h2
-            style="
-              text-align: center;
-              font-size: 2.5rem;
-              margin-bottom: 3rem;
-              color: var(--text-primary);
-            "
-          >
-            Company Information
-          </h2>
-
-          <div style="max-width: 1000px; margin: 0 auto">
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 3rem;
-              "
-            >
-              <div class="value-card">
-                <div class="value-icon">
-                  <i class="fas fa-building"></i>
-                </div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                  Headquarters
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  <strong>Singapore Office:</strong><br />
-                  1 Raffles Place, #20-01<br />
-                  One Raffles Place<br />
-                  Singapore 048616<br />
-                  <br />
-                  <strong>Phone:</strong> +65 6123-4567<br />
-                  <strong>Email:</strong> info@ioinnovationfund.com
-                </p>
-              </div>
-
-              <div class="value-card">
-                <div class="value-icon">
-                  <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                  Company History
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  <strong>Founded:</strong> 2020<br />
-                  <strong>Incorporation:</strong> Singapore<br />
-                  <strong>Business License:</strong> MAS Regulated<br />
-                  <strong>Focus Areas:</strong> ASEAN Markets<br />
-                  <br />
-                  Established by experienced professionals with deep Southeast
-                  Asian market expertise.
-                </p>
-              </div>
-
-              <div class="value-card">
-                <div class="value-icon">
-                  <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                  Services & Expertise
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  <strong>Primary Services:</strong><br />
-                  • Investment Research & Analysis<br />
-                  • Market Commentary & Insights<br />
-                  • Educational Content Creation<br />
-                  • Financial Tools Development<br />
-                  <br />
-                  <strong>Markets Covered:</strong> Thailand, Singapore,
-                  Malaysia, Indonesia, Philippines, Vietnam
-                </p>
-              </div>
-
-              <div class="value-card">
-                <div class="value-icon">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                  Regulatory Compliance
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  <strong>Regulatory Status:</strong><br />
-                  Singapore-based financial research firm operating under MAS
-                  guidelines.<br />
-                  <br />
-                  <strong>Compliance:</strong><br />
-                  • Anti-Money Laundering (AML)<br />
-                  • Data Protection Regulations<br />
-                  • Financial Services Standards<br />
-                  • Professional Research Ethics
-                </p>
-              </div>
-
-              <div class="value-card">
-                <div class="value-icon">
-                  <i class="fas fa-award"></i>
-                </div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                  Professional Memberships
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  <strong>Industry Affiliations:</strong><br />
-                  • CFA Institute<br />
-                  • Singapore Association of Investment Professionals<br />
-                  • Asian Financial Planning Association<br />
-                  • ASEAN Business Advisory Council<br />
-                  <br />
-                  Maintaining professional standards and continuous education.
-                </p>
-              </div>
-
-              <div class="value-card">
-                <div class="value-icon">
-                  <i class="fas fa-globe-asia"></i>
-                </div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 1rem">
-                  Global Reach
-                </h3>
-                <p style="color: var(--text-secondary); line-height: 1.6">
-                  <strong>Client Base:</strong><br />
-                  International institutional investors, family offices, and
-                  individual investors interested in Southeast Asian markets.<br />
-                  <br />
-                  <strong>Research Coverage:</strong><br />
-                  Over 280 companies across 12 ASEAN markets with regular
-                  updates and analysis.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Disclaimer Section -->
-      <section class="content-section">
-        <div class="container">
-          <div class="disclaimer-section">
-            <h3>
-              <i
-                class="fas fa-exclamation-triangle"
-                style="margin-right: 0.5rem"
-              ></i
-              >Important Disclaimers
-            </h3>
-            <div
-              style="
-                font-size: 0.9rem;
-                line-height: 1.6;
-                color: var(--text-secondary);
-              "
-            >
-              <p style="margin-bottom: 1rem">
-                <strong>Investment Risk:</strong> All investments carry risk of
-                loss. Past performance does not guarantee future results. The
-                value of investments and the income from them can fall as well
-                as rise, and investors may not get back the amount originally
-                invested.
-              </p>
-              <p style="margin-bottom: 1rem">
-                <strong>Not Financial Advice:</strong> The information provided
-                on this website is for educational and informational purposes
-                only. It should not be construed as personalized investment
-                advice. Always consult with qualified financial professionals
-                before making investment decisions.
-              </p>
-              <p style="margin-bottom: 1rem">
-                <strong>Regional Focus:</strong> Our research focuses primarily
-                on Southeast Asian markets. These markets may be subject to
-                higher volatility and regulatory risks compared to developed
-                markets.
-              </p>
-              <p>
-                <strong>No Guarantees:</strong> We make no representations or
-                warranties regarding the accuracy, completeness, or timeliness
-                of any information provided. Investment decisions should be
-                based on your own research and risk tolerance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact CTA -->
-      <section class="content-section" style="background: var(--bg-secondary)">
-        <div class="container">
-          <div style="text-align: center; padding: 4rem 2rem">
-            <h2
-              style="
-                font-size: 2rem;
-                margin-bottom: 1rem;
-                color: var(--accent-primary);
-              "
-            >
-              Ready to Learn More?
-            </h2>
-            <p
-              style="
-                color: var(--text-secondary);
-                margin-bottom: 2rem;
-                max-width: 600px;
-                margin-left: auto;
-                margin-right: auto;
-              "
-            >
-              Get in touch with our team to learn more about our research
-              services and how we can help you navigate Southeast Asian markets.
-            </p>
-            <a
-              href="/contact.html"
-              class="btn btn-primary"
-              style="
-                display: inline-block;
-                background: var(--accent-primary);
-                color: white;
-                padding: 1rem 2rem;
-                border-radius: 8px;
-                text-decoration: none;
-                font-weight: 600;
-                transition: all 0.3s ease;
-              "
-            >
-              Contact Our Team <i class="fas fa-arrow-right"></i>
+            <a href="/tools.html" class="btn btn-primary btn-lg">
+              <i class="fas fa-rocket"></i> Explore Tools
+            </a>
+            <a href="/contact.html" class="btn btn-secondary btn-lg">
+              <i class="fas fa-envelope"></i> Contact Us
             </a>
           </div>
         </div>
@@ -792,93 +590,69 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            text-align: center;
-          "
-        >
-          <div
-            style="
-              display: flex;
-              gap: 1.2rem;
-              flex-wrap: wrap;
-              justify-content: center;
-            "
-          >
-            <a
-              href="https://twitter.com/ioinnovation"
-              class="share-button"
-              title="Twitter"
-              target="_blank"
-              rel="noopener"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a
-              href="https://linkedin.com/company/ioinnovation"
-              class="share-button"
-              title="LinkedIn"
-              target="_blank"
-              rel="noopener"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://facebook.com/ioinnovation"
-              class="share-button"
-              title="Facebook"
-              target="_blank"
-              rel="noopener"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="/contact.html" class="share-button" title="Contact">
-              <i class="fas fa-envelope"></i>
-            </a>
-          </div>
-          <div
-            style="
-              display: flex;
-              gap: 1rem;
-              flex-wrap: wrap;
-              justify-content: center;
-              font-size: 0.9rem;
-            "
-          >
-            <a
-              href="/about.html"
-              style="color: var(--text-secondary); text-decoration: none"
-              >About</a
-            >
-            <a
-              href="/privacy.html"
-              style="color: var(--text-secondary); text-decoration: none"
-              >Privacy Policy</a
-            >
-            <a
-              href="/terms.html"
-              style="color: var(--text-secondary); text-decoration: none"
-              >Terms of Service</a
-            >
-            <a
-              href="/contact.html"
-              style="color: var(--text-secondary); text-decoration: none"
-              >Contact</a
-            >
-          </div>
-          <div style="font-size: 0.9rem; color: var(--text-secondary)">
-            &copy; 2025 IO Innovation Fund. All rights reserved.
-          </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovate</a>
+          <p>
+            Professional financial tools and investment insights for informed
+            decision-making.
+          </p>
         </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/tools.html">Tools</a></li>
+            <li><a href="/analytics.html">Analytics</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/our-team.html">Team</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Investment involves risk. Past performance does not guarantee future
+          results.
+        </p>
       </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
     <script src="js/shared-simple.js"></script>
-    <script src="js/ux-enhancements.js?v=2025090801" defer></script>
+    <script>
+      const scrollTopBtn = document.getElementById("scrollTop");
+      if (scrollTopBtn) {
+        window.addEventListener("scroll", () => {
+          scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+        });
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
   </body>
 </html>

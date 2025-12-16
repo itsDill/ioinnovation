@@ -33,9 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
       isMobile: isMobile,
     });
 
-    // Get saved theme or use system preference
-    let currentTheme =
-      localStorage.getItem("theme") || (prefersDark.matches ? "dark" : "light");
+    // Get saved theme or default to light
+    let currentTheme = localStorage.getItem("theme") || "light";
 
     console.log("Current theme:", currentTheme);
 

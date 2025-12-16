@@ -57,7 +57,7 @@
     <meta name="author" content="IO Innovate" />
 
     <script src="../js/theme-init.js"></script>
-    <link rel="stylesheet" href="../css/shared-clean.css?v=2025090102" />
+    <link rel="stylesheet" href="../css/site.css?v=2025121602" />
     <script src="../js/shared-simple.js"></script>
 
     <style>
@@ -178,22 +178,26 @@
       }
     </style>
   </head>
-  <body data-theme="light">
+  <body>
     <header class="header">
-      <div class="mobile-overlay" id="mobileOverlay"></div>
-      <nav class="nav">
-        <a href="/index.html" class="logo">IO Innovate</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovate</a>
         <ul class="nav-links" id="mobileNav">
-          <li><a href="/index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/tools.html">Tools</a></li>
           <li><a href="/analytics.html">Analytics</a></li>
           <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle">
-            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
           </button>
-          <button class="mobile-menu-btn" id="menuBtn">
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
             <span></span><span></span><span></span>
           </button>
         </div>

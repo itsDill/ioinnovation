@@ -45,8 +45,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="css/shared-clean.css" />
+    <link rel="stylesheet" href="css/site.css?v=2025121602" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Theme initialization -->
+    <script src="js/theme-init.js"></script>
 
     <style>
       .disclaimer-container {
@@ -95,22 +98,39 @@
       }
     </style>
   </head>
-  <body data-theme="dark">
+  <body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Header -->
     <header class="header">
-      <nav class="nav">
-        <a href="/index.html" class="logo">IO Innovate</a>
-        <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/tools.html">Finance Tools</a></li>
-          <li><a href="/markets.html">Trading Signals</a></li>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovate</a>
+
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
           <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/about.html">About</a></li>
         </ul>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </nav>
     </header>
 
-    <main style="padding-top: 80px; min-height: 100vh">
+    <main id="main-content" style="padding-top: 80px; min-height: 100vh">
       <div
         class="container"
         style="max-width: 1000px; margin: 0 auto; padding: 2rem"
@@ -404,52 +424,71 @@
       </div>
     </main>
 
-    <footer
-      class="footer"
-      style="
-        background: var(--bg-secondary);
-        padding: 2rem;
-        text-align: center;
-        margin-top: 4rem;
-      "
-    >
-      <div style="max-width: 1000px; margin: 0 auto">
-        <p style="color: var(--text-secondary)">
-          &copy; 2025 IO Innovation Fund. Investment disclaimer and risk
-          warnings for Southeast Asian market analysis.
-        </p>
-        <div style="margin-top: 1rem">
-          <a
-            href="/privacy.html"
-            style="
-              color: var(--text-secondary);
-              text-decoration: none;
-              margin: 0 1rem;
-            "
-            >Privacy Policy</a
-          >
-          <a
-            href="/terms.html"
-            style="
-              color: var(--text-secondary);
-              text-decoration: none;
-              margin: 0 1rem;
-            "
-            >Terms of Service</a
-          >
-          <a
-            href="/contact.html"
-            style="
-              color: var(--text-secondary);
-              text-decoration: none;
-              margin: 0 1rem;
-            "
-            >Contact</a
-          >
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovate</a>
+          <p>
+            Professional financial tools and investment insights for informed
+            decision-making.
+          </p>
         </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/tools.html">Tools</a></li>
+            <li><a href="/analytics.html">Analytics</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/our-team.html">Team</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Investment involves risk. Past performance does not guarantee future
+          results.
+        </p>
       </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
     <script src="js/shared-simple.js"></script>
+    <script>
+      const scrollTopBtn = document.getElementById("scrollTop");
+      if (scrollTopBtn) {
+        window.addEventListener("scroll", () => {
+          scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+        });
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
   </body>
 </html>

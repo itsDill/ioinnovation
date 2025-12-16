@@ -122,7 +122,7 @@
     <!-- Theme initialization - prevents flash of wrong theme -->
     <script src="../js/theme-init.js"></script>
 
-    <link rel="stylesheet" href="../css/shared-clean.css?v=2025090102" />
+    <link rel="stylesheet" href="../css/site.css?v=2025121602" />
     <script src="../js/shared-simple.js"></script>
 
     <style>
@@ -832,52 +832,27 @@
       <div class="progress-bar" id="progressBar"></div>
     </div>
     <header class="header">
-      <!-- Mobile overlay for better UX -->
-      <div class="mobile-overlay" id="mobileOverlay"></div>
-
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/index.html" class="logo">IO Innovate</a>
+        <a href="/" class="logo">IO Innovate</a>
 
-        <ul
-          class="nav-links"
-          id="mobileNav"
-          role="menu"
-          aria-expanded="false"
-          aria-label="Navigation menu"
-        >
-          <li role="none"><a href="/index.html" role="menuitem">Home</a></li>
-          <li role="none">
-            <a href="/tools.html" role="menuitem">Finance Tools</a>
-          </li>
-          <li role="none">
-            <a href="/markets.html" role="menuitem">Trading Signals</a>
-          </li>
-          <li role="none"><a href="/blog.html" role="menuitem">Blog</a></li>
-          <li role="none">
-            <a href="/contact.html" role="menuitem">Contact</a>
-          </li>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/analytics.html">Analytics</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
         </ul>
 
         <div class="nav-actions">
           <button
             class="theme-toggle"
             id="themeToggle"
-            aria-label="Toggle dark/light theme"
+            aria-label="Toggle theme"
           >
-            <i class="theme-icon fas fa-sun" id="themeIcon"></i>
+            <i class="fas fa-sun" id="themeIcon"></i>
           </button>
-
-          <button
-            class="mobile-menu-btn"
-            id="menuBtn"
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-            aria-controls="mobileNav"
-            type="button"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
           </button>
         </div>
       </nav>
