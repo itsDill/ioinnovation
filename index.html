@@ -193,7 +193,7 @@
         min-height: calc(100vh - var(--header-height));
         display: flex;
         align-items: center;
-        padding: 4rem 1.5rem;
+        padding: 2.5rem 1.5rem;
         position: relative;
         overflow: hidden;
       }
@@ -247,7 +247,7 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 2.5rem;
         align-items: center;
         position: relative;
         z-index: 1;
@@ -293,25 +293,25 @@
       .hero-desc {
         font-size: 1.125rem;
         color: var(--text-secondary);
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         line-height: 1.7;
         max-width: 500px;
       }
 
       .hero-buttons {
         display: flex;
-        gap: 1rem;
+        gap: 0.875rem;
         flex-wrap: wrap;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.75rem;
       }
 
       .hero-stats {
         display: flex;
-        gap: 2rem;
+        gap: 1.25rem;
       }
 
       .hero-stat {
-        padding: 1rem 1.5rem;
+        padding: 0.875rem 1.25rem;
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-md);
@@ -324,16 +324,16 @@
       }
 
       .hero-stat-value {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         font-weight: 800;
         color: var(--accent-primary);
         line-height: 1;
       }
 
       .hero-stat-label {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: var(--text-secondary);
-        margin-top: 0.25rem;
+        margin-top: 0.2rem;
       }
 
       .hero-visual {
@@ -409,7 +409,7 @@
 
       /* Features Section */
       .features-section {
-        padding: 5rem 1.5rem;
+        padding: 3rem 1.5rem;
         background: var(--bg-secondary);
       }
 
@@ -419,21 +419,21 @@
 
       .features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
         max-width: var(--max-width);
         margin: 0 auto;
       }
 
       /* Tools Preview Section */
       .tools-section {
-        padding: 5rem 1.5rem;
+        padding: 3rem 1.5rem;
       }
 
       .tools-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
         max-width: var(--max-width);
         margin: 0 auto;
       }
@@ -528,7 +528,7 @@
 
       /* CTA Section */
       .cta-section {
-        padding: 5rem 1.5rem;
+        padding: 3rem 1.5rem;
         background: linear-gradient(
           135deg,
           rgba(43, 226, 180, 0.1),
@@ -551,20 +551,20 @@
       }
 
       .cta-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
         font-weight: 700;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
       }
 
       .cta-desc {
         color: var(--text-secondary);
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
       }
 
       @media (max-width: 900px) {
         .home-hero-inner {
           grid-template-columns: 1fr;
-          gap: 3rem;
+          gap: 2rem;
           text-align: center;
         }
 
@@ -582,19 +582,157 @@
         }
 
         .hero-visual {
-          max-width: 400px;
+          max-width: 380px;
           margin: 0 auto;
         }
       }
 
       @media (max-width: 640px) {
-        .hero-stats {
+        .home-hero {
+          min-height: auto;
+          padding: 2rem 1rem;
+        }
+
+        .home-hero-inner {
+          gap: 1.5rem;
+        }
+
+        .hero-badge {
+          padding: 0.4rem 0.875rem;
+          font-size: 0.75rem;
+          margin-bottom: 1rem;
+        }
+
+        .hero-title {
+          font-size: 1.75rem;
+          margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+          font-size: 1rem;
+          margin-bottom: 1.25rem;
+        }
+
+        .hero-buttons {
           flex-direction: column;
-          gap: 1rem;
+          gap: 0.75rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-buttons .btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .hero-stats {
+          flex-direction: row;
+          gap: 0.75rem;
+          width: 100%;
         }
 
         .hero-stat {
-          width: 100%;
+          flex: 1;
+          padding: 0.75rem;
+          text-align: center;
+        }
+
+        .hero-stat-value {
+          font-size: 1.25rem;
+        }
+
+        .hero-visual {
+          max-width: 100%;
+          gap: 0.75rem;
+        }
+
+        .preview-card {
+          padding: 1rem;
+        }
+
+        .preview-header {
+          margin-bottom: 0.75rem;
+          gap: 0.5rem;
+        }
+
+        .preview-icon {
+          width: 32px;
+          height: 32px;
+          font-size: 0.875rem;
+        }
+
+        .preview-title {
+          font-size: 0.8rem;
+        }
+
+        .preview-tag {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.7rem;
+        }
+
+        .features-section,
+        .tools-section,
+        .cta-section {
+          padding: 2rem 1rem;
+        }
+
+        .features-grid {
+          gap: 0.875rem;
+        }
+
+        .feature-card {
+          padding: 1.25rem;
+        }
+
+        .feature-icon {
+          width: 48px;
+          height: 48px;
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+        }
+
+        .feature-title {
+          font-size: 1rem;
+        }
+
+        .feature-desc {
+          font-size: 0.85rem;
+        }
+
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 0.875rem;
+        }
+
+        .tool-preview {
+          padding: 1.25rem;
+        }
+
+        .tool-preview-header {
+          gap: 0.75rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .tool-preview-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+
+        .tool-preview-info h3 {
+          font-size: 1rem;
+        }
+
+        .tool-preview p {
+          font-size: 0.85rem;
+          margin-bottom: 0.875rem;
+        }
+
+        .cta-title {
+          font-size: 1.5rem;
+        }
+
+        .cta-desc {
+          font-size: 0.95rem;
         }
       }
     </style>
