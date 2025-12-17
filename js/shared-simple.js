@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Update DOM classes
       menuBtn.classList.toggle("active", isMenuOpen);
-      mobileNav.classList.toggle("open", isMenuOpen);
+      mobileNav.classList.toggle("active", isMenuOpen);
       document.body.classList.toggle("menu-open", isMenuOpen);
 
       if (mobileOverlay) {
