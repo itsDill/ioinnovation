@@ -3,28 +3,28 @@
 
 /* CSS Reset and Variables */
 :root {
-  /* Colors - Dark theme primary */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: rgba(10, 10, 10, 0.95);
-  --bg-card: rgba(25, 25, 25, 0.8);
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
+  /* Colors - Light theme primary (default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: rgba(255, 255, 255, 0.95);
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(0, 0, 0, 0.02);
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
   --accent-primary: #2be2b4;
   --accent-secondary: #00d475;
   --accent-tertiary: #1abc9c;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow-color: rgba(43, 226, 180, 0.15);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(43, 226, 180, 0.1);
 
-  /* Light theme colors */
-  --light-bg-primary: #ffffff;
-  --light-bg-secondary: rgba(255, 255, 255, 0.95);
-  --light-bg-card: rgba(255, 255, 255, 0.9);
-  --light-glass-bg: rgba(0, 0, 0, 0.02);
-  --light-text-primary: #1a1a1a;
-  --light-text-secondary: #666666;
-  --light-border-color: rgba(0, 0, 0, 0.1);
-  --light-shadow-color: rgba(43, 226, 180, 0.1);
+  /* Dark theme colors */
+  --dark-bg-primary: #0a0a0a;
+  --dark-bg-secondary: rgba(10, 10, 10, 0.95);
+  --dark-bg-card: rgba(25, 25, 25, 0.8);
+  --dark-glass-bg: rgba(255, 255, 255, 0.05);
+  --dark-text-primary: #ffffff;
+  --dark-text-secondary: #b3b3b3;
+  --dark-border-color: rgba(255, 255, 255, 0.1);
+  --dark-shadow-color: rgba(43, 226, 180, 0.15);
 
   /* Layout */
   --header-height: 70px;
@@ -47,16 +47,16 @@
   --font-weight-extrabold: 800;
 }
 
-/* Light theme overrides */
-[data-theme="light"] {
-  --bg-primary: var(--light-bg-primary);
-  --bg-secondary: var(--light-bg-secondary);
-  --bg-card: var(--light-bg-card);
-  --glass-bg: var(--light-glass-bg);
-  --text-primary: var(--light-text-primary);
-  --text-secondary: var(--light-text-secondary);
-  --border-color: var(--light-border-color);
-  --shadow-color: var(--light-shadow-color);
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-card: var(--dark-bg-card);
+  --glass-bg: var(--dark-glass-bg);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border-color);
+  --shadow-color: var(--dark-shadow-color);
 }
 
 /* CSS Reset */
@@ -804,12 +804,12 @@ a:hover {
 
 /* High contrast mode */
 @media (prefers-contrast: high) {
-  :root {
+  [data-theme="dark"] {
     --border-color: rgba(255, 255, 255, 0.3);
     --shadow-color: rgba(43, 226, 180, 0.3);
   }
 
-  [data-theme="light"] {
+  :root {
     --border-color: rgba(0, 0, 0, 0.3);
     --shadow-color: rgba(43, 226, 180, 0.2);
   }

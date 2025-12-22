@@ -289,6 +289,9 @@
       .tool-icon.red {
         background: linear-gradient(135deg, #ef4444, #f97316);
       }
+      .tool-icon.orange {
+        background: linear-gradient(135deg, #f97316, #fb923c);
+      }
 
       .tool-meta {
         flex: 1;
@@ -522,6 +525,117 @@
         }
 
         .tools-section-title {
+          font-size: 1rem;
+        }
+      }
+
+      /* CTA Section */
+      .cta-section {
+        max-width: var(--max-width);
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .cta-content {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 3rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          ellipse 80% 50% at 50% 50%,
+          rgba(43, 226, 180, 0.08),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-desc {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.5rem;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: #000;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(43, 226, 180, 0.3);
+      }
+
+      .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1.0625rem;
+      }
+
+      @media (max-width: 640px) {
+        .cta-section {
+          margin: 2rem auto;
+          padding: 0 1rem;
+        }
+
+        .cta-content {
+          padding: 2rem 1.5rem;
+        }
+
+        .cta-title {
+          font-size: 1.5rem;
+        }
+
+        .cta-desc {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .btn-lg {
+          padding: 0.875rem 1.5rem;
           font-size: 1rem;
         }
       }
@@ -761,6 +875,44 @@
             </a>
           </article>
 
+          <!-- AI Predictions -->
+          <article class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon orange"><i class="fas fa-brain"></i></div>
+              <div class="tool-meta">
+                <h3 class="tool-name">AI Predictions</h3>
+                <span class="tool-badge coming">Coming Soon</span>
+              </div>
+            </div>
+            <p class="tool-desc">
+              Machine learning-powered market predictions. Analyze patterns,
+              sentiment, and technical indicators for informed forecasts.
+            </p>
+            <div class="tool-preview">
+              <div class="preview-items">
+                <div class="preview-item">
+                  <span class="preview-item-label">Accuracy</span>
+                  <span class="preview-item-value">73.2%</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-item-label">Signals</span>
+                  <span class="preview-item-value">1,247</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-item-label">Models</span>
+                  <span class="preview-item-value">8 Active</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-item-label">Win Rate</span>
+                  <span class="preview-item-value">68.5%</span>
+                </div>
+              </div>
+            </div>
+            <button class="tool-btn disabled" disabled>
+              <i class="fas fa-clock"></i> Coming Soon
+            </button>
+          </article>
+
           <!-- Supply Chain -->
           <article class="tool-card">
             <div class="tool-header">
@@ -833,7 +985,6 @@
           <ul>
             <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/our-team.html">Team</a></li>
           </ul>
         </div>
 

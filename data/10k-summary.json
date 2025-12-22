@@ -1,0 +1,198 @@
+{
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "cik": "0000320193",
+      "filings": [
+        {
+          "fiscalYear": 2024,
+          "filingDate": "2024-11-01",
+          "accessionNumber": "0000320193-24-000123",
+          "summary": {
+            "businessOverview": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company sells iPhone, Mac, iPad, and Wearables, Home and Accessories. Apple services include advertising, AppleCare, cloud services, digital content, and payment services.",
+            "keyMetrics": {
+              "revenue": "394328000000",
+              "netIncome": "96995000000",
+              "eps": "6.13",
+              "grossMargin": "46.2%",
+              "operatingMargin": "30.7%",
+              "totalAssets": "364980000000",
+              "totalEquity": "74100000000",
+              "freeCashFlow": "99584000000"
+            },
+            "riskFactors": [
+              "Dependence on iPhone sales for majority of revenue",
+              "Intense competition in consumer electronics",
+              "Supply chain concentration and geopolitical risks",
+              "Regulatory scrutiny regarding App Store policies",
+              "Data privacy and security concerns"
+            ],
+            "businessSegments": [
+              {
+                "name": "iPhone",
+                "revenue": "200583000000",
+                "percentOfTotal": 50.9
+              },
+              {
+                "name": "Services",
+                "revenue": "85200000000",
+                "percentOfTotal": 21.6
+              },
+              {
+                "name": "Mac",
+                "revenue": "29357000000",
+                "percentOfTotal": 7.4
+              },
+              {
+                "name": "iPad",
+                "revenue": "28300000000",
+                "percentOfTotal": 7.2
+              },
+              {
+                "name": "Wearables, Home and Accessories",
+                "revenue": "39845000000",
+                "percentOfTotal": 10.1
+              }
+            ],
+            "growthOpportunities": [
+              "Expansion of Services segment with higher margins",
+              "AI and machine learning integration across products",
+              "Growth in India and emerging markets",
+              "Wearables and health technology advancement",
+              "Augmented reality and Vision Pro ecosystem"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla, Inc.",
+      "cik": "0001318605",
+      "filings": [
+        {
+          "fiscalYear": 2024,
+          "filingDate": "2025-02-15",
+          "accessionNumber": "0001318605-25-000012",
+          "summary": {
+            "businessOverview": "Tesla designs, develops, manufactures, and sells electric vehicles and energy generation and storage systems. The company operates in two segments: Automotive and Energy Generation and Storage.",
+            "keyMetrics": {
+              "revenue": "96773000000",
+              "netIncome": "14974000000",
+              "eps": "4.73",
+              "grossMargin": "18.2%",
+              "operatingMargin": "9.2%",
+              "totalAssets": "106618000000",
+              "totalEquity": "62634000000",
+              "freeCashFlow": "4363000000"
+            },
+            "riskFactors": [
+              "Production challenges and supply chain constraints",
+              "Intense competition from traditional and new EV makers",
+              "Dependence on government incentives and regulations",
+              "Elon Musk's public statements and Twitter activities",
+              "Autonomous driving technology liability and regulation"
+            ],
+            "businessSegments": [
+              {
+                "name": "Automotive Sales",
+                "revenue": "82419000000",
+                "percentOfTotal": 85.2
+              },
+              {
+                "name": "Energy Generation and Storage",
+                "revenue": "6035000000",
+                "percentOfTotal": 6.2
+              },
+              {
+                "name": "Services and Other",
+                "revenue": "8319000000",
+                "percentOfTotal": 8.6
+              }
+            ],
+            "growthOpportunities": [
+              "Cybertruck production ramp and market adoption",
+              "Full Self-Driving technology monetization",
+              "Energy storage business expansion",
+              "Lower-cost vehicle platform development",
+              "Global manufacturing expansion in Mexico and other regions"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "cik": "0000789019",
+      "filings": [
+        {
+          "fiscalYear": 2024,
+          "filingDate": "2024-07-30",
+          "accessionNumber": "0000789019-24-000078",
+          "summary": {
+            "businessOverview": "Microsoft develops, licenses, and supports software, services, devices, and solutions worldwide. The company operates through Productivity and Business Processes, Intelligent Cloud, and More Personal Computing segments.",
+            "keyMetrics": {
+              "revenue": "245122000000",
+              "netIncome": "88136000000",
+              "eps": "11.86",
+              "grossMargin": "69.8%",
+              "operatingMargin": "44.0%",
+              "totalAssets": "512163000000",
+              "totalEquity": "238268000000",
+              "freeCashFlow": "74076000000"
+            },
+            "riskFactors": [
+              "Intense competition in cloud services from AWS and Google",
+              "Cybersecurity threats and data breaches",
+              "Regulatory scrutiny and antitrust concerns",
+              "Dependence on enterprise IT spending cycles",
+              "AI development costs and competition"
+            ],
+            "businessSegments": [
+              {
+                "name": "Intelligent Cloud",
+                "revenue": "87907000000",
+                "percentOfTotal": 35.9
+              },
+              {
+                "name": "Productivity and Business Processes",
+                "revenue": "69274000000",
+                "percentOfTotal": 28.3
+              },
+              {
+                "name": "More Personal Computing",
+                "revenue": "59655000000",
+                "percentOfTotal": 24.3
+              }
+            ],
+            "growthOpportunities": [
+              "Azure cloud growth and AI integration",
+              "Microsoft 365 Copilot adoption",
+              "Gaming expansion with Activision Blizzard acquisition",
+              "LinkedIn revenue growth",
+              "Enterprise AI solutions and partnerships"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "analysisTemplate": {
+    "businessOverview": "Brief description of company operations and main products/services",
+    "keyMetrics": {
+      "revenue": "Total revenue",
+      "netIncome": "Net income",
+      "eps": "Earnings per share",
+      "grossMargin": "Gross profit margin percentage",
+      "operatingMargin": "Operating margin percentage",
+      "totalAssets": "Total assets",
+      "totalEquity": "Shareholder equity",
+      "freeCashFlow": "Free cash flow"
+    },
+    "riskFactors": "Array of key risk factors",
+    "businessSegments": "Array of business segments with revenue breakdown",
+    "growthOpportunities": "Array of potential growth drivers"
+  }
+}

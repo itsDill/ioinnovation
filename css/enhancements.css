@@ -279,15 +279,17 @@ input:not(:placeholder-shown) + .input-label {
   left: 50%;
   transform: translateX(-50%) translateY(-8px);
   padding: 0.5rem 0.75rem;
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-size: 0.875rem;
   white-space: nowrap;
   border-radius: 6px;
+  border: 1px solid var(--border-color);
   opacity: 0;
   pointer-events: none;
   transition: all 0.2s ease;
   z-index: 1000;
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 [data-tooltip]::after {
@@ -297,7 +299,7 @@ input:not(:placeholder-shown) + .input-label {
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.9);
+  border-top-color: var(--bg-card);
   opacity: 0;
   transition: all 0.2s ease;
 }

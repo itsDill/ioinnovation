@@ -1,0 +1,285 @@
+{
+  "events": [
+    {
+      "id": "fomc_2025_12",
+      "title": "FOMC Interest Rate Decision",
+      "date": "2025-12-18",
+      "time": "14:00",
+      "timezone": "EST",
+      "country": "US",
+      "category": "central-bank",
+      "importance": "high",
+      "description": "Federal Open Market Committee announces interest rate decision and releases economic projections",
+      "impact": "High volatility expected across all markets",
+      "consensus": "4.50%",
+      "previous": "4.75%"
+    },
+    {
+      "id": "cpi_2026_01",
+      "title": "US Consumer Price Index (CPI)",
+      "date": "2026-01-15",
+      "time": "08:30",
+      "timezone": "EST",
+      "country": "US",
+      "category": "inflation",
+      "importance": "high",
+      "description": "Monthly change in the price of goods and services purchased by consumers",
+      "impact": "Major market mover, affects Fed policy expectations",
+      "consensus": "2.8%",
+      "previous": "2.7%"
+    },
+    {
+      "id": "nfp_2026_01",
+      "title": "Non-Farm Payrolls",
+      "date": "2026-01-10",
+      "time": "08:30",
+      "timezone": "EST",
+      "country": "US",
+      "category": "employment",
+      "importance": "high",
+      "description": "Change in the number of employed people during the previous month",
+      "impact": "Major market mover, indicates labor market strength",
+      "consensus": "185K",
+      "previous": "227K"
+    },
+    {
+      "id": "gdp_q4_2025",
+      "title": "US GDP Growth Rate (Preliminary)",
+      "date": "2026-01-30",
+      "time": "08:30",
+      "timezone": "EST",
+      "country": "US",
+      "category": "growth",
+      "importance": "high",
+      "description": "Annualized change in the inflation-adjusted value of all goods and services",
+      "impact": "Key indicator of economic health",
+      "consensus": "2.8%",
+      "previous": "3.1%"
+    },
+    {
+      "id": "ecb_rate_2026_01",
+      "title": "ECB Interest Rate Decision",
+      "date": "2026-01-23",
+      "time": "13:45",
+      "timezone": "CET",
+      "country": "EU",
+      "category": "central-bank",
+      "importance": "high",
+      "description": "European Central Bank announces monetary policy decision",
+      "impact": "Affects Euro and European markets",
+      "consensus": "3.00%",
+      "previous": "3.25%"
+    },
+    {
+      "id": "retail_sales_2026_01",
+      "title": "US Retail Sales",
+      "date": "2026-01-17",
+      "time": "08:30",
+      "timezone": "EST",
+      "country": "US",
+      "category": "consumer",
+      "importance": "medium",
+      "description": "Change in the total value of sales at the retail level",
+      "impact": "Indicates consumer spending strength",
+      "consensus": "0.6%",
+      "previous": "0.7%"
+    },
+    {
+      "id": "ppi_2026_01",
+      "title": "Producer Price Index (PPI)",
+      "date": "2026-01-16",
+      "time": "08:30",
+      "timezone": "EST",
+      "country": "US",
+      "category": "inflation",
+      "importance": "medium",
+      "description": "Change in the price of goods sold by manufacturers",
+      "impact": "Leading indicator of consumer inflation",
+      "consensus": "2.5%",
+      "previous": "2.4%"
+    },
+    {
+      "id": "boe_rate_2026_02",
+      "title": "Bank of England Rate Decision",
+      "date": "2026-02-06",
+      "time": "12:00",
+      "timezone": "GMT",
+      "country": "UK",
+      "category": "central-bank",
+      "importance": "high",
+      "description": "Bank of England announces interest rate decision",
+      "impact": "Affects GBP and UK markets",
+      "consensus": "4.50%",
+      "previous": "4.75%"
+    },
+    {
+      "id": "china_pmi_2026_01",
+      "title": "China Manufacturing PMI",
+      "date": "2026-01-31",
+      "time": "09:00",
+      "timezone": "CST",
+      "country": "CN",
+      "category": "manufacturing",
+      "importance": "medium",
+      "description": "Level of purchasing managers' activity in the manufacturing sector",
+      "impact": "Key indicator of Chinese economic activity",
+      "consensus": "50.2",
+      "previous": "50.3"
+    },
+    {
+      "id": "ism_manufacturing_2026_01",
+      "title": "ISM Manufacturing PMI",
+      "date": "2026-01-03",
+      "time": "10:00",
+      "timezone": "EST",
+      "country": "US",
+      "category": "manufacturing",
+      "importance": "medium",
+      "description": "Level of purchasing managers' activity in the manufacturing sector",
+      "impact": "Indicates manufacturing sector health",
+      "consensus": "48.8",
+      "previous": "48.4"
+    }
+  ],
+  "earnings": [
+    {
+      "id": "aapl_q1_2026",
+      "ticker": "AAPL",
+      "company": "Apple Inc.",
+      "date": "2026-01-30",
+      "time": "16:30",
+      "timezone": "EST",
+      "quarter": "Q1 2026",
+      "epsConsensus": "2.18",
+      "revenueConsensus": "123500000000",
+      "importance": "high"
+    },
+    {
+      "id": "msft_q2_2026",
+      "ticker": "MSFT",
+      "company": "Microsoft Corporation",
+      "date": "2026-01-23",
+      "time": "16:00",
+      "timezone": "EST",
+      "quarter": "Q2 2026",
+      "epsConsensus": "3.12",
+      "revenueConsensus": "64200000000",
+      "importance": "high"
+    },
+    {
+      "id": "tsla_q4_2025",
+      "ticker": "TSLA",
+      "company": "Tesla Inc.",
+      "date": "2026-01-22",
+      "time": "17:00",
+      "timezone": "EST",
+      "quarter": "Q4 2025",
+      "epsConsensus": "0.73",
+      "revenueConsensus": "26100000000",
+      "importance": "high"
+    },
+    {
+      "id": "googl_q4_2025",
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc.",
+      "date": "2026-02-04",
+      "time": "16:00",
+      "timezone": "EST",
+      "quarter": "Q4 2025",
+      "epsConsensus": "1.89",
+      "revenueConsensus": "89800000000",
+      "importance": "high"
+    },
+    {
+      "id": "amzn_q4_2025",
+      "ticker": "AMZN",
+      "company": "Amazon.com Inc.",
+      "date": "2026-02-06",
+      "time": "16:00",
+      "timezone": "EST",
+      "quarter": "Q4 2025",
+      "epsConsensus": "1.35",
+      "revenueConsensus": "181500000000",
+      "importance": "high"
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Events",
+      "icon": "calendar"
+    },
+    {
+      "id": "central-bank",
+      "name": "Central Bank",
+      "icon": "landmark"
+    },
+    {
+      "id": "inflation",
+      "name": "Inflation",
+      "icon": "arrow-trend-up"
+    },
+    {
+      "id": "employment",
+      "name": "Employment",
+      "icon": "briefcase"
+    },
+    {
+      "id": "growth",
+      "name": "GDP & Growth",
+      "icon": "chart-line"
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing",
+      "icon": "industry"
+    },
+    {
+      "id": "consumer",
+      "name": "Consumer",
+      "icon": "shopping-cart"
+    },
+    {
+      "id": "earnings",
+      "name": "Earnings",
+      "icon": "building"
+    }
+  ],
+  "timezones": [
+    {
+      "id": "EST",
+      "name": "Eastern Time (EST)",
+      "offset": -5
+    },
+    {
+      "id": "CST",
+      "name": "Central Time (CST)",
+      "offset": -6
+    },
+    {
+      "id": "PST",
+      "name": "Pacific Time (PST)",
+      "offset": -8
+    },
+    {
+      "id": "GMT",
+      "name": "Greenwich Mean Time (GMT)",
+      "offset": 0
+    },
+    {
+      "id": "CET",
+      "name": "Central European Time (CET)",
+      "offset": 1
+    },
+    {
+      "id": "JST",
+      "name": "Japan Standard Time (JST)",
+      "offset": 9
+    },
+    {
+      "id": "AEST",
+      "name": "Australian Eastern Time (AEST)",
+      "offset": 10
+    }
+  ]
+}

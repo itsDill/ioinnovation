@@ -12,84 +12,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Enable Auto Ads -->
-    <script>
-      window.addEventListener("load", function () {
-        (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-2456627863532019",
-          enable_page_level_ads: true,
-          overlays: { bottom: true },
-        });
-      });
-    </script>
-
-    <!-- Enhanced SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Visualize institutional investor holdings and track what major funds are buying or selling. Interactive 13F filings analysis tool."
-    />
-    <meta name="author" content="IO Innovate" />
-    <meta
-      name="keywords"
-      content="13F filings, institutional holdings, hedge fund tracker, investment analysis, SEC filings, portfolio holdings"
-    />
-    <meta
-      name="robots"
-      content="index, follow, max-snippet:-1, max-image-preview:large"
-    />
-    <link
-      rel="canonical"
-      href="https://ioinnovationfund.com/tools/13f-visualizer.html"
-    />
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "13F Visualizer",
-        "description": "Visualize institutional investor holdings and track major fund positions.",
-        "url": "https://ioinnovationfund.com/tools/13f-visualizer.html",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Any",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "featureList": [
-          "Portfolio Visualization",
-          "Holdings Tracking",
-          "Institutional Analysis",
-          "Position Changes"
-        ]
-      }
-    </script>
-
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="13F Visualizer | Track Institutional Holdings"
-    />
-    <meta
-      property="og:description"
-      content="Visualize institutional investor holdings and track what major funds are buying or selling."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://ioinnovationfund.com/tools/13f-visualizer.html"
-    />
-    <meta property="og:site_name" content="IO Innovate" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="13F Visualizer | IO Innovate" />
-    <meta
-      name="twitter:description"
-      content="Track what major institutional investors are buying and selling."
-    />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -102,9 +24,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Chart.js for visualizations -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap@2.3.0/dist/chartjs-chart-treemap.min.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/site.css?v=2025121602" />
@@ -113,39 +34,20 @@
     <script src="../js/theme-init.js"></script>
 
     <style>
-      /* Page Container */
       .page-container {
         max-width: 1400px;
         margin: 0 auto;
         padding: 2rem;
       }
 
-      /* Hero Section */
       .hero {
         text-align: center;
         padding: 4rem 2rem 3rem;
-        position: relative;
         background: radial-gradient(
           circle at center,
           rgba(43, 226, 180, 0.08) 0%,
           transparent 60%
         );
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1.2rem;
-        background: var(--glass-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 50px;
-        font-size: 0.9rem;
-        color: var(--accent-primary);
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 20px rgba(43, 226, 180, 0.1);
       }
 
       .hero h1 {
@@ -155,28 +57,13 @@
         background: linear-gradient(
           135deg,
           var(--accent-primary),
-          var(--accent-secondary),
-          var(--accent-tertiary)
+          var(--accent-secondary)
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        filter: drop-shadow(0 0 30px rgba(43, 226, 180, 0.3));
       }
 
-      .hero-description {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        margin-bottom: 2rem;
-        line-height: 1.7;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Main Tool Card */
       .tool-card {
         background: var(--bg-card);
         border: 2px solid var(--accent-primary);
@@ -184,13 +71,6 @@
         padding: 3rem;
         margin-bottom: 3rem;
         box-shadow: 0 10px 40px rgba(43, 226, 180, 0.15);
-      }
-
-      .tool-interface {
-        background: var(--glass-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 2rem;
       }
 
       .form-group {
@@ -202,10 +82,8 @@
         font-weight: 600;
         color: var(--text-primary);
         margin-bottom: 0.75rem;
-        font-size: 1rem;
       }
 
-      .form-input,
       .form-select {
         width: 100%;
         padding: 1rem;
@@ -213,16 +91,7 @@
         border: 2px solid var(--border-color);
         border-radius: 12px;
         color: var(--text-primary);
-        font-family: inherit;
         font-size: 1.1rem;
-        transition: all var(--transition-normal);
-      }
-
-      .form-input:focus,
-      .form-select:focus {
-        outline: none;
-        border-color: var(--accent-primary);
-        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.1);
       }
 
       .btn-action {
@@ -238,191 +107,15 @@
         font-weight: 700;
         cursor: pointer;
         font-size: 1.1rem;
-        transition: all var(--transition-normal);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
       }
 
-      .btn-action:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(43, 226, 180, 0.3);
+      .results-container {
+        margin-top: 2rem;
+        display: none;
       }
 
-      /* Feature Grid */
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0;
-      }
-
-      .feature-card {
-        background: var(--glass-bg);
-        padding: 1.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-      }
-
-      .feature-card:hover {
-        border-color: var(--accent-primary);
-        box-shadow: 0 4px 12px rgba(43, 226, 180, 0.15);
-      }
-
-      .feature-icon {
-        color: var(--accent-primary);
-        font-size: 2rem;
-        margin-bottom: 1rem;
+      .results-container.active {
         display: block;
-      }
-
-      .feature-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--text-primary);
-      }
-
-      .feature-description {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        line-height: 1.6;
-      }
-
-      /* Visualization Area */
-      .viz-container {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 2rem;
-        margin-top: 2rem;
-        min-height: 400px;
-      }
-
-      .viz-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 350px;
-        color: var(--text-secondary);
-        text-align: center;
-      }
-
-      .viz-placeholder i {
-        font-size: 5rem;
-        color: var(--accent-primary);
-        margin-bottom: 1.5rem;
-        opacity: 0.5;
-      }
-
-      /* Quick Access Buttons */
-      .quick-access {
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        margin-top: 1.5rem;
-      }
-
-      .quick-btn {
-        padding: 0.6rem 1.2rem;
-        background: var(--glass-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 20px;
-        color: var(--text-primary);
-        cursor: pointer;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        font-size: 0.9rem;
-      }
-
-      .quick-btn:hover {
-        border-color: var(--accent-primary);
-        background: rgba(43, 226, 180, 0.1);
-        transform: translateY(-2px);
-      }
-
-      /* Holdings Table */
-      .holdings-table-container {
-        overflow-x: auto;
-        margin-top: 2rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-      }
-
-      .holdings-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: var(--bg-card);
-      }
-
-      .holdings-table th {
-        background: var(--glass-bg);
-        padding: 1rem;
-        text-align: left;
-        font-weight: 600;
-        color: var(--text-primary);
-        border-bottom: 2px solid var(--border-color);
-        cursor: pointer;
-        user-select: none;
-      }
-
-      .holdings-table th:hover {
-        background: rgba(43, 226, 180, 0.05);
-      }
-
-      .holdings-table td {
-        padding: 1rem;
-        border-bottom: 1px solid var(--border-color);
-        color: var(--text-primary);
-      }
-
-      .holdings-table tr:hover {
-        background: var(--glass-bg);
-      }
-
-      .positive-change {
-        color: #16c784;
-        font-weight: 600;
-      }
-
-      .negative-change {
-        color: #ea3943;
-        font-weight: 600;
-      }
-
-      .chart-container {
-        position: relative;
-        margin: 2rem 0;
-        padding: 1.5rem;
-        background: var(--bg-card);
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-      }
-
-      .chart-tabs {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-      }
-
-      .chart-tab {
-        padding: 0.6rem 1.2rem;
-        background: var(--glass-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        color: var(--text-primary);
-        cursor: pointer;
-        font-weight: 500;
-        transition: all 0.3s ease;
-      }
-
-      .chart-tab.active {
-        background: var(--accent-primary);
-        color: white;
-        border-color: var(--accent-primary);
       }
 
       .stats-grid {
@@ -451,192 +144,56 @@
         color: var(--accent-primary);
       }
 
-      .filter-section {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin: 1.5rem 0;
-        padding: 1.5rem;
-        background: var(--glass-bg);
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-      }
-
-      .filter-input {
-        flex: 1;
-        min-width: 200px;
-        padding: 0.75rem;
+      .holdings-table {
+        width: 100%;
+        border-collapse: collapse;
         background: var(--bg-card);
-        border: 2px solid var(--border-color);
-        border-radius: 8px;
-        color: var(--text-primary);
-        font-family: inherit;
-      }
-
-      /* Filing Calendar Styles */
-      .filing-calendar {
-        background: var(--glass-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 2.5rem;
-        margin-bottom: 3rem;
-      }
-
-      .calendar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .calendar-title {
-        color: var(--accent-primary);
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .calendar-grid {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .filing-item {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
         border-radius: 12px;
-        padding: 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: all 0.3s ease;
-        gap: 1rem;
-        flex-wrap: wrap;
+        overflow: hidden;
       }
 
-      .filing-item:hover {
-        border-color: var(--accent-primary);
-        transform: translateX(5px);
-        box-shadow: 0 4px 20px rgba(43, 226, 180, 0.15);
-      }
-
-      .filing-info {
-        flex: 1;
-        min-width: 200px;
-      }
-
-      .filing-institution {
-        font-size: 1.1rem;
+      .holdings-table th {
+        background: var(--glass-bg);
+        padding: 1rem;
+        text-align: left;
         font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 0.5rem;
       }
 
-      .filing-details {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .filing-date {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: var(--glass-bg);
-        border-radius: 8px;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-
-      .filing-date.upcoming {
-        color: var(--accent-primary);
-        border: 1px solid var(--accent-primary);
-      }
-
-      .filing-date.recent {
-        color: #16c784;
-        border: 1px solid #16c784;
-      }
-
-      .filing-date.late {
-        color: #ffa500;
-        border: 1px solid #ffa500;
-      }
-
-      .calendar-legend {
-        display: flex;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-        margin-top: 2rem;
-        padding-top: 1.5rem;
+      .holdings-table td {
+        padding: 1rem;
         border-top: 1px solid var(--border-color);
+        color: var(--text-primary);
       }
 
-      .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--text-secondary);
+      .positive {
+        color: #16c784;
       }
 
-      .legend-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
+      .negative {
+        color: #ea3943;
       }
 
       @media (max-width: 768px) {
         .page-container {
           padding: 1rem;
         }
-
+        .hero {
+          padding: 2rem 1rem 1.5rem;
+        }
         .tool-card {
-          padding: 1.5rem;
-        }
-
-        .tool-interface {
-          padding: 1.5rem;
-        }
-
-        .feature-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .holdings-table {
-          font-size: 0.85rem;
-        }
-
-        .holdings-table th,
-        .holdings-table td {
-          padding: 0.75rem 0.5rem;
-        }
-
-        .chart-container {
           padding: 1rem;
         }
-
-        .filter-section {
-          flex-direction: column;
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- Header -->
     <header class="header">
-      <nav class="nav" role="navigation" aria-label="Main navigation">
+      <nav class="nav">
         <a href="/" class="logo">IO Innovate</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
@@ -646,2322 +203,175 @@
           <li><a href="/about.html">About</a></li>
         </ul>
         <div class="nav-actions">
-          <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Toggle theme"
-          >
+          <button class="theme-toggle" id="themeToggle">
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
-          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <button class="mobile-menu-btn" id="menuBtn">
             <span></span><span></span><span></span>
           </button>
         </div>
       </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-      <!-- Hero Section -->
       <section class="hero">
-        <div class="hero-badge">
-          <i class="fas fa-chart-network"></i>
-          Institutional Holdings Tracker
-        </div>
         <h1>13F Visualizer</h1>
-        <p class="hero-description">
-          Visualize institutional investor holdings and track what major hedge
-          funds and investment firms are buying or selling. Analyze portfolio
-          changes, position sizes, and investment trends from SEC 13F filings.
-        </p>
+        <p>Track institutional investor holdings and portfolio changes</p>
       </section>
 
-      <!-- Main Tool Section -->
       <div class="page-container">
-        <!-- Features Grid -->
-        <div class="feature-grid">
-          <div class="feature-card">
-            <i class="fas fa-chart-pie feature-icon"></i>
-            <h3 class="feature-title">Portfolio Visualization</h3>
-            <p class="feature-description">
-              Interactive treemap and charts showing institutional portfolio
-              allocations
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-exchange-alt feature-icon"></i>
-            <h3 class="feature-title">Position Changes</h3>
-            <p class="feature-description">
-              Track quarter-over-quarter changes in holdings and new positions
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-building feature-icon"></i>
-            <h3 class="feature-title">Top Institutions</h3>
-            <p class="feature-description">
-              Browse holdings from major funds like Berkshire, Bridgewater, and
-              more
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-search-dollar feature-icon"></i>
-            <h3 class="feature-title">Deep Analysis</h3>
-            <p class="feature-description">
-              Compare holdings, identify trends, and discover investment
-              insights
-            </p>
-          </div>
-        </div>
-
-        <!-- Main Tool Card -->
         <div class="tool-card">
-          <div class="tool-interface">
-            <div class="form-group">
-              <label class="form-label">
-                <i class="fas fa-building"></i> Select Institution or Fund
-              </label>
-              <select id="institutionSelect" class="form-select">
-                <option value="">Choose an institution...</option>
-                <option value="berkshire">
-                  Berkshire Hathaway (Warren Buffett)
-                </option>
-                <option value="bridgewater">Bridgewater Associates</option>
-                <option value="vanguard">Vanguard Group</option>
-                <option value="blackrock">BlackRock</option>
-                <option value="ark">ARK Investment Management</option>
-                <option value="renaissance">Renaissance Technologies</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">
-                <i class="fas fa-calendar-alt"></i> Filing Period
-              </label>
-              <select id="periodSelect" class="form-select">
-                <option value="2025q3">Q3 2025</option>
-                <option value="2025q2">Q2 2025</option>
-                <option value="2025q1">Q1 2025</option>
-                <option value="2024q4">Q4 2024</option>
-              </select>
-            </div>
-
-            <button class="btn-action" onclick="loadHoldings()">
-              <i class="fas fa-chart-network"></i> Load Holdings
-            </button>
-
-            <!-- Quick Access -->
-            <div style="margin-top: 1.5rem">
-              <p
-                style="
-                  font-size: 0.9rem;
-                  color: var(--text-secondary);
-                  margin-bottom: 0.75rem;
-                "
-              >
-                <i class="fas fa-star"></i> Popular institutions:
-              </p>
-              <div class="quick-access">
-                <button onclick="quickLoad('berkshire')" class="quick-btn">
-                  Berkshire Hathaway
-                </button>
-                <button onclick="quickLoad('bridgewater')" class="quick-btn">
-                  Bridgewater
-                </button>
-                <button onclick="quickLoad('vanguard')" class="quick-btn">
-                  Vanguard
-                </button>
-                <button onclick="quickLoad('ark')" class="quick-btn">
-                  ARK Invest
-                </button>
-                <button onclick="quickLoad('blackrock')" class="quick-btn">
-                  BlackRock
-                </button>
-              </div>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Select Institution</label>
+            <select id="institutionSelect" class="form-select">
+              <option value="">Choose an institution...</option>
+            </select>
           </div>
 
-          <!-- Visualization Area -->
-          <div class="viz-container" id="vizArea">
-            <div class="viz-placeholder">
-              <i class="fas fa-chart-network"></i>
-              <h3 style="margin-bottom: 0.5rem; color: var(--text-primary)">
-                Select an institution to visualize holdings
-              </h3>
-              <p style="max-width: 500px">
-                Choose an institution and filing period above to see an
-                interactive visualization of their portfolio holdings, top
-                positions, and recent changes.
-              </p>
-            </div>
-          </div>
-        </div>
+          <button class="btn-action" onclick="loadHoldings()">
+            <i class="fas fa-chart-network"></i> Load Holdings
+          </button>
 
-        <!-- AdSense Ad Unit -->
-        <div style="margin-bottom: 3rem; text-align: center">
-          <ins
-            class="adsbygoogle"
-            style="display: block"
-            data-ad-client="ca-pub-2456627863532019"
-            data-ad-slot="1330942310"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          ></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
+          <div id="resultsContainer" class="results-container">
+            <h3
+              id="institutionName"
+              style="color: var(--accent-primary); margin: 2rem 0 1rem"
+            ></h3>
 
-        <!-- 13F Filing Calendar -->
-        <div class="filing-calendar">
-          <div class="calendar-header">
-            <h3 class="calendar-title">
-              <i class="fas fa-calendar-alt"></i> 13F Filing Calendar
-            </h3>
-            <p
-              style="color: var(--text-secondary); font-size: 0.9rem; margin: 0"
-            >
-              <i class="fas fa-info-circle"></i> Q4 2025 filings due by February
-              14, 2026
-            </p>
-          </div>
-
-          <div class="calendar-grid">
-            <!-- Recent Filings (Q3 2025) -->
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">Berkshire Hathaway Inc.</div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0001067983</span>
-                  <span><i class="fas fa-chart-line"></i> $314.6B AUM</span>
-                  <span><i class="fas fa-building"></i> Warren Buffett</span>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">Total AUM</div>
+                <div class="stat-value" id="totalAUM">-</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Total Holdings</div>
+                <div class="stat-value" id="totalHoldings">-</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Filing Date</div>
+                <div
+                  class="stat-value"
+                  id="filingDate"
+                  style="font-size: 1.2rem"
+                >
+                  -
                 </div>
               </div>
-              <div class="filing-date recent">
-                <i class="fas fa-check-circle"></i> Filed Nov 14, 2025
+              <div class="stat-card">
+                <div class="stat-label">Manager</div>
+                <div class="stat-value" id="manager" style="font-size: 1.2rem">
+                  -
+                </div>
               </div>
             </div>
 
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">
-                  Renaissance Technologies LLC
-                </div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0001037389</span>
-                  <span><i class="fas fa-chart-line"></i> $56.7B AUM</span>
-                  <span
-                    ><i class="fas fa-building"></i> Quantitative Hedge
-                    Fund</span
-                  >
-                </div>
-              </div>
-              <div class="filing-date recent">
-                <i class="fas fa-check-circle"></i> Filed Nov 14, 2025
-              </div>
-            </div>
-
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">
-                  ARK Investment Management LLC
-                </div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0001579982</span>
-                  <span><i class="fas fa-chart-line"></i> $6.8B AUM</span>
-                  <span><i class="fas fa-building"></i> Cathie Wood</span>
-                </div>
-              </div>
-              <div class="filing-date recent">
-                <i class="fas fa-check-circle"></i> Filed Nov 14, 2025
-              </div>
-            </div>
-
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">Vanguard Group Inc.</div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0000102909</span>
-                  <span><i class="fas fa-chart-line"></i> $8.5T AUM</span>
-                  <span
-                    ><i class="fas fa-building"></i> Passive Index Funds</span
-                  >
-                </div>
-              </div>
-              <div class="filing-date recent">
-                <i class="fas fa-check-circle"></i> Filed Nov 14, 2025
-              </div>
-            </div>
-
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">BlackRock Inc.</div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0001086364</span>
-                  <span><i class="fas fa-chart-line"></i> $10.2T AUM</span>
-                  <span><i class="fas fa-building"></i> Larry Fink</span>
-                </div>
-              </div>
-              <div class="filing-date recent">
-                <i class="fas fa-check-circle"></i> Filed Nov 13, 2025
-              </div>
-            </div>
-
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">Bridgewater Associates LP</div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0001350694</span>
-                  <span><i class="fas fa-chart-line"></i> $18.5B AUM</span>
-                  <span><i class="fas fa-building"></i> Ray Dalio</span>
-                </div>
-              </div>
-              <div class="filing-date recent">
-                <i class="fas fa-check-circle"></i> Filed Nov 12, 2025
-              </div>
-            </div>
-
-            <!-- Upcoming Filings (Q4 2025) -->
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">All Institutional Managers</div>
-                <div class="filing-details">
-                  <span
-                    ><i class="fas fa-calendar"></i> Q4 2025 Period Ending</span
-                  >
-                  <span><i class="fas fa-clock"></i> December 31, 2025</span>
-                </div>
-              </div>
-              <div class="filing-date upcoming">
-                <i class="fas fa-hourglass-half"></i> Due Feb 14, 2026
-              </div>
-            </div>
-
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">State Street Corporation</div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0000093751</span>
-                  <span><i class="fas fa-chart-line"></i> $4.1T AUM</span>
-                  <span
-                    ><i class="fas fa-building"></i> Major Asset Manager</span
-                  >
-                </div>
-              </div>
-              <div class="filing-date upcoming">
-                <i class="fas fa-hourglass-half"></i> Due Feb 14, 2026
-              </div>
-            </div>
-
-            <div class="filing-item">
-              <div class="filing-info">
-                <div class="filing-institution">Wellington Management</div>
-                <div class="filing-details">
-                  <span><i class="fas fa-folder"></i> CIK: 0000105371</span>
-                  <span><i class="fas fa-chart-line"></i> $1.3T AUM</span>
-                  <span><i class="fas fa-building"></i> Boston-based Fund</span>
-                </div>
-              </div>
-              <div class="filing-date upcoming">
-                <i class="fas fa-hourglass-half"></i> Due Feb 14, 2026
-              </div>
-            </div>
-          </div>
-
-          <div class="calendar-legend">
-            <div class="legend-item">
-              <span class="legend-dot" style="background: #16c784"></span>
-              <span>Recently Filed (Q3 2025)</span>
-            </div>
-            <div class="legend-item">
-              <span
-                class="legend-dot"
-                style="background: var(--accent-primary)"
-              ></span>
-              <span>Upcoming Filing Deadline</span>
-            </div>
-            <div class="legend-item">
-              <i
-                class="fas fa-info-circle"
-                style="color: var(--text-secondary)"
-              ></i>
-              <span
-                >13F filings must be submitted within 45 days after quarter
-                end</span
-              >
+            <div style="overflow-x: auto">
+              <table class="holdings-table">
+                <thead>
+                  <tr>
+                    <th>Ticker</th>
+                    <th>Company</th>
+                    <th>Shares</th>
+                    <th>Value</th>
+                    <th>% Portfolio</th>
+                    <th>Change</th>
+                  </tr>
+                </thead>
+                <tbody id="holdingsTableBody"></tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-      <p>
-        &copy; 2025 IO Innovate. All rights reserved.
-        <a href="/secret" class="secret-link">🔒</a>
-      </p>
+      <p>&copy; 2025 IO Innovate. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
+    <script src="../js/shared-simple.js"></script>
     <script>
-      // Real institutional holdings data (Q3 2025)
-      const institutionalData = {
-        berkshire: {
-          name: "Berkshire Hathaway Inc.",
-          cik: "0001067983",
-          totalValue: 314627000000,
-          holdingsCount: 45,
-          filingDate: "2025-11-14",
-          holdings: [
-            {
-              ticker: "AAPL",
-              name: "Apple Inc.",
-              shares: 300000000,
-              value: 69900000000,
-              percentOfPortfolio: 22.2,
-              changePercent: -25.0,
-              sector: "Technology",
-            },
-            {
-              ticker: "BAC",
-              name: "Bank of America Corp",
-              shares: 1032852006,
-              value: 41095000000,
-              percentOfPortfolio: 13.1,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "AXP",
-              name: "American Express Co.",
-              shares: 151610700,
-              value: 39301000000,
-              percentOfPortfolio: 12.5,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "KO",
-              name: "Coca-Cola Co.",
-              shares: 400000000,
-              value: 28000000000,
-              percentOfPortfolio: 8.9,
-              changePercent: 0.0,
-              sector: "Consumer",
-            },
-            {
-              ticker: "CVX",
-              name: "Chevron Corp.",
-              shares: 123117925,
-              value: 18469000000,
-              percentOfPortfolio: 5.9,
-              changePercent: 0.0,
-              sector: "Energy",
-            },
-            {
-              ticker: "OXY",
-              name: "Occidental Petroleum Corp.",
-              shares: 255281449,
-              value: 14788000000,
-              percentOfPortfolio: 4.7,
-              changePercent: +2.1,
-              sector: "Energy",
-            },
-            {
-              ticker: "KHC",
-              name: "Kraft Heinz Co.",
-              shares: 325634818,
-              value: 11251000000,
-              percentOfPortfolio: 3.6,
-              changePercent: 0.0,
-              sector: "Consumer",
-            },
-            {
-              ticker: "MCO",
-              name: "Moody's Corp.",
-              shares: 24669778,
-              value: 10884000000,
-              percentOfPortfolio: 3.5,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "AMEX",
-              name: "American Express Co.",
-              shares: 151610700,
-              value: 9823000000,
-              percentOfPortfolio: 3.1,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "CB",
-              name: "Chubb Ltd.",
-              shares: 26369605,
-              value: 7167000000,
-              percentOfPortfolio: 2.3,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "DVA",
-              name: "DaVita Inc.",
-              shares: 36095570,
-              value: 5622000000,
-              percentOfPortfolio: 1.8,
-              changePercent: +3.5,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "C",
-              name: "Citigroup Inc.",
-              shares: 55155797,
-              value: 3529000000,
-              percentOfPortfolio: 1.1,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "VZ",
-              name: "Verizon Communications Inc.",
-              shares: 158824575,
-              value: 6708000000,
-              percentOfPortfolio: 2.1,
-              changePercent: +1.2,
-              sector: "Telecom",
-            },
-            {
-              ticker: "AON",
-              name: "Aon plc",
-              shares: 4166976,
-              value: 1442000000,
-              percentOfPortfolio: 0.5,
-              changePercent: 0.0,
-              sector: "Financial",
-            },
-            {
-              ticker: "MA",
-              name: "Mastercard Inc.",
-              shares: 2374088,
-              value: 1096000000,
-              percentOfPortfolio: 0.3,
-              changePercent: -22.8,
-              sector: "Financial",
-            },
-            {
-              ticker: "V",
-              name: "Visa Inc.",
-              shares: 8297460,
-              value: 2293000000,
-              percentOfPortfolio: 0.7,
-              changePercent: -29.5,
-              sector: "Financial",
-            },
-            {
-              ticker: "CHTR",
-              name: "Charter Communications Inc.",
-              shares: 4005346,
-              value: 1243000000,
-              percentOfPortfolio: 0.4,
-              changePercent: -21.9,
-              sector: "Telecom",
-            },
-            {
-              ticker: "DEO",
-              name: "Diageo plc",
-              shares: 227750,
-              value: 29000000,
-              percentOfPortfolio: 0.01,
-              changePercent: -1.5,
-              sector: "Consumer",
-            },
-            {
-              ticker: "LSXMA",
-              name: "Liberty Media Corp. Series A",
-              shares: 5760205,
-              value: 164000000,
-              percentOfPortfolio: 0.05,
-              changePercent: 0.0,
-              sector: "Media",
-            },
-            {
-              ticker: "LSXMK",
-              name: "Liberty Media Corp. Series C",
-              shares: 5760205,
-              value: 127000000,
-              percentOfPortfolio: 0.04,
-              changePercent: 0.0,
-              sector: "Media",
-            },
-            {
-              ticker: "ULTA",
-              name: "Ulta Beauty Inc.",
-              shares: 690106,
-              value: 266000000,
-              percentOfPortfolio: 0.08,
-              changePercent: +1.8,
-              sector: "Consumer",
-            },
-            {
-              ticker: "UFPI",
-              name: "UFP Industries Inc.",
-              shares: 6353727,
-              value: 802000000,
-              percentOfPortfolio: 0.3,
-              changePercent: +261.0,
-              sector: "Industrial",
-            },
-            {
-              ticker: "LILA",
-              name: "Liberty Latin America Ltd.",
-              shares: 11172174,
-              value: 98000000,
-              percentOfPortfolio: 0.03,
-              changePercent: 0.0,
-              sector: "Telecom",
-            },
-            {
-              ticker: "NU",
-              name: "Nu Holdings Ltd.",
-              shares: 86250559,
-              value: 1102000000,
-              percentOfPortfolio: 0.35,
-              changePercent: +6.2,
-              sector: "Financial",
-            },
-            {
-              ticker: "SNY",
-              name: "Sanofi SA",
-              shares: 1895921,
-              value: 94000000,
-              percentOfPortfolio: 0.03,
-              changePercent: 0.0,
-              sector: "Healthcare",
-            },
-          ],
-        },
-        vanguard: {
-          name: "Vanguard Group Inc.",
-          cik: "0000102909",
-          totalValue: 8500000000000,
-          holdingsCount: 3847,
-          filingDate: "2025-11-14",
-          holdings: [
-            {
-              ticker: "AAPL",
-              name: "Apple Inc.",
-              shares: 1464712270,
-              value: 341269000000,
-              percentOfPortfolio: 4.01,
-              changePercent: +1.2,
-              sector: "Technology",
-            },
-            {
-              ticker: "MSFT",
-              name: "Microsoft Corp.",
-              shares: 961712096,
-              value: 401747000000,
-              percentOfPortfolio: 4.73,
-              changePercent: +1.5,
-              sector: "Technology",
-            },
-            {
-              ticker: "AMZN",
-              name: "Amazon.com Inc.",
-              shares: 728648729,
-              value: 137256000000,
-              percentOfPortfolio: 1.61,
-              changePercent: +2.3,
-              sector: "Consumer",
-            },
-            {
-              ticker: "NVDA",
-              name: "NVIDIA Corp.",
-              shares: 514189524,
-              value: 62869000000,
-              percentOfPortfolio: 0.74,
-              changePercent: +12.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "GOOGL",
-              name: "Alphabet Inc. Class A",
-              shares: 401234567,
-              value: 66604000000,
-              percentOfPortfolio: 0.78,
-              changePercent: +1.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "GOOG",
-              name: "Alphabet Inc. Class C",
-              shares: 389012345,
-              value: 64592000000,
-              percentOfPortfolio: 0.76,
-              changePercent: +1.7,
-              sector: "Technology",
-            },
-            {
-              ticker: "META",
-              name: "Meta Platforms Inc.",
-              shares: 175234890,
-              value: 99735000000,
-              percentOfPortfolio: 1.17,
-              changePercent: +3.2,
-              sector: "Technology",
-            },
-            {
-              ticker: "TSLA",
-              name: "Tesla Inc.",
-              shares: 234567890,
-              value: 61387000000,
-              percentOfPortfolio: 0.72,
-              changePercent: +4.5,
-              sector: "Consumer",
-            },
-            {
-              ticker: "BRK.B",
-              name: "Berkshire Hathaway Inc. Class B",
-              shares: 150987654,
-              value: 69204000000,
-              percentOfPortfolio: 0.81,
-              changePercent: +0.8,
-              sector: "Financial",
-            },
-            {
-              ticker: "JPM",
-              name: "JPMorgan Chase & Co.",
-              shares: 234567123,
-              value: 48601000000,
-              percentOfPortfolio: 0.57,
-              changePercent: +2.1,
-              sector: "Financial",
-            },
-            {
-              ticker: "V",
-              name: "Visa Inc.",
-              shares: 187654321,
-              value: 54987000000,
-              percentOfPortfolio: 0.65,
-              changePercent: +1.9,
-              sector: "Financial",
-            },
-            {
-              ticker: "UNH",
-              name: "UnitedHealth Group Inc.",
-              shares: 89012345,
-              value: 49634000000,
-              percentOfPortfolio: 0.58,
-              changePercent: +1.4,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "XOM",
-              name: "Exxon Mobil Corp.",
-              shares: 298765432,
-              value: 33562000000,
-              percentOfPortfolio: 0.39,
-              changePercent: +2.7,
-              sector: "Energy",
-            },
-            {
-              ticker: "JNJ",
-              name: "Johnson & Johnson",
-              shares: 234098765,
-              value: 37854000000,
-              percentOfPortfolio: 0.45,
-              changePercent: +0.9,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "WMT",
-              name: "Walmart Inc.",
-              shares: 267890123,
-              value: 17987000000,
-              percentOfPortfolio: 0.21,
-              changePercent: +1.6,
-              sector: "Consumer",
-            },
-            {
-              ticker: "PG",
-              name: "Procter & Gamble Co.",
-              shares: 189012345,
-              value: 30923000000,
-              percentOfPortfolio: 0.36,
-              changePercent: +0.7,
-              sector: "Consumer",
-            },
-            {
-              ticker: "MA",
-              name: "Mastercard Inc.",
-              shares: 98765432,
-              value: 45632000000,
-              percentOfPortfolio: 0.54,
-              changePercent: +2.2,
-              sector: "Financial",
-            },
-            {
-              ticker: "HD",
-              name: "Home Depot Inc.",
-              shares: 123456789,
-              value: 45987000000,
-              percentOfPortfolio: 0.54,
-              changePercent: +1.3,
-              sector: "Consumer",
-            },
-            {
-              ticker: "CVX",
-              name: "Chevron Corp.",
-              shares: 178901234,
-              value: 26834000000,
-              percentOfPortfolio: 0.32,
-              changePercent: +1.8,
-              sector: "Energy",
-            },
-            {
-              ticker: "AVGO",
-              name: "Broadcom Inc.",
-              shares: 67890123,
-              value: 11456000000,
-              percentOfPortfolio: 0.13,
-              changePercent: +14.5,
-              sector: "Technology",
-            },
-            {
-              ticker: "LLY",
-              name: "Eli Lilly and Co.",
-              shares: 56789012,
-              value: 48923000000,
-              percentOfPortfolio: 0.58,
-              changePercent: +8.9,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "PFE",
-              name: "Pfizer Inc.",
-              shares: 467890123,
-              value: 13234000000,
-              percentOfPortfolio: 0.16,
-              changePercent: -2.3,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "ABBV",
-              name: "AbbVie Inc.",
-              shares: 198765432,
-              value: 34567000000,
-              percentOfPortfolio: 0.41,
-              changePercent: +1.2,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "COST",
-              name: "Costco Wholesale Corp.",
-              shares: 89012345,
-              value: 64234000000,
-              percentOfPortfolio: 0.76,
-              changePercent: +2.8,
-              sector: "Consumer",
-            },
-            {
-              ticker: "TMO",
-              name: "Thermo Fisher Scientific Inc.",
-              shares: 56789012,
-              value: 30987000000,
-              percentOfPortfolio: 0.36,
-              changePercent: +1.7,
-              sector: "Healthcare",
-            },
-          ],
-        },
-        blackrock: {
-          name: "BlackRock Inc.",
-          cik: "0001086364",
-          totalValue: 10200000000000,
-          holdingsCount: 4521,
-          filingDate: "2025-11-13",
-          holdings: [
-            {
-              ticker: "AAPL",
-              name: "Apple Inc.",
-              shares: 1089418245,
-              value: 253885000000,
-              percentOfPortfolio: 2.49,
-              changePercent: +1.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "MSFT",
-              name: "Microsoft Corp.",
-              shares: 729456789,
-              value: 304623000000,
-              percentOfPortfolio: 2.99,
-              changePercent: +2.1,
-              sector: "Technology",
-            },
-            {
-              ticker: "AMZN",
-              name: "Amazon.com Inc.",
-              shares: 562345678,
-              value: 105922000000,
-              percentOfPortfolio: 1.04,
-              changePercent: +2.8,
-              sector: "Consumer",
-            },
-            {
-              ticker: "NVDA",
-              name: "NVIDIA Corp.",
-              shares: 412567890,
-              value: 50444000000,
-              percentOfPortfolio: 0.49,
-              changePercent: +15.2,
-              sector: "Technology",
-            },
-            {
-              ticker: "GOOGL",
-              name: "Alphabet Inc. Class A",
-              shares: 289345678,
-              value: 48042000000,
-              percentOfPortfolio: 0.47,
-              changePercent: +1.9,
-              sector: "Technology",
-            },
-            {
-              ticker: "META",
-              name: "Meta Platforms Inc.",
-              shares: 145678901,
-              value: 82886000000,
-              percentOfPortfolio: 0.81,
-              changePercent: +3.5,
-              sector: "Technology",
-            },
-            {
-              ticker: "TSLA",
-              name: "Tesla Inc.",
-              shares: 198765432,
-              value: 51979000000,
-              percentOfPortfolio: 0.51,
-              changePercent: +5.2,
-              sector: "Consumer",
-            },
-            {
-              ticker: "BRK.B",
-              name: "Berkshire Hathaway Inc. Class B",
-              shares: 134567890,
-              value: 61677000000,
-              percentOfPortfolio: 0.6,
-              changePercent: +1.2,
-              sector: "Financial",
-            },
-            {
-              ticker: "V",
-              name: "Visa Inc.",
-              shares: 156789012,
-              value: 45968000000,
-              percentOfPortfolio: 0.45,
-              changePercent: +2.4,
-              sector: "Financial",
-            },
-            {
-              ticker: "UNH",
-              name: "UnitedHealth Group Inc.",
-              shares: 67890123,
-              value: 37856000000,
-              percentOfPortfolio: 0.37,
-              changePercent: +1.7,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "JPM",
-              name: "JPMorgan Chase & Co.",
-              shares: 178901234,
-              value: 37023000000,
-              percentOfPortfolio: 0.36,
-              changePercent: +1.9,
-              sector: "Financial",
-            },
-            {
-              ticker: "LLY",
-              name: "Eli Lilly and Co.",
-              shares: 45678901,
-              value: 39345000000,
-              percentOfPortfolio: 0.39,
-              changePercent: +9.7,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "XOM",
-              name: "Exxon Mobil Corp.",
-              shares: 234567890,
-              value: 26345000000,
-              percentOfPortfolio: 0.26,
-              changePercent: +2.3,
-              sector: "Energy",
-            },
-            {
-              ticker: "JNJ",
-              name: "Johnson & Johnson",
-              shares: 178901234,
-              value: 28934000000,
-              percentOfPortfolio: 0.28,
-              changePercent: +1.1,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "WMT",
-              name: "Walmart Inc.",
-              shares: 198765432,
-              value: 13345000000,
-              percentOfPortfolio: 0.13,
-              changePercent: +1.8,
-              sector: "Consumer",
-            },
-            {
-              ticker: "MA",
-              name: "Mastercard Inc.",
-              shares: 78901234,
-              value: 36456000000,
-              percentOfPortfolio: 0.36,
-              changePercent: +2.6,
-              sector: "Financial",
-            },
-            {
-              ticker: "PG",
-              name: "Procter & Gamble Co.",
-              shares: 145678901,
-              value: 23845000000,
-              percentOfPortfolio: 0.23,
-              changePercent: +0.9,
-              sector: "Consumer",
-            },
-            {
-              ticker: "HD",
-              name: "Home Depot Inc.",
-              shares: 98765432,
-              value: 36789000000,
-              percentOfPortfolio: 0.36,
-              changePercent: +1.5,
-              sector: "Consumer",
-            },
-            {
-              ticker: "AVGO",
-              name: "Broadcom Inc.",
-              shares: 54321098,
-              value: 9167000000,
-              percentOfPortfolio: 0.09,
-              changePercent: +16.3,
-              sector: "Technology",
-            },
-            {
-              ticker: "CVX",
-              name: "Chevron Corp.",
-              shares: 134567890,
-              value: 20178000000,
-              percentOfPortfolio: 0.2,
-              changePercent: +2.1,
-              sector: "Energy",
-            },
-            {
-              ticker: "ABBV",
-              name: "AbbVie Inc.",
-              shares: 156789012,
-              value: 27234000000,
-              percentOfPortfolio: 0.27,
-              changePercent: +1.4,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "COST",
-              name: "Costco Wholesale Corp.",
-              shares: 67890123,
-              value: 48945000000,
-              percentOfPortfolio: 0.48,
-              changePercent: +3.1,
-              sector: "Consumer",
-            },
-            {
-              ticker: "NFLX",
-              name: "Netflix Inc.",
-              shares: 34567890,
-              value: 24876000000,
-              percentOfPortfolio: 0.24,
-              changePercent: +4.7,
-              sector: "Technology",
-            },
-            {
-              ticker: "AMD",
-              name: "Advanced Micro Devices Inc.",
-              shares: 123456789,
-              value: 17645000000,
-              percentOfPortfolio: 0.17,
-              changePercent: +7.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "ADBE",
-              name: "Adobe Inc.",
-              shares: 45678901,
-              value: 22934000000,
-              percentOfPortfolio: 0.22,
-              changePercent: +2.3,
-              sector: "Technology",
-            },
-          ],
-        },
-        ark: {
-          name: "ARK Investment Management LLC",
-          cik: "0001579982",
-          totalValue: 6843000000,
-          holdingsCount: 156,
-          filingDate: "2025-11-14",
-          holdings: [
-            {
-              ticker: "COIN",
-              name: "Coinbase Global Inc.",
-              shares: 9785432,
-              value: 2548000000,
-              percentOfPortfolio: 37.2,
-              changePercent: +8.5,
-              sector: "Financial",
-            },
-            {
-              ticker: "ROKU",
-              name: "Roku Inc.",
-              shares: 17234567,
-              value: 1206000000,
-              percentOfPortfolio: 17.6,
-              changePercent: -2.1,
-              sector: "Technology",
-            },
-            {
-              ticker: "RBLX",
-              name: "Roblox Corp.",
-              shares: 19876543,
-              value: 933000000,
-              percentOfPortfolio: 13.6,
-              changePercent: +4.7,
-              sector: "Technology",
-            },
-            {
-              ticker: "TSLA",
-              name: "Tesla Inc.",
-              shares: 3356789,
-              value: 878000000,
-              percentOfPortfolio: 12.8,
-              changePercent: +3.2,
-              sector: "Consumer",
-            },
-            {
-              ticker: "PATH",
-              name: "UiPath Inc.",
-              shares: 48765432,
-              value: 585000000,
-              percentOfPortfolio: 8.5,
-              changePercent: -5.3,
-              sector: "Technology",
-            },
-            {
-              ticker: "SHOP",
-              name: "Shopify Inc.",
-              shares: 4567890,
-              value: 365000000,
-              percentOfPortfolio: 5.3,
-              changePercent: +2.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "SQ",
-              name: "Block Inc.",
-              shares: 5234567,
-              value: 334000000,
-              percentOfPortfolio: 4.9,
-              changePercent: -1.2,
-              sector: "Financial",
-            },
-            {
-              ticker: "CRSP",
-              name: "CRISPR Therapeutics AG",
-              shares: 2987654,
-              value: 179000000,
-              percentOfPortfolio: 2.6,
-              changePercent: -8.4,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "NTLA",
-              name: "Intellia Therapeutics Inc.",
-              shares: 8765432,
-              value: 175000000,
-              percentOfPortfolio: 2.6,
-              changePercent: +12.3,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "BEAM",
-              name: "Beam Therapeutics Inc.",
-              shares: 6543210,
-              value: 144000000,
-              percentOfPortfolio: 2.1,
-              changePercent: -4.5,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "TWLO",
-              name: "Twilio Inc.",
-              shares: 1987654,
-              value: 127000000,
-              percentOfPortfolio: 1.9,
-              changePercent: +1.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "DKNG",
-              name: "DraftKings Inc.",
-              shares: 3456789,
-              value: 118000000,
-              percentOfPortfolio: 1.7,
-              changePercent: +6.4,
-              sector: "Consumer",
-            },
-            {
-              ticker: "U",
-              name: "Unity Software Inc.",
-              shares: 4567890,
-              value: 98000000,
-              percentOfPortfolio: 1.4,
-              changePercent: -12.7,
-              sector: "Technology",
-            },
-            {
-              ticker: "EXAS",
-              name: "Exact Sciences Corp.",
-              shares: 1876543,
-              value: 87000000,
-              percentOfPortfolio: 1.3,
-              changePercent: +3.2,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "TDOC",
-              name: "Teladoc Health Inc.",
-              shares: 8765432,
-              value: 76000000,
-              percentOfPortfolio: 1.1,
-              changePercent: -7.8,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "ZM",
-              name: "Zoom Video Communications Inc.",
-              shares: 1234567,
-              value: 71000000,
-              percentOfPortfolio: 1.0,
-              changePercent: -5.2,
-              sector: "Technology",
-            },
-            {
-              ticker: "PLTR",
-              name: "Palantir Technologies Inc.",
-              shares: 2345678,
-              value: 65000000,
-              percentOfPortfolio: 0.9,
-              changePercent: +18.4,
-              sector: "Technology",
-            },
-            {
-              ticker: "SPOT",
-              name: "Spotify Technology SA",
-              shares: 234567,
-              value: 61000000,
-              percentOfPortfolio: 0.9,
-              changePercent: +2.1,
-              sector: "Technology",
-            },
-            {
-              ticker: "DNA",
-              name: "Ginkgo Bioworks Holdings Inc.",
-              shares: 56789012,
-              value: 52000000,
-              percentOfPortfolio: 0.8,
-              changePercent: -15.6,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "PACB",
-              name: "Pacific Biosciences of California Inc.",
-              shares: 23456789,
-              value: 47000000,
-              percentOfPortfolio: 0.7,
-              changePercent: +8.9,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "NNDM",
-              name: "Nano Dimension Ltd.",
-              shares: 17654321,
-              value: 39000000,
-              percentOfPortfolio: 0.6,
-              changePercent: -3.4,
-              sector: "Technology",
-            },
-            {
-              ticker: "PRLB",
-              name: "Proto Labs Inc.",
-              shares: 1456789,
-              value: 34000000,
-              percentOfPortfolio: 0.5,
-              changePercent: +1.7,
-              sector: "Industrial",
-            },
-            {
-              ticker: "TXG",
-              name: "10x Genomics Inc.",
-              shares: 987654,
-              value: 29000000,
-              percentOfPortfolio: 0.4,
-              changePercent: -6.2,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "VCYT",
-              name: "Veracyte Inc.",
-              shares: 1123456,
-              value: 26000000,
-              percentOfPortfolio: 0.4,
-              changePercent: +4.3,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "NVTA",
-              name: "Invitae Corp.",
-              shares: 45678901,
-              value: 18000000,
-              percentOfPortfolio: 0.3,
-              changePercent: -21.5,
-              sector: "Healthcare",
-            },
-          ],
-        },
-        bridgewater: {
-          name: "Bridgewater Associates LP",
-          cik: "0001350694",
-          totalValue: 18500000000,
-          holdingsCount: 892,
-          filingDate: "2025-11-12",
-          holdings: [
-            {
-              ticker: "SPY",
-              name: "SPDR S&P 500 ETF Trust",
-              shares: 15234567,
-              value: 9023000000,
-              percentOfPortfolio: 48.8,
-              changePercent: +5.2,
-              sector: "ETF",
-            },
-            {
-              ticker: "IVV",
-              name: "iShares Core S&P 500 ETF",
-              shares: 3456789,
-              value: 1845000000,
-              percentOfPortfolio: 10.0,
-              changePercent: +3.8,
-              sector: "ETF",
-            },
-            {
-              ticker: "VOO",
-              name: "Vanguard S&P 500 ETF",
-              shares: 2345678,
-              value: 1234000000,
-              percentOfPortfolio: 6.7,
-              changePercent: +4.1,
-              sector: "ETF",
-            },
-            {
-              ticker: "EEM",
-              name: "iShares MSCI Emerging Markets ETF",
-              shares: 19876543,
-              value: 892000000,
-              percentOfPortfolio: 4.8,
-              changePercent: -2.3,
-              sector: "ETF",
-            },
-            {
-              ticker: "GLD",
-              name: "SPDR Gold Trust",
-              shares: 3987654,
-              value: 845000000,
-              percentOfPortfolio: 4.6,
-              changePercent: +8.7,
-              sector: "Commodity",
-            },
-            {
-              ticker: "AAPL",
-              name: "Apple Inc.",
-              shares: 2345678,
-              value: 546000000,
-              percentOfPortfolio: 3.0,
-              changePercent: +1.5,
-              sector: "Technology",
-            },
-            {
-              ticker: "MSFT",
-              name: "Microsoft Corp.",
-              shares: 987654,
-              value: 412000000,
-              percentOfPortfolio: 2.2,
-              changePercent: +2.1,
-              sector: "Technology",
-            },
-            {
-              ticker: "TLT",
-              name: "iShares 20+ Year Treasury Bond ETF",
-              shares: 4567890,
-              value: 398000000,
-              percentOfPortfolio: 2.2,
-              changePercent: -5.4,
-              sector: "Bond",
-            },
-            {
-              ticker: "VWO",
-              name: "Vanguard FTSE Emerging Markets ETF",
-              shares: 7654321,
-              value: 345000000,
-              percentOfPortfolio: 1.9,
-              changePercent: -1.8,
-              sector: "ETF",
-            },
-            {
-              ticker: "AMZN",
-              name: "Amazon.com Inc.",
-              shares: 1234567,
-              value: 232000000,
-              percentOfPortfolio: 1.3,
-              changePercent: +3.2,
-              sector: "Consumer",
-            },
-            {
-              ticker: "QQQ",
-              name: "Invesco QQQ Trust",
-              shares: 456789,
-              value: 187000000,
-              percentOfPortfolio: 1.0,
-              changePercent: +6.3,
-              sector: "ETF",
-            },
-            {
-              ticker: "IEFA",
-              name: "iShares Core MSCI EAFE ETF",
-              shares: 2345678,
-              value: 169000000,
-              percentOfPortfolio: 0.9,
-              changePercent: +2.1,
-              sector: "ETF",
-            },
-            {
-              ticker: "AGG",
-              name: "iShares Core U.S. Aggregate Bond ETF",
-              shares: 1567890,
-              value: 154000000,
-              percentOfPortfolio: 0.8,
-              changePercent: -3.2,
-              sector: "Bond",
-            },
-            {
-              ticker: "NVDA",
-              name: "NVIDIA Corp.",
-              shares: 987654,
-              value: 121000000,
-              percentOfPortfolio: 0.7,
-              changePercent: +11.4,
-              sector: "Technology",
-            },
-            {
-              ticker: "VEA",
-              name: "Vanguard FTSE Developed Markets ETF",
-              shares: 2345678,
-              value: 118000000,
-              percentOfPortfolio: 0.6,
-              changePercent: +1.9,
-              sector: "ETF",
-            },
-            {
-              ticker: "META",
-              name: "Meta Platforms Inc.",
-              shares: 234567,
-              value: 133000000,
-              percentOfPortfolio: 0.7,
-              changePercent: +4.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "GOOGL",
-              name: "Alphabet Inc. Class A",
-              shares: 678901,
-              value: 113000000,
-              percentOfPortfolio: 0.6,
-              changePercent: +2.7,
-              sector: "Technology",
-            },
-            {
-              ticker: "BND",
-              name: "Vanguard Total Bond Market ETF",
-              shares: 1456789,
-              value: 109000000,
-              percentOfPortfolio: 0.6,
-              changePercent: -2.8,
-              sector: "Bond",
-            },
-            {
-              ticker: "XLF",
-              name: "Financial Select Sector SPDR Fund",
-              shares: 2345678,
-              value: 94000000,
-              percentOfPortfolio: 0.5,
-              changePercent: +3.4,
-              sector: "ETF",
-            },
-            {
-              ticker: "GDX",
-              name: "VanEck Gold Miners ETF",
-              shares: 3456789,
-              value: 89000000,
-              percentOfPortfolio: 0.5,
-              changePercent: +12.6,
-              sector: "Commodity",
-            },
-            {
-              ticker: "XLE",
-              name: "Energy Select Sector SPDR Fund",
-              shares: 987654,
-              value: 82000000,
-              percentOfPortfolio: 0.4,
-              changePercent: +5.7,
-              sector: "ETF",
-            },
-            {
-              ticker: "LQD",
-              name: "iShares iBoxx $ Investment Grade Corporate Bond ETF",
-              shares: 678901,
-              value: 76000000,
-              percentOfPortfolio: 0.4,
-              changePercent: -1.9,
-              sector: "Bond",
-            },
-            {
-              ticker: "XLK",
-              name: "Technology Select Sector SPDR Fund",
-              shares: 456789,
-              value: 89000000,
-              percentOfPortfolio: 0.5,
-              changePercent: +7.2,
-              sector: "ETF",
-            },
-            {
-              ticker: "HYG",
-              name: "iShares iBoxx $ High Yield Corporate Bond ETF",
-              shares: 876543,
-              value: 67000000,
-              percentOfPortfolio: 0.4,
-              changePercent: +2.3,
-              sector: "Bond",
-            },
-            {
-              ticker: "TSLA",
-              name: "Tesla Inc.",
-              shares: 234567,
-              value: 61000000,
-              percentOfPortfolio: 0.3,
-              changePercent: +6.8,
-              sector: "Consumer",
-            },
-          ],
-        },
-        renaissance: {
-          name: "Renaissance Technologies LLC",
-          cik: "0001037389",
-          totalValue: 56700000000,
-          holdingsCount: 2847,
-          filingDate: "2025-11-14",
-          holdings: [
-            {
-              ticker: "NVDA",
-              name: "NVIDIA Corp.",
-              shares: 18765432,
-              value: 2294000000,
-              percentOfPortfolio: 4.05,
-              changePercent: +22.3,
-              sector: "Technology",
-            },
-            {
-              ticker: "AAPL",
-              name: "Apple Inc.",
-              shares: 8234567,
-              value: 1918000000,
-              percentOfPortfolio: 3.38,
-              changePercent: +3.5,
-              sector: "Technology",
-            },
-            {
-              ticker: "MSFT",
-              name: "Microsoft Corp.",
-              shares: 4123456,
-              value: 1721000000,
-              percentOfPortfolio: 3.04,
-              changePercent: +4.2,
-              sector: "Technology",
-            },
-            {
-              ticker: "AMZN",
-              name: "Amazon.com Inc.",
-              shares: 6543210,
-              value: 1232000000,
-              percentOfPortfolio: 2.17,
-              changePercent: +5.8,
-              sector: "Consumer",
-            },
-            {
-              ticker: "META",
-              name: "Meta Platforms Inc.",
-              shares: 1987654,
-              value: 1131000000,
-              percentOfPortfolio: 1.99,
-              changePercent: +7.3,
-              sector: "Technology",
-            },
-            {
-              ticker: "GOOGL",
-              name: "Alphabet Inc. Class A",
-              shares: 5432109,
-              value: 902000000,
-              percentOfPortfolio: 1.59,
-              changePercent: +2.9,
-              sector: "Technology",
-            },
-            {
-              ticker: "TSLA",
-              name: "Tesla Inc.",
-              shares: 2987654,
-              value: 781000000,
-              percentOfPortfolio: 1.38,
-              changePercent: +9.2,
-              sector: "Consumer",
-            },
-            {
-              ticker: "JPM",
-              name: "JPMorgan Chase & Co.",
-              shares: 3456789,
-              value: 716000000,
-              percentOfPortfolio: 1.26,
-              changePercent: +3.1,
-              sector: "Financial",
-            },
-            {
-              ticker: "V",
-              name: "Visa Inc.",
-              shares: 2345678,
-              value: 688000000,
-              percentOfPortfolio: 1.21,
-              changePercent: +4.5,
-              sector: "Financial",
-            },
-            {
-              ticker: "UNH",
-              name: "UnitedHealth Group Inc.",
-              shares: 1098765,
-              value: 612000000,
-              percentOfPortfolio: 1.08,
-              changePercent: +2.8,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "LLY",
-              name: "Eli Lilly and Co.",
-              shares: 678901,
-              value: 584000000,
-              percentOfPortfolio: 1.03,
-              changePercent: +11.2,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "XOM",
-              name: "Exxon Mobil Corp.",
-              shares: 4567890,
-              value: 513000000,
-              percentOfPortfolio: 0.9,
-              changePercent: +3.4,
-              sector: "Energy",
-            },
-            {
-              ticker: "AVGO",
-              name: "Broadcom Inc.",
-              shares: 2987654,
-              value: 504000000,
-              percentOfPortfolio: 0.89,
-              changePercent: +17.8,
-              sector: "Technology",
-            },
-            {
-              ticker: "MA",
-              name: "Mastercard Inc.",
-              shares: 1098765,
-              value: 508000000,
-              percentOfPortfolio: 0.9,
-              changePercent: +3.9,
-              sector: "Financial",
-            },
-            {
-              ticker: "JNJ",
-              name: "Johnson & Johnson",
-              shares: 2987654,
-              value: 483000000,
-              percentOfPortfolio: 0.85,
-              changePercent: +1.6,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "PG",
-              name: "Procter & Gamble Co.",
-              shares: 2876543,
-              value: 470000000,
-              percentOfPortfolio: 0.83,
-              changePercent: +1.2,
-              sector: "Consumer",
-            },
-            {
-              ticker: "HD",
-              name: "Home Depot Inc.",
-              shares: 1234567,
-              value: 459000000,
-              percentOfPortfolio: 0.81,
-              changePercent: +2.4,
-              sector: "Consumer",
-            },
-            {
-              ticker: "CVX",
-              name: "Chevron Corp.",
-              shares: 2987654,
-              value: 448000000,
-              percentOfPortfolio: 0.79,
-              changePercent: +2.9,
-              sector: "Energy",
-            },
-            {
-              ticker: "ABBV",
-              name: "AbbVie Inc.",
-              shares: 2456789,
-              value: 427000000,
-              percentOfPortfolio: 0.75,
-              changePercent: +2.1,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "BAC",
-              name: "Bank of America Corp",
-              shares: 10234567,
-              value: 407000000,
-              percentOfPortfolio: 0.72,
-              changePercent: +1.8,
-              sector: "Financial",
-            },
-            {
-              ticker: "COST",
-              name: "Costco Wholesale Corp.",
-              shares: 543210,
-              value: 391000000,
-              percentOfPortfolio: 0.69,
-              changePercent: +4.2,
-              sector: "Consumer",
-            },
-            {
-              ticker: "WMT",
-              name: "Walmart Inc.",
-              shares: 5432109,
-              value: 365000000,
-              percentOfPortfolio: 0.64,
-              changePercent: +2.6,
-              sector: "Consumer",
-            },
-            {
-              ticker: "MRK",
-              name: "Merck & Co. Inc.",
-              shares: 3456789,
-              value: 354000000,
-              percentOfPortfolio: 0.62,
-              changePercent: +1.9,
-              sector: "Healthcare",
-            },
-            {
-              ticker: "NFLX",
-              name: "Netflix Inc.",
-              shares: 456789,
-              value: 329000000,
-              percentOfPortfolio: 0.58,
-              changePercent: +5.7,
-              sector: "Technology",
-            },
-            {
-              ticker: "AMD",
-              name: "Advanced Micro Devices Inc.",
-              shares: 2123456,
-              value: 303000000,
-              percentOfPortfolio: 0.53,
-              changePercent: +9.4,
-              sector: "Technology",
-            },
-          ],
-        },
-      };
+      let institutionsData = [];
 
-      let currentChart = null;
-      let currentData = null;
+      // Load data from JSON
+      async function loadData() {
+        try {
+          const response = await fetch("../data/13f-visualizer.json");
+          const data = await response.json();
+          institutionsData = data.institutions;
+
+          // Populate dropdown
+          const select = document.getElementById("institutionSelect");
+          institutionsData.forEach((inst) => {
+            const option = document.createElement("option");
+            option.value = inst.id;
+            option.textContent = inst.name;
+            select.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Error loading data:", error);
+          alert("Failed to load institutional data");
+        }
+      }
 
       function formatCurrency(value) {
-        if (value >= 1e12) return "$" + (value / 1e12).toFixed(2) + "T";
         if (value >= 1e9) return "$" + (value / 1e9).toFixed(2) + "B";
         if (value >= 1e6) return "$" + (value / 1e6).toFixed(2) + "M";
         return "$" + value.toLocaleString();
       }
 
-      function formatNumber(value) {
-        return value.toLocaleString();
-      }
-
-      function formatPercent(value) {
-        const prefix = value > 0 ? "+" : "";
-        return prefix + value.toFixed(2) + "%";
+      function formatNumber(num) {
+        return num.toLocaleString();
       }
 
       function loadHoldings() {
-        const institution = document.getElementById("institutionSelect").value;
-        const period = document.getElementById("periodSelect").value;
-
-        if (!institution) {
-          showNotification("Please select an institution", "error");
+        const selectedId = document.getElementById("institutionSelect").value;
+        if (!selectedId) {
+          alert("Please select an institution");
           return;
         }
 
-        currentData = institutionalData[institution];
-        if (!currentData) {
-          showNotification("Data not available for this institution", "error");
-          return;
-        }
-
-        showNotification(
-          "Loading holdings for " + currentData.name + "...",
-          "info"
+        const institution = institutionsData.find(
+          (inst) => inst.id === selectedId
         );
-        renderVisualization(currentData);
-      }
+        if (!institution) return;
 
-      function quickLoad(institution) {
-        document.getElementById("institutionSelect").value = institution;
-        loadHoldings();
-      }
+        // Update stats
+        document.getElementById("institutionName").textContent =
+          institution.name;
+        document.getElementById("totalAUM").textContent = formatCurrency(
+          parseFloat(institution.aum)
+        );
+        document.getElementById("totalHoldings").textContent =
+          institution.holdings.length;
+        document.getElementById("filingDate").textContent =
+          institution.filingDate;
+        document.getElementById("manager").textContent = institution.manager;
 
-      function renderVisualization(data) {
-        const vizArea = document.getElementById("vizArea");
+        // Update table
+        const tbody = document.getElementById("holdingsTableBody");
+        tbody.innerHTML = "";
 
-        // Build the HTML
-        let html = `
-          <div style="padding: 2rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
-              <div>
-                <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem; font-size: 1.8rem;">
-                  ${data.name}
-                </h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">
-                  <i class="fas fa-calendar"></i> Filed: ${
-                    data.filingDate
-                  } | CIK: ${data.cik}
-                </p>
-              </div>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="stats-grid">
-              <div class="stat-card">
-                <div class="stat-label">Total Portfolio Value</div>
-                <div class="stat-value">${formatCurrency(data.totalValue)}</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Total Holdings</div>
-                <div class="stat-value">${formatNumber(
-                  data.holdingsCount
-                )}</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Top Holding</div>
-                <div class="stat-value">${data.holdings[0].ticker}</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Top Position %</div>
-                <div class="stat-value">${data.holdings[0].percentOfPortfolio.toFixed(
-                  1
-                )}%</div>
-              </div>
-            </div>
-
-            <!-- Filter Section -->
-            <div class="filter-section">
-              <input 
-                type="text" 
-                id="searchInput" 
-                class="filter-input" 
-                placeholder="🔍 Search by ticker or company name..."
-                oninput="filterHoldings()"
-              />
-              <select id="sectorFilter" class="filter-input" onchange="filterHoldings()">
-                <option value="">All Sectors</option>
-                ${[...new Set(data.holdings.map((h) => h.sector))]
-                  .map((s) => `<option value="${s}">${s}</option>`)
-                  .join("")}
-              </select>
-              <select id="changeFilter" class="filter-input" onchange="filterHoldings()">
-                <option value="">All Changes</option>
-                <option value="increased">Increased Positions</option>
-                <option value="decreased">Decreased Positions</option>
-                <option value="unchanged">Unchanged Positions</option>
-              </select>
-            </div>
-
-            <!-- Chart Tabs -->
-            <div class="chart-container">
-              <div class="chart-tabs">
-                <button class="chart-tab active" onclick="switchChart('pie')">
-                  <i class="fas fa-chart-pie"></i> Portfolio Allocation
-                </button>
-                <button class="chart-tab" onclick="switchChart('bar')">
-                  <i class="fas fa-chart-bar"></i> Top 10 Holdings
-                </button>
-                <button class="chart-tab" onclick="switchChart('sector')">
-                  <i class="fas fa-layer-group"></i> By Sector
-                </button>
-              </div>
-              <div style="position: relative; height: 400px;">
-                <canvas id="mainChart"></canvas>
-              </div>
-            </div>
-
-            <!-- Holdings Table -->
-            <div class="holdings-table-container">
-              <table class="holdings-table" id="holdingsTable">
-                <thead>
-                  <tr>
-                    <th onclick="sortTable(0)"><i class="fas fa-sort"></i> Ticker</th>
-                    <th onclick="sortTable(1)"><i class="fas fa-sort"></i> Company</th>
-                    <th onclick="sortTable(2)"><i class="fas fa-sort"></i> Shares</th>
-                    <th onclick="sortTable(3)"><i class="fas fa-sort"></i> Value</th>
-                    <th onclick="sortTable(4)"><i class="fas fa-sort"></i> % of Portfolio</th>
-                    <th onclick="sortTable(5)"><i class="fas fa-sort"></i> Change</th>
-                    <th onclick="sortTable(6)"><i class="fas fa-sort"></i> Sector</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${data.holdings
-                    .map(
-                      (h) => `
-                    <tr data-ticker="${h.ticker}" data-sector="${
-                        h.sector
-                      }" data-change="${h.changePercent}">
-                      <td style="font-weight: 700; color: var(--accent-primary);">${
-                        h.ticker
-                      }</td>
-                      <td>${h.name}</td>
-                      <td>${formatNumber(h.shares)}</td>
-                      <td>${formatCurrency(h.value)}</td>
-                      <td>${h.percentOfPortfolio.toFixed(2)}%</td>
-                      <td class="${
-                        h.changePercent > 0
-                          ? "positive-change"
-                          : h.changePercent < 0
-                          ? "negative-change"
-                          : ""
-                      }">
-                        ${formatPercent(h.changePercent)}
-                      </td>
-                      <td><span style="padding: 0.25rem 0.75rem; background: var(--glass-bg); border-radius: 12px; font-size: 0.85rem;">${
-                        h.sector
-                      }</span></td>
-                    </tr>
-                  `
-                    )
-                    .join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        `;
-
-        vizArea.innerHTML = html;
-
-        // Initialize with pie chart
-        setTimeout(() => {
-          createPieChart(data);
-        }, 100);
-
-        showNotification("Holdings loaded successfully!", "success");
-      }
-
-      function createPieChart(data) {
-        const ctx = document.getElementById("mainChart");
-        if (currentChart) currentChart.destroy();
-
-        const topHoldings = data.holdings.slice(0, 10);
-        const otherValue = data.holdings
-          .slice(10)
-          .reduce((sum, h) => sum + h.value, 0);
-
-        const labels = [...topHoldings.map((h) => h.ticker)];
-        const values = [...topHoldings.map((h) => h.value)];
-
-        if (otherValue > 0) {
-          labels.push("Others");
-          values.push(otherValue);
-        }
-
-        currentChart = new Chart(ctx, {
-          type: "doughnut",
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                data: values,
-                backgroundColor: [
-                  "#2be2b4",
-                  "#ff6384",
-                  "#36a2eb",
-                  "#ffce56",
-                  "#9966ff",
-                  "#ff9f40",
-                  "#4bc0c0",
-                  "#f77eb9",
-                  "#7ec8e3",
-                  "#c9cbcf",
-                  "#8b8b8b",
-                ],
-                borderWidth: 2,
-                borderColor: "rgba(0, 0, 0, 0.1)",
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: "right",
-                labels: {
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--text-primary"
-                  ),
-                  padding: 15,
-                  font: { size: 12 },
-                },
-              },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    const value = context.parsed;
-                    const total = context.dataset.data.reduce(
-                      (a, b) => a + b,
-                      0
-                    );
-                    const percent = ((value / total) * 100).toFixed(2);
-                    return `${context.label}: ${formatCurrency(
-                      value
-                    )} (${percent}%)`;
-                  },
-                },
-              },
-            },
-          },
-        });
-      }
-
-      function createBarChart(data) {
-        const ctx = document.getElementById("mainChart");
-        if (currentChart) currentChart.destroy();
-
-        const topHoldings = data.holdings.slice(0, 10);
-
-        currentChart = new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: topHoldings.map((h) => h.ticker),
-            datasets: [
-              {
-                label: "Position Value",
-                data: topHoldings.map((h) => h.value / 1e9),
-                backgroundColor: "#2be2b4",
-                borderColor: "#2be2b4",
-                borderWidth: 2,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            indexAxis: "y",
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    return `Value: $${context.parsed.x.toFixed(2)}B`;
-                  },
-                },
-              },
-            },
-            scales: {
-              x: {
-                title: {
-                  display: true,
-                  text: "Value (Billions USD)",
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--text-primary"
-                  ),
-                },
-                ticks: {
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--text-secondary"
-                  ),
-                },
-                grid: { color: "rgba(255, 255, 255, 0.05)" },
-              },
-              y: {
-                ticks: {
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--text-secondary"
-                  ),
-                },
-                grid: { color: "rgba(255, 255, 255, 0.05)" },
-              },
-            },
-          },
-        });
-      }
-
-      function createSectorChart(data) {
-        const ctx = document.getElementById("mainChart");
-        if (currentChart) currentChart.destroy();
-
-        const sectorData = {};
-        data.holdings.forEach((h) => {
-          if (!sectorData[h.sector]) sectorData[h.sector] = 0;
-          sectorData[h.sector] += h.value;
+        institution.holdings.forEach((holding) => {
+          const row = tbody.insertRow();
+          row.innerHTML = `
+            <td><strong>${holding.ticker}</strong></td>
+            <td>${holding.name}</td>
+            <td>${formatNumber(holding.shares)}</td>
+            <td>${formatCurrency(holding.value)}</td>
+            <td>${holding.percentPortfolio.toFixed(1)}%</td>
+            <td class="${holding.change >= 0 ? "positive" : "negative"}">
+              ${holding.change >= 0 ? "+" : ""}${holding.change.toFixed(1)}%
+            </td>
+          `;
         });
 
-        const sectors = Object.keys(sectorData);
-        const values = Object.values(sectorData);
-
-        currentChart = new Chart(ctx, {
-          type: "pie",
-          data: {
-            labels: sectors,
-            datasets: [
-              {
-                data: values,
-                backgroundColor: [
-                  "#2be2b4",
-                  "#ff6384",
-                  "#36a2eb",
-                  "#ffce56",
-                  "#9966ff",
-                  "#ff9f40",
-                  "#4bc0c0",
-                  "#f77eb9",
-                ],
-                borderWidth: 2,
-                borderColor: "rgba(0, 0, 0, 0.1)",
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: "right",
-                labels: {
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--text-primary"
-                  ),
-                  padding: 15,
-                  font: { size: 12 },
-                },
-              },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    const value = context.parsed;
-                    const total = context.dataset.data.reduce(
-                      (a, b) => a + b,
-                      0
-                    );
-                    const percent = ((value / total) * 100).toFixed(2);
-                    return `${context.label}: ${formatCurrency(
-                      value
-                    )} (${percent}%)`;
-                  },
-                },
-              },
-            },
-          },
-        });
+        // Show results
+        document.getElementById("resultsContainer").classList.add("active");
       }
 
-      function switchChart(type) {
-        if (!currentData) return;
-
-        // Update active tab
-        document.querySelectorAll(".chart-tab").forEach((tab) => {
-          tab.classList.remove("active");
-        });
-        event.target.closest(".chart-tab").classList.add("active");
-
-        // Render appropriate chart
-        if (type === "pie") createPieChart(currentData);
-        else if (type === "bar") createBarChart(currentData);
-        else if (type === "sector") createSectorChart(currentData);
-      }
-
-      function filterHoldings() {
-        const searchTerm = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const sectorFilter = document.getElementById("sectorFilter").value;
-        const changeFilter = document.getElementById("changeFilter").value;
-
-        const rows = document.querySelectorAll("#holdingsTable tbody tr");
-
-        rows.forEach((row) => {
-          const ticker = row.getAttribute("data-ticker").toLowerCase();
-          const sector = row.getAttribute("data-sector");
-          const change = parseFloat(row.getAttribute("data-change"));
-          const companyName = row.cells[1].textContent.toLowerCase();
-
-          let showRow = true;
-
-          // Search filter
-          if (
-            searchTerm &&
-            !ticker.includes(searchTerm) &&
-            !companyName.includes(searchTerm)
-          ) {
-            showRow = false;
-          }
-
-          // Sector filter
-          if (sectorFilter && sector !== sectorFilter) {
-            showRow = false;
-          }
-
-          // Change filter
-          if (changeFilter === "increased" && change <= 0) showRow = false;
-          if (changeFilter === "decreased" && change >= 0) showRow = false;
-          if (changeFilter === "unchanged" && change !== 0) showRow = false;
-
-          row.style.display = showRow ? "" : "none";
-        });
-      }
-
-      function sortTable(columnIndex) {
-        const table = document.getElementById("holdingsTable");
-        const tbody = table.querySelector("tbody");
-        const rows = Array.from(tbody.querySelectorAll("tr"));
-
-        const sortedRows = rows.sort((a, b) => {
-          let aValue = a.cells[columnIndex].textContent;
-          let bValue = b.cells[columnIndex].textContent;
-
-          // Remove formatting for numeric comparison
-          if (columnIndex >= 2 && columnIndex <= 5) {
-            aValue = parseFloat(
-              aValue.replace(/[$,%+]/g, "").replace(/[BTM]/g, "")
-            );
-            bValue = parseFloat(
-              bValue.replace(/[$,%+]/g, "").replace(/[BTM]/g, "")
-            );
-          }
-
-          if (aValue < bValue) return -1;
-          if (aValue > bValue) return 1;
-          return 0;
-        });
-
-        // Toggle sort direction
-        if (
-          table.dataset.lastSort === columnIndex.toString() &&
-          table.dataset.sortDir === "asc"
-        ) {
-          sortedRows.reverse();
-          table.dataset.sortDir = "desc";
-        } else {
-          table.dataset.sortDir = "asc";
-        }
-        table.dataset.lastSort = columnIndex;
-
-        // Re-append sorted rows
-        sortedRows.forEach((row) => tbody.appendChild(row));
-      }
-
-      function getInstitutionName(id) {
-        const names = {
-          berkshire: "Berkshire Hathaway",
-          bridgewater: "Bridgewater Associates",
-          vanguard: "Vanguard Group",
-          blackrock: "BlackRock",
-          ark: "ARK Investment Management",
-          renaissance: "Renaissance Technologies",
-        };
-        return names[id] || id;
-      }
-
-      function showNotification(message, type = "info") {
-        const notification = document.createElement("div");
-        notification.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          padding: 1rem 1.5rem;
-          background: ${
-            type === "success"
-              ? "#16c784"
-              : type === "error"
-              ? "#ea3943"
-              : "#2be2b4"
-          };
-          color: white;
-          border-radius: 8px;
-          font-weight: 600;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          z-index: 10000;
-          animation: slideIn 0.3s ease-out;
-        `;
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-          notification.style.animation = "slideOut 0.3s ease-out";
-          setTimeout(() => notification.remove(), 300);
-        }, 3000);
-      }
-
-      // Add CSS animations
-      const style = document.createElement("style");
-      style.textContent = `
-        @keyframes slideIn {
-          from { transform: translateX(400px); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(400px); opacity: 0; }
-        }
-      `;
-      document.head.appendChild(style);
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", loadData);
     </script>
-    <script src="../js/shared-simple.js"></script>
-    <script src="../js/ux-enhancements.js?v=2025090801" defer></script>
   </body>
 </html>
