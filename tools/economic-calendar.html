@@ -1,15 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Economic Calendar | Market Events & Earnings | IO Innovate</title>
 
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free economic calendar. Track Fed meetings, earnings reports, GDP releases & market-moving events. Never miss important economic data again."
+    />
+    <meta
+      name="keywords"
+      content="economic calendar, earnings calendar, Fed meetings, GDP release, market events, FOMC schedule, economic indicators"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="IO Innovate" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/economic-calendar.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/economic-calendar.html"
+    />
+    <meta
+      property="og:title"
+      content="Free Economic Calendar - Track Market Events"
+    />
+    <meta
+      property="og:description"
+      content="Never miss Fed meetings, earnings & economic data releases. Free calendar for investors."
+    />
+    <meta property="og:site_name" content="IO Innovate" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Economic Calendar | IO Innovate" />
+    <meta
+      name="twitter:description"
+      content="Track Fed meetings, earnings, and market-moving events."
+    />
+
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-MRHXEVRZN9");
+    </script>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -241,7 +295,7 @@
         document.querySelectorAll(".filter-tab").forEach((tab, index) => {
           tab.classList.toggle(
             "active",
-            calendarData.categories[index].id === category
+            calendarData.categories[index].id === category,
           );
         });
 
@@ -257,16 +311,16 @@
         // Combine events and earnings
         if (currentFilter === "all" || currentFilter === "earnings") {
           allEvents = allEvents.concat(
-            calendarData.earnings.map((e) => ({ ...e, type: "earnings" }))
+            calendarData.earnings.map((e) => ({ ...e, type: "earnings" })),
           );
         }
 
         if (currentFilter === "all" || currentFilter !== "earnings") {
           const filtered = calendarData.events.filter(
-            (e) => currentFilter === "all" || e.category === currentFilter
+            (e) => currentFilter === "all" || e.category === currentFilter,
           );
           allEvents = allEvents.concat(
-            filtered.map((e) => ({ ...e, type: "event" }))
+            filtered.map((e) => ({ ...e, type: "event" })),
           );
         }
 
@@ -281,18 +335,18 @@
             eventDiv.innerHTML = `
               <div class="event-info">
                 <div class="event-title">${item.company} (${item.ticker}) - ${
-              item.quarter
-            } Earnings</div>
+                  item.quarter
+                } Earnings</div>
                 <div class="event-description">
                   EPS Consensus: $${item.epsConsensus} | Revenue: $${(
-              item.revenueConsensus / 1e9
-            ).toFixed(2)}B
+                    item.revenueConsensus / 1e9
+                  ).toFixed(2)}B
                 </div>
               </div>
               <div class="event-meta">
                 <div class="event-time">${item.time} ${item.timezone}</div>
                 <div class="event-date">${new Date(
-                  item.date
+                  item.date,
                 ).toLocaleDateString()}</div>
                 <span class="event-badge badge-high">Earnings</span>
               </div>
@@ -306,7 +360,7 @@
               <div class="event-meta">
                 <div class="event-time">${item.time} ${item.timezone}</div>
                 <div class="event-date">${new Date(
-                  item.date
+                  item.date,
                 ).toLocaleDateString()}</div>
                 <span class="event-badge badge-${
                   item.importance

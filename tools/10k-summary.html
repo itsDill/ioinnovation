@@ -1,9 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10K SEC Filings Analyzer | IO Innovate</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free 10-K annual report analyzer. Quickly summarize SEC filings, find key financial metrics & red flags. Analyze any public company in minutes."
+    />
+    <meta
+      name="keywords"
+      content="10K analyzer, SEC filings, annual report summary, financial analysis, company research, fundamental analysis"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="IO Innovate" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/10k-summary.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/10k-summary.html"
+    />
+    <meta
+      property="og:title"
+      content="Free 10-K Analyzer - Summarize SEC Annual Reports"
+    />
+    <meta
+      property="og:description"
+      content="Analyze 10-K filings instantly. Extract key metrics, find red flags, research any public company."
+    />
+    <meta property="og:site_name" content="IO Innovate" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="10-K Analyzer | IO Innovate" />
+    <meta
+      name="twitter:description"
+      content="Free tool to analyze SEC 10-K annual reports."
+    />
 
     <!-- Google AdSense -->
     <script
@@ -11,6 +51,20 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-MRHXEVRZN9");
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -332,8 +386,8 @@
           segmentsList.innerHTML += `
             <li>
               <strong>${segment.name}</strong>: ${formatCurrency(
-            segment.revenue
-          )} (${segment.percentOfTotal}% of total)
+                segment.revenue,
+              )} (${segment.percentOfTotal}% of total)
             </li>
           `;
         });

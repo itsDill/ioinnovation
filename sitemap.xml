@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://ioinnovationfund.com/</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,21 +12,21 @@
   <!-- Main Navigation Pages -->
   <url>
     <loc>https://ioinnovationfund.com/tools.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/analytics.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>
@@ -48,35 +48,35 @@
   <!-- Tool Pages - High Value -->
   <url>
     <loc>https://ioinnovationfund.com/tools/13f-visualizer.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/10k-summary.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/economic-calendar.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/backtester.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/supplychain.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>

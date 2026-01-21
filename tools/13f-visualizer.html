@@ -1,9 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>13F Visualizer | Track Institutional Holdings | IO Innovate</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free 13F Visualizer tool. See what Warren Buffett, hedge funds & institutional investors own. Track portfolio changes quarterly. No signup required."
+    />
+    <meta
+      name="keywords"
+      content="13F visualizer, hedge fund holdings, institutional investors, Warren Buffett portfolio, SEC 13F filings, portfolio tracker"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="IO Innovate" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/13f-visualizer.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/13f-visualizer.html"
+    />
+    <meta
+      property="og:title"
+      content="Free 13F Visualizer - Track Hedge Fund Holdings"
+    />
+    <meta
+      property="og:description"
+      content="See what Warren Buffett and top hedge funds own. Track institutional portfolio changes quarterly."
+    />
+    <meta property="og:site_name" content="IO Innovate" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="13F Visualizer | IO Innovate" />
+    <meta
+      name="twitter:description"
+      content="Track hedge fund holdings with our free 13F visualizer tool."
+    />
 
     <!-- Google AdSense -->
     <script
@@ -11,6 +51,20 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-MRHXEVRZN9");
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -332,7 +386,7 @@
         }
 
         const institution = institutionsData.find(
-          (inst) => inst.id === selectedId
+          (inst) => inst.id === selectedId,
         );
         if (!institution) return;
 
@@ -340,7 +394,7 @@
         document.getElementById("institutionName").textContent =
           institution.name;
         document.getElementById("totalAUM").textContent = formatCurrency(
-          parseFloat(institution.aum)
+          parseFloat(institution.aum),
         );
         document.getElementById("totalHoldings").textContent =
           institution.holdings.length;

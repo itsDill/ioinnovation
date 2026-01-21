@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -52,7 +52,7 @@
     <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Complete guide to understanding 13F filings: what they are, how to read them, and how to use institutional investor holdings data to inform your investment decisions."
+      content="How to read 13F filings step-by-step (2025 guide). See exactly what Buffett, Dalio & top hedge funds own. Free SEC filing tutorial + our 13F Visualizer tool."
     />
     <meta
       name="keywords"
@@ -128,6 +128,48 @@
         },
         "datePublished": "2025-01-20T08:00:00+08:00",
         "dateModified": "2025-01-20T08:00:00+08:00"
+      }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a 13F filing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 13F filing is a quarterly report required by the SEC for institutional investment managers with over $100 million in assets. It discloses their equity holdings, allowing investors to see what stocks major hedge funds and institutions own."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When are 13F filings due?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "13F filings are due 45 days after the end of each calendar quarter. Deadlines are typically around February 14, May 15, August 14, and November 14."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I see what Warren Buffett owns?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can view Warren Buffett's Berkshire Hathaway holdings through their 13F filing on the SEC's EDGAR database or use our free 13F Visualizer tool to see their portfolio with easy-to-read charts and analysis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are 13F filings a good investment strategy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "13F filings provide valuable insights but have limitations: they're 45 days old when published, only show long equity positions, and don't reveal the manager's full strategy. Use them as one research tool among many."
+            }
+          }
+        ]
       }
     </script>
 
@@ -325,7 +367,9 @@
         padding: 2rem;
         margin: 2.5rem 0;
         box-shadow: 0 10px 30px var(--shadow-color);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
       .info-card:hover {
@@ -578,7 +622,9 @@
         border-radius: 16px;
         overflow: hidden;
         border: 1px solid var(--border-color);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         box-shadow: 0 8px 25px var(--shadow-color);
       }
 
@@ -1444,9 +1490,43 @@
             institutional holdings. Understanding what the smart money is doing
             can give you an edge in your investment decisions.
           </p>
-          <a href="/tools.html" class="cta-button-large"
-            >Explore Our Analysis Tools</a
+          <a href="/tools/13f-visualizer.html" class="cta-button-large"
+            >Try Our FREE 13F Visualizer Tool</a
           >
+        </div>
+
+        <!-- Related Articles Section -->
+        <div class="highlight-box fade-in" style="margin-top: 3rem">
+          <h3><i class="fas fa-book-reader"></i> Continue Learning</h3>
+          <p style="margin-bottom: 1rem">
+            Deepen your investment research skills with these related guides:
+          </p>
+          <ul style="margin: 0">
+            <li>
+              <a
+                href="/blog/understanding-10k-filings-annual-reports-guide.html"
+                style="color: var(--accent-primary)"
+                ><strong>How to Read 10-K Annual Reports</strong></a
+              >
+              - Master SEC filings to analyze companies like the pros
+            </li>
+            <li>
+              <a
+                href="/blog/best-brokerages-robo-advisors-comparison-2025.html"
+                style="color: var(--accent-primary)"
+                ><strong>Best Brokerages Compared (2025)</strong></a
+              >
+              - Find the right platform to execute your trades
+            </li>
+            <li>
+              <a
+                href="/blog/fire-financial-independence-early-retirement-guide-2025.html"
+                style="color: var(--accent-primary)"
+                ><strong>FIRE Movement Guide</strong></a
+              >
+              - Use your investing skills to retire early
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -1648,23 +1728,23 @@
           if (button.querySelector(".fa-twitter")) {
             window.open(
               `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                url
+                url,
               )}&text=${encodeURIComponent(title)}`,
-              "_blank"
+              "_blank",
             );
           } else if (button.querySelector(".fa-linkedin")) {
             window.open(
               `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                url
+                url,
               )}`,
-              "_blank"
+              "_blank",
             );
           } else if (button.querySelector(".fa-facebook")) {
             window.open(
               `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                url
+                url,
               )}`,
-              "_blank"
+              "_blank",
             );
           } else if (button.querySelector(".fa-link")) {
             navigator.clipboard.writeText(url).then(() => {

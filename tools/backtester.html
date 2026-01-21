@@ -1,15 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Investment Backtester | Portfolio Simulator | IO Innovate</title>
 
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Free investment backtester. Test your portfolio strategy against historical data. See how $10K invested years ago would perform today. No signup required."
+    />
+    <meta
+      name="keywords"
+      content="investment backtester, portfolio simulator, backtest strategy, historical returns, investment calculator, portfolio analysis"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="IO Innovate" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/backtester.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/backtester.html"
+    />
+    <meta
+      property="og:title"
+      content="Free Investment Backtester - Test Your Strategy"
+    />
+    <meta
+      property="og:description"
+      content="Backtest your portfolio strategy with historical data. See potential returns before investing."
+    />
+    <meta property="og:site_name" content="IO Innovate" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Investment Backtester | IO Innovate" />
+    <meta
+      name="twitter:description"
+      content="Test investment strategies with our free backtesting tool."
+    />
+
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MRHXEVRZN9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-MRHXEVRZN9");
+    </script>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -264,7 +318,7 @@
         allocationGrid.innerHTML = "";
         Object.entries(preset.allocation).forEach(([asset, value]) => {
           const assetData = backtesterData.assetClasses.find(
-            (a) => a.id === asset
+            (a) => a.id === asset,
           );
           allocationGrid.innerHTML += `
             <div class="allocation-item">
@@ -306,7 +360,7 @@
           <div class="metric-card">
             <div class="metric-label">Expected Return</div>
             <div class="metric-value" style="color: #22c55e;">${expectedReturn.toFixed(
-              1
+              1,
             )}%</div>
           </div>
           <div class="metric-card">
@@ -321,7 +375,7 @@
             <div class="metric-label">Final Value</div>
             <div class="metric-value" style="color: #3b82f6;">$${portfolioValue.toLocaleString(
               undefined,
-              { maximumFractionDigits: 0 }
+              { maximumFractionDigits: 0 },
             )}</div>
           </div>
         `;
