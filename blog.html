@@ -164,16 +164,12 @@
       <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="/" class="logo">IO Innovate</a>
 
-        <ul class="nav-links" id="mobileNav" role="menu">
-          <li role="none"><a href="/" role="menuitem">Home</a></li>
-          <li role="none"><a href="/tools.html" role="menuitem">Tools</a></li>
-          <li role="none">
-            <a href="/analytics.html" role="menuitem">Analytics</a>
-          </li>
-          <li role="none">
-            <a href="/blog.html" class="active" role="menuitem">Blog</a>
-          </li>
-          <li role="none"><a href="/about.html" role="menuitem">About</a></li>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/congress-trades.html">Congress Tracker</a></li>
+          <li><a href="/tools/dividend-aristocrats.html">Dividends</a></li>
+          <li><a href="/tools.html">All Tools</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -184,12 +180,7 @@
           >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
-          <button
-            class="mobile-menu-btn"
-            id="menuBtn"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -253,28 +244,26 @@
               <i class="fas fa-star"></i> Featured Guide
             </div>
             <h2 class="featured-title">
-              <a href="blog/understanding-asean-economic-indicators-2025.html">
-                Understanding ASEAN Economic Indicators: A Comprehensive Guide
-                2025
+              <a href="blog/understanding-13f-filings-guide.html">
+                Understanding 13F Filings: Track What Hedge Funds Are Buying
               </a>
             </h2>
             <p class="featured-excerpt">
-              Learn to analyze key ASEAN economic indicators including GDP
-              growth, inflation, trade balance, and employment data. Essential
-              knowledge for investors looking to capitalize on Southeast Asian
-              market opportunities across Thailand, Singapore, Malaysia,
-              Indonesia, Philippines, and Vietnam.
+              Learn how to decode SEC 13F filings to see exactly what Warren
+              Buffett, Ray Dalio, and top hedge funds own. Complete step-by-step
+              guide with our free 13F Visualizer tool to track institutional
+              investor holdings.
             </p>
             <div class="featured-meta">
-              <span><i class="fas fa-clock"></i> 12 min read</span>
-              <span><i class="fas fa-calendar"></i> Updated Dec 2025</span>
+              <span><i class="fas fa-clock"></i> 15 min read</span>
+              <span><i class="fas fa-calendar"></i> Updated Jan 2026</span>
             </div>
           </div>
           <div
             class="featured-image"
-            style="background: linear-gradient(135deg, #a855f7, #9333ea)"
+            style="background: linear-gradient(135deg, #6366f1, #8b5cf6)"
           >
-            <i class="fas fa-chart-area"></i>
+            <i class="fas fa-file-alt"></i>
           </div>
         </article>
       </section>
@@ -660,18 +649,20 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="logo">IO Innovate</a>
-          <p>
-            Professional financial tools and investment insights for informed
-            decision-making.
-          </p>
+          <p>Free tools to track what Congress and smart money are buying.</p>
         </div>
 
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4>Tools</h4>
           <ul>
-            <li><a href="/tools.html">Tools</a></li>
-            <li><a href="/analytics.html">Analytics</a></li>
-            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/tools/congress-trades.html">Congress Tracker</a></li>
+            <li>
+              <a href="/tools/dividend-aristocrats.html"
+                >Dividend Aristocrats</a
+              >
+            </li>
+            <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
+            <li><a href="/tools.html">All Tools</a></li>
           </ul>
         </div>
 
@@ -680,6 +671,7 @@
           <ul>
             <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/blog.html">Blog</a></li>
           </ul>
         </div>
 
@@ -694,13 +686,17 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        <p>&copy; 2026 IO Innovate. All rights reserved.</p>
         <p class="footer-disclaimer">
-          Investment involves risk. Past performance does not guarantee future
-          results.
+          Not financial advice. Do your own research.
         </p>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript -->
     <script src="js/shared-simple.js"></script>
