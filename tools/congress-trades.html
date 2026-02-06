@@ -502,6 +502,113 @@
         text-align: center;
       }
 
+      /* Trending Stocks Grid */
+      .trending-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+
+      .trending-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 1.25rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .trending-card:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+      }
+
+      .trending-ticker {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--accent-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .trending-company {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.75rem;
+      }
+
+      .trending-stats {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 0.75rem;
+      }
+
+      .trending-buy {
+        color: #22c55e;
+      }
+
+      .trending-sell {
+        color: #ef4444;
+      }
+
+      .sentiment-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 100px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+
+      .sentiment-bullish {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+      }
+
+      .sentiment-bearish {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+
+      .sentiment-neutral {
+        background: rgba(245, 158, 11, 0.1);
+        color: #f59e0b;
+      }
+
+      /* Error state */
+      .error-message {
+        text-align: center;
+        padding: 2rem;
+        color: #ef4444;
+      }
+
+      /* Trade Now Button */
+      .trade-now-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 100px;
+        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .trade-now-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        background: linear-gradient(135deg, #16a34a, #15803d);
+      }
+
+      .trade-now-btn i {
+        font-size: 1rem;
+      }
+
       /* Responsive */
       @media (max-width: 768px) {
         .trades-table th:nth-child(4),
@@ -514,6 +621,10 @@
         .trades-table th,
         .trades-table td {
           padding: 0.75rem;
+        }
+
+        .trending-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
@@ -570,18 +681,26 @@
           </p>
           <div class="hero-stats">
             <div class="hero-stat">
-              <div class="hero-stat-value">535</div>
+              <div class="hero-stat-value" id="statMembers">535</div>
               <div class="hero-stat-label">Members Tracked</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-value">2,400+</div>
+              <div class="hero-stat-value" id="statTrades">--</div>
               <div class="hero-stat-label">Trades This Year</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-value">$180M+</div>
+              <div class="hero-stat-value" id="statVolume">--</div>
               <div class="hero-stat-label">Total Volume</div>
             </div>
           </div>
+          <a
+            href="https://one.exnessonelink.com/a/1dr3c6fg9a"
+            target="_blank"
+            rel="noopener sponsored"
+            class="trade-now-btn"
+          >
+            <i class="fas fa-chart-line"></i> Trade Now
+          </a>
         </section>
 
         <!-- Ad -->
@@ -642,9 +761,18 @@
             <h2>
               <i class="fas fa-exchange-alt"></i> Recent Congressional Trades
             </h2>
-            <span class="last-updated">Last updated: Feb 3, 2026</span>
+            <span class="last-updated" id="lastUpdated">Loading...</span>
           </div>
-          <table class="trades-table">
+          <div id="loadingIndicator" style="text-align: center; padding: 2rem">
+            <i
+              class="fas fa-spinner fa-spin"
+              style="font-size: 2rem; color: var(--accent-primary)"
+            ></i>
+            <p style="margin-top: 1rem; color: var(--text-secondary)">
+              Loading trades data...
+            </p>
+          </div>
+          <table class="trades-table" id="tradesTable" style="display: none">
             <thead>
               <tr>
                 <th>Politician</th>
@@ -655,127 +783,38 @@
               </tr>
             </thead>
             <tbody id="tradesBody">
-              <tr>
-                <td>
-                  <div class="politician-cell">
-                    <div class="politician-avatar">NP</div>
-                    <div class="politician-info">
-                      <span class="politician-name">Nancy Pelosi</span>
-                      <span class="politician-party party-d"
-                        >D - California</span
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="ticker">NVDA</span><br /><small
-                    >NVIDIA Corp</small
-                  >
-                </td>
-                <td><span class="trade-type trade-buy">BUY</span></td>
-                <td class="amount">$1M - $5M</td>
-                <td>Jan 28, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="politician-cell">
-                    <div class="politician-avatar">TT</div>
-                    <div class="politician-info">
-                      <span class="politician-name">Tommy Tuberville</span>
-                      <span class="politician-party party-r">R - Alabama</span>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="ticker">GOOGL</span><br /><small
-                    >Alphabet Inc</small
-                  >
-                </td>
-                <td><span class="trade-type trade-buy">BUY</span></td>
-                <td class="amount">$100K - $250K</td>
-                <td>Jan 25, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="politician-cell">
-                    <div class="politician-avatar">DC</div>
-                    <div class="politician-info">
-                      <span class="politician-name">Dan Crenshaw</span>
-                      <span class="politician-party party-r">R - Texas</span>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="ticker">MSFT</span><br /><small
-                    >Microsoft Corp</small
-                  >
-                </td>
-                <td><span class="trade-type trade-sell">SELL</span></td>
-                <td class="amount">$50K - $100K</td>
-                <td>Jan 22, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="politician-cell">
-                    <div class="politician-avatar">NP</div>
-                    <div class="politician-info">
-                      <span class="politician-name">Nancy Pelosi</span>
-                      <span class="politician-party party-d"
-                        >D - California</span
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="ticker">AAPL</span><br /><small>Apple Inc</small>
-                </td>
-                <td><span class="trade-type trade-buy">BUY</span></td>
-                <td class="amount">$500K - $1M</td>
-                <td>Jan 18, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="politician-cell">
-                    <div class="politician-avatar">JO</div>
-                    <div class="politician-info">
-                      <span class="politician-name">Josh Gottheimer</span>
-                      <span class="politician-party party-d"
-                        >D - New Jersey</span
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="ticker">META</span><br /><small
-                    >Meta Platforms</small
-                  >
-                </td>
-                <td><span class="trade-type trade-buy">BUY</span></td>
-                <td class="amount">$15K - $50K</td>
-                <td>Jan 15, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="politician-cell">
-                    <div class="politician-avatar">MG</div>
-                    <div class="politician-info">
-                      <span class="politician-name"
-                        >Marjorie Taylor Greene</span
-                      >
-                      <span class="politician-party party-r">R - Georgia</span>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="ticker">TSLA</span><br /><small>Tesla Inc</small>
-                </td>
-                <td><span class="trade-type trade-buy">BUY</span></td>
-                <td class="amount">$15K - $50K</td>
-                <td>Jan 12, 2026</td>
-              </tr>
+              <!-- Populated by JavaScript -->
             </tbody>
           </table>
+          <div
+            id="noResults"
+            style="
+              display: none;
+              text-align: center;
+              padding: 2rem;
+              color: var(--text-secondary);
+            "
+          >
+            <i
+              class="fas fa-search"
+              style="font-size: 2rem; margin-bottom: 1rem"
+            ></i>
+            <p>
+              No trades match your filters. Try adjusting your search criteria.
+            </p>
+          </div>
         </div>
+
+        <!-- Trending Stocks Section -->
+        <section class="trending-section" style="margin-top: 2rem">
+          <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem">
+            <i class="fas fa-fire" style="color: #f97316"></i> Trending Among
+            Congress
+          </h2>
+          <div class="trending-grid" id="trendingGrid">
+            <!-- Populated by JavaScript -->
+          </div>
+        </section>
 
         <!-- Top Traders Section -->
         <section class="top-traders">
@@ -783,76 +822,8 @@
             <i class="fas fa-trophy" style="color: #f59e0b"></i> Most Active
             Congressional Traders
           </h2>
-          <div class="traders-grid">
-            <div class="trader-card">
-              <div class="trader-header">
-                <div class="trader-avatar">NP</div>
-                <div class="trader-info">
-                  <h3>Nancy Pelosi</h3>
-                  <span class="politician-party party-d"
-                    >D - California (House)</span
-                  >
-                </div>
-              </div>
-              <div class="trader-stats">
-                <div class="trader-stat">
-                  <div class="trader-stat-value">156</div>
-                  <div class="trader-stat-label">Trades (2025)</div>
-                </div>
-                <div class="trader-stat">
-                  <div class="trader-stat-value" style="color: #22c55e">
-                    +65%
-                  </div>
-                  <div class="trader-stat-label">Avg Return</div>
-                </div>
-              </div>
-            </div>
-            <div class="trader-card">
-              <div class="trader-header">
-                <div class="trader-avatar">TT</div>
-                <div class="trader-info">
-                  <h3>Tommy Tuberville</h3>
-                  <span class="politician-party party-r"
-                    >R - Alabama (Senate)</span
-                  >
-                </div>
-              </div>
-              <div class="trader-stats">
-                <div class="trader-stat">
-                  <div class="trader-stat-value">132</div>
-                  <div class="trader-stat-label">Trades (2025)</div>
-                </div>
-                <div class="trader-stat">
-                  <div class="trader-stat-value" style="color: #22c55e">
-                    +42%
-                  </div>
-                  <div class="trader-stat-label">Avg Return</div>
-                </div>
-              </div>
-            </div>
-            <div class="trader-card">
-              <div class="trader-header">
-                <div class="trader-avatar">DC</div>
-                <div class="trader-info">
-                  <h3>Dan Crenshaw</h3>
-                  <span class="politician-party party-r"
-                    >R - Texas (House)</span
-                  >
-                </div>
-              </div>
-              <div class="trader-stats">
-                <div class="trader-stat">
-                  <div class="trader-stat-value">89</div>
-                  <div class="trader-stat-label">Trades (2025)</div>
-                </div>
-                <div class="trader-stat">
-                  <div class="trader-stat-value" style="color: #22c55e">
-                    +38%
-                  </div>
-                  <div class="trader-stat-label">Avg Return</div>
-                </div>
-              </div>
-            </div>
+          <div class="traders-grid" id="tradersGrid">
+            <!-- Populated by JavaScript -->
           </div>
         </section>
 
@@ -1004,54 +975,255 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-main">
-          <div class="footer-brand">
-            <a href="/" class="footer-logo">IO Innovate</a>
-            <p class="footer-desc">
-              Free tools to track what smart money is buying.
-            </p>
-          </div>
-          <div class="footer-links-group">
-            <h4>Tools</h4>
-            <ul>
-              <li>
-                <a href="/tools/congress-trades.html">Congress Tracker</a>
-              </li>
-              <li>
-                <a href="/tools/dividend-aristocrats.html"
-                  >Dividend Aristocrats</a
-                >
-              </li>
-              <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
-            </ul>
-          </div>
-          <div class="footer-links-group">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="/about.html">About</a></li>
-              <li><a href="/contact.html">Contact</a></li>
-              <li><a href="/blog.html">Blog</a></li>
-            </ul>
-          </div>
-          <div class="footer-links-group">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="/privacy.html">Privacy</a></li>
-              <li><a href="/terms.html">Terms</a></li>
-              <li><a href="/disclaimer.html">Disclaimer</a></li>
-            </ul>
-          </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovate</a>
+          <p>Free tools to track what smart money is buying.</p>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 IO Innovate. All rights reserved.</p>
-          <p class="footer-disclaimer">
-            Not financial advice. Data may be delayed. Do your own research.
-          </p>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/tools/congress-trades.html">Congress Tracker</a></li>
+            <li>
+              <a href="/tools/dividend-aristocrats.html"
+                >Dividend Aristocrats</a
+              >
+            </li>
+            <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
+          </ul>
         </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovate. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Not financial advice. Data may be delayed. Do your own research.
+        </p>
       </div>
     </footer>
 
     <script src="../js/shared-simple.js"></script>
+    <script>
+      // Congress Trades Data Loader
+      (function () {
+        let congressData = null;
+        let filteredTrades = [];
+
+        // Format date for display
+        function formatDate(dateStr) {
+          const date = new Date(dateStr);
+          return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          });
+        }
+
+        // Load data from JSON
+        async function loadCongressData() {
+          try {
+            const response = await fetch("../data/congress-trades.json");
+            if (!response.ok) throw new Error("Failed to load data");
+            congressData = await response.json();
+
+            // Update stats
+            document.getElementById("statMembers").textContent =
+              congressData.stats.membersTracked.toLocaleString();
+            document.getElementById("statTrades").textContent =
+              congressData.stats.tradesThisYear.toLocaleString() + "+";
+            document.getElementById("statVolume").textContent =
+              congressData.stats.totalVolume;
+            document.getElementById("lastUpdated").textContent =
+              "Last updated: " + formatDate(congressData.lastUpdated);
+
+            // Initialize displays
+            filteredTrades = [...congressData.recentTrades];
+            renderTrades();
+            renderTopTraders();
+            renderTrendingStocks();
+          } catch (error) {
+            console.error("Error loading congress data:", error);
+            document.getElementById("loadingIndicator").innerHTML = `
+              <div class="error-message">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                <p>Unable to load trades data. Please refresh the page.</p>
+              </div>
+            `;
+          }
+        }
+
+        // Render trades table
+        function renderTrades() {
+          const tbody = document.getElementById("tradesBody");
+          const table = document.getElementById("tradesTable");
+          const loading = document.getElementById("loadingIndicator");
+          const noResults = document.getElementById("noResults");
+
+          if (filteredTrades.length === 0) {
+            table.style.display = "none";
+            loading.style.display = "none";
+            noResults.style.display = "block";
+            return;
+          }
+
+          tbody.innerHTML = filteredTrades
+            .map(
+              (trade) => `
+            <tr>
+              <td>
+                <div class="politician-cell">
+                  <div class="politician-avatar">${trade.initials}</div>
+                  <div class="politician-info">
+                    <span class="politician-name">${trade.politician}</span>
+                    <span class="politician-party party-${trade.party.toLowerCase()}">${trade.party} - ${trade.state}</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="ticker">${trade.ticker}</span><br>
+                <small>${trade.company}</small>
+              </td>
+              <td><span class="trade-type trade-${trade.type}">${trade.type.toUpperCase()}</span></td>
+              <td class="amount">${trade.amountDisplay}</td>
+              <td>${formatDate(trade.filedDate)}</td>
+            </tr>
+          `,
+            )
+            .join("");
+
+          loading.style.display = "none";
+          noResults.style.display = "none";
+          table.style.display = "table";
+        }
+
+        // Render top traders cards
+        function renderTopTraders() {
+          const container = document.getElementById("tradersGrid");
+          if (!congressData || !congressData.topTraders) return;
+
+          container.innerHTML = congressData.topTraders
+            .slice(0, 6)
+            .map(
+              (trader) => `
+            <div class="trader-card">
+              <div class="trader-header">
+                <div class="trader-avatar">${trader.initials}</div>
+                <div class="trader-info">
+                  <h3>${trader.name}</h3>
+                  <span class="politician-party party-${trader.party.toLowerCase()}">${trader.party} - ${trader.state} (${trader.chamber === "house" ? "House" : "Senate"})</span>
+                </div>
+              </div>
+              <div class="trader-stats">
+                <div class="trader-stat">
+                  <div class="trader-stat-value">${trader.trades2025}</div>
+                  <div class="trader-stat-label">Trades (2025)</div>
+                </div>
+                <div class="trader-stat">
+                  <div class="trader-stat-value" style="color: #22c55e">+${trader.avgReturn}%</div>
+                  <div class="trader-stat-label">Avg Return</div>
+                </div>
+              </div>
+            </div>
+          `,
+            )
+            .join("");
+        }
+
+        // Render trending stocks
+        function renderTrendingStocks() {
+          const container = document.getElementById("trendingGrid");
+          if (!congressData || !congressData.trendingStocks) return;
+
+          container.innerHTML = congressData.trendingStocks
+            .map(
+              (stock) => `
+            <div class="trending-card">
+              <div class="trending-ticker">${stock.ticker}</div>
+              <div class="trending-company">${stock.company}</div>
+              <div class="trending-stats">
+                <span class="trending-buy"><i class="fas fa-arrow-up"></i> ${stock.buyCount} buys</span>
+                <span class="trending-sell"><i class="fas fa-arrow-down"></i> ${stock.sellCount} sells</span>
+              </div>
+              <span class="sentiment-badge sentiment-${stock.sentiment}">${stock.sentiment.toUpperCase()}</span>
+            </div>
+          `,
+            )
+            .join("");
+        }
+
+        // Filter trades
+        function filterTrades() {
+          if (!congressData) return;
+
+          const chamber = document.getElementById("chamber").value;
+          const party = document.getElementById("party").value;
+          const tradeType = document.getElementById("tradeType").value;
+          const timeframe = parseInt(
+            document.getElementById("timeframe").value,
+          );
+
+          const cutoffDate = new Date();
+          cutoffDate.setDate(cutoffDate.getDate() - timeframe);
+
+          filteredTrades = congressData.recentTrades.filter((trade) => {
+            // Chamber filter
+            if (chamber !== "all" && trade.chamber !== chamber) return false;
+
+            // Party filter
+            if (party !== "all") {
+              const partyMap = {
+                democrat: "D",
+                republican: "R",
+                independent: "I",
+              };
+              if (trade.party !== partyMap[party]) return false;
+            }
+
+            // Trade type filter
+            if (tradeType !== "all" && trade.type !== tradeType) return false;
+
+            // Timeframe filter
+            const tradeDate = new Date(trade.filedDate);
+            if (tradeDate < cutoffDate) return false;
+
+            return true;
+          });
+
+          renderTrades();
+        }
+
+        // Event listeners for filters
+        document
+          .getElementById("chamber")
+          .addEventListener("change", filterTrades);
+        document
+          .getElementById("party")
+          .addEventListener("change", filterTrades);
+        document
+          .getElementById("tradeType")
+          .addEventListener("change", filterTrades);
+        document
+          .getElementById("timeframe")
+          .addEventListener("change", filterTrades);
+
+        // Initialize on page load
+        loadCongressData();
+      })();
+    </script>
   </body>
 </html>
