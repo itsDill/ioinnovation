@@ -6,26 +6,55 @@
 
     <!-- Primary SEO - OPTIMIZED FOR DIVIDEND KEYWORDS -->
     <title>
-      Dividend Aristocrats List 2026 | 25+ Years of Dividend Growth | Free
-      Tracker
+      Dividend Aristocrats List 2026 | 68 S&P 500 Stocks | Free Tracker
     </title>
     <meta
       name="description"
-      content="Complete Dividend Aristocrats list 2026. 68 stocks with 25+ years of consecutive dividend increases. Free tracker with yields, payout ratios & ex-dividend dates."
+      content="Complete Dividend Aristocrats list 2026: All 68 S&P 500 stocks with 25+ years of consecutive dividend increases. Free tracker with yields, payout ratios, ex-dividend dates & Dividend Kings."
     />
     <meta
       name="keywords"
-      content="dividend aristocrats 2026, dividend aristocrats list, best dividend stocks, dividend growth stocks, 25 year dividend stocks, dividend kings, high yield dividend stocks, passive income stocks"
+      content="dividend aristocrats 2026, dividend aristocrats list, best dividend stocks, dividend growth stocks, 25 year dividend stocks, dividend kings, high yield dividend stocks, passive income stocks, S&P 500 dividend stocks, dividend income investing"
     />
     <meta
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large"
     />
     <meta name="author" content="IO Innovate" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
     <link
       rel="canonical"
       href="https://ioinnovationfund.com/tools/dividend-aristocrats.html"
     />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ioinnovationfund.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://ioinnovationfund.com/tools.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Dividend Aristocrats",
+            "item": "https://ioinnovationfund.com/tools/dividend-aristocrats.html"
+          }
+        ]
+      }
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -35,27 +64,39 @@
     />
     <meta
       property="og:title"
-      content="Dividend Aristocrats List 2026 - Complete Free Tracker"
+      content="Dividend Aristocrats List 2026 - All 68 S&P 500 Stocks"
     />
     <meta
       property="og:description"
-      content="All 68 Dividend Aristocrats with yields, payout ratios, and dividend growth rates. Free tool for income investors."
+      content="Complete list of all 68 Dividend Aristocrats with yields, payout ratios, dividend growth rates, and ex-dividend dates. Free tool for income investors."
     />
     <meta property="og:site_name" content="IO Innovate" />
     <meta
       property="og:image"
       content="https://ioinnovationfund.com/assets/images/dividend-aristocrats-og.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Dividend Aristocrats List 2026 - 68 S&P 500 stocks with 25+ years dividend growth"
+    />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ioinnovate" />
     <meta
       name="twitter:title"
       content="Dividend Aristocrats 2026 | Complete List + Yields"
     />
     <meta
       name="twitter:description"
-      content="Free tracker for all 68 Dividend Aristocrats. Yields, growth rates & ex-dividend dates."
+      content="Free tracker for all 68 Dividend Aristocrats. Yields, growth rates & ex-dividend dates. Includes Dividend Kings."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ioinnovationfund.com/assets/images/dividend-aristocrats-og.png"
     />
 
     <!-- FAQ Schema for Rich Snippets -->
@@ -94,6 +135,22 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Yields change daily with stock prices. Currently, some of the highest-yielding Dividend Aristocrats include Walgreens (WBA), 3M (MMM), and Realty Income (O). Use our tracker to see current yields."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are Dividend Aristocrats a good investment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dividend Aristocrats have historically outperformed the S&P 500 with lower volatility. They're particularly attractive for income investors and retirees seeking stable, growing passive income. However, past performance doesn't guarantee future results."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often is the Dividend Aristocrats list updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The official Dividend Aristocrats list is reviewed annually by S&P Dow Jones Indices in January. Companies can be added if they meet the criteria or removed if they cut dividends or leave the S&P 500."
             }
           }
         ]
@@ -610,16 +667,20 @@
           </p>
           <div class="hero-stats">
             <div class="hero-stat">
-              <div class="hero-stat-value">68</div>
+              <div class="hero-stat-value" id="statTotal">68</div>
               <div class="hero-stat-label">Aristocrats</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-value">2.8%</div>
+              <div class="hero-stat-value" id="statYield">2.8%</div>
               <div class="hero-stat-label">Avg Yield</div>
             </div>
             <div class="hero-stat">
-              <div class="hero-stat-value">7.2%</div>
+              <div class="hero-stat-value" id="statGrowth">7.2%</div>
               <div class="hero-stat-label">Avg 10Y Growth</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value" id="statKings">--</div>
+              <div class="hero-stat-label">Dividend Kings</div>
             </div>
           </div>
         </section>
@@ -747,183 +808,49 @@
         <div class="table-container">
           <div class="table-header">
             <h2><i class="fas fa-list"></i> Dividend Aristocrats List</h2>
-            <span style="font-size: 0.9rem; color: var(--text-secondary)"
-              >68 stocks</span
+            <span
+              id="stockCount"
+              style="font-size: 0.9rem; color: var(--text-secondary)"
+              >Loading...</span
             >
           </div>
+          <div id="loadingIndicator" style="text-align: center; padding: 2rem">
+            <i
+              class="fas fa-spinner fa-spin"
+              style="font-size: 2rem; color: #22c55e"
+            ></i>
+            <p style="margin-top: 1rem; color: var(--text-secondary)">
+              Loading dividend data...
+            </p>
+          </div>
           <div style="overflow-x: auto">
-            <table class="aristocrats-table">
+            <table
+              class="aristocrats-table"
+              id="aristocratsTable"
+              style="display: none"
+            >
               <thead>
                 <tr>
-                  <th>Stock</th>
-                  <th>Yield</th>
-                  <th>Years ↓</th>
-                  <th>5Y Growth</th>
-                  <th>Payout Ratio</th>
+                  <th onclick="sortTable('ticker')">
+                    Stock <i class="fas fa-sort"></i>
+                  </th>
+                  <th onclick="sortTable('yield')">
+                    Yield <i class="fas fa-sort"></i>
+                  </th>
+                  <th onclick="sortTable('years')">
+                    Years <i class="fas fa-sort-down"></i>
+                  </th>
+                  <th onclick="sortTable('growth5Y')">
+                    5Y Growth <i class="fas fa-sort"></i>
+                  </th>
+                  <th onclick="sortTable('payoutRatio')">
+                    Payout Ratio <i class="fas fa-sort"></i>
+                  </th>
                   <th>Sector</th>
                 </tr>
               </thead>
               <tbody id="aristocratsBody">
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">PG</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">PG</span>
-                        <span class="stock-name">Procter & Gamble</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">2.42%</td>
-                  <td><span class="years-badge">68 yrs</span></td>
-                  <td>6.1%</td>
-                  <td>62%</td>
-                  <td><span class="sector-tag">Consumer Staples</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">MMM</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">MMM</span>
-                        <span class="stock-name">3M Company</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">5.82%</td>
-                  <td><span class="years-badge">66 yrs</span></td>
-                  <td>0.8%</td>
-                  <td>78%</td>
-                  <td><span class="sector-tag">Industrials</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">DOV</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">DOV</span>
-                        <span class="stock-name">Dover Corporation</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">1.18%</td>
-                  <td><span class="years-badge">69 yrs</span></td>
-                  <td>7.2%</td>
-                  <td>28%</td>
-                  <td><span class="sector-tag">Industrials</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">GPC</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">GPC</span>
-                        <span class="stock-name">Genuine Parts</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">2.75%</td>
-                  <td><span class="years-badge">68 yrs</span></td>
-                  <td>5.8%</td>
-                  <td>52%</td>
-                  <td><span class="sector-tag">Consumer Disc</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">EMR</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">EMR</span>
-                        <span class="stock-name">Emerson Electric</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">1.85%</td>
-                  <td><span class="years-badge">67 yrs</span></td>
-                  <td>1.5%</td>
-                  <td>45%</td>
-                  <td><span class="sector-tag">Industrials</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">JNJ</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">JNJ</span>
-                        <span class="stock-name">Johnson & Johnson</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">3.12%</td>
-                  <td><span class="years-badge">62 yrs</span></td>
-                  <td>5.9%</td>
-                  <td>44%</td>
-                  <td><span class="sector-tag">Healthcare</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">KO</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">KO</span>
-                        <span class="stock-name">Coca-Cola</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">3.05%</td>
-                  <td><span class="years-badge">62 yrs</span></td>
-                  <td>3.8%</td>
-                  <td>67%</td>
-                  <td><span class="sector-tag">Consumer Staples</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">PEP</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">PEP</span>
-                        <span class="stock-name">PepsiCo</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">2.95%</td>
-                  <td><span class="years-badge">52 yrs</span></td>
-                  <td>7.1%</td>
-                  <td>65%</td>
-                  <td><span class="sector-tag">Consumer Staples</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">CL</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">CL</span>
-                        <span class="stock-name">Colgate-Palmolive</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">2.18%</td>
-                  <td><span class="years-badge">61 yrs</span></td>
-                  <td>3.2%</td>
-                  <td>58%</td>
-                  <td><span class="sector-tag">Consumer Staples</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="stock-cell">
-                      <div class="stock-logo">O</div>
-                      <div class="stock-info">
-                        <span class="stock-ticker">O</span>
-                        <span class="stock-name">Realty Income</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="yield">5.65%</td>
-                  <td><span class="years-badge">29 yrs</span></td>
-                  <td>3.1%</td>
-                  <td>75%</td>
-                  <td><span class="sector-tag">Real Estate</span></td>
-                </tr>
+                <!-- Populated dynamically from JSON -->
               </tbody>
             </table>
           </div>
@@ -946,39 +873,8 @@
             <i class="fas fa-chart-pie" style="color: #22c55e"></i> Dividend
             Aristocrats by Sector
           </h2>
-          <div class="sector-grid">
-            <div class="sector-item">
-              <div class="sector-count">15</div>
-              <div class="sector-name">Consumer Staples</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">13</div>
-              <div class="sector-name">Industrials</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">10</div>
-              <div class="sector-name">Healthcare</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">9</div>
-              <div class="sector-name">Financials</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">8</div>
-              <div class="sector-name">Materials</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">6</div>
-              <div class="sector-name">Utilities</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">4</div>
-              <div class="sector-name">Real Estate</div>
-            </div>
-            <div class="sector-item">
-              <div class="sector-count">3</div>
-              <div class="sector-name">Other</div>
-            </div>
+          <div class="sector-grid" id="sectorGrid">
+            <!-- Populated dynamically from JSON -->
           </div>
         </section>
 
@@ -996,6 +892,61 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
+
+        <!-- Important Disclaimer -->
+        <section
+          class="faq-section"
+          id="disclaimer"
+          style="
+            background: rgba(34, 197, 94, 0.05);
+            border-color: rgba(34, 197, 94, 0.2);
+          "
+          aria-labelledby="disclaimer-heading"
+        >
+          <h2 id="disclaimer-heading" style="color: #22c55e">
+            <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+            Important Disclaimer
+          </h2>
+          <div class="faq-answer" style="margin-top: 1rem">
+            <p>
+              <strong
+                >This tool is for educational and informational purposes
+                only.</strong
+              >
+            </p>
+            <ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8">
+              <li>
+                <strong>Not Financial Advice:</strong> The information displayed
+                does not constitute investment advice, financial advice, or any
+                recommendation to buy or sell securities.
+              </li>
+              <li>
+                <strong>Data Accuracy:</strong> Dividend yields, payout ratios,
+                and growth rates change frequently. While we strive for
+                accuracy, data may be delayed or contain errors. Always verify
+                with official sources.
+              </li>
+              <li>
+                <strong>Past Performance:</strong> Historical dividend growth
+                does not guarantee future dividend increases. Companies can cut
+                or suspend dividends at any time.
+              </li>
+              <li>
+                <strong>Investment Risk:</strong> All investments involve risk,
+                including possible loss of principal.
+              </li>
+              <li>
+                <strong>Consult Professionals:</strong> Always consult with a
+                qualified financial advisor before making investment decisions.
+              </li>
+            </ul>
+            <p style="margin-top: 1rem">
+              <a href="/disclaimer.html" style="color: var(--accent-primary)"
+                >Read our full disclaimer →</a
+              >
+            </p>
+          </div>
+        </section>
 
         <!-- FAQ Section -->
         <section class="faq-section">
@@ -1063,6 +1014,18 @@
               Boots Alliance (WBA), and Realty Income (O). However, very high
               yields can sometimes indicate market concerns about dividend
               sustainability.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              How often do Dividend Aristocrats pay dividends?
+            </div>
+            <div class="faq-answer">
+              Most Dividend Aristocrats pay quarterly dividends, though some
+              REITs like Realty Income (O) pay monthly. Payment schedules vary
+              by company, so check individual ex-dividend dates to plan your
+              income stream.
             </div>
           </div>
         </section>
@@ -1134,57 +1097,262 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-main">
-          <div class="footer-brand">
-            <a href="/" class="footer-logo">IO Innovate</a>
-            <p class="footer-desc">
-              Free tools for dividend investors and income seekers.
-            </p>
-          </div>
-          <div class="footer-links-group">
-            <h4>Tools</h4>
-            <ul>
-              <li>
-                <a href="/tools/dividend-aristocrats.html"
-                  >Dividend Aristocrats</a
-                >
-              </li>
-              <li>
-                <a href="/tools/congress-trades.html">Congress Tracker</a>
-              </li>
-              <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
-            </ul>
-          </div>
-          <div class="footer-links-group">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="/about.html">About</a></li>
-              <li><a href="/contact.html">Contact</a></li>
-              <li><a href="/blog.html">Blog</a></li>
-            </ul>
-          </div>
-          <div class="footer-links-group">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="/privacy.html">Privacy</a></li>
-              <li><a href="/terms.html">Terms</a></li>
-              <li><a href="/disclaimer.html">Disclaimer</a></li>
-            </ul>
-          </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovate</a>
+          <p>Free tools for dividend investors and income seekers.</p>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 IO Innovate. All rights reserved.</p>
-          <p class="footer-disclaimer">
-            Not financial advice. Do your own research before investing.
-          </p>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li>
+              <a href="/tools/dividend-aristocrats.html"
+                >Dividend Aristocrats</a
+              >
+            </li>
+            <li>
+              <a href="/tools/congress-trades.html">Congress Tracker</a>
+            </li>
+            <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
+          </ul>
         </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovate. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          <strong>Disclaimer:</strong> Not financial advice. Dividend data may
+          be delayed. Past performance is not indicative of future results.
+          Always do your own research and consult a qualified financial advisor.
+          <a
+            href="/disclaimer.html"
+            style="color: inherit; text-decoration: underline"
+            >Full Disclaimer</a
+          >
+        </p>
       </div>
     </footer>
 
     <script src="../js/shared-simple.js"></script>
     <script>
-      // Simple dividend calculator
+      // Dividend Aristocrats Data Loader
+      (function () {
+        let dividendData = null;
+        let filteredStocks = [];
+        let displayCount = 20;
+        let currentSort = { field: "years", direction: "desc" };
+
+        // Load data from JSON
+        async function loadDividendData() {
+          try {
+            const response = await fetch("../data/dividend-aristocrats.json");
+            if (!response.ok) throw new Error("Failed to load data");
+            dividendData = await response.json();
+
+            // Update stats
+            document.getElementById("statTotal").textContent =
+              dividendData.stats.totalAristocrats;
+            document.getElementById("statYield").textContent =
+              dividendData.stats.avgYield + "%";
+            document.getElementById("statGrowth").textContent =
+              dividendData.stats.avg10YearGrowth + "%";
+
+            // Count Dividend Kings (50+ years)
+            const kingsCount = dividendData.aristocrats.filter(
+              (s) => s.years >= 50,
+            ).length;
+            document.getElementById("statKings").textContent = kingsCount;
+
+            // Initialize displays
+            filteredStocks = [...dividendData.aristocrats];
+            sortStocks();
+            renderTable();
+            renderSectors();
+            document.getElementById("stockCount").textContent =
+              filteredStocks.length + " stocks";
+          } catch (error) {
+            console.error("Error loading dividend data:", error);
+            document.getElementById("loadingIndicator").innerHTML = `
+              <div style="color: #ef4444;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                <p>Unable to load dividend data. Please refresh the page.</p>
+              </div>
+            `;
+          }
+        }
+
+        // Sort stocks
+        function sortStocks() {
+          filteredStocks.sort((a, b) => {
+            let aVal = a[currentSort.field];
+            let bVal = b[currentSort.field];
+            if (
+              currentSort.field === "ticker" ||
+              currentSort.field === "name"
+            ) {
+              return currentSort.direction === "asc"
+                ? aVal.localeCompare(bVal)
+                : bVal.localeCompare(aVal);
+            }
+            return currentSort.direction === "asc" ? aVal - bVal : bVal - aVal;
+          });
+        }
+
+        // Render table
+        function renderTable() {
+          const tbody = document.getElementById("aristocratsBody");
+          const table = document.getElementById("aristocratsTable");
+          const loading = document.getElementById("loadingIndicator");
+
+          const stocksToShow = filteredStocks.slice(0, displayCount);
+
+          tbody.innerHTML = stocksToShow
+            .map(
+              (stock) => `
+            <tr>
+              <td>
+                <div class="stock-cell">
+                  <div class="stock-logo">${stock.ticker.substring(0, 3)}</div>
+                  <div class="stock-info">
+                    <span class="stock-ticker">${stock.ticker}</span>
+                    <span class="stock-name">${stock.name}${stock.isKing ? ' <i class="fas fa-crown" style="color: #f59e0b; font-size: 0.7rem;" title="Dividend King (50+ years)"></i>' : ""}</span>
+                  </div>
+                </div>
+              </td>
+              <td class="yield">${stock.yield.toFixed(2)}%</td>
+              <td><span class="years-badge">${stock.years} yrs</span></td>
+              <td>${stock.growth5Y.toFixed(1)}%</td>
+              <td>${stock.payoutRatio}%</td>
+              <td><span class="sector-tag">${stock.sector}</span></td>
+            </tr>
+          `,
+            )
+            .join("");
+
+          loading.style.display = "none";
+          table.style.display = "table";
+
+          // Update load more button
+          const loadMoreBtn = document.getElementById("loadMore");
+          if (displayCount >= filteredStocks.length) {
+            loadMoreBtn.style.display = "none";
+          } else {
+            loadMoreBtn.style.display = "inline-block";
+            loadMoreBtn.textContent = `Load More (${filteredStocks.length - displayCount} remaining)`;
+          }
+        }
+
+        // Render sectors
+        function renderSectors() {
+          const container = document.getElementById("sectorGrid");
+          if (!dividendData || !dividendData.sectors) return;
+
+          container.innerHTML = dividendData.sectors
+            .map(
+              (sector) => `
+            <div class="sector-item">
+              <div class="sector-count">${sector.count}</div>
+              <div class="sector-name">${sector.name}</div>
+            </div>
+          `,
+            )
+            .join("");
+        }
+
+        // Filter stocks
+        function filterStocks() {
+          if (!dividendData) return;
+
+          const sector = document.getElementById("sector").value;
+          const minYield =
+            parseFloat(document.getElementById("minYield").value) || 0;
+          const minYears =
+            parseInt(document.getElementById("minYears").value) || 25;
+          const sortBy = document.getElementById("sortBy").value;
+
+          filteredStocks = dividendData.aristocrats.filter((stock) => {
+            if (sector !== "all" && stock.sectorSlug !== sector) return false;
+            if (stock.yield < minYield) return false;
+            if (stock.years < minYears) return false;
+            return true;
+          });
+
+          // Update sort
+          switch (sortBy) {
+            case "yield":
+              currentSort = { field: "yield", direction: "desc" };
+              break;
+            case "growth":
+              currentSort = { field: "growth5Y", direction: "desc" };
+              break;
+            case "alpha":
+              currentSort = { field: "ticker", direction: "asc" };
+              break;
+            default:
+              currentSort = { field: "years", direction: "desc" };
+          }
+
+          sortStocks();
+          displayCount = 20;
+          renderTable();
+          document.getElementById("stockCount").textContent =
+            filteredStocks.length + " stocks";
+        }
+
+        // Sort table by column
+        window.sortTable = function (field) {
+          if (currentSort.field === field) {
+            currentSort.direction =
+              currentSort.direction === "asc" ? "desc" : "asc";
+          } else {
+            currentSort = { field: field, direction: "desc" };
+          }
+          sortStocks();
+          renderTable();
+        };
+
+        // Load more
+        document
+          .getElementById("loadMore")
+          .addEventListener("click", function () {
+            displayCount += 20;
+            renderTable();
+          });
+
+        // Filter event listeners
+        document
+          .getElementById("sector")
+          .addEventListener("change", filterStocks);
+        document
+          .getElementById("minYield")
+          .addEventListener("change", filterStocks);
+        document
+          .getElementById("minYears")
+          .addEventListener("change", filterStocks);
+        document
+          .getElementById("sortBy")
+          .addEventListener("change", filterStocks);
+
+        // Initialize
+        loadDividendData();
+      })();
+
+      // Dividend Income Calculator
       function calculateDividends() {
         const investment =
           parseFloat(document.getElementById("investment").value) || 10000;
@@ -1195,7 +1363,8 @@
 
         const annualIncome = investment * (yield_ / 100);
         document.getElementById("annualIncome").textContent =
-          "$" + annualIncome.toFixed(0);
+          "$" +
+          annualIncome.toLocaleString(undefined, { maximumFractionDigits: 0 });
 
         // 10 year projection with DRIP
         let value10 = investment;
@@ -1204,7 +1373,8 @@
         }
         const income10 = value10 * (yield_ / 100);
         document.getElementById("futureIncome").textContent =
-          "$" + income10.toFixed(0);
+          "$" +
+          income10.toLocaleString(undefined, { maximumFractionDigits: 0 });
 
         // 20 year projection
         let value20 = investment;
@@ -1213,7 +1383,8 @@
         }
         const income20 = value20 * (yield_ / 100);
         document.getElementById("futureIncome20").textContent =
-          "$" + income20.toFixed(0);
+          "$" +
+          income20.toLocaleString(undefined, { maximumFractionDigits: 0 });
       }
 
       document
