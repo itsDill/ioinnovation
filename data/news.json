@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-15T17:38:12.326842+00:00",
+  "lastUpdated": "2026-02-15T17:54:40.359856+00:00",
   "categories": [
     {
       "id": "politics",
@@ -52,6 +52,36 @@
   ],
   "articles": [
     {
+      "id": "f01911b782d5",
+      "title": "If a Stock Market Crash Is Coming, This 1 Investing Move Is Critical Right Now",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/stock-market-crash-coming-1-174000148.html",
+      "publishedAt": "2026-02-15T17:40:00+00:00",
+      "trending": true
+    },
+    {
+      "id": "4aed6c31e20c",
+      "title": "Is Wall Street Wrong About Amazon Stock?",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/wall-street-wrong-amazon-stock-173500545.html",
+      "publishedAt": "2026-02-15T17:35:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "8a17b13e1769",
+      "title": "Her Mom Took Out A $36K Student Loan And Now Wants It Repaid In Full, Although Nearly Half Of The Money Was Refunded. 'Your Mom Is Deceiving You'",
+      "summary": "Read more at Yahoo Finance",
+      "category": "tech",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/her-mom-took-36k-student-173128219.html",
+      "publishedAt": "2026-02-15T17:31:28+00:00",
+      "trending": false
+    },
+    {
       "id": "e825725a2571",
       "title": "Is the stock market open tomorrow for Presidents Day? Will USPS, FedEx and UPS make deliveries?",
       "summary": "Here’s how trading hours and other services will be affected on the federal holiday, which falls on Monday, Feb. 16, this year.",
@@ -59,16 +89,6 @@
       "source": "MarketWatch",
       "sourceUrl": "https://www.marketwatch.com/story/is-the-stock-market-open-on-presidents-day-will-usps-fedex-and-ups-make-deliveries-31d15912?mod=mw_rss_topstories",
       "publishedAt": "2026-02-15T17:25:00+00:00",
-      "trending": false
-    },
-    {
-      "id": "73d776c4fb97",
-      "title": "Intel Lost Money Again in 2025. Here's Why -- and What It Means for the Stock",
-      "summary": "Read more at Yahoo Finance",
-      "category": "markets",
-      "source": "Yahoo Finance",
-      "sourceUrl": "https://finance.yahoo.com/news/intel-lost-money-again-2025-172300022.html",
-      "publishedAt": "2026-02-15T17:23:00+00:00",
       "trending": false
     },
     {
@@ -89,16 +109,6 @@
       "source": "Yahoo Finance",
       "sourceUrl": "https://finance.yahoo.com/news/aurora-innovation-aur-reports-q4-171145595.html",
       "publishedAt": "2026-02-15T17:11:45+00:00",
-      "trending": false
-    },
-    {
-      "id": "31aed9f9f26a",
-      "title": "Skyworks Solutions Stockholders Approve Share Issuance Proposal at Virtual Special Meeting",
-      "summary": "Read more at Yahoo Finance",
-      "category": "markets",
-      "source": "Yahoo Finance",
-      "sourceUrl": "https://finance.yahoo.com/news/skyworks-solutions-stockholders-approve-share-171116788.html",
-      "publishedAt": "2026-02-15T17:11:16+00:00",
       "trending": false
     },
     {
@@ -308,16 +318,6 @@
       "category": "politics",
       "source": "MarketWatch",
       "sourceUrl": "https://www.marketwatch.com/story/she-is-planning-to-move-out-of-state-my-sister-secretly-sold-our-elderly-mothers-house-what-can-i-do-e9a9f486?mod=mw_rss_topstories",
-      "publishedAt": "2026-02-15T13:30:00+00:00",
-      "trending": false
-    },
-    {
-      "id": "b5bd8d0a26df",
-      "title": "Carry trade, commodities make emerging market currencies more stable than G-7",
-      "summary": "Read more at Yahoo Finance",
-      "category": "markets",
-      "source": "Yahoo Finance",
-      "sourceUrl": "https://finance.yahoo.com/news/carry-trade-commodities-em-currencies-133000108.html",
       "publishedAt": "2026-02-15T13:30:00+00:00",
       "trending": false
     },
