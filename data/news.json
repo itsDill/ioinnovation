@@ -1,0 +1,555 @@
+{
+  "lastUpdated": "2026-02-15T17:38:12.326842+00:00",
+  "categories": [
+    {
+      "id": "politics",
+      "name": "Politics & Policy",
+      "icon": "fa-landmark",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "markets",
+      "name": "Markets & Trading",
+      "icon": "fa-chart-line",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "industrials",
+      "name": "Industrials",
+      "icon": "fa-industry",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "commodities",
+      "name": "Commodities",
+      "icon": "fa-gem",
+      "color": "#10b981"
+    },
+    {
+      "id": "dividends",
+      "name": "Dividends & Income",
+      "icon": "fa-coins",
+      "color": "#ec4899"
+    },
+    {
+      "id": "crypto",
+      "name": "Crypto & Digital",
+      "icon": "fa-bitcoin-sign",
+      "color": "#f97316"
+    },
+    {
+      "id": "economy",
+      "name": "Economy",
+      "icon": "fa-globe",
+      "color": "#06b6d4"
+    },
+    {
+      "id": "tech",
+      "name": "Technology",
+      "icon": "fa-microchip",
+      "color": "#6366f1"
+    }
+  ],
+  "articles": [
+    {
+      "id": "e825725a2571",
+      "title": "Is the stock market open tomorrow for Presidents Day? Will USPS, FedEx and UPS make deliveries?",
+      "summary": "Here’s how trading hours and other services will be affected on the federal holiday, which falls on Monday, Feb. 16, this year.",
+      "category": "markets",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com/story/is-the-stock-market-open-on-presidents-day-will-usps-fedex-and-ups-make-deliveries-31d15912?mod=mw_rss_topstories",
+      "publishedAt": "2026-02-15T17:25:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "73d776c4fb97",
+      "title": "Intel Lost Money Again in 2025. Here's Why -- and What It Means for the Stock",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/intel-lost-money-again-2025-172300022.html",
+      "publishedAt": "2026-02-15T17:23:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "7f7c35534352",
+      "title": "From Hyatt to Holiday Inn, America's free hotel breakfast is facing a K-shaped economic threat",
+      "summary": "Free breakfast is a staple of the hospitality industry, but from Hyatt to Holiday Inn and Marriott, the economics and hotel business models are changing.",
+      "category": "economy",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/hotel-free-breakfast-hyatt-holiday-inn-marriott-cost-cuts.html",
+      "publishedAt": "2026-02-15T17:18:08+00:00",
+      "trending": false
+    },
+    {
+      "id": "c39130dc65f6",
+      "title": "Aurora Innovation (AUR) Reports Q4 Loss",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/aurora-innovation-aur-reports-q4-171145595.html",
+      "publishedAt": "2026-02-15T17:11:45+00:00",
+      "trending": false
+    },
+    {
+      "id": "31aed9f9f26a",
+      "title": "Skyworks Solutions Stockholders Approve Share Issuance Proposal at Virtual Special Meeting",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/skyworks-solutions-stockholders-approve-share-171116788.html",
+      "publishedAt": "2026-02-15T17:11:16+00:00",
+      "trending": false
+    },
+    {
+      "id": "82526b7c5eb5",
+      "title": "Here’s Why JFrog Ltd (FROG) Price Target Was Raised To $78 by Baird",
+      "summary": "Read more at Yahoo Finance",
+      "category": "industrials",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/why-jfrog-ltd-frog-price-171109083.html",
+      "publishedAt": "2026-02-15T17:11:09+00:00",
+      "trending": false
+    },
+    {
+      "id": "7a198799d3d2",
+      "title": "Here are 7 charts guaranteed to stress you out about the stock market",
+      "summary": "The “Magnificent Seven” are breaking down, defensive consumer staples are on a tear — and then there’s the midterm curse.",
+      "category": "markets",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com/story/here-are-7-charts-guaranteed-to-stress-you-out-about-the-stock-market-085b23c1?mod=mw_rss_topstories",
+      "publishedAt": "2026-02-15T17:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "450dc743e7a0",
+      "title": "New 1.2-GW Gas-Fired Plant Planned in WV; Three Solar Projects Also Announced",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/1-2-gw-gas-fired-164001997.html",
+      "publishedAt": "2026-02-15T16:40:01+00:00",
+      "trending": false
+    },
+    {
+      "id": "104f90f406fb",
+      "title": "'The dark side of AI': Wall Street weighs recent stock sell-off over disruption fears",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/the-dark-side-of-ai-wall-street-weighs-recent-stock-sell-off-over-disruption-fears-160054016.html",
+      "publishedAt": "2026-02-15T16:00:54+00:00",
+      "trending": false
+    },
+    {
+      "id": "e9c4459c308a",
+      "title": "The average income of Americans by age in 2026. Are you keeping up or falling behind?",
+      "summary": "Read more at Yahoo Finance",
+      "category": "industrials",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/average-income-americans-age-2026-160000048.html",
+      "publishedAt": "2026-02-15T16:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "b62351661dcd",
+      "title": "Gasoline-Starved California Is Turning to Fuel From the Bahamas",
+      "summary": "US supplies of gasoline are being shipped out of the country to travel thousands of miles via the Bahamas before finally ending up in California, a state battling shrinking fuelmaking capacity and high pump prices.",
+      "category": "markets",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/gasoline-starved-california-is-turning-to-fuel-from-the-bahamas",
+      "publishedAt": "2026-02-15T16:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "3a378b71970b",
+      "title": "Dow Jones Futures Loom In Dangerous Market; Apple, Google, Amazon, Nvidia In Focus",
+      "summary": "Read more at Yahoo Finance",
+      "category": "tech",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-apple-google-amazon-meta-nvidia-five-ways-to-handle-market/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-02-15T15:56:36+00:00",
+      "trending": false
+    },
+    {
+      "id": "da403ab9399d",
+      "title": "Hapag-Lloyd in talks to acquire Zim for $3.5 billion",
+      "summary": "Read more at Yahoo Finance",
+      "category": "politics",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/hapag-lloyd-talks-acquire-zim-152958723.html",
+      "publishedAt": "2026-02-15T15:29:58+00:00",
+      "trending": false
+    },
+    {
+      "id": "2b28d1c63a7e",
+      "title": "In bitcoin price plummet, ETF flows are down but aren't signaling 'crypto winter' investor panic",
+      "summary": "As the price of bitcoin and other cryptocurrencies has crashed, exchange-traded funds have seen outflows, but ETF selling doesn't look like investor panic.",
+      "category": "markets",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/bitcoin-price-crash-crypto-winter-investors-etf-flows.html",
+      "publishedAt": "2026-02-15T15:24:48+00:00",
+      "trending": false
+    },
+    {
+      "id": "11d40ec7b69f",
+      "title": "Jim Cramer Discusses Broadcom (AVGO) Stock",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/jim-cramer-discusses-broadcom-avgo-151357096.html",
+      "publishedAt": "2026-02-15T15:13:57+00:00",
+      "trending": false
+    },
+    {
+      "id": "1536a701374a",
+      "title": "NVIDIA (NVDA) Invented Its Category, Says Jim Cramer",
+      "summary": "Read more at Yahoo Finance",
+      "category": "tech",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/nvidia-nvda-invented-category-says-151352040.html",
+      "publishedAt": "2026-02-15T15:13:52+00:00",
+      "trending": false
+    },
+    {
+      "id": "c8d515ddde44",
+      "title": "Why WALL-E is 'The Good Scenario' from AI Disruption",
+      "summary": "AI is already reshaping the value of human expertise, but its effects on workers aren’t predetermined. MIT professor David Autor says the key question isn’t what jobs can be automated, but which tasks within a job are automated and who benefits from that shift. In some cases, AI can increase wages and productivity; in others, it can lower barriers to entry, intensify competition and compress pay. Stanford professor Erik Brynjolfsson discusses whether AI will widen inequality or expand opportunit",
+      "category": "industrials",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/videos/2026-02-15/why-wall-e-is-the-good-scenario-from-ai-disruption-video",
+      "publishedAt": "2026-02-15T15:03:26+00:00",
+      "trending": false
+    },
+    {
+      "id": "a60ea8e47bb5",
+      "title": "Options Exchanges Want to Scrap Fee Model That Makes ‘No Sense’",
+      "summary": "US equity options exchanges are seeking to change the way that regulatory fees are charged, moving away from a decades-old practice that allows them to pick up fees for business transacted on rival bourses.",
+      "category": "markets",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/options-exchanges-want-to-scrap-fee-model-that-makes-no-sense",
+      "publishedAt": "2026-02-15T15:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "a526d34819a8",
+      "title": "Retirement law lets employers pair emergency savings and 401(k)s, but few are doing so",
+      "summary": "Although employers have been allowed since 2024 to offer two new emergency savings options tied to 401(k)s, few have done so.",
+      "category": "politics",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/emergency-savings-401ks.html",
+      "publishedAt": "2026-02-15T14:49:52+00:00",
+      "trending": false
+    },
+    {
+      "id": "641b9586e1f1",
+      "title": "I'm a psychologist who studies couples—people in the happiest relationships never underestimate 5 'powerful' habits",
+      "summary": "Healthy relationships are never accidental. Here’s a breakdown of the five everyday habits that help people stay happy and connected over time, says couples psychologist Mark Travers.",
+      "category": "markets",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/psychologist-people-in-the-happiest-relationships-never-underestimate-5-habits.html",
+      "publishedAt": "2026-02-15T14:38:06+00:00",
+      "trending": false
+    },
+    {
+      "id": "79ddeae6330b",
+      "title": "The hottest new LA coffee shop is in this couple's backyard: 'People really want community'",
+      "summary": "Granada is one of the latest small businesses to open through the MEHKO program, which allows residents to make and sell food from their home.",
+      "category": "markets",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/the-hottest-new-la-coffee-shop-granada-in-is-in-this-couples-backyard.html",
+      "publishedAt": "2026-02-15T14:15:01+00:00",
+      "trending": false
+    },
+    {
+      "id": "699e31bc2fda",
+      "title": "BlackRock's digital assets head: Leverage-driven volatility threatens bitcoin’s narrative",
+      "summary": "Read more at CoinDesk",
+      "category": "industrials",
+      "source": "CoinDesk",
+      "sourceUrl": "https://www.coindesk.com/markets/2026/02/13/blackrock-s-head-of-digital-assets-warns-leverage-driven-volatility-risks-undermine-bitcoin-s-institutional-narrative",
+      "publishedAt": "2026-02-15T14:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "977dd6d4b1d9",
+      "title": "A Stock Market Doom Loop Is Hitting Everything That Touches AI",
+      "summary": "The stock market turmoil unleashed by the artificial-intelligence industry reflects two fears that are increasingly at odds.",
+      "category": "markets",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/a-stock-market-doom-loop-is-hitting-everything-that-touches-ai",
+      "publishedAt": "2026-02-15T14:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "5f2f1e7e6050",
+      "title": "Top Wall Street analysts recommend these dividend stocks for consistent income",
+      "summary": "Three dividend-paying stocks that are highlighted by Wall Street’s top pros, as tracked by TipRanks, which ranks analysts based on their past performance.",
+      "category": "markets",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/top-wall-street-analysts-recommend-these-stocks-for-consistent-income.html",
+      "publishedAt": "2026-02-15T13:47:44+00:00",
+      "trending": false
+    },
+    {
+      "id": "4b2f32e43679",
+      "title": "XRP outruns bitcoin, ether after investors piled into the recent crash",
+      "summary": "Read more at CoinDesk",
+      "category": "crypto",
+      "source": "CoinDesk",
+      "sourceUrl": "https://www.coindesk.com/markets/2026/02/15/xrp-is-outrunning-bitcoin-and-ether-after-investors-piled-into-the-recent-crash",
+      "publishedAt": "2026-02-15T13:39:18+00:00",
+      "trending": true
+    },
+    {
+      "id": "2e77589fe650",
+      "title": "My elderly mother has dementia. My sister sold her house and has hidden the proceeds. What can we do?",
+      "summary": "“My sister is planning to move out of state and feels it is her right to control the money.”",
+      "category": "politics",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com/story/she-is-planning-to-move-out-of-state-my-sister-secretly-sold-our-elderly-mothers-house-what-can-i-do-e9a9f486?mod=mw_rss_topstories",
+      "publishedAt": "2026-02-15T13:30:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "b5bd8d0a26df",
+      "title": "Carry trade, commodities make emerging market currencies more stable than G-7",
+      "summary": "Read more at Yahoo Finance",
+      "category": "markets",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/carry-trade-commodities-em-currencies-133000108.html",
+      "publishedAt": "2026-02-15T13:30:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "62ac46a283fa",
+      "title": "Carry Trade, Commodities Make EM Currencies More Stable Than G-7",
+      "summary": "Emerging-market currencies are proving more stable than those in developed nations, a streak some investors say could become the longest in more than two decades.",
+      "category": "markets",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/carry-trade-commodities-make-em-currencies-more-stable-than-g-7",
+      "publishedAt": "2026-02-15T13:30:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "36ebc3f7ba72",
+      "title": "‘I’m a loner’: I’m 62 with a multimillion-dollar portfolio and no heirs. Should I find a wife for my twilight years?",
+      "summary": "“I have never been married, have no siblings, and both my parents have passed away.”",
+      "category": "industrials",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com/story/im-a-loner-im-62-with-a-multimillion-dollar-portfolio-and-no-heirs-should-i-find-a-wife-for-my-twilight-years-4f4f4408?mod=mw_rss_topstories",
+      "publishedAt": "2026-02-15T13:17:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "8a3eb4f84eac",
+      "title": "Some European policymakers welcome U.S. Secretary of State Rubio's warm words, others remain cautious",
+      "summary": "Rubio's comments at the Munich Security Conference struck a softer tone than Vice President JD Vance's at last year's event.",
+      "category": "politics",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/some-europeans-welcome-rubios-warm-words-others-remain-cautious.html",
+      "publishedAt": "2026-02-15T13:15:34+00:00",
+      "trending": false
+    },
+    {
+      "id": "c3f2c1d7cd7e",
+      "title": "‘I’m close to retiring’: I’m behind on my property tax. Is this a really bad time to sell my house?",
+      "summary": "“I’ve never been late on a mortgage, so this makes me nervous.”",
+      "category": "politics",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com/story/im-close-to-retiring-im-behind-on-my-property-taxes-is-this-a-bad-time-to-sell-my-house-40954efd?mod=mw_rss_topstories",
+      "publishedAt": "2026-02-15T13:10:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "80a9323cbce0",
+      "title": "Why US Public Transit Is Overpaying for Buses",
+      "summary": "Public transit is essential for millions of Americans, but the way buses are procured may be limiting how much service cities can afford. Harvard professor Ed Glaeser says agencies often order highly-customized buses in a market with shrinking competition, while federal funding rules shape how purchases are made. Transit executives argue that operating realities require flexibility, yet agree reform is needed. Could smarter procurement and more competition help cities get more buses for less mon",
+      "category": "politics",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/videos/2026-02-15/why-us-public-transit-is-overpaying-for-buses-video",
+      "publishedAt": "2026-02-15T13:04:12+00:00",
+      "trending": false
+    },
+    {
+      "id": "495898e59fe6",
+      "title": "Walmart earnings, spending data, and more AI disruptions: What to watch this week",
+      "summary": "Read more at Yahoo Finance",
+      "category": "economy",
+      "source": "Yahoo Finance",
+      "sourceUrl": "https://finance.yahoo.com/news/walmart-earnings-spending-data-and-more-ai-disruptions-what-to-watch-this-week-125712762.html",
+      "publishedAt": "2026-02-15T12:57:12+00:00",
+      "trending": false
+    },
+    {
+      "id": "466a3694e09b",
+      "title": "‘We’ve been dating for 5 years’: My boyfriend’s parents say he doesn’t earn enough to marry. Should I speak to his father?",
+      "summary": "“Every year his very wealthy parents say that he needs to ‘earn more’ before he can marry me.”",
+      "category": "industrials",
+      "source": "MarketWatch",
+      "sourceUrl": "https://www.marketwatch.com/story/weve-been-dating-for-5-years-my-boyfriends-parents-say-he-doesnt-earn-enough-to-marry-should-i-speak-to-his-father-44b48700?mod=mw_rss_topstories",
+      "publishedAt": "2026-02-15T12:49:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "f119c118973c",
+      "title": "Lebanon Confident It Can Bridge Gaps With IMF on Recovery Plan",
+      "summary": "Lebanon’s premier said his government can overcome differences with the International Monetary Fund over a proposed law that would let depositors recover billions of dollars trapped in the country’s beleaguered banking sector.",
+      "category": "politics",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/lebanon-confident-it-can-bridge-gaps-with-imf-on-recovery-plan",
+      "publishedAt": "2026-02-15T12:41:32+00:00",
+      "trending": false
+    },
+    {
+      "id": "4d7c4ad0230f",
+      "title": "SA Asks: Which financial stocks are best positioned for AI?",
+      "summary": "Read more at Seeking Alpha",
+      "category": "markets",
+      "source": "Seeking Alpha",
+      "sourceUrl": "https://seekingalpha.com/news/4552091-sa-asks-which-financial-stocks-are-best-positioned-for-ai?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "publishedAt": "2026-02-15T12:00:27-05:00",
+      "trending": false
+    },
+    {
+      "id": "61296c453f5f",
+      "title": "Wall Street remains bullish on bitcoin while offshore traders retreat",
+      "summary": "Read more at CoinDesk",
+      "category": "markets",
+      "source": "CoinDesk",
+      "sourceUrl": "https://www.coindesk.com/markets/2026/02/15/wall-street-remains-bullish-on-bitcoin-while-offshore-traders-retreat",
+      "publishedAt": "2026-02-15T12:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "3fa9f051e35f",
+      "title": "ECB’s Lagarde Pushes Back Against Taxes to Stop Capital Outflows",
+      "summary": "European Central Bank President Christine Lagarde said creating incentives for investments in Europe is a better approach to prevent capital outflows to other regions than imposing taxes.",
+      "category": "politics",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/ecb-s-lagarde-pushes-back-against-taxes-to-stop-capital-outflows",
+      "publishedAt": "2026-02-15T11:38:16+00:00",
+      "trending": false
+    },
+    {
+      "id": "5f6728092070",
+      "title": "UK minimum wage is raising youth unemployment, Bank of England’s Mann says",
+      "summary": "Read more at Investing.com",
+      "category": "economy",
+      "source": "Investing.com",
+      "sourceUrl": "https://www.investing.com/news/economy-news/uk-minimum-wage-is-raising-youth-unemployment-bank-of-englands-mann-says-4507281",
+      "publishedAt": "2026-02-15T11:18:28",
+      "trending": false
+    },
+    {
+      "id": "65143dfbfe89",
+      "title": "Odds near one in four Supreme Court rules in favor of Trump's tariffs",
+      "summary": "Read more at Seeking Alpha",
+      "category": "politics",
+      "source": "Seeking Alpha",
+      "sourceUrl": "https://seekingalpha.com/news/4552223-odds-near-one-in-four-supreme-court-rules-in-favor-of-trumps-tariffs?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "publishedAt": "2026-02-15T10:18:30-05:00",
+      "trending": false
+    },
+    {
+      "id": "2f526d3294f3",
+      "title": "Xi Touts China’s Super-Large Market as Key to Boost Local Demand",
+      "summary": "Xi Jinping called for anchoring economic growth around domestic demand as its “main driver” in a speech delivered by the Chinese president at a key policy meeting late last year and released on Sunday.",
+      "category": "politics",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/xi-touts-china-s-super-large-market-as-key-to-boost-local-demand",
+      "publishedAt": "2026-02-15T10:01:56+00:00",
+      "trending": false
+    },
+    {
+      "id": "c3707ac0c37a",
+      "title": "AI Risk Is Dominating Conference Calls as Investors Dump Stocks",
+      "summary": "In what’s turning out to be a great quarter for corporate earnings growth, company executives and investors alike are focused on something else entirely: the threat from artificial intelligence.",
+      "category": "markets",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/ai-risk-is-dominating-conference-calls-as-investors-dump-stocks",
+      "publishedAt": "2026-02-15T10:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "81f2ec24591e",
+      "title": "Chinese New Year: Macau bets and new AI models launch the Year of the Horse",
+      "summary": "Read more at Seeking Alpha",
+      "category": "tech",
+      "source": "Seeking Alpha",
+      "sourceUrl": "https://seekingalpha.com/news/4552219-chinese-new-year-macau-bets-and-new-ai-models-launch-the-year-of-the-horse?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "publishedAt": "2026-02-15T09:10:32-05:00",
+      "trending": false
+    },
+    {
+      "id": "b496a76667f7",
+      "title": "Notable healthcare headlines for the week: AstraZeneca, CVS Health, and Moderna in focus",
+      "summary": "Read more at Seeking Alpha",
+      "category": "markets",
+      "source": "Seeking Alpha",
+      "sourceUrl": "https://seekingalpha.com/news/4552213-notable-healthcare-headlines-for-the-week-astrazeneca-cvs-health-and-moderna-in-focus?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "publishedAt": "2026-02-15T09:05:11-05:00",
+      "trending": false
+    },
+    {
+      "id": "3af33ae460c4",
+      "title": "BofA flags downside risks to U.S. dollar with affordability fears in focus",
+      "summary": "Read more at Investing.com",
+      "category": "markets",
+      "source": "Investing.com",
+      "sourceUrl": "https://www.investing.com/news/economy-news/bofa-flags-downside-risks-to-us-dollar-with-affordability-fears-in-focus-4503451",
+      "publishedAt": "2026-02-15T09:00:04",
+      "trending": false
+    },
+    {
+      "id": "59569085d198",
+      "title": "Rich World’s Growing Civil Unrest Comes With an Insurance Sting",
+      "summary": "A category of insurance risk that hardly existed a little over a decade ago has morphed into a meaningful source of losses for the industry.",
+      "category": "markets",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/rich-world-s-growing-civil-unrest-comes-with-an-insurance-sting",
+      "publishedAt": "2026-02-15T09:00:00+00:00",
+      "trending": false
+    },
+    {
+      "id": "c9a270af61ca",
+      "title": "Pirelli Holder Sinochem Mulls Bond to Cut Direct Stake: Corriere",
+      "summary": "Pirelli & C. SpA’s Chinese investor is weighing the sale of a convertible bond that would temporarily reduce its holding to ease US government scrutiny of the Italian tiremaker, Corriere della Sera reported, citing unnamed sources.",
+      "category": "politics",
+      "source": "Bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-02-15/pirelli-holder-sinochem-mulls-bond-to-cut-direct-stake-corriere",
+      "publishedAt": "2026-02-15T08:52:56+00:00",
+      "trending": false
+    },
+    {
+      "id": "97d731e58089",
+      "title": "Global automakers face $65B hit as EV excitement ebbs",
+      "summary": "Read more at Seeking Alpha",
+      "category": "industrials",
+      "source": "Seeking Alpha",
+      "sourceUrl": "https://seekingalpha.com/news/4552221-global-automakers-face-65b-hit-as-ev-excitement-ebbs?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "publishedAt": "2026-02-15T08:51:03-05:00",
+      "trending": false
+    },
+    {
+      "id": "431cb8f503e3",
+      "title": "Musk pivots SpaceX to the moon, setting up direct clash with Bezos",
+      "summary": "Read more at Seeking Alpha",
+      "category": "markets",
+      "source": "Seeking Alpha",
+      "sourceUrl": "https://seekingalpha.com/news/4552220-musk-pivots-spacex-to-the-moon-setting-up-direct-clash-with-bezos?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "publishedAt": "2026-02-15T08:39:43-05:00",
+      "trending": false
+    },
+    {
+      "id": "f3b32874030e",
+      "title": "Global week ahead: Markets brace for more AI noise and 'scare trading'",
+      "summary": "Looking back at last week's volatility could gives some clues for the trading week ahead.",
+      "category": "markets",
+      "source": "CNBC",
+      "sourceUrl": "https://www.cnbc.com/2026/02/15/global-week-ahead-markets-brace-for-more-ai-noise-and-scare-trading.html",
+      "publishedAt": "2026-02-15T08:36:50+00:00",
+      "trending": false
+    }
+  ]
+}
