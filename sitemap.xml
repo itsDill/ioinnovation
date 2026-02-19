@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://ioinnovationfund.com/</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,35 +12,35 @@
   <!-- Main Navigation Pages -->
   <url>
     <loc>https://ioinnovationfund.com/tools.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/analytics.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/about.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/contact.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -48,28 +48,28 @@
   <!-- Tool Pages - High Value -->
   <url>
     <loc>https://ioinnovationfund.com/tools/13f-visualizer.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/10k-summary.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/economic-calendar.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/backtester.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -77,14 +77,14 @@
   <!-- NEW PRIMARY TOOLS -->
   <url>
     <loc>https://ioinnovationfund.com/tools/congress-trades.html</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/tools/dividend-aristocrats.html</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -92,42 +92,42 @@
   <!-- Sector Pages -->
   <url>
     <loc>https://ioinnovationfund.com/sectors/technology.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/sectors/healthcare.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/sectors/financials.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/sectors/energy.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/sectors/industrials.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/sectors/consumer.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -135,70 +135,70 @@
   <!-- Blog Posts - High Value Content -->
   <url>
     <loc>https://ioinnovationfund.com/blog/understanding-13f-filings-guide.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/understanding-10k-filings-annual-reports-guide.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/fire-financial-independence-early-retirement-guide-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/best-brokerages-robo-advisors-comparison-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/best-credit-cards-banks-personal-loans-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/alternative-investing-guide-crypto-real-estate-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/debt-management-credit-score-improvement-guide.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/personal-budgeting-cost-of-living-guide-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/essential-finance-calculators-tools-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/blog/understanding-asean-economic-indicators-2025.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.83</priority>
   </url>
@@ -206,28 +206,28 @@
   <!-- Legal Pages -->
   <url>
     <loc>https://ioinnovationfund.com/privacy.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/terms.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/disclaimer.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
   
   <url>
     <loc>https://ioinnovationfund.com/content-policy.html</loc>
-    <lastmod>2025-12-16</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>

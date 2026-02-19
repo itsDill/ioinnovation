@@ -1,6 +1,6 @@
 # IO Innovate - Professional Financial Tools
 # https://ioinnovationfund.com
-# Last Updated: 2025-12-16
+# Last Updated: 2026-02-19
 
 # Default crawl rules for all bots
 User-agent: *
