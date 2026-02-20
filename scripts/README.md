@@ -137,3 +137,73 @@ This scraper uses publicly available RSS feeds. Always:
 
 - Review keywords in `CATEGORIES` dict
 - Add relevant keywords for better classification
+
+---
+
+## Data Update Scripts
+
+Update all financial data files (economic calendar, congress trades, 13F filings, etc.).
+
+### Quick Start
+
+```bash
+# Make scripts executable
+chmod +x update_all.sh update_data.py
+
+# Update everything (news + all data)
+./update_all.sh
+```
+
+### Manual Usage
+
+```bash
+# Update all data files
+python update_data.py
+
+# Update specific data only
+python update_data.py --calendar      # Economic calendar
+python update_data.py --congress      # Congress trades
+python update_data.py --13f           # 13F filings
+python update_data.py --dividends     # Dividend aristocrats
+python update_data.py --predictions   # AI predictions
+python update_data.py --portfolio     # AI portfolio
+```
+
+### Data Files Updated
+
+| File                        | Description                  | Update Frequency |
+| --------------------------- | ---------------------------- | ---------------- |
+| `economic-calendar.json`    | Fed meetings, CPI, NFP, etc. | Weekly           |
+| `congress-trades.json`      | Congressional stock trades   | Daily            |
+| `13f-visualizer.json`       | Hedge fund 13F holdings      | Quarterly        |
+| `dividend-aristocrats.json` | Dividend stock data          | Weekly           |
+| `ai-predictions.json`       | AI stock predictions         | Weekly           |
+| `ai-portfolio.json`         | AI portfolio signals         | Weekly           |
+| `news.json`                 | Financial news               | Hourly           |
+
+### Automation
+
+Add to crontab for automatic updates:
+
+```bash
+crontab -e
+
+# Update all data daily at 6 AM
+0 6 * * * cd /path/to/ioinnovation/scripts && ./update_all.sh >> /var/log/ioinnovate-update.log 2>&1
+
+# Update news every hour
+0 * * * * cd /path/to/ioinnovation/scripts && ./update_news.sh >> /var/log/news-scraper.log 2>&1
+
+# Update congress trades every 4 hours
+0 */4 * * * cd /path/to/ioinnovation/scripts && python update_data.py --congress >> /var/log/congress-update.log 2>&1
+```
+
+### Data Sources
+
+| Data Type         | Source                  | API              |
+| ----------------- | ----------------------- | ---------------- |
+| Economic Calendar | FRED, BLS               | Free public APIs |
+| Congress Trades   | House/Senate Disclosure | Public filings   |
+| 13F Filings       | SEC EDGAR               | Free API         |
+| Dividend Data     | Yahoo Finance           | Public data      |
+| News              | RSS Feeds               | Multiple sources |

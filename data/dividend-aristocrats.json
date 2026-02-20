@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-02-06",
+  "lastUpdated": "2026-02-20",
   "stats": {
     "totalAristocrats": 68,
-    "avgYield": 2.8,
-    "avg10YearGrowth": 7.2,
-    "avgPayoutRatio": 52
+    "avgYield": 2.7,
+    "avg10YearGrowth": 7.4,
+    "avgPayoutRatio": 51
   },
   "sectors": [
     { "name": "Consumer Staples", "count": 15, "icon": "fa-shopping-basket" },

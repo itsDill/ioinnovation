@@ -1,241 +1,338 @@
 {
+  "lastUpdated": "2026-02-20T09:00:00Z",
   "institutions": [
     {
       "id": "berkshire",
       "name": "Berkshire Hathaway Inc.",
       "cik": "0001067983",
       "manager": "Warren Buffett",
-      "aum": "314600000000",
+      "aum": "298500000000",
       "holdings": [
         {
           "ticker": "AAPL",
           "name": "Apple Inc.",
           "shares": 300000000,
-          "value": 57000000000,
-          "percentPortfolio": 18.1,
+          "value": 69000000000,
+          "percentPortfolio": 23.1,
           "change": 0
-        },
-        {
-          "ticker": "BAC",
-          "name": "Bank of America Corp",
-          "shares": 1032000000,
-          "value": 34000000000,
-          "percentPortfolio": 10.8,
-          "change": -5.2
         },
         {
           "ticker": "AXP",
           "name": "American Express Co.",
           "shares": 151610000,
-          "value": 33000000000,
+          "value": 45800000000,
+          "percentPortfolio": 15.3,
+          "change": 0
+        },
+        {
+          "ticker": "BAC",
+          "name": "Bank of America Corp",
+          "shares": 680000000,
+          "value": 31200000000,
           "percentPortfolio": 10.5,
-          "change": 1.2
+          "change": -34.1
         },
         {
           "ticker": "KO",
           "name": "Coca-Cola Co.",
           "shares": 400000000,
-          "value": 24000000000,
-          "percentPortfolio": 7.6,
+          "value": 25600000000,
+          "percentPortfolio": 8.6,
           "change": 0
         },
         {
           "ticker": "CVX",
           "name": "Chevron Corporation",
-          "shares": 121000000,
-          "value": 18000000000,
-          "percentPortfolio": 5.7,
-          "change": 2.8
+          "shares": 118600000,
+          "value": 17500000000,
+          "percentPortfolio": 5.9,
+          "change": -2.0
+        },
+        {
+          "ticker": "OXY",
+          "name": "Occidental Petroleum",
+          "shares": 264200000,
+          "value": 13200000000,
+          "percentPortfolio": 4.4,
+          "change": 0
         }
       ],
-      "filingDate": "2025-11-14",
-      "period": "2025Q3"
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
     },
     {
       "id": "bridgewater",
       "name": "Bridgewater Associates",
       "cik": "0001350694",
       "manager": "Ray Dalio",
-      "aum": "87500000000",
+      "aum": "92800000000",
       "holdings": [
         {
           "ticker": "SPY",
           "name": "SPDR S&P 500 ETF Trust",
-          "shares": 45000000,
-          "value": 21000000000,
-          "percentPortfolio": 24.0,
-          "change": 3.5
-        },
-        {
-          "ticker": "VWO",
-          "name": "Vanguard FTSE Emerging Markets ETF",
-          "shares": 120000000,
-          "value": 5200000000,
-          "percentPortfolio": 5.9,
-          "change": -2.1
+          "shares": 48000000,
+          "value": 28800000000,
+          "percentPortfolio": 31.0,
+          "change": 6.7
         },
         {
           "ticker": "GLD",
           "name": "SPDR Gold Trust",
-          "shares": 24000000,
-          "value": 4800000000,
-          "percentPortfolio": 5.5,
-          "change": 8.2
+          "shares": 28000000,
+          "value": 5880000000,
+          "percentPortfolio": 6.3,
+          "change": 16.7
+        },
+        {
+          "ticker": "VWO",
+          "name": "Vanguard FTSE Emerging Markets ETF",
+          "shares": 125000000,
+          "value": 5500000000,
+          "percentPortfolio": 5.9,
+          "change": 4.2
+        },
+        {
+          "ticker": "IEMG",
+          "name": "iShares Core MSCI Emerging Markets",
+          "shares": 85000000,
+          "value": 4420000000,
+          "percentPortfolio": 4.8,
+          "change": 3.5
         }
       ],
-      "filingDate": "2025-11-14",
-      "period": "2025Q3"
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
     },
     {
       "id": "vanguard",
       "name": "Vanguard Group Inc.",
       "cik": "0000102909",
       "manager": "Index Funds",
-      "aum": "8500000000000",
+      "aum": "8850000000000",
       "holdings": [
         {
           "ticker": "AAPL",
           "name": "Apple Inc.",
-          "shares": 1500000000,
-          "value": 285000000000,
-          "percentPortfolio": 3.4,
-          "change": 0.5
+          "shares": 1520000000,
+          "value": 349600000000,
+          "percentPortfolio": 3.9,
+          "change": 1.3
         },
         {
           "ticker": "MSFT",
           "name": "Microsoft Corporation",
-          "shares": 800000000,
-          "value": 336000000000,
-          "percentPortfolio": 4.0,
-          "change": 1.2
+          "shares": 820000000,
+          "value": 344400000000,
+          "percentPortfolio": 3.9,
+          "change": 2.5
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA Corporation",
+          "shares": 580000000,
+          "value": 78300000000,
+          "percentPortfolio": 0.9,
+          "change": 4.5
         },
         {
           "ticker": "AMZN",
           "name": "Amazon.com Inc.",
-          "shares": 600000000,
-          "value": 120000000000,
-          "percentPortfolio": 1.4,
-          "change": -0.3
+          "shares": 620000000,
+          "value": 130200000000,
+          "percentPortfolio": 1.5,
+          "change": 3.3
         }
       ],
-      "filingDate": "2025-11-14",
-      "period": "2025Q3"
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
     },
     {
       "id": "blackrock",
       "name": "BlackRock Inc.",
       "cik": "0001086364",
       "manager": "Larry Fink",
-      "aum": "10200000000000",
+      "aum": "10850000000000",
       "holdings": [
         {
           "ticker": "AAPL",
           "name": "Apple Inc.",
-          "shares": 1800000000,
-          "value": 342000000000,
-          "percentPortfolio": 3.4,
-          "change": 0.8
+          "shares": 1850000000,
+          "value": 425500000000,
+          "percentPortfolio": 3.9,
+          "change": 2.8
         },
         {
           "ticker": "MSFT",
           "name": "Microsoft Corporation",
-          "shares": 900000000,
-          "value": 378000000000,
+          "shares": 950000000,
+          "value": 399000000000,
           "percentPortfolio": 3.7,
-          "change": 1.5
+          "change": 5.6
         },
         {
           "ticker": "NVDA",
           "name": "NVIDIA Corporation",
-          "shares": 250000000,
-          "value": 35000000000,
-          "percentPortfolio": 0.3,
-          "change": 12.5
+          "shares": 320000000,
+          "value": 43200000000,
+          "percentPortfolio": 0.4,
+          "change": 28.0
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "Alphabet Inc.",
+          "shares": 380000000,
+          "value": 76000000000,
+          "percentPortfolio": 0.7,
+          "change": 1.8
         }
       ],
-      "filingDate": "2025-11-14",
-      "period": "2025Q3"
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
     },
     {
       "id": "ark",
       "name": "ARK Investment Management LLC",
       "cik": "0001579982",
       "manager": "Cathie Wood",
-      "aum": "6800000000",
+      "aum": "7200000000",
       "holdings": [
         {
           "ticker": "TSLA",
           "name": "Tesla Inc.",
-          "shares": 3500000,
-          "value": 1400000000,
-          "percentPortfolio": 20.6,
-          "change": -8.5
+          "shares": 3200000,
+          "value": 1280000000,
+          "percentPortfolio": 17.8,
+          "change": -8.6
         },
         {
           "ticker": "COIN",
           "name": "Coinbase Global Inc.",
-          "shares": 8000000,
-          "value": 2000000000,
-          "percentPortfolio": 29.4,
-          "change": 15.2
+          "shares": 9500000,
+          "value": 2850000000,
+          "percentPortfolio": 39.6,
+          "change": 18.8
         },
         {
           "ticker": "ROKU",
           "name": "Roku Inc.",
-          "shares": 12000000,
-          "value": 960000000,
-          "percentPortfolio": 14.1,
-          "change": -3.2
+          "shares": 10500000,
+          "value": 840000000,
+          "percentPortfolio": 11.7,
+          "change": -12.5
         },
         {
-          "ticker": "SHOP",
-          "name": "Shopify Inc.",
-          "shares": 5000000,
-          "value": 400000000,
-          "percentPortfolio": 5.9,
-          "change": 2.8
+          "ticker": "SQ",
+          "name": "Block Inc.",
+          "shares": 8000000,
+          "value": 720000000,
+          "percentPortfolio": 10.0,
+          "change": 14.3
+        },
+        {
+          "ticker": "HOOD",
+          "name": "Robinhood Markets",
+          "shares": 18000000,
+          "value": 540000000,
+          "percentPortfolio": 7.5,
+          "change": 50.0
         }
       ],
-      "filingDate": "2025-11-14",
-      "period": "2025Q3"
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
     },
     {
       "id": "renaissance",
       "name": "Renaissance Technologies LLC",
       "cik": "0001037389",
       "manager": "Peter Brown",
-      "aum": "56700000000",
+      "aum": "62100000000",
       "holdings": [
         {
           "ticker": "NVDA",
           "name": "NVIDIA Corporation",
-          "shares": 15000000,
-          "value": 2100000000,
-          "percentPortfolio": 3.7,
-          "change": 22.5
-        },
-        {
-          "ticker": "GOOGL",
-          "name": "Alphabet Inc.",
-          "shares": 8000000,
-          "value": 1400000000,
-          "percentPortfolio": 2.5,
-          "change": 5.8
+          "shares": 18500000,
+          "value": 2497000000,
+          "percentPortfolio": 4.0,
+          "change": 23.3
         },
         {
           "ticker": "META",
           "name": "Meta Platforms Inc.",
-          "shares": 3500000,
+          "shares": 4200000,
+          "value": 2646000000,
+          "percentPortfolio": 4.3,
+          "change": 20.0
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "Alphabet Inc.",
+          "shares": 9500000,
           "value": 1900000000,
-          "percentPortfolio": 3.4,
-          "change": -4.2
+          "percentPortfolio": 3.1,
+          "change": 18.8
+        },
+        {
+          "ticker": "AMZN",
+          "name": "Amazon.com Inc.",
+          "shares": 6800000,
+          "value": 1428000000,
+          "percentPortfolio": 2.3,
+          "change": -5.6
         }
       ],
-      "filingDate": "2025-11-14",
-      "period": "2025Q3"
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
+    },
+    {
+      "id": "citadel",
+      "name": "Citadel Advisors LLC",
+      "cik": "0001423053",
+      "manager": "Kenneth Griffin",
+      "aum": "58200000000",
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA Corporation",
+          "shares": 12000000,
+          "value": 1620000000,
+          "percentPortfolio": 2.8,
+          "change": 15.4
+        },
+        {
+          "ticker": "SPY",
+          "name": "SPDR S&P 500 ETF Trust",
+          "shares": 22000000,
+          "value": 13200000000,
+          "percentPortfolio": 22.7,
+          "change": -8.3
+        },
+        {
+          "ticker": "MSFT",
+          "name": "Microsoft Corporation",
+          "shares": 3500000,
+          "value": 1470000000,
+          "percentPortfolio": 2.5,
+          "change": 7.7
+        },
+        {
+          "ticker": "META",
+          "name": "Meta Platforms Inc.",
+          "shares": 2100000,
+          "value": 1323000000,
+          "percentPortfolio": 2.3,
+          "change": 10.5
+        }
+      ],
+      "filingDate": "2026-02-14",
+      "period": "2025Q4"
     }
   ],
   "filingPeriods": [
+    {
+      "period": "2025Q4",
+      "label": "Q4 2025",
+      "filingDeadline": "2026-02-14"
+    },
     {
       "period": "2025Q3",
       "label": "Q3 2025",
@@ -250,11 +347,6 @@
       "period": "2025Q1",
       "label": "Q1 2025",
       "filingDeadline": "2025-05-15"
-    },
-    {
-      "period": "2024Q4",
-      "label": "Q4 2024",
-      "filingDeadline": "2025-02-14"
     }
   ]
 }
