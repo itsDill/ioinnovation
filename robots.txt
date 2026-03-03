@@ -48,6 +48,26 @@ User-agent: Pinterest
 Allow: /
 
 # Block AI crawlers (optional - keeps content exclusive)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: claudebot
+Disallow: /
+
+User-agent: Bytedance
+Disallow: /
+
+# Sitemaps for search engines
+Sitemap: https://ioinnovationfund.com/sitemap.xml
+
+# Host preference for canonical domain
+Host: https://ioinnovationfund.com
 User-agent: CCBot
 Disallow: /
 
