@@ -29,7 +29,7 @@ const STATIC_ASSETS = [
 const DYNAMIC_ASSETS = [
   "/tools.html",
   "/markets.html",
-  "/blog.html",
+  "/hub.html",
   "/js/mobile.js",
 ];
 
@@ -50,7 +50,7 @@ self.addEventListener("install", (event) => {
       })
       .catch((error) => {
         console.error("📦 Error caching static assets:", error);
-      })
+      }),
   );
 });
 
@@ -80,7 +80,7 @@ self.addEventListener("activate", (event) => {
       .then(() => {
         console.log("🔄 Service Worker activated");
         return self.clients.claim();
-      })
+      }),
   );
 });
 
@@ -100,7 +100,7 @@ self.addEventListener("fetch", (event) => {
       fetch(request).catch(() => {
         // Return a fallback for external resources if offline
         return new Response("", { status: 200, statusText: "OK" });
-      })
+      }),
     );
     return;
   }
@@ -124,7 +124,7 @@ self.addEventListener("fetch", (event) => {
           return caches.match(request).then((response) => {
             return response || caches.match("/index.html");
           });
-        })
+        }),
     );
     return;
   }
@@ -169,7 +169,7 @@ self.addEventListener("fetch", (event) => {
               {
                 headers: { "Content-Type": "text/css" },
                 status: 200,
-              }
+              },
             );
           }
 
@@ -181,12 +181,12 @@ self.addEventListener("fetch", (event) => {
               {
                 headers: { "Content-Type": "application/javascript" },
                 status: 200,
-              }
+              },
             );
           }
 
           return new Response("", { status: 404 });
-        })
+        }),
     );
     return;
   }
@@ -206,7 +206,7 @@ self.addEventListener("fetch", (event) => {
       })
       .catch(() => {
         return caches.match(request);
-      })
+      }),
   );
 });
 
@@ -223,7 +223,7 @@ self.addEventListener("sync", (event) => {
         })
         .catch((error) => {
           console.error("🔄 Background sync error:", error);
-        })
+        }),
     );
   }
 });
@@ -276,12 +276,12 @@ self.addEventListener("message", (event) => {
         .keys()
         .then((cacheNames) => {
           return Promise.all(
-            cacheNames.map((cacheName) => caches.delete(cacheName))
+            cacheNames.map((cacheName) => caches.delete(cacheName)),
           );
         })
         .then(() => {
           event.ports[0].postMessage({ success: true });
-        })
+        }),
     );
   }
 

@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2be2b4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d475;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Left side - Document illustration -->
+  <g transform="translate(100, 80)">
+    <!-- Document shadow -->
+    <rect x="10" y="10" width="280" height="390" rx="8" fill="rgba(0,0,0,0.3)"/>
+    
+    <!-- Main document -->
+    <rect x="0" y="0" width="280" height="390" rx="8" fill="#ffffff"/>
+    
+    <!-- Document header bar -->
+    <rect x="0" y="0" width="280" height="50" rx="8" fill="url(#accentGradient)"/>
+    
+    <!-- Document title text -->
+    <text x="20" y="35" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="white">
+      FORM 13F
+    </text>
+    
+    <!-- Document lines (content) -->
+    <rect x="20" y="70" width="240" height="8" rx="4" fill="#e2e8f0"/>
+    <rect x="20" y="90" width="240" height="6" rx="3" fill="#cbd5e1"/>
+    <rect x="20" y="110" width="200" height="6" rx="3" fill="#cbd5e1"/>
+    
+    <!-- Table header -->
+    <rect x="20" y="140" width="240" height="6" rx="3" fill="#94a3b8"/>
+    <rect x="20" y="155" width="70" height="5" rx="2.5" fill="#cbd5e1"/>
+    <rect x="100" y="155" width="70" height="5" rx="2.5" fill="#cbd5e1"/>
+    <rect x="180" y="155" width="80" height="5" rx="2.5" fill="#cbd5e1"/>
+    
+    <!-- Table rows -->
+    <g opacity="0.8">
+      <rect x="20" y="175" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="100" y="175" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="180" y="175" width="80" height="5" rx="2.5" fill="#e2e8f0"/>
+      
+      <rect x="20" y="195" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="100" y="195" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="180" y="195" width="80" height="5" rx="2.5" fill="#e2e8f0"/>
+      
+      <rect x="20" y="215" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="100" y="215" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="180" y="215" width="80" height="5" rx="2.5" fill="#e2e8f0"/>
+      
+      <rect x="20" y="235" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="100" y="235" width="70" height="5" rx="2.5" fill="#e2e8f0"/>
+      <rect x="180" y="235" width="80" height="5" rx="2.5" fill="#e2e8f0"/>
+    </g>
+    
+    <!-- Checkmark icon -->
+    <circle cx="220" cy="320" r="35" fill="url(#accentGradient)" opacity="0.2"/>
+    <path d="M 210 320 L 220 330 L 235 315" stroke="#2be2b4" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Right side - Text and icons -->
+  <g transform="translate(450, 80)">
+    <!-- Main title -->
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="#ffffff" letter-spacing="-1">
+      13F Filings
+    </text>
+    <text x="0" y="60" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="#ffffff" letter-spacing="-1">
+      Decoded
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="130" font-family="Inter, sans-serif" font-size="18" fill="#cbd5e1">
+      Track What Smart Money Is Buying
+    </text>
+    
+    <!-- Feature list -->
+    <g transform="translate(0, 170)">
+      <!-- Feature 1 -->
+      <g>
+        <circle cx="20" cy="20" r="18" fill="url(#accentGradient)" opacity="0.2"/>
+        <text x="12" y="26" font-family="Arial" font-size="24" font-weight="bold" fill="#2be2b4">📊</text>
+        <text x="60" y="25" font-family="Inter, sans-serif" font-size="16" fill="#ffffff" font-weight="600">
+          Institutional Holdings
+        </text>
+      </g>
+      
+      <!-- Feature 2 -->
+      <g transform="translate(0, 60)">
+        <circle cx="20" cy="20" r="18" fill="url(#accentGradient)" opacity="0.2"/>
+        <text x="12" y="26" font-family="Arial" font-size="24" font-weight="bold" fill="#2be2b4">📈</text>
+        <text x="60" y="25" font-family="Inter, sans-serif" font-size="16" fill="#ffffff" font-weight="600">
+          Investment Trends
+        </text>
+      </g>
+      
+      <!-- Feature 3 -->
+      <g transform="translate(0, 120)">
+        <circle cx="20" cy="20" r="18" fill="url(#accentGradient)" opacity="0.2"/>
+        <text x="10" y="26" font-family="Arial" font-size="24" font-weight="bold" fill="#2be2b4">🎯</text>
+        <text x="60" y="25" font-family="Inter, sans-serif" font-size="16" fill="#ffffff" font-weight="600">
+          Portfolio Insights
+        </text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Bottom accent bar -->
+  <rect x="0" y="550" width="1200" height="80" fill="url(#accentGradient)" opacity="0.1"/>
+  <line x1="0" y1="550" x2="1200" y2="550" stroke="url(#accentGradient)" stroke-width="3"/>
+</svg>
