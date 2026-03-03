@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
     const isMobile =
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
+        navigator.userAgent,
       );
 
     console.log("Theme elements found:", {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.dispatchEvent(
         new CustomEvent("themeChanged", {
           detail: { theme, isMobile },
-        })
+        }),
       );
     }
 
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             toggleThemeHandler(e);
           },
-          { passive: false }
+          { passive: false },
         );
 
         // Prevent double-tap zoom on theme toggle
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             lastTouchEnd = now;
           },
-          false
+          false,
         );
       }
     } else {
@@ -241,18 +241,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let isMenuOpen = false;
+    let isAndroid =
+      /Android|android/i.test(navigator.userAgent) ||
+      /Android/i.test(navigator.userAgent);
 
-    function toggleMenu() {
+    console.log("Device detected as Android:", isAndroid);
+
+    function toggleMenu(e) {
+      // Prevent default behavior and stop propagation
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
       console.log("Toggle menu called, current state:", isMenuOpen);
       isMenuOpen = !isMenuOpen;
 
-      // Update DOM classes
-      menuBtn.classList.toggle("active", isMenuOpen);
-      mobileNav.classList.toggle("active", isMenuOpen);
-      document.body.classList.toggle("menu-open", isMenuOpen);
+      // Force style update for Android compatibility
+      if (isAndroid) {
+        mobileNav.style.display = isMenuOpen ? "flex" : "none";
+      }
+
+      // Update DOM classes with explicit set instead of toggle for better Android support
+      if (isMenuOpen) {
+        menuBtn.classList.add("active");
+        mobileNav.classList.add("active");
+        document.body.classList.add("menu-open");
+      } else {
+        menuBtn.classList.remove("active");
+        mobileNav.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      }
 
       if (mobileOverlay) {
-        mobileOverlay.classList.toggle("active", isMenuOpen);
+        if (isMenuOpen) {
+          mobileOverlay.classList.add("active");
+        } else {
+          mobileOverlay.classList.remove("active");
+        }
       }
 
       console.log("Menu state after toggle:", {
@@ -260,6 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
         menuBtnClasses: menuBtn.className,
         mobileNavClasses: mobileNav.className,
         bodyClasses: document.body.className,
+        navDisplay: window.getComputedStyle(mobileNav).display,
       });
 
       // Update ARIA attributes
@@ -279,25 +306,48 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    function closeMenu() {
+    function closeMenu(e) {
       if (isMenuOpen) {
-        toggleMenu();
+        toggleMenu(e);
       }
     }
 
-    // Event listeners
-    menuBtn.addEventListener("click", function (e) {
-      console.log("Menu button clicked!");
-      toggleMenu();
-    });
+    // Event listeners with better Android support
+    // Use both click and touchend for better mobile compatibility
+    menuBtn.addEventListener(
+      "click",
+      function (e) {
+        console.log("Menu button clicked!");
+        toggleMenu(e);
+      },
+      { passive: false },
+    );
+
+    // Additional touchend listener for Android
+    menuBtn.addEventListener(
+      "touchend",
+      function (e) {
+        console.log("Menu button touchend detected (Android)");
+        e.preventDefault();
+        toggleMenu(e);
+      },
+      { passive: false },
+    );
 
     if (mobileOverlay) {
       mobileOverlay.addEventListener("click", closeMenu);
+      mobileOverlay.addEventListener("touchend", function (e) {
+        e.preventDefault();
+        closeMenu(e);
+      });
     }
 
     // Close menu when nav link is clicked
     navLinks.forEach((link) => {
       link.addEventListener("click", closeMenu);
+      link.addEventListener("touchend", function (e) {
+        closeMenu(e);
+      });
     });
 
     // Close menu on escape key
@@ -314,8 +364,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (window.innerWidth > 768 && isMenuOpen) {
           closeMenu();
         }
-      }, 250)
+      }, 250),
     );
+
+    // Additional Android-specific fix: ensure menu is visible when viewport changes
+    window.addEventListener("orientationchange", () => {
+      console.log("Orientation changed, resetting menu");
+      if (isMenuOpen && window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+
+    // Initial state for Android
+    if (isAndroid) {
+      mobileNav.style.display = "none";
+    }
   }
 
   // Scroll Animations
@@ -337,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      }
+      },
     );
 
     animateElements.forEach((el) => observer.observe(el));
@@ -374,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
           rootMargin: "50px",
-        }
+        },
       );
 
       lazyImages.forEach((img) => imageObserver.observe(img));
@@ -395,7 +458,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
           threshold: 0.5,
-        }
+        },
       );
 
       counters.forEach((counter) => counterObserver.observe(counter));
@@ -418,7 +481,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (input.classList.contains("form-error")) {
               validateField(input);
             }
-          }, 300)
+          }, 300),
         );
       });
 
@@ -466,7 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Keyboard navigation for interactive elements
     const interactiveElements = document.querySelectorAll(
-      "button, a, input, textarea, select"
+      "button, a, input, textarea, select",
     );
 
     interactiveElements.forEach((element) => {
@@ -516,7 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
           isScrolling = true;
         }
       },
-      { passive: true }
+      { passive: true },
     );
 
     // Preload critical resources
@@ -639,12 +702,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const suffix = element.textContent.includes("%")
       ? "%"
       : element.textContent.includes("$")
-      ? ""
-      : element.textContent.includes("K")
-      ? "K+"
-      : element.textContent.includes("T")
-      ? "T"
-      : "";
+        ? ""
+        : element.textContent.includes("K")
+          ? "K+"
+          : element.textContent.includes("T")
+            ? "T"
+            : "";
     const prefix = element.textContent.includes("$") ? "$" : "";
 
     const duration = 2000;
@@ -754,8 +817,8 @@ document.addEventListener("DOMContentLoaded", function () {
       type === "success"
         ? "check-circle"
         : type === "error"
-        ? "exclamation-triangle"
-        : "info-circle";
+          ? "exclamation-triangle"
+          : "info-circle";
 
     notification.innerHTML = `
             <div style="display: flex; align-items: center; gap: 0.5rem;">
