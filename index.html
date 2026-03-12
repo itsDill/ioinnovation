@@ -6,22 +6,21 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      IO Innovate | AI Infrastructure, Space Economy & Robotics Industry
-      Insights
+      IO Innovation | Finance Tools & Analytics for Smarter Investing
     </title>
     <meta
       name="title"
-      content="IO Innovate | AI Infrastructure, Space Economy & Robotics Industry Insights"
+      content="IO Innovation | Finance Tools & Analytics for Smarter Investing"
     />
     <meta
       name="description"
-      content="Track emerging technology trends in AI infrastructure, space economy, and robotics. Investment insights and analysis for the industries shaping our future."
+      content="Free finance tools and analytics for smart investors. Track AI picks, hedge fund holdings, dividend aristocrats, and emerging tech sectors."
     />
     <meta
       name="keywords"
       content="AI infrastructure, space economy, robotics industry, artificial intelligence, SpaceX, NVIDIA, Tesla robotics, data centers, satellite internet, autonomous systems"
     />
-    <meta name="author" content="IO Innovate" />
+    <meta name="author" content="IO Innovation" />
     <meta
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large"
@@ -56,13 +55,13 @@
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
     <meta name="subject" content="AI, Space & Robotics Technology Analysis" />
-    <meta name="copyright" content="2026 IO Innovate" />
+    <meta name="copyright" content="2026 IO Innovation" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <meta name="apple-mobile-web-app-title" content="IO Innovate" />
+    <meta name="apple-mobile-web-app-title" content="IO Innovation" />
     <meta name="theme-color" content="#2be2b4" />
 
     <!-- Core Web Vitals & Performance -->
@@ -74,28 +73,28 @@
     <meta property="og:url" content="https://ioinnovationfund.com/" />
     <meta
       property="og:title"
-      content="IO Innovate | AI Infrastructure, Space Economy & Robotics"
+      content="IO Innovation | Finance Tools & Analytics"
     />
     <meta
       property="og:description"
-      content="Track emerging tech trends in AI infrastructure, space economy, and robotics. Investment insights for the future."
+      content="Free finance tools and analytics. Track AI picks, hedge fund holdings, dividend aristocrats, and emerging sectors."
     />
     <meta
       property="og:image"
       content="https://ioinnovationfund.com/assets/images/og-image.png"
     />
-    <meta property="og:site_name" content="IO Innovate" />
+    <meta property="og:site_name" content="IO Innovation" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ioinnovate" />
     <meta
       name="twitter:title"
-      content="IO Innovate | AI, Space & Robotics Insights"
+      content="IO Innovation | Finance Tools & Analytics"
     />
     <meta
       name="twitter:description"
-      content="Track emerging tech trends in AI infrastructure, space economy, and robotics industry."
+      content="Free finance tools and analytics for smart investors. AI picks, hedge fund tracking, and more."
     />
     <meta
       name="twitter:image"
@@ -107,10 +106,10 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "IO Innovate",
+        "name": "IO Innovation",
         "alternateName": "IO Innovation Fund",
         "url": "https://ioinnovationfund.com",
-        "description": "AI Infrastructure, Space Economy & Robotics Industry insights and analysis",
+        "description": "Free finance tools and analytics for smarter investing",
         "potentialAction": {
           "@type": "SearchAction",
           "target": {
@@ -127,10 +126,10 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "IO Innovate",
+        "name": "IO Innovation",
         "alternateName": "IO Innovation Fund",
         "url": "https://ioinnovationfund.com",
-        "description": "AI Infrastructure, Space Economy & Robotics Industry insights platform",
+        "description": "Free finance tools and analytics platform for investors",
         "sameAs": [
           "https://twitter.com/ioinnovate",
           "https://youtube.com/@ioinnovate",
@@ -150,7 +149,7 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "IO Innovate Financial Tools",
+        "name": "IO Innovation Finance Tools",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
         "offers": {
@@ -159,11 +158,11 @@
           "priceCurrency": "USD"
         },
         "featureList": [
-          "AI Infrastructure Analysis",
-          "Space Economy Tracker",
-          "Robotics Industry Insights",
-          "Investment Tools",
-          "Market Analysis"
+          "13F Hedge Fund Tracker",
+          "Strategy Backtester",
+          "10-K Report Analyzer",
+          "AI Portfolio Signals",
+          "Dividend Aristocrats"
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -460,6 +459,144 @@
         border-radius: 100px;
         font-size: 0.75rem;
         color: var(--accent-primary);
+      }
+
+      /* Picks Performance Section */
+      .picks-section {
+        padding: 3rem 1.5rem;
+        background: var(--bg-secondary);
+      }
+
+      [data-theme="light"] .picks-section {
+        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .picks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .pick-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 1.25rem;
+        text-align: center;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      [data-theme="light"] .pick-card {
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      .pick-card:hover {
+        border-color: rgba(43, 226, 180, 0.3);
+        transform: translateY(-4px);
+      }
+
+      .pick-symbol {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .pick-name {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.75rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .pick-price {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .pick-change {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .pick-change.positive {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+      }
+
+      .pick-change.negative {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+
+      .pick-signal {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .pick-signal.buy {
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+      }
+
+      .pick-signal.hold {
+        background: rgba(234, 179, 8, 0.15);
+        color: #eab308;
+      }
+
+      .pick-signal.sell {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+      }
+
+      .picks-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .picks-updated {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 640px) {
+        .picks-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+        }
+
+        .pick-card {
+          padding: 1rem;
+        }
+
+        .pick-symbol {
+          font-size: 1.25rem;
+        }
+
+        .pick-price {
+          font-size: 1rem;
+        }
       }
 
       /* Features Section */
@@ -800,12 +937,13 @@
     <!-- Header -->
     <header class="header">
       <nav class="nav" role="navigation" aria-label="Main navigation">
-        <a href="/" class="logo">IO Innovate</a>
+        <a href="/" class="logo">IO Innovation</a>
 
         <ul class="nav-links" id="mobileNav">
           <li><a href="/" class="active">Home</a></li>
           <li><a href="/tools.html">Tools</a></li>
-          <li><a href="/hub.html">Hub</a></li>
+          <li><a href="/guides.html">Guides</a></li>
+          <li><a href="/news.html">News</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -829,95 +967,125 @@
         <div class="home-hero-inner">
           <div class="hero-content">
             <div class="hero-badge">
-              <i class="fas fa-rocket"></i>
-              Tracking The Future
+              <i class="fas fa-chart-line"></i>
+              Finance Tools & Analytics
             </div>
 
             <h1 class="hero-title">
-              Insights on
-              <span class="highlight">AI, Space & Robotics</span> Industries
+              Smarter Investing with
+              <span class="highlight">Innovation & Analytics</span>
             </h1>
 
             <p class="hero-desc">
-              Deep analysis and investment insights on AI infrastructure, space
-              economy, and robotics. Track the technologies and companies
-              building our future.
+              Free tools for tracking AI picks, hedge fund holdings, dividend
+              aristocrats, and emerging tech sectors. Data-driven insights for
+              the modern investor.
             </p>
 
             <div class="hero-buttons">
-              <a
-                href="/sectors/ai-infrastructure.html"
-                class="btn btn-primary btn-lg"
-              >
-                <i class="fas fa-microchip"></i> AI Infrastructure
+              <a href="/tools.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-tools"></i> Explore Tools
               </a>
-              <a
-                href="/sectors/space-economy.html"
-                class="btn btn-secondary btn-lg"
-              >
-                <i class="fas fa-satellite"></i> Space Economy
+              <a href="/guides.html" class="btn btn-secondary btn-lg">
+                <i class="fas fa-book-open"></i> Investment Guides
               </a>
             </div>
 
             <div class="hero-stats">
               <div class="hero-stat">
-                <div class="hero-stat-value">$2T+</div>
-                <div class="hero-stat-label">AI Market by 2030</div>
+                <div class="hero-stat-value">6+</div>
+                <div class="hero-stat-label">Free Analytics Tools</div>
               </div>
               <div class="hero-stat">
-                <div class="hero-stat-value">$1.8T</div>
-                <div class="hero-stat-label">Space Economy by 2035</div>
+                <div class="hero-stat-value">Real-time</div>
+                <div class="hero-stat-label">Market Data</div>
               </div>
             </div>
           </div>
 
           <div class="hero-visual">
-            <div class="preview-card">
+            <a
+              href="/tools/13f-visualizer.html"
+              class="preview-card"
+              style="text-decoration: none; color: inherit"
+            >
               <div class="preview-header">
                 <div
                   class="preview-icon"
                   style="background: linear-gradient(135deg, #6366f1, #8b5cf6)"
                 >
-                  <i class="fas fa-microchip"></i>
+                  <i class="fas fa-landmark"></i>
                 </div>
-                <span class="preview-title">AI Infrastructure</span>
+                <span class="preview-title">13F Visualizer</span>
               </div>
               <div class="preview-content">
-                <span class="preview-tag">NVIDIA</span>
-                <span class="preview-tag">Data Centers</span>
-                <span class="preview-tag">Cloud AI</span>
+                <span class="preview-tag">Hedge Funds</span>
+                <span class="preview-tag">Holdings</span>
+                <span class="preview-tag">SEC Data</span>
               </div>
-            </div>
-            <div class="preview-card">
+            </a>
+            <a
+              href="/tools/backtester.html"
+              class="preview-card"
+              style="text-decoration: none; color: inherit"
+            >
               <div class="preview-header">
                 <div
                   class="preview-icon"
                   style="background: linear-gradient(135deg, #22c55e, #10b981)"
                 >
-                  <i class="fas fa-satellite"></i>
+                  <i class="fas fa-calculator"></i>
                 </div>
-                <span class="preview-title">Space Economy</span>
+                <span class="preview-title">Backtester</span>
               </div>
               <div class="preview-content">
-                <span class="preview-tag">Starlink</span>
-                <span class="preview-tag">Rockets</span>
+                <span class="preview-tag">Strategies</span>
+                <span class="preview-tag">Returns</span>
               </div>
-            </div>
-            <div class="preview-card">
+            </a>
+            <a
+              href="/tools/10k-summary.html"
+              class="preview-card"
+              style="text-decoration: none; color: inherit"
+            >
               <div class="preview-header">
                 <div
                   class="preview-icon"
                   style="background: linear-gradient(135deg, #0ea5e9, #06b6d4)"
                 >
-                  <i class="fas fa-robot"></i>
+                  <i class="fas fa-file-alt"></i>
                 </div>
-                <span class="preview-title">Robotics</span>
+                <span class="preview-title">10-K Summary</span>
               </div>
               <div class="preview-content">
-                <span class="preview-tag">Humanoids</span>
-                <span class="preview-tag">Automation</span>
+                <span class="preview-tag">Annual Reports</span>
+                <span class="preview-tag">AI Analysis</span>
               </div>
-            </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Top Picks Performance Section -->
+      <section class="picks-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">AI Portfolio Picks</h2>
+            <p class="section-desc">
+              Current signals from our AI-powered analysis. Track performance
+              and timing.
+            </p>
+          </div>
+
+          <div class="picks-grid" id="picksGrid">
+            <!-- Loaded dynamically from data/homepage-picks.json -->
+          </div>
+
+          <div class="picks-footer">
+            <a href="/tools.html" class="btn btn-primary">
+              <i class="fas fa-chart-line"></i> View Full Portfolio Tool
+            </a>
+            <p class="picks-updated" id="picksUpdated"></p>
           </div>
         </div>
       </section>
@@ -926,46 +1094,47 @@
       <section class="features-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">Why Follow These Industries?</h2>
+            <h2 class="section-title">Why Use Our Tools?</h2>
             <p class="section-desc">
-              The most transformative technology sectors of the next decade.
+              Data-driven insights to make smarter investment decisions.
             </p>
           </div>
 
           <div class="features-grid">
             <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-              <h3 class="feature-title">Massive Growth</h3>
+              <div class="feature-icon"><i class="fas fa-landmark"></i></div>
+              <h3 class="feature-title">Track Smart Money</h3>
               <p class="feature-desc">
-                AI, space, and robotics are projected to grow 10x+ over the next
-                decade, creating enormous opportunities.
+                See what hedge funds and institutional investors are buying with
+                our
+                <a href="/tools/13f-visualizer.html">13F Visualizer</a>.
               </p>
             </div>
 
             <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-              <h3 class="feature-title">Deep Analysis</h3>
+              <div class="feature-icon"><i class="fas fa-robot"></i></div>
+              <h3 class="feature-title">AI-Powered Analysis</h3>
               <p class="feature-desc">
-                We break down complex technologies and business models so you
-                can understand what's really happening.
+                Get AI-generated insights from 10-K filings and portfolio
+                recommendations to enhance your research.
               </p>
             </div>
 
             <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-building"></i></div>
-              <h3 class="feature-title">Company Profiles</h3>
+              <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+              <h3 class="feature-title">Dividend Tracking</h3>
               <p class="feature-desc">
-                Track key players from NVIDIA to SpaceX to Boston Dynamics and
-                emerging startups.
+                Explore 68 dividend aristocrats with 25+ years of consecutive
+                dividend increases.
               </p>
             </div>
 
             <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-eye"></i></div>
-              <h3 class="feature-title">Trend Spotting</h3>
+              <div class="feature-icon"><i class="fas fa-flask"></i></div>
+              <h3 class="feature-title">Backtest Strategies</h3>
               <p class="feature-desc">
-                Stay ahead with early insights on emerging technologies and
-                market shifts.
+                Test your investment strategies against historical data with our
+                <a href="/tools/backtester.html">Backtester Tool</a>.
               </p>
             </div>
           </div>
@@ -976,9 +1145,9 @@
       <section class="tools-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">Industry Sectors</h2>
+            <h2 class="section-title">Featured Tools</h2>
             <p class="section-desc">
-              Explore the three mega-trends shaping the future economy.
+              Free analytics tools to research and track your investments.
             </p>
           </div>
 
@@ -989,22 +1158,22 @@
                   class="tool-preview-icon"
                   style="background: linear-gradient(135deg, #6366f1, #8b5cf6)"
                 >
-                  <i class="fas fa-microchip"></i>
+                  <i class="fas fa-landmark"></i>
                 </div>
                 <div class="tool-preview-info">
-                  <h3>AI Infrastructure</h3>
-                  <span class="tool-preview-badge">Hot</span>
+                  <h3>13F Visualizer</h3>
+                  <span class="tool-preview-badge">Popular</span>
                 </div>
               </div>
               <p>
-                GPUs, data centers, cloud computing, and the backbone powering
-                the AI revolution. From NVIDIA to hyperscalers.
+                Track what hedge funds are buying and selling. Analyze
+                institutional holdings from SEC 13F filings.
               </p>
               <a
-                href="/sectors/ai-infrastructure.html"
+                href="/tools/13f-visualizer.html"
                 class="btn btn-primary"
                 style="width: 100%"
-                >Explore Sector</a
+                >Open Tool</a
               >
             </article>
 
@@ -1014,22 +1183,22 @@
                   class="tool-preview-icon"
                   style="background: linear-gradient(135deg, #22c55e, #10b981)"
                 >
-                  <i class="fas fa-satellite"></i>
+                  <i class="fas fa-calculator"></i>
                 </div>
                 <div class="tool-preview-info">
-                  <h3>Space Economy</h3>
-                  <span class="tool-preview-badge">Growing</span>
+                  <h3>Strategy Backtester</h3>
+                  <span class="tool-preview-badge">New</span>
                 </div>
               </div>
               <p>
-                Rockets, satellites, Starlink, and commercial space. The $1.8
-                trillion opportunity beyond Earth.
+                Test investment strategies against historical data. See how your
+                approach would have performed.
               </p>
               <a
-                href="/sectors/space-economy.html"
+                href="/tools/backtester.html"
                 class="btn btn-primary"
                 style="width: 100%"
-                >Explore Sector</a
+                >Open Tool</a
               >
             </article>
 
@@ -1039,29 +1208,29 @@
                   class="tool-preview-icon"
                   style="background: linear-gradient(135deg, #0ea5e9, #06b6d4)"
                 >
-                  <i class="fas fa-robot"></i>
+                  <i class="fas fa-file-alt"></i>
                 </div>
                 <div class="tool-preview-info">
-                  <h3>Robotics Industry</h3>
-                  <span class="tool-preview-badge">Emerging</span>
+                  <h3>10-K Summary</h3>
+                  <span class="tool-preview-badge">AI</span>
                 </div>
               </div>
               <p>
-                Humanoid robots, industrial automation, and autonomous systems.
-                The workforce transformation is here.
+                Get AI-powered summaries of annual reports. Quickly understand
+                key financials and risks.
               </p>
               <a
-                href="/sectors/robotics.html"
+                href="/tools/10k-summary.html"
                 class="btn btn-primary"
                 style="width: 100%"
-                >Explore Sector</a
+                >Open Tool</a
               >
             </article>
           </div>
 
           <div class="text-center mt-4">
-            <a href="/hub.html" class="btn btn-secondary btn-lg">
-              View All Articles <i class="fas fa-arrow-right"></i>
+            <a href="/tools.html" class="btn btn-secondary btn-lg">
+              View All Tools <i class="fas fa-arrow-right"></i>
             </a>
           </div>
         </div>
@@ -1070,10 +1239,9 @@
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-content">
-          <h2 class="cta-title">Ready to Explore the Future?</h2>
+          <h2 class="cta-title">Ready to Make Smarter Investments?</h2>
           <p class="cta-desc">
-            Dive into our industry analysis and stay ahead of the technology
-            curve.
+            Explore our free tools and guides built for modern investors.
           </p>
           <div
             style="
@@ -1083,9 +1251,11 @@
               flex-wrap: wrap;
             "
           >
-            <a href="/hub.html" class="btn btn-primary btn-lg">Read Articles</a>
-            <a href="/tools.html" class="btn btn-secondary btn-lg"
-              >Analysis Tools</a
+            <a href="/tools/13f-visualizer.html" class="btn btn-primary btn-lg"
+              >Track Hedge Funds</a
+            >
+            <a href="/guides.html" class="btn btn-secondary btn-lg"
+              >Investment Guides</a
             >
           </div>
         </div>
@@ -1109,30 +1279,32 @@
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo">IO Innovate</a>
+          <a href="/" class="logo">IO Innovation</a>
           <p>
-            Insights and analysis on AI infrastructure, space economy, and
-            robotics industry.
+            Free finance tools and analytics for smarter investing. Track hedge
+            funds, analyze stocks, and backtest strategies.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Sectors</h4>
+          <h4>Tools</h4>
           <ul>
             <li>
-              <a href="/sectors/ai-infrastructure.html">AI Infrastructure</a>
+              <a href="/tools/13f-visualizer.html">13F Visualizer</a>
             </li>
-            <li><a href="/sectors/space-economy.html">Space Economy</a></li>
-            <li><a href="/sectors/robotics.html">Robotics</a></li>
-            <li><a href="/hub.html">All Articles</a></li>
+            <li><a href="/tools/backtester.html">Backtester</a></li>
+            <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
+            <li><a href="/tools.html">All Tools</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4>Resources</h4>
           <ul>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/guides.html">Investment Guides</a></li>
+            <li><a href="/news.html">Market News</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About Us</a></li>
           </ul>
         </div>
 
@@ -1142,12 +1314,13 @@
             <li><a href="/privacy.html">Privacy</a></li>
             <li><a href="/terms.html">Terms</a></li>
             <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 IO Innovate. All rights reserved.</p>
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
         <p class="footer-disclaimer">
           Content is for informational purposes only. Not financial advice.
         </p>
@@ -1162,6 +1335,50 @@
     <!-- JavaScript -->
     <script src="js/shared-simple.js"></script>
     <script>
+      // Load AI Portfolio Picks
+      async function loadPicks() {
+        try {
+          const response = await fetch("data/homepage-picks.json");
+          const data = await response.json();
+          const grid = document.getElementById("picksGrid");
+          const updated = document.getElementById("picksUpdated");
+
+          if (data.picks) {
+            grid.innerHTML = data.picks
+              .map((stock) => {
+                const changeClass =
+                  stock.potentialGain >= 0 ? "positive" : "negative";
+                const signalClass = stock.signal.toLowerCase();
+                const icon =
+                  stock.potentialGain >= 0 ? "fa-arrow-up" : "fa-arrow-down";
+                const potentialText = `+${stock.potentialGain}%`;
+
+                return `
+                <div class="pick-card">
+                  <span class="pick-signal ${signalClass}">${stock.signal}</span>
+                  <div class="pick-symbol">${stock.symbol}</div>
+                  <div class="pick-name">${stock.name}</div>
+                  <div class="pick-price">$${stock.currentPrice.toFixed(2)}</div>
+                  <span class="pick-change ${changeClass}">
+                    <i class="fas ${icon}"></i> ${potentialText} target
+                  </span>
+                </div>
+              `;
+              })
+              .join("");
+
+            if (data.lastUpdated) {
+              const date = new Date(data.lastUpdated);
+              updated.textContent = `Last updated: ${date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
+            }
+          }
+        } catch (err) {
+          console.log("Could not load picks data");
+        }
+      }
+
+      loadPicks();
+
       // Scroll to top functionality
       const scrollTopBtn = document.getElementById("scrollTop");
       if (scrollTopBtn) {

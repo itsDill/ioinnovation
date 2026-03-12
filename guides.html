@@ -6,11 +6,11 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      Investment Blog | Expert Finance Guides & Market Analysis | IO Innovation
+      Investment Guides | Expert Finance Guides & Market Analysis | IO Innovation
     </title>
     <meta
       name="title"
-      content="Investment Blog | Expert Finance Guides & Market Analysis | IO Innovation"
+      content="Investment Guides | Expert Finance Guides & Market Analysis | IO Innovation"
     />
     <meta
       name="description"
@@ -18,38 +18,38 @@
     />
     <meta
       name="keywords"
-      content="investment blog, finance guides, ASEAN markets, 13F filings analysis, FIRE movement, personal finance, debt management, crypto investing, real estate investment, market analysis 2025"
+      content="investment guides, finance guides, ASEAN markets, 13F filings analysis, FIRE movement, personal finance, debt management, crypto investing, real estate investment, market analysis 2026"
     />
     <meta name="author" content="IO Innovation" />
     <meta
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large"
     />
-    <link rel="canonical" href="https://ioinnovationfund.com/hub.html" />
+    <link rel="canonical" href="https://ioinnovationfund.com/guides.html" />
 
     <!-- Alternate Language Links for International SEO -->
     <link
       rel="alternate"
       hreflang="en"
-      href="https://ioinnovationfund.com/hub.html"
+      href="https://ioinnovationfund.com/guides.html"
     />
     <link
       rel="alternate"
       hreflang="en-US"
-      href="https://ioinnovationfund.com/hub.html"
+      href="https://ioinnovationfund.com/guides.html"
     />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://ioinnovationfund.com/hub.html"
+      href="https://ioinnovationfund.com/guides.html"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/hub.html" />
+    <meta property="og:url" content="https://ioinnovationfund.com/guides.html" />
     <meta
       property="og:title"
-      content="Investment Blog | Expert Finance Guides & Market Analysis"
+      content="Investment Guides | Expert Finance Guides & Market Analysis"
     />
     <meta
       property="og:description"
@@ -57,16 +57,16 @@
     />
     <meta
       property="og:image"
-      content="https://ioinnovationfund.com/assets/images/blog-og.png"
+      content="https://ioinnovationfund.com/assets/images/guides-og.png"
     />
     <meta property="og:site_name" content="IO Innovation" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://ioinnovationfund.com/blog.html" />
+    <meta name="twitter:url" content="https://ioinnovationfund.com/guides.html" />
     <meta
       name="twitter:title"
-      content="Investment Blog | Expert Finance Guides & Market Analysis"
+      content="Investment Guides | Expert Finance Guides & Market Analysis"
     />
     <meta
       name="twitter:description"
@@ -74,7 +74,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://ioinnovationfund.com/assets/images/blog-og.png"
+      content="https://ioinnovationfund.com/assets/images/guides-og.png"
     />
 
     <!-- Structured Data -->
@@ -82,9 +82,9 @@
       {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "IO Innovation Investment Hub",
+        "name": "IO Innovation Investment Guides",
         "description": "Expert investment guides, market analysis, and financial insights",
-        "url": "https://ioinnovationfund.com/hub.html",
+        "url": "https://ioinnovationfund.com/guides.html",
         "publisher": {
           "@type": "Organization",
           "name": "IO Innovation",
@@ -118,8 +118,8 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Blog",
-            "item": "https://ioinnovationfund.com/blog.html"
+            "name": "Guides",
+            "item": "https://ioinnovationfund.com/guides.html"
           }
         ]
       }
@@ -178,7 +178,7 @@
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
           <li><a href="/tools.html">Tools</a></li>
-          <li><a href="/hub.html" class="active">Guides</a></li>
+          <li><a href="/guides.html" class="active">Guides</a></li>
           <li><a href="/news.html">News</a></li>
         </ul>
 
@@ -223,13 +223,13 @@
             type="search"
             class="blog-search"
             id="blogSearch"
-            placeholder="Search articles..."
-            aria-label="Search articles"
+            placeholder="Search guides..."
+            aria-label="Search guides"
           />
         </div>
         <div class="blog-filters">
           <button class="filter-chip active" data-category="all">
-            All Articles
+            All Guides
           </button>
           <button class="filter-chip" data-category="market-analysis">
             Market Analysis
@@ -296,8 +296,8 @@
       <!-- Articles Grid -->
       <section class="articles-section">
         <div class="articles-header">
-          <h2 class="articles-title">Latest Articles</h2>
-          <span class="articles-count" id="articlesCount">1 article</span>
+          <h2 class="articles-title">Latest Guides</h2>
+          <span class="articles-count" id="articlesCount">1 guide</span>
         </div>
 
         <div class="articles-grid" id="articlesGrid">
@@ -338,13 +338,13 @@
         <!-- Loading Indicator -->
         <div class="loading-indicator" id="loadingIndicator">
           <div class="loading-spinner"></div>
-          <span>Loading more articles...</span>
+          <span>Loading more guides...</span>
         </div>
 
         <!-- Empty State -->
         <div class="empty-state" id="emptyState" style="display: none">
           <i class="fas fa-search"></i>
-          <p>No articles found matching your criteria.</p>
+          <p>No guides found matching your criteria.</p>
         </div>
       </section>
 
@@ -370,7 +370,6 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-grid">
@@ -448,7 +447,7 @@
           if (shouldShow) visibleCount++;
         });
 
-        articlesCount.textContent = `${visibleCount} article${
+        articlesCount.textContent = `${visibleCount} guide${
           visibleCount !== 1 ? "s" : ""
         }`;
         emptyState.style.display = visibleCount === 0 ? "block" : "none";
@@ -488,7 +487,7 @@
           if (matches) visibleCount++;
         });
 
-        articlesCount.textContent = `${visibleCount} article${
+        articlesCount.textContent = `${visibleCount} guide${
           visibleCount !== 1 ? "s" : ""
         }`;
         emptyState.style.display = visibleCount === 0 ? "block" : "none";
@@ -506,7 +505,6 @@
         .addEventListener("submit", (e) => {
           e.preventDefault();
           const email = e.target.querySelector("input").value;
-          // In production, this would submit to your newsletter service
           alert("Thanks for subscribing! We'll be in touch soon.");
           e.target.reset();
         });
@@ -535,44 +533,5 @@
         });
       }
     </script>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <style>
-      .scroll-top {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 48px;
-        height: 48px;
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-secondary)
-        );
-        border: none;
-        border-radius: 50%;
-        color: #000;
-        font-size: 1.25rem;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px);
-        transition: all 0.3s ease;
-        z-index: 999;
-        box-shadow: 0 4px 20px rgba(43, 226, 180, 0.3);
-      }
-      .scroll-top.visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-      .scroll-top:hover {
-        transform: translateY(-4px);
-      }
-    </style>
   </body>
 </html>
