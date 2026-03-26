@@ -9,6 +9,13 @@ on:
     - cron: "5 21 * * 1-5" # 4:05 PM ET
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+
+concurrency:
+  group: update-stock-prices
+  cancel-in-progress: false
+
 jobs:
   update-prices:
     runs-on: ubuntu-latest

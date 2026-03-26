@@ -43,21 +43,30 @@ def fetch_stock_prices():
     print(f"Fetching prices for: {', '.join(symbols)}")
     
     picks = []
-    
+
     # Download all at once (more efficient, less rate limiting)
+    latest_prices = {}
     try:
-        data = yf.download(symbols, period="5d", progress=False)
-        latest_prices = data['Close'].iloc[-1]
+        data = yf.download(symbols, period="5d", progress=False, auto_adjust=True)
+        if data.empty:
+            print("Warning: yfinance returned empty data (market may be closed)")
+        else:
+            close = data['Close']
+            # yfinance >= 0.2 returns a DataFrame with ticker columns for multi-symbol downloads
+            if hasattr(close, 'columns'):
+                latest_prices = close.dropna(how='all').iloc[-1].to_dict()
+            else:
+                # Single-symbol fallback (Series)
+                latest_prices = {symbols[0]: close.dropna().iloc[-1]}
     except Exception as e:
         print(f"Batch download failed: {e}")
-        latest_prices = {}
-    
+
     for stock_info in STOCKS:
         symbol = stock_info["symbol"]
         try:
             current_price = latest_prices.get(symbol, None)
-            
-            if current_price and current_price > 0:
+
+            if current_price is not None and float(current_price) > 0:
                 # Default potential gain
                 potential_gain = 12.0  # Conservative default
                 

@@ -67,13 +67,6 @@
     <priority>0.95</priority>
   </url>
   
-  <url>
-    <loc>https://ioinnovationfund.com/tools/backtester.html</loc>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  
   <!-- NEW PRIMARY TOOLS -->
   <url>
     <loc>https://ioinnovationfund.com/tools/congress-trades.html</loc>
