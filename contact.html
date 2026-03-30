@@ -137,7 +137,7 @@
     />
 
     <!-- Theme Init -->
-    <script src="js/theme-init.js"></script>
+    <script src="js/theme-init.js?v=2026033001"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/site.css?v=2025121602" />
@@ -631,6 +631,7 @@
                   name="name"
                   placeholder="John Doe"
                   required
+                  aria-required="true"
                 />
               </div>
 
@@ -642,12 +643,18 @@
                   name="email"
                   placeholder="john@example.com"
                   required
+                  aria-required="true"
                 />
               </div>
 
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <select id="subject" name="subject" required>
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  aria-required="true"
+                >
                   <option value="">Select a topic...</option>
                   <option value="general">General Inquiry</option>
                   <option value="support">Technical Support</option>
@@ -665,6 +672,7 @@
                   name="message"
                   placeholder="How can we help you?"
                   required
+                  aria-required="true"
                 ></textarea>
               </div>
 
@@ -735,7 +743,8 @@
         <div class="footer-brand">
           <a href="/" class="logo">IO Innovation</a>
           <p>
-            Free finance tools and analytics for smarter investing. Track hedge funds and analyze stocks.
+            Free finance tools and analytics for smarter investing. Track hedge
+            funds and analyze stocks.
           </p>
         </div>
 
@@ -756,6 +765,11 @@
             <li><a href="/guides.html">Investment Guides</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/about.html">About Us</a></li>
+            <li>
+              <a href="/sectors/ai-infrastructure.html">AI Infrastructure</a>
+            </li>
+            <li><a href="/sectors/robotics.html">Robotics</a></li>
+            <li><a href="/sectors/space-economy.html">Space Economy</a></li>
           </ul>
         </div>
 

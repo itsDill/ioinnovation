@@ -46,7 +46,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/hub.html" />
+    <meta property="og:url" content="https://ioinnovationfund.com/blog.html" />
     <meta
       property="og:title"
       content="Investment Blog | Expert Finance Guides & Market Analysis"
@@ -165,7 +165,7 @@
     />
 
     <!-- Theme Init -->
-    <script src="js/theme-init.js"></script>
+    <script src="js/theme-init.js?v=2026033001"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/site.css?v=2025121602" />
@@ -232,20 +232,49 @@
             aria-label="Search articles"
           />
         </div>
-        <div class="blog-filters">
-          <button class="filter-chip active" data-category="all">
+        <div
+          class="blog-filters"
+          role="group"
+          aria-label="Filter articles by category"
+        >
+          <button
+            class="filter-chip active"
+            data-category="all"
+            aria-label="Show all articles"
+            aria-pressed="true"
+          >
             All Articles
           </button>
-          <button class="filter-chip" data-category="market-analysis">
+          <button
+            class="filter-chip"
+            data-category="market-analysis"
+            aria-label="Filter by Market Analysis"
+            aria-pressed="false"
+          >
             Market Analysis
           </button>
-          <button class="filter-chip" data-category="investment">
+          <button
+            class="filter-chip"
+            data-category="investment"
+            aria-label="Filter by Investment Guides"
+            aria-pressed="false"
+          >
             Investment Guides
           </button>
-          <button class="filter-chip" data-category="personal-finance">
+          <button
+            class="filter-chip"
+            data-category="personal-finance"
+            aria-label="Filter by Personal Finance"
+            aria-pressed="false"
+          >
             Personal Finance
           </button>
-          <button class="filter-chip" data-category="tools">
+          <button
+            class="filter-chip"
+            data-category="tools"
+            aria-label="Filter by Tools & Resources"
+            aria-pressed="false"
+          >
             Tools & Resources
           </button>
         </div>
@@ -302,7 +331,9 @@
       <section class="articles-section">
         <div class="articles-header">
           <h2 class="articles-title">Latest Articles</h2>
-          <span class="articles-count" id="articlesCount">14 articles</span>
+          <span class="articles-count" id="articlesCount" aria-live="polite"
+            >13 articles</span
+          >
         </div>
 
         <div class="articles-grid" id="articlesGrid">
@@ -412,7 +443,7 @@
           </article>
 
           <!-- Article 0: Oil & Economy -->
-          <article class="article-card" data-category="economics">
+          <article class="article-card" data-category="market-analysis">
             <div
               class="article-image"
               style="background: linear-gradient(135deg, #f97316, #ef4444)"
@@ -828,6 +859,11 @@
             <li><a href="/guides.html">Investment Guides</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/about.html">About Us</a></li>
+            <li>
+              <a href="/sectors/ai-infrastructure.html">AI Infrastructure</a>
+            </li>
+            <li><a href="/sectors/robotics.html">Robotics</a></li>
+            <li><a href="/sectors/space-economy.html">Space Economy</a></li>
           </ul>
         </div>
 

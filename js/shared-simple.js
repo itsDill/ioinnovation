@@ -4,7 +4,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
 
-  console.log("shared-simple.js DOMContentLoaded fired");
 
   // Initialize all functionality
   initializeTheme();
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Theme Management - Enhanced for mobile
   function initializeTheme() {
-    console.log("Initializing enhanced theme system...");
 
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         navigator.userAgent,
       );
 
-    console.log("Theme elements found:", {
       themeToggle: !!themeToggle,
       themeIcon: !!themeIcon,
       isMobile: isMobile,
@@ -36,11 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get saved theme or default to light
     let currentTheme = localStorage.getItem("theme") || "light";
 
-    console.log("Current theme:", currentTheme);
 
     // Enhanced theme application function for mobile
     function setTheme(theme) {
-      console.log("Setting theme to:", theme);
 
       // Apply to multiple targets for maximum compatibility
       const targets = [document.documentElement, document.body];
@@ -73,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
 
-        console.log("Updated theme icon for:", theme);
       }
 
       // Mobile-specific theme application
@@ -112,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         e.stopPropagation();
 
-        console.log("Theme toggle clicked! Current theme:", currentTheme);
 
         currentTheme = currentTheme === "dark" ? "light" : "dark";
         setTheme(currentTheme);
@@ -149,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 600);
         }
 
-        console.log("Theme toggled to:", currentTheme);
       }
 
       // Remove any existing listeners first
@@ -216,19 +208,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    console.log("Enhanced theme system initialized successfully");
   }
 
   // Mobile Menu Management
   function initializeMobileMenu() {
-    console.log("Initializing mobile menu...");
 
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
     const mobileOverlay = document.getElementById("mobileOverlay");
     const navLinks = document.querySelectorAll(".nav-links a");
 
-    console.log("Mobile menu elements:", {
       menuBtn: !!menuBtn,
       mobileNav: !!mobileNav,
       mobileOverlay: !!mobileOverlay,
@@ -245,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
       /Android|android/i.test(navigator.userAgent) ||
       /Android/i.test(navigator.userAgent);
 
-    console.log("Device detected as Android:", isAndroid);
 
     function toggleMenu(e) {
       // Prevent default behavior and stop propagation
@@ -254,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.stopPropagation();
       }
 
-      console.log("Toggle menu called, current state:", isMenuOpen);
       isMenuOpen = !isMenuOpen;
 
       // Force style update for Android compatibility
@@ -281,7 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      console.log("Menu state after toggle:", {
         isMenuOpen,
         menuBtnClasses: menuBtn.className,
         mobileNavClasses: mobileNav.className,
@@ -317,7 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
     menuBtn.addEventListener(
       "click",
       function (e) {
-        console.log("Menu button clicked!");
         toggleMenu(e);
       },
       { passive: false },
@@ -327,7 +312,6 @@ document.addEventListener("DOMContentLoaded", function () {
     menuBtn.addEventListener(
       "touchend",
       function (e) {
-        console.log("Menu button touchend detected (Android)");
         e.preventDefault();
         toggleMenu(e);
       },
@@ -369,7 +353,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Additional Android-specific fix: ensure menu is visible when viewport changes
     window.addEventListener("orientationchange", () => {
-      console.log("Orientation changed, resetting menu");
       if (isMenuOpen && window.innerWidth > 768) {
         closeMenu();
       }
@@ -591,10 +574,8 @@ document.addEventListener("DOMContentLoaded", function () {
         navigator.serviceWorker
           .register("/sw.js")
           .then((registration) => {
-            console.log("SW registered: ", registration);
           })
           .catch((registrationError) => {
-            console.log("SW registration failed: ", registrationError);
           });
       });
     }
@@ -909,7 +890,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  console.log("🚀 IO Innovation Fund - Shared functionality initialized");
 });
 
 // Handle page visibility changes for performance

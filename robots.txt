@@ -68,29 +68,3 @@ Sitemap: https://ioinnovationfund.com/sitemap.xml
 
 # Host preference for canonical domain
 Host: https://ioinnovationfund.com
-User-agent: CCBot
-Disallow: /
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-# Sitemap location
-Sitemap: https://ioinnovationfund.com/sitemap.xml
-
-# Host directive
-Host: https://ioinnovationfund.com

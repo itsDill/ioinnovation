@@ -6,7 +6,8 @@
 
     <!-- Primary Meta Tags -->
     <title>
-      Investment Guides | Expert Finance Guides & Market Analysis | IO Innovation
+      Investment Guides | Expert Finance Guides & Market Analysis | IO
+      Innovation
     </title>
     <meta
       name="title"
@@ -46,7 +47,10 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/guides.html" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/guides.html"
+    />
     <meta
       property="og:title"
       content="Investment Guides | Expert Finance Guides & Market Analysis"
@@ -63,7 +67,10 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://ioinnovationfund.com/guides.html" />
+    <meta
+      name="twitter:url"
+      content="https://ioinnovationfund.com/guides.html"
+    />
     <meta
       name="twitter:title"
       content="Investment Guides | Expert Finance Guides & Market Analysis"
@@ -159,7 +166,7 @@
     />
 
     <!-- Theme Init -->
-    <script src="js/theme-init.js"></script>
+    <script src="js/theme-init.js?v=2026033001"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/site.css?v=2025121602" />
@@ -226,20 +233,49 @@
             aria-label="Search guides"
           />
         </div>
-        <div class="blog-filters">
-          <button class="filter-chip active" data-category="all">
+        <div
+          class="blog-filters"
+          role="group"
+          aria-label="Filter guides by category"
+        >
+          <button
+            class="filter-chip active"
+            data-category="all"
+            aria-label="Show all guides"
+            aria-pressed="true"
+          >
             All Guides
           </button>
-          <button class="filter-chip" data-category="market-analysis">
+          <button
+            class="filter-chip"
+            data-category="market-analysis"
+            aria-label="Filter by Market Analysis"
+            aria-pressed="false"
+          >
             Market Analysis
           </button>
-          <button class="filter-chip" data-category="investment">
+          <button
+            class="filter-chip"
+            data-category="investment"
+            aria-label="Filter by Investment Guides"
+            aria-pressed="false"
+          >
             Investment Guides
           </button>
-          <button class="filter-chip" data-category="personal-finance">
+          <button
+            class="filter-chip"
+            data-category="personal-finance"
+            aria-label="Filter by Personal Finance"
+            aria-pressed="false"
+          >
             Personal Finance
           </button>
-          <button class="filter-chip" data-category="tools">
+          <button
+            class="filter-chip"
+            data-category="tools"
+            aria-label="Filter by Tools & Resources"
+            aria-pressed="false"
+          >
             Tools & Resources
           </button>
         </div>
@@ -296,11 +332,149 @@
       <section class="articles-section">
         <div class="articles-header">
           <h2 class="articles-title">Latest Guides</h2>
-          <span class="articles-count" id="articlesCount">1 guide</span>
+          <span class="articles-count" id="articlesCount" aria-live="polite"
+            >13 guides</span
+          >
         </div>
 
         <div class="articles-grid" id="articlesGrid">
-          <!-- Article 1: 13F Filings -->
+          <!-- Article: Income Statement -->
+          <article class="article-card" data-category="investment">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #2be2b4, #0ea5e9)"
+            >
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Investment Guide</span>
+              <h3 class="article-title">
+                <a href="blog/how-to-read-income-statement-guide.html"
+                  >How to Read an Income Statement: A Complete Guide for
+                  Investors</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Master revenue, gross profit, EBITDA, and net income. Learn
+                every line item on the P&amp;L and which ratios tell you whether
+                a business is truly profitable.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 12 min</span
+                >
+                <a
+                  href="blog/how-to-read-income-statement-guide.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Balance Sheet -->
+          <article class="article-card" data-category="investment">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #0ea5e9, #6366f1)"
+            >
+              <i class="fas fa-balance-scale"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Investment Guide</span>
+              <h3 class="article-title">
+                <a href="blog/how-to-read-balance-sheet-guide.html"
+                  >How to Read a Balance Sheet: Assets, Liabilities &amp; Equity
+                  Explained</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Decode the balance sheet — what a company owns, what it owes,
+                and what's left for shareholders. Includes key ratios like
+                current ratio, D/E, ROE, and P/B.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 13 min</span
+                >
+                <a
+                  href="blog/how-to-read-balance-sheet-guide.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Cash Flow Statement -->
+          <article class="article-card" data-category="investment">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #22c55e, #0ea5e9)"
+            >
+              <i class="fas fa-water"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Investment Guide</span>
+              <h3 class="article-title">
+                <a href="blog/how-to-read-cash-flow-statement-guide.html"
+                  >How to Read a Cash Flow Statement: The Investor's Complete
+                  Guide</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Why free cash flow matters more than net income — operating,
+                investing, and financing activities explained with FCF yield,
+                margin benchmarks, and red flags.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 13 min</span
+                >
+                <a
+                  href="blog/how-to-read-cash-flow-statement-guide.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Oil & Economy -->
+          <article class="article-card" data-category="market-analysis">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #f97316, #ef4444)"
+            >
+              <i class="fas fa-oil-can"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Economics</span>
+              <h3 class="article-title">
+                <a href="blog/oil-prices-economy-2026-crisis-guide.html"
+                  >How Oil Prices Affect the Economy: The 2026 Energy Crisis
+                  Explained</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Oil drives inflation, shapes recessions, and moves every sector
+                of the economy. A complete guide to the 2026 energy landscape,
+                OPEC+, and how to protect your finances.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 14 min</span
+                >
+                <a
+                  href="blog/oil-prices-economy-2026-crisis-guide.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: 13F Filings -->
           <article class="article-card" data-category="investment">
             <div
               class="article-image"
@@ -326,9 +500,270 @@
                 <a
                   href="blog/understanding-13f-filings-guide.html"
                   class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: 10K Filings -->
+          <article class="article-card" data-category="investment">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #6366f1, #8b5cf6)"
+            >
+              <i class="fas fa-file-invoice"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Investment Guide</span>
+              <h3 class="article-title">
+                <a
+                  href="blog/understanding-10k-filings-annual-reports-guide.html"
+                  >Understanding 10K Filings &amp; Annual Reports Guide</a
                 >
-                  Read More <i class="fas fa-arrow-right"></i>
-                </a>
+              </h3>
+              <p class="article-excerpt">
+                Master the art of reading 10K annual reports to uncover valuable
+                insights about company health, risks, and opportunities.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 14 min</span
+                >
+                <a
+                  href="blog/understanding-10k-filings-annual-reports-guide.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Credit Cards & Banking -->
+          <article class="article-card" data-category="personal-finance">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #0ea5e9, #06b6d4)"
+            >
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Personal Finance</span>
+              <h3 class="article-title">
+                <a href="blog/best-credit-cards-banks-personal-loans-2025.html"
+                  >Best Credit Cards, Banks &amp; Personal Loans 2025</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Compare top credit cards, banking accounts, and personal loans.
+                Maximize rewards and save on fees with our expert picks.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 14 min</span
+                >
+                <a
+                  href="blog/best-credit-cards-banks-personal-loans-2025.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Brokerages & Robo-Advisors -->
+          <article class="article-card" data-category="investment">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #10b981, #16c784)"
+            >
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Investment Guide</span>
+              <h3 class="article-title">
+                <a
+                  href="blog/best-brokerages-robo-advisors-comparison-2025.html"
+                  >Best Brokerages vs Robo-Advisors 2025</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Expert comparison of top brokerages and robo-advisors. Find the
+                best platform for your investment strategy and goals.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 16 min</span
+                >
+                <a
+                  href="blog/best-brokerages-robo-advisors-comparison-2025.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: FIRE -->
+          <article class="article-card" data-category="personal-finance">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #f59e0b, #eab308)"
+            >
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Personal Finance</span>
+              <h3 class="article-title">
+                <a
+                  href="blog/fire-financial-independence-early-retirement-guide-2025.html"
+                  >FIRE Movement: Financial Independence &amp; Early
+                  Retirement</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Complete FIRE guide. Calculate your FIRE number, understand the
+                4% rule, and build your path to financial independence.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 18 min</span
+                >
+                <a
+                  href="blog/fire-financial-independence-early-retirement-guide-2025.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Debt Management -->
+          <article class="article-card" data-category="personal-finance">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #8b5cf6, #a855f7)"
+            >
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Personal Finance</span>
+              <h3 class="article-title">
+                <a
+                  href="blog/debt-management-credit-score-improvement-guide.html"
+                  >Debt Management &amp; Credit Score Mastery</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Proven strategies for eliminating debt and building 800+ credit.
+                Learn debt avalanche, snowball, and consolidation methods.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 15 min</span
+                >
+                <a
+                  href="blog/debt-management-credit-score-improvement-guide.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Personal Budgeting -->
+          <article class="article-card" data-category="personal-finance">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #ef4444, #dc2626)"
+            >
+              <i class="fas fa-wallet"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Personal Finance</span>
+              <h3 class="article-title">
+                <a href="blog/personal-budgeting-cost-of-living-guide-2025.html"
+                  >Personal Budgeting &amp; Cost of Living Guide 2025</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Master budgeting with the 50/30/20 rule, zero-based budgeting,
+                and envelope method. Optimize for maximum savings.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 13 min</span
+                >
+                <a
+                  href="blog/personal-budgeting-cost-of-living-guide-2025.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Alternative Investing -->
+          <article class="article-card" data-category="investment">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #f97316, #fb923c)"
+            >
+              <i class="fas fa-gem"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Investment Guide</span>
+              <h3 class="article-title">
+                <a
+                  href="blog/alternative-investing-guide-crypto-real-estate-2025.html"
+                  >Alternative Investing: Crypto, Real Estate &amp; Beyond</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Explore crypto, real estate, NFTs, commodities, and P2P lending.
+                Diversify beyond traditional stocks and bonds.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 17 min</span
+                >
+                <a
+                  href="blog/alternative-investing-guide-crypto-real-estate-2025.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article: Finance Tools -->
+          <article class="article-card" data-category="tools">
+            <div
+              class="article-image"
+              style="background: linear-gradient(135deg, #14b8a6, #06b6d4)"
+            >
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="article-body">
+              <span class="article-category">Tools &amp; Resources</span>
+              <h3 class="article-title">
+                <a href="blog/essential-finance-calculators-tools-2025.html"
+                  >Essential Finance Calculators &amp; Tools 2025</a
+                >
+              </h3>
+              <p class="article-excerpt">
+                Free calculators for compound interest, retirement planning,
+                mortgages, and investment analysis. Make data-driven decisions.
+              </p>
+              <div class="article-footer">
+                <span class="article-meta"
+                  ><i class="fas fa-clock"></i> 10 min</span
+                >
+                <a
+                  href="blog/essential-finance-calculators-tools-2025.html"
+                  class="article-link"
+                  >Read More <i class="fas fa-arrow-right"></i
+                ></a>
               </div>
             </div>
           </article>
@@ -375,7 +810,8 @@
         <div class="footer-brand">
           <a href="/" class="logo">IO Innovation</a>
           <p>
-            Free finance tools and analytics for smarter investing. Track hedge funds and analyze stocks.
+            Free finance tools and analytics for smarter investing. Track hedge
+            funds and analyze stocks.
           </p>
         </div>
 
@@ -396,6 +832,11 @@
             <li><a href="/guides.html">Investment Guides</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/about.html">About Us</a></li>
+            <li>
+              <a href="/sectors/ai-infrastructure.html">AI Infrastructure</a>
+            </li>
+            <li><a href="/sectors/robotics.html">Robotics</a></li>
+            <li><a href="/sectors/space-economy.html">Space Economy</a></li>
           </ul>
         </div>
 
