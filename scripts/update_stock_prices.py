@@ -12,7 +12,7 @@ Requirements:
 
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -90,7 +90,7 @@ def fetch_stock_prices():
 def update_picks_file(picks):
     """Update the homepage-picks.json file."""
     data = {
-        "lastUpdated": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "picks": picks
     }
     

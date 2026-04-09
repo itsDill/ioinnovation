@@ -4,7 +4,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
 
-
   // Initialize all functionality
   initializeTheme();
   initializeMobileMenu();
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Theme Management - Enhanced for mobile
   function initializeTheme() {
-
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -25,18 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
         navigator.userAgent,
       );
 
-      themeToggle: !!themeToggle,
-      themeIcon: !!themeIcon,
-      isMobile: isMobile,
-    });
-
     // Get saved theme or default to light
     let currentTheme = localStorage.getItem("theme") || "light";
 
-
     // Enhanced theme application function for mobile
     function setTheme(theme) {
-
       // Apply to multiple targets for maximum compatibility
       const targets = [document.documentElement, document.body];
 
@@ -67,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 150);
           }
         });
-
       }
 
       // Mobile-specific theme application
@@ -106,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         e.stopPropagation();
 
-
         currentTheme = currentTheme === "dark" ? "light" : "dark";
         setTheme(currentTheme);
 
@@ -141,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }, 600);
         }
-
       }
 
       // Remove any existing listeners first
@@ -207,22 +195,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-
   }
 
   // Mobile Menu Management
   function initializeMobileMenu() {
-
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
     const mobileOverlay = document.getElementById("mobileOverlay");
     const navLinks = document.querySelectorAll(".nav-links a");
-
-      menuBtn: !!menuBtn,
-      mobileNav: !!mobileNav,
-      mobileOverlay: !!mobileOverlay,
-      navLinksCount: navLinks.length,
-    });
 
     if (!menuBtn || !mobileNav) {
       console.error("Mobile menu elements not found!");
@@ -233,7 +213,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let isAndroid =
       /Android|android/i.test(navigator.userAgent) ||
       /Android/i.test(navigator.userAgent);
-
 
     function toggleMenu(e) {
       // Prevent default behavior and stop propagation
@@ -267,13 +246,6 @@ document.addEventListener("DOMContentLoaded", function () {
           mobileOverlay.classList.remove("active");
         }
       }
-
-        isMenuOpen,
-        menuBtnClasses: menuBtn.className,
-        mobileNavClasses: mobileNav.className,
-        bodyClasses: document.body.className,
-        navDisplay: window.getComputedStyle(mobileNav).display,
-      });
 
       // Update ARIA attributes
       menuBtn.setAttribute("aria-expanded", isMenuOpen);
@@ -573,10 +545,8 @@ document.addEventListener("DOMContentLoaded", function () {
       window.addEventListener("load", () => {
         navigator.serviceWorker
           .register("/sw.js")
-          .then((registration) => {
-          })
-          .catch((registrationError) => {
-          });
+          .then((registration) => {})
+          .catch((registrationError) => {});
       });
     }
 
@@ -889,7 +859,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   };
-
 });
 
 // Handle page visibility changes for performance
