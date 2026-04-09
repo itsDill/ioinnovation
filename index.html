@@ -40,15 +40,17 @@
       href="https://ioinnovationfund.com/"
     />
 
-    <!-- Google Search Console Verification - REPLACE WITH YOUR CODE -->
-    <!-- Get this from: https://search.google.com/search-console → Add Property → HTML tag -->
-    <meta
-      name="google-site-verification"
-      content="YOUR_VERIFICATION_CODE_HERE"
-    />
+    <!-- ⚠️ IMPORTANT: Site not verified with Google! -->
+    <!-- Without verification, Google can't properly index your site -->
+    <!-- STEPS: 1) Go to https://search.google.com/search-console
+         2) Add your domain as a property
+         3) Choose 'HTML tag' verification method
+         4) Copy the content value and paste it below -->
+    <!-- <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE" /> -->
 
-    <!-- Bing Webmaster Verification -->
-    <meta name="msvalidate.01" content="YOUR_BING_CODE_HERE" />
+    <!-- Bing Webmaster - Also important for traffic from Edge/Bing -->
+    <!-- Get code from: https://www.bing.com/webmasters -->
+    <!-- <meta name="msvalidate.01" content="PASTE_YOUR_BING_CODE_HERE" /> -->
 
     <!-- Additional SEO Meta Tags -->
     <meta name="language" content="English" />
@@ -81,7 +83,7 @@
     />
     <meta
       property="og:image"
-      content="https://ioinnovationfund.com/assets/images/og-image.png"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
     />
     <meta property="og:site_name" content="IO Innovation" />
 
@@ -98,7 +100,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://ioinnovationfund.com/assets/images/og-image.png"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
     />
 
     <!-- Structured Data -->
@@ -110,14 +112,6 @@
         "alternateName": "IO Innovation Fund",
         "url": "https://ioinnovationfund.com",
         "description": "Free finance tools and analytics for smarter investing",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://ioinnovationfund.com/search?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        },
         "inLanguage": "en-US"
       }
     </script>
@@ -162,12 +156,7 @@
           "10-K Report Analyzer",
           "AI Portfolio Signals",
           "Dividend Aristocrats"
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "150"
-        }
+        ]
       }
     </script>
 
@@ -1248,7 +1237,9 @@
             <li><a href="/guides.html">Investment Guides</a></li>
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/about.html">About Us</a></li>
-            <li><a href="/sectors/ai-infrastructure.html">AI Infrastructure</a></li>
+            <li>
+              <a href="/sectors/ai-infrastructure.html">AI Infrastructure</a>
+            </li>
             <li><a href="/sectors/robotics.html">Robotics</a></li>
             <li><a href="/sectors/space-economy.html">Space Economy</a></li>
           </ul>
