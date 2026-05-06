@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-20",
+  "lastUpdated": "2026-05-06",
   "stats": {
     "totalAristocrats": 68,
     "avgYield": 2.7,
@@ -7,15 +7,51 @@
     "avgPayoutRatio": 51
   },
   "sectors": [
-    { "name": "Consumer Staples", "count": 15, "icon": "fa-shopping-basket" },
-    { "name": "Industrials", "count": 13, "icon": "fa-industry" },
-    { "name": "Healthcare", "count": 10, "icon": "fa-heartbeat" },
-    { "name": "Financials", "count": 9, "icon": "fa-university" },
-    { "name": "Materials", "count": 8, "icon": "fa-gem" },
-    { "name": "Utilities", "count": 6, "icon": "fa-bolt" },
-    { "name": "Real Estate", "count": 4, "icon": "fa-building" },
-    { "name": "Consumer Discretionary", "count": 2, "icon": "fa-car" },
-    { "name": "Energy", "count": 1, "icon": "fa-gas-pump" }
+    {
+      "name": "Consumer Staples",
+      "count": 15,
+      "icon": "fa-shopping-basket"
+    },
+    {
+      "name": "Industrials",
+      "count": 13,
+      "icon": "fa-industry"
+    },
+    {
+      "name": "Healthcare",
+      "count": 10,
+      "icon": "fa-heartbeat"
+    },
+    {
+      "name": "Financials",
+      "count": 9,
+      "icon": "fa-university"
+    },
+    {
+      "name": "Materials",
+      "count": 8,
+      "icon": "fa-gem"
+    },
+    {
+      "name": "Utilities",
+      "count": 6,
+      "icon": "fa-bolt"
+    },
+    {
+      "name": "Real Estate",
+      "count": 4,
+      "icon": "fa-building"
+    },
+    {
+      "name": "Consumer Discretionary",
+      "count": 2,
+      "icon": "fa-car"
+    },
+    {
+      "name": "Energy",
+      "count": 1,
+      "icon": "fa-gas-pump"
+    }
   ],
   "aristocrats": [
     {
