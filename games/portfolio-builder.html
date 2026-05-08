@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Portfolio Builder Game | Learn Portfolio Management | IO Innovation</title>
+    <title>
+      Portfolio Builder Game | Learn Portfolio Management | IO Innovation
+    </title>
     <meta
       name="description"
       content="Build and manage a diversified investment portfolio. Practice asset allocation, risk management, and rebalancing strategies with $100,000 virtual capital."
@@ -16,32 +18,62 @@
     />
     <meta name="author" content="IO Innovation" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ioinnovationfund.com/games/portfolio-builder.html" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/games/portfolio-builder.html"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/games/portfolio-builder.html" />
-    <meta property="og:title" content="Portfolio Builder Game | IO Innovation" />
-    <meta property="og:description" content="Build and manage a diversified investment portfolio. Practice asset allocation and risk management." />
-    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image.svg" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/games/portfolio-builder.html"
+    />
+    <meta
+      property="og:title"
+      content="Portfolio Builder Game | IO Innovation"
+    />
+    <meta
+      property="og:description"
+      content="Build and manage a diversified investment portfolio. Practice asset allocation and risk management."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-FGD50Z4Y7G");
     </script>
 
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Theme Init -->
     <script src="../js/theme-init.js?v=2026050601"></script>
@@ -51,7 +83,11 @@
 
     <style>
       .game-hero {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.1), rgba(14, 165, 233, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.1),
+          rgba(14, 165, 233, 0.1)
+        );
         padding: 5rem 1.5rem 4rem;
         text-align: center;
         position: relative;
@@ -59,7 +95,11 @@
       }
 
       [data-theme="light"] .game-hero {
-        background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(2, 132, 199, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(5, 150, 105, 0.08),
+          rgba(2, 132, 199, 0.08)
+        );
       }
 
       .game-hero::before {
@@ -69,7 +109,11 @@
         right: -10%;
         width: 500px;
         height: 500px;
-        background: radial-gradient(circle, rgba(43, 226, 180, 0.1), transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(43, 226, 180, 0.1),
+          transparent 70%
+        );
         pointer-events: none;
       }
 
@@ -148,7 +192,11 @@
         height: 60px;
         margin: 0 auto 1rem;
         border-radius: 12px;
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.2), rgba(14, 165, 233, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.2),
+          rgba(14, 165, 233, 0.2)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -170,7 +218,11 @@
       }
 
       .notify-section {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(99, 102, 241, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(99, 102, 241, 0.05)
+        );
         padding: 4rem 1.5rem;
         text-align: center;
         margin: 4rem 0;
@@ -188,6 +240,466 @@
         font-size: 1.125rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
+      }
+
+      /* Portfolio Builder Styles */
+      .builder-container {
+        max-width: 1400px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .builder-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .portfolio-panel {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      [data-theme="light"] .portfolio-panel {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .panel-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cash-display {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .asset-grid {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .asset-card {
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .asset-card:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+      }
+
+      .asset-card.selected {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.05);
+      }
+
+      .asset-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .asset-info h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .asset-category {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        font-weight: 600;
+      }
+
+      .asset-metrics {
+        text-align: right;
+      }
+
+      .asset-return {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+
+      .asset-risk {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+
+      .allocation-input {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .allocation-slider {
+        flex: 1;
+        height: 8px;
+        border-radius: 100px;
+        background: var(--bg-card);
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .allocation-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent-primary);
+        cursor: pointer;
+      }
+
+      .allocation-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent-primary);
+        cursor: pointer;
+        border: none;
+      }
+
+      .allocation-value {
+        min-width: 60px;
+        text-align: right;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .chart-container {
+        height: 300px;
+        margin-bottom: 2rem;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .pie-canvas {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .stat-value {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
+
+      .stat-value.positive {
+        color: #22c55e;
+      }
+
+      .stat-value.negative {
+        color: #ef4444;
+      }
+
+      .stat-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+      }
+
+      .risk-meter {
+        margin-bottom: 2rem;
+      }
+
+      .risk-bar {
+        width: 100%;
+        height: 12px;
+        background: linear-gradient(90deg, #22c55e, #eab308, #f59e0b, #ef4444);
+        border-radius: 100px;
+        position: relative;
+        margin: 1rem 0;
+      }
+
+      .risk-indicator {
+        position: absolute;
+        top: -8px;
+        width: 28px;
+        height: 28px;
+        background: var(--bg-card);
+        border: 3px solid var(--text-primary);
+        border-radius: 50%;
+        transition: left 0.3s ease;
+      }
+
+      .risk-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+
+      .allocation-summary {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .summary-row:last-child {
+        border-bottom: none;
+      }
+
+      .summary-label {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .summary-value {
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .preset-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .preset-btn {
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .preset-btn:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+      }
+
+      .preset-btn.active {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.1);
+      }
+
+      .recommendation-box {
+        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(14, 165, 233, 0.05));
+        border-left: 4px solid var(--accent-primary);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .recommendation-title {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .recommendation-text {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 1024px) {
+        .builder-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .preset-buttons {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Enhanced Footer Styling */
+      .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
+      }
+
+      .footer-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .footer-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a::before {
+        content: "→";
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.2s ease;
+        color: var(--accent-primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -208,7 +720,11 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
           <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -226,17 +742,137 @@
         </div>
         <h1 class="game-title">Portfolio Builder</h1>
         <p class="game-subtitle">
-          Build and manage a diversified investment portfolio. Learn asset allocation, risk management, and rebalancing strategies.
+          Build and manage a diversified investment portfolio. Learn asset
+          allocation, risk management, and rebalancing strategies.
         </p>
-        <div class="coming-soon-badge">
-          <i class="fas fa-clock"></i> Coming Soon
-        </div>
       </section>
 
-      <!-- Game Content -->
+      <!-- Builder Container -->
+      <div class="builder-container">
+        <div class="builder-grid">
+          <!-- Asset Selection Panel -->
+          <div class="portfolio-panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <i class="fas fa-layer-group"></i>
+                Asset Allocation
+              </div>
+              <div class="cash-display">
+                <span id="allocated-cash">$0</span> / $100,000
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">
+                Quick Presets
+              </label>
+              <div class="preset-buttons">
+                <button class="preset-btn" data-preset="conservative">Conservative</button>
+                <button class="preset-btn" data-preset="balanced">Balanced</button>
+                <button class="preset-btn" data-preset="aggressive">Aggressive</button>
+              </div>
+            </div>
+
+            <div class="asset-grid" id="asset-grid">
+              <!-- Assets will be populated by JavaScript -->
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+              <button id="reset-btn" class="btn btn-secondary" style="flex: 1;">
+                <i class="fas fa-redo"></i> Reset
+              </button>
+              <button id="optimize-btn" class="btn btn-primary" style="flex: 1;">
+                <i class="fas fa-magic"></i> Auto-Optimize
+              </button>
+            </div>
+          </div>
+
+          <!-- Analysis Panel -->
+          <div class="portfolio-panel">
+            <div class="panel-title" style="margin-bottom: 1.5rem;">
+              <i class="fas fa-chart-pie"></i>
+              Portfolio Analysis
+            </div>
+
+            <div class="chart-container">
+              <canvas id="allocation-chart" class="pie-canvas"></canvas>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">Expected Return</div>
+                <div id="expected-return" class="stat-value">0.0%</div>
+                <div class="stat-subtitle">Annual</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Portfolio Risk</div>
+                <div id="portfolio-risk" class="stat-value">0.0%</div>
+                <div class="stat-subtitle">Volatility</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Sharpe Ratio</div>
+                <div id="sharpe-ratio" class="stat-value">0.00</div>
+                <div class="stat-subtitle">Risk-Adjusted</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Diversification</div>
+                <div id="diversification-score" class="stat-value">0</div>
+                <div class="stat-subtitle">Score / 100</div>
+              </div>
+            </div>
+
+            <div class="risk-meter">
+              <div class="stat-label">Risk Level</div>
+              <div class="risk-bar">
+                <div id="risk-indicator" class="risk-indicator"></div>
+              </div>
+              <div class="risk-labels">
+                <span>Conservative</span>
+                <span>Moderate</span>
+                <span>Aggressive</span>
+              </div>
+            </div>
+
+            <div class="allocation-summary">
+              <div class="summary-row">
+                <span class="summary-label">Total Allocated</span>
+                <span id="total-allocated" class="summary-value">0%</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Stocks</span>
+                <span id="stocks-pct" class="summary-value">0%</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Bonds</span>
+                <span id="bonds-pct" class="summary-value">0%</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Alternatives</span>
+                <span id="alternatives-pct" class="summary-value">0%</span>
+              </div>
+            </div>
+
+            <div class="recommendation-box">
+              <div class="recommendation-title">
+                <i class="fas fa-lightbulb"></i>
+                Recommendation
+              </div>
+              <p id="recommendation-text" class="recommendation-text">
+                Start by allocating your $100,000 across different asset classes. Aim for diversification to reduce risk.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
       <div class="game-content">
-        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">What You'll Learn</h2>
-        
+      <!-- How It Works -->
+      <div class="game-content">
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+          Build Your Portfolio
+        </h2>
+
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
@@ -244,7 +880,7 @@
             </div>
             <h3 class="feature-title">Asset Allocation</h3>
             <p class="feature-desc">
-              Learn how to distribute your investments across different asset classes to optimize returns and manage risk.
+              Distribute $100,000 across stocks, bonds, real estate, and commodities.
             </p>
           </div>
 
@@ -252,47 +888,32 @@
             <div class="feature-icon">
               <i class="fas fa-balance-scale"></i>
             </div>
-            <h3 class="feature-title">Risk Management</h3>
+            <h3 class="feature-title">Risk Analysis</h3>
             <p class="feature-desc">
-              Understand portfolio risk metrics like standard deviation, Sharpe ratio, and maximum drawdown.
+              See real-time risk metrics including volatility and Sharpe ratio.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-sync-alt"></i>
+              <i class="fas fa-lightbulb"></i>
             </div>
-            <h3 class="feature-title">Rebalancing</h3>
+            <h3 class="feature-title">Smart Recommendations</h3>
             <p class="feature-desc">
-              Master the art of portfolio rebalancing to maintain your target allocation and control risk.
+              Get personalized advice based on your current allocation.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-crosshairs"></i>
+              <i class="fas fa-magic"></i>
             </div>
-            <h3 class="feature-title">Diversification</h3>
+            <h3 class="feature-title">Auto-Optimization</h3>
             <p class="feature-desc">
-              Build a well-diversified portfolio across sectors, geographies, and investment styles.
+              Let the tool suggest optimal allocations for different risk profiles.
             </p>
           </div>
         </div>
-
-        <section class="notify-section">
-          <h2 class="notify-title">Get Notified When This Game Launches</h2>
-          <p class="notify-desc">
-            We're working hard to bring you the best investment education experience. Check back soon!
-          </p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="/games.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-arrow-left"></i> Back to Games
-            </a>
-            <a href="/tools.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-tools"></i> Try Our Tools
-            </a>
-          </div>
-        </section>
       </div>
     </main>
 
@@ -302,7 +923,8 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for investors.
+            Free professional financial tools and educational resources for
+            investors.
           </p>
         </div>
 
@@ -319,6 +941,471 @@
           <ul class="footer-links">
             <li><a href="/games.html">Investment Games</a></li>
             <li><a href="/guides.html">Guides</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/shared-simple.js?v=2026050601"></script>
+    <script>
+      // Asset Database
+      const assets = [
+        {
+          id: 'sp500',
+          name: 'S&P 500 ETF',
+          category: 'US Stocks',
+          expectedReturn: 10.5,
+          risk: 18.0,
+          type: 'stocks',
+          color: '#3b82f6'
+        },
+        {
+          id: 'intl-stocks',
+          name: 'International Stocks',
+          category: 'Global Stocks',
+          expectedReturn: 9.2,
+          risk: 20.5,
+          type: 'stocks',
+          color: '#06b6d4'
+        },
+        {
+          id: 'small-cap',
+          name: 'Small Cap Stocks',
+          category: 'US Stocks',
+          expectedReturn: 12.0,
+          risk: 24.0,
+          type: 'stocks',
+          color: '#8b5cf6'
+        },
+        {
+          id: 'corp-bonds',
+          name: 'Corporate Bonds',
+          category: 'Fixed Income',
+          expectedReturn: 4.8,
+          risk: 6.5,
+          type: 'bonds',
+          color: '#22c55e'
+        },
+        {
+          id: 'treasury',
+          name: 'US Treasuries',
+          category: 'Fixed Income',
+          expectedReturn: 3.5,
+          risk: 4.0,
+          type: 'bonds',
+          color: '#84cc16'
+        },
+        {
+          id: 'reits',
+          name: 'REITs',
+          category: 'Real Estate',
+          expectedReturn: 8.5,
+          risk: 16.0,
+          type: 'alternatives',
+          color: '#f59e0b'
+        },
+        {
+          id: 'commodities',
+          name: 'Commodities',
+          category: 'Alternatives',
+          expectedReturn: 6.0,
+          risk: 22.0,
+          type: 'alternatives',
+          color: '#f97316'
+        },
+        {
+          id: 'gold',
+          name: 'Gold',
+          category: 'Precious Metals',
+          expectedReturn: 5.5,
+          risk: 15.5,
+          type: 'alternatives',
+          color: '#eab308'
+        }
+      ];
+
+      // Preset Portfolios
+      const presets = {
+        conservative: {
+          'treasury': 40,
+          'corp-bonds': 30,
+          'sp500': 20,
+          'reits': 10
+        },
+        balanced: {
+          'sp500': 40,
+          'intl-stocks': 15,
+          'corp-bonds': 25,
+          'treasury': 10,
+          'reits': 10
+        },
+        aggressive: {
+          'sp500': 40,
+          'intl-stocks': 20,
+          'small-cap': 15,
+          'reits': 15,
+          'commodities': 10
+        }
+      };
+
+      // State
+      let allocations = {};
+      let canvas, ctx;
+
+      // DOM Elements
+      const assetGrid = document.getElementById('asset-grid');
+      const presetBtns = document.querySelectorAll('.preset-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const optimizeBtn = document.getElementById('optimize-btn');
+
+      // Initialize
+      window.addEventListener('DOMContentLoaded', () => {
+        canvas = document.getElementById('allocation-chart');
+        ctx = canvas.getContext('2d');
+        
+        // Initialize allocations
+        assets.forEach(asset => {
+          allocations[asset.id] = 0;
+        });
+
+        renderAssets();
+        updateAnalysis();
+      });
+
+      // Render Asset Cards
+      function renderAssets() {
+        assetGrid.innerHTML = '';
+        
+        assets.forEach(asset => {
+          const card = document.createElement('div');
+          card.className = 'asset-card';
+          
+          const returnColor = asset.expectedReturn > 8 ? '#22c55e' : 
+                             asset.expectedReturn > 5 ? '#3b82f6' : '#6b7280';
+          
+          card.innerHTML = `
+            <div class="asset-header">
+              <div class="asset-info">
+                <h3>${asset.name}</h3>
+                <div class="asset-category">${asset.category}</div>
+              </div>
+              <div class="asset-metrics">
+                <div class="asset-return" style="color: ${returnColor}">
+                  ${asset.expectedReturn.toFixed(1)}% return
+                </div>
+                <div class="asset-risk">${asset.risk.toFixed(1)}% risk</div>
+              </div>
+            </div>
+            <div class="allocation-input">
+              <input 
+                type="range" 
+                class="allocation-slider" 
+                min="0" 
+                max="100" 
+                step="1" 
+                value="${allocations[asset.id]}" 
+                data-asset="${asset.id}"
+              />
+              <div class="allocation-value" data-value="${asset.id}">
+                ${allocations[asset.id]}%
+              </div>
+            </div>
+          `;
+          
+          const slider = card.querySelector('.allocation-slider');
+          const valueDisplay = card.querySelector('.allocation-value');
+          
+          slider.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            allocations[asset.id] = value;
+            valueDisplay.textContent = value + '%';
+            updateAnalysis();
+          });
+          
+          assetGrid.appendChild(card);
+        });
+      }
+
+      // Preset Buttons
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const preset = btn.dataset.preset;
+          applyPreset(preset);
+          
+          presetBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      function applyPreset(presetName) {
+        const preset = presets[presetName];
+        
+        // Reset all
+        Object.keys(allocations).forEach(key => {
+          allocations[key] = 0;
+        });
+        
+        // Apply preset
+        Object.keys(preset).forEach(key => {
+          allocations[key] = preset[key];
+        });
+        
+        // Update sliders
+        document.querySelectorAll('.allocation-slider').forEach(slider => {
+          const assetId = slider.dataset.asset;
+          slider.value = allocations[assetId];
+          const valueDisplay = document.querySelector(`[data-value="${assetId}"]`);
+          valueDisplay.textContent = allocations[assetId] + '%';
+        });
+        
+        updateAnalysis();
+      }
+
+      // Reset Button
+      resetBtn.addEventListener('click', () => {
+        Object.keys(allocations).forEach(key => {
+          allocations[key] = 0;
+        });
+        
+        document.querySelectorAll('.allocation-slider').forEach(slider => {
+          slider.value = 0;
+          const assetId = slider.dataset.asset;
+          const valueDisplay = document.querySelector(`[data-value="${assetId}"]`);
+          valueDisplay.textContent = '0%';
+        });
+        
+        presetBtns.forEach(b => b.classList.remove('active'));
+        updateAnalysis();
+      });
+
+      // Optimize Button
+      optimizeBtn.addEventListener('click', () => {
+        // Simple optimization: maximize Sharpe ratio
+        const totalAllocation = Object.values(allocations).reduce((a, b) => a + b, 0);
+        
+        if (totalAllocation === 0) {
+          applyPreset('balanced');
+          return;
+        }
+        
+        // Normalize current allocation and nudge towards efficient frontier
+        const normalized = {};
+        Object.keys(allocations).forEach(key => {
+          normalized[key] = allocations[key] / totalAllocation * 100;
+        });
+        
+        // Simple optimization: reduce high-risk, low-return assets
+        assets.forEach(asset => {
+          const sharpe = (asset.expectedReturn - 3.5) / asset.risk;
+          if (sharpe < 0.3 && normalized[asset.id] > 10) {
+            normalized[asset.id] = Math.max(5, normalized[asset.id] - 5);
+          }
+        });
+        
+        // Normalize to 100%
+        const sum = Object.values(normalized).reduce((a, b) => a + b, 0);
+        Object.keys(normalized).forEach(key => {
+          allocations[key] = Math.round(normalized[key] / sum * 100);
+        });
+        
+        // Update sliders
+        document.querySelectorAll('.allocation-slider').forEach(slider => {
+          const assetId = slider.dataset.asset;
+          slider.value = allocations[assetId];
+          const valueDisplay = document.querySelector(`[data-value="${assetId}"]`);
+          valueDisplay.textContent = allocations[assetId] + '%';
+        });
+        
+        updateAnalysis();
+      });
+
+      // Update Analysis
+      function updateAnalysis() {
+        const totalAllocation = Object.values(allocations).reduce((a, b) => a + b, 0);
+        
+        // Calculate weighted metrics
+        let expectedReturn = 0;
+        let variance = 0;
+        let stocksPct = 0;
+        let bondsPct = 0;
+        let alternativesPct = 0;
+        
+        assets.forEach(asset => {
+          const weight = allocations[asset.id] / 100;
+          expectedReturn += asset.expectedReturn * weight;
+          variance += Math.pow(asset.risk * weight, 2);
+          
+          if (asset.type === 'stocks') stocksPct += allocations[asset.id];
+          if (asset.type === 'bonds') bondsPct += allocations[asset.id];
+          if (asset.type === 'alternatives') alternativesPct += allocations[asset.id];
+        });
+        
+        const portfolioRisk = Math.sqrt(variance);
+        const riskFreeRate = 3.5;
+        const sharpeRatio = portfolioRisk > 0 ? (expectedReturn - riskFreeRate) / portfolioRisk : 0;
+        
+        // Diversification score (based on number of assets and balance)
+        const numAssets = Object.values(allocations).filter(v => v > 0).length;
+        const maxAllocation = Math.max(...Object.values(allocations));
+        const diversificationScore = totalAllocation > 0 ? 
+          Math.min(100, numAssets * 15 + (100 - maxAllocation)) : 0;
+        
+        // Update displays
+        document.getElementById('allocated-cash').textContent = 
+          '$' + (totalAllocation * 1000).toLocaleString();
+        document.getElementById('expected-return').textContent = expectedReturn.toFixed(1) + '%';
+        document.getElementById('expected-return').className = 
+          'stat-value ' + (expectedReturn > 7 ? 'positive' : expectedReturn > 4 ? '' : 'negative');
+        
+        document.getElementById('portfolio-risk').textContent = portfolioRisk.toFixed(1) + '%';
+        document.getElementById('sharpe-ratio').textContent = sharpeRatio.toFixed(2);
+        document.getElementById('sharpe-ratio').className = 
+          'stat-value ' + (sharpeRatio > 0.5 ? 'positive' : sharpeRatio > 0.3 ? '' : 'negative');
+        
+        document.getElementById('diversification-score').textContent = 
+          Math.round(diversificationScore);
+        document.getElementById('diversification-score').className = 
+          'stat-value ' + (diversificationScore > 70 ? 'positive' : diversificationScore > 40 ? '' : 'negative');
+        
+        document.getElementById('total-allocated').textContent = totalAllocation + '%';
+        document.getElementById('stocks-pct').textContent = stocksPct + '%';
+        document.getElementById('bonds-pct').textContent = bondsPct + '%';
+        document.getElementById('alternatives-pct').textContent = alternativesPct + '%';
+        
+        // Risk indicator
+        const riskLevel = Math.min(100, (portfolioRisk / 25) * 100);
+        document.getElementById('risk-indicator').style.left = riskLevel + '%';
+        
+        // Recommendations
+        updateRecommendation(totalAllocation, expectedReturn, portfolioRisk, sharpeRatio, 
+                           diversificationScore, stocksPct, bondsPct);
+        
+        // Draw chart
+        drawPieChart();
+      }
+
+      function updateRecommendation(total, ret, risk, sharpe, diversification, stocks, bonds) {
+        let recommendation = '';
+        
+        if (total === 0) {
+          recommendation = 'Start by allocating your $100,000 across different asset classes. Try a preset portfolio or customize your own allocation.';
+        } else if (total < 100) {
+          const remaining = 100 - total;
+          recommendation = `You have ${remaining}% ($${(remaining * 1000).toLocaleString()}) unallocated. Consider adding bonds for stability or stocks for growth.`;
+        } else if (total > 100) {
+          const excess = total - 100;
+          recommendation = `⚠️ You're over-allocated by ${excess}%. Reduce your positions to stay within your $100,000 budget.`;
+        } else if (diversification < 40) {
+          recommendation = '💡 Your portfolio lacks diversification. Consider spreading investments across more asset classes to reduce risk.';
+        } else if (sharpe < 0.3) {
+          recommendation = '📉 Low risk-adjusted returns. Try increasing allocation to higher-return assets or reducing high-risk, low-return positions.';
+        } else if (stocks > 80) {
+          recommendation = '⚠️ Very aggressive allocation! Consider adding bonds or alternatives to reduce volatility.';
+        } else if (bonds > 60 && ret < 5) {
+          recommendation = 'Conservative allocation with low expected returns. Consider adding some growth assets if you can tolerate more risk.';
+        } else if (sharpe > 0.5 && diversification > 70) {
+          recommendation = '✅ Excellent portfolio! Well-diversified with strong risk-adjusted returns. Consider this allocation for long-term investing.';
+        } else {
+          recommendation = '👍 Solid portfolio balance. Your allocation shows good diversification and reasonable risk/return trade-offs.';
+        }
+        
+        document.getElementById('recommendation-text').textContent = recommendation;
+      }
+
+      function drawPieChart() {
+        const width = 280;
+        const height = 280;
+        canvas.width = width;
+        canvas.height = height;
+        
+        ctx.clearRect(0, 0, width, height);
+        
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const radius = Math.min(width, height) / 2 - 20;
+        
+        // Calculate total
+        const total = Object.values(allocations).reduce((a, b) => a + b, 0);
+        
+        if (total === 0) {
+          // Draw empty circle
+          ctx.beginPath();
+          ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#e5e7eb';
+          ctx.fill();
+          
+          ctx.fillStyle = '#9ca3af';
+          ctx.font = '16px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('No allocation', centerX, centerY);
+          return;
+        }
+        
+        // Draw pie slices
+        let currentAngle = -Math.PI / 2;
+        
+        assets.forEach(asset => {
+          if (allocations[asset.id] > 0) {
+            const sliceAngle = (allocations[asset.id] / total) * Math.PI * 2;
+            
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+            ctx.closePath();
+            ctx.fillStyle = asset.color;
+            ctx.fill();
+            
+            // Add label if slice is large enough
+            if (allocations[asset.id] > 5) {
+              const labelAngle = currentAngle + sliceAngle / 2;
+              const labelX = centerX + Math.cos(labelAngle) * (radius * 0.7);
+              const labelY = centerY + Math.sin(labelAngle) * (radius * 0.7);
+              
+              ctx.fillStyle = '#fff';
+              ctx.font = 'bold 14px Inter, sans-serif';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(allocations[asset.id] + '%', labelX, labelY);
+            }
+            
+            currentAngle += sliceAngle;
+          }
+        });
+        
+        // Draw center circle for donut effect
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius * 0.5, 0, Math.PI * 2);
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        ctx.fillStyle = isDark ? '#1a1a1a' : '#f9fafb';
+        ctx.fill();
+        
+        // Center text
+        ctx.fillStyle = isDark ? '#e5e7eb' : '#1f2937';
+        ctx.font = 'bold 18px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(total + '%', centerX, centerY - 10);
+        ctx.font = '12px Inter, sans-serif';
+        ctx.fillText('Allocated', centerX, centerY + 10);
+      }
+    </script>
+  </body>
+</html>
             <li><a href="/blog.html">Blog</a></li>
           </ul>
         </div>

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Trading Simulator | Practice Stock Trading Risk-Free | IO Innovation</title>
+    <title>
+      Trading Simulator | Practice Stock Trading Risk-Free | IO Innovation
+    </title>
     <meta
       name="description"
       content="Practice day trading, swing trading, and long-term investing without risking real money. Master technical analysis, timing, and execution in realistic market conditions."
@@ -16,32 +18,59 @@
     />
     <meta name="author" content="IO Innovation" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ioinnovationfund.com/games/trading-simulator.html" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/games/trading-simulator.html"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/games/trading-simulator.html" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/games/trading-simulator.html"
+    />
     <meta property="og:title" content="Trading Simulator | IO Innovation" />
-    <meta property="og:description" content="Practice trading without risking real money. Master technical analysis and execution." />
-    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image.svg" />
+    <meta
+      property="og:description"
+      content="Practice trading without risking real money. Master technical analysis and execution."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-FGD50Z4Y7G");
     </script>
 
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Theme Init -->
     <script src="../js/theme-init.js?v=2026050601"></script>
@@ -51,7 +80,11 @@
 
     <style>
       .game-hero {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1),
+          rgba(139, 92, 246, 0.1)
+        );
         padding: 5rem 1.5rem 4rem;
         text-align: center;
         position: relative;
@@ -59,7 +92,11 @@
       }
 
       [data-theme="light"] .game-hero {
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(124, 58, 237, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.08),
+          rgba(124, 58, 237, 0.08)
+        );
       }
 
       .game-icon-large {
@@ -137,7 +174,11 @@
         height: 60px;
         margin: 0 auto 1rem;
         border-radius: 12px;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.2),
+          rgba(139, 92, 246, 0.2)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -159,7 +200,11 @@
       }
 
       .notify-section {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(99, 102, 241, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(99, 102, 241, 0.05)
+        );
         padding: 4rem 1.5rem;
         text-align: center;
         margin: 4rem 0;
@@ -177,6 +222,462 @@
         font-size: 1.125rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
+      }
+
+      /* Trading Simulator Styles */
+      .trading-container {
+        max-width: 1600px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .trading-grid {
+        display: grid;
+        grid-template-columns: 250px 1fr 350px;
+        gap: 1.5rem;
+      }
+
+      .trading-panel {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 1.5rem;
+      }
+
+      [data-theme="light"] .trading-panel {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .panel-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Portfolio Stats */
+      .portfolio-stats {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .stat-box {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
+
+      .stat-value.positive { color: #22c55e; }
+      .stat-value.negative { color: #ef4444; }
+
+      /* Stock List */
+      .stock-list {
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .stock-item {
+        padding: 0.75rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .stock-item:hover {
+        border-color: var(--accent-primary);
+      }
+
+      .stock-item.active {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.05);
+      }
+
+      .stock-symbol {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .stock-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+      }
+
+      .stock-price {
+        font-weight: 700;
+      }
+
+      .stock-change {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      /* Chart */
+      .chart-container {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        height: 400px;
+        position: relative;
+      }
+
+      .price-chart {
+        width: 100%;
+        height: 100%;
+      }
+
+      .current-price-banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg-secondary);
+        padding: 1.25rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+      }
+
+      .price-info h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .price-subtitle {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .indicators-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .indicator-box {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      /* Order Panel */
+      .order-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .order-tab {
+        flex: 1;
+        padding: 0.75rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.2s ease;
+      }
+
+      .order-tab:hover {
+        border-color: var(--accent-primary);
+      }
+
+      .order-tab.active {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.1);
+        color: var(--accent-primary);
+      }
+
+      .order-form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-input {
+        padding: 0.75rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+      }
+
+      .order-summary {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+      }
+
+      .buy-btn {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 1rem;
+        transition: transform 0.2s ease;
+      }
+
+      .buy-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .sell-btn {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+      }
+
+      /* Positions */
+      .positions-list {
+        display: grid;
+        gap: 0.75rem;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .position-card {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid;
+      }
+
+      .position-card.profit { border-color: #22c55e; }
+      .position-card.loss { border-color: #ef4444; }
+
+      .position-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .position-symbol {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+      }
+
+      .close-position-btn {
+        background: var(--accent-primary);
+        color: #fff;
+        border: none;
+        padding: 0.4rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .position-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        font-size: 0.85rem;
+      }
+
+      .position-detail {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 1200px) {
+        .trading-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .indicators-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Enhanced Footer Styling */
+      .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
+      }
+
+      .footer-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .footer-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a::before {
+        content: "→";
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.2s ease;
+        color: var(--accent-primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -197,7 +698,11 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
           <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -215,73 +720,196 @@
         </div>
         <h1 class="game-title">Trading Simulator</h1>
         <p class="game-subtitle">
-          Practice day trading, swing trading, and long-term investing without risking real money. Master technical analysis and execution.
+          Practice stock trading with $100,000 virtual cash. Master technical analysis, timing, and order execution.
         </p>
-        <div class="coming-soon-badge">
-          <i class="fas fa-clock"></i> Coming Soon
-        </div>
       </section>
 
-      <!-- Game Content -->
+      <!-- Trading Container -->
+      <div class="trading-container">
+        <div class="trading-grid">
+          <!-- Left Sidebar: Watchlist & Portfolio -->
+          <div>
+            <div class="trading-panel" style="margin-bottom: 1.5rem;">
+              <div class="panel-title">
+                <i class="fas fa-wallet"></i> Portfolio
+              </div>
+              <div class="portfolio-stats">
+                <div class="stat-box">
+                  <div class="stat-label">Total Value</div>
+                  <div id="total-value" class="stat-value">$100,000</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">Cash</div>
+                  <div id="cash-value" class="stat-value">$100,000</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-label">P&L</div>
+                  <div id="pnl-value" class="stat-value">$0</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="trading-panel">
+              <div class="panel-title">
+                <i class="fas fa-list"></i> Stocks
+              </div>
+              <div id="stock-list" class="stock-list">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Center: Chart & Indicators -->
+          <div>
+            <div class="trading-panel">
+              <div class="current-price-banner">
+                <div class="price-info">
+                  <h2 id="current-symbol">AAPL</h2>
+                  <div class="price-subtitle">Apple Inc.</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 2rem; font-weight: 800;" id="current-price">$150.00</div>
+                  <div id="price-change" style="font-size: 1rem; font-weight: 700; color: #22c55e;">+0.00 (0.00%)</div>
+                </div>
+              </div>
+
+              <div class="indicators-row">
+                <div class="indicator-box">
+                  <div class="stat-label">SMA (20)</div>
+                  <div id="sma-value" class="stat-value" style="font-size: 1.25rem;">$150.00</div>
+                </div>
+                <div class="indicator-box">
+                  <div class="stat-label">RSI (14)</div>
+                  <div id="rsi-value" class="stat-value" style="font-size: 1.25rem;">50</div>
+                </div>
+                <div class="indicator-box">
+                  <div class="stat-label">Trend</div>
+                  <div id="trend-value" class="stat-value" style="font-size: 1.25rem;">—</div>
+                </div>
+              </div>
+
+              <div class="chart-container">
+                <canvas id="price-chart" class="price-chart"></canvas>
+              </div>
+
+              <div style="display: flex; gap: 1rem;">
+                <button id="pause-btn" class="btn btn-secondary" style="flex: 1;">
+                  <i class="fas fa-pause"></i> Pause
+                </button>
+                <button id="reset-btn" class="btn btn-secondary" style="flex: 1;">
+                  <i class="fas fa-redo"></i> Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar: Orders & Positions -->
+          <div>
+            <div class="trading-panel" style="margin-bottom: 1.5rem;">
+              <div class="panel-title">
+                <i class="fas fa-exchange-alt"></i> Trade
+              </div>
+
+              <div class="order-tabs">
+                <div class="order-tab active" data-type="buy">Buy</div>
+                <div class="order-tab" data-type="sell">Sell</div>
+              </div>
+
+              <div class="order-form">
+                <div class="form-group">
+                  <label class="form-label">Order Type</label>
+                  <select id="order-type" class="form-input">
+                    <option value="market">Market Order</option>
+                    <option value="limit">Limit Order</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="limit-price-group" style="display: none;">
+                  <label class="form-label">Limit Price</label>
+                  <input type="number" id="limit-price" class="form-input" step="0.01" placeholder="0.00" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Shares</label>
+                  <input type="number" id="shares-input" class="form-input" min="1" value="10" />
+                </div>
+
+                <div class="order-summary">
+                  <div class="summary-row">
+                    <span style="color: var(--text-secondary);">Estimated Cost</span>
+                    <span id="estimated-cost" style="font-weight: 700;">$0.00</span>
+                  </div>
+                </div>
+
+                <button id="execute-order-btn" class="buy-btn">
+                  <i class="fas fa-arrow-up"></i> Buy Now
+                </button>
+              </div>
+            </div>
+
+            <div class="trading-panel">
+              <div class="panel-title">
+                <i class="fas fa-briefcase"></i> Positions
+              </div>
+              <div id="positions-list" class="positions-list">
+                <div style="color: var(--text-secondary); text-align: center; padding: 2rem 0; font-size: 0.9rem;">
+                  No open positions
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
       <div class="game-content">
-        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">Master Trading Skills</h2>
-        
+      <!-- How It Works -->
+      <div class="game-content">
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+          Master Stock Trading
+        </h2>
+
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-chart-candlestick"></i>
+              <i class="fas fa-chart-line"></i>
             </div>
-            <h3 class="feature-title">Technical Analysis</h3>
+            <h3 class="feature-title">Live Price Simulation</h3>
             <p class="feature-desc">
-              Learn to read charts, identify patterns, and use indicators to make informed trading decisions.
+              Trade in real-time with simulated price movements and volatility.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-clock"></i>
+              <i class="fas fa-chart-bar"></i>
             </div>
-            <h3 class="feature-title">Market Timing</h3>
+            <h3 class="feature-title">Technical Indicators</h3>
             <p class="feature-desc">
-              Develop skills in entry and exit timing, understanding market cycles and momentum.
+              Use SMA and RSI indicators to identify trends and entry points.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-bullseye"></i>
+              <i class="fas fa-exchange-alt"></i>
             </div>
-            <h3 class="feature-title">Order Execution</h3>
+            <h3 class="feature-title">Multiple Order Types</h3>
             <p class="feature-desc">
-              Practice different order types including market, limit, stop-loss, and trailing stop orders.
+              Execute market orders instantly or set limit orders at target prices.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-brain"></i>
+              <i class="fas fa-trophy"></i>
             </div>
-            <h3 class="feature-title">Trading Psychology</h3>
+            <h3 class="feature-title">Track Performance</h3>
             <p class="feature-desc">
-              Learn to manage emotions, avoid common pitfalls, and develop disciplined trading habits.
+              Monitor your P&L, positions, and portfolio value in real-time.
             </p>
           </div>
         </div>
-
-        <section class="notify-section">
-          <h2 class="notify-title">Get Notified When This Game Launches</h2>
-          <p class="notify-desc">
-            We're working hard to bring you the best investment education experience. Check back soon!
-          </p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="/games.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-arrow-left"></i> Back to Games
-            </a>
-            <a href="/tools.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-tools"></i> Try Our Tools
-            </a>
-          </div>
-        </section>
       </div>
     </main>
 
@@ -291,7 +919,8 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for investors.
+            Free professional financial tools and educational resources for
+            investors.
           </p>
         </div>
 
@@ -308,6 +937,502 @@
           <ul class="footer-links">
             <li><a href="/games.html">Investment Games</a></li>
             <li><a href="/guides.html">Guides</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/shared-simple.js?v=2026050601"></script>
+    <script>
+      // Stock Database
+      const stocks = [
+        { symbol: 'AAPL', name: 'Apple Inc.', price: 150, volatility: 0.02 },
+        { symbol: 'MSFT', name: 'Microsoft Corp.', price: 320, volatility: 0.018 },
+        { symbol: 'GOOGL', name: 'Alphabet Inc.', price: 130, volatility: 0.022 },
+        { symbol: 'AMZN', name: 'Amazon.com Inc.', price: 145, volatility: 0.025 },
+        { symbol: 'TSLA', name: 'Tesla Inc.', price: 180, volatility: 0.04 },
+        { symbol: 'NVDA', name: 'NVIDIA Corp.', price: 450, volatility: 0.035 }
+      ];
+
+      // State
+      let currentStock = stocks[0];
+      let priceHistory = [];
+      let cash = 100000;
+      let positions = {};
+      let orderType = 'buy';
+      let simulationPaused = false;
+      let simulationInterval;
+      let canvas, ctx;
+
+      // DOM Elements
+      const stockList = document.getElementById('stock-list');
+      const pauseBtn = document.getElementById('pause-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const orderTabs = document.querySelectorAll('.order-tab');
+      const orderTypeSelect = document.getElementById('order-type');
+      const limitPriceGroup = document.getElementById('limit-price-group');
+      const sharesInput = document.getElementById('shares-input');
+      const executeOrderBtn = document.getElementById('execute-order-btn');
+
+      // Initialize
+      window.addEventListener('DOMContentLoaded', () => {
+        canvas = document.getElementById('price-chart');
+        ctx = canvas.getContext('2d');
+        
+        // Initialize price history
+        stocks.forEach(stock => {
+          stock.history = [];
+          for (let i = 0; i < 100; i++) {
+            stock.history.push(stock.price);
+          }
+        });
+        
+        renderStockList();
+        selectStock(stocks[0]);
+        startSimulation();
+        
+        // Event listeners
+        pauseBtn.addEventListener('click', togglePause);
+        resetBtn.addEventListener('click', resetSimulation);
+        
+        orderTabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            orderTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            orderType = tab.dataset.type;
+            updateOrderButton();
+          });
+        });
+        
+        orderTypeSelect.addEventListener('change', (e) => {
+          limitPriceGroup.style.display = e.target.value === 'limit' ? 'block' : 'none';
+        });
+        
+        sharesInput.addEventListener('input', updateEstimatedCost);
+        executeOrderBtn.addEventListener('click', executeOrder);
+      });
+
+      function renderStockList() {
+        stockList.innerHTML = stocks.map(stock => {
+          const change = stock.history.length > 1 ? 
+            ((stock.history[stock.history.length - 1] / stock.history[stock.history.length - 2] - 1) * 100) : 0;
+          const changeColor = change >= 0 ? '#22c55e' : '#ef4444';
+          
+          return `
+            <div class=\"stock-item ${stock === currentStock ? 'active' : ''}\" onclick=\"selectStockBySymbol('${stock.symbol}')\">
+              <div class=\"stock-symbol\">${stock.symbol}</div>
+              <div class=\"stock-price-row\">
+                <span class=\"stock-price\">$${stock.price.toFixed(2)}</span>
+                <span class=\"stock-change\" style=\"color: ${changeColor};\">
+                  ${change >= 0 ? '+' : ''}${change.toFixed(2)}%
+                </span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function selectStock(stock) {
+        currentStock = stock;
+        priceHistory = [...stock.history];
+        updateStockDisplay();
+        renderStockList();
+        drawChart();
+      }
+
+      function selectStockBySymbol(symbol) {
+        const stock = stocks.find(s => s.symbol === symbol);
+        if (stock) selectStock(stock);
+      }
+
+      function updateStockDisplay() {
+        const currentPrice = currentStock.price;
+        const prevPrice = currentStock.history[currentStock.history.length - 2] || currentPrice;
+        const change = currentPrice - prevPrice;
+        const changePct = (change / prevPrice) * 100;
+        
+        document.getElementById('current-symbol').textContent = currentStock.symbol;
+        document.getElementById('current-price').textContent = '$' + currentPrice.toFixed(2);
+        
+        const changeElement = document.getElementById('price-change');
+        changeElement.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)} (${changePct.toFixed(2)}%)`;
+        changeElement.style.color = change >= 0 ? '#22c55e' : '#ef4444';
+        
+        // Calculate indicators
+        const sma = calculateSMA(currentStock.history, 20);
+        const rsi = calculateRSI(currentStock.history, 14);
+        
+        document.getElementById('sma-value').textContent = '$' + sma.toFixed(2);
+        document.getElementById('rsi-value').textContent = rsi.toFixed(0);
+        document.getElementById('rsi-value').style.color = 
+          rsi > 70 ? '#ef4444' : rsi < 30 ? '#22c55e' : 'var(--text-primary)';
+        
+        const trend = currentPrice > sma ? '↑ Bullish' : currentPrice < sma ? '↓ Bearish' : '→ Neutral';
+        const trendColor = currentPrice > sma ? '#22c55e' : currentPrice < sma ? '#ef4444' : '#6b7280';
+        document.getElementById('trend-value').textContent = trend;
+        document.getElementById('trend-value').style.color = trendColor;
+        
+        updateEstimatedCost();
+      }
+
+      function calculateSMA(prices, period) {
+        if (prices.length < period) return prices[prices.length - 1];
+        const slice = prices.slice(-period);
+        return slice.reduce((a, b) => a + b, 0) / period;
+      }
+
+      function calculateRSI(prices, period) {
+        if (prices.length < period + 1) return 50;
+        
+        let gains = 0;
+        let losses = 0;
+        
+        for (let i = prices.length - period; i < prices.length; i++) {
+          const change = prices[i] - prices[i - 1];
+          if (change > 0) gains += change;
+          else losses += Math.abs(change);
+        }
+        
+        const avgGain = gains / period;
+        const avgLoss = losses / period;
+        
+        if (avgLoss === 0) return 100;
+        const rs = avgGain / avgLoss;
+        return 100 - (100 / (1 + rs));
+      }
+
+      function startSimulation() {
+        simulationInterval = setInterval(() => {
+          if (!simulationPaused) {
+            // Update all stock prices
+            stocks.forEach(stock => {
+              const change = (Math.random() - 0.5) * 2 * stock.volatility;
+              stock.price = stock.price * (1 + change);
+              stock.price = Math.max(stock.price, 1); // Prevent negative prices
+              stock.history.push(stock.price);
+              
+              // Keep history manageable
+              if (stock.history.length > 200) {
+                stock.history.shift();
+              }
+            });
+            
+            updateStockDisplay();
+            renderStockList();
+            drawChart();
+            updatePortfolio();
+          }
+        }, 1000);
+      }
+
+      function togglePause() {
+        simulationPaused = !simulationPaused;
+        pauseBtn.innerHTML = simulationPaused ? 
+          '<i class=\"fas fa-play\"></i> Resume' : 
+          '<i class=\"fas fa-pause\"></i> Pause';
+      }
+
+      function resetSimulation() {
+        // Reset prices and history
+        stocks.forEach(stock => {
+          stock.price = stock.symbol === 'AAPL' ? 150 :
+                       stock.symbol === 'MSFT' ? 320 :
+                       stock.symbol === 'GOOGL' ? 130 :
+                       stock.symbol === 'AMZN' ? 145 :
+                       stock.symbol === 'TSLA' ? 180 : 450;
+          stock.history = [];
+          for (let i = 0; i < 100; i++) {
+            stock.history.push(stock.price);
+          }
+        });
+        
+        // Reset portfolio
+        cash = 100000;
+        positions = {};
+        
+        selectStock(stocks[0]);
+        updatePortfolio();
+        renderPositions();
+      }
+
+      function drawChart() {
+        const width = canvas.parentElement.clientWidth - 48;
+        const height = 400;
+        canvas.width = width;
+        canvas.height = height;
+        
+        ctx.clearRect(0, 0, width, height);
+        
+        const data = currentStock.history.slice(-60);
+        if (data.length < 2) return;
+        
+        const max = Math.max(...data);
+        const min = Math.min(...data);
+        const range = max - min || 1;
+        const padding = 40;
+        
+        // Draw grid
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        ctx.strokeStyle = isDark ? '#333' : '#e5e7eb';
+        ctx.lineWidth = 1;
+        
+        for (let i = 0; i <= 5; i++) {
+          const y = padding + (height - padding * 2) * (i / 5);
+          ctx.beginPath();
+          ctx.moveTo(padding, y);
+          ctx.lineTo(width - padding, y);
+          ctx.stroke();
+          
+          // Price labels
+          const price = max - (range * i / 5);
+          ctx.fillStyle = isDark ? '#9ca3af' : '#6b7280';
+          ctx.font = '11px Inter, sans-serif';
+          ctx.textAlign = 'right';
+          ctx.fillText('$' + price.toFixed(2), padding - 5, y + 4);
+        }
+        
+        // Draw price line
+        ctx.beginPath();
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth = 2;
+        
+        data.forEach((price, i) => {
+          const x = padding + (width - padding * 2) * (i / (data.length - 1));
+          const y = padding + (height - padding * 2) * (1 - (price - min) / range);
+          
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        
+        ctx.stroke();
+        
+        // Draw SMA line
+        const sma20 = [];
+        for (let i = 0; i < data.length; i++) {
+          if (i >= 19) {
+            const slice = data.slice(i - 19, i + 1);
+            sma20.push(slice.reduce((a, b) => a + b, 0) / 20);
+          } else {
+            sma20.push(null);
+          }
+        }
+        
+        ctx.beginPath();
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        
+        let started = false;
+        sma20.forEach((sma, i) => {
+          if (sma !== null) {
+            const x = padding + (width - padding * 2) * (i / (data.length - 1));
+            const y = padding + (height - padding * 2) * (1 - (sma - min) / range);
+            
+            if (!started) {
+              ctx.moveTo(x, y);
+              started = true;
+            } else {
+              ctx.lineTo(x, y);
+            }
+          }
+        });
+        
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      function updateEstimatedCost() {
+        const shares = parseInt(sharesInput.value) || 0;
+        const price = orderTypeSelect.value === 'limit' ? 
+          (parseFloat(document.getElementById('limit-price').value) || 0) : 
+          currentStock.price;
+        
+        const cost = shares * price;
+        document.getElementById('estimated-cost').textContent = '$' + cost.toFixed(2);
+      }
+
+      function updateOrderButton() {
+        if (orderType === 'buy') {
+          executeOrderBtn.className = 'buy-btn';
+          executeOrderBtn.innerHTML = '<i class=\"fas fa-arrow-up\"></i> Buy Now';
+        } else {
+          executeOrderBtn.className = 'buy-btn sell-btn';
+          executeOrderBtn.innerHTML = '<i class=\"fas fa-arrow-down\"></i> Sell Now';
+        }
+      }
+
+      function executeOrder() {
+        const shares = parseInt(sharesInput.value) || 0;
+        if (shares <= 0) {
+          alert('Please enter a valid number of shares');
+          return;
+        }
+        
+        const orderTypeValue = orderTypeSelect.value;
+        let executionPrice = currentStock.price;
+        
+        if (orderTypeValue === 'limit') {
+          const limitPrice = parseFloat(document.getElementById('limit-price').value);
+          if (!limitPrice) {
+            alert('Please enter a limit price');
+            return;
+          }
+          
+          if (orderType === 'buy' && currentStock.price > limitPrice) {
+            alert('Current price is above your limit price. Order not executed.');
+            return;
+          }
+          
+          if (orderType === 'sell' && currentStock.price < limitPrice) {
+            alert('Current price is below your limit price. Order not executed.');
+            return;
+          }
+          
+          executionPrice = limitPrice;
+        }
+        
+        const cost = shares * executionPrice;
+        
+        if (orderType === 'buy') {
+          if (cost > cash) {
+            alert('Insufficient cash for this purchase');
+            return;
+          }
+          
+          cash -= cost;
+          
+          if (!positions[currentStock.symbol]) {
+            positions[currentStock.symbol] = {
+              symbol: currentStock.symbol,
+              shares: 0,
+              avgPrice: 0
+            };
+          }
+          
+          const position = positions[currentStock.symbol];
+          const totalCost = (position.shares * position.avgPrice) + cost;
+          position.shares += shares;
+          position.avgPrice = totalCost / position.shares;
+          
+        } else {
+          // Sell
+          if (!positions[currentStock.symbol] || positions[currentStock.symbol].shares < shares) {
+            alert('Insufficient shares to sell');
+            return;
+          }
+          
+          const position = positions[currentStock.symbol];
+          position.shares -= shares;
+          cash += cost;
+          
+          if (position.shares === 0) {
+            delete positions[currentStock.symbol];
+          }
+        }
+        
+        updatePortfolio();
+        renderPositions();
+        sharesInput.value = 10;
+        updateEstimatedCost();
+      }
+
+      function updatePortfolio() {
+        let stockValue = 0;
+        Object.keys(positions).forEach(symbol => {
+          const stock = stocks.find(s => s.symbol === symbol);
+          const position = positions[symbol];
+          stockValue += position.shares * stock.price;
+        });
+        
+        const totalValue = cash + stockValue;
+        const pnl = totalValue - 100000;
+        
+        document.getElementById('cash-value').textContent = '$' + cash.toFixed(2);
+        document.getElementById('total-value').textContent = '$' + totalValue.toFixed(2);
+        
+        const pnlElement = document.getElementById('pnl-value');
+        pnlElement.textContent = (pnl >= 0 ? '+$' : '-$') + Math.abs(pnl).toFixed(2);
+        pnlElement.className = 'stat-value ' + (pnl >= 0 ? 'positive' : 'negative');
+      }
+
+      function renderPositions() {
+        const positionsList = document.getElementById('positions-list');
+        
+        if (Object.keys(positions).length === 0) {
+          positionsList.innerHTML = '<div style=\"color: var(--text-secondary); text-align: center; padding: 2rem 0; font-size: 0.9rem;\">No open positions</div>';
+          return;
+        }
+        
+        positionsList.innerHTML = Object.keys(positions).map(symbol => {
+          const position = positions[symbol];
+          const stock = stocks.find(s => s.symbol === symbol);
+          const currentValue = position.shares * stock.price;
+          const cost = position.shares * position.avgPrice;
+          const pnl = currentValue - cost;
+          const pnlPct = (pnl / cost) * 100;
+          
+          return `
+            <div class=\"position-card ${pnl >= 0 ? 'profit' : 'loss'}\">
+              <div class=\"position-header\">
+                <div class=\"position-symbol\">${symbol}</div>
+                <button class=\"close-position-btn\" onclick=\"closePosition('${symbol}')\">Close</button>
+              </div>
+              <div class=\"position-details\">
+                <div class=\"position-detail\">
+                  <span style=\"color: var(--text-secondary);\">Shares:</span>
+                  <span style=\"font-weight: 700;\">${position.shares}</span>
+                </div>
+                <div class=\"position-detail\">
+                  <span style=\"color: var(--text-secondary);\">Avg Price:</span>
+                  <span style=\"font-weight: 700;\">$${position.avgPrice.toFixed(2)}</span>
+                </div>
+                <div class=\"position-detail\">
+                  <span style=\"color: var(--text-secondary);\">Current:</span>
+                  <span style=\"font-weight: 700;\">$${stock.price.toFixed(2)}</span>
+                </div>
+                <div class=\"position-detail\">
+                  <span style=\"color: var(--text-secondary);\">P&L:</span>
+                  <span style=\"font-weight: 700; color: ${pnl >= 0 ? '#22c55e' : '#ef4444'};\">
+                    ${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)} (${pnlPct.toFixed(1)}%)
+                  </span>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function closePosition(symbol) {
+        const position = positions[symbol];
+        const stock = stocks.find(s => s.symbol === symbol);
+        
+        cash += position.shares * stock.price;
+        delete positions[symbol];
+        
+        updatePortfolio();
+        renderPositions();
+      }
+
+      // Make functions globally accessible
+      window.selectStockBySymbol = selectStockBySymbol;
+      window.closePosition = closePosition;
+    </script>
+  </body>
+</html>
             <li><a href="/blog.html">Blog</a></li>
           </ul>
         </div>

@@ -16,32 +16,59 @@
     />
     <meta name="author" content="IO Innovation" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ioinnovationfund.com/games/options-lab.html" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/games/options-lab.html"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/games/options-lab.html" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/games/options-lab.html"
+    />
     <meta property="og:title" content="Options Strategy Lab | IO Innovation" />
-    <meta property="og:description" content="Learn options trading through interactive simulations. Visualize payoff diagrams and Greeks." />
-    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image.svg" />
+    <meta
+      property="og:description"
+      content="Learn options trading through interactive simulations. Visualize payoff diagrams and Greeks."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-FGD50Z4Y7G");
     </script>
 
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Theme Init -->
     <script src="../js/theme-init.js?v=2026050601"></script>
@@ -51,7 +78,11 @@
 
     <style>
       .game-hero {
-        background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.1),
+          rgba(239, 68, 68, 0.1)
+        );
         padding: 5rem 1.5rem 4rem;
         text-align: center;
         position: relative;
@@ -59,7 +90,11 @@
       }
 
       [data-theme="light"] .game-hero {
-        background: linear-gradient(135deg, rgba(217, 119, 6, 0.08), rgba(220, 38, 38, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(217, 119, 6, 0.08),
+          rgba(220, 38, 38, 0.08)
+        );
       }
 
       .game-icon-large {
@@ -137,7 +172,11 @@
         height: 60px;
         margin: 0 auto 1rem;
         border-radius: 12px;
-        background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.2),
+          rgba(239, 68, 68, 0.2)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -159,7 +198,11 @@
       }
 
       .notify-section {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(99, 102, 241, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(99, 102, 241, 0.05)
+        );
         padding: 4rem 1.5rem;
         text-align: center;
         margin: 4rem 0;
@@ -177,6 +220,396 @@
         font-size: 1.125rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
+      }
+
+      /* Lab Styles */
+      .lab-container {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .lab-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .control-panel {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+        height: fit-content;
+      }
+
+      [data-theme="light"] .control-panel {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .strategy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .strategy-btn {
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .strategy-btn:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+      }
+
+      .strategy-btn.active {
+        border-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.1);
+      }
+
+      .input-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .input-label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 1rem;
+      }
+
+      .input-field:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+      }
+
+      .input-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .visual-panel {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      [data-theme="light"] .visual-panel {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .chart-container {
+        width: 100%;
+        height: 400px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .chart-canvas {
+        width: 100%;
+        height: 100%;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .metric-box {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-align: center;
+      }
+
+      .metric-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .metric-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
+
+      .metric-value.positive {
+        color: #22c55e;
+      }
+
+      .metric-value.negative {
+        color: #ef4444;
+      }
+
+      .greeks-panel {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .greeks-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .greek-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .greek-row:last-child {
+        border-bottom: none;
+      }
+
+      .greek-name {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .greek-value {
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .greek-desc {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-top: 0.25rem;
+      }
+
+      .strategy-explanation {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(239, 68, 68, 0.05));
+        border-left: 4px solid #f59e0b;
+        border-radius: 8px;
+        padding: 1.5rem;
+      }
+
+      .explanation-title {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .explanation-text {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .explanation-points {
+        list-style: none;
+        padding: 0;
+      }
+
+      .explanation-points li {
+        padding: 0.5rem 0;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .explanation-points li::before {
+        content: "•";
+        color: #f59e0b;
+        font-weight: bold;
+        margin-right: 0.75rem;
+      }
+
+      @media (max-width: 968px) {
+        .lab-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .metrics-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .strategy-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .input-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Enhanced Footer Styling */
+      .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
+      }
+
+      .footer-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .footer-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a::before {
+        content: "→";
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.2s ease;
+        color: var(--accent-primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -197,7 +630,11 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
           <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -215,25 +652,171 @@
         </div>
         <h1 class="game-title">Options Strategy Lab</h1>
         <p class="game-subtitle">
-          Experiment with options strategies, visualize payoff diagrams, and understand Greeks in an interactive sandbox.
+          Experiment with options strategies, visualize payoff diagrams, and
+          understand Greeks in an interactive sandbox.
         </p>
-        <div class="coming-soon-badge">
-          <i class="fas fa-clock"></i> Coming Soon
-        </div>
       </section>
 
-      <!-- Game Content -->
+      <!-- Lab Container -->
+      <div class="lab-container">
+        <div class="lab-grid">
+          <!-- Control Panel -->
+          <div class="control-panel">
+            <div class="section-title">
+              <i class="fas fa-sliders-h"></i>
+              Select Strategy
+            </div>
+
+            <div class="strategy-grid">
+              <button class="strategy-btn active" data-strategy="long-call">
+                Long Call
+              </button>
+              <button class="strategy-btn" data-strategy="long-put">
+                Long Put
+              </button>
+              <button class="strategy-btn" data-strategy="covered-call">
+                Covered Call
+              </button>
+              <button class="strategy-btn" data-strategy="protective-put">
+                Protective Put
+              </button>
+              <button class="strategy-btn" data-strategy="bull-spread">
+                Bull Call Spread
+              </button>
+              <button class="strategy-btn" data-strategy="bear-spread">
+                Bear Put Spread
+              </button>
+              <button class="strategy-btn" data-strategy="iron-condor">
+                Iron Condor
+              </button>
+              <button class="strategy-btn" data-strategy="straddle">
+                Long Straddle
+              </button>
+            </div>
+
+            <div class="section-title" style="margin-top: 2rem;">
+              <i class="fas fa-cog"></i>
+              Parameters
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Current Stock Price</label>
+              <input type="number" id="stock-price" class="input-field" value="100" step="1" />
+            </div>
+
+            <div id="strategy-inputs">
+              <!-- Strategy-specific inputs will be populated here -->
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Days to Expiration</label>
+              <input type="number" id="days-to-exp" class="input-field" value="30" step="1" />
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Volatility (%)</label>
+              <input type="number" id="volatility" class="input-field" value="30" step="1" />
+            </div>
+
+            <button id="calculate-btn" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-calculator"></i> Calculate
+            </button>
+          </div>
+
+          <!-- Visual Panel -->
+          <div class="visual-panel">
+            <div class="section-title">
+              <i class="fas fa-chart-line"></i>
+              Payoff Diagram
+            </div>
+
+            <div class="chart-container">
+              <canvas id="payoff-chart" class="chart-canvas"></canvas>
+            </div>
+
+            <div class="metrics-grid">
+              <div class="metric-box">
+                <div class="metric-label">Max Profit</div>
+                <div id="max-profit" class="metric-value">--</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-label">Max Loss</div>
+                <div id="max-loss" class="metric-value">--</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-label">Breakeven</div>
+                <div id="breakeven" class="metric-value">--</div>
+              </div>
+            </div>
+
+            <div class="greeks-panel">
+              <div class="greeks-title">Greeks Analysis</div>
+              <div class="greek-row">
+                <div>
+                  <div class="greek-name">Delta (Δ)</div>
+                  <div class="greek-desc">Price sensitivity</div>
+                </div>
+                <div id="greek-delta" class="greek-value">--</div>
+              </div>
+              <div class="greek-row">
+                <div>
+                  <div class="greek-name">Gamma (Γ)</div>
+                  <div class="greek-desc">Delta change rate</div>
+                </div>
+                <div id="greek-gamma" class="greek-value">--</div>
+              </div>
+              <div class="greek-row">
+                <div>
+                  <div class="greek-name">Theta (Θ)</div>
+                  <div class="greek-desc">Time decay per day</div>
+                </div>
+                <div id="greek-theta" class="greek-value">--</div>
+              </div>
+              <div class="greek-row">
+                <div>
+                  <div class="greek-name">Vega (ν)</div>
+                  <div class="greek-desc">Volatility sensitivity</div>
+                </div>
+                <div id="greek-vega" class="greek-value">--</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strategy Explanation -->
+        <div class="strategy-explanation">
+          <div class="explanation-title">
+            <i class="fas fa-book-open"></i>
+            <span id="strategy-name">Long Call</span>
+          </div>
+          <p id="strategy-description" class="explanation-text">
+            A long call gives you the right to buy stock at the strike price. You profit when the stock rises above the strike plus premium paid.
+          </p>
+          <ul id="strategy-points" class="explanation-points">
+            <li>Unlimited profit potential as stock rises</li>
+            <li>Limited risk: maximum loss is the premium paid</li>
+            <li>Best used when you're bullish and expect significant upside</li>
+            <li>Benefits from increased volatility</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- How It Works -->
       <div class="game-content">
-        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">Master Options Trading</h2>
-        
+      <!-- How It Works -->
+      <div class="game-content">
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+          Learn Options Trading
+        </h2>
+
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
               <i class="fas fa-layer-group"></i>
             </div>
-            <h3 class="feature-title">Multi-Leg Strategies</h3>
+            <h3 class="feature-title">8 Popular Strategies</h3>
             <p class="feature-desc">
-              Build complex options strategies like iron condors, butterflies, and calendar spreads.
+              From basic calls and puts to advanced spreads and iron condors.
             </p>
           </div>
 
@@ -241,9 +824,9 @@
             <div class="feature-icon">
               <i class="fas fa-chart-area"></i>
             </div>
-            <h3 class="feature-title">Payoff Diagrams</h3>
+            <h3 class="feature-title">Visual Payoff Diagrams</h3>
             <p class="feature-desc">
-              Visualize profit/loss at expiration and understand breakeven points for any strategy.
+              See profit/loss at expiration across different stock prices.
             </p>
           </div>
 
@@ -253,35 +836,20 @@
             </div>
             <h3 class="feature-title">Greeks Analysis</h3>
             <p class="feature-desc">
-              Learn Delta, Gamma, Theta, Vega, and Rho to understand how options behave.
+              Understand Delta, Gamma, Theta, and Vega for each strategy.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-shield-alt"></i>
+              <i class="fas fa-graduation-cap"></i>
             </div>
-            <h3 class="feature-title">Hedging Strategies</h3>
+            <h3 class="feature-title">Learn By Doing</h3>
             <p class="feature-desc">
-              Practice protective puts, covered calls, and other hedging techniques.
+              Experiment with parameters and see real-time impact on risk/reward.
             </p>
           </div>
         </div>
-
-        <section class="notify-section">
-          <h2 class="notify-title">Get Notified When This Game Launches</h2>
-          <p class="notify-desc">
-            We're working hard to bring you the best investment education experience. Check back soon!
-          </p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="/games.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-arrow-left"></i> Back to Games
-            </a>
-            <a href="/tools.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-tools"></i> Try Our Tools
-            </a>
-          </div>
-        </section>
       </div>
     </main>
 
@@ -291,7 +859,8 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for investors.
+            Free professional financial tools and educational resources for
+            investors.
           </p>
         </div>
 
@@ -328,5 +897,521 @@
     </footer>
 
     <script src="../js/shared-simple.js?v=2026050601"></script>
+    <script>
+      // Strategy Definitions
+      const strategies = {
+        'long-call': {
+          name: 'Long Call',
+          description: 'A long call gives you the right to buy stock at the strike price. You profit when the stock rises above the strike plus premium paid.',
+          points: [
+            'Unlimited profit potential as stock rises',
+            'Limited risk: maximum loss is the premium paid',
+            'Best used when you\'re bullish and expect significant upside',
+            'Benefits from increased volatility'
+          ],
+          inputs: [
+            { id: 'strike', label: 'Strike Price', value: 105, step: 1 },
+            { id: 'premium', label: 'Premium Paid', value: 3, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const intrinsic = Math.max(0, stockPrice - params.strike);
+            return intrinsic - params.premium;
+          },
+          greeks: (stockPrice, params, vol, days) => ({
+            delta: stockPrice > params.strike ? 0.65 : 0.35,
+            gamma: 0.03,
+            theta: -params.premium / days,
+            vega: params.premium * 0.1
+          })
+        },
+        'long-put': {
+          name: 'Long Put',
+          description: 'A long put gives you the right to sell stock at the strike price. You profit when the stock falls below the strike minus premium paid.',
+          points: [
+            'Profits when stock price declines',
+            'Limited risk: maximum loss is the premium paid',
+            'Best used when you\'re bearish',
+            'Can hedge long stock positions'
+          ],
+          inputs: [
+            { id: 'strike', label: 'Strike Price', value: 95, step: 1 },
+            { id: 'premium', label: 'Premium Paid', value: 3, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const intrinsic = Math.max(0, params.strike - stockPrice);
+            return intrinsic - params.premium;
+          },
+          greeks: (stockPrice, params, vol, days) => ({
+            delta: stockPrice < params.strike ? -0.65 : -0.35,
+            gamma: 0.03,
+            theta: -params.premium / days,
+            vega: params.premium * 0.1
+          })
+        },
+        'covered-call': {
+          name: 'Covered Call',
+          description: 'Own 100 shares of stock and sell a call option against it. Generate income from the premium while capping upside.',
+          points: [
+            'Generates income from option premium',
+            'Reduces cost basis of stock position',
+            'Caps maximum profit at strike price',
+            'Provides limited downside protection'
+          ],
+          inputs: [
+            { id: 'costBasis', label: 'Stock Cost Basis', value: 100, step: 1 },
+            { id: 'strike', label: 'Call Strike', value: 105, step: 1 },
+            { id: 'premium', label: 'Premium Received', value: 2, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const stockPL = stockPrice - params.costBasis;
+            const optionPL = params.premium - Math.max(0, stockPrice - params.strike);
+            return stockPL + optionPL;
+          },
+          greeks: (stockPrice, params, vol, days) => ({
+            delta: stockPrice < params.strike ? 1.0 : 0.35,
+            gamma: -0.02,
+            theta: params.premium / days,
+            vega: -params.premium * 0.08
+          })
+        },
+        'protective-put': {
+          name: 'Protective Put',
+          description: 'Own 100 shares and buy a put option as insurance. Limits downside risk while maintaining upside potential.',
+          points: [
+            'Insurance against stock price decline',
+            'Unlimited upside potential maintained',
+            'Cost is the premium paid for the put',
+            'Ideal for protecting existing positions'
+          ],
+          inputs: [
+            { id: 'costBasis', label: 'Stock Cost Basis', value: 100, step: 1 },
+            { id: 'strike', label: 'Put Strike', value: 95, step: 1 },
+            { id: 'premium', label: 'Premium Paid', value: 2.5, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const stockPL = stockPrice - params.costBasis;
+            const putPL = Math.max(0, params.strike - stockPrice) - params.premium;
+            return stockPL + putPL;
+          },
+          greeks: (stockPrice, params, vol, days) => ({
+            delta: stockPrice > params.strike ? 1.0 : 0.35,
+            gamma: 0.02,
+            theta: -params.premium / days,
+            vega: params.premium * 0.08
+          })
+        },
+        'bull-spread': {
+          name: 'Bull Call Spread',
+          description: 'Buy a call at a lower strike and sell a call at a higher strike. Bullish strategy with limited risk and reward.',
+          points: [
+            'Lower cost than buying a call outright',
+            'Limited maximum profit and loss',
+            'Profits from moderate price increases',
+            'Lower break-even than long call'
+          ],
+          inputs: [
+            { id: 'longStrike', label: 'Long Call Strike', value: 100, step: 1 },
+            { id: 'longPremium', label: 'Long Call Premium', value: 4, step: 0.1 },
+            { id: 'shortStrike', label: 'Short Call Strike', value: 110, step: 1 },
+            { id: 'shortPremium', label: 'Short Call Premium', value: 1.5, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const longCall = Math.max(0, stockPrice - params.longStrike) - params.longPremium;
+            const shortCall = params.shortPremium - Math.max(0, stockPrice - params.shortStrike);
+            return longCall + shortCall;
+          },
+          greeks: (stockPrice, params, vol, days) => {
+            const netPremium = params.longPremium - params.shortPremium;
+            return {
+              delta: 0.45,
+              gamma: 0.02,
+              theta: -netPremium / (days * 2),
+              vega: netPremium * 0.05
+            };
+          }
+        },
+        'bear-spread': {
+          name: 'Bear Put Spread',
+          description: 'Buy a put at a higher strike and sell a put at a lower strike. Bearish strategy with limited risk and reward.',
+          points: [
+            'Lower cost than buying a put outright',
+            'Limited maximum profit and loss',
+            'Profits from moderate price decreases',
+            'Defined risk strategy'
+          ],
+          inputs: [
+            { id: 'longStrike', label: 'Long Put Strike', value: 100, step: 1 },
+            { id: 'longPremium', label: 'Long Put Premium', value: 4, step: 0.1 },
+            { id: 'shortStrike', label: 'Short Put Strike', value: 90, step: 1 },
+            { id: 'shortPremium', label: 'Short Put Premium', value: 1.5, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const longPut = Math.max(0, params.longStrike - stockPrice) - params.longPremium;
+            const shortPut = params.shortPremium - Math.max(0, params.shortStrike - stockPrice);
+            return longPut + shortPut;
+          },
+          greeks: (stockPrice, params, vol, days) => {
+            const netPremium = params.longPremium - params.shortPremium;
+            return {
+              delta: -0.45,
+              gamma: 0.02,
+              theta: -netPremium / (days * 2),
+              vega: netPremium * 0.05
+            };
+          }
+        },
+        'iron-condor': {
+          name: 'Iron Condor',
+          description: 'Combine a bull put spread and bear call spread. Profits when stock stays within a range.',
+          points: [
+            'Profits from low volatility and range-bound movement',
+            'Collect premium from selling both spreads',
+            'Maximum profit if stock stays between short strikes',
+            'Defined risk with limited profit potential'
+          ],
+          inputs: [
+            { id: 'putBuyStrike', label: 'Buy Put Strike', value: 85, step: 1 },
+            { id: 'putSellStrike', label: 'Sell Put Strike', value: 90, step: 1 },
+            { id: 'callSellStrike', label: 'Sell Call Strike', value: 110, step: 1 },
+            { id: 'callBuyStrike', label: 'Buy Call Strike', value: 115, step: 1 },
+            { id: 'netCredit', label: 'Net Credit Received', value: 2, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const putSpread = Math.max(0, params.putSellStrike - stockPrice) - Math.max(0, params.putBuyStrike - stockPrice);
+            const callSpread = Math.max(0, stockPrice - params.callSellStrike) - Math.max(0, stockPrice - params.callBuyStrike);
+            return params.netCredit - putSpread - callSpread;
+          },
+          greeks: (stockPrice, params, vol, days) => ({
+            delta: 0.05,
+            gamma: -0.01,
+            theta: params.netCredit / days,
+            vega: -params.netCredit * 0.15
+          })
+        },
+        'straddle': {
+          name: 'Long Straddle',
+          description: 'Buy a call and put at the same strike. Profits from large moves in either direction.',
+          points: [
+            'Profits from significant price movement in either direction',
+            'Benefits from volatility increases',
+            'Maximum loss is total premium paid',
+            'Breakeven requires substantial price movement'
+          ],
+          inputs: [
+            { id: 'strike', label: 'Strike Price', value: 100, step: 1 },
+            { id: 'callPremium', label: 'Call Premium', value: 4, step: 0.1 },
+            { id: 'putPremium', label: 'Put Premium', value: 4, step: 0.1 }
+          ],
+          calculate: (stockPrice, params) => {
+            const callPL = Math.max(0, stockPrice - params.strike) - params.callPremium;
+            const putPL = Math.max(0, params.strike - stockPrice) - params.putPremium;
+            return callPL + putPL;
+          },
+          greeks: (stockPrice, params, vol, days) => {
+            const totalPremium = params.callPremium + params.putPremium;
+            return {
+              delta: 0,
+              gamma: 0.05,
+              theta: -totalPremium / days,
+              vega: totalPremium * 0.2
+            };
+          }
+        }
+      };
+
+      // State
+      let currentStrategy = 'long-call';
+      let canvas, ctx;
+
+      // DOM Elements
+      const strategyBtns = document.querySelectorAll('.strategy-btn');
+      const strategyInputs = document.getElementById('strategy-inputs');
+      const calculateBtn = document.getElementById('calculate-btn');
+      const stockPriceInput = document.getElementById('stock-price');
+      const daysToExpInput = document.getElementById('days-to-exp');
+      const volatilityInput = document.getElementById('volatility');
+
+      // Initialize
+      window.addEventListener('DOMContentLoaded', () => {
+        canvas = document.getElementById('payoff-chart');
+        ctx = canvas.getContext('2d');
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        loadStrategy('long-call');
+        calculatePayoff();
+      });
+
+      function resizeCanvas() {
+        const container = canvas.parentElement;
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
+        if (currentStrategy) {
+          calculatePayoff();
+        }
+      }
+
+      // Strategy Selection
+      strategyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          strategyBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const strategy = btn.dataset.strategy;
+          loadStrategy(strategy);
+        });
+      });
+
+      function loadStrategy(strategyKey) {
+        currentStrategy = strategyKey;
+        const strategy = strategies[strategyKey];
+
+        // Update explanation
+        document.getElementById('strategy-name').textContent = strategy.name;
+        document.getElementById('strategy-description').textContent = strategy.description;
+        
+        const pointsList = document.getElementById('strategy-points');
+        pointsList.innerHTML = '';
+        strategy.points.forEach(point => {
+          const li = document.createElement('li');
+          li.textContent = point;
+          pointsList.appendChild(li);
+        });
+
+        // Load input fields
+        strategyInputs.innerHTML = '';
+        strategy.inputs.forEach(input => {
+          const div = document.createElement('div');
+          div.className = 'input-group';
+          div.innerHTML = `
+            <label class="input-label">${input.label}</label>
+            <input type="number" id="${input.id}" class="input-field" value="${input.value}" step="${input.step}" />
+          `;
+          strategyInputs.appendChild(div);
+        });
+
+        calculatePayoff();
+      }
+
+      // Calculate button
+      calculateBtn.addEventListener('click', calculatePayoff);
+
+      function calculatePayoff() {
+        const strategy = strategies[currentStrategy];
+        const stockPrice = parseFloat(stockPriceInput.value);
+        const days = parseFloat(daysToExpInput.value);
+        const vol = parseFloat(volatilityInput.value);
+
+        // Gather strategy parameters
+        const params = {};
+        strategy.inputs.forEach(input => {
+          const element = document.getElementById(input.id);
+          if (element) {
+            params[input.id] = parseFloat(element.value);
+          }
+        });
+
+        // Calculate payoff for range of stock prices
+        const priceRange = [];
+        const payoffs = [];
+        const minPrice = stockPrice * 0.7;
+        const maxPrice = stockPrice * 1.3;
+        const step = (maxPrice - minPrice) / 100;
+
+        for (let price = minPrice; price <= maxPrice; price += step) {
+          priceRange.push(price);
+          payoffs.push(strategy.calculate(price, params));
+        }
+
+        // Calculate metrics
+        const maxProfit = Math.max(...payoffs);
+        const maxLoss = Math.min(...payoffs);
+        
+        // Find breakeven(s)
+        const breakevens = [];
+        for (let i = 1; i < payoffs.length; i++) {
+          if ((payoffs[i-1] < 0 && payoffs[i] >= 0) || (payoffs[i-1] > 0 && payoffs[i] <= 0)) {
+            const breakeven = priceRange[i-1] + (priceRange[i] - priceRange[i-1]) * 
+              (0 - payoffs[i-1]) / (payoffs[i] - payoffs[i-1]);
+            breakevens.push(breakeven);
+          }
+        }
+
+        // Update metrics display
+        document.getElementById('max-profit').textContent = maxProfit === Infinity ? 'Unlimited' : 
+          (maxProfit >= 0 ? '+' : '') + '$' + maxProfit.toFixed(2);
+        document.getElementById('max-profit').className = 'metric-value ' + (maxProfit > 0 ? 'positive' : '');
+        
+        document.getElementById('max-loss').textContent = maxLoss === -Infinity ? 'Unlimited' : 
+          '$' + maxLoss.toFixed(2);
+        document.getElementById('max-loss').className = 'metric-value ' + (maxLoss < 0 ? 'negative' : '');
+        
+        if (breakevens.length === 0) {
+          document.getElementById('breakeven').textContent = 'None';
+        } else if (breakevens.length === 1) {
+          document.getElementById('breakeven').textContent = '$' + breakevens[0].toFixed(2);
+        } else {
+          document.getElementById('breakeven').textContent = '$' + breakevens[0].toFixed(2) + 
+            ' / $' + breakevens[breakevens.length - 1].toFixed(2);
+        }
+
+        // Calculate Greeks
+        const greeks = strategy.greeks(stockPrice, params, vol, days);
+        document.getElementById('greek-delta').textContent = greeks.delta.toFixed(3);
+        document.getElementById('greek-gamma').textContent = greeks.gamma.toFixed(3);
+        document.getElementById('greek-theta').textContent = greeks.theta.toFixed(3);
+        document.getElementById('greek-vega').textContent = greeks.vega.toFixed(3);
+
+        // Draw chart
+        drawChart(priceRange, payoffs, stockPrice, breakevens);
+      }
+
+      function drawChart(prices, payoffs, currentPrice, breakevens) {
+        const width = canvas.width;
+        const height = canvas.height;
+        const padding = 60;
+
+        // Clear canvas
+        ctx.clearRect(0, 0, width, height);
+
+        // Get theme
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const bgColor = isDark ? '#1a1a1a' : '#f9fafb';
+        const gridColor = isDark ? '#2a2a2a' : '#e5e7eb';
+        const textColor = isDark ? '#e5e7eb' : '#1f2937';
+        const profitColor = '#22c55e';
+        const lossColor = '#ef4444';
+        const zeroColor = isDark ? '#4b5563' : '#9ca3af';
+
+        // Background
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, width, height);
+
+        // Calculate scales
+        const minPrice = Math.min(...prices);
+        const maxPrice = Math.max(...prices);
+        const minPayoff = Math.min(...payoffs, 0);
+        const maxPayoff = Math.max(...payoffs, 0);
+
+        const xScale = (width - 2 * padding) / (maxPrice - minPrice);
+        const yScale = (height - 2 * padding) / (maxPayoff - minPayoff);
+
+        // Draw grid
+        ctx.strokeStyle = gridColor;
+        ctx.lineWidth = 1;
+
+        // Vertical grid lines
+        for (let i = 0; i <= 5; i++) {
+          const x = padding + (width - 2 * padding) * i / 5;
+          ctx.beginPath();
+          ctx.moveTo(x, padding);
+          ctx.lineTo(x, height - padding);
+          ctx.stroke();
+        }
+
+        // Horizontal grid lines
+        for (let i = 0; i <= 5; i++) {
+          const y = padding + (height - 2 * padding) * i / 5;
+          ctx.beginPath();
+          ctx.moveTo(padding, y);
+          ctx.lineTo(width - padding, y);
+          ctx.stroke();
+        }
+
+        // Draw zero line
+        const zeroY = height - padding - (0 - minPayoff) * yScale;
+        ctx.strokeStyle = zeroColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(padding, zeroY);
+        ctx.lineTo(width - padding, zeroY);
+        ctx.stroke();
+
+        // Draw current price line
+        const currentX = padding + (currentPrice - minPrice) * xScale;
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(currentX, padding);
+        ctx.lineTo(currentX, height - padding);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Draw payoff line
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        for (let i = 0; i < prices.length; i++) {
+          const x = padding + (prices[i] - minPrice) * xScale;
+          const y = height - padding - (payoffs[i] - minPayoff) * yScale;
+          
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        
+        // Create gradient
+        const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+        gradient.addColorStop(0, profitColor);
+        gradient.addColorStop(0.5, zeroColor);
+        gradient.addColorStop(1, lossColor);
+        ctx.strokeStyle = gradient;
+        ctx.stroke();
+
+        // Fill under curve
+        ctx.lineTo(width - padding, zeroY);
+        ctx.lineTo(padding, zeroY);
+        ctx.closePath();
+        const fillGradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+        fillGradient.addColorStop(0, profitColor + '20');
+        fillGradient.addColorStop(0.5, zeroColor + '10');
+        fillGradient.addColorStop(1, lossColor + '20');
+        ctx.fillStyle = fillGradient;
+        ctx.fill();
+
+        // Draw breakeven points
+        ctx.fillStyle = '#f59e0b';
+        breakevens.forEach(be => {
+          const x = padding + (be - minPrice) * xScale;
+          ctx.beginPath();
+          ctx.arc(x, zeroY, 5, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Labels
+        ctx.fillStyle = textColor;
+        ctx.font = '12px Inter, sans-serif';
+        ctx.textAlign = 'center';
+
+        // X-axis labels (prices)
+        for (let i = 0; i <= 5; i++) {
+          const price = minPrice + (maxPrice - minPrice) * i / 5;
+          const x = padding + (width - 2 * padding) * i / 5;
+          ctx.fillText('$' + price.toFixed(0), x, height - padding + 20);
+        }
+
+        // Y-axis labels (payoffs)
+        ctx.textAlign = 'right';
+        for (let i = 0; i <= 5; i++) {
+          const payoff = minPayoff + (maxPayoff - minPayoff) * i / 5;
+          const y = height - padding - (height - 2 * padding) * i / 5;
+          ctx.fillText('$' + payoff.toFixed(0), padding - 10, y + 4);
+        }
+
+        // Axis titles
+        ctx.textAlign = 'center';
+        ctx.font = 'bold 14px Inter, sans-serif';
+        ctx.fillText('Stock Price at Expiration', width / 2, height - 10);
+        
+        ctx.save();
+        ctx.translate(15, height / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText('Profit / Loss', 0, 0);
+        ctx.restore();
+      }
+    </script>
+  </body>
+</html>
   </body>
 </html>

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Investment IQ Challenge | Test Your Finance Knowledge | IO Innovation</title>
+    <title>
+      Investment IQ Challenge | Test Your Finance Knowledge | IO Innovation
+    </title>
     <meta
       name="description"
       content="Test your knowledge of markets, economics, valuation, and investing fundamentals. Compete on leaderboards and earn badges as you master investment concepts."
@@ -16,32 +18,62 @@
     />
     <meta name="author" content="IO Innovation" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ioinnovationfund.com/games/investment-iq.html" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/games/investment-iq.html"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/games/investment-iq.html" />
-    <meta property="og:title" content="Investment IQ Challenge | IO Innovation" />
-    <meta property="og:description" content="Test your investment knowledge with 500+ curated questions. Compete and learn!" />
-    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image.svg" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/games/investment-iq.html"
+    />
+    <meta
+      property="og:title"
+      content="Investment IQ Challenge | IO Innovation"
+    />
+    <meta
+      property="og:description"
+      content="Test your investment knowledge with 500+ curated questions. Compete and learn!"
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-FGD50Z4Y7G");
     </script>
 
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Theme Init -->
     <script src="../js/theme-init.js?v=2026050601"></script>
@@ -51,7 +83,11 @@
 
     <style>
       .game-hero {
-        background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(14, 165, 233, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 0.1),
+          rgba(14, 165, 233, 0.1)
+        );
         padding: 5rem 1.5rem 4rem;
         text-align: center;
         position: relative;
@@ -59,7 +95,11 @@
       }
 
       [data-theme="light"] .game-hero {
-        background: linear-gradient(135deg, rgba(21, 128, 61, 0.08), rgba(2, 132, 199, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(21, 128, 61, 0.08),
+          rgba(2, 132, 199, 0.08)
+        );
       }
 
       .game-icon-large {
@@ -137,7 +177,11 @@
         height: 60px;
         margin: 0 auto 1rem;
         border-radius: 12px;
-        background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(14, 165, 233, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 0.2),
+          rgba(14, 165, 233, 0.2)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -159,7 +203,11 @@
       }
 
       .notify-section {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(99, 102, 241, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(99, 102, 241, 0.05)
+        );
         padding: 4rem 1.5rem;
         text-align: center;
         margin: 4rem 0;
@@ -177,6 +225,502 @@
         font-size: 1.125rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
+      }
+
+      /* Quiz Game Styles */
+      .quiz-container {
+        max-width: 900px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .quiz-start {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      [data-theme="light"] .quiz-start {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .difficulty-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .difficulty-btn {
+        padding: 1.5rem 1rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .difficulty-btn:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-4px);
+      }
+
+      .difficulty-btn.selected {
+        border-color: var(--accent-primary);
+        background: rgba(34, 197, 94, 0.1);
+      }
+
+      .difficulty-btn h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+
+      .difficulty-btn p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin: 0;
+      }
+
+      .quiz-active {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 2rem;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      [data-theme="light"] .quiz-active {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .quiz-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .quiz-progress {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .progress-text {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--bg-secondary);
+        border-radius: 100px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #22c55e, #0ea5e9);
+        transition: width 0.5s ease;
+        border-radius: 100px;
+      }
+
+      .quiz-score {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .score-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(34, 197, 94, 0.1);
+        border-radius: 100px;
+        font-size: 1rem;
+      }
+
+      .question-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .question-category {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(99, 102, 241, 0.1);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #6366f1;
+        margin-bottom: 1.5rem;
+        width: fit-content;
+      }
+
+      .question-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
+      }
+
+      .answers-grid {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .answer-btn {
+        padding: 1.25rem 1.5rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        color: var(--text-primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .answer-btn:hover:not(.disabled) {
+        border-color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .answer-btn.selected {
+        border-color: var(--accent-primary);
+        background: rgba(34, 197, 94, 0.05);
+      }
+
+      .answer-btn.correct {
+        border-color: #22c55e;
+        background: rgba(34, 197, 94, 0.1);
+      }
+
+      .answer-btn.incorrect {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+      }
+
+      .answer-btn.disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      .answer-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: rgba(99, 102, 241, 0.1);
+        border-radius: 8px;
+        font-weight: 700;
+        color: #6366f1;
+        margin-right: 1rem;
+      }
+
+      .answer-btn.correct .answer-label {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+      }
+
+      .answer-btn.incorrect .answer-label {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+      }
+
+      .explanation {
+        padding: 1.5rem;
+        background: rgba(99, 102, 241, 0.05);
+        border-left: 4px solid #6366f1;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        display: none;
+      }
+
+      .explanation.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .explanation-title {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .explanation-text {
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .quiz-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: auto;
+      }
+
+      .quiz-results {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      [data-theme="light"] .quiz-results {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .results-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #22c55e, #0ea5e9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: #fff;
+        box-shadow: 0 8px 30px rgba(34, 197, 94, 0.3);
+      }
+
+      .results-score {
+        font-size: 4rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .results-message {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
+      }
+
+      .results-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .stat-card {
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      @media (max-width: 768px) {
+        .quiz-start,
+        .quiz-active,
+        .quiz-results {
+          padding: 2rem 1.5rem;
+        }
+
+        .question-text {
+          font-size: 1.25rem;
+        }
+
+        .quiz-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .difficulty-selector {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* Enhanced Footer Styling */
+      .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
+      }
+
+      .footer-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .footer-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a::before {
+        content: "→";
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.2s ease;
+        color: var(--accent-primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -197,7 +741,11 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
           <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -215,17 +763,156 @@
         </div>
         <h1 class="game-title">Investment IQ Challenge</h1>
         <p class="game-subtitle">
-          Test your knowledge of markets, economics, valuation, and investing fundamentals. Compete and earn badges.
+          Test your knowledge of markets, economics, valuation, and investing
+          fundamentals. Compete and earn badges.
         </p>
-        <div class="coming-soon-badge">
-          <i class="fas fa-clock"></i> Coming Soon
-        </div>
       </section>
+
+      <!-- Quiz Container -->
+      <div class="quiz-container">
+        <!-- Start Screen -->
+        <div id="quiz-start" class="quiz-start">
+          <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem">
+            Choose Your Challenge
+          </h2>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem">
+            Select a difficulty level to begin testing your investment knowledge
+          </p>
+
+          <div class="difficulty-selector">
+            <div class="difficulty-btn" data-difficulty="beginner">
+              <h3><i class="fas fa-seedling"></i> Beginner</h3>
+              <p>10 questions • Fundamental concepts</p>
+            </div>
+            <div class="difficulty-btn" data-difficulty="intermediate">
+              <h3><i class="fas fa-chart-line"></i> Intermediate</h3>
+              <p>15 questions • Market knowledge</p>
+            </div>
+            <div class="difficulty-btn" data-difficulty="advanced">
+              <h3><i class="fas fa-rocket"></i> Advanced</h3>
+              <p>20 questions • Expert topics</p>
+            </div>
+          </div>
+
+          <button id="start-quiz-btn" class="btn btn-primary btn-lg" disabled>
+            <i class="fas fa-play"></i> Start Quiz
+          </button>
+        </div>
+
+        <!-- Quiz Active Screen -->
+        <div id="quiz-active" class="quiz-active hidden">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <div class="progress-text">
+                Question <span id="current-question">1</span> of
+                <span id="total-questions">10</span>
+              </div>
+              <div class="progress-bar">
+                <div
+                  id="progress-fill"
+                  class="progress-fill"
+                  style="width: 10%"
+                ></div>
+              </div>
+            </div>
+            <div class="quiz-score">
+              <div class="score-badge">
+                <i class="fas fa-star"></i>
+                <span id="current-score">0</span> /
+                <span id="max-score">10</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-container">
+            <div id="question-category" class="question-category">
+              <i class="fas fa-tag"></i>
+              <span>Category</span>
+            </div>
+            <div id="question-text" class="question-text">
+              Question will appear here
+            </div>
+
+            <div id="answers-grid" class="answers-grid">
+              <!-- Answers will be populated by JavaScript -->
+            </div>
+
+            <div id="explanation" class="explanation">
+              <div class="explanation-title">
+                <i class="fas fa-lightbulb"></i>
+                Explanation
+              </div>
+              <div id="explanation-text" class="explanation-text"></div>
+            </div>
+
+            <div class="quiz-actions">
+              <button id="quit-btn" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Quit
+              </button>
+              <button id="next-btn" class="btn btn-primary" disabled>
+                Next Question <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="quiz-results" class="quiz-results hidden">
+          <div id="results-icon" class="results-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div id="results-score" class="results-score">85%</div>
+          <div id="results-message" class="results-message">
+            Excellent Work!
+          </div>
+
+          <div class="results-stats">
+            <div class="stat-card">
+              <div id="stat-correct" class="stat-value">8</div>
+              <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-card">
+              <div id="stat-incorrect" class="stat-value">2</div>
+              <div class="stat-label">Incorrect</div>
+            </div>
+            <div class="stat-card">
+              <div id="stat-percentage" class="stat-value">80%</div>
+              <div class="stat-label">Accuracy</div>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+              margin-top: 2rem;
+            "
+          >
+            <button id="retry-btn" class="btn btn-primary btn-lg">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+            <a href="/games.html" class="btn btn-secondary btn-lg">
+              <i class="fas fa-arrow-left"></i> Back to Games
+            </a>
+          </div>
+        </div>
+      </div>
 
       <!-- Game Content -->
       <div class="game-content">
-        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">Test Your Knowledge</h2>
-        
+        <h2
+          style="
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+          "
+        >
+          Test Your Knowledge
+        </h2>
+
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
@@ -233,7 +920,8 @@
             </div>
             <h3 class="feature-title">500+ Questions</h3>
             <p class="feature-desc">
-              Curated questions covering stocks, bonds, ETFs, valuation, economics, and market history.
+              Curated questions covering stocks, bonds, ETFs, valuation,
+              economics, and market history.
             </p>
           </div>
 
@@ -243,7 +931,8 @@
             </div>
             <h3 class="feature-title">Multiple Levels</h3>
             <p class="feature-desc">
-              Progress from beginner to advanced with difficulty levels that match your expertise.
+              Progress from beginner to advanced with difficulty levels that
+              match your expertise.
             </p>
           </div>
 
@@ -253,7 +942,8 @@
             </div>
             <h3 class="feature-title">Detailed Explanations</h3>
             <p class="feature-desc">
-              Learn from every question with comprehensive explanations and educational insights.
+              Learn from every question with comprehensive explanations and
+              educational insights.
             </p>
           </div>
 
@@ -263,25 +953,70 @@
             </div>
             <h3 class="feature-title">Leaderboards & Badges</h3>
             <p class="feature-desc">
-              Compete with others and earn achievement badges as you master investment concepts.
+              Compete with others and earn achievement badges as you master
+              investment concepts.
             </p>
           </div>
         </div>
+      </div>
 
-        <section class="notify-section">
-          <h2 class="notify-title">Get Notified When This Game Launches</h2>
-          <p class="notify-desc">
-            We're working hard to bring you the best investment education experience. Check back soon!
-          </p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="/games.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-arrow-left"></i> Back to Games
-            </a>
-            <a href="/guides.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-book-open"></i> Read Guides
-            </a>
+      <!-- How It Works Section -->
+      <div class="game-content">
+        <h2
+          style="
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+          "
+        >
+          How It Works
+        </h2>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <h3 class="feature-title">Choose Difficulty</h3>
+            <p class="feature-desc">
+              Select beginner, intermediate, or advanced to match your knowledge
+              level.
+            </p>
           </div>
-        </section>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-question-circle"></i>
+            </div>
+            <h3 class="feature-title">Answer Questions</h3>
+            <p class="feature-desc">
+              Test your knowledge across stocks, bonds, economics, and market
+              history.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="feature-title">Learn & Improve</h3>
+            <p class="feature-desc">
+              Read detailed explanations for each question to deepen your
+              understanding.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="feature-title">Track Progress</h3>
+            <p class="feature-desc">
+              See your score and accuracy to identify areas for improvement.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
 
@@ -291,7 +1026,8 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for investors.
+            Free professional financial tools and educational resources for
+            investors.
           </p>
         </div>
 
@@ -328,5 +1064,812 @@
     </footer>
 
     <script src="../js/shared-simple.js?v=2026050601"></script>
+    <script>
+      // Quiz Questions Database
+      const quizQuestions = {
+        beginner: [
+          {
+            category: "Stocks",
+            question: "What does it mean to 'buy a stock'?",
+            answers: [
+              "You're lending money to a company",
+              "You're buying a piece of ownership in a company",
+              "You're purchasing the company's products",
+              "You're investing in government bonds",
+            ],
+            correct: 1,
+            explanation:
+              "When you buy a stock, you're purchasing a small piece of ownership (equity) in that company. As a shareholder, you can benefit from the company's growth and may receive dividends.",
+          },
+          {
+            category: "Bonds",
+            question: "What is a bond?",
+            answers: [
+              "A type of stock that pays high dividends",
+              "A loan you make to a company or government",
+              "A savings account at a bank",
+              "A type of cryptocurrency",
+            ],
+            correct: 1,
+            explanation:
+              "A bond is essentially a loan that you make to a corporation or government. In return, they promise to pay you back the principal plus interest over time.",
+          },
+          {
+            category: "Diversification",
+            question: "Why is diversification important in investing?",
+            answers: [
+              "It guarantees you'll make money",
+              "It helps reduce risk by spreading investments across different assets",
+              "It's required by law",
+              "It maximizes your returns",
+            ],
+            correct: 1,
+            explanation:
+              "Diversification helps reduce risk by spreading your investments across different asset classes, sectors, and geographies. If one investment performs poorly, others may perform well, balancing your overall portfolio.",
+          },
+          {
+            category: "Market Basics",
+            question: "What is a bull market?",
+            answers: [
+              "A market where prices are falling",
+              "A market where prices are rising",
+              "A market that only trades livestock",
+              "A market with high volatility",
+            ],
+            correct: 1,
+            explanation:
+              "A bull market refers to a period when stock prices are rising or expected to rise. The term comes from the way a bull attacks, thrusting its horns upward.",
+          },
+          {
+            category: "Investing Basics",
+            question: "What does P/E ratio stand for?",
+            answers: [
+              "Profit/Equity ratio",
+              "Price/Earnings ratio",
+              "Performance/Efficiency ratio",
+              "Principal/Expense ratio",
+            ],
+            correct: 1,
+            explanation:
+              "P/E ratio stands for Price-to-Earnings ratio. It's calculated by dividing the stock's current price by its earnings per share, helping investors determine if a stock is over or undervalued.",
+          },
+          {
+            category: "Market Basics",
+            question: "What is an ETF?",
+            answers: [
+              "Electronic Transfer Fund",
+              "Exchange Traded Fund",
+              "Equity Trading Facility",
+              "Emergency Trust Fund",
+            ],
+            correct: 1,
+            explanation:
+              "An ETF (Exchange Traded Fund) is a basket of securities that trades on an exchange like a stock. ETFs can contain stocks, bonds, commodities, or a mix of assets, providing instant diversification.",
+          },
+          {
+            category: "Risk & Return",
+            question:
+              "What is the relationship between risk and return in investing?",
+            answers: [
+              "Higher risk typically means lower potential returns",
+              "Higher risk typically means higher potential returns",
+              "Risk and return are unrelated",
+              "Risk eliminates all returns",
+            ],
+            correct: 1,
+            explanation:
+              "Generally, investments with higher risk offer the potential for higher returns to compensate investors for taking on that additional risk. However, higher risk also means greater potential for losses.",
+          },
+          {
+            category: "Dividends",
+            question: "What is a dividend?",
+            answers: [
+              "A fee charged by brokers",
+              "A payment made by a company to shareholders",
+              "The difference between buy and sell price",
+              "A type of bond",
+            ],
+            correct: 1,
+            explanation:
+              "A dividend is a portion of a company's earnings paid out to shareholders, usually quarterly. It's a way for companies to share profits with investors who own their stock.",
+          },
+          {
+            category: "Market Orders",
+            question: "What is a market order?",
+            answers: [
+              "An order to buy/sell at a specific price",
+              "An order to buy/sell immediately at current market price",
+              "An order that expires after one day",
+              "An order to buy only when price drops",
+            ],
+            correct: 1,
+            explanation:
+              "A market order instructs your broker to buy or sell a security immediately at the best available current price. It prioritizes speed of execution over price.",
+          },
+          {
+            category: "Index Funds",
+            question: "What is the S&P 500?",
+            answers: [
+              "A savings account with 500% interest",
+              "An index of 500 large US companies",
+              "A type of bond with 500-year maturity",
+              "A stock trading at $500 per share",
+            ],
+            correct: 1,
+            explanation:
+              "The S&P 500 is a stock market index that tracks the performance of 500 of the largest publicly traded companies in the United States. It's widely used as a benchmark for the overall US stock market.",
+          },
+        ],
+        intermediate: [
+          {
+            category: "Valuation",
+            question:
+              "A company with a P/E ratio of 25 compared to industry average of 15 is likely:",
+            answers: [
+              "Undervalued",
+              "Overvalued or expected to grow faster",
+              "Bankrupt",
+              "Paying high dividends",
+            ],
+            correct: 1,
+            explanation:
+              "A P/E ratio higher than the industry average suggests the stock may be overvalued, or investors expect higher growth rates. It means investors are willing to pay more for each dollar of earnings.",
+          },
+          {
+            category: "Options",
+            question:
+              "What gives you the right, but not obligation, to buy a stock at a specific price?",
+            answers: [
+              "Put option",
+              "Call option",
+              "Stop-loss order",
+              "Limit order",
+            ],
+            correct: 1,
+            explanation:
+              "A call option gives you the right (but not the obligation) to buy a stock at a predetermined price (strike price) before a specific date. This differs from a put option, which gives you the right to sell.",
+          },
+          {
+            category: "Market Cap",
+            question: "What is market capitalization?",
+            answers: [
+              "The total debt of a company",
+              "Share price multiplied by total shares outstanding",
+              "The maximum the market can grow",
+              "Annual revenue of a company",
+            ],
+            correct: 1,
+            explanation:
+              "Market capitalization is calculated by multiplying the current stock price by the total number of outstanding shares. It represents the total market value of a company's equity.",
+          },
+          {
+            category: "Fixed Income",
+            question: "What happens to bond prices when interest rates rise?",
+            answers: [
+              "Bond prices rise",
+              "Bond prices fall",
+              "Bond prices stay the same",
+              "Bonds are cancelled",
+            ],
+            correct: 1,
+            explanation:
+              "Bond prices and interest rates have an inverse relationship. When interest rates rise, existing bonds with lower rates become less attractive, causing their prices to fall.",
+          },
+          {
+            category: "Financial Statements",
+            question:
+              "Which financial statement shows a company's profitability over a period?",
+            answers: [
+              "Balance Sheet",
+              "Income Statement",
+              "Cash Flow Statement",
+              "Statement of Shareholders' Equity",
+            ],
+            correct: 1,
+            explanation:
+              "The Income Statement (also called Profit & Loss Statement) shows revenues, expenses, and profits over a specific period, revealing how profitable a company was during that time.",
+          },
+          {
+            category: "Investing Strategy",
+            question: "What is dollar-cost averaging?",
+            answers: [
+              "Buying stocks only when they're cheap",
+              "Investing a fixed amount regularly regardless of price",
+              "Converting dollars to other currencies",
+              "Calculating average stock prices",
+            ],
+            correct: 1,
+            explanation:
+              "Dollar-cost averaging involves investing a fixed dollar amount at regular intervals, regardless of the asset's price. This strategy helps reduce the impact of volatility by buying more shares when prices are low and fewer when prices are high.",
+          },
+          {
+            category: "Market Indicators",
+            question: "What does the VIX measure?",
+            answers: [
+              "Average stock price",
+              "Market volatility and fear",
+              "Trading volume",
+              "Interest rates",
+            ],
+            correct: 1,
+            explanation:
+              "The VIX (Volatility Index) measures expected market volatility and is often called the 'fear gauge.' A high VIX indicates investors expect significant market fluctuations.",
+          },
+          {
+            category: "Portfolio Management",
+            question: "What is rebalancing a portfolio?",
+            answers: [
+              "Selling all losing positions",
+              "Adjusting holdings back to target allocation percentages",
+              "Moving everything to cash",
+              "Buying only winning stocks",
+            ],
+            correct: 1,
+            explanation:
+              "Rebalancing involves periodically buying or selling assets in your portfolio to maintain your desired asset allocation. If stocks have grown to represent 80% of your portfolio but your target is 60%, you'd sell some stocks and buy other assets.",
+          },
+          {
+            category: "Dividends",
+            question: "What is dividend yield?",
+            answers: [
+              "Total dividends paid per year",
+              "Annual dividends divided by stock price",
+              "Number of dividend payments per year",
+              "Company's profit margin",
+            ],
+            correct: 1,
+            explanation:
+              "Dividend yield is calculated by dividing the annual dividend per share by the stock's current price. It shows the percentage return from dividends alone, helping investors compare income potential across stocks.",
+          },
+          {
+            category: "Risk Management",
+            question: "What is a stop-loss order?",
+            answers: [
+              "An order to buy more when price drops",
+              "An order to sell when price falls to a certain level",
+              "An order that never expires",
+              "An order to lock in profits",
+            ],
+            correct: 1,
+            explanation:
+              "A stop-loss order automatically sells a security when it reaches a specified price, helping limit potential losses. It's a risk management tool that protects against significant downside moves.",
+          },
+          {
+            category: "Corporate Actions",
+            question: "What is a stock split?",
+            answers: [
+              "Dividing the company into two separate entities",
+              "Increasing the number of shares while reducing price proportionally",
+              "Selling half your shares",
+              "Paying a special dividend",
+            ],
+            correct: 1,
+            explanation:
+              "In a stock split, a company increases the number of shares outstanding by issuing more shares to current shareholders. In a 2-for-1 split, you'd get 2 shares for each 1 you owned, but each new share would be worth half the old price.",
+          },
+          {
+            category: "Economics",
+            question: "What does GDP measure?",
+            answers: [
+              "Government debt percentage",
+              "Total value of goods and services produced in a country",
+              "Stock market performance",
+              "Unemployment rate",
+            ],
+            correct: 1,
+            explanation:
+              "GDP (Gross Domestic Product) measures the total monetary value of all finished goods and services produced within a country during a specific period. It's a key indicator of economic health.",
+          },
+          {
+            category: "Market Efficiency",
+            question: "What does the Efficient Market Hypothesis suggest?",
+            answers: [
+              "Markets are always inefficient",
+              "Stock prices reflect all available information",
+              "Technical analysis always works",
+              "Markets never change prices",
+            ],
+            correct: 1,
+            explanation:
+              "The Efficient Market Hypothesis suggests that stock prices fully reflect all available information, making it difficult to consistently beat the market through stock picking or market timing.",
+          },
+          {
+            category: "Asset Classes",
+            question: "What are REITs?",
+            answers: [
+              "Retirement Investment Trust Services",
+              "Real Estate Investment Trusts",
+              "Renewable Energy Investment Teams",
+              "Risk Evaluation Index Tools",
+            ],
+            correct: 1,
+            explanation:
+              "REITs (Real Estate Investment Trusts) are companies that own, operate, or finance income-producing real estate. They allow investors to invest in real estate without directly owning properties.",
+          },
+          {
+            category: "Valuation",
+            question: "What is book value?",
+            answers: [
+              "The price written in accounting books",
+              "Total assets minus total liabilities",
+              "Annual sales revenue",
+              "Market capitalization",
+            ],
+            correct: 1,
+            explanation:
+              "Book value represents a company's net worth as shown on its balance sheet—total assets minus total liabilities. Price-to-book ratio compares market value to book value.",
+          },
+        ],
+        advanced: [
+          {
+            category: "Options Greeks",
+            question: "What does 'Delta' measure in options trading?",
+            answers: [
+              "Time decay of an option",
+              "Rate of change in option price relative to stock price",
+              "Volatility impact on option price",
+              "Interest rate sensitivity",
+            ],
+            correct: 1,
+            explanation:
+              "Delta measures how much an option's price is expected to change for every $1 move in the underlying stock. A delta of 0.5 means the option price should move $0.50 for every $1 move in the stock.",
+          },
+          {
+            category: "Fixed Income",
+            question: "What is duration in bond investing?",
+            answers: [
+              "How long until the bond matures",
+              "Measure of interest rate sensitivity",
+              "The bond's credit rating period",
+              "Time between coupon payments",
+            ],
+            correct: 1,
+            explanation:
+              "Duration measures a bond's sensitivity to interest rate changes. A duration of 5 means if interest rates rise 1%, the bond's price should fall approximately 5%. It's more nuanced than simple maturity.",
+          },
+          {
+            category: "Portfolio Theory",
+            question: "What does the Sharpe Ratio measure?",
+            answers: [
+              "Total return of an investment",
+              "Risk-adjusted return",
+              "Correlation between assets",
+              "Market volatility",
+            ],
+            correct: 1,
+            explanation:
+              "The Sharpe Ratio measures risk-adjusted returns by comparing an investment's excess return over the risk-free rate to its standard deviation. Higher Sharpe ratios indicate better risk-adjusted performance.",
+          },
+          {
+            category: "Market Microstructure",
+            question: "What is the bid-ask spread?",
+            answers: [
+              "Difference between opening and closing price",
+              "Difference between highest buy and lowest sell orders",
+              "Range of prices during the day",
+              "Broker's commission fee",
+            ],
+            correct: 1,
+            explanation:
+              "The bid-ask spread is the difference between the highest price a buyer is willing to pay (bid) and the lowest price a seller will accept (ask). Tighter spreads indicate higher liquidity.",
+          },
+          {
+            category: "Corporate Finance",
+            question: "What is ROIC?",
+            answers: [
+              "Rate of Income Change",
+              "Return on Invested Capital",
+              "Ratio of International Commerce",
+              "Revenue Over Interest Costs",
+            ],
+            correct: 1,
+            explanation:
+              "ROIC (Return on Invested Capital) measures how efficiently a company generates profits from its capital. It's calculated as NOPAT divided by invested capital, showing how well management deploys shareholder money.",
+          },
+          {
+            category: "Derivatives",
+            question: "What is an iron condor in options trading?",
+            answers: [
+              "A single call option",
+              "A four-leg options strategy with defined risk and reward",
+              "A type of futures contract",
+              "A covered call position",
+            ],
+            correct: 1,
+            explanation:
+              "An iron condor combines a bull put spread and a bear call spread. It profits from low volatility when the stock price stays within a range, with limited risk and limited profit potential.",
+          },
+          {
+            category: "Valuation",
+            question: "What is DCF valuation?",
+            answers: [
+              "Dividend Capitalization Formula",
+              "Discounted Cash Flow - projecting and discounting future cash flows",
+              "Direct Company Financing",
+              "Diversified Capital Funding",
+            ],
+            correct: 1,
+            explanation:
+              "DCF (Discounted Cash Flow) values a company by projecting future cash flows and discounting them to present value using an appropriate discount rate. It's based on the principle that money today is worth more than money tomorrow.",
+          },
+          {
+            category: "Hedge Strategies",
+            question: "What is a protective put?",
+            answers: [
+              "Selling puts to generate income",
+              "Buying puts on stock you own to limit downside",
+              "Writing covered calls",
+              "Shorting a stock",
+            ],
+            correct: 1,
+            explanation:
+              "A protective put involves buying put options on stocks you own. It's like buying insurance—if the stock falls below the strike price, the put gains value, offsetting your stock losses.",
+          },
+          {
+            category: "Market Anomalies",
+            question: "What is the momentum effect?",
+            answers: [
+              "Stocks always revert to the mean",
+              "Past winners tend to continue outperforming",
+              "Volume predicts price direction",
+              "Markets move in random walks",
+            ],
+            correct: 1,
+            explanation:
+              "The momentum effect is the tendency for stocks that have performed well in the recent past to continue performing well in the near future, and vice versa for poor performers. This challenges the efficient market hypothesis.",
+          },
+          {
+            category: "Risk Metrics",
+            question: "What does Beta measure?",
+            answers: [
+              "Absolute risk of a stock",
+              "Volatility relative to the market",
+              "Expected return",
+              "Dividend payout ratio",
+            ],
+            correct: 1,
+            explanation:
+              "Beta measures a stock's volatility relative to the overall market (usually the S&P 500). A beta of 1.5 means the stock is 50% more volatile than the market; 0.5 means it's half as volatile.",
+          },
+          {
+            category: "Alternative Investments",
+            question: "What is a hedge fund's '2 and 20' fee structure?",
+            answers: [
+              "2% minimum return and 20% maximum return",
+              "2% annual management fee and 20% of profits",
+              "2% entry fee and 20% exit fee",
+              "Invest 2% cash and 20% stocks",
+            ],
+            correct: 1,
+            explanation:
+              "The '2 and 20' structure means the hedge fund charges a 2% annual management fee on assets under management, plus a 20% performance fee on any profits generated.",
+          },
+          {
+            category: "Fixed Income",
+            question: "What is convexity in bond pricing?",
+            answers: [
+              "The shape of a bond certificate",
+              "Measure of how duration changes as interest rates change",
+              "Bond's credit quality curve",
+              "Yield curve steepness",
+            ],
+            correct: 1,
+            explanation:
+              "Convexity measures how the duration of a bond changes as interest rates change. It's the second derivative of bond price with respect to yield, capturing the non-linear relationship between bond prices and yields.",
+          },
+          {
+            category: "Market Structure",
+            question: "What is high-frequency trading (HFT)?",
+            answers: [
+              "Trading stocks very frequently by individual investors",
+              "Using algorithms and powerful computers to execute trades in microseconds",
+              "Day trading with high leverage",
+              "Trading options with short expiration dates",
+            ],
+            correct: 1,
+            explanation:
+              "HFT uses sophisticated algorithms and ultra-fast computers to execute thousands of orders in fractions of a second, often profiting from tiny price discrepancies that exist for milliseconds.",
+          },
+          {
+            category: "Corporate Finance",
+            question: "What is the Modigliani-Miller theorem?",
+            answers: [
+              "A stock valuation method",
+              "Capital structure is irrelevant to firm value (under certain assumptions)",
+              "Options pricing formula",
+              "Portfolio optimization theory",
+            ],
+            correct: 1,
+            explanation:
+              "The Modigliani-Miller theorem states that, under certain assumptions (no taxes, bankruptcy costs, or asymmetric information), a company's value is unaffected by how it's financed (debt vs. equity).",
+          },
+          {
+            category: "Behavioral Finance",
+            question: "What is loss aversion?",
+            answers: [
+              "Avoiding all risky investments",
+              "Feeling losses more intensely than equivalent gains",
+              "Selling losers and keeping winners",
+              "Diversifying to prevent losses",
+            ],
+            correct: 1,
+            explanation:
+              "Loss aversion is the psychological principle that people feel the pain of losses about twice as intensely as the pleasure of equivalent gains. This can lead to irrational investment decisions, like holding onto losing positions too long.",
+          },
+          {
+            category: "Derivatives",
+            question: "What is implied volatility?",
+            answers: [
+              "Historical price volatility",
+              "Market's expectation of future volatility derived from option prices",
+              "Volatility of the VIX",
+              "Standard deviation of returns",
+            ],
+            correct: 1,
+            explanation:
+              "Implied volatility is the market's forecast of future price movement, derived from option prices. High implied volatility means options are expensive because traders expect big price swings.",
+          },
+          {
+            category: "Factor Investing",
+            question: "What is the Fama-French Three-Factor Model?",
+            answers: [
+              "A stock screening tool",
+              "Model explaining returns using market, size, and value factors",
+              "Bond pricing formula",
+              "Economic forecasting model",
+            ],
+            correct: 1,
+            explanation:
+              "The Fama-French Three-Factor Model expands on CAPM by adding size (small vs. large cap) and value (high vs. low book-to-market) factors to explain stock returns beyond just market risk.",
+          },
+          {
+            category: "Market Efficiency",
+            question: "What is statistical arbitrage?",
+            answers: [
+              "Buying and selling the same stock on different exchanges",
+              "Exploiting statistical mispricing using quantitative models",
+              "Government statistical manipulation",
+              "Arbitrating disputes between traders",
+            ],
+            correct: 1,
+            explanation:
+              "Statistical arbitrage (stat arb) uses quantitative models to identify and exploit temporary mispricings between related securities, often using pairs trading and mean reversion strategies.",
+          },
+          {
+            category: "Risk Management",
+            question: "What is Value at Risk (VaR)?",
+            answers: [
+              "The intrinsic value of a stock",
+              "Maximum expected loss over a time period at a given confidence level",
+              "Ratio of value to risk",
+              "Value of risky assets",
+            ],
+            correct: 1,
+            explanation:
+              "VaR estimates the maximum loss a portfolio might suffer over a specified time period at a given confidence level. For example, a 1-day VaR of $1M at 95% confidence means there's a 5% chance of losing more than $1M in a day.",
+          },
+          {
+            category: "Market Indicators",
+            question: "What does an inverted yield curve signal?",
+            answers: [
+              "Inflation is falling",
+              "Possible economic recession ahead",
+              "Stock market will rise",
+              "Interest rates will stay stable",
+            ],
+            correct: 1,
+            explanation:
+              "An inverted yield curve (when short-term rates exceed long-term rates) has historically preceded recessions. It suggests investors expect economic slowdown, leading to lower future rates.",
+          },
+        ],
+      };
+
+      // Game State
+      let currentDifficulty = null;
+      let currentQuestions = [];
+      let currentQuestionIndex = 0;
+      let score = 0;
+      let hasAnswered = false;
+
+      // DOM Elements
+      const quizStart = document.getElementById("quiz-start");
+      const quizActive = document.getElementById("quiz-active");
+      const quizResults = document.getElementById("quiz-results");
+      const difficultyBtns = document.querySelectorAll(".difficulty-btn");
+      const startQuizBtn = document.getElementById("start-quiz-btn");
+      const nextBtn = document.getElementById("next-btn");
+      const quitBtn = document.getElementById("quit-btn");
+      const retryBtn = document.getElementById("retry-btn");
+
+      // Difficulty Selection
+      difficultyBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          difficultyBtns.forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          currentDifficulty = btn.dataset.difficulty;
+          startQuizBtn.disabled = false;
+        });
+      });
+
+      // Start Quiz
+      startQuizBtn.addEventListener("click", startQuiz);
+
+      function startQuiz() {
+        // Shuffle and select questions
+        const allQuestions = [...quizQuestions[currentDifficulty]];
+        currentQuestions = shuffleArray(allQuestions);
+
+        currentQuestionIndex = 0;
+        score = 0;
+        hasAnswered = false;
+
+        // Update UI
+        quizStart.classList.add("hidden");
+        quizActive.classList.remove("hidden");
+        quizResults.classList.add("hidden");
+
+        document.getElementById("total-questions").textContent =
+          currentQuestions.length;
+        document.getElementById("max-score").textContent =
+          currentQuestions.length;
+
+        loadQuestion();
+      }
+
+      function loadQuestion() {
+        const question = currentQuestions[currentQuestionIndex];
+        hasAnswered = false;
+
+        // Update header
+        document.getElementById("current-question").textContent =
+          currentQuestionIndex + 1;
+        document.getElementById("current-score").textContent = score;
+
+        const progress =
+          ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+        document.getElementById("progress-fill").style.width = progress + "%";
+
+        // Update question
+        document.getElementById("question-category").innerHTML = `
+          <i class="fas fa-tag"></i>
+          <span>${question.category}</span>
+        `;
+        document.getElementById("question-text").textContent =
+          question.question;
+
+        // Clear and populate answers
+        const answersGrid = document.getElementById("answers-grid");
+        answersGrid.innerHTML = "";
+
+        question.answers.forEach((answer, index) => {
+          const button = document.createElement("button");
+          button.className = "answer-btn";
+          button.innerHTML = `
+            <span class="answer-label">${String.fromCharCode(65 + index)}</span>
+            ${answer}
+          `;
+          button.addEventListener("click", () => selectAnswer(index));
+          answersGrid.appendChild(button);
+        });
+
+        // Hide explanation and disable next
+        document.getElementById("explanation").classList.remove("show");
+        nextBtn.disabled = true;
+      }
+
+      function selectAnswer(selectedIndex) {
+        if (hasAnswered) return;
+        hasAnswered = true;
+
+        const question = currentQuestions[currentQuestionIndex];
+        const answerBtns = document.querySelectorAll(".answer-btn");
+        const isCorrect = selectedIndex === question.correct;
+
+        // Update score
+        if (isCorrect) {
+          score++;
+          document.getElementById("current-score").textContent = score;
+        }
+
+        // Show correct/incorrect
+        answerBtns.forEach((btn, index) => {
+          btn.classList.add("disabled");
+          if (index === question.correct) {
+            btn.classList.add("correct");
+          } else if (index === selectedIndex && !isCorrect) {
+            btn.classList.add("incorrect");
+          }
+        });
+
+        // Show explanation
+        document.getElementById("explanation-text").textContent =
+          question.explanation;
+        document.getElementById("explanation").classList.add("show");
+
+        // Enable next button
+        nextBtn.disabled = false;
+      }
+
+      // Next Question
+      nextBtn.addEventListener("click", () => {
+        if (currentQuestionIndex < currentQuestions.length - 1) {
+          currentQuestionIndex++;
+          loadQuestion();
+        } else {
+          showResults();
+        }
+      });
+
+      // Quit Quiz
+      quitBtn.addEventListener("click", () => {
+        if (
+          confirm("Are you sure you want to quit? Your progress will be lost.")
+        ) {
+          resetQuiz();
+        }
+      });
+
+      // Retry Quiz
+      retryBtn.addEventListener("click", resetQuiz);
+
+      function showResults() {
+        quizActive.classList.add("hidden");
+        quizResults.classList.remove("hidden");
+
+        const percentage = Math.round((score / currentQuestions.length) * 100);
+        const correct = score;
+        const incorrect = currentQuestions.length - score;
+
+        // Update results
+        document.getElementById("results-score").textContent = percentage + "%";
+        document.getElementById("stat-correct").textContent = correct;
+        document.getElementById("stat-incorrect").textContent = incorrect;
+        document.getElementById("stat-percentage").textContent =
+          percentage + "%";
+
+        // Update message and icon based on performance
+        let message, icon;
+        if (percentage >= 90) {
+          message = "Outstanding! 🎉";
+          icon = '<i class="fas fa-trophy"></i>';
+        } else if (percentage >= 70) {
+          message = "Great Job! 👏";
+          icon = '<i class="fas fa-star"></i>';
+        } else if (percentage >= 50) {
+          message = "Good Effort! 📈";
+          icon = '<i class="fas fa-chart-line"></i>';
+        } else {
+          message = "Keep Learning! 📚";
+          icon = '<i class="fas fa-book"></i>';
+        }
+
+        document.getElementById("results-message").textContent = message;
+        document.getElementById("results-icon").innerHTML = icon;
+      }
+
+      function resetQuiz() {
+        currentDifficulty = null;
+        currentQuestions = [];
+        currentQuestionIndex = 0;
+        score = 0;
+        hasAnswered = false;
+
+        quizActive.classList.add("hidden");
+        quizResults.classList.add("hidden");
+        quizStart.classList.remove("hidden");
+
+        difficultyBtns.forEach((b) => b.classList.remove("selected"));
+        startQuizBtn.disabled = true;
+      }
+
+      function shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      }
+    </script>
   </body>
 </html>

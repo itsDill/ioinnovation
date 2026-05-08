@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Market Crash Survival Game | Crisis Management Practice | IO Innovation</title>
+    <title>
+      Market Crash Survival Game | Crisis Management Practice | IO Innovation
+    </title>
     <meta
       name="description"
       content="Navigate through historical market crashes and black swan events. Learn crisis management, hedging strategies, and how to protect your portfolio during extreme volatility."
@@ -16,32 +18,62 @@
     />
     <meta name="author" content="IO Innovation" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ioinnovationfund.com/games/market-crash.html" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/games/market-crash.html"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/games/market-crash.html" />
-    <meta property="og:title" content="Market Crash Survival Game | IO Innovation" />
-    <meta property="og:description" content="Learn to survive market crashes. Practice crisis management and portfolio protection strategies." />
-    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image.svg" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/games/market-crash.html"
+    />
+    <meta
+      property="og:title"
+      content="Market Crash Survival Game | IO Innovation"
+    />
+    <meta
+      property="og:description"
+      content="Learn to survive market crashes. Practice crisis management and portfolio protection strategies."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-FGD50Z4Y7G");
     </script>
 
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Theme Init -->
     <script src="../js/theme-init.js?v=2026050601"></script>
@@ -51,7 +83,11 @@
 
     <style>
       .game-hero {
-        background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(239, 68, 68, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.1),
+          rgba(239, 68, 68, 0.1)
+        );
         padding: 5rem 1.5rem 4rem;
         text-align: center;
         position: relative;
@@ -59,7 +95,11 @@
       }
 
       [data-theme="light"] .game-hero {
-        background: linear-gradient(135deg, rgba(219, 39, 119, 0.08), rgba(220, 38, 38, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(219, 39, 119, 0.08),
+          rgba(220, 38, 38, 0.08)
+        );
       }
 
       .game-icon-large {
@@ -137,7 +177,11 @@
         height: 60px;
         margin: 0 auto 1rem;
         border-radius: 12px;
-        background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(239, 68, 68, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.2),
+          rgba(239, 68, 68, 0.2)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -159,7 +203,11 @@
       }
 
       .notify-section {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(99, 102, 241, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(99, 102, 241, 0.05)
+        );
         padding: 4rem 1.5rem;
         text-align: center;
         margin: 4rem 0;
@@ -177,6 +225,607 @@
         font-size: 1.125rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
+      }
+
+      /* Game Styles */
+      .game-container {
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .scenario-select {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+      }
+
+      [data-theme="light"] .scenario-select {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .scenario-card {
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .scenario-card:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-4px);
+      }
+
+      .scenario-card.selected {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.05);
+      }
+
+      .scenario-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1rem;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(236, 72, 153, 0.2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #ef4444;
+      }
+
+      .scenario-year {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .scenario-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+      }
+
+      .scenario-impact {
+        font-size: 0.9rem;
+        color: #ef4444;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .scenario-desc {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .game-active {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 2rem;
+        min-height: 600px;
+      }
+
+      [data-theme="light"] .game-active {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .game-header {
+        margin-bottom: 2rem;
+      }
+
+      .portfolio-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-box {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
+
+      .stat-value.positive {
+        color: #22c55e;
+      }
+
+      .stat-value.negative {
+        color: #ef4444;
+      }
+
+      .stat-change {
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
+        font-weight: 600;
+      }
+
+      .timeline {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-phase {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .timeline-date {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 8px;
+        background: var(--bg-card);
+        border-radius: 100px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      .progress-track-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ef4444, #f59e0b);
+        transition: width 0.5s ease;
+        border-radius: 100px;
+      }
+
+      .phase-markers {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+      }
+
+      .scenario-context {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(236, 72, 153, 0.05));
+        border-left: 4px solid #ef4444;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .context-title {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .context-text {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .market-data {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .market-stat {
+        text-align: center;
+      }
+
+      .market-stat-label {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+      }
+
+      .market-stat-value {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      .decision-prompt {
+        margin-bottom: 2rem;
+      }
+
+      .decision-question {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .decision-options {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .decision-btn {
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .decision-btn:hover:not(.disabled) {
+        border-color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .decision-btn.selected {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.05);
+      }
+
+      .decision-btn.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .decision-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: rgba(239, 68, 68, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: #ef4444;
+        flex-shrink: 0;
+      }
+
+      .decision-content {
+        flex: 1;
+      }
+
+      .decision-title {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .decision-desc {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .outcome-section {
+        background: rgba(99, 102, 241, 0.05);
+        border-left: 4px solid #6366f1;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        display: none;
+      }
+
+      .outcome-section.show {
+        display: block;
+        animation: slideDown 0.4s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .outcome-title {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .outcome-text {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .game-results {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      [data-theme="light"] .game-results {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .results-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: #fff;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .results-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+
+      .results-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .result-card {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.5rem;
+      }
+
+      .result-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .result-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .performance-analysis {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .analysis-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .analysis-points {
+        list-style: none;
+        padding: 0;
+      }
+
+      .analysis-points li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .analysis-points li:last-child {
+        border-bottom: none;
+      }
+
+      .analysis-points li::before {
+        content: "•";
+        color: var(--accent-primary);
+        font-weight: bold;
+        margin-right: 0.75rem;
+      }
+
+      @media (max-width: 768px) {
+        .scenario-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-stats,
+        .results-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .decision-btn {
+          flex-direction: column;
+        }
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* Enhanced Footer Styling */
+      .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
+      }
+
+      .footer-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .footer-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a::before {
+        content: "→";
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.2s ease;
+        color: var(--accent-primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -197,7 +846,11 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
           <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -215,73 +868,265 @@
         </div>
         <h1 class="game-title">Market Crash Survival</h1>
         <p class="game-subtitle">
-          Navigate through historical market crashes and black swan events. Learn crisis management and portfolio protection.
+          Navigate through historical market crashes and black swan events.
+          Learn crisis management and portfolio protection.
         </p>
-        <div class="coming-soon-badge">
-          <i class="fas fa-clock"></i> Coming Soon
-        </div>
       </section>
 
-      <!-- Game Content -->
+      <!-- Game Container -->
+      <div class="game-container">
+        <!-- Scenario Selection -->
+        <div id="scenario-select" class="scenario-select">
+          <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+            Choose Your Crisis
+          </h2>
+          <p style="color: var(--text-secondary); text-align: center; margin-bottom: 2rem;">
+            Select a historical market crash to navigate. Can you survive better than most investors did?
+          </p>
+          
+          <div class="scenario-grid">
+            <div class="scenario-card" data-scenario="black-monday">
+              <div class="scenario-icon">
+                <i class="fas fa-calendar-times"></i>
+              </div>
+              <div class="scenario-year">October 1987</div>
+              <div class="scenario-name">Black Monday</div>
+              <div class="scenario-impact">-22.6% in one day</div>
+              <p class="scenario-desc">
+                The largest single-day percentage decline in stock market history
+              </p>
+            </div>
+
+            <div class="scenario-card" data-scenario="dotcom">
+              <div class="scenario-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="scenario-year">March 2000</div>
+              <div class="scenario-name">Dot-com Bubble</div>
+              <div class="scenario-impact">-78% tech stocks</div>
+              <p class="scenario-desc">
+                The collapse of overvalued internet and tech companies
+              </p>
+            </div>
+
+            <div class="scenario-card" data-scenario="financial-crisis">
+              <div class="scenario-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="scenario-year">September 2008</div>
+              <div class="scenario-name">Financial Crisis</div>
+              <div class="scenario-impact">-57% total decline</div>
+              <p class="scenario-desc">
+                Global banking collapse triggered by subprime mortgages
+              </p>
+            </div>
+
+            <div class="scenario-card" data-scenario="covid">
+              <div class="scenario-icon">
+                <i class="fas fa-virus"></i>
+              </div>
+              <div class="scenario-year">March 2020</div>
+              <div class="scenario-name">COVID-19 Crash</div>
+              <div class="scenario-impact">-34% in 33 days</div>
+              <p class="scenario-desc">
+                Pandemic-triggered fastest bear market in history
+              </p>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 2rem;">
+            <button id="start-game-btn" class="btn btn-primary btn-lg" disabled>
+              <i class="fas fa-play"></i> Begin Scenario
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Game -->
+        <div id="game-active" class="game-active hidden">
+          <!-- Portfolio Stats -->
+          <div class="portfolio-stats">
+            <div class="stat-box">
+              <div class="stat-label">Portfolio Value</div>
+              <div id="portfolio-value" class="stat-value">$100,000</div>
+              <div id="portfolio-change" class="stat-change">--</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Cash Position</div>
+              <div id="cash-position" class="stat-value">$0</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Market Benchmark</div>
+              <div id="market-value" class="stat-value">$100,000</div>
+              <div id="market-change" class="stat-change">--</div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="timeline">
+            <div class="timeline-header">
+              <div class="timeline-phase" id="current-phase">Loading...</div>
+              <div class="timeline-date" id="current-date">--</div>
+            </div>
+            <div class="progress-track">
+              <div id="phase-progress" class="progress-track-fill" style="width: 0%"></div>
+            </div>
+            <div class="phase-markers">
+              <span>Start</span>
+              <span id="phase-marker">--</span>
+              <span>Recovery</span>
+            </div>
+          </div>
+
+          <!-- Scenario Context -->
+          <div class="scenario-context">
+            <div class="context-title">
+              <i class="fas fa-newspaper"></i>
+              <span id="context-title">Market Update</span>
+            </div>
+            <div id="context-text" class="context-text">
+              Loading scenario context...
+            </div>
+            <div class="market-data">
+              <div class="market-stat">
+                <div class="market-stat-label">S&P 500</div>
+                <div id="sp500-change" class="market-stat-value">--</div>
+              </div>
+              <div class="market-stat">
+                <div class="market-stat-label">VIX</div>
+                <div id="vix-value" class="market-stat-value">--</div>
+              </div>
+              <div class="market-stat">
+                <div class="market-stat-label">10Y Treasury</div>
+                <div id="treasury-value" class="market-stat-value">--</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decision Prompt -->
+          <div class="decision-prompt">
+            <div class="decision-question" id="decision-question">
+              What will you do?
+            </div>
+            <div class="decision-options" id="decision-options">
+              <!-- Options will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Outcome -->
+          <div id="outcome-section" class="outcome-section">
+            <div class="outcome-title">
+              <i class="fas fa-info-circle"></i>
+              <span>Outcome</span>
+            </div>
+            <div id="outcome-text" class="outcome-text"></div>
+          </div>
+
+          <!-- Game Actions -->
+          <div style="display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem;">
+            <button id="quit-game-btn" class="btn btn-secondary">
+              <i class="fas fa-times"></i> Quit
+            </button>
+            <button id="next-phase-btn" class="btn btn-primary" disabled>
+              Continue <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="game-results" class="game-results hidden">
+          <div id="results-icon-container" class="results-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="results-title" id="results-title">Crisis Survived!</div>
+          <div class="results-subtitle" id="results-subtitle">
+            Here's how your portfolio performed
+          </div>
+
+          <div class="results-grid">
+            <div class="result-card">
+              <div id="final-value" class="result-value">$85,000</div>
+              <div class="result-label">Final Portfolio</div>
+            </div>
+            <div class="result-card">
+              <div id="total-return" class="result-value">-15%</div>
+              <div class="result-label">Total Return</div>
+            </div>
+            <div class="result-card">
+              <div id="vs-market" class="result-value">+12%</div>
+              <div class="result-label">vs. Market</div>
+            </div>
+          </div>
+
+          <div class="performance-analysis">
+            <div class="analysis-title">Performance Analysis</div>
+            <ul id="analysis-points" class="analysis-points">
+              <!-- Will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+            <button id="retry-btn" class="btn btn-primary btn-lg">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+            <button id="new-scenario-btn" class="btn btn-secondary btn-lg">
+              <i class="fas fa-th"></i> New Scenario
+            </button>
+            <a href="/games.html" class="btn btn-secondary btn-lg">
+              <i class="fas fa-arrow-left"></i> Back to Games
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
       <div class="game-content">
-        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">Learn Crisis Management</h2>
-        
+      <!-- How It Works -->
+      <div class="game-content">
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+          How It Works
+        </h2>
+
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
               <i class="fas fa-history"></i>
             </div>
-            <h3 class="feature-title">Historical Crashes</h3>
+            <h3 class="feature-title">Historical Accuracy</h3>
             <p class="feature-desc">
-              Replay the 1987 crash, 2000 dot-com bubble, 2008 financial crisis, and COVID-19 market collapse.
+              Experience real market crashes with authentic data, news, and market conditions from each crisis.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-umbrella"></i>
+              <i class="fas fa-brain"></i>
             </div>
-            <h3 class="feature-title">Defensive Strategies</h3>
+            <h3 class="feature-title">Strategic Decisions</h3>
             <p class="feature-desc">
-              Learn hedging techniques, safe haven assets, and defensive positioning during volatility.
+              Make critical portfolio decisions at key moments. Hold, sell, hedge, or buy the dip.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-heartbeat"></i>
+              <i class="fas fa-chart-line"></i>
             </div>
-            <h3 class="feature-title">Stress Testing</h3>
+            <h3 class="feature-title">Track Performance</h3>
             <p class="feature-desc">
-              Test your portfolio under extreme market conditions and understand your risk exposure.
+              See how your decisions impact portfolio value compared to market benchmarks.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-chart-line-up"></i>
+              <i class="fas fa-graduation-cap"></i>
             </div>
-            <h3 class="feature-title">Recovery Tactics</h3>
+            <h3 class="feature-title">Learn & Adapt</h3>
             <p class="feature-desc">
-              Learn how to identify bottoms, dollar-cost average, and rebuild your portfolio after crashes.
+              Get detailed analysis on your choices and learn proven crisis management strategies.
             </p>
           </div>
         </div>
-
-        <section class="notify-section">
-          <h2 class="notify-title">Get Notified When This Game Launches</h2>
-          <p class="notify-desc">
-            We're working hard to bring you the best investment education experience. Check back soon!
-          </p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="/games.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-arrow-left"></i> Back to Games
-            </a>
-            <a href="/tools.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-tools"></i> Try Our Tools
-            </a>
-          </div>
-        </section>
       </div>
     </main>
 
@@ -291,7 +1136,8 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for investors.
+            Free professional financial tools and educational resources for
+            investors.
           </p>
         </div>
 
@@ -328,5 +1174,860 @@
     </footer>
 
     <script src="../js/shared-simple.js?v=2026050601"></script>
+    <script>
+      // Scenario Data
+      const scenarios = {
+        'black-monday': {
+          name: 'Black Monday 1987',
+          year: '1987',
+          initialPortfolio: 100000,
+          phases: [
+            {
+              phase: 'Early Warning',
+              date: 'October 14, 1987',
+              marketChange: -3.8,
+              vix: 25,
+              treasury: 9.5,
+              context: 'The market has been on a tear, up 40% this year. But last week saw a 9% drop. The Federal Reserve has been raising rates to combat inflation. Program trading and portfolio insurance strategies are widespread.',
+              question: 'Markets dropped 9% last week. What\'s your move?',
+              options: [
+                {
+                  title: 'Hold Everything',
+                  description: 'Stay fully invested. This is just a healthy correction in a strong bull market.',
+                  icon: 'hand-paper',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You remain fully exposed to market movements. Portfolio unchanged.'
+                },
+                {
+                  title: 'Sell 25% to Cash',
+                  description: 'Take some profits off the table and raise cash as a defensive move.',
+                  icon: 'coins',
+                  impact: 0,
+                  cashRaised: 25,
+                  outcome: 'You raised $25,000 to cash, preserving capital for the volatility ahead.'
+                },
+                {
+                  title: 'Buy Protective Puts',
+                  description: 'Hedge your portfolio with put options as insurance against a deeper drop.',
+                  icon: 'shield-alt',
+                  impact: -2,
+                  cashRaised: 0,
+                  outcome: 'You spent $2,000 on put options as portfolio insurance. Hedging costs reduce returns but provide downside protection.'
+                },
+                {
+                  title: 'Go All Cash',
+                  description: 'Sell everything and move to cash. Better safe than sorry.',
+                  icon: 'dollar-sign',
+                  impact: -1,
+                  cashRaised: 100,
+                  outcome: 'You sold your entire portfolio and moved to 100% cash, avoiding all market exposure but paying trading costs.'
+                }
+              ]
+            },
+            {
+              phase: 'Black Monday',
+              date: 'October 19, 1987',
+              marketChange: -22.6,
+              vix: 150,
+              treasury: 9.8,
+              context: 'PANIC! The Dow Jones has crashed 22.6% in a single day—the worst one-day decline in stock market history. Trading systems are overwhelmed. The NYSE nearly closed. Fear is extreme. No one knows if this is 1929 all over again.',
+              question: 'The market just crashed 22.6% in ONE DAY. How do you respond?',
+              options: [
+                {
+                  title: 'Panic Sell Everything',
+                  description: 'This could be the end! Get out now before it gets worse!',
+                  icon: 'exclamation-triangle',
+                  impact: -5,
+                  cashRaised: 100,
+                  outcome: 'You panic-sold at the absolute bottom with massive spreads. Selling costs and slippage ate 5% of your portfolio.'
+                },
+                {
+                  title: 'Do Nothing / Hold',
+                  description: 'Stay calm. Don\'t sell at the bottom. This too shall pass.',
+                  icon: 'hand-paper',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You held firm through the chaos. Your portfolio took the full hit, but you avoided panic-selling.'
+                },
+                {
+                  title: 'Buy the Dip',
+                  description: 'Deploy cash! This is a once-in-a-lifetime buying opportunity.',
+                  icon: 'arrow-down',
+                  impact: 5,
+                  cashRaised: -50,
+                  outcome: 'You courageously bought stocks at fire-sale prices. This contrarian move will pay off handsomely.'
+                },
+                {
+                  title: 'Partial Sale (50%)',
+                  description: 'Sell half to limit damage, keep half for potential recovery.',
+                  icon: 'balance-scale',
+                  impact: -2,
+                  cashRaised: 50,
+                  outcome: 'You sold half your positions. A balanced approach that reduces exposure while maintaining some upside.'
+                }
+              ]
+            },
+            {
+              phase: 'Recovery',
+              date: 'November 1987',
+              marketChange: 8.5,
+              vix: 35,
+              treasury: 9.2,
+              context: 'The market has recovered 8.5% from the lows. The Fed cut rates and provided liquidity. Economic data remains solid. Investors realize this wasn\'t 1929. Within 2 years, the market will fully recover and hit new highs.',
+              question: 'The worst is over. Markets are recovering. What now?',
+              options: [
+                {
+                  title: 'Reinvest Everything',
+                  description: 'Put all cash back to work. The opportunity is now.',
+                  icon: 'chart-line',
+                  impact: 3,
+                  cashRaised: -100,
+                  outcome: 'You went back to fully invested. Catching the early recovery adds strong gains.'
+                },
+                {
+                  title: 'Gradual Reentry',
+                  description: 'Dollar-cost average back in over several months.',
+                  icon: 'layer-group',
+                  impact: 1.5,
+                  cashRaised: -50,
+                  outcome: 'You methodically reinvested half your cash. A prudent approach that captures recovery while managing risk.'
+                },
+                {
+                  title: 'Stay in Cash',
+                  description: 'Wait for more certainty. This could be a bear market rally.',
+                  icon: 'pause',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You stayed on the sidelines. You missed the recovery rally and earned minimal cash returns.'
+                },
+                {
+                  title: 'Partial Reinvestment',
+                  description: 'Reinvest 25% now, keep rest in reserve.',
+                  icon: 'coins',
+                  impact: 0.75,
+                  cashRaised: -25,
+                  outcome: 'You cautiously reinvested a quarter of your cash reserves, balancing opportunity with caution.'
+                }
+              ]
+            }
+          ]
+        },
+        'dotcom': {
+          name: 'Dot-com Crash 2000',
+          year: '2000',
+          initialPortfolio: 100000,
+          phases: [
+            {
+              phase: 'Peak Euphoria',
+              date: 'March 10, 2000',
+              marketChange: 0,
+              vix: 20,
+              treasury: 6.3,
+              context: 'The NASDAQ has tripled in 18 months! Every internet company is going public. Pets.com, Webvan, Boo.com—if it has ".com" it\'s valuable. P/E ratios don\'t matter anymore. "This time is different." Valuations are at historic extremes.',
+              question: 'Tech stocks are at all-time highs. The party seems unstoppable. What do you do?',
+              options: [
+                {
+                  title: 'Stay Fully Invested',
+                  description: 'The new economy is real. Traditional metrics don\'t apply to the internet.',
+                  icon: 'rocket',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You stayed fully invested at peak valuations, riding maximum exposure.'
+                },
+                {
+                  title: 'Take Profits (30%)',
+                  description: 'Lock in some gains. Valuations seem stretched even for great companies.',
+                  icon: 'coins',
+                  impact: 0,
+                  cashRaised: 30,
+                  outcome: 'You wisely took profits near the peak, preserving gains made during the bubble.'
+                },
+                {
+                  title: 'Rebalance to Value',
+                  description: 'Rotate from overvalued tech to cheap value stocks.',
+                  icon: 'exchange-alt',
+                  impact: 2,
+                  cashRaised: 0,
+                  outcome: 'You rotated into undervalued sectors. Value stocks will significantly outperform tech in the coming years.'
+                },
+                {
+                  title: 'Go All In Tech',
+                  description: 'YOLO! Put even more in tech. Can\'t lose money in internet stocks!',
+                  icon: 'fire',
+                  impact: -3,
+                  cashRaised: -20,
+                  outcome: 'You increased tech exposure at the absolute peak. This aggressive bet will backfire severely.'
+                }
+              ]
+            },
+            {
+              phase: 'The Collapse',
+              date: 'December 2000',
+              marketChange: -39,
+              vix: 35,
+              treasury: 5.5,
+              context: 'NASDAQ has crashed 39% from its peak. Dot-coms are going bankrupt weekly. Pets.com, Boo.com, Webvan—all gone. "Profitless prosperity" companies are worthless. Even good tech companies are down 50-70%. The bubble has popped.',
+              question: 'Tech stocks are in free fall. Is this the bottom or is there more pain ahead?',
+              options: [
+                {
+                  title: 'Sell All Tech',
+                  description: 'Get out now! These companies have no earnings and will go to zero.',
+                  icon: 'exclamation-circle',
+                  impact: -3,
+                  cashRaised: 100,
+                  outcome: 'You sold everything in panic. Many of these companies will survive and thrive, but you locked in maximum losses.'
+                },
+                {
+                  title: 'Hold & Wait',
+                  description: 'Quality companies will recover. Amazon and Microsoft aren\'t going anywhere.',
+                  icon: 'hand-paper',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You held through the pain. Quality tech will eventually recover, but it will take years.'
+                },
+                {
+                  title: 'Buy Quality Tech',
+                  description: 'Separate the winners from the losers. Buy the best at discount prices.',
+                  icon: 'gem',
+                  impact: 8,
+                  cashRaised: -30,
+                  outcome: 'You identified quality companies trading at steep discounts. This selective buying will generate exceptional returns.'
+                },
+                {
+                  title: 'Diversify Out',
+                  description: 'Move to diversified index funds and reduce tech concentration.',
+                  icon: 'chart-pie',
+                  impact: 2,
+                  cashRaised: 0,
+                  outcome: 'You diversified away from tech concentration into broader market exposure. A sensible risk management move.'
+                }
+              ]
+            },
+            {
+              phase: 'The Bottom',
+              date: 'October 2002',
+              marketChange: -78,
+              vix: 45,
+              treasury: 3.9,
+              context: 'NASDAQ is down 78% from peak. Tech stocks have been in a bear market for 2.5 years. 9/11 happened. Enron and WorldCom accounting scandals crushed confidence. Investors have capitulated. Fear and despair are everywhere. This is the bottom.',
+              question: 'After 2.5 years of decline, pessimism is extreme. What\'s your final move?',
+              options: [
+                {
+                  title: 'Give Up / Stay Cash',
+                  description: 'Stocks are too risky. Stay in cash and bonds.',
+                  icon: 'ban',
+                  impact: 0,
+                  cashRaised: 100,
+                  outcome: 'You gave up on stocks at the absolute bottom. You\'ll miss the entire recovery and bull market.'
+                },
+                {
+                  title: 'Gradual Reentry',
+                  description: 'Start slowly dollar-cost averaging back into quality names.',
+                  icon: 'layer-group',
+                  impact: 4,
+                  cashRaised: -40,
+                  outcome: 'You methodically reinvested at depressed valuations. DCA at the bottom positions you well for recovery.'
+                },
+                {
+                  title: 'All In Recovery Play',
+                  description: 'Maximum conviction. Load up on beaten-down quality tech.',
+                  icon: 'fire',
+                  impact: 10,
+                  cashRaised: -100,
+                  outcome: 'You went all-in at the bottom. This courageous move will generate life-changing returns over the next decade.'
+                },
+                {
+                  title: 'Balanced Approach',
+                  description: 'Invest 60% stocks, 40% bonds for moderate recovery exposure.',
+                  icon: 'balance-scale',
+                  impact: 5,
+                  cashRaised: -60,
+                  outcome: 'You built a balanced portfolio at attractive valuations. You\'ll participate in recovery while managing risk.'
+                }
+              ]
+            }
+          ]
+        },
+        'financial-crisis': {
+          name: '2008 Financial Crisis',
+          year: '2008',
+          initialPortfolio: 100000,
+          phases: [
+            {
+              phase: 'Subprime Concerns',
+              date: 'August 2007',
+              marketChange: -5,
+              vix: 35,
+              treasury: 4.7,
+              context: 'Subprime mortgage issues are emerging. Bear Stearns hedge funds collapsed. Credit markets are showing stress. The Fed just cut rates. Housing prices have peaked. Is this just a housing problem or something bigger?',
+              question: 'Financial stocks are weakening. Housing bubble concerns are growing. What do you do?',
+              options: [
+                {
+                  title: 'Reduce Financials',
+                  description: 'Banks have huge subprime exposure. Reduce financial sector holdings.',
+                  icon: 'university',
+                  impact: 5,
+                  cashRaised: 25,
+                  outcome: 'You reduced financial sector exposure. This prescient move avoids the worst-hit sector.'
+                },
+                {
+                  title: 'Hold Current Position',
+                  description: 'Housing is always local. Banks are well capitalized.',
+                  icon: 'hand-paper',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You maintained positions. Full market exposure leaves you vulnerable to what\'s coming.'
+                },
+                {
+                  title: 'Buy Bank Stocks',
+                  description: 'Banks are cheap! This is a buying opportunity in quality names.',
+                  icon: 'arrow-down',
+                  impact: -8,
+                  cashRaised: -20,
+                  outcome: 'You added to bank stocks. This value trap will result in catastrophic losses as the crisis unfolds.'
+                },
+                {
+                  title: 'Defensive Positioning',
+                  description: 'Rotate to defensive sectors: utilities, healthcare, consumer staples.',
+                  icon: 'shield-alt',
+                  impact: 3,
+                  cashRaised: 0,
+                  outcome: 'You shifted to defensive sectors that will outperform during the coming recession.'
+                }
+              ]
+            },
+            {
+              phase: 'Lehman Collapse',
+              date: 'September 15, 2008',
+              marketChange: -25,
+              vix: 80,
+              treasury: 3.4,
+              context: 'CATASTROPHE! Lehman Brothers filed for bankruptcy. AIG is failing. Merrill Lynch was emergency-sold to Bank of America. The entire financial system is on the brink of collapse. Credit markets are frozen. The TED spread exploded. Armageddon fear.',
+              question: 'The financial system is collapsing! Markets in total panic. How do you respond?',
+              options: [
+                {
+                  title: 'Panic Sell All',
+                  description: 'This is the end! Get to 100% cash immediately!',
+                  icon: 'exclamation-triangle',
+                  impact: -4,
+                  cashRaised: 100,
+                  outcome: 'You panic-sold during maximum fear. Horrible execution and you\'ll miss the eventual recovery.'
+                },
+                {
+                  title: 'Hold & Endure',
+                  description: 'Governments won\'t let the system collapse. Stay invested.',
+                  icon: 'fist-raised',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You held through the storm. You\'ll endure maximum pain but maintain exposure for recovery.'
+                },
+                {
+                  title: 'Strategic Cash Raise',
+                  description: 'Sell 40% to cash for stability, keep 60% invested.',
+                  icon: 'balance-scale',
+                  impact: -1,
+                  cashRaised: 40,
+                  outcome: 'You raised meaningful cash while maintaining some market exposure. Balanced crisis management.'
+                },
+                {
+                  title: 'Buy Treasuries',
+                  description: 'Rotate to safe-haven US Treasury bonds for capital preservation.',
+                  icon: 'landmark',
+                  impact: 1,
+                  cashRaised: 50,
+                  outcome: 'You moved to Treasuries. Capital preservation in the flight to quality trade.'
+                }
+              ]
+            },
+            {
+              phase: 'The Bottom',
+              date: 'March 9, 2009',
+              marketChange: -57,
+              vix: 55,
+              treasury: 2.8,
+              context: 'The S&P 500 is down 57% from peak. Unemployment hitting 10%. GDP contracted. Complete capitulation and despair. BUT: Fed has cut rates to zero, launched QE. TARP stabilized banks. The worst is likely over, but no one believes it yet.',
+              question: 'Markets at 13-year lows. Total despair. Is it finally time to buy or still falling?',
+              options: [
+                {
+                  title: 'Stay in Cash',
+                  description: 'Still too risky. Wait for more certainty.',
+                  icon: 'pause',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You waited for certainty. By the time it arrives, you\'ll have missed the massive rally off the bottom.'
+                },
+                {
+                  title: 'Gradual Reinvestment',
+                  description: 'Start dollar-cost averaging back in over 6 months.',
+                  icon: 'layer-group',
+                  impact: 6,
+                  cashRaised: -50,
+                  outcome: 'You systematically bought at depressed valuations. DCA captures most of the recovery.'
+                },
+                {
+                  title: 'Aggressive Buy',
+                  description: 'Maximum greed when others are fearful. All in!',
+                  icon: 'fire',
+                  impact: 12,
+                  cashRaised: -100,
+                  outcome: 'You bought aggressively at the absolute bottom. This generates life-changing returns as markets recover 100%+ over 3 years.'
+                },
+                {
+                  title: 'Balanced Recovery',
+                  description: 'Invest 60% stocks, 40% bonds for balanced exposure.',
+                  icon: 'chart-pie',
+                  impact: 7,
+                  cashRaised: -60,
+                  outcome: 'You built a balanced portfolio at the bottom. Strong recovery participation with downside protection.'
+                }
+              ]
+            }
+          ]
+        },
+        'covid': {
+          name: 'COVID-19 Crash 2020',
+          year: '2020',
+          initialPortfolio: 100000,
+          phases: [
+            {
+              phase: 'Early Warning',
+              date: 'February 20, 2020',
+              marketChange: -3,
+              vix: 25,
+              treasury: 1.5,
+              context: 'A new coronavirus outbreak in China is spreading. Italy is locking down. US has first cases. Markets at all-time highs but showing first cracks. Is this serious or just fear-mongering?',
+              question: 'Pandemic concerns emerging. Markets near highs. What\'s your move?',
+              options: [
+                {
+                  title: 'Ignore It',
+                  description: 'Media hysteria. Stay fully invested. Markets are strong.',
+                  icon: 'hand-paper',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You ignored the warnings. Full exposure to the coming crash.'
+                },
+                {
+                  title: 'Raise Cash',
+                  description: 'Sell 30% to cash as precaution. This could get bad.',
+                  icon: 'coins',
+                  impact: 0,
+                  cashRaised: 30,
+                  outcome: 'You raised cash near the peak. Smart defensive positioning before the crash.'
+                },
+                {
+                  title: 'Sector Rotation',
+                  description: 'Rotate from travel/leisure to tech/healthcare.',
+                  icon: 'exchange-alt',
+                  impact: 6,
+                  cashRaised: 0,
+                  outcome: 'You rotated into pandemic-resistant sectors. Tech and healthcare will massively outperform.'
+                },
+                {
+                  title: 'Buy Protection',
+                  description: 'Buy VIX calls and put options as tail risk hedge.',
+                  icon: 'shield-alt',
+                  impact: 8,
+                  cashRaised: 0,
+                  outcome: 'You hedged with volatility products. These will explode in value and offset crash losses.'
+                }
+              ]
+            },
+            {
+              phase: 'Market Crash',
+              date: 'March 23, 2020',
+              marketChange: -34,
+              vix: 85,
+              treasury: 0.7,
+              context: 'PANIC! Markets crashed 34% in 33 days—fastest bear market ever! Global lockdowns. Economy frozen. Unemployment spiking. Oil crashed to negative. Circuit breakers triggered multiple times. No one knows how bad this gets.',
+              question: 'Fastest crash in history! Economy in freefall. What do you do?',
+              options: [
+                {
+                  title: 'Sell Everything',
+                  description: 'The world is ending! Depression incoming!',
+                  icon: 'exclamation-triangle',
+                  impact: -5,
+                  cashRaised: 100,
+                  outcome: 'You panic-sold at the bottom. Terrible timing as the Fed is about to unleash historic stimulus.'
+                },
+                {
+                  title: 'Hold Firm',
+                  description: 'Central banks will save markets. Don\'t sell the bottom.',
+                  icon: 'fist-raised',
+                  impact: 0,
+                  cashRaised: 0,
+                  outcome: 'You held through extreme volatility. You\'ll capture the full recovery.'
+                },
+                {
+                  title: 'Buy the Dip',
+                  description: 'Fed going all in! This is a V-shaped buying opportunity!',
+                  icon: 'arrow-down',
+                  impact: 15,
+                  cashRaised: -50,
+                  outcome: 'You bought aggressively at the bottom. This will prove to be one of the best trades ever as markets V-shape recover.'
+                },
+                {
+                  title: 'Partial Buy',
+                  description: 'Deploy 25% of cash now, keep rest in reserve.',
+                  icon: 'layer-group',
+                  impact: 7,
+                  cashRaised: -25,
+                  outcome: 'You cautiously added to positions. You\'ll capture significant recovery while managing risk.'
+                }
+              ]
+            },
+            {
+              phase: 'The Recovery',
+              date: 'August 2020',
+              marketChange: 50,
+              vix: 25,
+              treasury: 0.6,
+              context: 'Markets have ROCKETED 50% from lows in just 5 months! Fed printed unlimited money. Tech stocks at new highs. Stay-at-home economy booming. Vaccines in development. Fastest recovery ever. Is this sustainable?',
+              question: 'Markets recovered everything and more! Up 50% in 5 months. Now what?',
+              options: [
+                {
+                  title: 'Take Profits',
+                  description: 'This rallied too fast. Sell 40% and lock in gains.',
+                  icon: 'coins',
+                  impact: -3,
+                  cashRaised: 40,
+                  outcome: 'You sold into the recovery. You\'ll miss continued gains as the bull market roars on for another year.'
+                },
+                {
+                  title: 'Stay Invested',
+                  description: 'Fed liquidity + fiscal stimulus = continued rally.',
+                  icon: 'rocket',
+                  impact: 8,
+                  cashRaised: 0,
+                  outcome: 'You stayed fully invested. The liquidity-fueled bull market continues, driving stocks to new highs.'
+                },
+                {
+                  title: 'Double Down Tech',
+                  description: 'Digital transformation accelerating. Buy more FAANG.',
+                  icon: 'laptop',
+                  impact: 12,
+                  cashRaised: -30,
+                  outcome: 'You leaned into tech winners. This sector leadership continues, generating exceptional returns.'
+                },
+                {
+                  title: 'Rebalance',
+                  description: 'Trim winners, add to laggards. Return to target allocation.',
+                  icon: 'balance-scale',
+                  impact: 5,
+                  cashRaised: 0,
+                  outcome: 'You rebalanced to maintain discipline. A prudent approach that captures gains while managing risk.'
+                }
+              ]
+            }
+          ]
+        }
+      };
+
+      // Game State
+      let currentScenario = null;
+      let currentPhaseIndex = 0;
+      let portfolioValue = 100000;
+      let cashPercent = 0;
+      let marketValue = 100000;
+      let decisions = [];
+      let selectedDecision = null;
+
+      // DOM Elements
+      const scenarioSelect = document.getElementById('scenario-select');
+      const gameActive = document.getElementById('game-active');
+      const gameResults = document.getElementById('game-results');
+      const scenarioCards = document.querySelectorAll('.scenario-card');
+      const startGameBtn = document.getElementById('start-game-btn');
+      const nextPhaseBtn = document.getElementById('next-phase-btn');
+      const quitGameBtn = document.getElementById('quit-game-btn');
+      const retryBtn = document.getElementById('retry-btn');
+      const newScenarioBtn = document.getElementById('new-scenario-btn');
+
+      // Event Listeners
+      scenarioCards.forEach(card => {
+        card.addEventListener('click', () => {
+          scenarioCards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          currentScenario = card.dataset.scenario;
+          startGameBtn.disabled = false;
+        });
+      });
+
+      startGameBtn.addEventListener('click', startGame);
+      nextPhaseBtn.addEventListener('click', nextPhase);
+      quitGameBtn.addEventListener('click', quitGame);
+      retryBtn.addEventListener('click', () => {
+        resetGame();
+        startGame();
+      });
+      newScenarioBtn.addEventListener('click', resetGame);
+
+      function startGame() {
+        const scenario = scenarios[currentScenario];
+        currentPhaseIndex = 0;
+        portfolioValue = scenario.initialPortfolio;
+        marketValue = scenario.initialPortfolio;
+        cashPercent = 0;
+        decisions = [];
+        selectedDecision = null;
+
+        scenarioSelect.classList.add('hidden');
+        gameActive.classList.remove('hidden');
+        gameResults.classList.add('hidden');
+
+        loadPhase();
+      }
+
+      function loadPhase() {
+        const scenario = scenarios[currentScenario];
+        const phase = scenario.phases[currentPhaseIndex];
+        selectedDecision = null;
+
+        // Update timeline
+        document.getElementById('current-phase').textContent = phase.phase;
+        document.getElementById('current-date').textContent = phase.date;
+        document.getElementById('phase-marker').textContent = phase.phase;
+        
+        const progress = ((currentPhaseIndex + 1) / scenario.phases.length) * 100;
+        document.getElementById('phase-progress').style.width = progress + '%';
+
+        // Update context
+        document.getElementById('context-text').textContent = phase.context;
+        
+        // Update market data
+        const sp500Change = phase.marketChange >= 0 ? `+${phase.marketChange}%` : `${phase.marketChange}%`;
+        document.getElementById('sp500-change').textContent = sp500Change;
+        document.getElementById('sp500-change').style.color = phase.marketChange >= 0 ? '#22c55e' : '#ef4444';
+        
+        document.getElementById('vix-value').textContent = phase.vix;
+        document.getElementById('treasury-value').textContent = phase.treasury + '%';
+
+        // Update portfolio stats
+        updatePortfolioStats();
+
+        // Load decision options
+        document.getElementById('decision-question').textContent = phase.question;
+        const optionsContainer = document.getElementById('decision-options');
+        optionsContainer.innerHTML = '';
+
+        phase.options.forEach((option, index) => {
+          const btn = document.createElement('button');
+          btn.className = 'decision-btn';
+          btn.innerHTML = `
+            <div class="decision-icon">
+              <i class="fas fa-${option.icon}"></i>
+            </div>
+            <div class="decision-content">
+              <div class="decision-title">${option.title}</div>
+              <div class="decision-desc">${option.description}</div>
+            </div>
+          `;
+          btn.addEventListener('click', () => selectDecision(index, option));
+          optionsContainer.appendChild(btn);
+        });
+
+        // Hide outcome, disable next
+        document.getElementById('outcome-section').classList.remove('show');
+        nextPhaseBtn.disabled = true;
+      }
+
+      function selectDecision(index, option) {
+        if (selectedDecision !== null) return;
+        
+        selectedDecision = index;
+        const scenario = scenarios[currentScenario];
+        const phase = scenario.phases[currentPhaseIndex];
+
+        // Mark button as selected
+        const buttons = document.querySelectorAll('.decision-btn');
+        buttons.forEach((btn, i) => {
+          if (i === index) {
+            btn.classList.add('selected');
+          }
+          btn.classList.add('disabled');
+        });
+
+        // Calculate impacts
+        const stockPercent = 100 - cashPercent;
+        const marketImpact = phase.marketChange / 100;
+        
+        // Market performance
+        marketValue = marketValue * (1 + marketImpact);
+        
+        // Portfolio performance
+        const stockValue = portfolioValue * (stockPercent / 100);
+        const cashValue = portfolioValue * (cashPercent / 100);
+        
+        // Apply market change to stocks
+        const newStockValue = stockValue * (1 + marketImpact);
+        
+        // Apply decision impact
+        const decisionImpact = option.impact / 100;
+        portfolioValue = (newStockValue + cashValue) * (1 + decisionImpact);
+        
+        // Update cash position
+        cashPercent = Math.max(0, Math.min(100, cashPercent + option.cashRaised));
+
+        // Record decision
+        decisions.push({
+          phase: phase.phase,
+          decision: option.title,
+          impact: option.impact
+        });
+
+        // Update stats
+        updatePortfolioStats();
+
+        // Show outcome
+        document.getElementById('outcome-text').textContent = option.outcome;
+        document.getElementById('outcome-section').classList.add('show');
+
+        // Enable next button
+        nextPhaseBtn.disabled = false;
+      }
+
+      function updatePortfolioStats() {
+        const scenario = scenarios[currentScenario];
+        
+        // Portfolio value
+        document.getElementById('portfolio-value').textContent = 
+          '$' + Math.round(portfolioValue).toLocaleString();
+        
+        const portfolioChange = ((portfolioValue / scenario.initialPortfolio - 1) * 100).toFixed(1);
+        const changeText = portfolioChange >= 0 ? `+${portfolioChange}%` : `${portfolioChange}%`;
+        document.getElementById('portfolio-change').textContent = changeText;
+        document.getElementById('portfolio-change').style.color = portfolioChange >= 0 ? '#22c55e' : '#ef4444';
+
+        // Cash position
+        const cashValue = portfolioValue * (cashPercent / 100);
+        document.getElementById('cash-position').textContent = 
+          '$' + Math.round(cashValue).toLocaleString() + ` (${cashPercent}%)`;
+
+        // Market value
+        document.getElementById('market-value').textContent = 
+          '$' + Math.round(marketValue).toLocaleString();
+        
+        const marketChange = ((marketValue / scenario.initialPortfolio - 1) * 100).toFixed(1);
+        const marketChangeText = marketChange >= 0 ? `+${marketChange}%` : `${marketChange}%`;
+        document.getElementById('market-change').textContent = marketChangeText;
+        document.getElementById('market-change').style.color = marketChange >= 0 ? '#22c55e' : '#ef4444';
+      }
+
+      function nextPhase() {
+        const scenario = scenarios[currentScenario];
+        
+        if (currentPhaseIndex < scenario.phases.length - 1) {
+          currentPhaseIndex++;
+          loadPhase();
+        } else {
+          showResults();
+        }
+      }
+
+      function showResults() {
+        const scenario = scenarios[currentScenario];
+        
+        gameActive.classList.add('hidden');
+        gameResults.classList.remove('hidden');
+
+        // Calculate results
+        const totalReturn = ((portfolioValue / scenario.initialPortfolio - 1) * 100).toFixed(1);
+        const marketReturn = ((marketValue / scenario.initialPortfolio - 1) * 100).toFixed(1);
+        const vsMarket = (totalReturn - marketReturn).toFixed(1);
+
+        // Update values
+        document.getElementById('final-value').textContent = 
+          '$' + Math.round(portfolioValue).toLocaleString();
+        
+        document.getElementById('total-return').textContent = 
+          (totalReturn >= 0 ? '+' : '') + totalReturn + '%';
+        document.getElementById('total-return').style.color = totalReturn >= 0 ? '#22c55e' : '#ef4444';
+        
+        document.getElementById('vs-market').textContent = 
+          (vsMarket >= 0 ? '+' : '') + vsMarket + '%';
+        document.getElementById('vs-market').style.color = vsMarket >= 0 ? '#22c55e' : '#ef4444';
+
+        // Performance rating
+        let rating, icon, bgColor;
+        if (vsMarket >= 10) {
+          rating = 'Outstanding!';
+          icon = '<i class="fas fa-trophy"></i>';
+          bgColor = 'linear-gradient(135deg, #22c55e, #0ea5e9)';
+        } else if (vsMarket >= 5) {
+          rating = 'Excellent!';
+          icon = '<i class="fas fa-star"></i>';
+          bgColor = 'linear-gradient(135deg, #3b82f6, #8b5cf6)';
+        } else if (vsMarket >= 0) {
+          rating = 'Good Job!';
+          icon = '<i class="fas fa-thumbs-up"></i>';
+          bgColor = 'linear-gradient(135deg, #6366f1, #a855f7)';
+        } else if (vsMarket >= -10) {
+          rating = 'Could Be Better';
+          icon = '<i class="fas fa-chart-line"></i>';
+          bgColor = 'linear-gradient(135deg, #f59e0b, #f97316)';
+        } else {
+          rating = 'Tough Times';
+          icon = '<i class="fas fa-shield-alt"></i>';
+          bgColor = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        }
+
+        document.getElementById('results-title').textContent = rating;
+        document.getElementById('results-icon-container').innerHTML = icon;
+        document.getElementById('results-icon-container').style.background = bgColor;
+
+        // Analysis points
+        const analysisPoints = document.getElementById('analysis-points');
+        analysisPoints.innerHTML = '';
+
+        const points = [
+          `You navigated the ${scenario.name} with a final return of ${totalReturn}%`,
+          `Market benchmark returned ${marketReturn}%, you ${vsMarket >= 0 ? 'outperformed' : 'underperformed'} by ${Math.abs(vsMarket)}%`,
+          `Final portfolio value: $${Math.round(portfolioValue).toLocaleString()} vs market: $${Math.round(marketValue).toLocaleString()}`,
+          `Cash position at end: ${cashPercent}%`
+        ];
+
+        // Add decision summary
+        if (decisions.length > 0) {
+          const bestDecision = decisions.reduce((a, b) => a.impact > b.impact ? a : b);
+          const worstDecision = decisions.reduce((a, b) => a.impact < b.impact ? a : b);
+          
+          if (bestDecision.impact > 0) {
+            points.push(`Best decision: "${bestDecision.decision}" in ${bestDecision.phase} (+${bestDecision.impact}%)`);
+          }
+          if (worstDecision.impact < 0) {
+            points.push(`Worst decision: "${worstDecision.decision}" in ${worstDecision.phase} (${worstDecision.impact}%)`);
+          }
+        }
+
+        points.forEach(point => {
+          const li = document.createElement('li');
+          li.textContent = point;
+          analysisPoints.appendChild(li);
+        });
+      }
+
+      function quitGame() {
+        if (confirm('Are you sure you want to quit? Your progress will be lost.')) {
+          resetGame();
+        }
+      }
+
+      function resetGame() {
+        currentScenario = null;
+        currentPhaseIndex = 0;
+        portfolioValue = 100000;
+        cashPercent = 0;
+        marketValue = 100000;
+        decisions = [];
+        selectedDecision = null;
+
+        scenarioSelect.classList.remove('hidden');
+        gameActive.classList.add('hidden');
+        gameResults.classList.add('hidden');
+
+        scenarioCards.forEach(c => c.classList.remove('selected'));
+        startGameBtn.disabled = true;
+      }
+    </script>
   </body>
 </html>

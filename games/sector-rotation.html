@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Sector Rotation Challenge | Business Cycle Trading | IO Innovation</title>
+    <title>
+      Sector Rotation Challenge | Business Cycle Trading | IO Innovation
+    </title>
     <meta
       name="description"
       content="Master the business cycle by rotating between sectors at the right time. Learn when to favor tech vs. utilities, growth vs. value, and cyclicals vs. defensives."
@@ -16,32 +18,62 @@
     />
     <meta name="author" content="IO Innovation" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ioinnovationfund.com/games/sector-rotation.html" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/games/sector-rotation.html"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ioinnovationfund.com/games/sector-rotation.html" />
-    <meta property="og:title" content="Sector Rotation Challenge | IO Innovation" />
-    <meta property="og:description" content="Master business cycle investing through sector rotation strategies." />
-    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image.svg" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/games/sector-rotation.html"
+    />
+    <meta
+      property="og:title"
+      content="Sector Rotation Challenge | IO Innovation"
+    />
+    <meta
+      property="og:description"
+      content="Master business cycle investing through sector rotation strategies."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-FGD50Z4Y7G");
     </script>
 
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Theme Init -->
     <script src="../js/theme-init.js?v=2026050601"></script>
@@ -51,7 +83,11 @@
 
     <style>
       .game-hero {
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.1),
+          rgba(236, 72, 153, 0.1)
+        );
         padding: 5rem 1.5rem 4rem;
         text-align: center;
         position: relative;
@@ -59,7 +95,11 @@
       }
 
       [data-theme="light"] .game-hero {
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(219, 39, 119, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(124, 58, 237, 0.08),
+          rgba(219, 39, 119, 0.08)
+        );
       }
 
       .game-icon-large {
@@ -137,7 +177,11 @@
         height: 60px;
         margin: 0 auto 1rem;
         border-radius: 12px;
-        background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.2),
+          rgba(236, 72, 153, 0.2)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
@@ -159,7 +203,11 @@
       }
 
       .notify-section {
-        background: linear-gradient(135deg, rgba(43, 226, 180, 0.05), rgba(99, 102, 241, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.05),
+          rgba(99, 102, 241, 0.05)
+        );
         padding: 4rem 1.5rem;
         text-align: center;
         margin: 4rem 0;
@@ -177,6 +225,536 @@
         font-size: 1.125rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
+      }
+
+      /* Sector Rotation Styles */
+      .rotation-container {
+        max-width: 1400px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .game-screen {
+        display: none;
+      }
+
+      .game-screen.active {
+        display: block;
+      }
+
+      /* Start Screen */
+      .start-screen {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      .start-content {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 3rem;
+      }
+
+      [data-theme="light"] .start-content {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .cycle-phases {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .phase-item {
+        background: var(--bg-secondary);
+        padding: 1.25rem;
+        border-radius: 12px;
+        border-left: 4px solid;
+      }
+
+      .phase-item.recovery { border-color: #22c55e; }
+      .phase-item.expansion { border-color: #3b82f6; }
+      .phase-item.peak { border-color: #f59e0b; }
+      .phase-item.recession { border-color: #ef4444; }
+
+      .phase-name {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .phase-desc {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      /* Game Screen */
+      .game-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .game-panel {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      [data-theme="light"] .game-panel {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .panel-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quarter-display {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+      }
+
+      .cycle-indicator {
+        text-align: center;
+        padding: 2rem;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        margin-bottom: 2rem;
+      }
+
+      .cycle-wheel {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 1.5rem;
+        position: relative;
+      }
+
+      .current-phase {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+
+      .phase-recovery { color: #22c55e; }
+      .phase-expansion { color: #3b82f6; }
+      .phase-peak { color: #f59e0b; }
+      .phase-recession { color: #ef4444; }
+
+      .indicators-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .indicator-card {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .indicator-label {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+      }
+
+      .indicator-value {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .indicator-trend {
+        font-size: 0.85rem;
+        margin-left: 0.5rem;
+      }
+
+      .trend-up { color: #22c55e; }
+      .trend-down { color: #ef4444; }
+      .trend-flat { color: #6b7280; }
+
+      .sectors-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .sector-card {
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.25rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .sector-card:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-2px);
+      }
+
+      .sector-card.selected {
+        border-color: var(--accent-primary);
+        background: rgba(43, 226, 180, 0.05);
+      }
+
+      .sector-card.selected::after {
+        content: '✓';
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 24px;
+        height: 24px;
+        background: var(--accent-primary);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .sector-name {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+      }
+
+      .sector-stats {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .sector-stat {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-value {
+        font-weight: 700;
+      }
+
+      .performance-bar {
+        width: 100%;
+        height: 6px;
+        background: var(--bg-card);
+        border-radius: 100px;
+        margin-top: 0.75rem;
+        overflow: hidden;
+      }
+
+      .performance-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #22c55e, #3b82f6);
+        border-radius: 100px;
+        transition: width 0.5s ease;
+      }
+
+      .allocation-display {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+      }
+
+      .allocation-summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .summary-item {
+        text-align: center;
+      }
+
+      .summary-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+      }
+
+      .summary-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
+
+      .selected-sectors-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .sector-badge {
+        background: rgba(43, 226, 180, 0.1);
+        color: var(--accent-primary);
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .remove-sector {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+
+      .remove-sector:hover {
+        opacity: 1;
+      }
+
+      /* Results Screen */
+      .results-screen {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      .results-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 3rem;
+        text-align: center;
+      }
+
+      [data-theme="light"] .results-card {
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .results-score {
+        font-size: 4rem;
+        font-weight: 800;
+        margin: 1rem 0;
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .results-rating {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
+      }
+
+      .quarter-results {
+        display: grid;
+        gap: 1rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .quarter-result {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid;
+      }
+
+      .quarter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .quarter-label {
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .quarter-return {
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+
+      .quarter-return.positive { color: #22c55e; }
+      .quarter-return.negative { color: #ef4444; }
+
+      @media (max-width: 1024px) {
+        .game-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sectors-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cycle-phases {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Enhanced Footer Styling */
+      .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-primary),
+          transparent
+        );
+      }
+
+      .footer-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-desc {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .footer-heading {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a::before {
+        content: "→";
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.2s ease;
+        color: var(--accent-primary);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -197,7 +775,11 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
           <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -215,17 +797,164 @@
         </div>
         <h1 class="game-title">Sector Rotation Challenge</h1>
         <p class="game-subtitle">
-          Master the business cycle by rotating between sectors. Learn when to favor tech vs. utilities, growth vs. value.
+          Master the business cycle by rotating between sectors. Navigate through 8 quarters and maximize returns.
         </p>
-        <div class="coming-soon-badge">
-          <i class="fas fa-clock"></i> Coming Soon
-        </div>
       </section>
 
-      <!-- Game Content -->
+      <!-- Rotation Container -->
+      <div class="rotation-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="game-screen active">
+          <div class="start-screen">
+            <div class="start-content">
+              <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">
+                Master Business Cycle Investing
+              </h2>
+              <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">
+                Navigate 8 quarters through different economic phases. Select the best-performing sectors for each phase to maximize your portfolio returns.
+              </p>
+
+              <div class="cycle-phases">
+                <div class="phase-item recovery">
+                  <div class="phase-name">🌱 Recovery</div>
+                  <div class="phase-desc">
+                    Economy rebounds, unemployment falls. Cyclicals and financials lead.
+                  </div>
+                </div>
+                <div class="phase-item expansion">
+                  <div class="phase-name">📈 Expansion</div>
+                  <div class="phase-desc">
+                    Strong growth, rising inflation. Tech, industrials, and materials shine.
+                  </div>
+                </div>
+                <div class="phase-item peak">
+                  <div class="phase-name">⚠️ Peak</div>
+                  <div class="phase-desc">
+                    Growth slows, rates rise. Energy and defensive sectors outperform.
+                  </div>
+                </div>
+                <div class="phase-item recession">
+                  <div class="phase-name">📉 Recession</div>
+                  <div class="phase-desc">
+                    Contraction begins. Utilities, healthcare, and consumer staples protect capital.
+                  </div>
+                </div>
+              </div>
+
+              <button id="start-btn" class="btn btn-primary btn-lg" style="width: 100%; padding: 1.25rem;">
+                <i class="fas fa-play"></i> Start Challenge
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="game-screen">
+          <div class="game-grid">
+            <!-- Cycle Info Panel -->
+            <div class="game-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <i class="fas fa-chart-line"></i>
+                  Economic Cycle
+                </div>
+                <div class="quarter-display" id="quarter-display">Q1</div>
+              </div>
+
+              <div class="cycle-indicator">
+                <canvas id="cycle-wheel" class="cycle-wheel"></canvas>
+                <div id="current-phase" class="current-phase">Recovery</div>
+                <div style="color: var(--text-secondary); font-size: 0.95rem;">
+                  Current Economic Phase
+                </div>
+              </div>
+
+              <h3 style="font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Economic Indicators
+              </h3>
+              <div id="indicators-grid" class="indicators-grid">
+                <!-- Indicators populated by JS -->
+              </div>
+            </div>
+
+            <!-- Sector Selection Panel -->
+            <div class="game-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <i class="fas fa-layer-group"></i>
+                  Select Sectors
+                </div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                  Pick 3-5 sectors
+                </div>
+              </div>
+
+              <div class="allocation-display">
+                <div class="allocation-summary">
+                  <div class="summary-item">
+                    <div class="summary-label">Selected</div>
+                    <div id="selected-count" class="summary-value">0</div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-label">Portfolio Return</div>
+                    <div id="portfolio-return" class="summary-value" style="color: var(--accent-primary);">—</div>
+                  </div>
+                </div>
+                <div id="selected-sectors" class="selected-sectors-list">
+                  <span style="color: var(--text-secondary); font-size: 0.9rem;">No sectors selected</span>
+                </div>
+              </div>
+
+              <div id="sectors-grid" class="sectors-grid">
+                <!-- Sectors populated by JS -->
+              </div>
+
+              <button id="next-quarter-btn" class="btn btn-primary" style="width: 100%; margin-top: 2rem; padding: 1rem;" disabled>
+                <i class="fas fa-arrow-right"></i> Next Quarter
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="game-screen">
+          <div class="results-screen">
+            <div class="results-card">
+              <div style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                Final Score
+              </div>
+              <div id="final-return" class="results-score">+0.0%</div>
+              <div id="rating-text" class="results-rating">Market Expert</div>
+
+              <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">
+                You navigated 8 quarters through different economic cycles. Here's your quarter-by-quarter performance:
+              </p>
+
+              <div id="quarter-results" class="quarter-results">
+                <!-- Quarter results populated by JS -->
+              </div>
+
+              <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button id="play-again-btn" class="btn btn-primary" style="flex: 1;">
+                  <i class="fas fa-redo"></i> Play Again
+                </button>
+                <a href="/games.html" class="btn btn-secondary" style="flex: 1;">
+                  <i class="fas fa-arrow-left"></i> All Games
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works -->
       <div class="game-content">
-        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">Master Business Cycles</h2>
-        
+      <!-- How It Works -->
+      <div class="game-content">
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">
+          Learn Sector Rotation
+        </h2>
+
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
@@ -233,7 +962,7 @@
             </div>
             <h3 class="feature-title">Economic Indicators</h3>
             <p class="feature-desc">
-              Learn to read GDP, unemployment, inflation, and other indicators that signal cycle changes.
+              Track GDP, unemployment, inflation, and interest rates to identify cycle changes.
             </p>
           </div>
 
@@ -243,7 +972,7 @@
             </div>
             <h3 class="feature-title">Sector Performance</h3>
             <p class="feature-desc">
-              Track how different sectors perform during expansion, peak, contraction, and trough phases.
+              Learn which sectors outperform during recovery, expansion, peak, and recession.
             </p>
           </div>
 
@@ -251,37 +980,22 @@
             <div class="feature-icon">
               <i class="fas fa-exchange-alt"></i>
             </div>
-            <h3 class="feature-title">Rotation Strategies</h3>
+            <h3 class="feature-title">Strategic Timing</h3>
             <p class="feature-desc">
-              Practice timing sector shifts to maximize returns throughout the economic cycle.
+              Practice rotating capital between sectors to maximize returns through the cycle.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-stopwatch"></i>
+              <i class="fas fa-trophy"></i>
             </div>
-            <h3 class="feature-title">Timing Analysis</h3>
+            <h3 class="feature-title">Beat the Market</h3>
             <p class="feature-desc">
-              Develop skills in identifying inflection points and leading vs. lagging sector movements.
+              Compete to achieve higher returns than a static portfolio allocation.
             </p>
           </div>
         </div>
-
-        <section class="notify-section">
-          <h2 class="notify-title">Get Notified When This Game Launches</h2>
-          <p class="notify-desc">
-            We're working hard to bring you the best investment education experience. Check back soon!
-          </p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="/games.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-arrow-left"></i> Back to Games
-            </a>
-            <a href="/tools.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-tools"></i> Try Our Tools
-            </a>
-          </div>
-        </section>
       </div>
     </main>
 
@@ -291,7 +1005,8 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for investors.
+            Free professional financial tools and educational resources for
+            investors.
           </p>
         </div>
 
@@ -308,6 +1023,515 @@
           <ul class="footer-links">
             <li><a href="/games.html">Investment Games</a></li>
             <li><a href="/guides.html">Guides</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/shared-simple.js?v=2026050601"></script>
+    <script>
+      // Sector Database with cycle-specific performance
+      const sectors = [
+        {
+          id: 'tech',
+          name: 'Technology',
+          icon: 'fa-microchip',
+          performance: { recovery: 15, expansion: 22, peak: 8, recession: -12 }
+        },
+        {
+          id: 'financials',
+          name: 'Financials',
+          icon: 'fa-university',
+          performance: { recovery: 20, expansion: 15, peak: 5, recession: -15 }
+        },
+        {
+          id: 'industrials',
+          name: 'Industrials',
+          icon: 'fa-industry',
+          performance: { recovery: 18, expansion: 20, peak: 6, recession: -14 }
+        },
+        {
+          id: 'materials',
+          name: 'Materials',
+          icon: 'fa-cubes',
+          performance: { recovery: 16, expansion: 18, peak: 10, recession: -10 }
+        },
+        {
+          id: 'energy',
+          name: 'Energy',
+          icon: 'fa-bolt',
+          performance: { recovery: 12, expansion: 14, peak: 18, recession: -8 }
+        },
+        {
+          id: 'consumer-disc',
+          name: 'Consumer Discretionary',
+          icon: 'fa-shopping-cart',
+          performance: { recovery: 17, expansion: 16, peak: 4, recession: -16 }
+        },
+        {
+          id: 'consumer-staples',
+          name: 'Consumer Staples',
+          icon: 'fa-apple-alt',
+          performance: { recovery: 8, expansion: 6, peak: 10, recession: 5 }
+        },
+        {
+          id: 'healthcare',
+          name: 'Healthcare',
+          icon: 'fa-heartbeat',
+          performance: { recovery: 10, expansion: 9, peak: 12, recession: 6 }
+        },
+        {
+          id: 'utilities',
+          name: 'Utilities',
+          icon: 'fa-lightbulb',
+          performance: { recovery: 6, expansion: 4, peak: 14, recession: 8 }
+        },
+        {
+          id: 'real-estate',
+          name: 'Real Estate',
+          icon: 'fa-building',
+          performance: { recovery: 14, expansion: 12, peak: 3, recession: -5 }
+        },
+        {
+          id: 'telecom',
+          name: 'Telecom',
+          icon: 'fa-phone',
+          performance: { recovery: 9, expansion: 7, peak: 11, recession: 4 }
+        }
+      ];
+
+      // Economic cycle scenarios (8 quarters)
+      const cycleScenarios = [
+        {
+          quarter: 1,
+          phase: 'recovery',
+          indicators: {
+            gdp: { value: '2.5%', trend: 'up' },
+            unemployment: { value: '7.2%', trend: 'down' },
+            inflation: { value: '1.8%', trend: 'flat' },
+            rates: { value: '0.25%', trend: 'flat' }
+          }
+        },
+        {
+          quarter: 2,
+          phase: 'recovery',
+          indicators: {
+            gdp: { value: '3.2%', trend: 'up' },
+            unemployment: { value: '6.5%', trend: 'down' },
+            inflation: { value: '2.1%', trend: 'up' },
+            rates: { value: '0.25%', trend: 'flat' }
+          }
+        },
+        {
+          quarter: 3,
+          phase: 'expansion',
+          indicators: {
+            gdp: { value: '4.1%', trend: 'up' },
+            unemployment: { value: '5.8%', trend: 'down' },
+            inflation: { value: '2.6%', trend: 'up' },
+            rates: { value: '0.50%', trend: 'up' }
+          }
+        },
+        {
+          quarter: 4,
+          phase: 'expansion',
+          indicators: {
+            gdp: { value: '4.5%', trend: 'up' },
+            unemployment: { value: '5.0%', trend: 'down' },
+            inflation: { value: '3.2%', trend: 'up' },
+            rates: { value: '1.00%', trend: 'up' }
+          }
+        },
+        {
+          quarter: 5,
+          phase: 'peak',
+          indicators: {
+            gdp: { value: '2.8%', trend: 'down' },
+            unemployment: { value: '4.5%', trend: 'flat' },
+            inflation: { value: '3.8%', trend: 'up' },
+            rates: { value: '2.00%', trend: 'up' }
+          }
+        },
+        {
+          quarter: 6,
+          phase: 'peak',
+          indicators: {
+            gdp: { value: '1.5%', trend: 'down' },
+            unemployment: { value: '4.8%', trend: 'up' },
+            inflation: { value: '3.5%', trend: 'down' },
+            rates: { value: '2.50%', trend: 'up' }
+          }
+        },
+        {
+          quarter: 7,
+          phase: 'recession',
+          indicators: {
+            gdp: { value: '-0.8%', trend: 'down' },
+            unemployment: { value: '5.5%', trend: 'up' },
+            inflation: { value: '2.2%', trend: 'down' },
+            rates: { value: '2.00%', trend: 'down' }
+          }
+        },
+        {
+          quarter: 8,
+          phase: 'recession',
+          indicators: {
+            gdp: { value: '-1.5%', trend: 'down' },
+            unemployment: { value: '6.5%', trend: 'up' },
+            inflation: { value: '1.5%', trend: 'down' },
+            rates: { value: '1.00%', trend: 'down' }
+          }
+        }
+      ];
+
+      // State
+      let currentQuarter = 0;
+      let selectedSectors = [];
+      let quarterHistory = [];
+      let totalReturn = 0;
+      let canvas, ctx;
+
+      // DOM Elements
+      const startScreen = document.getElementById('start-screen');
+      const gameScreen = document.getElementById('game-screen');
+      const resultsScreen = document.getElementById('results-screen');
+      const startBtn = document.getElementById('start-btn');
+      const nextQuarterBtn = document.getElementById('next-quarter-btn');
+      const playAgainBtn = document.getElementById('play-again-btn');
+
+      // Initialize
+      window.addEventListener('DOMContentLoaded', () => {
+        canvas = document.getElementById('cycle-wheel');
+        ctx = canvas.getContext('2d');
+        
+        startBtn.addEventListener('click', startGame);
+        nextQuarterBtn.addEventListener('click', nextQuarter);
+        playAgainBtn.addEventListener('click', resetGame);
+      });
+
+      function startGame() {
+        startScreen.classList.remove('active');
+        gameScreen.classList.add('active');
+        currentQuarter = 0;
+        selectedSectors = [];
+        quarterHistory = [];
+        totalReturn = 0;
+        loadQuarter();
+      }
+
+      function loadQuarter() {
+        const scenario = cycleScenarios[currentQuarter];
+        
+        // Update quarter display
+        document.getElementById('quarter-display').textContent = `Q${scenario.quarter}`;
+        
+        // Update phase
+        const phaseElement = document.getElementById('current-phase');
+        phaseElement.textContent = scenario.phase.charAt(0).toUpperCase() + scenario.phase.slice(1);
+        phaseElement.className = `current-phase phase-${scenario.phase}`;
+        
+        // Update indicators
+        const indicatorsGrid = document.getElementById('indicators-grid');
+        indicatorsGrid.innerHTML = `
+          <div class=\"indicator-card\">
+            <span class=\"indicator-label\">GDP Growth</span>
+            <span class=\"indicator-value\" style=\"color: ${getTrendColor(scenario.indicators.gdp.trend)};\">
+              ${scenario.indicators.gdp.value}
+              <span class=\"indicator-trend ${scenario.indicators.gdp.trend === 'up' ? 'trend-up' : scenario.indicators.gdp.trend === 'down' ? 'trend-down' : 'trend-flat'}\">
+                ${getTrendIcon(scenario.indicators.gdp.trend)}
+              </span>
+            </span>
+          </div>
+          <div class=\"indicator-card\">
+            <span class=\"indicator-label\">Unemployment</span>
+            <span class=\"indicator-value\" style=\"color: ${getTrendColor(scenario.indicators.unemployment.trend, true)};\">
+              ${scenario.indicators.unemployment.value}
+              <span class=\"indicator-trend ${scenario.indicators.unemployment.trend === 'up' ? 'trend-up' : scenario.indicators.unemployment.trend === 'down' ? 'trend-down' : 'trend-flat'}\">
+                ${getTrendIcon(scenario.indicators.unemployment.trend)}
+              </span>
+            </span>
+          </div>
+          <div class=\"indicator-card\">
+            <span class=\"indicator-label\">Inflation</span>
+            <span class=\"indicator-value\" style=\"color: ${getTrendColor(scenario.indicators.inflation.trend, false, true)};\">
+              ${scenario.indicators.inflation.value}
+              <span class=\"indicator-trend ${scenario.indicators.inflation.trend === 'up' ? 'trend-up' : scenario.indicators.inflation.trend === 'down' ? 'trend-down' : 'trend-flat'}\">
+                ${getTrendIcon(scenario.indicators.inflation.trend)}
+              </span>
+            </span>
+          </div>
+          <div class=\"indicator-card\">
+            <span class=\"indicator-label\">Interest Rates</span>
+            <span class=\"indicator-value\" style=\"color: var(--text-primary);\">
+              ${scenario.indicators.rates.value}
+              <span class=\"indicator-trend ${scenario.indicators.rates.trend === 'up' ? 'trend-up' : scenario.indicators.rates.trend === 'down' ? 'trend-down' : 'trend-flat'}\">
+                ${getTrendIcon(scenario.indicators.rates.trend)}
+              </span>
+            </span>
+          </div>
+        `;
+        
+        // Render sectors
+        renderSectors(scenario.phase);
+        
+        // Draw cycle wheel
+        drawCycleWheel(scenario.phase);
+        
+        // Reset selection
+        selectedSectors = [];
+        updateAllocationDisplay();
+        nextQuarterBtn.disabled = true;
+      }
+
+      function getTrendColor(trend, inverse = false, moderate = false) {
+        if (moderate) return 'var(--text-primary)';
+        if (trend === 'up') return inverse ? '#ef4444' : '#22c55e';
+        if (trend === 'down') return inverse ? '#22c55e' : '#ef4444';
+        return '#6b7280';
+      }
+
+      function getTrendIcon(trend) {
+        if (trend === 'up') return '↑';
+        if (trend === 'down') return '↓';
+        return '→';
+      }
+
+      function renderSectors(currentPhase) {
+        const sectorsGrid = document.getElementById('sectors-grid');
+        sectorsGrid.innerHTML = '';
+        
+        sectors.forEach(sector => {
+          const performance = sector.performance[currentPhase];
+          const performanceWidth = Math.min(100, Math.max(0, (performance + 20) / 40 * 100));
+          
+          const card = document.createElement('div');
+          card.className = 'sector-card';
+          card.innerHTML = `
+            <div class=\"sector-name\">
+              <i class=\"fas ${sector.icon}\"></i> ${sector.name}
+            </div>
+            <div class=\"sector-stats\">
+              <div class=\"sector-stat\">
+                <span class=\"stat-label\">Expected Return</span>
+                <span class=\"stat-value\" style=\"color: ${performance > 0 ? '#22c55e' : '#ef4444'};\">
+                  ${performance > 0 ? '+' : ''}${performance}%
+                </span>
+              </div>
+            </div>
+            <div class=\"performance-bar\">
+              <div class=\"performance-fill\" style=\"width: ${performanceWidth}%;\"></div>
+            </div>
+          `;
+          
+          card.addEventListener('click', () => toggleSector(sector.id, card));
+          sectorsGrid.appendChild(card);
+        });
+      }
+
+      function toggleSector(sectorId, cardElement) {
+        const index = selectedSectors.indexOf(sectorId);
+        
+        if (index > -1) {
+          // Deselect
+          selectedSectors.splice(index, 1);
+          cardElement.classList.remove('selected');
+        } else {
+          // Select (max 5)
+          if (selectedSectors.length < 5) {
+            selectedSectors.push(sectorId);
+            cardElement.classList.add('selected');
+          }
+        }
+        
+        updateAllocationDisplay();
+        nextQuarterBtn.disabled = selectedSectors.length < 3;
+      }
+
+      function updateAllocationDisplay() {
+        document.getElementById('selected-count').textContent = selectedSectors.length;
+        
+        const selectedSectorsDiv = document.getElementById('selected-sectors');
+        if (selectedSectors.length === 0) {
+          selectedSectorsDiv.innerHTML = '<span style=\"color: var(--text-secondary); font-size: 0.9rem;\">No sectors selected</span>';
+        } else {
+          selectedSectorsDiv.innerHTML = selectedSectors.map(id => {
+            const sector = sectors.find(s => s.id === id);
+            return `<span class=\"sector-badge\">${sector.name} <span class=\"remove-sector\" onclick=\"removeSector('${id}')\">×</span></span>`;
+          }).join('');
+        }
+      }
+
+      function removeSector(sectorId) {
+        const index = selectedSectors.indexOf(sectorId);
+        if (index > -1) {
+          selectedSectors.splice(index, 1);
+          
+          // Update card visual
+          const cards = document.querySelectorAll('.sector-card');
+          cards.forEach(card => {
+            const sectorName = card.querySelector('.sector-name').textContent.trim();
+            const sector = sectors.find(s => s.name === sectorName);
+            if (sector && sector.id === sectorId) {
+              card.classList.remove('selected');
+            }
+          });
+          
+          updateAllocationDisplay();
+          nextQuarterBtn.disabled = selectedSectors.length < 3;
+        }
+      }
+
+      function nextQuarter() {
+        const scenario = cycleScenarios[currentQuarter];
+        const currentPhase = scenario.phase;
+        
+        // Calculate quarter return
+        let quarterReturn = 0;
+        selectedSectors.forEach(sectorId => {
+          const sector = sectors.find(s => s.id === sectorId);
+          quarterReturn += sector.performance[currentPhase];
+        });
+        quarterReturn = quarterReturn / selectedSectors.length;
+        
+        // Store quarter result
+        quarterHistory.push({
+          quarter: scenario.quarter,
+          phase: currentPhase,
+          sectors: [...selectedSectors],
+          return: quarterReturn
+        });
+        
+        totalReturn += quarterReturn;
+        
+        // Move to next quarter or show results
+        currentQuarter++;
+        if (currentQuarter >= cycleScenarios.length) {
+          showResults();
+        } else {
+          loadQuarter();
+        }
+      }
+
+      function showResults() {
+        gameScreen.classList.remove('active');
+        resultsScreen.classList.add('active');
+        
+        // Display final return
+        const finalReturnElement = document.getElementById('final-return');
+        finalReturnElement.textContent = (totalReturn > 0 ? '+' : '') + totalReturn.toFixed(1) + '%';
+        finalReturnElement.style.color = totalReturn > 0 ? '#22c55e' : '#ef4444';
+        
+        // Rating
+        let rating = '';
+        if (totalReturn >= 50) rating = 'Market Master! 🏆';
+        else if (totalReturn >= 35) rating = 'Expert Investor 🌟';
+        else if (totalReturn >= 20) rating = 'Strong Performance 💪';
+        else if (totalReturn >= 10) rating = 'Solid Returns ✓';
+        else if (totalReturn >= 0) rating = 'Learning Experience 📚';
+        else rating = 'Tough Market 📉';
+        
+        document.getElementById('rating-text').textContent = rating;
+        
+        // Quarter-by-quarter results
+        const quarterResultsDiv = document.getElementById('quarter-results');
+        quarterResultsDiv.innerHTML = quarterHistory.map(q => {
+          const borderColor = q.phase === 'recovery' ? '#22c55e' : 
+                             q.phase === 'expansion' ? '#3b82f6' :
+                             q.phase === 'peak' ? '#f59e0b' : '#ef4444';
+          
+          return `
+            <div class=\"quarter-result\" style=\"border-color: ${borderColor};\">
+              <div class=\"quarter-header\">
+                <span class=\"quarter-label\">
+                  Q${q.quarter}: ${q.phase.charAt(0).toUpperCase() + q.phase.slice(1)}
+                </span>
+                <span class=\"quarter-return ${q.return >= 0 ? 'positive' : 'negative'}\">
+                  ${q.return > 0 ? '+' : ''}${q.return.toFixed(1)}%
+                </span>
+              </div>
+              <div style=\"color: var(--text-secondary); font-size: 0.9rem;\">
+                ${q.sectors.map(id => sectors.find(s => s.id === id).name).join(', ')}
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function drawCycleWheel(currentPhase) {
+        const size = 200;
+        canvas.width = size;
+        canvas.height = size;
+        
+        const centerX = size / 2;
+        const centerY = size / 2;
+        const radius = size / 2 - 20;
+        
+        // Define phases
+        const phases = [
+          { name: 'recovery', color: '#22c55e', start: 0, end: 0.25 },
+          { name: 'expansion', color: '#3b82f6', start: 0.25, end: 0.5 },
+          { name: 'peak', color: '#f59e0b', start: 0.5, end: 0.75 },
+          { name: 'recession', color: '#ef4444', start: 0.75, end: 1 }
+        ];
+        
+        // Draw pie segments
+        phases.forEach(phase => {
+          const startAngle = phase.start * Math.PI * 2 - Math.PI / 2;
+          const endAngle = phase.end * Math.PI * 2 - Math.PI / 2;
+          
+          ctx.beginPath();
+          ctx.moveTo(centerX, centerY);
+          ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+          ctx.closePath();
+          
+          if (phase.name === currentPhase) {
+            ctx.fillStyle = phase.color;
+            ctx.globalAlpha = 1;
+          } else {
+            ctx.fillStyle = phase.color;
+            ctx.globalAlpha = 0.3;
+          }
+          
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        });
+        
+        // Draw center circle
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius * 0.4, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? '#1a1a1a' : '#f9fafb';
+        ctx.fill();
+      }
+
+      function resetGame() {
+        resultsScreen.classList.remove('active');
+        startScreen.classList.add('active');
+        currentQuarter = 0;
+        selectedSectors = [];
+        quarterHistory = [];
+        totalReturn = 0;
+      }
+
+      // Make removeSector globally accessible
+      window.removeSector = removeSector;
+    </script>
+  </body>
+</html>
             <li><a href="/blog.html">Blog</a></li>
           </ul>
         </div>
