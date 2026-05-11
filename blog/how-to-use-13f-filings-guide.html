@@ -71,6 +71,7 @@
         <li><a href="/tools.html">Tools</a></li>
         <li><a href="/games.html">Games</a></li>
         <li><a href="/blog.html" class="active">Blog</a></li>
+        <li><a href="/guides.html">Guides</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun" id="themeIcon"></i></button>
@@ -88,7 +89,7 @@
           <h1 class="article-title">How to Use 13F Filings to Follow Hedge Fund Strategies</h1>
           <div class="article-meta">
             <span class="meta-item"><i class="fas fa-calendar"></i> May 11, 2026</span>
-            <span class="meta-item"><i class="fas fa-clock"></i> 9 min read</span>
+            <span class="meta-item"><i class="fas fa-clock"></i> 14 min read</span>
             <span class="meta-item"><i class="fas fa-tag"></i> Research</span>
           </div>
         </div>
@@ -115,6 +116,26 @@
 
           <h2>Combining 13F Data with Your Own Research</h2>
           <p>Never buy a stock just because a hedge fund owns it. Use 13F data to generate ideas, then conduct your own due diligence with our <a href="/tools/10k-summary.html">10-K Summary Tool</a>. The 13F is the starting point, not the conclusion.</p>
+
+          <h2>How to Find and Download 13F Data</h2>
+          <p>All 13F filings are available free on <strong>SEC EDGAR</strong>. Search for the fund name, filter by filing type "13F-HR," and you'll see every quarterly filing. The raw XML format is difficult to read &mdash; use tools like our <a href="/tools/13f-visualizer.html">13F Visualizer</a> for a cleaner view, or databases like WhaleWisdom, Dataroma, or GuruFocus that aggregate and visualize 13F data across hundreds of funds.</p>
+
+          <h2>Understanding the Limitations: The 45-Day Lag</h2>
+          <p>The most important limitation of 13F data is the timing. Funds file within 45 days of the quarter end, and positions are reported as of the last day of the quarter. By the time you read a 13F, the information is 45&ndash;135 days old. A hedge fund that bought Apple in early January won't appear in a 13F until mid-May. Their cost basis, current position size, and current conviction level are all unknown.</p>
+          <div class="highlight-box">
+            <h3>What 13F Data Doesn't Show</h3>
+            <p><strong>Short positions</strong> are not reported (13F only covers long positions). <strong>Options</strong> are only disclosed if they are in-the-money. <strong>Non-U.S. securities</strong> are not included. <strong>Cash and bonds</strong> are not disclosed. You're seeing only a partial view of each fund's actual portfolio.</p>
+          </div>
+
+          <h2>Which Funds Are Worth Following?</h2>
+          <p>Not all 13F filers are worth tracking. The most useful signals come from: (1) <strong>Long-biased concentrated value funds</strong> with strong track records (Pershing Square, Ackman's fund; Third Point; Greenlight Capital), (2) <strong>Activist investors</strong> whose announced positions move stocks significantly (Elliott Management, Starboard Value), and (3) <strong>Quality-oriented funds</strong> with high conviction portfolios that hold for years (not trading-oriented HFTs). Avoid following macro funds or quantitative funds &mdash; their 13F positions often don't reflect their actual views.</p>
+
+          <h2>How to Generate Ideas From 13F Data</h2>
+          <p>Effective 13F-based research involves: (1) tracking new positions that appear for the first time in a respected fund's portfolio, (2) watching for convergent buying &mdash; when multiple high-quality funds buy the same stock in the same quarter, (3) monitoring position sizing changes &mdash; a fund increasing from 3% to 8% of portfolio signals rising conviction, and (4) looking at what smart money is selling &mdash; exiting positions can be equally informative.</p>
+
+          <h2>Combining 13F Data With Your Own Research</h2>
+          <p>The best use of 13F data is as a starting point, not an endpoint. When you see a respected fund initiate a significant new position, add the stock to your research list. Then do your own fundamental analysis: read the 10-K, analyze the financials, evaluate the competitive position, and form your own view. Never buy a stock solely because a hedge fund owns it &mdash; you don't know their cost basis, time horizon, or what has changed since they filed. Use our <a href="/tools/10k-summary.html">10-K Summary Tool</a> to accelerate the fundamental research phase.</p>
+
         </div>
       </article>
       <section class="related-articles">
@@ -146,8 +167,12 @@
         <h4>Tools</h4>
         <ul>
           <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
-          <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
-          <li><a href="/tools.html">All Tools</a></li>
+                <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
+                <li><a href="/tools/pe-ratio-calculator.html">P/E Calculator</a></li>
+                <li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li>
+                <li><a href="/tools/dividend-yield-calculator.html">Dividend Calculator</a></li>
+                <li><a href="/tools/market-cap-calculator.html">Market Cap Calc</a></li>
+                <li><a href="/tools.html">All Tools</a></li>
         </ul>
       </div>
       <div class="footer-col">

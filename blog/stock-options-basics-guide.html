@@ -71,6 +71,7 @@
         <li><a href="/tools.html">Tools</a></li>
         <li><a href="/games.html">Games</a></li>
         <li><a href="/blog.html" class="active">Blog</a></li>
+        <li><a href="/guides.html">Guides</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun" id="themeIcon"></i></button>
@@ -88,7 +89,7 @@
           <h1 class="article-title">Stock Options Explained: Calls, Puts, and Key Strategies for Beginners</h1>
           <div class="article-meta">
             <span class="meta-item"><i class="fas fa-calendar"></i> May 11, 2026</span>
-            <span class="meta-item"><i class="fas fa-clock"></i> 11 min read</span>
+            <span class="meta-item"><i class="fas fa-clock"></i> 15 min read</span>
             <span class="meta-item"><i class="fas fa-tag"></i> Trading</span>
           </div>
         </div>
@@ -118,6 +119,33 @@
 
           <h2>The Risks of Options</h2>
           <p>Buying options involves losing the entire premium if wrong. Selling naked options creates theoretically unlimited risk. Start with paper trading or our <a href="/games/options-lab.html">Options Lab</a> before committing real capital.</p>
+
+          <h2>The Options Chain: How to Read It</h2>
+          <p>An options chain lists all available contracts for a stock, organized by expiration date and strike price. For each strike, you see the bid (what buyers will pay), ask (what sellers will accept), volume, open interest (total contracts outstanding), and implied volatility. The "in-the-money" (ITM) options have intrinsic value; "out-of-the-money" (OTM) options are pure time value. Learn to read the chain before placing any trade.</p>
+
+          <h2>The Greeks: Measuring Options Risk</h2>
+          <ul>
+            <li><strong>Delta:</strong> How much the option price changes per $1 move in the stock. A delta of 0.5 means the option gains $0.50 for every $1 stock increase. Deep ITM calls approach delta of 1.0; far OTM calls approach 0.</li>
+            <li><strong>Theta:</strong> Time decay. Options lose value as expiration approaches, all else equal. This works against option buyers and in favor of sellers.</li>
+            <li><strong>Vega:</strong> Sensitivity to implied volatility. High vega means the option price changes significantly when volatility changes. Options near expiration have low vega; longer-dated options have high vega.</li>
+            <li><strong>Gamma:</strong> Rate of change in delta. High gamma means delta changes rapidly as the stock moves, creating potential for outsized gains (or losses).</li>
+          </ul>
+          <div class="highlight-box">
+            <h3>Implied Volatility: The Options Market's Fear Gauge</h3>
+            <p>Implied volatility (IV) is the market's consensus estimate of future price uncertainty, derived from option prices. When IV is high, options are expensive because the market expects large moves. When IV is low, options are cheap. Experienced traders often sell options when IV is elevated and buy options when IV is depressed &mdash; a strategy called "selling high volatility" or variance risk premium capture.</p>
+          </div>
+
+          <h2>Common Options Strategies</h2>
+          <ul>
+            <li><strong>Covered call:</strong> Own 100 shares + sell a call option. Generates income (the premium) but caps your upside. A conservative strategy suitable for long-term stock holders.</li>
+            <li><strong>Protective put:</strong> Own shares + buy a put. Acts like insurance against a large decline. Costs money (the premium) but limits downside.</li>
+            <li><strong>Vertical spread:</strong> Buy one option and sell another at a different strike. Limits both maximum gain and maximum loss. Cheaper than buying outright options.</li>
+            <li><strong>Cash-secured put:</strong> Sell a put option while holding enough cash to buy the stock if assigned. Generates income; you'd only buy the stock if it falls to your target price.</li>
+          </ul>
+
+          <h2>The Most Important Rule for Beginners</h2>
+          <p>Options can expire worthless. When you buy an option and the stock doesn't move enough (or doesn't move at all) before expiration, you lose your entire premium. Statistics consistently show that the majority of retail option buyers lose money over time &mdash; because they fight against theta decay and buy expensive options when volatility is elevated. If you're new to options, start with covered calls or cash-secured puts &mdash; strategies that generate income rather than speculate on direction.</p>
+
         </div>
       </article>
       <section class="related-articles">
@@ -149,8 +177,12 @@
         <h4>Tools</h4>
         <ul>
           <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
-          <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
-          <li><a href="/tools.html">All Tools</a></li>
+                <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
+                <li><a href="/tools/pe-ratio-calculator.html">P/E Calculator</a></li>
+                <li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li>
+                <li><a href="/tools/dividend-yield-calculator.html">Dividend Calculator</a></li>
+                <li><a href="/tools/market-cap-calculator.html">Market Cap Calc</a></li>
+                <li><a href="/tools.html">All Tools</a></li>
         </ul>
       </div>
       <div class="footer-col">
