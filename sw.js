@@ -1,36 +1,30 @@
 /* Service Worker for IO Innovation Fund */
 /* Improved caching strategy for mobile performance */
 
-const CACHE_NAME = "io-innovation-v2025091501";
-const STATIC_CACHE = "static-v2025091501";
-const DYNAMIC_CACHE = "dynamic-v2025091501";
-const IMAGES_CACHE = "images-v2025091501";
+const CACHE_NAME = "io-innovation-v2026051101";
+const STATIC_CACHE = "static-v2026051101";
+const DYNAMIC_CACHE = "dynamic-v2026051101";
+const IMAGES_CACHE = "images-v2026051101";
 
 // Files to cache immediately
 const STATIC_ASSETS = [
   "/",
   "/index.html",
+  "/tools.html",
+  "/games.html",
+  "/blog.html",
+  "/guides.html",
+  "/about.html",
   "/contact.html",
   "/privacy.html",
   "/terms.html",
-  "/css/shared-clean.css",
+  "/css/site.css",
   "/js/shared-simple.js",
   "/js/theme-init.js",
-  "/js/core-web-vitals.js",
-  "/js/seo-enhancements.js",
-  "/js/google-ads-enhanced.js",
   "/favicon.svg",
   "/favicon.ico",
   "/manifest.json",
   "/apple-touch-icon.png",
-];
-
-// Files to cache dynamically
-const DYNAMIC_ASSETS = [
-  "/tools.html",
-  "/markets.html",
-  "/hub.html",
-  "/js/mobile.js",
 ];
 
 // Install event - cache static assets
@@ -214,17 +208,6 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener("sync", (event) => {
   if (event.tag === "background-sync") {
     console.log("🔄 Background sync triggered");
-    event.waitUntil(
-      // Preload critical resources
-      caches
-        .open(STATIC_CACHE)
-        .then((cache) => {
-          return cache.addAll(DYNAMIC_ASSETS);
-        })
-        .catch((error) => {
-          console.error("🔄 Background sync error:", error);
-        }),
-    );
   }
 });
 
