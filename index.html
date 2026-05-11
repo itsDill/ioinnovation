@@ -40,18 +40,6 @@
       href="https://ioinnovationfund.com/"
     />
 
-    <!-- ⚠️ IMPORTANT: Site not verified with Google! -->
-    <!-- Without verification, Google can't properly index your site -->
-    <!-- STEPS: 1) Go to https://search.google.com/search-console
-         2) Add your domain as a property
-         3) Choose 'HTML tag' verification method
-         4) Copy the content value and paste it below -->
-    <!-- <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE" /> -->
-
-    <!-- Bing Webmaster - Also important for traffic from Edge/Bing -->
-    <!-- Get code from: https://www.bing.com/webmasters -->
-    <!-- <meta name="msvalidate.01" content="PASTE_YOUR_BING_CODE_HERE" /> -->
-
     <!-- Additional SEO Meta Tags -->
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
@@ -491,142 +479,83 @@
         color: var(--accent-primary);
       }
 
-      /* Picks Performance Section */
-      .picks-section {
+      /* Latest Articles Section */
+      .articles-section {
         padding: 3rem 1.5rem;
         background: var(--bg-secondary);
       }
 
-      [data-theme="light"] .picks-section {
+      [data-theme="light"] .articles-section {
         background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
       }
 
-      .picks-grid {
+      .articles-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
         max-width: var(--max-width);
         margin: 0 auto;
       }
 
-      .pick-card {
+      .article-card {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-lg);
-        padding: 1.25rem;
-        text-align: center;
+        padding: 1.5rem;
         transition: all 0.3s;
-        position: relative;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
       }
 
-      [data-theme="light"] .pick-card {
+      [data-theme="light"] .article-card {
         background: #fff;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       }
 
-      .pick-card:hover {
+      .article-card:hover {
         border-color: rgba(43, 226, 180, 0.3);
         transform: translateY(-4px);
+        text-decoration: none;
       }
 
-      .pick-symbol {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--text-primary);
-        margin-bottom: 0.25rem;
-      }
-
-      .pick-name {
-        font-size: 0.75rem;
-        color: var(--text-secondary);
-        margin-bottom: 0.75rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .pick-price {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 0.25rem;
-      }
-
-      .pick-change {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: 600;
-      }
-
-      .pick-change.positive {
-        background: rgba(34, 197, 94, 0.1);
-        color: #22c55e;
-      }
-
-      .pick-change.negative {
-        background: rgba(239, 68, 68, 0.1);
-        color: #ef4444;
-      }
-
-      .pick-signal {
-        position: absolute;
-        top: 0.75rem;
-        right: 0.75rem;
-        padding: 0.2rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.65rem;
+      .article-category {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        background: rgba(43, 226, 180, 0.1);
+        color: var(--accent-primary);
+        font-size: 0.7rem;
         font-weight: 700;
         text-transform: uppercase;
+        border-radius: 4px;
+        letter-spacing: 0.05em;
+        width: fit-content;
       }
 
-      .pick-signal.buy {
-        background: rgba(34, 197, 94, 0.15);
-        color: #22c55e;
+      .article-title {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        margin: 0;
       }
 
-      .pick-signal.hold {
-        background: rgba(234, 179, 8, 0.15);
-        color: #eab308;
+      .article-excerpt {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        flex: 1;
+        margin: 0;
       }
 
-      .pick-signal.sell {
-        background: rgba(239, 68, 68, 0.15);
-        color: #ef4444;
-      }
-
-      .picks-footer {
-        text-align: center;
-        margin-top: 1.5rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-color);
-      }
-
-      .picks-updated {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-      }
-
-      @media (max-width: 640px) {
-        .picks-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.75rem;
-        }
-
-        .pick-card {
-          padding: 1rem;
-        }
-
-        .pick-symbol {
-          font-size: 1.25rem;
-        }
-
-        .pick-price {
-          font-size: 1rem;
-        }
+      .article-read-more {
+        font-size: 0.825rem;
+        color: var(--accent-primary);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
       }
 
       /* Features Section */
@@ -1077,26 +1006,70 @@
         </div>
       </section>
 
-      <!-- Top Picks Performance Section -->
-      <section class="picks-section">
+      <!-- Latest Articles Section -->
+      <section class="articles-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">AI Portfolio Picks</h2>
+            <h2 class="section-title">Latest Articles</h2>
             <p class="section-desc">
-              Current signals from our AI-powered analysis. Track performance
-              and timing.
+              In-depth guides and market analysis to sharpen your investment
+              skills.
             </p>
           </div>
 
-          <div class="picks-grid" id="picksGrid">
-            <!-- Loaded dynamically from data/homepage-picks.json -->
+          <div class="articles-grid">
+            <a
+              href="/blog/oil-prices-economy-2026-crisis-guide.html"
+              class="article-card"
+            >
+              <div class="article-category">Economy</div>
+              <h3 class="article-title">
+                Oil Prices &amp; the Economy: 2026 Crisis Guide
+              </h3>
+              <p class="article-excerpt">
+                How falling or spiking oil prices ripple through markets,
+                inflation, and your portfolio in 2026.
+              </p>
+              <span class="article-read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+            <a
+              href="/blog/understanding-13f-filings-guide.html"
+              class="article-card"
+            >
+              <div class="article-category">Research</div>
+              <h3 class="article-title">
+                Understanding 13F Filings: A Complete Guide
+              </h3>
+              <p class="article-excerpt">
+                Learn how to read SEC 13F filings and follow what the biggest
+                institutional funds are buying and selling.
+              </p>
+              <span class="article-read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+            <a
+              href="/blog/how-to-read-income-statement-guide.html"
+              class="article-card"
+            >
+              <div class="article-category">Fundamentals</div>
+              <h3 class="article-title">How to Read an Income Statement</h3>
+              <p class="article-excerpt">
+                A step-by-step breakdown of revenue, expenses, and net earnings
+                — essential for analyzing any stock.
+              </p>
+              <span class="article-read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
           </div>
 
-          <div class="picks-footer">
-            <a href="/tools.html" class="btn btn-primary">
-              <i class="fas fa-chart-line"></i> View Full Portfolio Tool
+          <div class="text-center mt-4">
+            <a href="/blog.html" class="btn btn-secondary btn-lg">
+              View All Articles <i class="fas fa-arrow-right"></i>
             </a>
-            <p class="picks-updated" id="picksUpdated"></p>
           </div>
         </div>
       </section>
@@ -1315,50 +1288,6 @@
     <!-- JavaScript -->
     <script src="js/shared-simple.js"></script>
     <script>
-      // Load AI Portfolio Picks
-      async function loadPicks() {
-        try {
-          const response = await fetch("data/homepage-picks.json");
-          const data = await response.json();
-          const grid = document.getElementById("picksGrid");
-          const updated = document.getElementById("picksUpdated");
-
-          if (data.picks) {
-            grid.innerHTML = data.picks
-              .map((stock) => {
-                const changeClass =
-                  stock.potentialGain >= 0 ? "positive" : "negative";
-                const signalClass = stock.signal.toLowerCase();
-                const icon =
-                  stock.potentialGain >= 0 ? "fa-arrow-up" : "fa-arrow-down";
-                const potentialText = `+${stock.potentialGain}%`;
-
-                return `
-                <div class="pick-card">
-                  <span class="pick-signal ${signalClass}">${stock.signal}</span>
-                  <div class="pick-symbol">${stock.symbol}</div>
-                  <div class="pick-name">${stock.name}</div>
-                  <div class="pick-price">$${stock.currentPrice.toFixed(2)}</div>
-                  <span class="pick-change ${changeClass}">
-                    <i class="fas ${icon}"></i> ${potentialText} target
-                  </span>
-                </div>
-              `;
-              })
-              .join("");
-
-            if (data.lastUpdated) {
-              const date = new Date(data.lastUpdated);
-              updated.textContent = `Last updated: ${date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
-            }
-          }
-        } catch (err) {
-          console.log("Could not load picks data");
-        }
-      }
-
-      loadPicks();
-
       // Scroll to top functionality
       const scrollTopBtn = document.getElementById("scrollTop");
       if (scrollTopBtn) {

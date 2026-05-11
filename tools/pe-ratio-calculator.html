@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      P/E Ratio Calculator | Free Stock Valuation Tool | IO Innovation
+    </title>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FGD50Z4Y7G");
+    </script>
+    <meta
+      name="description"
+      content="Free P/E ratio calculator. Calculate trailing and forward P/E ratios, PEG ratio, and compare against sector benchmarks instantly."
+    />
+    <meta
+      name="keywords"
+      content="PE ratio calculator, price to earnings calculator, PEG ratio calculator, stock valuation tool, forward PE ratio, trailing PE ratio"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="IO Innovation" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/pe-ratio-calculator.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/pe-ratio-calculator.html"
+    />
+    <meta
+      property="og:title"
+      content="P/E Ratio Calculator | Free Stock Valuation Tool"
+    />
+    <meta
+      property="og:description"
+      content="Calculate trailing P/E, forward P/E, and PEG ratio for any stock. Compare to sector benchmarks instantly."
+    />
+    <meta property="og:site_name" content="IO Innovation" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="P/E Ratio Calculator | IO Innovation" />
+    <meta
+      name="twitter:description"
+      content="Free P/E ratio and PEG ratio calculator with sector benchmarks."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "P/E Ratio Calculator",
+        "description": "Calculate trailing P/E, forward P/E, and PEG ratio for any stock with sector benchmark comparisons.",
+        "url": "https://ioinnovationfund.com/tools/pe-ratio-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="../js/theme-init.js?v=2026050601"></script>
+    <link rel="stylesheet" href="../css/site.css?v=2026050601" />
+    <style>
+      .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+      }
+      .tool-hero {
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary) 0%,
+          var(--bg-card) 100%
+        );
+        border-bottom: 1px solid var(--border-color);
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+      .tool-hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 800;
+        color: var(--accent-primary);
+        margin-bottom: 1rem;
+      }
+      .tool-hero p {
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+      }
+      .tool-container {
+        max-width: 900px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+      .calc-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      .calc-card h2 {
+        font-size: 1.4rem;
+        color: var(--accent-primary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .input-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .input-group label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+      }
+      .input-group input {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color 0.2s;
+      }
+      .input-group input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+      }
+      .calc-btn {
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: #0a0e1a;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+        width: 100%;
+      }
+      .calc-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .result-box {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .result-box .label {
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+      .result-box .value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--accent-primary);
+      }
+      .result-box .sublabel {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        margin-top: 0.4rem;
+      }
+      .result-box.good .value {
+        color: #10b981;
+      }
+      .result-box.warn .value {
+        color: #f59e0b;
+      }
+      .result-box.bad .value {
+        color: #ef4444;
+      }
+      .benchmark-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      .benchmark-table th {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .benchmark-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+      .benchmark-table tr:last-child td {
+        border-bottom: none;
+      }
+      .benchmark-table td:first-child {
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+      .interpretation {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 1.25rem;
+        margin-top: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        display: none;
+      }
+      .interpretation.visible {
+        display: block;
+      }
+      .info-articles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .info-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s;
+        display: block;
+      }
+      .info-card:hover {
+        border-color: rgba(43, 226, 180, 0.3);
+        transform: translateY(-3px);
+      }
+      .info-card h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.4rem;
+      }
+      .info-card p {
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html" class="active">Tools</a></li>
+          <li><a href="/games.html">Games</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" style="padding-top: var(--header-height)">
+      <div class="tool-hero">
+        <h1><i class="fas fa-calculator"></i> P/E Ratio Calculator</h1>
+        <p>
+          Calculate trailing P/E, forward P/E, and PEG ratio for any stock.
+          Compare your result against sector benchmarks to assess valuation.
+        </p>
+      </div>
+
+      <div class="tool-container">
+        <div class="calc-card">
+          <h2><i class="fas fa-sliders-h"></i> Enter Stock Data</h2>
+          <div class="input-grid">
+            <div class="input-group">
+              <label for="stockPrice">Stock Price ($)</label>
+              <input
+                type="number"
+                id="stockPrice"
+                placeholder="e.g. 150.00"
+                min="0"
+                step="0.01"
+              />
+            </div>
+            <div class="input-group">
+              <label for="trailingEps">Trailing EPS (last 12 months)</label>
+              <input
+                type="number"
+                id="trailingEps"
+                placeholder="e.g. 6.25"
+                step="0.01"
+              />
+            </div>
+            <div class="input-group">
+              <label for="forwardEps"
+                >Forward EPS (next 12 months estimate)</label
+              >
+              <input
+                type="number"
+                id="forwardEps"
+                placeholder="e.g. 7.50"
+                step="0.01"
+              />
+            </div>
+            <div class="input-group">
+              <label for="epsGrowth">Expected EPS Growth Rate (%/yr)</label>
+              <input
+                type="number"
+                id="epsGrowth"
+                placeholder="e.g. 15"
+                min="0"
+                step="0.1"
+              />
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calculate()">
+            <i class="fas fa-calculator"></i> Calculate Ratios
+          </button>
+
+          <div class="results-grid" id="resultsGrid" style="display: none">
+            <div class="result-box" id="trailingPeBox">
+              <div class="label">Trailing P/E</div>
+              <div class="value" id="trailingPe">—</div>
+              <div class="sublabel">Based on last 12 months EPS</div>
+            </div>
+            <div class="result-box" id="forwardPeBox">
+              <div class="label">Forward P/E</div>
+              <div class="value" id="forwardPe">—</div>
+              <div class="sublabel">Based on next 12 months EPS</div>
+            </div>
+            <div class="result-box" id="pegBox">
+              <div class="label">PEG Ratio</div>
+              <div class="value" id="pegRatio">—</div>
+              <div class="sublabel">P/E ÷ Growth Rate</div>
+            </div>
+          </div>
+          <div class="interpretation" id="interpretation"></div>
+        </div>
+
+        <div class="calc-card">
+          <h2><i class="fas fa-industry"></i> Sector P/E Benchmarks (2026)</h2>
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>Sector</th>
+                <th>Typical P/E Range</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technology / AI</td>
+                <td>30 – 70+</td>
+                <td>High growth expectations baked in</td>
+              </tr>
+              <tr>
+                <td>Healthcare</td>
+                <td>18 – 30</td>
+                <td>Stable demand, R&D pipeline premium</td>
+              </tr>
+              <tr>
+                <td>Consumer Staples</td>
+                <td>18 – 25</td>
+                <td>Defensive, reliable earnings</td>
+              </tr>
+              <tr>
+                <td>Industrials</td>
+                <td>15 – 22</td>
+                <td>Cyclical but stable earnings</td>
+              </tr>
+              <tr>
+                <td>Financial Services</td>
+                <td>10 – 15</td>
+                <td>Leveraged balance sheets, regulated</td>
+              </tr>
+              <tr>
+                <td>Energy</td>
+                <td>8 – 14</td>
+                <td>Commodity cyclicality, capex heavy</td>
+              </tr>
+              <tr>
+                <td>Utilities</td>
+                <td>12 – 18</td>
+                <td>Bond-like, regulated returns</td>
+              </tr>
+              <tr>
+                <td>Real Estate (REITs)</td>
+                <td>15 – 25</td>
+                <td>Often valued on FFO, not EPS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="calc-card">
+          <h2><i class="fas fa-book-open"></i> Learn More</h2>
+          <div class="info-articles">
+            <a class="info-card" href="/blog/what-is-pe-ratio-guide.html">
+              <h4>What Is a P/E Ratio?</h4>
+              <p>
+                Complete guide to price-to-earnings ratios, trailing vs.
+                forward, and common mistakes.
+              </p>
+            </a>
+            <a
+              class="info-card"
+              href="/blog/growth-vs-value-investing-guide.html"
+            >
+              <h4>Growth vs. Value Investing</h4>
+              <p>
+                How P/E fits into different investing philosophies and when high
+                P/E is justified.
+              </p>
+            </a>
+            <a class="info-card" href="/tools/10k-summary.html">
+              <h4>Find EPS in the 10-K</h4>
+              <p>
+                Use our 10-K Summary Tool to extract EPS and earnings data from
+                any SEC filing.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovation</a>
+          <p>Free finance tools and analytics for smarter investing.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
+            <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
+            <li><a href="/tools.html">All Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/guides.html">Investment Guides</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../js/shared-simple.js"></script>
+    <script>
+      function calculate() {
+        const price = parseFloat(document.getElementById("stockPrice").value);
+        const tEps = parseFloat(document.getElementById("trailingEps").value);
+        const fEps = parseFloat(document.getElementById("forwardEps").value);
+        const growth = parseFloat(document.getElementById("epsGrowth").value);
+
+        let hasResult = false;
+
+        const trailingPe = price > 0 && tEps > 0 ? price / tEps : null;
+        const forwardPe = price > 0 && fEps > 0 ? price / fEps : null;
+        const peg = trailingPe && growth > 0 ? trailingPe / growth : null;
+
+        if (trailingPe || forwardPe) hasResult = true;
+
+        if (!hasResult) {
+          alert("Please enter at least stock price and trailing EPS.");
+          return;
+        }
+
+        document.getElementById("resultsGrid").style.display = "grid";
+
+        // Trailing P/E
+        const tPeEl = document.getElementById("trailingPe");
+        const tPeBox = document.getElementById("trailingPeBox");
+        if (trailingPe) {
+          tPeEl.textContent = trailingPe.toFixed(1) + "x";
+          tPeBox.className =
+            "result-box " +
+            (trailingPe < 15 ? "good" : trailingPe < 30 ? "" : "warn");
+        } else {
+          tPeEl.textContent = "N/A";
+        }
+
+        // Forward P/E
+        const fPeEl = document.getElementById("forwardPe");
+        const fPeBox = document.getElementById("forwardPeBox");
+        if (forwardPe) {
+          fPeEl.textContent = forwardPe.toFixed(1) + "x";
+          fPeBox.className =
+            "result-box " +
+            (forwardPe < 15 ? "good" : forwardPe < 30 ? "" : "warn");
+        } else {
+          fPeEl.textContent = "N/A";
+          fPeBox.className = "result-box";
+        }
+
+        // PEG
+        const pegEl = document.getElementById("pegRatio");
+        const pegBox = document.getElementById("pegBox");
+        if (peg) {
+          pegEl.textContent = peg.toFixed(2);
+          pegBox.className =
+            "result-box " + (peg < 1 ? "good" : peg < 2 ? "" : "bad");
+        } else {
+          pegEl.textContent = "N/A";
+          pegBox.className = "result-box";
+        }
+
+        // Interpretation
+        let msg = "";
+        if (trailingPe) {
+          if (trailingPe < 10)
+            msg =
+              "⚠️ Very low P/E — could be a value opportunity or a value trap. Investigate why earnings are so high relative to price.";
+          else if (trailingPe < 20)
+            msg =
+              "✅ Moderate P/E in the range typical for value-oriented sectors. Generally considered reasonably priced.";
+          else if (trailingPe < 35)
+            msg =
+              "🔶 Elevated P/E — investors are pricing in meaningful future growth. Verify the growth rate justifies the valuation.";
+          else
+            msg =
+              "🔴 High P/E — substantial growth expectations are priced in. Use the PEG ratio to check if growth justifies the premium.";
+        }
+        if (peg) {
+          if (peg < 1)
+            msg +=
+              " PEG below 1 suggests the stock may be undervalued relative to its growth rate (Graham's rule of thumb).";
+          else if (peg < 2)
+            msg +=
+              " PEG between 1–2 is considered fairly valued by most growth investors.";
+          else
+            msg +=
+              " PEG above 2 suggests the stock is expensive relative to its expected growth.";
+        }
+        const interp = document.getElementById("interpretation");
+        interp.textContent = msg;
+        interp.className = "interpretation visible";
+      }
+    </script>
+  </body>
+</html>

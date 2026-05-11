@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dollar Cost Averaging: The Strategy That Beats Trying to Time the Market | IO Innovation</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FGD50Z4Y7G');</script>
+  <meta name="description" content="Dollar cost averaging removes emotion from investing by buying fixed amounts at regular intervals. Here's how it works, when to use it, and the math behind it." />
+  <meta name="keywords" content="dollar cost averaging, DCA investing, DCA explained, how to invest regularly, investing strategy, market timing vs DCA, automatic investing" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://ioinnovationfund.com/blog/dollar-cost-averaging-guide.html" />
+  <meta name="author" content="IO Innovation" />
+  <meta property="og:title" content="Dollar Cost Averaging: The Strategy That Beats Trying to Time the Market" />
+  <meta property="og:description" content="Dollar cost averaging removes emotion from investing by buying fixed amounts at regular intervals. Here's how it works, when to use it, and the math behind it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ioinnovationfund.com/blog/dollar-cost-averaging-guide.html" />
+  <meta property="og:site_name" content="IO Innovation" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dollar Cost Averaging: The Strategy That Beats Trying to Time the Market" />
+  <meta name="twitter:description" content="Dollar cost averaging removes emotion from investing by buying fixed amounts at regular intervals. Here's how it works, when to use it, and the math behind it." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ioinnovationfund.com/blog/dollar-cost-averaging-guide.html"},"headline":"Dollar Cost Averaging: The Strategy That Beats Trying to Time the Market","description":"Dollar cost averaging removes emotion from investing by buying fixed amounts at regular intervals. Here's how it works, when to use it, and the math behind it.","author":{"@type":"Organization","name":"IO Innovation"},"publisher":{"@type":"Organization","name":"IO Innovation","logo":{"@type":"ImageObject","url":"https://ioinnovationfund.com/logo.png"}},"datePublished":"2026-05-11","dateModified":"2026-05-11"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="../js/theme-init.js?v=2026050601"></script>
+  <link rel="stylesheet" href="../css/site.css?v=2026050601" />
+  <style>
+    .header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:1000!important;}
+    .breadcrumbs{max-width:900px;margin:2rem auto 1rem;padding:0 2rem;font-size:.9rem;color:var(--text-secondary);}
+    .breadcrumbs a{color:var(--accent-primary);text-decoration:none;}
+    .blog-content{max-width:900px;margin:0 auto 4rem;padding:0 2rem;}
+    .article-header{margin-bottom:3rem;text-align:center;}
+    .article-title{font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--accent-primary);margin-bottom:1.5rem;line-height:1.3;}
+    .article-meta{display:flex;justify-content:center;align-items:center;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;}
+    .meta-item{display:flex;align-items:center;gap:.5rem;color:var(--text-secondary);font-size:.95rem;}
+    .article-body{font-size:1.1rem;line-height:1.8;}
+    .article-body h2{font-size:1.8rem;margin:3rem 0 1.5rem;color:var(--accent-primary);position:relative;padding-bottom:.5rem;}
+    .article-body h2:after{content:"";position:absolute;bottom:0;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--accent-primary),var(--accent-secondary));border-radius:3px;}
+    .article-body h3{font-size:1.3rem;margin:2rem 0 1rem;color:var(--accent-secondary);}
+    .article-body p{margin-bottom:1.5rem;color:var(--text-secondary);}
+    .article-body ul,.article-body ol{margin:1.5rem 0;padding-left:2rem;}
+    .article-body li{margin-bottom:.8rem;color:var(--text-secondary);}
+    .article-body strong{color:var(--text-primary);font-weight:600;}
+    .highlight-box{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:2rem;margin:2.5rem 0;border-left:4px solid var(--accent-primary);}
+    .highlight-box h3{color:var(--accent-primary);margin-bottom:1rem;font-size:1.2rem;}
+    .highlight-box p,.highlight-box li{color:var(--text-secondary);}
+    .related-articles{background:var(--bg-secondary);border-radius:16px;padding:2rem;margin:3rem 0;}
+    .related-articles h3{font-size:1.3rem;color:var(--accent-primary);margin-bottom:1.5rem;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+    .related-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:1.25rem;text-decoration:none;color:inherit;transition:all .3s;display:block;}
+    .related-card:hover{border-color:rgba(43,226,180,.3);transform:translateY(-4px);}
+    .related-card h4{font-size:.95rem;font-weight:600;margin-bottom:.5rem;color:var(--text-primary);}
+    .related-card p{font-size:.82rem;color:var(--text-secondary);margin:0;}
+    .progress-bar-wrap{position:fixed;top:0;left:0;width:100%;height:3px;z-index:9999;}
+    .progress-bar{height:100%;background:linear-gradient(90deg,var(--accent-primary),var(--accent-secondary));width:0;}
+    @media(max-width:640px){.article-body{font-size:1rem;}.article-body h2{font-size:1.4rem;}.article-meta{gap:1rem;}}
+  </style>
+</head>
+<body>
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+  <header class="header">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="/" class="logo">IO Innovation</a>
+      <ul class="nav-links" id="mobileNav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools.html">Tools</a></li>
+        <li><a href="/games.html">Games</a></li>
+        <li><a href="/blog.html" class="active">Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun" id="themeIcon"></i></button>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content" style="padding-top:var(--header-height)">
+    <div class="breadcrumbs">
+      <a href="/">Home</a> &rsaquo; <a href="/blog.html">Blog</a> &rsaquo; Strategy
+    </div>
+    <div class="blog-content">
+      <article>
+        <div class="article-header">
+          <h1 class="article-title">Dollar Cost Averaging: The Strategy That Beats Trying to Time the Market</h1>
+          <div class="article-meta">
+            <span class="meta-item"><i class="fas fa-calendar"></i> May 11, 2026</span>
+            <span class="meta-item"><i class="fas fa-clock"></i> 7 min read</span>
+            <span class="meta-item"><i class="fas fa-tag"></i> Strategy</span>
+          </div>
+        </div>
+        <div class="article-body">
+          <p><strong>Dollar cost averaging (DCA)</strong> is the practice of investing a fixed dollar amount at regular intervals &mdash; regardless of the stock price. Buy $500 of index funds every month, rain or shine, bull or bear market. It removes the emotional trap of trying to time the market.</p>
+
+          <h2>How Dollar Cost Averaging Works</h2>
+          <p>When prices are high, your fixed $500 buys fewer shares. When prices are low, it buys more. Over time, this naturally lowers your average cost per share &mdash; you end up buying more of what you want when it is on sale.</p>
+          <div class="highlight-box">
+            <h3>DCA Example</h3>
+            <p>Invest $1,000/month at prices of $100, $80, $60, $80, $100. You buy 10 + 12.5 + 16.7 + 12.5 + 10 = 61.7 shares. Average price paid: $1,000 &divide; 61.7 = <strong>$81.03</strong> &mdash; well below the simple average of $84.</p>
+          </div>
+
+          <h2>DCA vs. Lump Sum Investing</h2>
+          <p>Studies show lump sum investing beats DCA about 66% of the time when markets trend upward. But DCA wins on the psychological dimension: investors who cannot handle a 30% drawdown immediately after deploying a lump sum often panic-sell at the worst moment. DCA prevents that.</p>
+
+          <h2>When DCA Is the Right Strategy</h2>
+          <ul>
+            <li>You receive regular income and invest a portion each paycheck</li>
+            <li>You are nervous about deploying a large windfall in a potentially overvalued market</li>
+            <li>You want to remove emotional decision-making from investing</li>
+            <li>You are investing for a long-term goal (retirement, college fund)</li>
+          </ul>
+
+          <h2>Implementing DCA</h2>
+          <p>Set up automatic investments through a brokerage that supports recurring purchases. Choose low-cost index funds &mdash; the S&amp;P 500 has returned ~10% annually over the long run. Keep fees minimal: a 1% annual fee compounds into a massive drag over decades. Use our <a href="/tools/compound-interest-calculator.html">Compound Interest Calculator</a> to model different scenarios.</p>
+        </div>
+      </article>
+      <section class="related-articles">
+        <h3>Continue Reading</h3>
+        <div class="related-grid">
+          <a class="related-card" href="/blog/dividend-aristocrats-investing-guide.html">
+            <h4>Dividend Aristocrats Guide</h4>
+            <p>The 68 companies with 25+ years of consecutive dividend growth.</p>
+          </a>
+          <a class="related-card" href="/tools/dividend-aristocrats.html">
+            <h4>Dividend Aristocrats Screener</h4>
+            <p>Filter and compare dividend aristocrat stocks.</p>
+          </a>
+          <a class="related-card" href="/blog/how-to-build-dividend-portfolio-guide.html">
+            <h4>Build a Dividend Portfolio</h4>
+            <p>A step-by-step plan for dividend income investing.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">IO Innovation</a>
+        <p>Free finance tools and analytics for smarter investing.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
+          <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
+          <li><a href="/tools.html">All Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/guides.html">Investment Guides</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+          <li><a href="/disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+      <p class="footer-disclaimer">Content is for informational purposes only. Not financial advice.</p>
+    </div>
+  </footer>
+  <script src="../js/shared-simple.js"></script>
+  <script>
+    window.addEventListener('scroll',()=>{
+      const s=document.body.scrollTop||document.documentElement.scrollTop;
+      const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+      document.getElementById('progressBar').style.width=(s/h*100)+'%';
+    });
+  </script>
+</body>
+</html>
