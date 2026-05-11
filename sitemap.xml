@@ -1,214 +1,441 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
+  <!-- Homepage & Main Pages -->
   <url>
     <loc>https://ioinnovationfund.com/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Main Navigation Pages -->
   <url>
     <loc>https://ioinnovationfund.com/tools.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
-    <loc>https://ioinnovationfund.com/analytics.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://ioinnovationfund.com/games.html</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.88</priority>
   </url>
 
   <url>
-    <loc>https://ioinnovationfund.com/hub.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://ioinnovationfund.com/guides.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://ioinnovationfund.com/blog.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://ioinnovationfund.com/games.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://ioinnovationfund.com/analytics.html</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <!-- Individual Game Pages -->
-  <url>
-    <loc>https://ioinnovationfund.com/games/portfolio-builder.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/games/trading-simulator.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/games/options-lab.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/games/investment-iq.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/games/market-crash.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/games/sector-rotation.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/guides.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.88</priority>
+    <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://ioinnovationfund.com/about.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/contact.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
 
-  <!-- Tool Pages -->
   <url>
-    <loc>https://ioinnovationfund.com/tools/13f-visualizer.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/tools/10k-summary.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Sector Pages -->
-  <url>
-    <loc>https://ioinnovationfund.com/sectors/ai-infrastructure.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/sectors/robotics.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/sectors/space-economy.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Blog Posts -->
-  <url>
-    <loc>https://ioinnovationfund.com/blog/how-to-read-income-statement-guide.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://ioinnovationfund.com/contact.html</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
+    <priority>0.50</priority>
   </url>
 
-  <url>
-    <loc>https://ioinnovationfund.com/blog/how-to-read-balance-sheet-guide.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/blog/how-to-read-cash-flow-statement-guide.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/blog/oil-prices-economy-2026-crisis-guide.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <url>
-    <loc>https://ioinnovationfund.com/blog/understanding-13f-filings-guide.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Legal Pages -->
   <url>
     <loc>https://ioinnovationfund.com/privacy.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://ioinnovationfund.com/terms.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://ioinnovationfund.com/disclaimer.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
 
   <url>
     <loc>https://ioinnovationfund.com/content-policy.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/tools/13f-visualizer.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/tools/10k-summary.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/tools/pe-ratio-calculator.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/tools/compound-interest-calculator.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/tools/dividend-yield-calculator.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/tools/market-cap-calculator.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/games/portfolio-builder.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/games/trading-simulator.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/games/investment-iq.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/games/market-crash.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/games/options-lab.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/games/sector-rotation.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/sectors/ai-infrastructure.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/sectors/robotics.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/sectors/space-economy.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <!-- Original Blog Posts -->
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-read-balance-sheet-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-read-cash-flow-statement-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-read-income-statement-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/oil-prices-economy-2026-crisis-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/understanding-13f-filings-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- New Blog Posts -->
+  <url>
+    <loc>https://ioinnovationfund.com/blog/what-is-pe-ratio-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/what-is-ebitda-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/free-cash-flow-explained-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/debt-to-equity-ratio-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/return-on-equity-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/dollar-cost-averaging-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/compound-interest-investing-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/market-cap-explained-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-analyze-a-stock-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-read-earnings-report-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-read-sec-filings-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-read-proxy-statement-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/growth-vs-value-investing-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/warren-buffett-investing-strategy-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/technical-vs-fundamental-analysis-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-use-13f-filings-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/congressional-stock-trading-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/dividend-aristocrats-investing-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/hedge-fund-strategies-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/stock-options-basics-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/best-ai-stocks-2026-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/nvidia-stock-analysis-2026-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/robotics-stocks-2026-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/space-economy-investing-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/ai-infrastructure-investing-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/how-to-build-dividend-portfolio-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/portfolio-diversification-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/etf-vs-individual-stocks-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/rebalancing-portfolio-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/recession-proof-portfolio-guide.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
   </url>
 
 </urlset>
