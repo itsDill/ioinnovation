@@ -1,46 +1,46 @@
 {
-  "lastUpdated": "2026-05-15T21:29:28Z",
+  "lastUpdated": "2026-05-18T15:53:02Z",
   "picks": [
     {
       "symbol": "AAPL",
       "name": "Apple Inc.",
       "signal": "BUY",
-      "currentPrice": 300.23,
+      "currentPrice": 295.6,
       "potentialGain": 12.0
     },
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
       "signal": "HOLD",
-      "currentPrice": 225.32,
+      "currentPrice": 222.24,
       "potentialGain": 12.0
     },
     {
       "symbol": "MSFT",
       "name": "Microsoft Corporation",
       "signal": "BUY",
-      "currentPrice": 421.92,
+      "currentPrice": 417.39,
       "potentialGain": 12.0
     },
     {
       "symbol": "AMZN",
       "name": "Amazon.com Inc.",
       "signal": "BUY",
-      "currentPrice": 264.14,
+      "currentPrice": 265.57,
       "potentialGain": 12.0
     },
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
       "signal": "BUY",
-      "currentPrice": 396.78,
+      "currentPrice": 401.52,
       "potentialGain": 12.0
     },
     {
       "symbol": "TSLA",
       "name": "Tesla Inc.",
       "signal": "HOLD",
-      "currentPrice": 422.24,
+      "currentPrice": 411.03,
       "potentialGain": 12.0
     }
   ]
