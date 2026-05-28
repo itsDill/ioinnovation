@@ -1,0 +1,75 @@
+{
+  "date": "2026-05-29",
+  "instrument": "QQQ",
+  "timeframe": "1D",
+  "consensus": {
+    "entry": {
+      "low": 0.0,
+      "high": 0.0
+    },
+    "exit": {
+      "stop": 0.0,
+      "target1": 0.0,
+      "target2": 0.0
+    },
+    "avgConfidence": 0.0,
+    "dispersionPct": 0.0
+  },
+  "scores": {
+    "newsSentimentScore": 0.0,
+    "recommendation": "Neutral"
+  },
+  "policy": {
+    "maxRiskPct": 0.75,
+    "minRewardToRisk": 1.8,
+    "maxDispersionPct": 1.25,
+    "maxVix": 22.0,
+    "maxBearishNewsScore": -0.4,
+    "minConfidence": 60.0
+  },
+  "executionPlan": {
+    "entryMid": 0.0,
+    "perShareRisk": 0.0,
+    "rewardToTarget1": 0.0,
+    "rewardToRiskTarget1": 0.0,
+    "maxAccountRiskPct": 0.75,
+    "accountSize": 100000.0,
+    "maxDollarRisk": 0.0,
+    "suggestedPositionShares": 0
+  },
+  "tradeDecision": {
+    "allowed": false,
+    "action": "No Trade",
+    "noTradeReasons": [
+      "Invalid structure: stop is not below entry zone.",
+      "Average confidence 0.0 is below minimum 60.0",
+      "Reward/risk 0.00 is below minimum 1.80"
+    ]
+  },
+  "riskFlags": [
+    "Stop is not below entry low; re-check model outputs for consistency.",
+    "Invalid structure: stop is not below entry zone.",
+    "Average confidence 0.0 is below minimum 60.0",
+    "Reward/risk 0.00 is below minimum 1.80"
+  ],
+  "thesisDigest": [],
+  "inputs": {
+    "aiModelCount": 5,
+    "newsCount": 1,
+    "chartScreenshot": "assets/images/nasdaq/2026-05-29/chart.png",
+    "marketContext": {
+      "priorClose": 0,
+      "vix": 0,
+      "accountSize": 100000,
+      "riskPolicy": {
+        "maxRiskPct": 0.75,
+        "minRewardToRisk": 1.8,
+        "maxDispersionPct": 1.25,
+        "maxVix": 22,
+        "maxBearishNewsScore": -0.4,
+        "minConfidence": 60
+      },
+      "notes": "Fill after market close or premarket prep."
+    }
+  }
+}

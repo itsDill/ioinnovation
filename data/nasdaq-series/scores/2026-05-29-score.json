@@ -1,0 +1,36 @@
+{
+  "date": "2026-05-29",
+  "instrument": "QQQ",
+  "tradeDecision": {
+    "allowed": false,
+    "action": "No Trade",
+    "noTradeReasons": [
+      "Invalid structure: stop is not below entry zone.",
+      "Average confidence 0.0 is below minimum 60.0",
+      "Reward/risk 0.00 is below minimum 1.80"
+    ]
+  },
+  "levels": {
+    "entryLow": 0.0,
+    "entryHigh": 0.0,
+    "entryMid": 0.0,
+    "stop": 0.0,
+    "target1": 0.0,
+    "target2": 0.0
+  },
+  "outcome": {
+    "open": 452.15,
+    "high": 455.42,
+    "low": 449.83,
+    "close": 454.71,
+    "entered": false,
+    "hitStop": false,
+    "hitTarget1": false,
+    "hitTarget2": false,
+    "result": "no-entry"
+  },
+  "score": {
+    "r": 0.0,
+    "closeR": 0.0
+  }
+}

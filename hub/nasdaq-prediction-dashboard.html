@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nasdaq Prediction Dashboard | IO Innovation Hub</title>
+    <meta
+      name="description"
+      content="Performance dashboard for daily Nasdaq prediction reports, risk decisions, and backtested R outcomes."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/hub/nasdaq-prediction-dashboard.html"
+    />
+
+    <script src="/js/theme-init.js?v=2026033001"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2025121602" />
+    <link rel="stylesheet" href="/css/blog.css?v=2025121602" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    /></noscript>
+
+    <style>
+      .dashboard-wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+
+      .dashboard-title {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+
+      .dashboard-sub {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.85rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .kpi-card {
+        border: 1px solid var(--border-color);
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 0.9rem;
+      }
+
+      .kpi-value {
+        font-size: 1.4rem;
+        font-weight: 800;
+      }
+
+      .kpi-label {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.93rem;
+      }
+
+      .data-table th,
+      .data-table td {
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.65rem 0.5rem;
+        text-align: left;
+      }
+
+      .pill {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 0.2rem 0.55rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .pill.good {
+        background: rgba(16, 185, 129, 0.15);
+        color: #047857;
+      }
+
+      .pill.bad {
+        background: rgba(239, 68, 68, 0.15);
+        color: #b91c1c;
+      }
+
+      .pill.pending,
+      .pill.neutral {
+        background: rgba(59, 130, 246, 0.12);
+        color: #1d4ed8;
+      }
+
+      @media (max-width: 900px) {
+        .table-scroll {
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/games.html">Games</a></li>
+          <li><a href="/hub.html" class="active">Hub</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="dashboard-wrap">
+      <a href="/hub.html" class="post-kicker">Back to Hub</a>
+      <h1 class="dashboard-title">Nasdaq Prediction Dashboard</h1>
+      <p class="dashboard-sub">
+        Daily report quality, risk decisions, and outcome scoring in one place.
+      </p>
+
+      <p id="generatedAt" class="dashboard-sub">Last generated: -</p>
+
+      <section id="kpiCards" class="kpi-grid"></section>
+
+      <section class="table-scroll">
+        <table class="data-table" aria-label="Nasdaq prediction outcomes">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Decision</th>
+              <th>Entry Zone</th>
+              <th>Stop</th>
+              <th>Target1</th>
+              <th>Confidence</th>
+              <th>R Score</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody id="dashboardRows">
+            <tr>
+              <td colspan="8">Loading dashboard rows...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bottom" style="text-align: center; padding: 1.25rem">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          For educational purposes only. Not investment advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/js/shared-simple.js"></script>
+    <script src="/js/nasdaq-dashboard.js"></script>
+  </body>
+</html>

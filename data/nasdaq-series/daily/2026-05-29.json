@@ -1,0 +1,66 @@
+{
+  "date": "2026-05-29",
+  "instrument": "QQQ",
+  "timeframe": "1D",
+  "chartScreenshot": "assets/images/nasdaq/2026-05-29/chart.png",
+  "marketContext": {
+    "priorClose": 0,
+    "vix": 0,
+    "accountSize": 100000,
+    "riskPolicy": {
+      "maxRiskPct": 0.75,
+      "minRewardToRisk": 1.8,
+      "maxDispersionPct": 1.25,
+      "maxVix": 22,
+      "maxBearishNewsScore": -0.4,
+      "minConfidence": 60
+    },
+    "notes": "Fill after market close or premarket prep."
+  },
+  "aiCalls": [
+    {
+      "model": "OpenAI",
+      "entry": { "low": 0, "high": 0 },
+      "exit": { "stop": 0, "target1": 0, "target2": 0 },
+      "thesis": "",
+      "confidence": 0
+    },
+    {
+      "model": "Anthropic",
+      "entry": { "low": 0, "high": 0 },
+      "exit": { "stop": 0, "target1": 0, "target2": 0 },
+      "thesis": "",
+      "confidence": 0
+    },
+    {
+      "model": "Google",
+      "entry": { "low": 0, "high": 0 },
+      "exit": { "stop": 0, "target1": 0, "target2": 0 },
+      "thesis": "",
+      "confidence": 0
+    },
+    {
+      "model": "Perplexity",
+      "entry": { "low": 0, "high": 0 },
+      "exit": { "stop": 0, "target1": 0, "target2": 0 },
+      "thesis": "",
+      "confidence": 0
+    },
+    {
+      "model": "xAI",
+      "entry": { "low": 0, "high": 0 },
+      "exit": { "stop": 0, "target1": 0, "target2": 0 },
+      "thesis": "",
+      "confidence": 0
+    }
+  ],
+  "news": [
+    {
+      "headline": "",
+      "source": "",
+      "sentiment": "neutral",
+      "impact": "medium",
+      "notes": ""
+    }
+  ]
+}

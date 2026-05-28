@@ -1,0 +1,16 @@
+You are reviewing a Nasdaq-100 proxy chart (QQQ). Use only the chart image and context I provide.
+
+Return exactly this JSON schema:
+{
+  "entry": {"low": number, "high": number},
+  "exit": {"stop": number, "target1": number, "target2": number},
+  "thesis": "string",
+  "confidence": number
+}
+
+Rules:
+1) Entry and exit values must be concrete prices.
+2) thesis must be 2-4 sentences and mention trend, momentum, and risk trigger.
+3) confidence is 0-100.
+4) If setup is unclear, still provide levels and explain uncertainty.
+5) Do not add markdown.

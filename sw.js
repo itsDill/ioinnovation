@@ -1,10 +1,10 @@
 /* Service Worker for IO Innovation Fund */
 /* Improved caching strategy for mobile performance */
 
-const CACHE_NAME = "io-innovation-v2026051101";
-const STATIC_CACHE = "static-v2026051101";
-const DYNAMIC_CACHE = "dynamic-v2026051101";
-const IMAGES_CACHE = "images-v2026051101";
+const CACHE_NAME = "io-innovation-v2026052901";
+const STATIC_CACHE = "static-v2026052901";
+const DYNAMIC_CACHE = "dynamic-v2026052901";
+const IMAGES_CACHE = "images-v2026052901";
 
 // Files to cache immediately
 const STATIC_ASSETS = [
@@ -12,7 +12,9 @@ const STATIC_ASSETS = [
   "/index.html",
   "/tools.html",
   "/games.html",
-  "/blog.html",
+  "/hub.html",
+  "/hub/nasdaq-prediction-series-intro.html",
+  "/hub/nasdaq-prediction-dashboard.html",
   "/guides.html",
   "/about.html",
   "/contact.html",
@@ -21,6 +23,7 @@ const STATIC_ASSETS = [
   "/css/site.css",
   "/js/shared-simple.js",
   "/js/theme-init.js",
+  "/js/nasdaq-dashboard.js",
   "/favicon.svg",
   "/favicon.ico",
   "/manifest.json",

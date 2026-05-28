@@ -171,15 +171,16 @@ python update_data.py --portfolio     # AI portfolio
 
 ### Data Files Updated
 
-| File                        | Description                  | Update Frequency |
-| --------------------------- | ---------------------------- | ---------------- |
-| `economic-calendar.json`    | Fed meetings, CPI, NFP, etc. | Weekly           |
-| `congress-trades.json`      | Congressional stock trades   | Daily            |
-| `13f-visualizer.json`       | Hedge fund 13F holdings      | Quarterly        |
-| `dividend-aristocrats.json` | Dividend stock data          | Weekly           |
-| `ai-predictions.json`       | AI stock predictions         | Weekly           |
-| `ai-portfolio.json`         | AI portfolio signals         | Weekly           |
-| `news.json`                 | Financial news               | Hourly           |
+| File                           | Description                      | Update Frequency |
+| ------------------------------ | -------------------------------- | ---------------- |
+| `economic-calendar.json`       | Fed meetings, CPI, NFP, etc.     | Weekly           |
+| `congress-trades.json`         | Congressional stock trades       | Daily            |
+| `13f-visualizer.json`          | Hedge fund 13F holdings          | Quarterly        |
+| `dividend-aristocrats.json`    | Dividend stock data              | Weekly           |
+| `ai-predictions.json`          | AI stock predictions             | Weekly           |
+| `ai-portfolio.json`            | AI portfolio signals             | Weekly           |
+| `news.json`                    | Financial news                   | Hourly           |
+| `nasdaq-series/reports/*.json` | Daily Nasdaq AI consensus report | Daily            |
 
 ### Automation
 
@@ -207,3 +208,47 @@ crontab -e
 | 13F Filings       | SEC EDGAR               | Free API         |
 | Dividend Data     | Yahoo Finance           | Public data      |
 | News              | RSS Feeds               | Multiple sources |
+
+---
+
+## Nasdaq Prediction Series Workflow
+
+Use this to produce one daily consensus brief for Nasdaq direction using 5 AI chart reads + news context.
+
+### Files
+
+- `data/nasdaq-series/daily/template.json` - Input template for each trading day
+- `data/nasdaq-series/prompts/ai-chart-prompt.txt` - Prompt to keep all AI outputs in a consistent schema
+- `scripts/build_nasdaq_prediction_report.py` - Generates consensus entry/exit targets and risk flags
+- `scripts/score_nasdaq_predictions.py` - Scores daily report vs realized session outcome in R terms
+- `scripts/build_nasdaq_dashboard_summary.py` - Aggregates reports/scores into dashboard JSON
+- `scripts/update_nasdaq_series.sh` - Convenience wrapper for daily run
+
+### Daily Usage
+
+```bash
+# 1) Create daily input file
+cp ../data/nasdaq-series/daily/template.json ../data/nasdaq-series/daily/$(date +%F).json
+
+# 2) Fill AI outputs + news fields, then build report
+./update_nasdaq_series.sh $(date +%F)
+
+# 3) After close, add outcome data then rescore
+cp ../data/nasdaq-series/outcomes/template.json ../data/nasdaq-series/outcomes/$(date +%F).json
+./update_nasdaq_series.sh $(date +%F)
+```
+
+### Output
+
+The report is written to:
+
+`../data/nasdaq-series/reports/YYYY-MM-DD-report.json`
+
+It includes:
+
+- Consensus entry zone, stop, and targets
+- Model confidence and disagreement (dispersion)
+- News sentiment score
+- Caution flags for high-risk conditions
+- Daily score files under `../data/nasdaq-series/scores/`
+- Dashboard payload at `../data/nasdaq-series/dashboard-summary.json`

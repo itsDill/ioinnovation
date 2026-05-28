@@ -16,7 +16,7 @@ PAGES = [
     ("tools.html", "weekly", "0.95"),
     ("games.html", "weekly", "0.88"),
     ("guides.html", "weekly", "0.90"),
-    ("blog.html", "daily", "0.90"),
+    ("hub.html", "daily", "0.90"),
     ("analytics.html", "weekly", "0.85"),
     ("about.html", "monthly", "0.60"),
     ("contact.html", "monthly", "0.50"),
@@ -55,6 +55,8 @@ OLD_BLOG = [
 
 # New blog posts
 NEW_BLOG = [
+    "hub/nasdaq-prediction-series-intro.html",
+    "hub/nasdaq-prediction-dashboard.html",
     "blog/what-is-pe-ratio-guide.html",
     "blog/what-is-ebitda-guide.html",
     "blog/free-cash-flow-explained-guide.html",

@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-29",
+  "instrument": "QQQ",
+  "session": {
+    "open": 0,
+    "high": 0,
+    "low": 0,
+    "close": 0
+  },
+  "notes": "Fill after market close."
+}
