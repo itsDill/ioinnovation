@@ -349,7 +349,7 @@
           rgba(43, 226, 180, 0.1),
           rgba(99, 102, 241, 0.1)
         );
-        padding: 4rem 1.5rem 3rem;
+        padding: 3.25rem 1.5rem 2.5rem;
         text-align: center;
       }
 
@@ -375,12 +375,18 @@
         margin-bottom: 1.5rem;
       }
 
+      .games-hero-content {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
       .games-hero-title {
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
         font-weight: 800;
-        line-height: 1.2;
+        line-height: 1.1;
         margin-bottom: 1rem;
         color: var(--text-primary);
+        letter-spacing: -0.04em;
       }
 
       .games-hero-title span {
@@ -397,9 +403,42 @@
       .games-hero-desc {
         font-size: 1.125rem;
         color: var(--text-secondary);
-        max-width: 700px;
+        max-width: 760px;
         margin: 0 auto 2rem;
         line-height: 1.7;
+      }
+
+      .games-hero-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .games-hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(43, 226, 180, 0.25);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .games-hero-link:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+      }
+
+      .games-hero-link.secondary {
+        background: transparent;
+        border-color: var(--border-color);
       }
 
       .games-hero-stats {
@@ -428,20 +467,52 @@
 
       .games-controls {
         max-width: var(--max-width);
-        margin: 1.5rem auto 0;
+        margin: 1rem auto 0;
         padding: 0 1.5rem;
       }
 
       .games-controls-inner {
         display: flex;
-        gap: 0.75rem;
+        gap: 1rem;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         border: 1px solid var(--border-color);
         background: var(--bg-card);
+        border-radius: 20px;
+        padding: 1rem;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      }
+
+      .games-search-wrapper {
+        position: relative;
+        flex: 1 1 280px;
+        min-width: 240px;
+      }
+
+      .games-search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        pointer-events: none;
+      }
+
+      .games-search {
+        width: 100%;
+        padding: 0.9rem 1rem 0.9rem 2.75rem;
+        border: 1px solid var(--border-color);
         border-radius: 14px;
-        padding: 0.85rem;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font: inherit;
+      }
+
+      .games-search:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.12);
       }
 
       .filter-group {
@@ -455,6 +526,13 @@
         font-size: 0.85rem;
         color: var(--text-secondary);
         margin-right: 0.25rem;
+      }
+
+      .games-counter {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        padding-left: 0.25rem;
       }
 
       .filter-btn {
@@ -488,26 +566,49 @@
         color: #fff;
       }
 
-      .games-counter {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--text-secondary);
-      }
-
       .games-grid {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 3rem 1.5rem;
+        padding: 1.75rem 1.5rem 3rem;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1.5rem;
       }
 
       @media (max-width: 768px) {
+        .games-hero {
+          padding: 2.5rem 1rem 2rem;
+        }
+
+        .games-hero-title {
+          font-size: 2rem;
+        }
+
+        .games-hero-desc {
+          font-size: 1rem;
+        }
+
+        .games-hero-actions {
+          margin-bottom: 1.25rem;
+        }
+
         .games-grid {
           grid-template-columns: 1fr;
           gap: 1.25rem;
           padding: 2rem 1rem;
+        }
+
+        .games-controls {
+          padding: 0 1rem;
+        }
+
+        .games-controls-inner {
+          padding: 0.9rem;
+          border-radius: 18px;
+        }
+
+        .games-search-wrapper {
+          flex-basis: 100%;
         }
       }
 
@@ -969,6 +1070,8 @@
           <li><a href="/tools.html">Tools</a></li>
           <li><a href="/games.html" class="active">Games</a></li>
           <li><a href="/hub.html">Hub</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -989,77 +1092,88 @@
     <main id="main-content">
       <!-- Hero Section -->
       <section class="games-hero">
-        <div class="games-hero-badge">
-          <i class="fas fa-gamepad"></i>
-          6 Free Investment Games
-        </div>
-        <h1 class="games-hero-title">
-          Master Investing Through <span>Interactive Games</span>
-        </h1>
-        <p class="games-hero-desc">
-          Practice stock trading, portfolio management, options strategies, and
-          crisis decision-making with $100,000 virtual capital. All games are
-          100% free, no signup required, and feature real market simulations.
-        </p>
-        <div class="games-hero-stats" aria-label="Games highlights">
-          <span class="games-hero-stat"
-            ><i class="fas fa-bolt"></i> 6 Games Live</span
-          >
-          <span class="games-hero-stat"
-            ><i class="fas fa-user-check"></i> No Signup</span
-          >
-          <span class="games-hero-stat"
-            ><i class="fas fa-wallet"></i> $100K Virtual Capital</span
-          >
-        </div>
+        <div class="games-hero-content">
+          <div class="games-hero-badge">
+            <i class="fas fa-gamepad"></i>
+            6 Free Investment Games
+          </div>
+          <h1 class="games-hero-title">
+            Play, Practice, and <span>Build Investing Skill</span>
+          </h1>
+          <p class="games-hero-desc">
+            Practice stock trading, portfolio management, options strategies,
+            and crisis decision-making with $100,000 virtual capital. All games
+            are free, no signup required, and feel like a focused app instead of
+            a static list.
+          </p>
+          <div class="games-hero-actions">
+            <a href="#gamesGrid" class="games-hero-link">
+              <i class="fas fa-arrow-down"></i> Jump to Games
+            </a>
+            <a href="/hub.html" class="games-hero-link secondary">
+              <i class="fas fa-compass"></i> Open Hub
+            </a>
+          </div>
+          <div class="games-hero-stats" aria-label="Games highlights">
+            <span class="games-hero-stat"
+              ><i class="fas fa-bolt"></i> 6 Games Live</span
+            >
+            <span class="games-hero-stat"
+              ><i class="fas fa-user-check"></i> No Signup</span
+            >
+            <span class="games-hero-stat"
+              ><i class="fas fa-wallet"></i> $100K Virtual Capital</span
+            >
+          </div>
 
-        <!-- Breadcrumbs for SEO -->
-        <nav aria-label="Breadcrumb" style="margin-top: 1.5rem">
-          <ol
-            itemscope
-            itemtype="https://schema.org/BreadcrumbList"
-            style="
-              display: flex;
-              justify-content: center;
-              gap: 0.5rem;
-              list-style: none;
-              font-size: 0.9rem;
-              color: var(--text-secondary);
-            "
-          >
-            <li
-              itemprop="itemListElement"
+          <!-- Breadcrumbs for SEO -->
+          <nav aria-label="Breadcrumb" style="margin-top: 1.5rem">
+            <ol
               itemscope
-              itemtype="https://schema.org/ListItem"
+              itemtype="https://schema.org/BreadcrumbList"
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                list-style: none;
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+              "
             >
-              <a
-                itemprop="item"
-                href="/"
-                style="color: var(--accent-primary); text-decoration: none"
+              <li
+                itemprop="itemListElement"
+                itemscope
+                itemtype="https://schema.org/ListItem"
               >
-                <span itemprop="name">Home</span>
-              </a>
-              <meta itemprop="position" content="1" />
-              <span style="margin: 0 0.5rem">/</span>
-            </li>
-            <li
-              itemprop="itemListElement"
-              itemscope
-              itemtype="https://schema.org/ListItem"
-            >
-              <span
-                itemprop="name"
-                style="color: var(--text-primary); font-weight: 600"
-                >Investment Games</span
+                <a
+                  itemprop="item"
+                  href="/"
+                  style="color: var(--accent-primary); text-decoration: none"
+                >
+                  <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+                <span style="margin: 0 0.5rem">/</span>
+              </li>
+              <li
+                itemprop="itemListElement"
+                itemscope
+                itemtype="https://schema.org/ListItem"
               >
-              <meta
-                itemprop="item"
-                content="https://ioinnovationfund.com/games.html"
-              />
-              <meta itemprop="position" content="2" />
-            </li>
-          </ol>
-        </nav>
+                <span
+                  itemprop="name"
+                  style="color: var(--text-primary); font-weight: 600"
+                  >Investment Games</span
+                >
+                <meta
+                  itemprop="item"
+                  content="https://ioinnovationfund.com/games.html"
+                />
+                <meta itemprop="position" content="2" />
+              </li>
+            </ol>
+          </nav>
+        </div>
       </section>
 
       <!-- Ad Placement -->
@@ -1099,6 +1213,16 @@
 
       <section class="games-controls" aria-label="Game filters">
         <div class="games-controls-inner">
+          <div class="games-search-wrapper">
+            <i class="fas fa-search games-search-icon"></i>
+            <input
+              type="search"
+              class="games-search"
+              id="gamesSearch"
+              placeholder="Search games, features, or skills..."
+              aria-label="Search games"
+            />
+          </div>
           <div class="filter-group" role="group" aria-label="Filter by level">
             <span class="filter-label">Filter:</span>
             <button class="filter-btn active" type="button" data-filter="all">
@@ -1121,7 +1245,7 @@
       </section>
 
       <!-- Games Grid -->
-      <section class="games-grid">
+      <section class="games-grid" id="gamesGrid">
         <!-- Portfolio Builder Game -->
         <article class="game-card" data-level="beginner">
           <div
@@ -1373,11 +1497,12 @@
       </div>
 
       <!-- CTA Section -->
+      <!-- Level Up Section -->
       <section class="cta-section">
-        <h2 class="cta-title">Ready to Start Learning?</h2>
+        <h2 class="cta-title">Complement Your Game Play</h2>
         <p class="cta-desc">
-          Pick a game above and start practicing now. You can also pair gameplay
-          with our free tools and hub articles to level up faster.
+          Master these concepts with our free analytics tools. Put theory into
+          practice.
         </p>
         <div
           style="
@@ -1388,11 +1513,153 @@
           "
         >
           <a href="/tools.html" class="btn btn-primary btn-lg">
-            <i class="fas fa-tools"></i> Explore Tools
+            <i class="fas fa-tools"></i> Analytics Tools
           </a>
-          <a href="/hub.html" class="btn btn-secondary btn-lg"
-            ><i class="fas fa-newspaper"></i> Read Hub</a
+          <a href="/blog" class="btn btn-secondary btn-lg">
+            <i class="fas fa-book"></i> Learn From Blog
+          </a>
+        </div>
+      </section>
+
+      <!-- Recommended Tools -->
+      <section style="padding: 3rem 1.5rem; background: var(--bg-secondary)">
+        <div style="max-width: var(--max-width); margin: 0 auto">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2
+              style="
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 0.75rem;
+              "
+            >
+              Power Your Learning
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 1rem">
+              Use these tools to research real stocks while you practice.
+            </p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 1.25rem;
+            "
           >
+            <a
+              href="/tools/13f-visualizer.html"
+              style="text-decoration: none; color: inherit"
+            >
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius-lg);
+                  padding: 1.5rem;
+                  transition: all 0.3s;
+                  cursor: pointer;
+                "
+              >
+                <div style="font-size: 2rem; margin-bottom: 1rem">
+                  <i class="fas fa-landmark"></i>
+                </div>
+                <h3
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  13F Visualizer
+                </h3>
+                <p
+                  style="
+                    color: var(--text-secondary);
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                  "
+                >
+                  See what smart money is buying. Track hedge fund holdings from
+                  SEC filings.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="/tools/tax-calculator.html"
+              style="text-decoration: none; color: inherit"
+            >
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius-lg);
+                  padding: 1.5rem;
+                  transition: all 0.3s;
+                  cursor: pointer;
+                "
+              >
+                <div style="font-size: 2rem; margin-bottom: 1rem">
+                  <i class="fas fa-calculator"></i>
+                </div>
+                <h3
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Tax Impact Calculator
+                </h3>
+                <p
+                  style="
+                    color: var(--text-secondary);
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                  "
+                >
+                  Estimate tax impact on dividends and gains before sizing
+                  positions.
+                </p>
+              </div>
+            </a>
+
+            <a href="/tools.html" style="text-decoration: none; color: inherit">
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-color);
+                  border-radius: var(--radius-lg);
+                  padding: 1.5rem;
+                  transition: all 0.3s;
+                  cursor: pointer;
+                "
+              >
+                <div style="font-size: 2rem; margin-bottom: 1rem">
+                  <i class="fas fa-wrench"></i>
+                </div>
+                <h3
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  All Tools
+                </h3>
+                <p
+                  style="
+                    color: var(--text-secondary);
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                  "
+                >
+                  Access our complete suite: 10-K summaries, dividends, and
+                  more.
+                </p>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -1445,6 +1712,10 @@
         const filterButtons = document.querySelectorAll(".filter-btn");
         const gameCards = document.querySelectorAll(".game-card");
         const gamesCounter = document.getElementById("gamesCounter");
+        const gamesSearch = document.getElementById("gamesSearch");
+
+        let activeFilter = "all";
+        let searchQuery = "";
 
         function updateCounter(visibleCount) {
           if (gamesCounter) {
@@ -1453,11 +1724,22 @@
           }
         }
 
-        function applyFilter(level) {
+        function applyFilter() {
           let visibleCount = 0;
           gameCards.forEach((card) => {
             const cardLevel = card.dataset.level || "";
-            const shouldShow = level === "all" || cardLevel === level;
+            const cardText = [
+              card.querySelector(".game-title")?.textContent || "",
+              card.querySelector(".game-desc")?.textContent || "",
+              card.querySelector(".game-features")?.textContent || "",
+            ]
+              .join(" ")
+              .toLowerCase();
+            const matchesLevel =
+              activeFilter === "all" || cardLevel === activeFilter;
+            const matchesSearch =
+              !searchQuery || cardText.includes(searchQuery.trim());
+            const shouldShow = matchesLevel && matchesSearch;
             card.classList.toggle("is-hidden", !shouldShow);
             if (shouldShow) {
               visibleCount += 1;
@@ -1468,14 +1750,21 @@
 
         filterButtons.forEach((button) => {
           button.addEventListener("click", function () {
-            const selectedFilter = this.dataset.filter || "all";
+            activeFilter = this.dataset.filter || "all";
             filterButtons.forEach((btn) => btn.classList.remove("active"));
             this.classList.add("active");
-            applyFilter(selectedFilter);
+            applyFilter();
           });
         });
 
-        updateCounter(gameCards.length);
+        if (gamesSearch) {
+          gamesSearch.addEventListener("input", (event) => {
+            searchQuery = event.target.value.toLowerCase();
+            applyFilter();
+          });
+        }
+
+        applyFilter();
       });
     </script>
     <script src="js/shared-simple.js?v=2026050601"></script>

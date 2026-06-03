@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Impact Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Estimate how dividends and price gains may be affected by tax rates before you size the position."
+    />
+    <meta name="author" content="IO Innovation" />
+    <meta
+      name="keywords"
+      content="tax calculator, investment tax, dividend tax, capital gains tax, portfolio tax impact"
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/tax-calculator.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/tax-calculator.html"
+    />
+    <meta property="og:title" content="Tax Impact Calculator | IO Innovation" />
+    <meta
+      property="og:description"
+      content="Estimate how dividends and price gains may be affected by tax rates before you size the position."
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Tax Impact Calculator | IO Innovation"
+    />
+    <meta
+      name="twitter:description"
+      content="Estimate how dividends and price gains may be affected by tax rates before you size the position."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ioinnovationfund.com/assets/images/og-image.svg"
+    />
+    <script src="/js/theme-init.js?v=2026033001"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2025121602" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .tool-page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .tool-hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        border: 1px solid var(--border-color);
+        background: linear-gradient(
+          135deg,
+          rgba(239, 68, 68, 0.15),
+          rgba(249, 115, 22, 0.12)
+        );
+        padding: 2.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at top right,
+          rgba(251, 146, 60, 0.18),
+          transparent 38%
+        );
+        pointer-events: none;
+      }
+
+      .tool-hero > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .tool-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .tool-title {
+        font-size: clamp(2.1rem, 4vw, 3.4rem);
+        line-height: 1.05;
+        margin-bottom: 1rem;
+        letter-spacing: -0.04em;
+      }
+
+      .tool-desc {
+        max-width: 760px;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .calculator-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 22px;
+        padding: 1.5rem;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .field label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .field input {
+        width: 100%;
+        padding: 0.85rem 0.95rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font: inherit;
+      }
+
+      .field input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(43, 226, 180, 0.12);
+      }
+
+      .hint {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.9rem 1.3rem;
+        border-radius: 12px;
+        font: inherit;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: #000;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+      }
+
+      .results {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .result-box {
+        padding: 1rem;
+        border-radius: 16px;
+        background: linear-gradient(
+          135deg,
+          rgba(43, 226, 180, 0.1),
+          rgba(0, 212, 117, 0.06)
+        );
+        border: 1px solid rgba(43, 226, 180, 0.16);
+      }
+
+      .result-label {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+      }
+
+      .result-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .details {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .note {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      @media (max-width: 900px) {
+        .calculator-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .tool-page {
+          padding: 1.5rem 1rem 3rem;
+        }
+
+        .tool-hero {
+          padding: 1.75rem;
+        }
+
+        .field-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          padding: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html" class="active">Tools</a></li>
+          <li><a href="/games.html">Games</a></li>
+          <li><a href="/hub.html">Hub</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="tool-page">
+      <section class="tool-hero">
+        <div class="tool-kicker">
+          <i class="fas fa-calculator"></i> Tax Impact Tool
+        </div>
+        <h1 class="tool-title">
+          Estimate the Tax Drag on Your Investment Return
+        </h1>
+        <p class="tool-desc">
+          Enter a position size, dividend yield, price appreciation, and assumed
+          tax rates to estimate how much of the gross return may stay in your
+          pocket. This is a simple planning tool, not tax advice.
+        </p>
+      </section>
+
+      <section class="calculator-grid">
+        <div class="card">
+          <h2 class="tools-section-title" style="margin-bottom: 1rem">
+            <i class="fas fa-sliders-h"></i> Assumptions
+          </h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="investmentAmount">Investment amount ($)</label>
+              <input
+                id="investmentAmount"
+                type="number"
+                min="0"
+                step="100"
+                value="10000"
+              />
+            </div>
+            <div class="field">
+              <label for="dividendYield">Dividend yield (%)</label>
+              <input
+                id="dividendYield"
+                type="number"
+                min="0"
+                step="0.1"
+                value="2.5"
+              />
+            </div>
+            <div class="field">
+              <label for="priceAppreciation"
+                >Expected price appreciation (%)</label
+              >
+              <input
+                id="priceAppreciation"
+                type="number"
+                min="0"
+                step="0.1"
+                value="8"
+              />
+            </div>
+            <div class="field">
+              <label for="dividendTaxRate">Dividend tax rate (%)</label>
+              <input
+                id="dividendTaxRate"
+                type="number"
+                min="0"
+                step="0.1"
+                value="15"
+              />
+            </div>
+            <div class="field">
+              <label for="capitalGainsTaxRate"
+                >Capital gains tax rate (%)</label
+              >
+              <input
+                id="capitalGainsTaxRate"
+                type="number"
+                min="0"
+                step="0.1"
+                value="15"
+              />
+            </div>
+            <div class="field">
+              <label for="stateTaxRate">State tax rate (%)</label>
+              <input
+                id="stateTaxRate"
+                type="number"
+                min="0"
+                step="0.1"
+                value="0"
+              />
+            </div>
+          </div>
+          <p class="hint" style="margin-top: 1rem">
+            Use blended rates if your situation spans different tax buckets. The
+            calculator keeps the inputs simple on purpose.
+          </p>
+          <div class="actions">
+            <button class="btn btn-primary" id="calculateBtn" type="button">
+              <i class="fas fa-bolt"></i> Calculate
+            </button>
+            <button class="btn btn-secondary" id="resetBtn" type="button">
+              Reset Example
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="tools-section-title" style="margin-bottom: 1rem">
+            <i class="fas fa-chart-pie"></i> Results
+          </h2>
+          <div class="results">
+            <div class="result-box">
+              <span class="result-label">Gross return</span>
+              <div class="result-value" id="grossReturn">$1,050.00</div>
+            </div>
+            <div class="result-box">
+              <span class="result-label">Estimated tax</span>
+              <div class="result-value" id="estimatedTax">$157.50</div>
+            </div>
+            <div class="result-box">
+              <span class="result-label">After-tax return</span>
+              <div class="result-value" id="afterTaxReturn">$892.50</div>
+            </div>
+            <div class="result-box">
+              <span class="result-label">After-tax total value</span>
+              <div class="result-value" id="afterTaxValue">$10,892.50</div>
+            </div>
+          </div>
+          <div class="details" id="resultDetails">
+            <strong>Breakdown:</strong> $250.00 in dividend income and $800.00
+            in price gains.
+          </div>
+          <p class="note" style="margin-top: 1rem">
+            This calculator uses your input rates only. Check local rules and
+            qualified dividend treatment before making decisions.
+          </p>
+        </div>
+      </section>
+
+      <section class="cta-section" style="padding-left: 0; padding-right: 0">
+        <div class="cta-content">
+          <h2 class="cta-title">Want the broader research flow?</h2>
+          <p class="cta-desc">
+            Use the hub for Nasdaq prediction pages, noteworthy tools, and the
+            latest market notes.
+          </p>
+          <a href="/hub.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-compass"></i> Open Hub
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovation</a>
+          <p>
+            Free finance tools and analytics for smarter investing. Track hedge
+            funds and analyze stocks.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/tools/13f-visualizer.html">13F Visualizer</a></li>
+            <li><a href="/tools/10k-summary.html">10-K Summary</a></li>
+            <li><a href="/tools.html">All Tools</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/hub.html">Hub</a></li>
+            <li><a href="/about.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="/js/shared-simple.js"></script>
+    <script>
+      const inputs = {
+        investmentAmount: document.getElementById("investmentAmount"),
+        dividendYield: document.getElementById("dividendYield"),
+        priceAppreciation: document.getElementById("priceAppreciation"),
+        dividendTaxRate: document.getElementById("dividendTaxRate"),
+        capitalGainsTaxRate: document.getElementById("capitalGainsTaxRate"),
+        stateTaxRate: document.getElementById("stateTaxRate"),
+      };
+
+      const outputs = {
+        grossReturn: document.getElementById("grossReturn"),
+        estimatedTax: document.getElementById("estimatedTax"),
+        afterTaxReturn: document.getElementById("afterTaxReturn"),
+        afterTaxValue: document.getElementById("afterTaxValue"),
+        resultDetails: document.getElementById("resultDetails"),
+      };
+
+      const calculateBtn = document.getElementById("calculateBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      const scrollTopBtn = document.getElementById("scrollTop");
+
+      function readNumber(input) {
+        const value = Number.parseFloat(input.value);
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function formatCurrency(value) {
+        return value.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+          maximumFractionDigits: 2,
+        });
+      }
+
+      function calculate() {
+        const investment = readNumber(inputs.investmentAmount);
+        const dividendYield = readNumber(inputs.dividendYield) / 100;
+        const priceAppreciation = readNumber(inputs.priceAppreciation) / 100;
+        const dividendTaxRate =
+          (readNumber(inputs.dividendTaxRate) +
+            readNumber(inputs.stateTaxRate)) /
+          100;
+        const capitalGainsTaxRate =
+          (readNumber(inputs.capitalGainsTaxRate) +
+            readNumber(inputs.stateTaxRate)) /
+          100;
+
+        const dividendIncome = investment * dividendYield;
+        const priceGain = investment * priceAppreciation;
+        const grossReturn = dividendIncome + priceGain;
+        const taxOnDividends = dividendIncome * dividendTaxRate;
+        const taxOnGains = priceGain * capitalGainsTaxRate;
+        const totalTax = taxOnDividends + taxOnGains;
+        const afterTaxReturn = grossReturn - totalTax;
+        const afterTaxValue = investment + afterTaxReturn;
+
+        outputs.grossReturn.textContent = formatCurrency(grossReturn);
+        outputs.estimatedTax.textContent = formatCurrency(totalTax);
+        outputs.afterTaxReturn.textContent = formatCurrency(afterTaxReturn);
+        outputs.afterTaxValue.textContent = formatCurrency(afterTaxValue);
+        outputs.resultDetails.innerHTML = `<strong>Breakdown:</strong> ${formatCurrency(dividendIncome)} in dividend income and ${formatCurrency(priceGain)} in price gains.`;
+      }
+
+      calculateBtn.addEventListener("click", calculate);
+      Object.values(inputs).forEach((input) =>
+        input.addEventListener("input", calculate),
+      );
+
+      resetBtn.addEventListener("click", () => {
+        inputs.investmentAmount.value = 10000;
+        inputs.dividendYield.value = 2.5;
+        inputs.priceAppreciation.value = 8;
+        inputs.dividendTaxRate.value = 15;
+        inputs.capitalGainsTaxRate.value = 15;
+        inputs.stateTaxRate.value = 0;
+        calculate();
+      });
+
+      calculate();
+
+      if (scrollTopBtn) {
+        window.addEventListener("scroll", () => {
+          scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+        });
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
+  </body>
+</html>

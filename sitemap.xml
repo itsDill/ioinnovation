@@ -122,6 +122,13 @@
   </url>
 
   <url>
+    <loc>https://ioinnovationfund.com/tools/tax-calculator.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
     <loc>https://ioinnovationfund.com/tools/market-cap-calculator.html</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -223,6 +230,27 @@
   <url>
     <loc>https://ioinnovationfund.com/blog/understanding-13f-filings-guide.html</loc>
     <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/nasdaq-outlook-2026.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/crypto-cycle-playbook.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ioinnovationfund.com/blog/dividend-income-basics.html</loc>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
