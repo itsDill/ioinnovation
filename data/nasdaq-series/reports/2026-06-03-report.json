@@ -1,0 +1,72 @@
+{
+  "date": "2026-06-03",
+  "instrument": "QQQ",
+  "timeframe": "1D",
+  "consensus": {
+    "entry": {
+      "low": 745.0,
+      "high": 751.0
+    },
+    "exit": {
+      "stop": 744.0,
+      "target1": 756.0,
+      "target2": 763.0
+    },
+    "avgConfidence": 71.6,
+    "dispersionPct": 0.08
+  },
+  "scores": {
+    "newsSentimentScore": 0.59,
+    "recommendation": "Constructive"
+  },
+  "policy": {
+    "maxRiskPct": 0.75,
+    "minRewardToRisk": 1.8,
+    "maxDispersionPct": 1.25,
+    "maxVix": 22.0,
+    "maxBearishNewsScore": -0.4,
+    "minConfidence": 60.0
+  },
+  "executionPlan": {
+    "entryMid": 748.0,
+    "perShareRisk": 4.0,
+    "rewardToTarget1": 8.0,
+    "rewardToRiskTarget1": 2.0,
+    "maxAccountRiskPct": 0.75,
+    "accountSize": 100000.0,
+    "maxDollarRisk": 750.0,
+    "suggestedPositionShares": 187
+  },
+  "tradeDecision": {
+    "allowed": true,
+    "action": "Trade Candidate",
+    "noTradeReasons": []
+  },
+  "riskFlags": [],
+  "thesisDigest": [
+    "OpenAI: QQQ breaking above 745 key resistance with strong volume. AI sentiment improving post-earnings. Tight stop at 744 holds above 9-day support. Target 756 near 50-day MA.",
+    "Anthropic: Technical breakout setup. 4-hour chart shows bullish divergence on RSI. Stop at 744 below today's open. Strong momentum justifies 2:1 reward/risk structure.",
+    "Google: Price holding above 9-day EMA. Sector rotation favoring mega-cap tech. Earnings support continues. Risk reward 2.0:1 with stop at support.",
+    "Perplexity: Consolidation pattern near highs. Breakout above 750 confirms bullish continuation. Stop at 744 key support level; risk limited and well-defined.",
+    "xAI: QQQ found support at 738. Strong close above 745 justified by AI chip strength. Stops at 744 give 2.0:1 reward/risk on primary target. Clean entry/exit structure."
+  ],
+  "inputs": {
+    "aiModelCount": 5,
+    "newsCount": 5,
+    "chartScreenshot": "assets/images/nasdaq/2026-06-03/chart.png",
+    "marketContext": {
+      "priorClose": 746.16,
+      "vix": 16.08,
+      "accountSize": 100000,
+      "riskPolicy": {
+        "maxRiskPct": 0.75,
+        "minRewardToRisk": 1.8,
+        "maxDispersionPct": 1.25,
+        "maxVix": 22,
+        "maxBearishNewsScore": -0.4,
+        "minConfidence": 60
+      },
+      "notes": "Strong uptrend continuation expected. Tech sector momentum intact. Fed data coming Wed."
+    }
+  }
+}

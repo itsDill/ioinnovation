@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Nasdaq Prediction Reports | IO Innovation Hub</title>
+    <meta
+      name="description"
+      content="Daily NASDAQ (QQQ) predictions based on AI consensus, technical analysis, and risk management rules. Track entry/exit levels, confidence, and trade decisions."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/hub/nasdaq-daily-reports.html"
+    />
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+      async
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FGD50Z4Y7G");
+    </script>
+
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/js/theme-init.js?v=2026033001"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2025121602" />
+    <link rel="stylesheet" href="/css/blog.css?v=2025121602" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    /></noscript>
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    /></noscript>
+
+    <style>
+      .post-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+      }
+
+      .post-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--accent-primary);
+        font-weight: 700;
+      }
+
+      .post-title {
+        margin-top: 0.85rem;
+        font-size: clamp(2rem, 3.2vw, 3rem);
+        line-height: 1.15;
+      }
+
+      .post-meta {
+        margin-top: 0.6rem;
+        color: var(--text-secondary);
+      }
+
+      .reports-grid {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .report-card {
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        transition: all 0.2s ease;
+      }
+
+      .report-card:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .report-date {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .report-recommendation {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .report-recommendation.constructive {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+      }
+
+      .report-recommendation.defensive {
+        background: rgba(168, 85, 247, 0.1);
+        color: #a855f7;
+      }
+
+      .report-recommendation.neutral {
+        background: rgba(107, 114, 128, 0.1);
+        color: #6b7280;
+      }
+
+      .report-recommendation.blocked {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+
+      .report-consensus {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .consensus-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      .consensus-label {
+        color: var(--text-secondary);
+      }
+
+      .consensus-value {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .report-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.6rem 1rem;
+        background: var(--accent-primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .report-link:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+
+      .loading {
+        text-align: center;
+        padding: 2rem;
+        color: var(--text-secondary);
+      }
+
+      .error {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        color: #dc2626;
+        margin-top: 1rem;
+      }
+
+      .disclaimer {
+        background: rgba(59, 130, 246, 0.05);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .disclaimer strong {
+        color: var(--text-primary);
+      }
+
+      .outcome-tracker {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .outcome-tracker h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+      }
+
+      .outcome-tracker p {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .outcome-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background: var(--accent-primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+      }
+
+      .outcome-link:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/games.html">Games</a></li>
+          <li><a href="/hub.html" class="active">Hub</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="post-wrap">
+      <a href="/hub.html" class="post-kicker"
+        ><i class="fas fa-arrow-left"></i> Back to Hub</a
+      >
+      <h1 class="post-title">Daily Nasdaq Prediction Reports</h1>
+      <p class="post-meta">
+        AI consensus predictions for QQQ with entry/exit levels and trade
+        decisions
+      </p>
+
+      <div class="disclaimer">
+        <strong>⚠️ Disclaimer:</strong> These are educational research
+        predictions based on AI consensus analysis, technical patterns, and risk
+        management rules. Not financial advice. Past performance does not
+        guarantee future results. Trading carries substantial risk of loss.
+        Always conduct your own due diligence. Only trade capital you can afford
+        to lose. This system is for research and backtesting purposes.
+      </div>
+
+      <div id="reports-container" class="reports-grid">
+        <div class="loading">Loading reports...</div>
+      </div>
+
+      <div class="outcome-tracker">
+        <h3>📊 Prediction Outcomes Tracker</h3>
+        <p>
+          Track how daily predictions performed against actual market prices.
+          View hit rate, average R-value (risk units), and detailed trade
+          results.
+        </p>
+        <a href="/hub/nasdaq-prediction-dashboard.html" class="outcome-link">
+          <i class="fas fa-chart-line"></i> View Performance Dashboard
+        </a>
+      </div>
+    </main>
+
+    <script src="/js/shared-simple.js?v=2026033001"></script>
+    <script>
+      async function loadReports() {
+        const container = document.getElementById("reports-container");
+
+        try {
+          const response = await fetch(
+            "/data/nasdaq-series/dashboard-summary.json",
+          );
+          const data = await response.json();
+
+          if (!data.rows || data.rows.length === 0) {
+            container.innerHTML =
+              '<div class="error">No reports available yet.</div>';
+            return;
+          }
+
+          // Sort reports by date, newest first
+          const sortedReports = [...data.rows].sort(
+            (a, b) => new Date(b.date) - new Date(a.date),
+          );
+
+          let html = "";
+          for (const report of sortedReports) {
+            const recommendation =
+              report.recommendation?.toLowerCase() || "neutral";
+            const decision = report.decision?.toLowerCase().includes("trade")
+              ? "blocked"
+              : recommendation;
+
+            html += `
+              <div class="report-card">
+                <div class="report-date">${new Date(
+                  report.date,
+                ).toLocaleDateString("en-US", {
+                  weekday: "short",
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}</div>
+                
+                <div class="report-recommendation ${decision}">
+                  ${report.decision || recommendation.charAt(0).toUpperCase() + recommendation.slice(1)}
+                </div>
+
+                <div class="report-consensus">
+                  <div class="consensus-row">
+                    <span class="consensus-label">Entry</span>
+                    <span class="consensus-value">
+                      ${report.entryLow?.toFixed(2) || "—"} - ${report.entryHigh?.toFixed(2) || "—"}
+                    </span>
+                  </div>
+                  <div class="consensus-row">
+                    <span class="consensus-label">Stop</span>
+                    <span class="consensus-value">
+                      ${report.stop?.toFixed(2) || "—"}
+                    </span>
+                  </div>
+                  <div class="consensus-row">
+                    <span class="consensus-label">Target 1</span>
+                    <span class="consensus-value">
+                      ${report.target1?.toFixed(2) || "—"}
+                    </span>
+                  </div>
+                  <div class="consensus-row">
+                    <span class="consensus-label">Confidence</span>
+                    <span class="consensus-value">
+                      ${report.avgConfidence?.toFixed(1) || 0}%
+                    </span>
+                  </div>
+                  <div class="consensus-row">
+                    <span class="consensus-label">News Sentiment</span>
+                    <span class="consensus-value">
+                      ${report.newsScore?.toFixed(2) || 0}
+                    </span>
+                  </div>
+                </div>
+
+                <a href="/data/nasdaq-series/reports/${report.date}-report.json" class="report-link" target="_blank">
+                  <i class="fas fa-download"></i> Full Report
+                </a>
+              </div>
+            `;
+          }
+
+          container.innerHTML = html;
+        } catch (error) {
+          container.innerHTML = `<div class="error">Error loading reports: ${error.message}</div>`;
+          console.error("Failed to load reports:", error);
+        }
+      }
+
+      // Load reports on page load
+      document.addEventListener("DOMContentLoaded", loadReports);
+    </script>
+  </body>
+</html>

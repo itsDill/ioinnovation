@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-05-28T19:14:57.818783Z",
+  "generatedAt": "2026-06-03T08:36:39.687118Z",
   "kpis": {
     "totalReports": 1,
-    "scoredReports": 1,
-    "totalR": 0.0,
-    "avgR": 0.0,
-    "hitRate": 0.0,
-    "noTradeDays": 1
+    "scoredReports": 0,
+    "totalR": 0,
+    "avgR": 0,
+    "hitRate": 0,
+    "noTradeDays": 0
   },
   "rows": [
     {
-      "date": "2026-05-29",
-      "recommendation": "Neutral",
-      "decision": "No Trade",
-      "entryLow": 0.0,
-      "entryHigh": 0.0,
-      "target1": 0.0,
-      "stop": 0.0,
-      "avgConfidence": 0.0,
-      "dispersionPct": 0.0,
-      "newsScore": 0.0,
-      "scoreR": 0.0,
-      "result": "no-entry"
+      "date": "2026-06-03",
+      "recommendation": "Constructive",
+      "decision": "Trade Candidate",
+      "entryLow": 745.0,
+      "entryHigh": 751.0,
+      "target1": 756.0,
+      "stop": 744.0,
+      "avgConfidence": 71.6,
+      "dispersionPct": 0.08,
+      "newsScore": 0.59,
+      "scoreR": null,
+      "result": "pending"
     }
   ]
 }

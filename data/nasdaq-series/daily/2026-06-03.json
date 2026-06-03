@@ -1,0 +1,129 @@
+{
+  "date": "2026-06-03",
+  "instrument": "QQQ",
+  "timeframe": "1D",
+  "chartScreenshot": "assets/images/nasdaq/2026-06-03/chart.png",
+  "marketContext": {
+    "priorClose": 746.16,
+    "vix": 16.08,
+    "accountSize": 100000,
+    "riskPolicy": {
+      "maxRiskPct": 0.75,
+      "minRewardToRisk": 1.8,
+      "maxDispersionPct": 1.25,
+      "maxVix": 22,
+      "maxBearishNewsScore": -0.4,
+      "minConfidence": 60
+    },
+    "notes": "Strong uptrend continuation expected. Tech sector momentum intact. Fed data coming Wed."
+  },
+  "aiCalls": [
+    {
+      "model": "OpenAI",
+      "entry": {
+        "low": 745,
+        "high": 750
+      },
+      "exit": {
+        "stop": 744,
+        "target1": 756,
+        "target2": 762
+      },
+      "thesis": "QQQ breaking above 745 key resistance with strong volume. AI sentiment improving post-earnings. Tight stop at 744 holds above 9-day support. Target 756 near 50-day MA.",
+      "confidence": 72
+    },
+    {
+      "model": "Anthropic",
+      "entry": {
+        "low": 744,
+        "high": 751
+      },
+      "exit": {
+        "stop": 744,
+        "target1": 758,
+        "target2": 765
+      },
+      "thesis": "Technical breakout setup. 4-hour chart shows bullish divergence on RSI. Stop at 744 below today's open. Strong momentum justifies 2:1 reward/risk structure.",
+      "confidence": 68
+    },
+    {
+      "model": "Google",
+      "entry": {
+        "low": 746,
+        "high": 752
+      },
+      "exit": {
+        "stop": 744,
+        "target1": 757,
+        "target2": 764
+      },
+      "thesis": "Price holding above 9-day EMA. Sector rotation favoring mega-cap tech. Earnings support continues. Risk reward 2.0:1 with stop at support.",
+      "confidence": 75
+    },
+    {
+      "model": "Perplexity",
+      "entry": {
+        "low": 745,
+        "high": 750
+      },
+      "exit": {
+        "stop": 744,
+        "target1": 755,
+        "target2": 761
+      },
+      "thesis": "Consolidation pattern near highs. Breakout above 750 confirms bullish continuation. Stop at 744 key support level; risk limited and well-defined.",
+      "confidence": 70
+    },
+    {
+      "model": "xAI",
+      "entry": {
+        "low": 744,
+        "high": 751
+      },
+      "exit": {
+        "stop": 744,
+        "target1": 756,
+        "target2": 763
+      },
+      "thesis": "QQQ found support at 738. Strong close above 745 justified by AI chip strength. Stops at 744 give 2.0:1 reward/risk on primary target. Clean entry/exit structure.",
+      "confidence": 73
+    }
+  ],
+  "news": [
+    {
+      "headline": "Nvidia Gains as New AI Chips Drive Demand; CUDA Lock-In Deepens",
+      "source": "Bloomberg",
+      "sentiment": "bullish",
+      "impact": "high",
+      "notes": "New H200 variants showing strong enterprise adoption"
+    },
+    {
+      "headline": "Powell Speech Today: Fed Chair to Address Inflation Progress",
+      "source": "Reuters",
+      "sentiment": "neutral",
+      "impact": "high",
+      "notes": "Speech at 2:30 PM ET; market pricing in higher-for-longer rates"
+    },
+    {
+      "headline": "Apple Services Growth Beats Estimates; App Store Resilient",
+      "source": "CNBC",
+      "sentiment": "bullish",
+      "impact": "medium",
+      "notes": "Subscription ecosystem expanding; high-margin business"
+    },
+    {
+      "headline": "Treasury Yields Stabilize Ahead of Fed Minutes Thursday",
+      "source": "MarketWatch",
+      "sentiment": "neutral",
+      "impact": "medium",
+      "notes": "10-year yields near 4.3%; potential volatility if minutes surprise"
+    },
+    {
+      "headline": "Tech Sector Outperformance Continues; Value Lagging",
+      "source": "Bloomberg",
+      "sentiment": "bullish",
+      "impact": "medium",
+      "notes": "AI/cloud/semiconductor rotation showing no signs of exhaustion"
+    }
+  ]
+}
