@@ -460,6 +460,63 @@ body {
   }
 }
 
+/* ===== BREADCRUMBS ===== */
+.breadcrumb-nav {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-list a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb-list a:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+.breadcrumb-list span {
+  color: var(--text-secondary);
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.5rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+[data-theme="light"] .breadcrumb-nav {
+  background: #f8fafc;
+}
+
+[data-theme="light"] .breadcrumb-list a {
+  color: #059669;
+}
+
+[data-theme="light"] .breadcrumb-list a:hover {
+  color: #10b981;
+}
+
 /* ===== BUTTONS ===== */
 .btn {
   display: inline-flex;
