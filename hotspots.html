@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Geopolitical Hotspots | IO Innovation</title>
+    <meta
+      name="description"
+      content="Live geopolitical risk overview across Nasdaq, oil, and Bitcoin. Educational context only, not trading advice."
+    />
+    <meta
+      name="keywords"
+      content="live geopolitical hotspots, nasdaq risk, oil risk, bitcoin risk, market impact headlines"
+    />
+    <link rel="canonical" href="https://ioinnovationfund.com/hotspots.html" />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FGD50Z4Y7G");
+    </script>
+
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026060801" />
+    <link rel="stylesheet" href="/css/blog.css?v=2026060801" />
+
+    <style>
+      .hotspots-wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      .hotspots-hero {
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(14, 165, 233, 0.14),
+          rgba(245, 158, 11, 0.1)
+        );
+        padding: 1.5rem;
+      }
+
+      .hotspots-title {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        margin: 0.5rem 0;
+      }
+
+      .hotspots-sub {
+        color: var(--text-secondary);
+        max-width: 760px;
+      }
+
+      .disclaimer-banner {
+        margin-top: 1rem;
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        background: rgba(245, 158, 11, 0.08);
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+
+      .chip {
+        border: 1px solid var(--border-color);
+        background: var(--bg-card);
+        color: var(--text-primary);
+        border-radius: 999px;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.82rem;
+        cursor: pointer;
+      }
+
+      .chip.active {
+        border-color: transparent;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: #fff;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1rem 0 0.75rem;
+        color: var(--text-secondary);
+      }
+
+      .hotspots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+      }
+
+      .hotspot-card {
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        background: var(--bg-card);
+        padding: 1rem;
+      }
+
+      .hotspot-category {
+        display: inline-flex;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        padding: 0.22rem 0.6rem;
+        background: rgba(59, 130, 246, 0.16);
+        color: #2563eb;
+      }
+
+      .hotspot-title {
+        margin: 0.8rem 0 0.5rem;
+        line-height: 1.45;
+      }
+
+      .hotspot-summary {
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .impact-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.85rem;
+      }
+
+      .impact-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        border-radius: 999px;
+        border: 1px solid var(--border-color);
+        font-size: 0.75rem;
+        padding: 0.22rem 0.55rem;
+        color: var(--text-secondary);
+      }
+
+      .impact-tag.strong {
+        border-color: rgba(239, 68, 68, 0.35);
+        color: #dc2626;
+      }
+
+      .impact-tag.moderate {
+        border-color: rgba(245, 158, 11, 0.35);
+        color: #b45309;
+      }
+
+      .hotspot-footer {
+        margin-top: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .hotspot-link {
+        color: var(--accent-primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .hotspot-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/hotspots.html" class="active">Hotspots</a></li>
+          <li><a href="/event-explorer.html">Events</a></li>
+          <li><a href="/games/market-reaction-quiz.html">Reaction Game</a></li>
+          <li><a href="/hub.html">Hub</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="hotspots-wrap">
+      <section class="hotspots-hero">
+        <div class="post-kicker">Live Risk Overview</div>
+        <h1 class="hotspots-title">Geopolitical Hotspots Dashboard</h1>
+        <p class="hotspots-sub">
+          Headlines are grouped and tagged by likely sensitivity in Nasdaq, oil,
+          and Bitcoin so you can track cross-market pressure in one view.
+        </p>
+        <div class="disclaimer-banner">
+          This page is informational and analytical only. It is not financial or
+          trading advice.
+        </div>
+      </section>
+
+      <section>
+        <div class="controls" id="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="nasdaq">Nasdaq</button>
+          <button class="chip" data-filter="oil">Oil</button>
+          <button class="chip" data-filter="bitcoin">Bitcoin</button>
+        </div>
+        <div class="meta-row">
+          <span id="lastUpdated">Last updated: --</span>
+          <span id="countLabel">0 items</span>
+        </div>
+        <div class="hotspots-grid" id="hotspotsGrid">
+          <article class="hotspot-card">Loading hotspots...</article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bottom" style="text-align: center; padding: 1.2rem">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/js/shared-simple.js"></script>
+    <script>
+      (function () {
+        "use strict";
+
+        const filterEl = document.getElementById("filters");
+        const gridEl = document.getElementById("hotspotsGrid");
+        const countEl = document.getElementById("countLabel");
+        const updatedEl = document.getElementById("lastUpdated");
+
+        let allArticles = [];
+        let activeFilter = "all";
+
+        function formatRelative(dateString) {
+          const date = new Date(dateString);
+          const diffMs = Date.now() - date.getTime();
+          const mins = Math.floor(diffMs / 60000);
+          const hours = Math.floor(diffMs / 3600000);
+          if (mins < 60) return mins + "m ago";
+          if (hours < 24) return hours + "h ago";
+          return date.toLocaleDateString();
+        }
+
+        function impactProfile(article) {
+          const text = (
+            article.title +
+            " " +
+            (article.summary || "")
+          ).toLowerCase();
+          const score = { nasdaq: 0, oil: 0, bitcoin: 0 };
+
+          if (/(fed|rates|yield|treasury|nasdaq|qqq|tech|earnings)/.test(text))
+            score.nasdaq += 2;
+          if (/(war|hormuz|iran|opec|crude|oil|energy|sanction)/.test(text))
+            score.oil += 3;
+          if (/(bitcoin|btc|crypto|liquidity|risk-on|risk-off)/.test(text))
+            score.bitcoin += 2;
+          if (/(conflict|geopolitical|sanction|central bank)/.test(text)) {
+            score.nasdaq += 1;
+            score.oil += 1;
+            score.bitcoin += 1;
+          }
+
+          const tags = [];
+          ["nasdaq", "oil", "bitcoin"].forEach((asset) => {
+            if (score[asset] >= 3) tags.push({ asset: asset, level: "strong" });
+            else if (score[asset] >= 2)
+              tags.push({ asset: asset, level: "moderate" });
+          });
+
+          if (!tags.length) {
+            tags.push({ asset: "nasdaq", level: "moderate" });
+          }
+          return tags;
+        }
+
+        function render() {
+          const rows = allArticles.filter((article) => {
+            if (activeFilter === "all") return true;
+            return impactProfile(article).some((t) => t.asset === activeFilter);
+          });
+
+          countEl.textContent =
+            rows.length + " hotspot" + (rows.length === 1 ? "" : "s");
+
+          if (!rows.length) {
+            gridEl.innerHTML =
+              '<article class="hotspot-card">No hotspots match this filter yet.</article>';
+            return;
+          }
+
+          gridEl.innerHTML = rows
+            .slice(0, 24)
+            .map((article) => {
+              const tags = impactProfile(article)
+                .map(
+                  (tag) =>
+                    '<span class="impact-tag ' +
+                    tag.level +
+                    '"><i class="fas fa-signal"></i>' +
+                    tag.asset.toUpperCase() +
+                    " " +
+                    tag.level +
+                    "</span>",
+                )
+                .join("");
+
+              return (
+                '<article class="hotspot-card">' +
+                '<span class="hotspot-category">' +
+                (article.category || "General") +
+                "</span>" +
+                '<h3 class="hotspot-title">' +
+                article.title +
+                "</h3>" +
+                '<p class="hotspot-summary">' +
+                (article.summary || "No summary available.") +
+                "</p>" +
+                '<div class="impact-tags">' +
+                tags +
+                "</div>" +
+                '<div class="hotspot-footer"><span>' +
+                (article.source || "Source") +
+                " • " +
+                formatRelative(article.publishedAt) +
+                '</span><a class="hotspot-link" href="' +
+                article.sourceUrl +
+                '" target="_blank" rel="noopener">Source</a></div>' +
+                "</article>"
+              );
+            })
+            .join("");
+        }
+
+        filterEl.addEventListener("click", function (event) {
+          const button = event.target.closest(".chip");
+          if (!button) return;
+          filterEl
+            .querySelectorAll(".chip")
+            .forEach((chip) => chip.classList.remove("active"));
+          button.classList.add("active");
+          activeFilter = button.dataset.filter;
+          render();
+        });
+
+        fetch("/data/news.json")
+          .then((response) => response.json())
+          .then((data) => {
+            allArticles = (data.articles || []).slice();
+            updatedEl.textContent =
+              "Last updated: " + new Date(data.lastUpdated).toLocaleString();
+            render();
+          })
+          .catch(() => {
+            gridEl.innerHTML =
+              '<article class="hotspot-card">Could not load data/news.json. Run the news updater to refresh hotspots.</article>';
+          });
+      })();
+    </script>
+  </body>
+</html>

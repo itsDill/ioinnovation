@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historical Event Explorer | IO Innovation</title>
+    <meta
+      name="description"
+      content="Explore how historical geopolitical events affected Nasdaq, oil, and Bitcoin over short reaction windows."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/event-explorer.html"
+    />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FGD50Z4Y7G");
+    </script>
+
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026060801" />
+
+    <style>
+      .event-wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      .event-hero {
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.16),
+          rgba(6, 182, 212, 0.12)
+        );
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .event-hero h1 {
+        margin: 0.4rem 0 0.7rem;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+      }
+
+      .event-hero p {
+        color: var(--text-secondary);
+        max-width: 720px;
+      }
+
+      .event-banner {
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        background: rgba(245, 158, 11, 0.08);
+        border-radius: 12px;
+        padding: 0.8rem 0.95rem;
+        font-size: 0.92rem;
+      }
+
+      .panel {
+        margin-top: 1rem;
+        border: 1px solid var(--border-color);
+        background: var(--bg-card);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .field label {
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+      }
+
+      .field select {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 0.6rem;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      .summary {
+        margin-top: 0.8rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.8rem;
+        font-size: 0.93rem;
+      }
+
+      .table th,
+      .table td {
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.6rem;
+        text-align: left;
+      }
+
+      .up {
+        color: #15803d;
+        font-weight: 700;
+      }
+
+      .down {
+        color: #b91c1c;
+        font-weight: 700;
+      }
+
+      @media (max-width: 700px) {
+        .table {
+          font-size: 0.84rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/hotspots.html">Hotspots</a></li>
+          <li><a href="/event-explorer.html" class="active">Events</a></li>
+          <li><a href="/games/market-reaction-quiz.html">Reaction Game</a></li>
+          <li><a href="/hub.html">Hub</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="event-wrap">
+      <section class="event-hero">
+        <div class="post-kicker">Historical Context</div>
+        <h1>Geopolitical Event Explorer</h1>
+        <p>
+          Select an event and compare short-term reaction windows for Nasdaq,
+          oil, and Bitcoin. The goal is context-building, not forecasting.
+        </p>
+        <div class="event-banner">
+          Educational analysis only. Past reactions do not guarantee future
+          outcomes.
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="field">
+          <label for="eventSelect">Select historical event</label>
+          <select id="eventSelect"></select>
+        </div>
+        <p class="summary" id="eventSummary"></p>
+        <table class="table" aria-label="Event reaction table">
+          <thead>
+            <tr>
+              <th>Window</th>
+              <th>Nasdaq</th>
+              <th>Oil</th>
+              <th>Bitcoin</th>
+            </tr>
+          </thead>
+          <tbody id="eventRows"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bottom" style="text-align: center; padding: 1.2rem">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/js/shared-simple.js"></script>
+    <script>
+      (function () {
+        "use strict";
+
+        const events = [
+          {
+            id: "hormuz-2026",
+            label: "2026 Strait of Hormuz Crisis Escalation",
+            summary:
+              "Shipping disruption fears pushed energy risk premium higher while equities and crypto digested policy uncertainty.",
+            rows: [
+              { window: "Day 1", nasdaq: -1.4, oil: 4.9, bitcoin: -2.1 },
+              { window: "Day 5", nasdaq: -0.8, oil: 6.2, bitcoin: -1.2 },
+              { window: "Day 10", nasdaq: 0.6, oil: 3.1, bitcoin: 1.7 },
+            ],
+          },
+          {
+            id: "opec-cut-2023",
+            label: "OPEC+ Surprise Production Cut",
+            summary:
+              "A surprise supply signal repriced crude rapidly and pressured growth-sensitive risk assets in the first reaction window.",
+            rows: [
+              { window: "Day 1", nasdaq: -0.7, oil: 5.1, bitcoin: -0.9 },
+              { window: "Day 5", nasdaq: -0.4, oil: 7.4, bitcoin: 0.5 },
+              { window: "Day 10", nasdaq: 0.9, oil: 3.8, bitcoin: 2.2 },
+            ],
+          },
+          {
+            id: "sanctions-2022",
+            label: "Major Sanctions Shock",
+            summary:
+              "Sanction-driven commodity disruption created cross-asset volatility with oil leading and equities repricing growth risk.",
+            rows: [
+              { window: "Day 1", nasdaq: -2.3, oil: 7.8, bitcoin: -3.5 },
+              { window: "Day 5", nasdaq: -1.1, oil: 9.1, bitcoin: -0.8 },
+              { window: "Day 10", nasdaq: 1.3, oil: 4.6, bitcoin: 3.2 },
+            ],
+          },
+          {
+            id: "ceasefire-headline",
+            label: "Regional Ceasefire Headline",
+            summary:
+              "De-escalation headlines quickly removed part of the oil risk premium and improved risk appetite across tech and crypto.",
+            rows: [
+              { window: "Day 1", nasdaq: 1.1, oil: -3.6, bitcoin: 2.4 },
+              { window: "Day 5", nasdaq: 1.6, oil: -4.1, bitcoin: 3.1 },
+              { window: "Day 10", nasdaq: 0.8, oil: -2.0, bitcoin: 1.4 },
+            ],
+          },
+        ];
+
+        const selectEl = document.getElementById("eventSelect");
+        const summaryEl = document.getElementById("eventSummary");
+        const rowsEl = document.getElementById("eventRows");
+
+        function classFor(value) {
+          return value >= 0 ? "up" : "down";
+        }
+
+        function fmt(value) {
+          const prefix = value >= 0 ? "+" : "";
+          return prefix + value.toFixed(1) + "%";
+        }
+
+        function render(eventId) {
+          const item =
+            events.find((entry) => entry.id === eventId) || events[0];
+          summaryEl.textContent = item.summary;
+          rowsEl.innerHTML = item.rows
+            .map(
+              (row) =>
+                "<tr>" +
+                "<td>" +
+                row.window +
+                "</td>" +
+                '<td class="' +
+                classFor(row.nasdaq) +
+                '">' +
+                fmt(row.nasdaq) +
+                "</td>" +
+                '<td class="' +
+                classFor(row.oil) +
+                '">' +
+                fmt(row.oil) +
+                "</td>" +
+                '<td class="' +
+                classFor(row.bitcoin) +
+                '">' +
+                fmt(row.bitcoin) +
+                "</td>" +
+                "</tr>",
+            )
+            .join("");
+        }
+
+        selectEl.innerHTML = events
+          .map(
+            (entry) =>
+              '<option value="' + entry.id + '">' + entry.label + "</option>",
+          )
+          .join("");
+
+        selectEl.addEventListener("change", function () {
+          render(selectEl.value);
+        });
+
+        render(events[0].id);
+      })();
+    </script>
+  </body>
+</html>

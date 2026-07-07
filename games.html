@@ -1067,10 +1067,14 @@
 
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/tools.html">Tools</a></li>
-          <li><a href="/games.html" class="active">Games</a></li>
+          <li><a href="/hotspots.html">Hotspots</a></li>
+          <li><a href="/event-explorer.html">Events</a></li>
+          <li>
+            <a href="/games/market-reaction-quiz.html" class="active"
+              >Reaction Game</a
+            >
+          </li>
           <li><a href="/hub.html">Hub</a></li>
-          <li><a href="/blog">Blog</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
 
@@ -1102,16 +1106,15 @@
         <div class="games-hero-content">
           <div class="games-hero-badge">
             <i class="fas fa-gamepad"></i>
-            6 Free Investment Games
+            Geopolitical Reaction Training
           </div>
           <h1 class="games-hero-title">
-            Play, Practice, and <span>Build Investing Skill</span>
+            Play, Practice, and <span>Build Reaction Skill</span>
           </h1>
           <p class="games-hero-desc">
-            Practice stock trading, portfolio management, options strategies,
-            and crisis decision-making with $100,000 virtual capital. All games
-            are free, no signup required, and feel like a focused app instead of
-            a static list.
+            Practice how major headlines can affect Nasdaq, oil, and Bitcoin,
+            then compare your assumptions with historical outcomes. Educational
+            only, no signals or financial advice.
           </p>
           <div class="games-hero-actions">
             <a href="#gamesGrid" class="games-hero-link">
@@ -1123,7 +1126,7 @@
           </div>
           <div class="games-hero-stats" aria-label="Games highlights">
             <span class="games-hero-stat"
-              ><i class="fas fa-bolt"></i> 6 Games Live</span
+              ><i class="fas fa-bolt"></i> 1 Core Quiz + Legacy Labs</span
             >
             <span class="games-hero-stat"
               ><i class="fas fa-user-check"></i> No Signup</span
@@ -1203,16 +1206,16 @@
           <h2 class="quick-start-title">Quick Start Path</h2>
           <ol class="quick-start-steps">
             <li>
-              <strong>Step 1: Build Foundations</strong><br />
-              Start with Investment IQ and Portfolio Builder.
+              <strong>Step 1: Play Reaction Quiz</strong><br />
+              Train event-to-market intuition with historical headlines.
             </li>
             <li>
-              <strong>Step 2: Practice Execution</strong><br />
-              Move to Trading Simulator and Market Crash Survival.
+              <strong>Step 2: Compare With Events</strong><br />
+              Validate your assumptions in the historical event explorer.
             </li>
             <li>
-              <strong>Step 3: Advance Strategy</strong><br />
-              Master Options Lab and Sector Rotation.
+              <strong>Step 3: Use Legacy Labs</strong><br />
+              Use older simulations as optional supplemental practice.
             </li>
           </ol>
         </div>
@@ -1246,13 +1249,47 @@
             </button>
           </div>
           <div class="games-counter" id="gamesCounter" aria-live="polite">
-            Showing 6 games
+            Showing 7 games
           </div>
         </div>
       </section>
 
       <!-- Games Grid -->
       <section class="games-grid" id="gamesGrid">
+        <article class="game-card" data-level="beginner">
+          <div
+            class="game-icon"
+            style="background: linear-gradient(135deg, #ef4444, #f59e0b)"
+          >
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h2 class="game-title">Guess The Market Reaction</h2>
+          <div class="game-meta">
+            <span class="game-pill"
+              ><i class="fas fa-layer-group"></i> Core</span
+            >
+            <span class="game-pill"><i class="fas fa-clock"></i> 3-5 min</span>
+          </div>
+          <p class="game-desc">
+            Read a real geopolitical headline, guess the immediate direction for
+            Nasdaq, oil, and Bitcoin, then reveal the actual outcome.
+          </p>
+          <ul class="game-features">
+            <li><i class="fas fa-check"></i> Historical headline rounds</li>
+            <li><i class="fas fa-check"></i> Instant reveal and scoring</li>
+            <li><i class="fas fa-check"></i> Multi-asset reaction view</li>
+            <li><i class="fas fa-check"></i> Educational only, no signals</li>
+          </ul>
+          <div class="game-card-footer">
+            <span class="game-status live">
+              <i class="fas fa-check-circle"></i> Live Now
+            </span>
+            <a href="/games/market-reaction-quiz.html" class="game-btn">
+              Play Now <i class="fas fa-play"></i>
+            </a>
+          </div>
+        </article>
+
         <!-- Portfolio Builder Game -->
         <article class="game-card" data-level="beginner">
           <div
@@ -1288,8 +1325,8 @@
             </li>
           </ul>
           <div class="game-card-footer">
-            <span class="game-status live">
-              <i class="fas fa-check-circle"></i> Live Now
+            <span class="game-status beta">
+              <i class="fas fa-box-archive"></i> Legacy Lab
             </span>
             <a href="/games/portfolio-builder.html" class="game-btn">
               Play Now <i class="fas fa-play"></i>
@@ -1326,8 +1363,8 @@
             <li><i class="fas fa-check"></i> Live portfolio tracking</li>
           </ul>
           <div class="game-card-footer">
-            <span class="game-status live">
-              <i class="fas fa-check-circle"></i> Live Now
+            <span class="game-status beta">
+              <i class="fas fa-box-archive"></i> Legacy Lab
             </span>
             <a href="/games/trading-simulator.html" class="game-btn">
               Play Now <i class="fas fa-play"></i>
@@ -1364,8 +1401,8 @@
             <li><i class="fas fa-check"></i> Breakeven point detection</li>
           </ul>
           <div class="game-card-footer">
-            <span class="game-status live">
-              <i class="fas fa-check-circle"></i> Live Now
+            <span class="game-status beta">
+              <i class="fas fa-box-archive"></i> Legacy Lab
             </span>
             <a href="/games/options-lab.html" class="game-btn">
               Play Now <i class="fas fa-play"></i>
@@ -1400,8 +1437,8 @@
             <li><i class="fas fa-check"></i> Performance scoring</li>
           </ul>
           <div class="game-card-footer">
-            <span class="game-status live">
-              <i class="fas fa-check-circle"></i> Live Now
+            <span class="game-status beta">
+              <i class="fas fa-box-archive"></i> Legacy Lab
             </span>
             <a href="/games/investment-iq.html" class="game-btn">
               Play Now <i class="fas fa-play"></i>
@@ -1440,8 +1477,8 @@
             </li>
           </ul>
           <div class="game-card-footer">
-            <span class="game-status live">
-              <i class="fas fa-check-circle"></i> Live Now
+            <span class="game-status beta">
+              <i class="fas fa-box-archive"></i> Legacy Lab
             </span>
             <a href="/games/market-crash.html" class="game-btn">
               Play Now <i class="fas fa-play"></i>
@@ -1478,8 +1515,8 @@
             <li><i class="fas fa-check"></i> 8-quarter simulation</li>
           </ul>
           <div class="game-card-footer">
-            <span class="game-status live">
-              <i class="fas fa-check-circle"></i> Live Now
+            <span class="game-status beta">
+              <i class="fas fa-box-archive"></i> Legacy Lab
             </span>
             <a href="/games/sector-rotation.html" class="game-btn">
               Play Now <i class="fas fa-play"></i>
@@ -1506,10 +1543,10 @@
       <!-- CTA Section -->
       <!-- Level Up Section -->
       <section class="cta-section">
-        <h2 class="cta-title">Complement Your Game Play</h2>
+        <h2 class="cta-title">Go Beyond The Quiz</h2>
         <p class="cta-desc">
-          Master these concepts with our free analytics tools. Put theory into
-          practice.
+          Pair the reaction quiz with live hotspots and historical event windows
+          for stronger context-building.
         </p>
         <div
           style="
@@ -1519,11 +1556,11 @@
             flex-wrap: wrap;
           "
         >
-          <a href="/tools.html" class="btn btn-primary btn-lg">
-            <i class="fas fa-tools"></i> Analytics Tools
+          <a href="/hotspots.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-bolt"></i> Live Hotspots
           </a>
-          <a href="/blog" class="btn btn-secondary btn-lg">
-            <i class="fas fa-book"></i> Learn From Blog
+          <a href="/event-explorer.html" class="btn btn-secondary btn-lg">
+            <i class="fas fa-clock-rotate-left"></i> Event Explorer
           </a>
         </div>
       </section>
@@ -1539,10 +1576,11 @@
                 margin-bottom: 0.75rem;
               "
             >
-              Power Your Learning
+              Related Research Pages
             </h2>
             <p style="color: var(--text-secondary); font-size: 1rem">
-              Use these tools to research real stocks while you practice.
+              Keep analysis tied to geopolitical catalysts, then compare
+              outcomes.
             </p>
           </div>
 
@@ -1554,7 +1592,7 @@
             "
           >
             <a
-              href="/tools/13f-visualizer.html"
+              href="/hotspots.html"
               style="text-decoration: none; color: inherit"
             >
               <div
@@ -1568,7 +1606,7 @@
                 "
               >
                 <div style="font-size: 2rem; margin-bottom: 1rem">
-                  <i class="fas fa-landmark"></i>
+                  <i class="fas fa-bolt"></i>
                 </div>
                 <h3
                   style="
@@ -1577,7 +1615,7 @@
                     margin-bottom: 0.5rem;
                   "
                 >
-                  13F Visualizer
+                  Live Hotspots
                 </h3>
                 <p
                   style="
@@ -1586,14 +1624,14 @@
                     line-height: 1.6;
                   "
                 >
-                  See what smart money is buying. Track hedge fund holdings from
-                  SEC filings.
+                  Live geopolitical headlines mapped to likely pressure on
+                  Nasdaq, oil, and Bitcoin.
                 </p>
               </div>
             </a>
 
             <a
-              href="/tools/tax-calculator.html"
+              href="/event-explorer.html"
               style="text-decoration: none; color: inherit"
             >
               <div
@@ -1607,7 +1645,7 @@
                 "
               >
                 <div style="font-size: 2rem; margin-bottom: 1rem">
-                  <i class="fas fa-calculator"></i>
+                  <i class="fas fa-clock-rotate-left"></i>
                 </div>
                 <h3
                   style="
@@ -1616,7 +1654,7 @@
                     margin-bottom: 0.5rem;
                   "
                 >
-                  Tax Impact Calculator
+                  Event Explorer
                 </h3>
                 <p
                   style="
@@ -1625,13 +1663,15 @@
                     line-height: 1.6;
                   "
                 >
-                  Estimate tax impact on dividends and gains before sizing
-                  positions.
+                  Compare reaction windows after major geopolitical events.
                 </p>
               </div>
             </a>
 
-            <a href="/tools.html" style="text-decoration: none; color: inherit">
+            <a
+              href="/hub/nasdaq-prediction-dashboard.html"
+              style="text-decoration: none; color: inherit"
+            >
               <div
                 style="
                   background: var(--bg-card);
@@ -1643,7 +1683,7 @@
                 "
               >
                 <div style="font-size: 2rem; margin-bottom: 1rem">
-                  <i class="fas fa-wrench"></i>
+                  <i class="fas fa-gauge-high"></i>
                 </div>
                 <h3
                   style="
@@ -1652,7 +1692,7 @@
                     margin-bottom: 0.5rem;
                   "
                 >
-                  All Tools
+                  Nasdaq Impact Dashboard
                 </h3>
                 <p
                   style="
@@ -1661,8 +1701,7 @@
                     line-height: 1.6;
                   "
                 >
-                  Access our complete suite: 10-K summaries, dividends, and
-                  more.
+                  Monitor quality metrics from the daily Nasdaq impact workflow.
                 </p>
               </div>
             </a>
@@ -1677,24 +1716,27 @@
         <div class="footer-section">
           <h3 class="footer-title">IO Innovation</h3>
           <p class="footer-desc">
-            Free professional financial tools and educational resources for
-            investors. Learn, analyze, and invest smarter.
+            Educational analysis of how geopolitical events move Nasdaq, oil,
+            and Bitcoin.
           </p>
         </div>
 
         <div class="footer-section">
-          <h4 class="footer-heading">Tools</h4>
+          <h4 class="footer-heading">Research</h4>
           <ul class="footer-links">
-            <li><a href="/tools/13f-visualizer.html">13F Tracker</a></li>
-            <li><a href="/tools/10k-summary.html">10-K Analyzer</a></li>
+            <li><a href="/hotspots.html">Live Hotspots</a></li>
+            <li><a href="/event-explorer.html">Event Explorer</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
           <h4 class="footer-heading">Learn</h4>
           <ul class="footer-links">
-            <li><a href="/games.html">Investment Games</a></li>
+            <li>
+              <a href="/games/market-reaction-quiz.html">Reaction Game</a>
+            </li>
             <li><a href="/hub.html">Hub</a></li>
+            <li><a href="/archive.html">Legacy Archive</a></li>
           </ul>
         </div>
 

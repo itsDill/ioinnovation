@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Market Reaction | IO Innovation</title>
+    <meta
+      name="description"
+      content="Interactive game: predict how Nasdaq, oil, and Bitcoin reacted to real historical geopolitical headlines."
+    />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FGD50Z4Y7G");
+    </script>
+
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026060801" />
+
+    <style>
+      .quiz-wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 2rem 1.2rem 3rem;
+      }
+
+      .quiz-hero {
+        border: 1px solid var(--border-color);
+        border-radius: 18px;
+        background: linear-gradient(
+          135deg,
+          rgba(236, 72, 153, 0.14),
+          rgba(59, 130, 246, 0.1)
+        );
+        padding: 1.4rem;
+      }
+
+      .quiz-hero h1 {
+        margin: 0.5rem 0 0.65rem;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+      }
+
+      .quiz-hero p {
+        color: var(--text-secondary);
+        max-width: 740px;
+      }
+
+      .banner {
+        margin-top: 0.85rem;
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        background: rgba(245, 158, 11, 0.08);
+        border-radius: 10px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .card {
+        margin-top: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        background: var(--bg-card);
+        padding: 1rem;
+      }
+
+      .headline {
+        font-size: 1.08rem;
+        line-height: 1.6;
+        margin-top: 0.4rem;
+      }
+
+      .guess-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .guess-row {
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 0.7rem;
+      }
+
+      .guess-row label {
+        display: block;
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.45rem;
+      }
+
+      .guess-row select {
+        width: 100%;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        padding: 0.5rem;
+      }
+
+      .actions {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .result {
+        margin-top: 0.9rem;
+        display: none;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.6rem;
+      }
+
+      .table th,
+      .table td {
+        padding: 0.55rem;
+        border-bottom: 1px solid var(--border-color);
+        text-align: left;
+      }
+
+      .correct {
+        color: #15803d;
+        font-weight: 700;
+      }
+
+      .wrong {
+        color: #b91c1c;
+        font-weight: 700;
+      }
+
+      @media (max-width: 760px) {
+        .guess-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/hotspots.html">Hotspots</a></li>
+          <li><a href="/event-explorer.html">Events</a></li>
+          <li>
+            <a href="/games/market-reaction-quiz.html" class="active"
+              >Reaction Game</a
+            >
+          </li>
+          <li><a href="/hub.html">Hub</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="quiz-wrap">
+      <section class="quiz-hero">
+        <div class="post-kicker">Interactive Training</div>
+        <h1>Guess The Market Reaction</h1>
+        <p>
+          We show a real historical geopolitical headline. You guess up/down for
+          Nasdaq, oil, and Bitcoin. Then compare your read with what happened.
+        </p>
+        <div class="banner">
+          Educational game only. Not a signal service and not investment advice.
+        </div>
+      </section>
+
+      <section class="card">
+        <div id="roundMeta" class="post-kicker">Round 1</div>
+        <h2 id="headline" class="headline"></h2>
+
+        <div class="guess-grid">
+          <div class="guess-row">
+            <label for="guessNasdaq">Nasdaq (next session)</label>
+            <select id="guessNasdaq">
+              <option value="up">Up</option>
+              <option value="down">Down</option>
+            </select>
+          </div>
+
+          <div class="guess-row">
+            <label for="guessOil">Oil (next session)</label>
+            <select id="guessOil">
+              <option value="up">Up</option>
+              <option value="down">Down</option>
+            </select>
+          </div>
+
+          <div class="guess-row">
+            <label for="guessBitcoin">Bitcoin (next session)</label>
+            <select id="guessBitcoin">
+              <option value="up">Up</option>
+              <option value="down">Down</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="revealBtn">Reveal Outcome</button>
+          <button class="btn btn-secondary" id="nextBtn" style="display: none">
+            Next Headline
+          </button>
+        </div>
+
+        <div class="result" id="resultPanel">
+          <p id="scoreLine"></p>
+          <table class="table" aria-label="Guess results">
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Your Guess</th>
+                <th>Actual</th>
+              </tr>
+            </thead>
+            <tbody id="resultRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bottom" style="text-align: center; padding: 1.2rem">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/js/shared-simple.js"></script>
+    <script>
+      (function () {
+        "use strict";
+
+        const rounds = [
+          {
+            headline: "Breaking: OPEC+ announces unexpected production cut",
+            actual: { nasdaq: "down", oil: "up", bitcoin: "down" },
+          },
+          {
+            headline: "Headline: Regional ceasefire agreement reached",
+            actual: { nasdaq: "up", oil: "down", bitcoin: "up" },
+          },
+          {
+            headline: "Flash: New sanctions target major energy exports",
+            actual: { nasdaq: "down", oil: "up", bitcoin: "down" },
+          },
+          {
+            headline: "Update: Fed signals slower tightening path",
+            actual: { nasdaq: "up", oil: "up", bitcoin: "up" },
+          },
+        ];
+
+        const headlineEl = document.getElementById("headline");
+        const metaEl = document.getElementById("roundMeta");
+        const revealBtn = document.getElementById("revealBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const resultPanel = document.getElementById("resultPanel");
+        const scoreLine = document.getElementById("scoreLine");
+        const resultRows = document.getElementById("resultRows");
+
+        const guessEls = {
+          nasdaq: document.getElementById("guessNasdaq"),
+          oil: document.getElementById("guessOil"),
+          bitcoin: document.getElementById("guessBitcoin"),
+        };
+
+        let index = 0;
+
+        function renderRound() {
+          const round = rounds[index];
+          metaEl.textContent = "Round " + (index + 1) + " of " + rounds.length;
+          headlineEl.textContent = round.headline;
+          resultPanel.style.display = "none";
+          nextBtn.style.display = "none";
+          revealBtn.style.display = "inline-flex";
+        }
+
+        function reveal() {
+          const round = rounds[index];
+          const rows = ["nasdaq", "oil", "bitcoin"];
+          let correct = 0;
+
+          resultRows.innerHTML = rows
+            .map((asset) => {
+              const guess = guessEls[asset].value;
+              const actual = round.actual[asset];
+              const hit = guess === actual;
+              if (hit) correct += 1;
+              return (
+                "<tr>" +
+                "<td>" +
+                asset.toUpperCase() +
+                "</td>" +
+                '<td class="' +
+                (hit ? "correct" : "wrong") +
+                '">' +
+                guess.toUpperCase() +
+                "</td>" +
+                "<td>" +
+                actual.toUpperCase() +
+                "</td>" +
+                "</tr>"
+              );
+            })
+            .join("");
+
+          scoreLine.textContent = "Score: " + correct + "/3 correct";
+          resultPanel.style.display = "block";
+          revealBtn.style.display = "none";
+          if (index < rounds.length - 1) {
+            nextBtn.style.display = "inline-flex";
+          }
+        }
+
+        revealBtn.addEventListener("click", reveal);
+        nextBtn.addEventListener("click", function () {
+          index += 1;
+          renderRound();
+        });
+
+        renderRound();
+      })();
+    </script>
+  </body>
+</html>
