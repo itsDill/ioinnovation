@@ -69,6 +69,288 @@
         color: var(--text-secondary);
       }
 
+      .world-risk-map {
+        margin-top: 1.4rem;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        background: linear-gradient(
+          155deg,
+          rgba(15, 23, 42, 0.68),
+          rgba(12, 20, 36, 0.9)
+        );
+        padding: 1rem;
+      }
+
+      .map-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .map-title {
+        margin: 0;
+        font-size: 1.12rem;
+      }
+
+      .map-sub {
+        margin: 0.25rem 0 0;
+        font-size: 0.88rem;
+        color: rgba(226, 232, 240, 0.84);
+      }
+
+      .map-updated {
+        font-size: 0.8rem;
+        color: rgba(203, 213, 225, 0.86);
+        white-space: nowrap;
+      }
+
+      .map-filter-row {
+        margin-top: 0.85rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .map-chip {
+        border: 1px solid rgba(148, 163, 184, 0.42);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.5);
+        color: #dbeafe;
+        padding: 0.34rem 0.72rem;
+        font-size: 0.76rem;
+        cursor: pointer;
+      }
+
+      .map-chip.active {
+        border-color: rgba(45, 212, 191, 0.9);
+        background: rgba(20, 184, 166, 0.22);
+        color: #ccfbf1;
+      }
+
+      .map-layout {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
+        gap: 0.9rem;
+      }
+
+      .map-board {
+        position: relative;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 14px;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 30% 15%,
+            rgba(56, 189, 248, 0.2),
+            transparent 40%
+          ),
+          linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(2, 6, 23, 0.95));
+      }
+
+      .world-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .continent {
+        fill: rgba(125, 211, 252, 0.22);
+        stroke: rgba(186, 230, 253, 0.4);
+        stroke-width: 0.7;
+      }
+
+      .grid-line {
+        stroke: rgba(148, 163, 184, 0.24);
+        stroke-width: 0.5;
+        stroke-dasharray: 3 6;
+      }
+
+      .map-markers {
+        position: absolute;
+        inset: 0;
+      }
+
+      .map-marker {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.42);
+        transition:
+          transform 0.15s ease,
+          opacity 0.2s ease;
+      }
+
+      .map-marker::after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        border: 1px solid currentColor;
+        opacity: 0.36;
+      }
+
+      .map-marker.live {
+        background: #ef4444;
+        color: #ef4444;
+      }
+
+      .map-marker.elevated {
+        background: #f59e0b;
+        color: #f59e0b;
+      }
+
+      .map-marker.watchlist {
+        background: #38bdf8;
+        color: #38bdf8;
+      }
+
+      .map-marker.active,
+      .map-marker:hover,
+      .map-marker:focus-visible {
+        transform: translate(-50%, -50%) scale(1.14);
+      }
+
+      .map-marker.dimmed {
+        opacity: 0.35;
+      }
+
+      .map-tooltip {
+        position: absolute;
+        pointer-events: none;
+        transform: translate(-50%, calc(-100% - 12px));
+        min-width: 165px;
+        max-width: 220px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        border-radius: 10px;
+        background: rgba(2, 6, 23, 0.93);
+        color: #e2e8f0;
+        padding: 0.45rem 0.55rem;
+        font-size: 0.74rem;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+      }
+
+      .map-tooltip.visible {
+        opacity: 1;
+      }
+
+      .map-tooltip-title {
+        font-weight: 700;
+      }
+
+      .map-tooltip-status {
+        margin-top: 0.18rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #93c5fd;
+      }
+
+      .map-detail {
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 14px;
+        background: rgba(15, 23, 42, 0.66);
+        padding: 0.95rem;
+        color: #e2e8f0;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        font-size: 0.67rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 0.23rem 0.54rem;
+        border: 1px solid transparent;
+      }
+
+      .status-badge.live {
+        color: #fecaca;
+        border-color: rgba(239, 68, 68, 0.45);
+        background: rgba(239, 68, 68, 0.16);
+      }
+
+      .status-badge.elevated {
+        color: #fde68a;
+        border-color: rgba(245, 158, 11, 0.45);
+        background: rgba(245, 158, 11, 0.16);
+      }
+
+      .status-badge.watchlist {
+        color: #bae6fd;
+        border-color: rgba(56, 189, 248, 0.45);
+        background: rgba(56, 189, 248, 0.16);
+      }
+
+      .map-detail h3 {
+        margin: 0.6rem 0 0.42rem;
+        font-size: 1.06rem;
+      }
+
+      .map-detail p {
+        margin: 0;
+        color: rgba(226, 232, 240, 0.86);
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .impact-list {
+        margin: 0.8rem 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .impact-pill {
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        background: rgba(30, 41, 59, 0.86);
+        color: #e2e8f0;
+        font-size: 0.72rem;
+        padding: 0.2rem 0.52rem;
+      }
+
+      .map-effects {
+        margin: 0.78rem 0 0;
+        padding-left: 1.1rem;
+        font-size: 0.84rem;
+        color: rgba(226, 232, 240, 0.9);
+      }
+
+      .map-effects li + li {
+        margin-top: 0.28rem;
+      }
+
+      .map-detail-note {
+        margin-top: 0.75rem;
+        font-size: 0.76rem;
+        color: rgba(186, 230, 253, 0.88);
+      }
+
+      .map-summary {
+        margin-top: 0.65rem;
+        font-size: 0.78rem;
+        color: rgba(203, 213, 225, 0.84);
+      }
+
+      @media (max-width: 900px) {
+        .map-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .map-detail {
+          order: 2;
+        }
+      }
+
       .controls {
         display: flex;
         flex-wrap: wrap;
@@ -188,6 +470,16 @@
       .hotspot-link:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 640px) {
+        .world-risk-map {
+          padding: 0.72rem;
+        }
+
+        .map-title {
+          font-size: 1rem;
+        }
+      }
     </style>
   </head>
 
@@ -200,7 +492,7 @@
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
           <li><a href="/hotspots.html" class="active">Hotspots</a></li>
-          <li><a href="/event-explorer.html">Events</a></li>
+          <li><a href="/tools.html">Tools</a></li>
           <li><a href="/games/market-reaction-quiz.html">Reaction Game</a></li>
           <li><a href="/hub.html">Hub</a></li>
           <li><a href="/contact.html">Contact</a></li>
@@ -232,6 +524,81 @@
           This page is informational and analytical only. It is not financial or
           trading advice.
         </div>
+
+        <section class="world-risk-map" aria-label="World hotspot map">
+          <div class="map-head">
+            <div>
+              <h2 class="map-title">World Hotspot Map</h2>
+              <p class="map-sub">
+                Select a marker to see what each current hotspot could affect
+                across markets and supply chains.
+              </p>
+            </div>
+            <span id="mapUpdated" class="map-updated">Updated: --</span>
+          </div>
+
+          <div class="map-filter-row" id="mapFilters"></div>
+
+          <div class="map-layout">
+            <div class="map-board">
+              <svg
+                class="world-svg"
+                viewBox="0 0 1000 520"
+                role="img"
+                aria-label="World map with geopolitical hotspots"
+              >
+                <path class="grid-line" d="M0 130h1000"></path>
+                <path class="grid-line" d="M0 260h1000"></path>
+                <path class="grid-line" d="M0 390h1000"></path>
+                <path class="grid-line" d="M250 0v520"></path>
+                <path class="grid-line" d="M500 0v520"></path>
+                <path class="grid-line" d="M750 0v520"></path>
+
+                <path
+                  class="continent"
+                  d="M83 122 145 98 212 112 268 136 305 178 298 225 266 249 220 272 180 278 154 256 118 222 92 189 Z"
+                ></path>
+                <path
+                  class="continent"
+                  d="M243 292 276 307 298 339 307 386 296 429 266 462 232 447 221 406 225 356 Z"
+                ></path>
+                <path
+                  class="continent"
+                  d="M420 126 475 104 562 101 634 122 693 152 738 195 737 235 704 257 658 249 612 271 541 286 474 272 436 241 412 192 Z"
+                ></path>
+                <path
+                  class="continent"
+                  d="M516 302 555 286 598 296 618 325 614 361 586 392 554 414 521 399 498 369 499 336 Z"
+                ></path>
+                <path
+                  class="continent"
+                  d="M714 295 755 279 804 286 842 314 851 349 834 382 801 404 758 391 727 359 Z"
+                ></path>
+                <path
+                  class="continent"
+                  d="M851 401 891 385 922 404 913 438 873 444 Z"
+                ></path>
+              </svg>
+
+              <div id="mapMarkers" class="map-markers"></div>
+              <div id="mapTooltip" class="map-tooltip" aria-hidden="true">
+                <div class="map-tooltip-title" id="mapTooltipTitle"></div>
+                <div class="map-tooltip-status" id="mapTooltipStatus"></div>
+              </div>
+            </div>
+
+            <aside id="mapDetail" class="map-detail">
+              <span class="status-badge watchlist">Watchlist</span>
+              <h3>Select a hotspot</h3>
+              <p>
+                Click any marker to inspect probable market and supply-chain
+                effects.
+              </p>
+            </aside>
+          </div>
+
+          <p id="mapSummary" class="map-summary">Loading map hotspots...</p>
+        </section>
       </section>
 
       <section>
@@ -269,9 +636,19 @@
         const gridEl = document.getElementById("hotspotsGrid");
         const countEl = document.getElementById("countLabel");
         const updatedEl = document.getElementById("lastUpdated");
+        const mapFiltersEl = document.getElementById("mapFilters");
+        const mapMarkersEl = document.getElementById("mapMarkers");
+        const mapDetailEl = document.getElementById("mapDetail");
+        const mapUpdatedEl = document.getElementById("mapUpdated");
+        const mapSummaryEl = document.getElementById("mapSummary");
+        const mapTooltipEl = document.getElementById("mapTooltip");
+        const mapTooltipTitleEl = document.getElementById("mapTooltipTitle");
+        const mapTooltipStatusEl = document.getElementById("mapTooltipStatus");
 
         let allArticles = [];
         let activeFilter = "all";
+        let mapData = [];
+        let activeMapFilter = "all";
 
         function formatRelative(dateString) {
           const date = new Date(dateString);
@@ -374,6 +751,204 @@
             .join("");
         }
 
+        function isWithinLastDays(dateString, days) {
+          const parsed = new Date(dateString);
+          if (Number.isNaN(parsed.getTime())) return false;
+          const now = Date.now();
+          const maxAgeMs = days * 24 * 60 * 60 * 1000;
+          return now - parsed.getTime() <= maxAgeMs;
+        }
+
+        const impactLabel = {
+          all: "All",
+          energy: "Energy / Oil & Gas",
+          shipping: "Shipping / Logistics",
+          semis: "Semiconductors",
+          food: "Food / Agriculture",
+          defense: "Defense Spending",
+          fx: "Currency / FX",
+          equities: "Equities Sectors",
+        };
+
+        function project(lat, lon) {
+          return {
+            left: ((lon + 180) / 360) * 100,
+            top: ((90 - lat) / 180) * 100,
+          };
+        }
+
+        function formatStatus(status) {
+          return (status || "watchlist").replace(/^[a-z]/, (s) =>
+            s.toUpperCase(),
+          );
+        }
+
+        function showTooltip(hotspot, markerEl) {
+          const markerRect = markerEl.getBoundingClientRect();
+          const boardRect = mapMarkersEl.getBoundingClientRect();
+          mapTooltipTitleEl.textContent = hotspot.name;
+          mapTooltipStatusEl.textContent = formatStatus(hotspot.status);
+          mapTooltipEl.style.left = markerRect.left - boardRect.left + "px";
+          mapTooltipEl.style.top = markerRect.top - boardRect.top + "px";
+          mapTooltipEl.classList.add("visible");
+          mapTooltipEl.setAttribute("aria-hidden", "false");
+        }
+
+        function hideTooltip() {
+          mapTooltipEl.classList.remove("visible");
+          mapTooltipEl.setAttribute("aria-hidden", "true");
+        }
+
+        function renderDetail(hotspot) {
+          const impacts = (hotspot.impacts || [])
+            .map(
+              (impact) =>
+                '<span class="impact-pill">' +
+                (impactLabel[impact] || impact) +
+                "</span>",
+            )
+            .join("");
+
+          const effects = (hotspot.couldAffect || [])
+            .map((effect) => "<li>" + effect + "</li>")
+            .join("");
+
+          mapDetailEl.innerHTML =
+            '<span class="status-badge ' +
+            (hotspot.status || "watchlist") +
+            '">' +
+            formatStatus(hotspot.status) +
+            "</span>" +
+            "<h3>" +
+            hotspot.name +
+            "</h3>" +
+            "<p>" +
+            (hotspot.summary || "") +
+            "</p>" +
+            '<div class="impact-list">' +
+            impacts +
+            "</div>" +
+            '<ul class="map-effects">' +
+            effects +
+            "</ul>" +
+            '<p class="map-detail-note">Region: ' +
+            (hotspot.region || "Global") +
+            "</p>";
+        }
+
+        function buildMapFilters() {
+          const available = new Set(["all"]);
+          mapData.forEach((spot) =>
+            (spot.impacts || []).forEach((impact) => available.add(impact)),
+          );
+
+          mapFiltersEl.innerHTML = Array.from(available)
+            .map(
+              (key) =>
+                '<button class="map-chip' +
+                (key === activeMapFilter ? " active" : "") +
+                '" data-map-filter="' +
+                key +
+                '">' +
+                (impactLabel[key] || key) +
+                "</button>",
+            )
+            .join("");
+        }
+
+        function renderMap() {
+          const visible = mapData.filter((spot) => {
+            if (activeMapFilter === "all") return true;
+            return (spot.impacts || []).includes(activeMapFilter);
+          });
+
+          mapMarkersEl.innerHTML = mapData
+            .map((spot) => {
+              const coords = project(spot.lat, spot.lon);
+              const dimmed =
+                activeMapFilter !== "all" &&
+                !(spot.impacts || []).includes(activeMapFilter);
+
+              return (
+                '<button type="button" class="map-marker ' +
+                (spot.status || "watchlist") +
+                (dimmed ? " dimmed" : "") +
+                '" data-spot-id="' +
+                spot.id +
+                '" aria-label="' +
+                spot.name +
+                '" style="left:' +
+                coords.left.toFixed(2) +
+                "%; top:" +
+                coords.top.toFixed(2) +
+                '%;"></button>'
+              );
+            })
+            .join("");
+
+          mapSummaryEl.textContent =
+            visible.length +
+            " visible hotspot" +
+            (visible.length === 1 ? "" : "s") +
+            " out of " +
+            mapData.length +
+            ".";
+
+          const firstVisible = visible[0] || mapData[0];
+          if (firstVisible) {
+            renderDetail(firstVisible);
+            const activeBtn = mapMarkersEl.querySelector(
+              '[data-spot-id="' + firstVisible.id + '"]',
+            );
+            if (activeBtn) activeBtn.classList.add("active");
+          }
+        }
+
+        mapFiltersEl.addEventListener("click", function (event) {
+          const button = event.target.closest(".map-chip");
+          if (!button) return;
+          activeMapFilter = button.dataset.mapFilter;
+          buildMapFilters();
+          hideTooltip();
+          renderMap();
+        });
+
+        mapMarkersEl.addEventListener("click", function (event) {
+          const marker = event.target.closest(".map-marker");
+          if (!marker) return;
+          const spot = mapData.find((row) => row.id === marker.dataset.spotId);
+          if (!spot) return;
+
+          mapMarkersEl
+            .querySelectorAll(".map-marker")
+            .forEach((item) => item.classList.remove("active"));
+          marker.classList.add("active");
+          renderDetail(spot);
+          showTooltip(spot, marker);
+        });
+
+        mapMarkersEl.addEventListener("mouseover", function (event) {
+          const marker = event.target.closest(".map-marker");
+          if (!marker) return;
+          const spot = mapData.find((row) => row.id === marker.dataset.spotId);
+          if (spot) showTooltip(spot, marker);
+        });
+
+        mapMarkersEl.addEventListener("mouseout", function () {
+          hideTooltip();
+        });
+
+        mapMarkersEl.addEventListener("focusin", function (event) {
+          const marker = event.target.closest(".map-marker");
+          if (!marker) return;
+          const spot = mapData.find((row) => row.id === marker.dataset.spotId);
+          if (spot) showTooltip(spot, marker);
+        });
+
+        mapMarkersEl.addEventListener("focusout", function () {
+          hideTooltip();
+        });
+
         filterEl.addEventListener("click", function (event) {
           const button = event.target.closest(".chip");
           if (!button) return;
@@ -388,14 +963,47 @@
         fetch("/data/news.json")
           .then((response) => response.json())
           .then((data) => {
-            allArticles = (data.articles || []).slice();
+            const weekWindowArticles = (data.articles || [])
+              .filter((article) => isWithinLastDays(article.publishedAt, 7))
+              .sort(
+                (a, b) =>
+                  new Date(b.publishedAt).getTime() -
+                  new Date(a.publishedAt).getTime(),
+              );
+
+            allArticles = weekWindowArticles;
             updatedEl.textContent =
-              "Last updated: " + new Date(data.lastUpdated).toLocaleString();
+              "Last updated: " +
+              new Date(data.lastUpdated).toLocaleString() +
+              " (showing last 7 days)";
             render();
           })
           .catch(() => {
             gridEl.innerHTML =
               '<article class="hotspot-card">Could not load data/news.json. Run the news updater to refresh hotspots.</article>';
+          });
+
+        fetch("/data/hotspots-map.json")
+          .then((response) => response.json())
+          .then((data) => {
+            mapData = Array.isArray(data.hotspots)
+              ? data.hotspots.slice(0, 8)
+              : [];
+            mapUpdatedEl.textContent =
+              "Updated: " +
+              new Date(data.lastUpdated || Date.now()).toLocaleString();
+
+            if (!mapData.length) {
+              mapSummaryEl.textContent = "No map hotspots available.";
+              return;
+            }
+
+            buildMapFilters();
+            renderMap();
+          })
+          .catch(() => {
+            mapSummaryEl.textContent =
+              "Could not load /data/hotspots-map.json. Add this file to power the map.";
           });
       })();
     </script>

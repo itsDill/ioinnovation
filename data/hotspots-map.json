@@ -1,0 +1,117 @@
+{
+  "lastUpdated": "2026-07-07T14:00:00Z",
+  "hotspots": [
+    {
+      "id": "strait-of-hormuz",
+      "name": "Strait of Hormuz",
+      "region": "Middle East",
+      "status": "live",
+      "lat": 26.56,
+      "lon": 56.25,
+      "summary": "Shipping chokepoint risk remains elevated with periodic military signaling and tanker route uncertainty.",
+      "impacts": ["energy", "shipping", "fx", "equities"],
+      "couldAffect": [
+        "Brent and WTI crude volatility from disruption headlines",
+        "Higher tanker insurance and freight rates",
+        "Inflation-sensitive equity sectors and airline margins",
+        "USD and regional currency safe-haven flows"
+      ]
+    },
+    {
+      "id": "bab-el-mandeb",
+      "name": "Bab el-Mandeb / Red Sea",
+      "region": "Red Sea",
+      "status": "live",
+      "lat": 12.6,
+      "lon": 43.3,
+      "summary": "Attacks and rerouting pressure continue to affect transit through one of the world’s key maritime corridors.",
+      "impacts": ["shipping", "energy", "food", "equities"],
+      "couldAffect": [
+        "Container transit times between Asia and Europe",
+        "Delivery schedules for consumer and industrial imports",
+        "Fuel and freight components in producer prices",
+        "Shipping, retail, and logistics stock sentiment"
+      ]
+    },
+    {
+      "id": "taiwan-strait",
+      "name": "Taiwan Strait",
+      "region": "East Asia",
+      "status": "elevated",
+      "lat": 24.2,
+      "lon": 120.8,
+      "summary": "Military activity and political signaling create periodic uncertainty around semiconductor and maritime flows.",
+      "impacts": ["semis", "shipping", "defense", "equities"],
+      "couldAffect": [
+        "Advanced chip supply chain confidence and lead times",
+        "Tech hardware production planning",
+        "Defense spending expectations across allies",
+        "Nasdaq and global mega-cap tech risk premium"
+      ]
+    },
+    {
+      "id": "south-china-sea",
+      "name": "South China Sea",
+      "region": "Southeast Asia",
+      "status": "watchlist",
+      "lat": 13.5,
+      "lon": 114.8,
+      "summary": "Territorial disputes and patrol incidents remain a latent catalyst for trade route and insurance risk repricing.",
+      "impacts": ["shipping", "semis", "fx"],
+      "couldAffect": [
+        "Regional shipping lane reliability and premiums",
+        "Electronics and component sourcing timetables",
+        "Asia FX volatility around escalation events",
+        "Port throughput sensitivity in regional hubs"
+      ]
+    },
+    {
+      "id": "black-sea-grain-corridor",
+      "name": "Black Sea / Grain Corridor",
+      "region": "Eastern Europe",
+      "status": "elevated",
+      "lat": 45.0,
+      "lon": 34.0,
+      "summary": "Conflict-adjacent logistics and export security continue to shape agriculture and bulk shipping expectations.",
+      "impacts": ["food", "shipping", "fx", "equities"],
+      "couldAffect": [
+        "Wheat and corn benchmark sensitivity",
+        "Bulk carrier route and insurance conditions",
+        "Food importer currency stress in emerging markets",
+        "Input-cost outlook for global consumer staples"
+      ]
+    },
+    {
+      "id": "israel-lebanon-border",
+      "name": "Israel-Lebanon Border",
+      "region": "Eastern Mediterranean",
+      "status": "live",
+      "lat": 33.3,
+      "lon": 35.5,
+      "summary": "Cross-border exchanges remain a fast-moving escalation channel with spillover implications for regional energy risk.",
+      "impacts": ["energy", "defense", "fx"],
+      "couldAffect": [
+        "Regional gas infrastructure risk assessments",
+        "Defense procurement and contractor order narratives",
+        "Risk-off demand for safe-haven currencies",
+        "Middle East sovereign spread expectations"
+      ]
+    },
+    {
+      "id": "niger-sahel-belt",
+      "name": "Sahel Stability Belt",
+      "region": "West Africa",
+      "status": "watchlist",
+      "lat": 16.7,
+      "lon": 8.0,
+      "summary": "Political instability and security disruptions in the Sahel can pressure mining, transit corridors, and commodity-adjacent logistics.",
+      "impacts": ["energy", "food", "equities"],
+      "couldAffect": [
+        "Mining and resource project timelines",
+        "Regional fuel and staple transport costs",
+        "Frontier-market risk premiums",
+        "Multinational operating risk assumptions"
+      ]
+    }
+  ]
+}
