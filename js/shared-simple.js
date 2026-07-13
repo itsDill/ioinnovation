@@ -635,6 +635,39 @@ document.addEventListener("DOMContentLoaded", function () {
     // Service Worker registration for caching
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
+        const BUILD_VERSION = "2026071302";
+        const CACHE_VERSION_KEY = "io-cache-version";
+        const savedVersion = localStorage.getItem(CACHE_VERSION_KEY);
+
+        if (savedVersion !== BUILD_VERSION) {
+          localStorage.setItem(CACHE_VERSION_KEY, BUILD_VERSION);
+
+          Promise.all([
+            navigator.serviceWorker
+              .getRegistrations()
+              .then((registrations) =>
+                Promise.all(
+                  registrations.map((registration) =>
+                    registration.unregister(),
+                  ),
+                ),
+              ),
+            typeof caches !== "undefined"
+              ? caches
+                  .keys()
+                  .then((cacheNames) =>
+                    Promise.all(
+                      cacheNames.map((cacheName) => caches.delete(cacheName)),
+                    ),
+                  )
+              : Promise.resolve(),
+          ]).finally(() => {
+            window.location.reload();
+          });
+
+          return;
+        }
+
         let refreshing = false;
 
         navigator.serviceWorker.addEventListener("controllerchange", () => {
@@ -647,7 +680,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         navigator.serviceWorker
-          .register("/sw.js", { updateViaCache: "none" })
+          .register("/sw.js?v=2026071302", { updateViaCache: "none" })
           .then((registration) => {
             // Ask browser to check for a newer service worker immediately.
             registration.update();

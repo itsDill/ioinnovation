@@ -1,10 +1,10 @@
 /* Service Worker for IO Innovation */
 /* Improved caching strategy for mobile performance */
 
-const CACHE_NAME = "io-innovation-v2026071301";
-const STATIC_CACHE = "static-v2026071301";
-const DYNAMIC_CACHE = "dynamic-v2026071301";
-const IMAGES_CACHE = "images-v2026071301";
+const CACHE_NAME = "io-innovation-v2026071302";
+const STATIC_CACHE = "static-v2026071302";
+const DYNAMIC_CACHE = "dynamic-v2026071302";
+const IMAGES_CACHE = "images-v2026071302";
 
 // Files to cache immediately
 const STATIC_ASSETS = [
