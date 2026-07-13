@@ -15,7 +15,6 @@ PAGES = [
     # Main nav pages
     ("tools.html", "weekly", "0.95"),
     ("games.html", "weekly", "0.88"),
-    ("guides.html", "weekly", "0.90"),
     ("hub.html", "daily", "0.90"),
     ("analytics.html", "weekly", "0.85"),
     ("about.html", "monthly", "0.60"),
@@ -25,12 +24,8 @@ PAGES = [
     ("disclaimer.html", "yearly", "0.30"),
     ("content-policy.html", "yearly", "0.30"),
     # Tool pages
-    ("tools/13f-visualizer.html", "weekly", "0.85"),
-    ("tools/10k-summary.html", "weekly", "0.85"),
-    ("tools/pe-ratio-calculator.html", "monthly", "0.82"),
-    ("tools/compound-interest-calculator.html", "monthly", "0.82"),
-    ("tools/dividend-yield-calculator.html", "monthly", "0.82"),
-    ("tools/market-cap-calculator.html", "monthly", "0.82"),
+    ("tools/tax-calculator.html", "monthly", "0.82"),
+    ("tools/bitcoin-disclosures.html", "weekly", "0.88"),
     # Game pages
     ("games/portfolio-builder.html", "weekly", "0.75"),
     ("games/trading-simulator.html", "weekly", "0.75"),
@@ -46,47 +41,14 @@ PAGES = [
 
 # Pre-existing blog posts (higher priority)
 OLD_BLOG = [
-    "blog/how-to-read-balance-sheet-guide.html",
-    "blog/how-to-read-cash-flow-statement-guide.html",
-    "blog/how-to-read-income-statement-guide.html",
-    "blog/oil-prices-economy-2026-crisis-guide.html",
-    "blog/understanding-13f-filings-guide.html",
+    "blog/crypto-cycle-playbook.html",
+    "blog/dividend-income-basics.html",
+    "blog/nasdaq-outlook-2026.html",
 ]
 
 # New blog posts
 NEW_BLOG = [
-    "hub/nasdaq-prediction-series-intro.html",
-    "hub/nasdaq-prediction-dashboard.html",
-    "blog/what-is-pe-ratio-guide.html",
-    "blog/what-is-ebitda-guide.html",
-    "blog/free-cash-flow-explained-guide.html",
-    "blog/debt-to-equity-ratio-guide.html",
-    "blog/return-on-equity-guide.html",
-    "blog/dollar-cost-averaging-guide.html",
-    "blog/compound-interest-investing-guide.html",
-    "blog/market-cap-explained-guide.html",
-    "blog/how-to-analyze-a-stock-guide.html",
-    "blog/how-to-read-earnings-report-guide.html",
-    "blog/how-to-read-sec-filings-guide.html",
-    "blog/how-to-read-proxy-statement-guide.html",
-    "blog/growth-vs-value-investing-guide.html",
-    "blog/warren-buffett-investing-strategy-guide.html",
-    "blog/technical-vs-fundamental-analysis-guide.html",
-    "blog/how-to-use-13f-filings-guide.html",
-    "blog/congressional-stock-trading-guide.html",
-    "blog/dividend-aristocrats-investing-guide.html",
-    "blog/hedge-fund-strategies-guide.html",
-    "blog/stock-options-basics-guide.html",
-    "blog/best-ai-stocks-2026-guide.html",
-    "blog/nvidia-stock-analysis-2026-guide.html",
-    "blog/robotics-stocks-2026-guide.html",
-    "blog/space-economy-investing-guide.html",
-    "blog/ai-infrastructure-investing-guide.html",
-    "blog/how-to-build-dividend-portfolio-guide.html",
-    "blog/portfolio-diversification-guide.html",
-    "blog/etf-vs-individual-stocks-guide.html",
-    "blog/rebalancing-portfolio-guide.html",
-    "blog/recession-proof-portfolio-guide.html",
+    "blog/index.html",
 ]
 
 def url_entry(path, changefreq, priority, lastmod=TODAY):

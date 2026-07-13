@@ -1,0 +1,52 @@
+[
+  {
+    "company": "MicroStrategy",
+    "ticker": "MSTR",
+    "region": "US",
+    "btc_held": 226500,
+    "date": "2026-06-28",
+    "type": "buy",
+    "type_label": "Buy / Add",
+    "note": "Announced additional BTC purchases funded via treasury strategy."
+  },
+  {
+    "company": "Marathon Digital",
+    "ticker": "MARA",
+    "region": "US",
+    "btc_held": 42000,
+    "date": "2026-06-20",
+    "type": "hold",
+    "type_label": "Holdings update",
+    "note": "Quarterly production and BTC treasury update in investor release."
+  },
+  {
+    "company": "MercadoLibre",
+    "ticker": "MELI",
+    "region": "LATAM",
+    "btc_held": 560,
+    "date": "2026-05-14",
+    "type": "hold",
+    "type_label": "Holdings update",
+    "note": "Digital asset position restated in earnings materials."
+  },
+  {
+    "company": "Metaplanet",
+    "ticker": "3350.T",
+    "region": "APAC",
+    "btc_held": 6500,
+    "date": "2026-06-11",
+    "type": "strategy",
+    "type_label": "Policy / Strategy",
+    "note": "Board update on treasury policy with BTC accumulation mandate."
+  },
+  {
+    "company": "The Blockchain Group",
+    "ticker": "ALTBG",
+    "region": "EU",
+    "btc_held": 1200,
+    "date": "2026-04-30",
+    "type": "buy",
+    "type_label": "Buy / Add",
+    "note": "Disclosed additional BTC accumulation tied to reserve strategy."
+  }
+]

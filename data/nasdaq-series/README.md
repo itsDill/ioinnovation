@@ -8,7 +8,7 @@
 4. Run `scripts/update_nasdaq_series.sh YYYY-MM-DD`.
 5. Review generated file under `reports/YYYY-MM-DD-report.json`.
 6. Add daily OHLC in `outcomes/YYYY-MM-DD.json` and rerun to generate score.
-7. Open `/hub/nasdaq-prediction-dashboard.html` to review KPIs.
+7. Open `/hub.html` to review KPIs.
 
 ## Notes
 
