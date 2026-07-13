@@ -1,0 +1,1666 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Bitcoin 2077: Mapping the Probability Space of Scaling | IO Innovation
+    </title>
+    <meta
+      name="description"
+      content="A data-driven deep dive into Bitcoin's scalability trilemma — throughput limits, Lightning Network growth, layered scaling, and probability-weighted scenarios out to 2077."
+    />
+    <meta name="author" content="IO Innovation" />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/blog/bitcoin2077.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Bitcoin 2077: Mapping the Probability Space of Scaling"
+    />
+    <meta
+      property="og:description"
+      content="A deep dive into Bitcoin scalability pathways, Lightning growth, layered architecture, and 2077 scenario modeling."
+    />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/blog/bitcoin2077.html"
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/blog-og.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Bitcoin 2077: Mapping the Probability Space of Scaling"
+    />
+    <meta
+      name="twitter:description"
+      content="A deep dive into Bitcoin scalability pathways, Lightning growth, layered architecture, and 2077 scenario modeling."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ioinnovationfund.com/assets/images/blog-og.png"
+    />
+
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=G-FGD50Z4Y7G"
+      async
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FGD50Z4Y7G");
+    </script>
+
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2456627863532019"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026060801" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: var(--bg-primary);
+        --bg-panel: var(--bg-secondary);
+        --bg-card: var(--bg-secondary);
+        --hairline: var(--border-color);
+        --hairline-bright: var(--border-color);
+        --teal: var(--accent-primary);
+        --teal-dim: var(--accent-secondary);
+        --amber: #ffb454;
+        --coral: #ff6b5b;
+        --text: var(--text-primary);
+        --text-muted: var(--text-secondary);
+        --text-faint: #6f837a;
+        --font-display: "Space Grotesk", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+        --font-body: "Inter", sans-serif;
+        --maxw: 820px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(43, 226, 180, 0.06) 1px,
+          transparent 0
+        );
+        background-size: 28px 28px;
+        z-index: 0;
+      }
+      a {
+        color: var(--teal);
+      }
+
+      /* progress bar */
+      #progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--teal-dim), var(--teal));
+        z-index: 100;
+        transition: width 0.1s linear;
+      }
+
+      header.top {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(6, 10, 9, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--hairline);
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+      .brand span {
+        color: var(--teal);
+      }
+      .ticker {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--text-faint);
+        display: flex;
+        gap: 18px;
+      }
+      .ticker b {
+        color: var(--amber);
+        font-weight: 500;
+      }
+      @media (max-width: 640px) {
+        .ticker {
+          display: none;
+        }
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 24px 100px;
+      }
+
+      /* hero */
+      .hero {
+        padding: 72px 0 40px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        color: var(--teal);
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--teal);
+        box-shadow: 0 0 8px var(--teal);
+      }
+      h1.title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(2.4rem, 6vw, 4.1rem);
+        line-height: 1.02;
+        margin: 0 0 22px;
+        letter-spacing: -0.01em;
+      }
+      h1.title .yr {
+        background: linear-gradient(90deg, var(--teal) 10%, var(--amber) 90%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .dek {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        max-width: 640px;
+        margin: 0 0 30px;
+      }
+      .meta-row {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--text-faint);
+        padding-top: 22px;
+        border-top: 1px solid var(--hairline);
+      }
+      .meta-row strong {
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* gauge in hero */
+      .gauge-wrap {
+        margin-top: 36px;
+        display: flex;
+        gap: 36px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .gauge-readout {
+        font-family: var(--font-mono);
+      }
+      .gauge-readout .big {
+        font-size: 2.6rem;
+        color: var(--teal);
+        font-weight: 600;
+        line-height: 1;
+      }
+      .gauge-readout .lbl {
+        font-size: 11px;
+        color: var(--text-faint);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+
+      /* section structure */
+      section.chapter {
+        padding: 64px 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      section.chapter:last-of-type {
+        border-bottom: none;
+      }
+      .block-tag {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--text-faint);
+        letter-spacing: 0.06em;
+        margin-bottom: 14px;
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+      }
+      .block-tag .h {
+        color: var(--amber);
+      }
+      .block-tag .dot {
+        color: var(--hairline-bright);
+      }
+      h2 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+        margin: 0 0 18px;
+        letter-spacing: -0.01em;
+      }
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 1.15rem;
+        color: var(--text);
+        margin: 28px 0 10px;
+      }
+      p {
+        color: #c7d5cf;
+        margin: 0 0 16px;
+        font-size: 0.99rem;
+      }
+      .lede {
+        font-size: 1.08rem;
+        color: var(--text);
+      }
+      ul.plain {
+        padding-left: 20px;
+        color: #c7d5cf;
+        margin: 0 0 16px;
+      }
+      ul.plain li {
+        margin-bottom: 8px;
+      }
+      strong.hl {
+        color: var(--teal);
+        font-weight: 600;
+      }
+
+      /* stat strip */
+      .stat-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        margin: 26px 0;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .stat {
+        background: var(--bg-card);
+        padding: 18px 16px;
+      }
+      .stat .n {
+        font-family: var(--font-mono);
+        font-size: 1.5rem;
+        color: var(--amber);
+        font-weight: 600;
+      }
+      .stat .l {
+        font-size: 11px;
+        color: var(--text-faint);
+        margin-top: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      @media (max-width: 600px) {
+        .stat-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* chart card */
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 22px 22px 18px;
+        margin: 26px 0;
+      }
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .card-title {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .card-sub {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-faint);
+      }
+      .legend {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+      .legend .sw {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 2px;
+        margin-right: 6px;
+        vertical-align: middle;
+      }
+      .card canvas {
+        display: block;
+        width: 100%;
+      }
+      .footnote {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        color: var(--text-faint);
+        margin-top: 10px;
+        line-height: 1.5;
+      }
+
+      /* scenario cards */
+      .scenarios {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 22px 0;
+      }
+      .scenario {
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 16px 18px;
+        background: var(--bg-card);
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        gap: 16px;
+        align-items: center;
+      }
+      .scenario .p {
+        font-family: var(--font-mono);
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      .scenario .p small {
+        font-size: 10px;
+        color: var(--text-faint);
+        display: block;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+      }
+      .scenario h4 {
+        margin: 0 0 4px;
+        font-family: var(--font-display);
+        font-size: 0.98rem;
+      }
+      .scenario p.d {
+        margin: 0;
+        font-size: 0.87rem;
+        color: var(--text-muted);
+      }
+      .scenario .bar {
+        height: 6px;
+        border-radius: 3px;
+        background: var(--hairline);
+        overflow: hidden;
+        width: 100%;
+      }
+      .scenario .bar i {
+        display: block;
+        height: 100%;
+        border-radius: 3px;
+      }
+      .s-bear .p {
+        color: var(--coral);
+      }
+      .s-base .p {
+        color: var(--teal);
+      }
+      .s-bull .p {
+        color: var(--amber);
+      }
+      @media (max-width: 560px) {
+        .scenario {
+          grid-template-columns: 70px 1fr;
+        }
+        .scenario .bar-cell {
+          grid-column: 1/-1;
+        }
+      }
+
+      /* callout */
+      .callout {
+        border-left: 2px solid var(--teal);
+        background: linear-gradient(
+          90deg,
+          rgba(43, 226, 180, 0.06),
+          transparent 60%
+        );
+        padding: 14px 18px;
+        margin: 22px 0;
+        border-radius: 0 8px 8px 0;
+        font-size: 0.94rem;
+        color: #cfe0d8;
+      }
+      .callout b {
+        color: var(--teal);
+      }
+
+      .legacy-footer {
+        border-top: 1px solid var(--hairline);
+        padding: 40px 24px 60px;
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--text-faint);
+        max-width: var(--maxw);
+        margin: 0 auto;
+      }
+      .legacy-footer .disc {
+        margin-top: 14px;
+        line-height: 1.7;
+      }
+      .legacy-footer a {
+        color: var(--text-muted);
+      }
+
+      ::selection {
+        background: var(--teal);
+        color: #04110d;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <div id="progress"></div>
+
+    <header class="header">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools.html">Tools</a></li>
+          <li><a href="/hub.html">Hub</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <div
+        style="max-width: var(--maxw); margin: 0 auto; padding: 0 24px 100px"
+      >
+        <div class="ticker" style="padding-top: 20px">
+          <span>MEMPOOL <b id="tk-mempool">—</b></span>
+          <span>SAT/VB <b id="tk-fee">—</b></span>
+          <span>NEXT HALVING <b id="tk-halving">2028</b></span>
+        </div>
+
+        <section class="hero">
+          <div class="eyebrow">Deep Dive · Scalability</div>
+          <h1 class="title">
+            Bitcoin <span class="yr">2077</span>: Mapping the Probability Space
+            of Scaling
+          </h1>
+          <p class="dek">
+            Seven transactions per second. Global settlement demand measured in
+            billions of people. This is the gap Bitcoin has to close — and a
+            data-driven look at the routes it might take, weighted by how
+            plausible each one actually is.
+          </p>
+          <div class="meta-row">
+            <span><strong>21 min read</strong></span>
+            <span>Updated Jul 2026</span>
+            <span>Category: Crypto &amp; Alternative Assets</span>
+          </div>
+
+          <div class="gauge-wrap">
+            <canvas
+              id="heroGauge"
+              width="220"
+              height="220"
+              style="max-width: 220px"
+            ></canvas>
+            <div class="gauge-readout">
+              <div class="big" id="gaugeNum">7</div>
+              <div class="lbl">Base-layer TX/sec, hard ceiling</div>
+              <div
+                class="big"
+                style="
+                  font-size: 1.1rem;
+                  color: var(--text-muted);
+                  margin-top: 14px;
+                "
+              >
+                vs. ~24,000 tx/sec
+              </div>
+              <div class="lbl">Visa network peak capacity</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag">
+            <span class="h">EPOCH 6</span><span class="dot">·</span
+            ><span>BLOCK 862,400</span><span class="dot">·</span
+            ><span>2026</span>
+          </div>
+          <h2>The trilemma hasn't gone anywhere</h2>
+          <p class="lede">
+            Every blockchain design trades off between three properties:
+            <strong class="hl">decentralization</strong>,
+            <strong class="hl">security</strong>, and
+            <strong class="hl">scalability</strong>. Bitcoin's base layer was
+            built to max out the first two and deliberately throttle the third —
+            a 4MB weight limit per block, a 10-minute target interval, and a fee
+            market that prices out anything that isn't worth waiting for.
+          </p>
+          <p>
+            That's not a bug the protocol grew into. It's the founding trade.
+            The question this piece tries to answer isn't "can Bitcoin scale" —
+            it's
+            <em
+              >which combination of layered technologies gets it there, and how
+              much probability mass sits behind each path between now and
+              2077</em
+            >, the year a person born today turns 51.
+          </p>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Throughput ceiling, by rail</div>
+                <div class="card-sub">Transactions per second, log scale</div>
+              </div>
+              <div class="card-sub">as of 2026</div>
+            </div>
+            <canvas id="tpsChart" height="260"></canvas>
+            <div class="legend">
+              <span
+                ><i class="sw" style="background: var(--coral)"></i>Settlement
+                layers</span
+              >
+              <span
+                ><i class="sw" style="background: var(--teal)"></i>Bitcoin
+                scaling layers</span
+              >
+              <span
+                ><i class="sw" style="background: var(--amber)"></i>Legacy
+                comparison</span
+              >
+            </div>
+            <div class="footnote">
+              Figures are approximate, illustrative order-of-magnitude
+              comparisons drawn from public network documentation and industry
+              reporting, not live measurements. Lightning's theoretical ceiling
+              is architectural (channel-limited, not consensus-limited);
+              realized throughput today is far lower and gated by liquidity and
+              routing, not protocol design.
+            </div>
+          </div>
+
+          <div class="stat-strip">
+            <div class="stat">
+              <div class="n">~7</div>
+              <div class="l">Bitcoin L1 tx/sec ceiling</div>
+            </div>
+            <div class="stat">
+              <div class="n">4MB</div>
+              <div class="l">Max block weight</div>
+            </div>
+            <div class="stat">
+              <div class="n">10 min</div>
+              <div class="l">Target block interval</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag">
+            <span class="h">EPOCH 0–6</span><span class="dot">·</span
+            ><span>2009–2026</span>
+          </div>
+          <h2>The block space constraint, visualized</h2>
+          <p>
+            Every four years the block subsidy halves and miner revenue leans
+            harder on transaction fees. As blocks fill, fees become an auction —
+            and the losers of that auction are exactly the small, everyday
+            payments Bitcoin was originally pitched to handle. That's the
+            practical face of the scalability problem: not "will the chain
+            survive," but "who gets priced out of using it directly."
+          </p>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">
+                  Average block fullness vs. median fee
+                </div>
+                <div class="card-sub">2017–2026, illustrative trend</div>
+              </div>
+            </div>
+            <canvas id="feeChart" height="260"></canvas>
+            <div class="legend">
+              <span
+                ><i class="sw" style="background: var(--teal)"></i>Block
+                fullness (%)</span
+              >
+              <span
+                ><i class="sw" style="background: var(--amber)"></i>Median fee
+                (sat/vB)</span
+              >
+            </div>
+            <div class="footnote">
+              Directional trend for illustration — actual fee markets are highly
+              volatile and event-driven (Ordinals inscriptions, ETF flows,
+              halving cycles). Not sourced from a live feed.
+            </div>
+          </div>
+
+          <div class="callout">
+            Fee spikes are already a preview of a low-throughput future: when
+            demand for block space clusters, the base layer rations by price.
+            Everything downstream of this section is really a set of proposals
+            for what absorbs that overflow.
+          </div>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag">
+            <span class="h">EPOCH 5</span><span class="dot">·</span
+            ><span>2018–2026</span>
+          </div>
+          <h2>Lightning: the layer that shipped</h2>
+          <p class="lede">
+            The Lightning Network moves transactions off-chain into
+            bidirectional payment channels, settling to the base layer only on
+            open and close. It's the most mature scaling layer Bitcoin has — and
+            its growth curve is the best real-world evidence available for how
+            fast layered scaling can actually move.
+          </p>
+          <p>
+            Public capacity — the Bitcoin visibly locked in open channels —
+            crossed roughly <strong class="hl">5,600 BTC</strong> in late 2025,
+            an all-time high, after a multi-year dip driven by exchanges and
+            institutional routing nodes rather than retail growth. Because
+            private and unannounced channels aren't visible on public explorers,
+            most analysts estimate
+            <strong class="hl"
+              >true network capacity runs meaningfully higher</strong
+            >
+            than the public number suggests.
+          </p>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Lightning Network public capacity</div>
+                <div class="card-sub">
+                  BTC locked in open channels, 2018–2026
+                </div>
+              </div>
+            </div>
+            <canvas id="lnChart" height="260"></canvas>
+            <div class="legend">
+              <span
+                ><i class="sw" style="background: var(--teal)"></i>Public
+                capacity (BTC)</span
+              >
+            </div>
+            <div class="footnote">
+              Approximate values compiled from public Lightning network trackers
+              (mempool.space, Bitcoin Visuals, Amboss). Private/enterprise
+              channel capacity is not publicly observable and is excluded — most
+              estimates put total network capacity at roughly 2x the visible
+              figure.
+            </div>
+          </div>
+
+          <div class="stat-strip">
+            <div class="stat">
+              <div class="n">~41K</div>
+              <div class="l">Active channels</div>
+            </div>
+            <div class="stat">
+              <div class="n">~17K</div>
+              <div class="l">Reachable nodes</div>
+            </div>
+            <div class="stat">
+              <div class="n">$1B+</div>
+              <div class="l">Monthly volume, early 2026</div>
+            </div>
+          </div>
+
+          <p>
+            The honest caveat: Lightning's capacity chart is not a straight line
+            up and to the right. It fell for most of 2023–2025 before this
+            rebound, and liquidity remains heavily concentrated — a small number
+            of hub nodes route a disproportionate share of payments. Scaling a
+            network's <em>capacity</em> is not the same problem as scaling its
+            <em>decentralization</em>, and Lightning has made more progress on
+            the former.
+          </p>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag">
+            <span class="h">EPOCH 6+</span><span class="dot">·</span
+            ><span>emerging</span>
+          </div>
+          <h2>Beyond Lightning: the rest of the stack</h2>
+          <p>
+            Lightning gets the headlines, but the scaling roadmap is really a
+            stack of complementary approaches, each trading off differently on
+            the trilemma:
+          </p>
+          <ul class="plain">
+            <li>
+              <strong class="hl">Federated sidechains</strong> (Liquid, RSK) —
+              faster settlement and confidential transactions, at the cost of
+              trusting a federation of signers instead of pure proof-of-work.
+            </li>
+            <li>
+              <strong class="hl">Statechains &amp; Ark</strong> — off-chain
+              ownership transfer of UTXOs without opening a channel per
+              counterparty, aimed at reducing on-chain footprint for custodial
+              and semi-custodial wallets.
+            </li>
+            <li>
+              <strong class="hl">Drivechains</strong> — a proposed soft-fork
+              primitive that would let miners peg BTC into experimental
+              sidechains, letting scaling ideas compete without touching
+              base-layer consensus.
+            </li>
+            <li>
+              <strong class="hl">Client-side validation / covenants</strong>
+              (e.g. OP_CAT-style proposals) — protocol-level primitives still
+              under active debate that could make future layers dramatically
+              more expressive.
+            </li>
+          </ul>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">
+                  Illustrative composition of a mature scaling stack
+                </div>
+                <div class="card-sub">
+                  Share of everyday transaction volume by settlement path
+                </div>
+              </div>
+            </div>
+            <canvas id="donutChart" height="260"></canvas>
+            <div class="legend" id="donutLegend"></div>
+            <div class="footnote">
+              A hypothetical, illustrative allocation for a Bitcoin economy that
+              has scaled successfully — not a forecast of current market share,
+              which is dominated by on-chain and custodial exchange balances
+              today.
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag"><span class="h">FRAMEWORK</span></div>
+          <h2>Scoring each layer against the trilemma</h2>
+          <p>
+            No layer is free. Each one buys scalability by spending
+            decentralization, trust-minimization, or both. Plotting the base
+            layer against its two most-discussed scaling companions makes the
+            trade explicit:
+          </p>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">
+                  Decentralization · Security · Scalability
+                </div>
+                <div class="card-sub">
+                  Relative scoring, 0–10, analyst judgment
+                </div>
+              </div>
+            </div>
+            <canvas id="radarChart" height="300"></canvas>
+            <div class="legend">
+              <span
+                ><i class="sw" style="background: var(--teal)"></i>Bitcoin
+                L1</span
+              >
+              <span
+                ><i class="sw" style="background: var(--amber)"></i>Lightning
+                Network</span
+              >
+              <span
+                ><i class="sw" style="background: var(--coral)"></i>Federated
+                sidechain</span
+              >
+            </div>
+            <div class="footnote">
+              Qualitative scoring for illustration, not a formal benchmark —
+              reasonable analysts would place these points differently.
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag">
+            <span class="h">MODEL</span><span class="dot">·</span
+            ><span>2026 → 2077</span>
+          </div>
+          <h2>Modeling the probability space to 2077</h2>
+          <p class="lede">
+            This is the speculative core of the piece, and it should be read
+            that way: not a prediction, but a probability-weighted map of how
+            the scaling story could plausibly unfold across roughly twelve more
+            halving epochs.
+          </p>
+          <p>
+            The cone below sketches a range for "effective global settlement
+            throughput" — base layer plus every layer built on top of it — under
+            three scenarios. Widths are illustrative confidence bands, not
+            statistical output from a fitted model.
+          </p>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Effective throughput scenario cone</div>
+                <div class="card-sub">
+                  Log-scale illustrative projection, 2026–2077
+                </div>
+              </div>
+            </div>
+            <canvas id="coneChart" height="320"></canvas>
+            <div class="legend">
+              <span
+                ><i class="sw" style="background: var(--coral)"></i
+                >Stagnation</span
+              >
+              <span
+                ><i class="sw" style="background: var(--teal)"></i>Layered
+                convergence</span
+              >
+              <span
+                ><i class="sw" style="background: var(--amber)"></i
+                >Hyperbitcoinization</span
+              >
+            </div>
+            <div class="footnote">
+              Purely illustrative scenario modeling for editorial purposes. Not
+              a price, adoption, or technical forecast, and not investment
+              advice.
+            </div>
+          </div>
+
+          <div class="scenarios">
+            <div class="scenario s-bear">
+              <div>
+                <div class="p">20%<small>WEIGHT</small></div>
+              </div>
+              <div>
+                <h4>Stagnation</h4>
+                <p class="d">
+                  Regulatory fragmentation, stalled protocol upgrades, and thin
+                  Lightning liquidity cap real-world usage well below
+                  theoretical limits. Bitcoin remains primarily a settlement and
+                  reserve asset rather than a payments network.
+                </p>
+              </div>
+              <div class="bar-cell">
+                <div class="bar">
+                  <i style="width: 20%; background: var(--coral)"></i>
+                </div>
+              </div>
+            </div>
+            <div class="scenario s-base">
+              <div>
+                <div class="p">55%<small>WEIGHT</small></div>
+              </div>
+              <div>
+                <h4>Layered convergence</h4>
+                <p class="d">
+                  Lightning, sidechains, and statechains mature in parallel and
+                  interoperate. Base-layer settlement stays scarce and
+                  expensive; almost all retail activity happens one or two
+                  layers up, similar to how most banking activity today never
+                  touches a central bank's core ledger.
+                </p>
+              </div>
+              <div class="bar-cell">
+                <div class="bar">
+                  <i style="width: 55%; background: var(--teal)"></i>
+                </div>
+              </div>
+            </div>
+            <div class="scenario s-bull">
+              <div>
+                <div class="p">25%<small>WEIGHT</small></div>
+              </div>
+              <div>
+                <h4>Hyperbitcoinization</h4>
+                <p class="d">
+                  A breakthrough in covenant-style opcodes or a new layer-2
+                  primitive dramatically expands expressiveness. Combined with
+                  sovereign and institutional adoption, effective throughput
+                  scales by orders of magnitude via aggressive channel factories
+                  and statechain-style batching.
+                </p>
+              </div>
+              <div class="bar-cell">
+                <div class="bar">
+                  <i style="width: 25%; background: var(--amber)"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            Notice what doesn't change across any scenario: the
+            <strong class="hl">base layer's raw throughput</strong>. Barring a
+            hard fork that most of the ecosystem would fight over, ~7 tx/sec is
+            a near-constant across all three paths. Every scenario is really a
+            story about what gets built <em>on top</em>, not a story about the
+            base chain getting faster.
+          </p>
+        </section>
+
+        <section class="chapter">
+          <div class="block-tag"><span class="h">OPEN QUESTIONS</span></div>
+          <h2>What could break the base-case</h2>
+          <ul class="plain">
+            <li>
+              <strong class="hl">Miner incentive cliff.</strong> As the block
+              subsidy keeps halving, fee revenue has to carry more of the
+              security budget. If layered scaling suppresses base-layer fee
+              demand too well, it could work against long-run security
+              economics.
+            </li>
+            <li>
+              <strong class="hl">Lightning centralization.</strong> Routing
+              already concentrates around a small set of well-capitalized hubs.
+              A network that scales capacity but not custody distribution
+              recreates some of the trust assumptions Bitcoin was built to
+              avoid.
+            </li>
+            <li>
+              <strong class="hl">Covenant opcode debate.</strong> Proposals like
+              OP_CAT, CTV, or various covenant designs remain contentious.
+              Whether any of them activate — and when — materially changes the
+              ceiling on what future layers can do.
+            </li>
+            <li>
+              <strong class="hl">Quantum and long-dated risk.</strong> Fifty-one
+              years is long enough that cryptographic assumptions themselves are
+              a live variable, not just an engineering afterthought.
+            </li>
+          </ul>
+        </section>
+
+        <section class="chapter" style="border-bottom: none">
+          <div class="block-tag"><span class="h">CLOSE</span></div>
+          <h2>The honest takeaway</h2>
+          <p class="lede">
+            Bitcoin's base layer was never going to be the payments rail for
+            eight billion people, and it wasn't designed to be. The scalability
+            question that actually matters by 2077 isn't whether block 1 could
+            theoretically fit more transactions — it's whether the layers being
+            built on top of it can absorb global demand without quietly
+            re-introducing the trusted intermediaries Bitcoin set out to remove.
+          </p>
+          <p>
+            The data so far — a Lightning Network that's grown its visible
+            capacity through real institutional adoption, a sidechain ecosystem
+            still finding its footing, and a base layer that hasn't compromised
+            its core trade-off in over 15 years — points toward the "layered
+            convergence" scenario as the most probable path. But probable isn't
+            certain, and the gap between "protocol can support it" and
+            "ecosystem actually builds it" has swallowed plenty of confident
+            roadmaps before.
+          </p>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Continue the research</div>
+                <div class="card-sub">Related tools and notes</div>
+              </div>
+            </div>
+            <ul class="plain" style="margin-top: 0.75rem">
+              <li>
+                <a href="/tools/bitcoin-disclosures.html"
+                  >Bitcoin Disclosures Tracker</a
+                >
+              </li>
+              <li>
+                <a href="/blog/crypto-cycle-playbook.html"
+                  >Crypto Market Cycles 101</a
+                >
+              </li>
+              <li><a href="/hub.html">Geopolitical Market Hub</a></li>
+              <li><a href="/event-explorer.html">Event Explorer</a></li>
+              <li><a href="/blog/">Blog Index</a></li>
+              <li><a href="/disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovation</a>
+          <p>
+            Educational analysis of how geopolitical events move Nasdaq, oil,
+            and Bitcoin.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/hub.html">Hub</a></li>
+            <li><a href="/tools.html">Tools</a></li>
+            <li><a href="/event-explorer.html">Event Explorer</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/js/shared-simple.js"></script>
+
+    <script>
+      (function () {
+        // ---------- shared helpers ----------
+        const css = getComputedStyle(document.documentElement);
+        const C = {
+          teal: css.getPropertyValue("--teal").trim(),
+          tealDim: css.getPropertyValue("--teal-dim").trim(),
+          amber: css.getPropertyValue("--amber").trim(),
+          coral: css.getPropertyValue("--coral").trim(),
+          text: css.getPropertyValue("--text").trim(),
+          muted: css.getPropertyValue("--text-muted").trim(),
+          faint: css.getPropertyValue("--text-faint").trim(),
+          hair: css.getPropertyValue("--hairline").trim(),
+          card: css.getPropertyValue("--bg-card").trim(),
+          mono: "'JetBrains Mono',monospace",
+        };
+
+        function dpiCanvas(canvas) {
+          const ratio = window.devicePixelRatio || 1;
+          const rect = canvas.getBoundingClientRect();
+          const w = rect.width || canvas.clientWidth || 600;
+          const h = canvas.height
+            ? parseInt(canvas.getAttribute("height"))
+            : 260;
+          canvas.width = w * ratio;
+          canvas.height = h * ratio;
+          canvas.style.height = h + "px";
+          const ctx = canvas.getContext("2d");
+          ctx.scale(ratio, ratio);
+          return { ctx, w, h };
+        }
+
+        function grid(ctx, x0, y0, x1, y1, rows) {
+          ctx.strokeStyle = C.hair;
+          ctx.lineWidth = 1;
+          for (let i = 0; i <= rows; i++) {
+            const y = y0 + ((y1 - y0) * i) / rows;
+            ctx.beginPath();
+            ctx.moveTo(x0, y);
+            ctx.lineTo(x1, y);
+            ctx.stroke();
+          }
+        }
+
+        function label(ctx, text, x, y, color, size, align) {
+          ctx.fillStyle = color || C.faint;
+          ctx.font = (size || 10.5) + "px " + C.mono;
+          ctx.textAlign = align || "left";
+          ctx.fillText(text, x, y);
+        }
+
+        // ---------- hero gauge ----------
+        (function () {
+          const canvas = document.getElementById("heroGauge");
+          const ratio = window.devicePixelRatio || 1;
+          const size = 220;
+          canvas.width = size * ratio;
+          canvas.height = size * ratio;
+          canvas.style.width = size + "px";
+          canvas.style.height = size + "px";
+          const ctx = canvas.getContext("2d");
+          ctx.scale(ratio, ratio);
+          const cx = size / 2,
+            cy = size / 2,
+            r = 84;
+          const start = Math.PI * 0.75,
+            end = Math.PI * 2.25;
+
+          ctx.lineWidth = 14;
+          ctx.lineCap = "round";
+          ctx.strokeStyle = C.hair;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, start, end);
+          ctx.stroke();
+
+          // needle position representing Bitcoin L1 vs full range (log-ish, mostly empty = the point)
+          const frac = 0.045; // tiny sliver, base layer barely registers on global-scale demand
+          const grad = ctx.createLinearGradient(0, 0, size, 0);
+          grad.addColorStop(0, C.tealDim);
+          grad.addColorStop(1, C.teal);
+          ctx.strokeStyle = grad;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, start, start + (end - start) * frac);
+          ctx.stroke();
+
+          // tick + center text ring
+          ctx.fillStyle = C.faint;
+          ctx.font = "10px " + C.mono;
+          ctx.textAlign = "center";
+          ctx.fillText("L1 CAPACITY", cx, cy + r + 26);
+          ctx.fillText("vs GLOBAL PAYMENT DEMAND", cx, cy + r + 40);
+        })();
+
+        // ---------- TPS bar chart (log scale) ----------
+        (function () {
+          const canvas = document.getElementById("tpsChart");
+          const data = [
+            { l: "Bitcoin L1", v: 7, c: C.coral },
+            { l: "Ethereum L1", v: 15, c: C.coral },
+            { l: "Visa (avg)", v: 1700, c: C.amber },
+            { l: "Lightning (realized, est.)", v: 4000, c: C.teal },
+            { l: "Visa (peak capacity)", v: 24000, c: C.amber },
+            { l: "Lightning (architectural ceiling)", v: 1000000, c: C.teal },
+          ];
+          const { ctx, w, h } = dpiCanvas(canvas);
+          const padL = 190,
+            padR = 60,
+            padT = 16,
+            padB = 30;
+          const x0 = padL,
+            x1 = w - padR,
+            y0 = padT,
+            y1 = h - padB;
+          const maxLog = Math.log10(1500000),
+            minLog = 0;
+          grid(ctx, x0, y0, x1, y1, data.length);
+          const rowH = (y1 - y0) / data.length;
+          data.forEach((d, i) => {
+            const y = y0 + rowH * i + rowH * 0.24;
+            const barH = rowH * 0.52;
+            const frac = Math.log10(Math.max(d.v, 1)) / maxLog;
+            const bw = (x1 - x0) * frac;
+            ctx.fillStyle = d.c;
+            ctx.globalAlpha = 0.85;
+            ctx.fillRect(x0, y, bw, barH);
+            ctx.globalAlpha = 1;
+            label(ctx, d.l, x0 - 14, y + barH * 0.75, C.muted, 11.5, "right");
+            label(
+              ctx,
+              d.v >= 1000
+                ? (d.v / 1000).toFixed(d.v >= 1000000 ? 0 : 0) +
+                    (d.v >= 1000000 ? ",000" : "k")
+                : d.v,
+              x0 + bw + 10,
+              y + barH * 0.75,
+              C.text,
+              11.5,
+              "left",
+            );
+          });
+        })();
+
+        // ---------- fee / block fullness dual line ----------
+        (function () {
+          const canvas = document.getElementById("feeChart");
+          const years = [
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+          ];
+          const fullness = [55, 40, 38, 52, 68, 60, 74, 88, 91, 89]; // %
+          const fee = [40, 8, 6, 14, 22, 10, 18, 35, 42, 30]; // sat/vB illustrative
+          const { ctx, w, h } = dpiCanvas(canvas);
+          const padL = 40,
+            padR = 40,
+            padT = 16,
+            padB = 30;
+          const x0 = padL,
+            x1 = w - padR,
+            y0 = padT,
+            y1 = h - padB;
+          grid(ctx, x0, y0, x1, y1, 4);
+          const stepX = (x1 - x0) / (years.length - 1);
+
+          function plot(vals, max, color) {
+            ctx.beginPath();
+            vals.forEach((v, i) => {
+              const x = x0 + stepX * i;
+              const y = y1 - (v / max) * (y1 - y0);
+              if (i === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            });
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2.2;
+            ctx.stroke();
+            vals.forEach((v, i) => {
+              const x = x0 + stepX * i;
+              const y = y1 - (v / max) * (y1 - y0);
+              ctx.beginPath();
+              ctx.arc(x, y, 2.6, 0, 7);
+              ctx.fillStyle = color;
+              ctx.fill();
+            });
+          }
+          plot(fullness, 100, C.teal);
+          plot(fee, 60, C.amber);
+          years.forEach((yr, i) => {
+            label(ctx, yr, x0 + stepX * i, y1 + 18, C.faint, 10, "center");
+          });
+        })();
+
+        // ---------- Lightning capacity line + area ----------
+        (function () {
+          const canvas = document.getElementById("lnChart");
+          const years = [
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+          ];
+          const cap = [50, 500, 900, 3400, 3700, 5340, 5100, 4130, 5600];
+          const { ctx, w, h } = dpiCanvas(canvas);
+          const padL = 48,
+            padR = 20,
+            padT = 16,
+            padB = 30;
+          const x0 = padL,
+            x1 = w - padR,
+            y0 = padT,
+            y1 = h - padB;
+          const max = 6200;
+          grid(ctx, x0, y0, x1, y1, 4);
+          [0, 1, 2, 3, 4].forEach((i) => {
+            const v = Math.round((max * (4 - i)) / 4);
+            label(
+              ctx,
+              v,
+              x0 - 8,
+              y0 + ((y1 - y0) * i) / 4 + 4,
+              C.faint,
+              10,
+              "right",
+            );
+          });
+          const stepX = (x1 - x0) / (years.length - 1);
+          ctx.beginPath();
+          cap.forEach((v, i) => {
+            const x = x0 + stepX * i,
+              y = y1 - (v / max) * (y1 - y0);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          });
+          ctx.lineTo(x1, y1);
+          ctx.lineTo(x0, y1);
+          ctx.closePath();
+          const grad = ctx.createLinearGradient(0, y0, 0, y1);
+          grad.addColorStop(0, "rgba(43,226,180,0.28)");
+          grad.addColorStop(1, "rgba(43,226,180,0.01)");
+          ctx.fillStyle = grad;
+          ctx.fill();
+
+          ctx.beginPath();
+          cap.forEach((v, i) => {
+            const x = x0 + stepX * i,
+              y = y1 - (v / max) * (y1 - y0);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          });
+          ctx.strokeStyle = C.teal;
+          ctx.lineWidth = 2.4;
+          ctx.stroke();
+          cap.forEach((v, i) => {
+            const x = x0 + stepX * i,
+              y = y1 - (v / max) * (y1 - y0);
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, 7);
+            ctx.fillStyle = C.card;
+            ctx.strokeStyle = C.teal;
+            ctx.lineWidth = 2;
+            ctx.fill();
+            ctx.stroke();
+          });
+          years.forEach((yr, i) => {
+            label(ctx, yr, x0 + stepX * i, y1 + 18, C.faint, 10, "center");
+          });
+        })();
+
+        // ---------- donut ----------
+        (function () {
+          const canvas = document.getElementById("donutChart");
+          const data = [
+            { l: "Lightning-settled payments", v: 38, c: C.teal },
+            { l: "Statechain / Ark transfers", v: 22, c: C.amber },
+            { l: "Federated sidechains", v: 16, c: "#7fd8bf" },
+            { l: "Custodial / exchange internal", v: 14, c: C.coral },
+            { l: "Base layer (L1) settlement", v: 10, c: "#5c6a63" },
+          ];
+          const { ctx, w, h } = dpiCanvas(canvas);
+          const cx = w / 2,
+            cy = h / 2,
+            r = Math.min(h / 2 - 14, w / 2 - 14, 100),
+            inner = r * 0.6;
+          let start = -Math.PI / 2;
+          data.forEach((d) => {
+            const angle = (d.v / 100) * Math.PI * 2;
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, start, start + angle);
+            ctx.arc(cx, cy, inner, start + angle, start, true);
+            ctx.closePath();
+            ctx.fillStyle = d.c;
+            ctx.fill();
+            start += angle;
+          });
+          ctx.fillStyle = C.text;
+          ctx.font = "600 20px " + C.mono;
+          ctx.textAlign = "center";
+          ctx.fillText("90%", cx, cy - 2);
+          ctx.font = "10px " + C.mono;
+          ctx.fillStyle = C.faint;
+          ctx.fillText("OFF BASE LAYER", cx, cy + 16);
+
+          // legend rendered as HTML below the chart to avoid canvas text overflow
+          const legendEl = document.getElementById("donutLegend");
+          legendEl.innerHTML = data
+            .map(
+              (d) =>
+                '<span><i class="sw" style="background:' +
+                d.c +
+                '"></i>' +
+                d.l +
+                " — " +
+                d.v +
+                "%</span>",
+            )
+            .join("");
+        })();
+
+        // ---------- radar / trilemma triangle ----------
+        (function () {
+          const canvas = document.getElementById("radarChart");
+          const axes = ["Decentralization", "Security", "Scalability"];
+          const series = [
+            { name: "Bitcoin L1", c: C.teal, v: [9.5, 9.7, 2.5] },
+            { name: "Lightning", c: C.amber, v: [6.5, 7.5, 8.5] },
+            { name: "Federated sidechain", c: C.coral, v: [3.5, 5.5, 9] },
+          ];
+          const { ctx, w, h } = dpiCanvas(canvas);
+          const cx = w / 2,
+            cy = h / 2 + 6,
+            R = Math.min(w, h) / 2 - 46;
+          const n = axes.length;
+          function pt(i, val, max) {
+            const ang = -Math.PI / 2 + i * ((Math.PI * 2) / n);
+            const rr = R * (val / max);
+            return [cx + Math.cos(ang) * rr, cy + Math.sin(ang) * rr];
+          }
+          // rings
+          ctx.strokeStyle = C.hair;
+          for (let ring = 1; ring <= 4; ring++) {
+            ctx.beginPath();
+            for (let i = 0; i <= n; i++) {
+              const [x, y] = pt(i % n, ring * 2.5, 10);
+              if (i === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+          }
+          // axis lines + labels
+          axes.forEach((a, i) => {
+            const [x, y] = pt(i, 10, 10);
+            ctx.strokeStyle = C.hair;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            const lx =
+              cx + Math.cos(-Math.PI / 2 + i * ((Math.PI * 2) / n)) * (R + 34);
+            const ly =
+              cy + Math.sin(-Math.PI / 2 + i * ((Math.PI * 2) / n)) * (R + 34);
+            label(ctx, a, lx, ly, C.muted, 11.5, "center");
+          });
+          // series
+          series.forEach((s) => {
+            ctx.beginPath();
+            s.v.forEach((val, i) => {
+              const [x, y] = pt(i, val, 10);
+              if (i === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            });
+            ctx.closePath();
+            ctx.fillStyle = s.c + "33";
+            ctx.strokeStyle = s.c;
+            ctx.lineWidth = 2;
+            ctx.fill();
+            ctx.stroke();
+            s.v.forEach((val, i) => {
+              const [x, y] = pt(i, val, 10);
+              ctx.beginPath();
+              ctx.arc(x, y, 3, 0, 7);
+              ctx.fillStyle = s.c;
+              ctx.fill();
+            });
+          });
+        })();
+
+        // ---------- probability cone ----------
+        (function () {
+          const canvas = document.getElementById("coneChart");
+          const { ctx, w, h } = dpiCanvas(canvas);
+          const padL = 50,
+            padR = 20,
+            padT = 20,
+            padB = 34;
+          const x0 = padL,
+            x1 = w - padR,
+            y0 = padT,
+            y1 = h - padB;
+          const years = [
+            "2026",
+            "2033",
+            "2041",
+            "2049",
+            "2057",
+            "2065",
+            "2073",
+            "2077",
+          ];
+          const n = years.length;
+          const stepX = (x1 - x0) / (n - 1);
+          // log scale y: 1 (bottom) to 1e7 (top), representing relative "effective throughput index"
+          const maxLog = 7,
+            minLog = 0;
+          function yFor(v) {
+            return y1 - (Math.log10(Math.max(v, 1)) / maxLog) * (y1 - y0);
+          }
+
+          grid(ctx, x0, y0, x1, y1, 7);
+          [0, 1, 2, 3, 4, 5, 6, 7].forEach((i) => {
+            const val = Math.pow(10, i);
+            label(
+              ctx,
+              i === 0 ? "1x" : "10^" + i,
+              x0 - 8,
+              yFor(val) + 4,
+              C.faint,
+              9.5,
+              "right",
+            );
+          });
+
+          // scenario paths (index values, illustrative)
+          const bear = [1, 2, 3, 5, 7, 9, 11, 13];
+          const base = [1, 5, 25, 120, 450, 1400, 3800, 8000];
+          const bull = [1, 12, 180, 2600, 40000, 380000, 1800000, 6000000];
+
+          function drawLine(vals, color, dashed) {
+            ctx.beginPath();
+            vals.forEach((v, i) => {
+              const x = x0 + stepX * i,
+                y = yFor(v);
+              if (i === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            });
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2.4;
+            if (dashed) ctx.setLineDash([5, 4]);
+            else ctx.setLineDash([]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+          }
+          // shaded band between bear and bull as overall uncertainty
+          ctx.beginPath();
+          bull.forEach((v, i) => {
+            const x = x0 + stepX * i,
+              y = yFor(v);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          });
+          for (let i = bear.length - 1; i >= 0; i--) {
+            const x = x0 + stepX * i,
+              y = yFor(bear[i]);
+            ctx.lineTo(x, y);
+          }
+          ctx.closePath();
+          ctx.fillStyle = "rgba(255,180,84,0.06)";
+          ctx.fill();
+
+          drawLine(bear, C.coral);
+          drawLine(base, C.teal);
+          drawLine(bull, C.amber, true);
+
+          years.forEach((yr, i) => {
+            label(ctx, yr, x0 + stepX * i, y1 + 18, C.faint, 10, "center");
+          });
+        })();
+
+        // ---------- misc: fake live ticker + scroll progress ----------
+        document.getElementById("tk-mempool").textContent =
+          Math.floor(Math.random() * 40) + 8 + "k tx";
+        document.getElementById("tk-fee").textContent =
+          Math.floor(Math.random() * 15) + 3;
+
+        window.addEventListener("scroll", function () {
+          const h = document.documentElement;
+          const scrolled =
+            (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+          document.getElementById("progress").style.width = scrolled + "%";
+        });
+      })();
+    </script>
+  </body>
+</html>
