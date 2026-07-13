@@ -1,4 +1,4 @@
-/* IO Innovation Fund - Shared JavaScript */
+/* IO Innovation - Shared JavaScript */
 /* Mobile-optimized, performance-focused functionality */
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,4 +1,4 @@
-/* Service Worker for IO Innovation Fund */
+/* Service Worker for IO Innovation */
 /* Improved caching strategy for mobile performance */
 
 const CACHE_NAME = "io-innovation-v2026052901";
