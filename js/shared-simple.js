@@ -92,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Enhanced theme toggle with mobile optimizations
     if (themeToggle) {
+      let suppressClickUntil = 0;
+
       function toggleThemeHandler(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -135,34 +137,27 @@ document.addEventListener("DOMContentLoaded", function () {
       // Remove any existing listeners first
       themeToggle.removeEventListener("click", toggleThemeHandler);
 
-      // Add optimized event listeners
-      themeToggle.addEventListener("click", toggleThemeHandler);
-
-      // Enhanced touch support for mobile
-      if (isMobile) {
-        themeToggle.addEventListener(
-          "touchend",
-          function (e) {
+      // Add optimized event listeners without double-firing on touch devices.
+      themeToggle.addEventListener(
+        "click",
+        function (e) {
+          if (Date.now() < suppressClickUntil) {
             e.preventDefault();
-            toggleThemeHandler(e);
-          },
-          { passive: false },
-        );
+            return;
+          }
+          toggleThemeHandler(e);
+        },
+        { passive: false },
+      );
 
-        // Prevent double-tap zoom on theme toggle
-        let lastTouchEnd = 0;
-        themeToggle.addEventListener(
-          "touchend",
-          function (e) {
-            const now = new Date().getTime();
-            if (now - lastTouchEnd <= 300) {
-              e.preventDefault();
-            }
-            lastTouchEnd = now;
-          },
-          false,
-        );
-      }
+      themeToggle.addEventListener(
+        "touchend",
+        function (e) {
+          suppressClickUntil = Date.now() + 400;
+          toggleThemeHandler(e);
+        },
+        { passive: false },
+      );
     } else {
       console.error("Theme toggle button not found!");
     }
@@ -201,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function initializeMobileMenu() {
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
-    const mobileOverlay = document.getElementById("mobileOverlay");
+    let mobileOverlay = document.getElementById("mobileOverlay");
     const navLinks = document.querySelectorAll(".nav-links a");
 
     if (!menuBtn || !mobileNav) {
@@ -210,9 +205,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let isMenuOpen = false;
-    let isAndroid =
-      /Android|android/i.test(navigator.userAgent) ||
-      /Android/i.test(navigator.userAgent);
+    let suppressClickUntil = 0;
+    let scrollTop = 0;
+
+    if (!mobileOverlay) {
+      mobileOverlay = document.createElement("div");
+      mobileOverlay.id = "mobileOverlay";
+      mobileOverlay.className = "mobile-overlay";
+      document.body.appendChild(mobileOverlay);
+    }
+
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-controls", "mobileNav");
+    mobileNav.setAttribute("aria-expanded", "false");
 
     function toggleMenu(e) {
       // Prevent default behavior and stop propagation
@@ -223,20 +228,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       isMenuOpen = !isMenuOpen;
 
-      // Force style update for Android compatibility
-      if (isAndroid) {
-        mobileNav.style.display = isMenuOpen ? "flex" : "none";
-      }
-
       // Update DOM classes with explicit set instead of toggle for better Android support
       if (isMenuOpen) {
+        scrollTop = window.scrollY || window.pageYOffset || 0;
         menuBtn.classList.add("active");
         mobileNav.classList.add("active");
         document.body.classList.add("menu-open");
+        document.body.style.top = `-${scrollTop}px`;
       } else {
         menuBtn.classList.remove("active");
         mobileNav.classList.remove("active");
         document.body.classList.remove("menu-open");
+        document.body.style.top = "";
+        window.scrollTo(0, scrollTop);
       }
 
       if (mobileOverlay) {
@@ -270,40 +274,53 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Event listeners with better Android support
-    // Use both click and touchend for better mobile compatibility
-    menuBtn.addEventListener(
-      "click",
-      function (e) {
-        toggleMenu(e);
-      },
-      { passive: false },
-    );
+    function bindTap(element, handler) {
+      if (!element) return;
 
-    // Additional touchend listener for Android
-    menuBtn.addEventListener(
-      "touchend",
-      function (e) {
-        e.preventDefault();
-        toggleMenu(e);
-      },
-      { passive: false },
-    );
+      element.addEventListener(
+        "click",
+        function (e) {
+          if (Date.now() < suppressClickUntil) {
+            e.preventDefault();
+            return;
+          }
+          handler(e);
+        },
+        { passive: false },
+      );
+
+      element.addEventListener(
+        "touchend",
+        function (e) {
+          suppressClickUntil = Date.now() + 400;
+          handler(e);
+        },
+        { passive: false },
+      );
+    }
+
+    // Event listeners with unified tap handling.
+    bindTap(menuBtn, toggleMenu);
 
     if (mobileOverlay) {
-      mobileOverlay.addEventListener("click", closeMenu);
-      mobileOverlay.addEventListener("touchend", function (e) {
-        e.preventDefault();
-        closeMenu(e);
-      });
+      bindTap(mobileOverlay, closeMenu);
     }
 
     // Close menu when nav link is clicked
     navLinks.forEach((link) => {
-      link.addEventListener("click", closeMenu);
-      link.addEventListener("touchend", function (e) {
+      bindTap(link, closeMenu);
+    });
+
+    // Close when tapping outside open mobile nav.
+    document.addEventListener("click", (e) => {
+      if (
+        isMenuOpen &&
+        window.innerWidth <= 768 &&
+        !mobileNav.contains(e.target) &&
+        !menuBtn.contains(e.target)
+      ) {
         closeMenu(e);
-      });
+      }
     });
 
     // Close menu on escape key
@@ -329,11 +346,6 @@ document.addEventListener("DOMContentLoaded", function () {
         closeMenu();
       }
     });
-
-    // Initial state for Android
-    if (isAndroid) {
-      mobileNav.style.display = "none";
-    }
   }
 
   // Scroll Animations
