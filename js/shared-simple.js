@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize all functionality
   initializeTheme();
   initializeMobileMenu();
+  initializeGlobalBreadcrumb();
   initializeScrollAnimations();
   initializeIntersectionObserver();
   initializeFormValidation();
@@ -346,6 +347,85 @@ document.addEventListener("DOMContentLoaded", function () {
         closeMenu();
       }
     });
+  }
+
+  // Scroll Animations
+  function initializeGlobalBreadcrumb() {
+    if (
+      document.querySelector('nav[aria-label="Breadcrumb"]') ||
+      document.querySelector(".breadcrumb-nav") ||
+      document.querySelector(".breadcrumb")
+    ) {
+      return;
+    }
+
+    const header = document.querySelector("header.header");
+    const main =
+      document.querySelector("main#main-content") ||
+      document.querySelector("main");
+
+    if (!header || !main) {
+      return;
+    }
+
+    const path = window.location.pathname || "/";
+    const trimmed = path.replace(/\/+$/, "") || "/";
+
+    if (trimmed === "/") {
+      return;
+    }
+
+    const segments = trimmed.split("/").filter(Boolean);
+    let runningPath = "";
+
+    const crumbItems = segments.map((segment) => {
+      runningPath += `/${segment}`;
+      const label = segment
+        .replace(/\.html$/i, "")
+        .replace(/[-_]+/g, " ")
+        .replace(/\b\w/g, (ch) => ch.toUpperCase());
+
+      return {
+        href: `${runningPath}${runningPath.endsWith(".html") ? "" : ""}`,
+        label,
+      };
+    });
+
+    const nav = document.createElement("nav");
+    nav.className = "breadcrumb-nav";
+    nav.setAttribute("aria-label", "Breadcrumb");
+
+    const list = document.createElement("ol");
+    list.className = "breadcrumb-list";
+
+    const homeLi = document.createElement("li");
+    const homeLink = document.createElement("a");
+    homeLink.href = "/";
+    homeLink.textContent = "Home";
+    homeLi.appendChild(homeLink);
+    list.appendChild(homeLi);
+
+    crumbItems.forEach((item, index) => {
+      const li = document.createElement("li");
+      const isLast = index === crumbItems.length - 1;
+
+      if (isLast) {
+        const span = document.createElement("span");
+        span.setAttribute("aria-current", "page");
+        span.textContent = item.label;
+        li.appendChild(span);
+      } else {
+        const link = document.createElement("a");
+        link.href = item.href;
+        link.textContent = item.label;
+        li.appendChild(link);
+      }
+
+      list.appendChild(li);
+    });
+
+    nav.appendChild(list);
+    main.parentNode.insertBefore(nav, main);
   }
 
   // Scroll Animations
