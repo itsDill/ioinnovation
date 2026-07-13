@@ -1,10 +1,10 @@
 /* Service Worker for IO Innovation */
 /* Improved caching strategy for mobile performance */
 
-const CACHE_NAME = "io-innovation-v2026052901";
-const STATIC_CACHE = "static-v2026052901";
-const DYNAMIC_CACHE = "dynamic-v2026052901";
-const IMAGES_CACHE = "images-v2026052901";
+const CACHE_NAME = "io-innovation-v2026071301";
+const STATIC_CACHE = "static-v2026071301";
+const DYNAMIC_CACHE = "dynamic-v2026071301";
+const IMAGES_CACHE = "images-v2026071301";
 
 // Files to cache immediately
 const STATIC_ASSETS = [
@@ -37,7 +37,11 @@ self.addEventListener("install", (event) => {
       .open(STATIC_CACHE)
       .then((cache) => {
         console.log("📦 Caching static assets");
-        return cache.addAll(STATIC_ASSETS);
+        return Promise.all(
+          STATIC_ASSETS.map((asset) => {
+            return cache.add(new Request(asset, { cache: "reload" }));
+          }),
+        );
       })
       .then(() => {
         console.log("📦 Static assets cached successfully");
@@ -103,7 +107,7 @@ self.addEventListener("fetch", (event) => {
   // HTML files - Network first, then cache
   if (request.destination === "document" || request.url.endsWith(".html")) {
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: "no-store" })
         .then((response) => {
           // Cache successful responses
           if (response.status === 200) {
@@ -124,64 +128,84 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // CSS, JS, images - Cache first, then network
+  // CSS and JS - Network first so users see fresh deploys quickly
   if (
     request.destination === "style" ||
     request.destination === "script" ||
-    request.destination === "image" ||
     request.url.includes(".css") ||
     request.url.includes(".js")
   ) {
     event.respondWith(
-      caches
-        .match(request)
+      fetch(request, { cache: "no-store" })
         .then((response) => {
-          if (response) {
-            // Return cached version
-            return response;
+          if (response.status === 200) {
+            const responseClone = response.clone();
+            caches
+              .open(STATIC_CACHE)
+              .then((cache) => cache.put(request, responseClone));
           }
-
-          // Fetch from network and cache
-          return fetch(request).then((response) => {
-            if (response.status === 200) {
-              const responseClone = response.clone();
-              caches
-                .open(STATIC_CACHE)
-                .then((cache) => cache.put(request, responseClone));
-            }
-            return response;
-          });
+          return response;
         })
         .catch(() => {
-          // Return a fallback for critical resources
-          if (request.url.includes(".css")) {
-            return new Response(
-              `
+          return caches.match(request).then((cachedResponse) => {
+            if (cachedResponse) {
+              return cachedResponse;
+            }
+
+            // Return a fallback for critical resources
+            if (request.url.includes(".css")) {
+              return new Response(
+                `
               /* Fallback CSS */
               body { font-family: Arial, sans-serif; margin: 0; padding: 1rem; }
               .container { max-width: 1200px; margin: 0 auto; }
             `,
-              {
-                headers: { "Content-Type": "text/css" },
-                status: 200,
-              },
-            );
-          }
+                {
+                  headers: { "Content-Type": "text/css" },
+                  status: 200,
+                },
+              );
+            }
 
-          if (request.url.includes(".js")) {
-            return new Response(
-              `
+            if (request.url.includes(".js")) {
+              return new Response(
+                `
               console.log('Fallback JS loaded');
             `,
-              {
-                headers: { "Content-Type": "application/javascript" },
-                status: 200,
-              },
-            );
-          }
+                {
+                  headers: { "Content-Type": "application/javascript" },
+                  status: 200,
+                },
+              );
+            }
 
-          return new Response("", { status: 404 });
+            return new Response("", { status: 404 });
+          });
         }),
+    );
+    return;
+  }
+
+  // Images - Cache first for faster repeat visits
+  if (request.destination === "image") {
+    event.respondWith(
+      caches.match(request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        return fetch(request)
+          .then((response) => {
+            if (response.status === 200) {
+              const responseClone = response.clone();
+              caches
+                .open(IMAGES_CACHE)
+                .then((cache) => cache.put(request, responseClone));
+            }
+            return response;
+          })
+          .catch(() => new Response("", { status: 404 }));
+      }),
     );
     return;
   }
