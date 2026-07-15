@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeFormValidation();
   initializeAccessibility();
   initializePerformanceOptimizations();
+  normalizeFooter();
 
   // Theme Management - Enhanced for mobile
   function initializeTheme() {
@@ -712,6 +713,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Resource hints for better performance
     addResourceHints();
+  }
+
+  function normalizeFooter() {
+    const footer = document.querySelector("footer.footer");
+
+    if (!footer) {
+      return;
+    }
+
+    footer.innerHTML = `
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">IO Innovation</a>
+          <p>
+            Educational analysis of how geopolitical events move Nasdaq, oil,
+            and Bitcoin.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="/hotspots.html">Live Hotspots</a></li>
+            <li><a href="/event-explorer.html">Event Explorer</a></li>
+            <li>
+              <a href="/tools/bitcoin-disclosures.html">BTC Disclosures</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/hub.html">Hub</a></li>
+            <li><a href="/archive.html">Legacy Archive</a></li>
+            <li><a href="/about.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Content is for informational purposes only. Not financial advice.
+        </p>
+      </div>
+    `;
   }
 
   // Utility Functions
