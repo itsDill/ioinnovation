@@ -727,8 +727,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-brand">
           <a href="/" class="logo">IO Innovation</a>
           <p>
-            Educational analysis of how geopolitical events move Nasdaq, oil,
-            and Bitcoin.
+            IO is building towards becoming a digital investment company by
+            building, acquiring, and operating cash-generating digital assets.
           </p>
         </div>
 
