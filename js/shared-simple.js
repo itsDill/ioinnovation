@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeAccessibility();
   initializePerformanceOptimizations();
   normalizeFooter();
+  ensureAdExperienceAssets();
 
   // Theme Management - Enhanced for mobile
   function initializeTheme() {
@@ -755,9 +756,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
             <li><a href="/terms.html">Terms</a></li>
             <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -770,6 +772,31 @@ document.addEventListener("DOMContentLoaded", function () {
         </p>
       </div>
     `;
+  }
+
+  function ensureAdExperienceAssets() {
+    const ADS_VERSION = "2026080501";
+    const adsStylesHref = `/css/ads.css?v=${ADS_VERSION}`;
+    const adsScriptSrc = `/js/ads-init.js?v=${ADS_VERSION}`;
+
+    if (!document.querySelector('link[data-io-ads="styles"]')) {
+      const adsStyles = document.createElement("link");
+      adsStyles.rel = "stylesheet";
+      adsStyles.href = adsStylesHref;
+      adsStyles.setAttribute("data-io-ads", "styles");
+      document.head.appendChild(adsStyles);
+    }
+
+    if (
+      !window.__ioAdsInitLoaded &&
+      !document.querySelector('script[data-io-ads="init"]')
+    ) {
+      const adsScript = document.createElement("script");
+      adsScript.src = adsScriptSrc;
+      adsScript.defer = true;
+      adsScript.setAttribute("data-io-ads", "init");
+      document.head.appendChild(adsScript);
+    }
   }
 
   // Utility Functions
