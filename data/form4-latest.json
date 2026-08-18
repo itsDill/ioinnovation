@@ -1,0 +1,262 @@
+{
+  "generated_at": "2026-08-18T15:50:33+00:00",
+  "source": "SEC EDGAR submissions recent form list",
+  "trades": [
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-17",
+      "accession": "0001679788-26-000091",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000091/xslF345X06/wk-form4_1787002688.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-14",
+      "accession": "0001628280-26-057193",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026057193/xslF345X06/wk-form4_1786744575.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-11",
+      "accession": "0001628280-26-055837",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026055837/xslF345X06/wk-form4_1786485228.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-08-10",
+      "accession": "0001193125-26-342315",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526342315/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-07",
+      "accession": "0001628280-26-054918",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026054918/xslF345X06/wk-form4_1786136741.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-06",
+      "accession": "0001628280-26-054510",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026054510/xslF345X06/wk-form4_1786054979.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-05",
+      "accession": "0001628280-26-053485",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026053485/xslF345X06/wk-form4_1785963736.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-05",
+      "accession": "0001679788-26-000090",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000090/xslF345X06/wk-form4_1785961036.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-03",
+      "accession": "0001628280-26-051998",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026051998/xslF345X06/wk-form4_1785793083.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-07-31",
+      "accession": "0001628280-26-051453",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026051453/xslF345X06/wk-form4_1785532058.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-07-31",
+      "accession": "0001679788-26-000089",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000089/xslF345X06/wk-form4_1785540940.xml"
+    },
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-07-29",
+      "accession": "0001628280-26-050700",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026050700/xslF345X06/wk-form4_1785365117.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-07-28",
+      "accession": "0001193125-26-321074",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526321074/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-07-23",
+      "accession": "0001193125-26-314630",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526314630/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-07-06",
+      "accession": "0001227688-26-000008",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000122768826000008/xslF345X06/form4-07062026_080703.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-06-24",
+      "accession": "0001309191-26-000031",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000130919126000031/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-06-22",
+      "accession": "0001651669-26-000010",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000165166926000010/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-06-18",
+      "accession": "0001309191-26-000029",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000130919126000029/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-06-18",
+      "accession": "0001679788-26-000077",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000077/xslF345X06/wk-form4_1781817219.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-06-18",
+      "accession": "0001679788-26-000076",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000076/xslF345X06/wk-form4_1781817188.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-06-18",
+      "accession": "0001679788-26-000073",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000073/xslF345X06/wk-form4_1781816756.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-06-18",
+      "accession": "0001679788-26-000072",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000072/xslF345X06/wk-form4_1781816531.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-06-17",
+      "accession": "0001309191-26-000027",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000130919126000027/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-06-17",
+      "accession": "0001834012-26-000002",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000183401226000002/xslF345X06/ownership.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-06-17",
+      "accession": "0001104659-26-075213",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926075213/xslF345X06/tm2618092-2_4seq1.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-06-09",
+      "accession": "0001104659-26-071970",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926071970/xslF345X06/tm2617365-1_4seq1.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-05-15",
+      "accession": "0001104659-26-062860",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926062860/xslF345X06/tm2614845-1_4seq1.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-05-04",
+      "accession": "0001104659-26-055079",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926055079/xslF345X06/tm2613330-1_4seq1.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-04-23",
+      "accession": "0001104659-26-047678",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926047678/xslF345X06/tm2612285-1_4seq1.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-04-02",
+      "accession": "0001972928-26-000002",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000197292826000002/xslF345X06/edgardoc.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-04-01",
+      "accession": "0001104659-26-038682",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926038682/xslF345X06/tm2610684-1_4seq1.xml"
+    },
+    {
+      "issuer_slug": "tesla",
+      "issuer_name": "Tesla, Inc.",
+      "form": "4",
+      "filing_date": "2026-03-09",
+      "accession": "0001104659-26-025379",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318605/000110465926025379/xslF345X05/tm268346-1_4seq1.xml"
+    }
+  ]
+}

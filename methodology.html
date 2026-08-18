@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Methodology | IO Innovation Filings</title>
+    <meta
+      name="description"
+      content="Detailed methodology for SEC EDGAR 13F and Form 4 ingestion, normalization, ticker mapping, and known data limitations."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/methodology.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="IO Innovation Filings Methodology" />
+    <meta
+      property="og:description"
+      content="How 13F and Form 4 data is pulled, parsed, mapped, and validated."
+    />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/methodology.html"
+    />
+    <meta
+      property="og:image"
+      content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="IO Innovation Filings institutional holdings dashboard"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="IO Innovation Filings institutional holdings dashboard"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "IO Innovation Filings",
+        "url": "https://ioinnovationfund.com/",
+        "logo": "https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ioinnovationfund.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Methodology",
+            "item": "https://ioinnovationfund.com/methodology.html"
+          }
+        ]
+      }
+    </script>
+
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+  </head>
+  <body>
+    <a href="#main" class="skip-to-main">Skip to content</a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation Filings</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/holdings/">Holdings</a></li>
+          <li><a href="/filers/">Filers</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Methodology</span>
+        <h1 class="hero-title">How this filing dataset is built</h1>
+        <p class="hero-subtitle">
+          Data as of: 2026-08-18. Source: SEC EDGAR submissions and filing
+          archive documents.
+        </p>
+      </section>
+
+      <section class="hero-panel">
+        <h2 style="font-size: 1.1rem">Pipeline summary</h2>
+        <ul
+          style="
+            margin-top: 0.7rem;
+            padding-left: 1.1rem;
+            color: var(--text-secondary);
+          "
+        >
+          <li>
+            Filer CIK list and issuer CIK list are maintained in static JSON
+            config files.
+          </li>
+          <li>
+            Daily scheduled GitHub Actions run fetches SEC submissions JSON and
+            filing indexes.
+          </li>
+          <li>
+            13F info table XML is parsed into issuer, class, CUSIP, value, and
+            share fields.
+          </li>
+          <li>
+            Recent Form 4 filings are extracted from issuer submissions indexes.
+          </li>
+        </ul>
+      </section>
+
+      <section class="hero-panel">
+        <h2 style="font-size: 1.1rem">Normalization rules</h2>
+        <ul
+          style="
+            margin-top: 0.7rem;
+            padding-left: 1.1rem;
+            color: var(--text-secondary);
+          "
+        >
+          <li>
+            Value fields are interpreted as dollars as reported in source
+            payloads.
+          </li>
+          <li>
+            Ticker mapping uses deterministic issuer-name and class-based
+            matching.
+          </li>
+          <li>
+            BTC-linked tags are rule-based from ticker and issuer-name patterns.
+          </li>
+          <li>
+            Rows are sorted by reported value and include derived position
+            weight per filer.
+          </li>
+        </ul>
+      </section>
+
+      <section class="hero-panel">
+        <h2 style="font-size: 1.1rem">Known gaps and caveats</h2>
+        <ul
+          style="
+            margin-top: 0.7rem;
+            padding-left: 1.1rem;
+            color: var(--text-secondary);
+          "
+        >
+          <li>13F is delayed and may not reflect current holdings.</li>
+          <li>
+            Some issuers and share classes cannot be mapped confidently to a
+            ticker.
+          </li>
+          <li>
+            Form 4 includes non-open-market transactions that can be misread as
+            conviction trades.
+          </li>
+          <li>
+            Corporate actions and identifier changes can cause temporary
+            mismatches.
+          </li>
+        </ul>
+      </section>
+
+      <section class="hero-panel">
+        <h2 style="font-size: 1.1rem">Verification and corrections</h2>
+        <p class="hero-subtitle">
+          Every filer page links to the source SEC filing. If you identify a
+          mismatch, email
+          <a href="mailto:contact@ioinnovationfund.com"
+            >contact@ioinnovationfund.com</a
+          >
+          with the page URL and EDGAR source link.
+        </p>
+        <p class="muted" style="margin-top: 0.7rem">
+          Not investment advice. Not affiliated with the separate "I/O Fund"
+          newsletter.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom">
+          <p>&copy; 2026 IO Innovation.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+  </body>
+</html>

@@ -22,8 +22,6 @@
     ensureAdSenseScript();
     ensureGlobalSchema();
     ensureContextSchema();
-    ensureInArticleSlot();
-    ensureMobileStickySlot();
     ensureConsentBanner();
     safeInitAds();
 
@@ -47,49 +45,6 @@
       "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" +
       encodeURIComponent(AD_CLIENT);
     document.head.appendChild(script);
-  }
-
-  function ensureInArticleSlot() {
-    if (document.querySelector(".ad-slot-inarticle")) {
-      return;
-    }
-
-    const article = findArticleContainer();
-    if (!article) {
-      return;
-    }
-
-    const paragraphs = article.querySelectorAll("p");
-    if (paragraphs.length < 2) {
-      return;
-    }
-
-    const wrapper = createAdWrapper("ad-slot-inarticle", "Sponsored");
-    const ad = createAdIns({
-      slot: SLOT_CONFIG.inArticle,
-      format: "fluid",
-      layout: "in-article",
-      fullWidth: "true",
-    });
-
-    wrapper.appendChild(ad);
-    insertAfter(wrapper, paragraphs[1]);
-  }
-
-  function ensureMobileStickySlot() {
-    if (document.querySelector(".ad-sticky-footer")) {
-      return;
-    }
-
-    const sticky = createAdWrapper("ad-sticky-footer", "Advertisement");
-    const ad = createAdIns({
-      slot: SLOT_CONFIG.sticky,
-      format: "auto",
-      fullWidth: "true",
-    });
-
-    sticky.appendChild(ad);
-    document.body.appendChild(sticky);
   }
 
   function createAdWrapper(className, labelText) {
@@ -193,12 +148,12 @@
       appendSchema({
         "@context": "https://schema.org",
         "@type": "FinancialProduct",
-        name: "IO Innovation Research Tools",
+        name: "IO Innovation Filings Holdings Explorer",
         provider: {
           "@type": "Organization",
           name: "IO Innovation",
         },
-        url: "https://ioinnovationfund.com/tools.html",
+        url: "https://ioinnovationfund.com/holdings/",
       });
     }
   }
@@ -234,7 +189,7 @@
     banner.className = "consent-banner";
     banner.innerHTML =
       "<p>We use cookies and ad personalization technologies to improve site performance and ad relevance.</p>" +
-      '<a href="/privacy-policy.html">Privacy policy</a>' +
+      '<a href="/privacy.html">Privacy policy</a>' +
       '<button type="button" class="consent-accept">Accept</button>';
 
     const button = banner.querySelector(".consent-accept");
@@ -255,7 +210,7 @@
   }
 
   function isToolsPath(path) {
-    return path === "/tools.html" || path.startsWith("/tools/");
+    return path === "/holdings/" || path === "/holdings/index.html";
   }
 
   function findArticleContainer() {

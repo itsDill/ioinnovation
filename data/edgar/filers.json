@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "berkshire-hathaway",
+    "name": "Berkshire Hathaway Inc.",
+    "cik": "0001067983",
+    "sec_entity_type": "institution"
+  },
+  {
+    "slug": "scion-asset-management",
+    "name": "Scion Asset Management, LLC",
+    "cik": "0001649339",
+    "sec_entity_type": "institution"
+  },
+  {
+    "slug": "pershing-square-capital",
+    "name": "Pershing Square Capital Management, L.P.",
+    "cik": "0001336528",
+    "sec_entity_type": "institution"
+  },
+  {
+    "slug": "bridgewater-associates",
+    "name": "Bridgewater Associates, LP",
+    "cik": "0001350694",
+    "sec_entity_type": "institution"
+  }
+]

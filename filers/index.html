@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracked Filers | IO Innovation Filings</title>
+    <meta name="description" content="Tracked institutions with latest 13F snapshots and filer detail pages." />
+    <link rel="canonical" href="https://ioinnovationfund.com/filers/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tracked Filers" />
+    <meta property="og:description" content="Institutional filings tracker with static filer pages." />
+    <meta property="og:url" content="https://ioinnovationfund.com/filers/" />
+    <meta property="og:image" content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg" />
+    <meta property="og:image:alt" content="IO Innovation Filings institutional holdings dashboard" />
+    <meta property="og:site_name" content="IO Innovation Filings" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg" />
+    <meta name="twitter:image:alt" content="IO Innovation Filings institutional holdings dashboard" />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"IO Innovation Filings","url":"https://ioinnovationfund.com/","logo":"https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ioinnovationfund.com/"},{"@type":"ListItem","position":2,"name":"Filers","item":"https://ioinnovationfund.com/filers/"}]}</script>
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+  </head>
+  <body>
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation Filings</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/holdings/">Holdings</a></li>
+          <li><a href="/filers/" class="active">Filers</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><i id="themeIcon" class="theme-icon fas fa-moon"></i></button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Coverage</span>
+        <h1 class="hero-title">Tracked institutions</h1>
+        <p class="hero-subtitle">Each page below is static HTML generated from the latest parsed 13F file.</p>
+                <div class="inline-meta">
+                    <span>Data as of: 2026-08-18</span>
+                    <a href="/methodology.html">Methodology</a>
+                </div>
+      </section>
+            <section class="filter-panel" aria-label="Filer filters">
+                <div class="filter-grid">
+                    <input id="filersSearch" class="control" type="search" placeholder="Search by filer name" />
+                </div>
+            </section>
+      <section class="filer-grid">
+        <a class="filer-card" href="/filers/berkshire-hathaway.html"><h3>Berkshire Hathaway Inc.</h3><p class="muted">Latest report period: 2026-06-30</p><p class="muted">Total reported value: $299,253,556,246</p></a>
+<a class="filer-card" href="/filers/bridgewater-associates.html"><h3>Bridgewater Associates, LP</h3><p class="muted">Latest report period: 2026-06-30</p><p class="muted">Total reported value: $24,376,086,530</p></a>
+<a class="filer-card" href="/filers/pershing-square-capital.html"><h3>Pershing Square Capital Management, L.P.</h3><p class="muted">Latest report period: 2026-03-31</p><p class="muted">Total reported value: $13,714,299,861</p></a>
+<a class="filer-card" href="/filers/scion-asset-management.html"><h3>Scion Asset Management, LLC</h3><p class="muted">Latest report period: 2025-09-30</p><p class="muted">Total reported value: $1,381,198,076</p></a>
+      </section>
+            <section class="hero-panel" style="margin-top: 1rem">
+                <p class="muted">Not investment advice. Not affiliated with the separate "I/O Fund" newsletter.</p>
+            </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation. Educational data utility.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const input = document.getElementById("filersSearch");
+                if (!input) return;
+                const cards = Array.from(document.querySelectorAll(".filer-grid .filer-card"));
+                input.addEventListener("input", function () {
+                    const q = input.value.trim().toLowerCase();
+                    cards.forEach(function (card) {
+                        const text = card.textContent.toLowerCase();
+                        card.style.display = !q || text.indexOf(q) !== -1 ? "" : "none";
+                    });
+                });
+            });
+        </script>
+  </body>
+</html>

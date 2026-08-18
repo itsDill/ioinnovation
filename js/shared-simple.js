@@ -50,8 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (themeIcon) {
         // Use requestAnimationFrame for smoother mobile performance
         requestAnimationFrame(() => {
-          const iconClass = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
-          themeIcon.className = `theme-icon ${iconClass}`;
+          const iconMarkup =
+            theme === "dark"
+              ? '<svg viewBox="0 0 24 24" role="img" aria-label="Light mode" focusable="false"><path d="M12 4.5a1 1 0 0 1 1 1V7a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1Zm0 12.5a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V18a1 1 0 0 1 1-1Zm7.5-4.5a1 1 0 1 1 0 2H18a1 1 0 1 1 0-2h1.5ZM7 12.5a1 1 0 1 1 0 2H5.5a1 1 0 1 1 0-2H7Zm8.485-5.071a1 1 0 0 1 1.414 0l1.06 1.06a1 1 0 0 1-1.414 1.415l-1.06-1.061a1 1 0 0 1 0-1.414Zm-9.9 9.9a1 1 0 0 1 1.414 0l1.061 1.06a1 1 0 0 1-1.414 1.415L5.585 18.74a1 1 0 0 1 0-1.414Zm12.374 1.475a1 1 0 0 1-1.414 0l-1.06-1.061a1 1 0 1 1 1.414-1.414l1.06 1.06a1 1 0 0 1 0 1.415Zm-9.9-9.9a1 1 0 0 1-1.414 0L5.585 7.843A1 1 0 1 1 7 6.428l1.06 1.061a1 1 0 0 1 0 1.414ZM12 8.25A3.75 3.75 0 1 1 12 15.75 3.75 3.75 0 0 1 12 8.25Z" fill="currentColor"/></svg>'
+              : '<svg viewBox="0 0 24 24" role="img" aria-label="Dark mode" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a1 1 0 0 1 .81 1.58A7 7 0 0 0 19.42 12a6.97 6.97 0 0 0-.44 2.44 1 1 0 0 1-1.58.81A8.96 8.96 0 0 1 21 12.79Z" fill="currentColor"/></svg>';
+
+          themeIcon.className = "theme-icon";
+          themeIcon.innerHTML = iconMarkup;
 
           // Add visual feedback for mobile users
           if (isMobile) {
@@ -728,27 +733,25 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-brand">
           <a href="/" class="logo">IO Innovation</a>
           <p>
-            IO is building towards becoming a digital investment company by
-            building, acquiring, and operating cash-generating digital assets.
+            Free institutional holdings tracker built from public SEC filings.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Research</h4>
+          <h4>Tracker</h4>
           <ul>
-            <li><a href="/hotspots.html">Live Hotspots</a></li>
-            <li><a href="/event-explorer.html">Event Explorer</a></li>
-            <li>
-              <a href="/tools/bitcoin-disclosures.html">BTC Disclosures</a>
-            </li>
+            <li><a href="/holdings/">Holdings</a></li>
+            <li><a href="/filers/">Filers</a></li>
+            <li><a href="/blog/">Blog</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Resources</h4>
           <ul>
-            <li><a href="/hub.html">Hub</a></li>
-            <li><a href="/archive.html">Legacy Archive</a></li>
+            <li><a href="/data/holdings-latest.json">Holdings JSON</a></li>
+            <li><a href="/data/form4-latest.json">Form 4 JSON</a></li>
+            <li><a href="/methodology.html">Methodology</a></li>
             <li><a href="/about.html">About Us</a></li>
           </ul>
         </div>
@@ -756,7 +759,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
             <li><a href="/terms.html">Terms</a></li>
             <li><a href="/disclaimer.html">Disclaimer</a></li>
             <li><a href="/about.html">About</a></li>
@@ -768,13 +771,17 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="footer-bottom">
         <p>&copy; 2026 IO Innovation. All rights reserved.</p>
         <p class="footer-disclaimer">
-          Content is for informational purposes only. Not financial advice.
+          Content is for informational purposes only, not investment advice. Not affiliated with the separate "I/O Fund" newsletter.
         </p>
       </div>
     `;
   }
 
   function ensureAdExperienceAssets() {
+    if (!document.querySelector("ins.adsbygoogle")) {
+      return;
+    }
+
     const ADS_VERSION = "2026080501";
     const adsStylesHref = `/css/ads.css?v=${ADS_VERSION}`;
     const adsScriptSrc = `/js/ads-init.js?v=${ADS_VERSION}`;

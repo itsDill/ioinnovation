@@ -1,2 +1,13 @@
 .private/
 _site/
+
+# Editor / OS
+.idea/
+.DS_Store
+
+# Python environments and caches
+.venv/
+.venv-1/
+scripts/venv/
+**/__pycache__/
+*.pyc

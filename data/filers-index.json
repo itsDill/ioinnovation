@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-08-18T15:50:33+00:00",
+  "filers": [
+    {
+      "slug": "berkshire-hathaway",
+      "name": "Berkshire Hathaway Inc.",
+      "cik": "0001067983",
+      "filing_date": "2026-08-14",
+      "report_period": "2026-06-30",
+      "accession": "0001193125-26-352200",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+      "holdings_count": 89,
+      "total_value_usd": 299253556246,
+      "btc_tag": false
+    },
+    {
+      "slug": "bridgewater-associates",
+      "name": "Bridgewater Associates, LP",
+      "cik": "0001350694",
+      "filing_date": "2026-08-14",
+      "report_period": "2026-06-30",
+      "accession": "0001350694-26-000003",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1350694/000135069426000003/xslForm13F_X02/primary_doc.xml",
+      "holdings_count": 997,
+      "total_value_usd": 24376086530,
+      "btc_tag": false
+    },
+    {
+      "slug": "pershing-square-capital",
+      "name": "Pershing Square Capital Management, L.P.",
+      "cik": "0001336528",
+      "filing_date": "2026-05-15",
+      "report_period": "2026-03-31",
+      "accession": "0001172661-26-002336",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1336528/000117266126002336/xslForm13F_X02/primary_doc.xml",
+      "holdings_count": 11,
+      "total_value_usd": 13714299861,
+      "btc_tag": false
+    },
+    {
+      "slug": "scion-asset-management",
+      "name": "Scion Asset Management, LLC",
+      "cik": "0001649339",
+      "filing_date": "2025-11-03",
+      "report_period": "2025-09-30",
+      "accession": "0001649339-25-000007",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1649339/000164933925000007/xslForm13F_X02/primary_doc.xml",
+      "holdings_count": 8,
+      "total_value_usd": 1381198076,
+      "btc_tag": false
+    }
+  ]
+}
