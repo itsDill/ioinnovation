@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T11:44:52+00:00",
+  "generated_at": "2026-08-20T11:46:10+00:00",
   "issuers": [
     {
       "slug": "microstrategy",
@@ -17,7 +17,7 @@
       "slug": "block",
       "name": "Block, Inc.",
       "cik": "0001512673",
-      "latest_form4_filing_date": "2026-08-14"
+      "latest_form4_filing_date": "2026-08-19"
     }
   ]
 }

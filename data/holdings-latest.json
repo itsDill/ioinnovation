@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T11:44:52+00:00",
+  "generated_at": "2026-08-20T11:46:10+00:00",
   "source": "SEC EDGAR submissions + filing index",
   "filers": [
     {
@@ -19983,8 +19983,8 @@
     {
       "filer_slug": "btc-treasury-watchlist",
       "filer_name": "BTC Treasury Watchlist",
-      "filing_date": "2026-08-14",
-      "report_period": "2026-08-14",
+      "filing_date": "2026-08-19",
+      "report_period": "2026-08-19",
       "accession": "",
       "filing_url": "",
       "issuer": "Block, Inc.",
@@ -20017,7 +20017,7 @@
       "slug": "block",
       "name": "Block, Inc.",
       "cik": "0001512673",
-      "latest_form4_filing_date": "2026-08-14"
+      "latest_form4_filing_date": "2026-08-19"
     }
   ]
 }

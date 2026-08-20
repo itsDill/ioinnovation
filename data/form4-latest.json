@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-08-19T11:44:52+00:00",
+  "generated_at": "2026-08-20T11:46:10+00:00",
   "source": "SEC EDGAR submissions recent form list",
   "trades": [
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-08-19",
+      "accession": "0001628280-26-058031",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026058031/xslF345X06/wk-form4_1787175773.xml"
+    },
     {
       "issuer_slug": "coinbase",
       "issuer_name": "Coinbase Global, Inc.",
@@ -97,14 +105,6 @@
       "filing_date": "2026-07-31",
       "accession": "0001679788-26-000089",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000089/xslF345X06/wk-form4_1785540940.xml"
-    },
-    {
-      "issuer_slug": "block",
-      "issuer_name": "Block, Inc.",
-      "form": "4",
-      "filing_date": "2026-07-29",
-      "accession": "0001628280-26-050700",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026050700/xslF345X06/wk-form4_1785365117.xml"
     },
     {
       "issuer_slug": "microstrategy",
