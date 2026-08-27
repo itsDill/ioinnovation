@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T11:47:06+00:00",
+  "generated_at": "2026-08-27T15:16:27+00:00",
   "source": "SEC EDGAR submissions + filing index",
   "filers": [
     {
@@ -19945,8 +19945,8 @@
     {
       "filer_slug": "btc-treasury-watchlist",
       "filer_name": "BTC Treasury Watchlist",
-      "filing_date": "2026-08-10",
-      "report_period": "2026-08-10",
+      "filing_date": "2026-08-26",
+      "report_period": "2026-08-26",
       "accession": "",
       "filing_url": "",
       "issuer": "MicroStrategy Incorporated",
@@ -20005,7 +20005,7 @@
       "slug": "microstrategy",
       "name": "MicroStrategy Incorporated",
       "cik": "0001050446",
-      "latest_form4_filing_date": "2026-08-10"
+      "latest_form4_filing_date": "2026-08-26"
     },
     {
       "slug": "tesla",
