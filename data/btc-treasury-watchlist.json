@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-31T11:39:52+00:00",
+  "generated_at": "2026-09-01T11:40:19+00:00",
   "issuers": [
     {
       "slug": "microstrategy",
       "name": "MicroStrategy Incorporated",
       "cik": "0001050446",
-      "latest_form4_filing_date": "2026-08-26"
+      "latest_form4_filing_date": "2026-08-31"
     },
     {
       "slug": "tesla",
