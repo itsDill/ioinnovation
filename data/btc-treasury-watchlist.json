@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T11:40:49+00:00",
+  "generated_at": "2026-09-10T11:40:37+00:00",
   "issuers": [
     {
       "slug": "microstrategy",
@@ -11,7 +11,7 @@
       "slug": "tesla",
       "name": "Tesla, Inc.",
       "cik": "0001318605",
-      "latest_form4_filing_date": "2026-06-17"
+      "latest_form4_filing_date": "2026-09-09"
     },
     {
       "slug": "block",
