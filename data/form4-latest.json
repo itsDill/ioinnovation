@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-09-10T11:40:37+00:00",
+  "generated_at": "2026-09-11T11:40:11+00:00",
   "source": "SEC EDGAR submissions recent form list",
   "trades": [
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-09-10",
+      "accession": "0001628280-26-061433",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026061433/xslF345X06/wk-form4_1789077758.xml"
+    },
+    {
+      "issuer_slug": "coinbase",
+      "issuer_name": "Coinbase Global, Inc.",
+      "form": "4",
+      "filing_date": "2026-09-10",
+      "accession": "0001679788-26-000107",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000107/xslF345X06/wk-form4_1789071473.xml"
+    },
     {
       "issuer_slug": "tesla",
       "issuer_name": "Tesla, Inc.",
@@ -115,14 +131,6 @@
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026058744/xslF345X06/wk-form4_1787615641.xml"
     },
     {
-      "issuer_slug": "block",
-      "issuer_name": "Block, Inc.",
-      "form": "4",
-      "filing_date": "2026-08-24",
-      "accession": "0001628280-26-058743",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026058743/xslF345X06/wk-form4_1787615575.xml"
-    },
-    {
       "issuer_slug": "coinbase",
       "issuer_name": "Coinbase Global, Inc.",
       "form": "4",
@@ -153,14 +161,6 @@
       "filing_date": "2026-08-24",
       "accession": "0001679788-26-000094",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000094/xslF345X06/wk-form4_1787603615.xml"
-    },
-    {
-      "issuer_slug": "coinbase",
-      "issuer_name": "Coinbase Global, Inc.",
-      "form": "4",
-      "filing_date": "2026-08-24",
-      "accession": "0001679788-26-000093",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000093/xslF345X06/wk-form4_1787603376.xml"
     },
     {
       "issuer_slug": "microstrategy",
