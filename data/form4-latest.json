@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-09-22T11:41:26+00:00",
+  "generated_at": "2026-09-23T11:42:03+00:00",
   "source": "SEC EDGAR submissions recent form list",
   "trades": [
+    {
+      "issuer_slug": "microstrategy",
+      "issuer_name": "MicroStrategy Incorporated",
+      "form": "4",
+      "filing_date": "2026-09-22",
+      "accession": "0001193125-26-398168",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000119312526398168/xslF345X06/ownership.xml"
+    },
     {
       "issuer_slug": "block",
       "issuer_name": "Block, Inc.",
@@ -193,14 +201,6 @@
       "filing_date": "2026-06-24",
       "accession": "0001309191-26-000031",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000130919126000031/xslF345X06/ownership.xml"
-    },
-    {
-      "issuer_slug": "microstrategy",
-      "issuer_name": "MicroStrategy Incorporated",
-      "form": "4",
-      "filing_date": "2026-06-22",
-      "accession": "0001651669-26-000010",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1050446/000165166926000010/xslF345X06/ownership.xml"
     },
     {
       "issuer_slug": "tesla",
