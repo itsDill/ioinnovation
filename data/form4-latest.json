@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-10-09T11:44:06+00:00",
+  "generated_at": "2026-10-10T11:43:12+00:00",
   "source": "SEC EDGAR submissions recent form list",
   "trades": [
+    {
+      "issuer_slug": "block",
+      "issuer_name": "Block, Inc.",
+      "form": "4",
+      "filing_date": "2026-10-09",
+      "accession": "0001628280-26-065556",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026065556/xslF345X06/wk-form4_1791579918.xml"
+    },
     {
       "issuer_slug": "block",
       "issuer_name": "Block, Inc.",
@@ -65,14 +73,6 @@
       "filing_date": "2026-10-01",
       "accession": "0001628280-26-064331",
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026064331/xslF345X06/wk-form4_1790891934.xml"
-    },
-    {
-      "issuer_slug": "block",
-      "issuer_name": "Block, Inc.",
-      "form": "4",
-      "filing_date": "2026-09-28",
-      "accession": "0001628280-26-063757",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026063757/xslF345X06/wk-form4_1790633809.xml"
     },
     {
       "issuer_slug": "microstrategy",
