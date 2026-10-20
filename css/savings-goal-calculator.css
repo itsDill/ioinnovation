@@ -1,0 +1,450 @@
+.savings-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.savings-form {
+  position: sticky;
+  top: 1rem;
+}
+
+.savings-form-heading h2,
+.savings-section-heading h2 {
+  margin-top: 0.4rem;
+  color: #1c4640;
+  font-size: 1.3rem;
+  letter-spacing: -0.04em;
+}
+
+.savings-form-heading .muted {
+  margin-top: 0.35rem;
+  font-size: 0.84rem;
+}
+
+.savings-kicker {
+  color: #80619a;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.savings-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.savings-field {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  min-width: 0;
+  color: #42635b;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.savings-field small {
+  color: #758781;
+  font-size: 0.71rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.savings-input-wrap {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.site-refresh .savings-input-wrap .control {
+  min-width: 0;
+  padding-right: 0.65rem;
+  padding-left: 2rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.site-refresh .savings-suffix-wrap .control {
+  padding-right: 3.6rem;
+  padding-left: 0.75rem;
+}
+
+.site-refresh .savings-field select.control {
+  padding-right: 0.65rem;
+  padding-left: 0.7rem;
+  font-size: 0.83rem;
+}
+
+.site-refresh .savings-form .control[aria-invalid="true"] {
+  border-color: #b44747;
+  box-shadow: 0 0 0 2px rgba(180, 71, 71, 0.12);
+}
+
+.savings-currency,
+.savings-suffix {
+  position: absolute;
+  z-index: 1;
+  color: #758781;
+  font-size: 0.84rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.savings-currency {
+  left: 0.8rem;
+}
+
+.savings-suffix {
+  right: 0.8rem;
+  font-size: 0.74rem;
+}
+
+.savings-submit {
+  width: 100%;
+  margin-top: 1.2rem;
+  cursor: pointer;
+}
+
+.savings-reset {
+  display: block;
+  min-height: 40px;
+  margin: 0.35rem auto 0;
+  border: 0;
+  background: transparent;
+  color: #557169;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.savings-reset:hover {
+  color: #17684f;
+}
+
+.savings-error {
+  margin-top: 0.8rem;
+  color: #a13f3f;
+  font-size: 0.84rem;
+}
+
+.savings-results {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.savings-results[hidden] {
+  display: none;
+}
+
+.site-refresh .savings-summary,
+.site-refresh .savings-chart-panel,
+.site-refresh .savings-table-panel {
+  margin: 0;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.savings-summary-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.savings-summary-heading h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  color: #173e36;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.savings-summary-heading h2 small {
+  color: #627873;
+  font-size: 0.9rem;
+  font-weight: 550;
+  letter-spacing: 0;
+}
+
+.savings-badge {
+  flex: none;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: #f2ecf7;
+  color: #74588d;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.savings-badge.is-on-track {
+  background: #e8f6f0;
+  color: #197456;
+}
+
+.savings-badge.is-shortfall {
+  background: #fbefdf;
+  color: #8d5a2a;
+}
+
+.savings-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.15rem;
+}
+
+.savings-metric {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid rgba(35, 80, 69, 0.08);
+  border-radius: 16px;
+  background: #f5faf7;
+}
+
+.savings-metric span {
+  color: #627873;
+  font-size: 0.72rem;
+}
+
+.savings-metric strong {
+  color: #1b3e39;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.savings-assumptions {
+  margin-top: 0.9rem;
+  color: #758781;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.savings-section-heading h2 {
+  font-size: 1.15rem;
+}
+
+.savings-chart-wrap {
+  width: 100%;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+#savingsChart {
+  display: block;
+  width: 100%;
+  min-width: 420px;
+  height: auto;
+  overflow: visible;
+}
+
+#savingsChart .savings-gridline {
+  stroke: #e4ddea;
+  stroke-width: 1;
+}
+
+#savingsChart .savings-axis-label {
+  fill: #71827d;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+#savingsChart .savings-chart-area {
+  fill: url(#savingsFill);
+}
+
+#savingsChart .savings-target-line {
+  stroke: #ae8a50;
+  stroke-width: 2;
+  stroke-dasharray: 7 6;
+}
+
+#savingsChart .savings-target-label {
+  fill: #8d6b36;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+#savingsChart .savings-chart-line {
+  fill: none;
+  stroke: #80619a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+#savingsChart .savings-chart-dot {
+  fill: #80619a;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.savings-chart-caption {
+  margin-top: 0.6rem;
+  color: #758781;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.site-refresh .savings-table-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.savings-table-panel summary {
+  padding: 1.2rem 1.5rem;
+  color: #1b3e39;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.savings-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.savings-table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+.savings-table th,
+.savings-table td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(35, 80, 69, 0.08);
+  color: #3c5a52;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.savings-table thead th {
+  color: #627873;
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+
+.savings-table th:first-child,
+.savings-table td:first-child {
+  text-align: left;
+}
+
+.savings-disclaimer {
+  padding: 1rem 1.1rem;
+  border: 1px solid #ead6a5;
+  border-radius: 16px;
+  background: #fff8e8;
+  color: #624e28;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.savings-disclaimer strong {
+  color: #594318;
+}
+
+.savings-disclaimer p {
+  margin-top: 0.35rem;
+}
+
+[data-theme="dark"] .savings-form-heading h2,
+[data-theme="dark"] .savings-section-heading h2,
+[data-theme="dark"] .savings-summary-heading h2,
+[data-theme="dark"] .savings-metric strong {
+  color: #e9f5f0;
+}
+
+[data-theme="dark"] .savings-field {
+  color: #b2c9c0;
+}
+
+[data-theme="dark"] .savings-field small,
+[data-theme="dark"] .savings-assumptions,
+[data-theme="dark"] .savings-chart-caption {
+  color: #a2b9b0;
+}
+
+[data-theme="dark"] .savings-summary-heading h2 small,
+[data-theme="dark"] .savings-metric span,
+[data-theme="dark"] .savings-table th,
+[data-theme="dark"] .savings-table td,
+[data-theme="dark"] .savings-table-panel summary {
+  color: #a2b9b0;
+}
+
+[data-theme="dark"] .savings-badge {
+  background: #32263c;
+  color: #ddc7ed;
+}
+
+[data-theme="dark"] .savings-badge.is-on-track {
+  background: #213b34;
+  color: #c8eedb;
+}
+
+[data-theme="dark"] .savings-badge.is-shortfall {
+  background: #3a2d1f;
+  color: #e8ca9e;
+}
+
+[data-theme="dark"] .savings-metric {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #14231f;
+}
+
+[data-theme="dark"] #savingsChart .savings-gridline {
+  stroke: #3d3444;
+}
+
+[data-theme="dark"] #savingsChart .savings-target-label {
+  fill: #e4bd7a;
+}
+
+[data-theme="dark"] .savings-disclaimer {
+  border-color: #66562f;
+  background: #2d291d;
+  color: #e2d6b4;
+}
+
+[data-theme="dark"] .savings-disclaimer strong {
+  color: #f0dfa9;
+}
+
+@media (max-width: 980px) {
+  .savings-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .savings-form {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .savings-input-grid,
+  .savings-metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .savings-summary-heading {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DCF Valuation Tool | IO Innovation</title>
+    <meta
+      name="description"
+      content="Explore a simple discounted cash flow valuation framework."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/dcf-valuation.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/dcf-valuation.css?v=2026102002" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Company research</span>
+        <h1 class="hero-title">DCF Valuation Tool</h1>
+        <p class="hero-subtitle">
+          Estimate an illustrative value from projected free cash flows, a
+          discount rate, and a terminal value assumption.
+        </p>
+      </section>
+      <form
+        class="filter-panel dcf-form"
+        id="dcfForm"
+        aria-label="Discounted cash flow assumptions"
+        novalidate
+      >
+        <div class="dcf-form-heading">
+          <span class="dcf-kicker">Your assumptions</span>
+          <h2>Build a scenario</h2>
+          <p class="muted">
+            Enter annual figures in the selected display currency. Nothing is
+            sent to a server.
+          </p>
+        </div>
+        <div class="dcf-input-grid">
+          <label class="dcf-field">
+            <span>Most recent annual free cash flow (FCFF)</span>
+            <span class="dcf-input-wrap"
+              ><span class="dcf-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="baseFcf"
+                name="baseFcf"
+                type="number"
+                min="0"
+                max="1000000000000"
+                step="any"
+                value="1000"
+                inputmode="decimal"
+                required
+            /></span>
+            <small
+              >Use nonnegative unlevered free cash flow before debt payments;
+              this simple model applies one constant growth rate.</small
+            >
+          </label>
+          <label class="dcf-field">
+            <span>Annual FCFF growth</span>
+            <span class="dcf-input-wrap dcf-suffix-wrap"
+              ><input
+                class="control"
+                id="fcfGrowth"
+                name="fcfGrowth"
+                type="number"
+                min="-99"
+                max="100"
+                step="0.1"
+                value="5"
+                inputmode="decimal"
+                required
+              /><span class="dcf-suffix" aria-hidden="true">%</span></span
+            >
+          </label>
+          <label class="dcf-field">
+            <span>Forecast horizon</span>
+            <span class="dcf-input-wrap dcf-suffix-wrap"
+              ><input
+                class="control"
+                id="forecastYears"
+                name="forecastYears"
+                type="number"
+                min="1"
+                max="10"
+                step="1"
+                value="5"
+                inputmode="numeric"
+                required
+              /><span class="dcf-suffix" aria-hidden="true">years</span></span
+            >
+          </label>
+          <label class="dcf-field">
+            <span>Discount rate (WACC)</span>
+            <span class="dcf-input-wrap dcf-suffix-wrap"
+              ><input
+                class="control"
+                id="discountRate"
+                name="discountRate"
+                type="number"
+                min="0.1"
+                max="50"
+                step="0.1"
+                value="9"
+                inputmode="decimal"
+                required
+              /><span class="dcf-suffix" aria-hidden="true">%</span></span
+            >
+            <small>Must be greater than the terminal growth rate.</small>
+          </label>
+          <label class="dcf-field">
+            <span>Perpetual terminal growth</span>
+            <span class="dcf-input-wrap dcf-suffix-wrap"
+              ><input
+                class="control"
+                id="terminalGrowth"
+                name="terminalGrowth"
+                type="number"
+                min="-20"
+                max="20"
+                step="0.1"
+                value="2.5"
+                inputmode="decimal"
+                required
+              /><span class="dcf-suffix" aria-hidden="true">%</span></span
+            >
+          </label>
+          <label class="dcf-field">
+            <span>Net debt</span>
+            <span class="dcf-input-wrap"
+              ><span class="dcf-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="netDebt"
+                name="netDebt"
+                type="number"
+                min="-1000000000000"
+                max="1000000000000"
+                step="any"
+                value="0"
+                inputmode="decimal"
+                required
+            /></span>
+            <small
+              >Debt minus cash; enter negative net debt for net cash.</small
+            >
+          </label>
+          <label class="dcf-field">
+            <span>Diluted shares outstanding</span>
+            <span class="dcf-input-wrap"
+              ><input
+                class="control"
+                id="sharesOutstanding"
+                name="sharesOutstanding"
+                type="number"
+                min="0.000001"
+                max="1000000000000"
+                step="any"
+                value="100"
+                inputmode="decimal"
+                required
+              /><span class="dcf-suffix dcf-share-suffix" aria-hidden="true"
+                >shares</span
+              ></span
+            >
+          </label>
+          <label class="dcf-field">
+            <span>Display currency</span>
+            <select class="control" id="dcfCurrency" name="currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound Sterling</option>
+            </select>
+            <small>Display only; no exchange-rate conversion is applied.</small>
+          </label>
+        </div>
+        <p class="dcf-error" id="dcfError" role="alert" hidden></p>
+        <button class="btn dcf-submit" type="submit">Update valuation</button>
+        <button class="dcf-reset" type="reset">Reset assumptions</button>
+      </form>
+
+      <div class="dcf-results" id="dcfResults" aria-live="off">
+        <section
+          class="hero-panel dcf-valuation-summary"
+          aria-labelledby="dcfSummaryHeading"
+        >
+          <div class="dcf-summary-top">
+            <div>
+              <span class="dcf-kicker">Illustrative intrinsic value</span>
+              <h2 id="dcfSummaryHeading">
+                <span
+                  id="valuePerShare"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  >$0.00</span
+                ><small>per share</small>
+              </h2>
+            </div>
+            <span class="dcf-badge" id="dcfModelStatus">DCF estimate</span>
+          </div>
+          <p class="dcf-equity-value">
+            Estimated equity value <strong id="equityValue">$0</strong>
+          </p>
+          <div class="dcf-metric-grid">
+            <div class="dcf-metric">
+              <span>Enterprise value</span
+              ><strong id="enterpriseValue">$0</strong>
+            </div>
+            <div class="dcf-metric">
+              <span>PV of forecast cash flows</span
+              ><strong id="pvForecast">$0</strong>
+            </div>
+            <div class="dcf-metric">
+              <span>PV of terminal value</span
+              ><strong id="pvTerminal">$0</strong>
+            </div>
+            <div class="dcf-metric">
+              <span>Terminal value share of EV</span
+              ><strong id="terminalShare">0%</strong>
+            </div>
+          </div>
+          <p class="dcf-assumptions" id="dcfAssumptions"></p>
+        </section>
+
+        <section
+          class="hero-panel dcf-forecast-panel"
+          aria-labelledby="forecastHeading"
+        >
+          <div class="dcf-section-heading">
+            <div>
+              <span class="dcf-kicker">Explicit forecast</span>
+              <h2 id="forecastHeading">Projected free cash flow</h2>
+            </div>
+          </div>
+          <div class="dcf-table-wrap">
+            <table class="dcf-table">
+              <thead>
+                <tr>
+                  <th scope="col">Year</th>
+                  <th scope="col">Projected FCFF</th>
+                  <th scope="col">Discount factor</th>
+                  <th scope="col">Present value</th>
+                </tr>
+              </thead>
+              <tbody id="forecastRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section
+          class="hero-panel dcf-sensitivity-panel"
+          aria-labelledby="sensitivityHeading"
+        >
+          <div class="dcf-section-heading">
+            <div>
+              <span class="dcf-kicker">Scenario analysis</span>
+              <h2 id="sensitivityHeading">Per-share value sensitivity</h2>
+            </div>
+          </div>
+          <p class="muted">
+            Illustrative value per share across discount-rate and
+            terminal-growth assumptions. The central cell uses your entered
+            assumptions.
+          </p>
+          <div class="dcf-table-wrap">
+            <table class="dcf-table dcf-sensitivity-table">
+              <caption id="sensitivityCaption">
+                Value per share
+              </caption>
+              <thead id="sensitivityHead"></thead>
+              <tbody id="sensitivityRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="dcf-disclaimer" role="note">
+          <strong>Important assumptions and disclaimer</strong>
+          <p>
+            This simplified discounted cash flow model is educational, not
+            investment, tax, or financial advice. It assumes a constant annual
+            FCFF growth rate during the forecast, a Gordon growth terminal
+            value, and that the discount rate exceeds perpetual growth. It does
+            not model taxes, changing margins, dilution, options, minority
+            interests, or other balance-sheet adjustments. Actual results and
+            market prices may differ materially. A DCF is highly sensitive to
+            its assumptions; verify inputs and consider consulting a qualified
+            professional.
+          </p>
+        </aside>
+      </div>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/dcf-valuation.js?v=2026102003"></script>
+  </body>
+</html>

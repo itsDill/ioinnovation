@@ -687,7 +687,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         navigator.serviceWorker
-          .register("/sw.js?v=2026071302", { updateViaCache: "none" })
+          .register("/sw.js?v=2026102021", { updateViaCache: "none" })
           .then((registration) => {
             // Ask browser to check for a newer service worker immediately.
             registration.update();
@@ -733,15 +733,14 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-brand">
           <a href="/" class="logo">IO Innovation</a>
           <p>
-            Free institutional holdings tracker built from public SEC filings.
+            Practical tools for investing, research, and personal finance.
           </p>
         </div>
 
         <div class="footer-col">
           <h4>Tracker</h4>
           <ul>
-            <li><a href="/holdings/">Holdings</a></li>
-            <li><a href="/filers/">Filers</a></li>
+            <li><a href="/tools/">Tools</a></li>
             <li><a href="/blog/">Blog</a></li>
           </ul>
         </div>
@@ -749,10 +748,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-col">
           <h4>Resources</h4>
           <ul>
-            <li><a href="/data/holdings-latest.json">Holdings JSON</a></li>
-            <li><a href="/data/form4-latest.json">Form 4 JSON</a></li>
             <li><a href="/methodology.html">Methodology</a></li>
-            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/about.html">About</a></li>
           </ul>
         </div>
 
@@ -761,8 +758,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <ul>
             <li><a href="/privacy.html">Privacy Policy</a></li>
             <li><a href="/terms.html">Terms</a></li>
-            <li><a href="/disclaimer.html">Disclaimer</a></li>
-            <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -770,9 +765,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <div class="footer-bottom">
         <p>&copy; 2026 IO Innovation. All rights reserved.</p>
-        <p class="footer-disclaimer">
-          Content is for informational purposes only, not investment advice. Not affiliated with the separate "I/O Fund" newsletter.
-        </p>
       </div>
     `;
   }

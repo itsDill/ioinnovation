@@ -1,0 +1,423 @@
+.inflation-form,
+.inflation-results {
+  margin-top: 1rem;
+}
+
+.inflation-form-heading h2,
+.inflation-section-heading h2 {
+  margin-top: 0.4rem;
+  color: #1c4640;
+  font-size: 1.3rem;
+  letter-spacing: -0.04em;
+}
+
+.inflation-form-heading .muted {
+  margin-top: 0.4rem;
+  font-size: 0.84rem;
+}
+
+.inflation-kicker {
+  color: #9a6634;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.inflation-input-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.inflation-field {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  min-width: 0;
+  color: #42635b;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.inflation-field small {
+  color: #758781;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.inflation-input-wrap {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.site-refresh .inflation-input-wrap .control {
+  min-width: 0;
+  padding-right: 0.65rem;
+  padding-left: 2rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.site-refresh .inflation-suffix-wrap .control {
+  padding-right: 3rem;
+  padding-left: 0.75rem;
+}
+
+.site-refresh .inflation-field select.control {
+  padding-right: 0.65rem;
+  padding-left: 0.7rem;
+  font-size: 0.83rem;
+}
+
+.site-refresh .inflation-form .control[aria-invalid="true"] {
+  border-color: #b44747;
+  box-shadow: 0 0 0 2px rgba(180, 71, 71, 0.12);
+}
+
+.inflation-currency,
+.inflation-suffix {
+  position: absolute;
+  z-index: 1;
+  color: #758781;
+  font-size: 0.84rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.inflation-currency {
+  left: 0.8rem;
+}
+
+.inflation-suffix {
+  right: 0.8rem;
+  font-size: 0.74rem;
+}
+
+.inflation-submit {
+  width: 100%;
+  margin-top: 1.25rem;
+  cursor: pointer;
+}
+
+.inflation-reset {
+  display: block;
+  min-height: 40px;
+  margin: 0.35rem auto 0;
+  border: 0;
+  background: transparent;
+  color: #557169;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.inflation-reset:hover {
+  color: #17684f;
+}
+
+.inflation-error {
+  margin-top: 0.8rem;
+  color: #a13f3f;
+  font-size: 0.84rem;
+}
+
+.inflation-results {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.inflation-results[hidden] {
+  display: none;
+}
+
+.site-refresh .inflation-summary,
+.site-refresh .inflation-chart-panel,
+.site-refresh .inflation-table-panel {
+  margin: 0;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.inflation-summary-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.inflation-summary-heading h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  color: #173e36;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.inflation-summary-heading h2 small {
+  color: #627873;
+  font-size: 0.9rem;
+  font-weight: 550;
+  letter-spacing: 0;
+}
+
+.inflation-badge {
+  flex: none;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: #fbefdf;
+  color: #8d5a2a;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.inflation-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.inflation-metric {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid rgba(35, 80, 69, 0.08);
+  border-radius: 16px;
+  background: #f5faf7;
+}
+
+.inflation-metric span {
+  color: #627873;
+  font-size: 0.72rem;
+}
+
+.inflation-metric strong {
+  color: #1b3e39;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.inflation-assumptions {
+  margin-top: 0.9rem;
+  color: #758781;
+  font-size: 0.72rem;
+}
+
+.inflation-section-heading h2 {
+  font-size: 1.15rem;
+}
+
+.inflation-chart-wrap {
+  width: 100%;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+#inflationChart {
+  display: block;
+  width: 100%;
+  min-width: 420px;
+  height: auto;
+  overflow: visible;
+}
+
+#inflationChart .inflation-gridline {
+  stroke: #e8e0d5;
+  stroke-width: 1;
+}
+
+#inflationChart .inflation-axis-label {
+  fill: #71827d;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+#inflationChart .inflation-chart-area {
+  fill: url(#inflationFill);
+}
+
+#inflationChart .inflation-chart-line {
+  fill: none;
+  stroke: #b77d44;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+#inflationChart .inflation-chart-dot {
+  fill: #b77d44;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.inflation-chart-caption {
+  margin-top: 0.6rem;
+  color: #758781;
+  font-size: 0.75rem;
+}
+
+.site-refresh .inflation-table-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.inflation-table-panel summary {
+  padding: 1.2rem 1.5rem;
+  color: #1b3e39;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.inflation-table-wrap {
+  max-height: 360px;
+  overflow: auto;
+  border-top: 1px solid rgba(35, 80, 69, 0.1);
+}
+
+.inflation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.inflation-table th,
+.inflation-table td {
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid rgba(35, 80, 69, 0.08);
+  white-space: nowrap;
+}
+
+.inflation-table th {
+  position: sticky;
+  top: 0;
+  background: #f5faf7;
+  color: #526c66;
+  font-size: 0.72rem;
+}
+
+.inflation-table th[scope="row"] {
+  text-align: left;
+}
+
+.inflation-disclaimer {
+  padding: 1rem 1.1rem;
+  border: 1px solid #ead6a5;
+  border-radius: 16px;
+  background: #fff8e8;
+  color: #624e28;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.inflation-disclaimer strong {
+  color: #594318;
+}
+
+.inflation-disclaimer p {
+  margin-top: 0.35rem;
+}
+
+[data-theme="dark"] .inflation-form-heading h2,
+[data-theme="dark"] .inflation-section-heading h2,
+[data-theme="dark"] .inflation-summary-heading h2,
+[data-theme="dark"] .inflation-metric strong,
+[data-theme="dark"] .inflation-table-panel summary {
+  color: #e9f5f0;
+}
+
+[data-theme="dark"] .inflation-field {
+  color: #b2c9c0;
+}
+
+[data-theme="dark"] .inflation-summary-heading h2 small,
+[data-theme="dark"] .inflation-assumptions,
+[data-theme="dark"] .inflation-chart-caption,
+[data-theme="dark"] .inflation-field small {
+  color: #a2b9b0;
+}
+
+[data-theme="dark"] .inflation-badge {
+  background: #3e3325;
+  color: #f0d2ac;
+}
+
+[data-theme="dark"] .inflation-metric {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #14231f;
+}
+
+[data-theme="dark"] .inflation-metric span {
+  color: #a2b9b0;
+}
+
+[data-theme="dark"] #inflationChart .inflation-gridline {
+  stroke: #3c4039;
+}
+
+[data-theme="dark"] #inflationChart .inflation-axis-label {
+  fill: #a2b9b0;
+}
+
+[data-theme="dark"] .inflation-table-wrap {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .inflation-table th,
+[data-theme="dark"] .inflation-table td {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .inflation-table th {
+  background: #14231f;
+  color: #b2c9c0;
+}
+
+[data-theme="dark"] .inflation-disclaimer {
+  border-color: #66562f;
+  background: #2d291d;
+  color: #e2d6b4;
+}
+
+[data-theme="dark"] .inflation-disclaimer strong {
+  color: #f0dfa9;
+}
+
+@media (max-width: 1000px) {
+  .inflation-input-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .inflation-input-grid,
+  .inflation-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .inflation-input-grid,
+  .inflation-metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inflation-summary-heading {
+    flex-direction: column;
+  }
+}

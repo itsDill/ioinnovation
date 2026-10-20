@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inflation Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Compare the purchasing power of an amount across years using an inflation assumption."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/inflation-calculator.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/inflation-calculator.css?v=2026102002" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Purchasing power</span>
+        <h1 class="hero-title">Inflation Calculator</h1>
+        <p class="hero-subtitle">
+          See how an assumed inflation rate changes the future cost and
+          purchasing power of an amount over time.
+        </p>
+      </section>
+      <form
+        class="filter-panel inflation-form"
+        id="inflationForm"
+        aria-label="Inflation assumptions"
+        novalidate
+      >
+        <div class="inflation-form-heading">
+          <span class="inflation-kicker">Your assumptions</span>
+          <h2>Compare purchasing power</h2>
+          <p class="muted">
+            Enter an amount in the start year and an average annual inflation
+            assumption. This is a scenario, not historical CPI data.
+          </p>
+        </div>
+        <div class="inflation-input-grid">
+          <label class="inflation-field">
+            <span>Starting amount</span>
+            <span class="inflation-input-wrap"
+              ><span class="inflation-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="startingAmount"
+                name="startingAmount"
+                type="number"
+                min="0"
+                max="1000000000000"
+                step="any"
+                value="100"
+                inputmode="decimal"
+                required
+            /></span>
+          </label>
+          <label class="inflation-field">
+            <span>Start year</span>
+            <input
+              class="control"
+              id="startYear"
+              name="startYear"
+              type="number"
+              min="1900"
+              max="2200"
+              step="1"
+              value="2026"
+              inputmode="numeric"
+              required
+            />
+          </label>
+          <label class="inflation-field">
+            <span>End year</span>
+            <input
+              class="control"
+              id="endYear"
+              name="endYear"
+              type="number"
+              min="1901"
+              max="2200"
+              step="1"
+              value="2046"
+              inputmode="numeric"
+              required
+            />
+          </label>
+          <label class="inflation-field">
+            <span>Average annual inflation</span>
+            <span class="inflation-input-wrap inflation-suffix-wrap"
+              ><input
+                class="control"
+                id="inflationRate"
+                name="inflationRate"
+                type="number"
+                min="-20"
+                max="50"
+                step="0.1"
+                value="2.5"
+                inputmode="decimal"
+                required
+              /><span class="inflation-suffix" aria-hidden="true">%</span></span
+            >
+            <small>Negative values model deflation.</small>
+          </label>
+          <label class="inflation-field">
+            <span>Display currency</span>
+            <select class="control" id="inflationCurrency" name="currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound Sterling</option>
+            </select>
+            <small>Display only; no exchange-rate conversion.</small>
+          </label>
+        </div>
+        <p class="inflation-error" id="inflationError" role="alert" hidden></p>
+        <button class="btn inflation-submit" type="submit">
+          Update estimate
+        </button>
+        <button class="inflation-reset" type="reset">Reset assumptions</button>
+      </form>
+
+      <div class="inflation-results" id="inflationResults">
+        <section
+          class="hero-panel inflation-summary"
+          aria-labelledby="inflationSummaryHeading"
+        >
+          <div class="inflation-summary-heading">
+            <div>
+              <span class="inflation-kicker">Estimated future equivalent</span>
+              <h2 id="inflationSummaryHeading">
+                <span
+                  id="futureAmount"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  >$0</span
+                ><small>in <span id="summaryEndYear">2046</span></small>
+              </h2>
+            </div>
+            <span class="inflation-badge" id="cumulativeInflation"
+              >0% cumulative change</span
+            >
+          </div>
+          <div class="inflation-metric-grid">
+            <div class="inflation-metric">
+              <span>Starting amount</span
+              ><strong id="summaryStartingAmount">$0</strong>
+            </div>
+            <div class="inflation-metric">
+              <span>Additional amount needed</span
+              ><strong id="additionalAmount">$0</strong>
+            </div>
+            <div class="inflation-metric">
+              <span>Purchasing power of the same amount</span
+              ><strong id="purchasingPower">$0</strong>
+            </div>
+          </div>
+          <p class="inflation-assumptions" id="inflationAssumptions"></p>
+        </section>
+
+        <section
+          class="hero-panel inflation-chart-panel"
+          aria-labelledby="inflationChartHeading"
+        >
+          <div class="inflation-section-heading">
+            <div>
+              <span class="inflation-kicker">Illustrative scenario</span>
+              <h2 id="inflationChartHeading">Equivalent amount over time</h2>
+            </div>
+          </div>
+          <div class="inflation-chart-wrap">
+            <svg
+              id="inflationChart"
+              viewBox="0 0 720 280"
+              role="img"
+              aria-labelledby="inflationChartTitle inflationChartDescription"
+            ></svg>
+          </div>
+          <p class="inflation-chart-caption">
+            Assumes the same average annual rate for every year in the selected
+            period.
+          </p>
+        </section>
+
+        <details class="hero-panel inflation-table-panel">
+          <summary>View year-by-year breakdown</summary>
+          <div class="inflation-table-wrap">
+            <table class="inflation-table">
+              <thead>
+                <tr>
+                  <th scope="col">Year</th>
+                  <th scope="col">Equivalent amount</th>
+                  <th scope="col">Cumulative change</th>
+                  <th scope="col">Purchasing power of starting amount</th>
+                </tr>
+              </thead>
+              <tbody id="inflationRows"></tbody>
+            </table>
+          </div>
+        </details>
+
+        <aside class="inflation-disclaimer" role="note">
+          <strong>Important assumptions and disclaimer</strong>
+          <p>
+            This educational calculator is not financial advice and does not use
+            observed historical or official CPI data. It applies the selected
+            constant annual rate, compounded once per year, to illustrate how
+            prices or purchasing power might change. Actual inflation varies
+            across time, regions, and categories; your personal cost of living
+            may differ. Currency changes the display symbol only; no
+            foreign-exchange conversion is performed.
+          </p>
+        </aside>
+      </div>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/inflation-calculator.js?v=2026102002"></script>
+  </body>
+</html>

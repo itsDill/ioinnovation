@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Allocation Tool | IO Innovation</title>
+    <meta
+      name="description"
+      content="Visualize a hypothetical portfolio allocation across asset categories."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/portfolio-allocation.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/portfolio-allocation.css?v=2026102003" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Portfolio planning</span>
+        <h1 class="hero-title">Portfolio Allocation Tool</h1>
+        <p class="hero-subtitle">
+          Compare your current mix with a target, see allocation drift, and
+          estimate how a new contribution could move the portfolio toward plan.
+        </p>
+      </section>
+      <form
+        class="filter-panel allocation-form"
+        id="allocationForm"
+        aria-label="Portfolio allocation assumptions"
+        novalidate
+      >
+        <div class="allocation-form-heading">
+          <span class="allocation-kicker">Your portfolio</span>
+          <h2>Set targets and current values</h2>
+          <p class="muted">
+            Edit categories and target percentages. Target weights should add up
+            to 100%. Values remain in your browser.
+          </p>
+        </div>
+        <div class="allocation-top-inputs">
+          <label class="allocation-field">
+            <span>New contribution to allocate <small>(optional)</small></span>
+            <span class="allocation-input-wrap"
+              ><span class="allocation-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="newContribution"
+                name="newContribution"
+                type="number"
+                min="0"
+                max="1000000000000"
+                step="any"
+                value="0"
+                inputmode="decimal"
+                required
+            /></span>
+          </label>
+          <label class="allocation-field">
+            <span>Display currency</span>
+            <select class="control" id="allocationCurrency" name="currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound Sterling</option>
+            </select>
+            <small>Display only; no exchange conversion.</small>
+          </label>
+        </div>
+        <div class="allocation-table-wrap">
+          <table class="allocation-input-table">
+            <thead>
+              <tr>
+                <th scope="col">Asset category</th>
+                <th scope="col">Current value</th>
+                <th scope="col">Target weight</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="allocationInputs"></tbody>
+          </table>
+        </div>
+        <div class="allocation-controls">
+          <button class="allocation-secondary" id="addCategory" type="button">
+            Add category
+          </button>
+          <span class="allocation-target-total" id="targetTotal"
+            >Target total: 100%</span
+          >
+        </div>
+        <p
+          class="allocation-error"
+          id="allocationError"
+          role="alert"
+          hidden
+        ></p>
+        <button class="btn allocation-submit" type="submit">
+          Update allocation
+        </button>
+        <button class="allocation-reset" type="reset">
+          Reset sample values
+        </button>
+      </form>
+
+      <div class="allocation-results" id="allocationResults">
+        <section
+          class="hero-panel allocation-summary"
+          aria-labelledby="allocationSummaryHeading"
+        >
+          <div class="allocation-summary-heading">
+            <div>
+              <span class="allocation-kicker" id="portfolioTotalLabel"
+                >Current portfolio</span
+              >
+              <h2 id="allocationSummaryHeading">
+                <span id="portfolioTotal">$0</span><small>total value</small>
+              </h2>
+            </div>
+            <span class="allocation-badge" id="allocationDrift"
+              >0% away from target</span
+            >
+          </div>
+          <div class="allocation-metric-grid">
+            <div class="allocation-metric">
+              <span>Categories</span><strong id="categoryCount">0</strong>
+            </div>
+            <div class="allocation-metric">
+              <span>Largest overweight</span
+              ><strong id="largestOverweight">—</strong>
+            </div>
+            <div class="allocation-metric">
+              <span>Largest underweight</span
+              ><strong id="largestUnderweight">—</strong>
+            </div>
+            <div class="allocation-metric">
+              <span>Target total</span
+              ><strong id="targetWeightSummary">100%</strong>
+            </div>
+          </div>
+          <p class="allocation-assumptions" id="contributionSummary"></p>
+        </section>
+
+        <section
+          class="hero-panel allocation-chart-panel"
+          aria-labelledby="allocationChartHeading"
+        >
+          <div class="allocation-section-heading">
+            <div>
+              <span class="allocation-kicker">Current versus target</span>
+              <h2 id="allocationChartHeading">Portfolio weights</h2>
+            </div>
+          </div>
+          <div class="allocation-chart-wrap">
+            <svg
+              id="allocationChart"
+              viewBox="0 0 720 300"
+              role="img"
+              aria-labelledby="allocationChartTitle allocationChartDescription"
+            ></svg>
+          </div>
+          <div
+            class="allocation-legend"
+            id="allocationLegend"
+            aria-label="Asset category legend"
+          ></div>
+        </section>
+
+        <section
+          class="hero-panel allocation-breakdown-panel"
+          aria-labelledby="allocationBreakdownHeading"
+        >
+          <div class="allocation-section-heading">
+            <div>
+              <span class="allocation-kicker">Rebalancing view</span>
+              <h2 id="allocationBreakdownHeading">Allocation breakdown</h2>
+            </div>
+          </div>
+          <div class="allocation-table-wrap">
+            <table class="allocation-output-table">
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Current weight</th>
+                  <th scope="col">Target weight</th>
+                  <th scope="col">Drift</th>
+                  <th scope="col">Target value after contribution</th>
+                  <th scope="col">Difference to target</th>
+                  <th scope="col">Estimated value after contribution</th>
+                </tr>
+              </thead>
+              <tbody id="allocationRows"></tbody>
+            </table>
+          </div>
+          <p class="allocation-footnote">
+            Difference is target value after the contribution minus current
+            value. Positive values indicate underweight relative to target;
+            negative values indicate overweight. Suggested cash is directed to
+            underweight categories first, then any remainder is allocated by
+            target weights. No existing holdings are sold.
+          </p>
+        </section>
+
+        <aside class="allocation-disclaimer" role="note">
+          <strong>Important assumptions and disclaimer</strong>
+          <p>
+            This educational planner is not investment, tax, or financial
+            advice. It compares entered values with hypothetical target weights
+            and does not account for fees, taxes, liquidity, risk tolerance,
+            investment goals, or asset correlations. The contribution view
+            assumes all new cash can be allocated according to target weights
+            and does not recommend trades or sales. Review allocations in the
+            context of your circumstances and consider consulting a qualified
+            professional.
+          </p>
+        </aside>
+      </div>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/portfolio-allocation.js?v=2026102003"></script>
+  </body>
+</html>

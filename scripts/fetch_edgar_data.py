@@ -20,8 +20,6 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 EDGAR_DIR = DATA_DIR / "edgar"
 FILER_JSON_DIR = DATA_DIR / "filers"
-FILER_HTML_DIR = ROOT / "filers"
-HOLDINGS_PAGE = ROOT / "holdings" / "index.html"
 
 SEC_HEADERS = {
     "User-Agent": "ioinnovationfund.com filings bot (contact@ioinnovationfund.com)",
@@ -399,7 +397,7 @@ def render_filer_html(summary: dict[str, Any], holdings: list[dict[str, Any]], g
             <section class=\"hero-panel\" style=\"margin-top: 1rem\">
                 <h2 style=\"font-size: 1.1rem\">Methodology and disclaimer</h2>
                 <p class=\"hero-subtitle\">Source filing links point to SEC EDGAR. Data may include parser or ticker-mapping errors. Verify critical details in the original filing.</p>
-                <p class=\"muted\">Not investment advice. Not affiliated with the separate \"I/O Fund\" newsletter. See <a href=\"/methodology.html\">methodology</a>.</p>
+                <p class=\"muted\">Review <a href=\"/methodology.html\">methodology</a> for source details and known data limits.</p>
             </section>
     </main>
 
@@ -513,7 +511,6 @@ def render_filers_index(filers_summary: list[dict[str, Any]]) -> str:
         {card_html}
       </section>
             <section class=\"hero-panel\" style=\"margin-top: 1rem\">
-                <p class=\"muted\">Not investment advice. Not affiliated with the separate \"I/O Fund\" newsletter.</p>
             </section>
     </main>
 
@@ -735,7 +732,7 @@ def render_holdings_index(
             <section class=\"hero-panel\" style=\"margin-top: 1rem\">
                 <h2 style=\"font-size: 1.1rem\">Form 4 feed</h2>
                 <p class=\"hero-subtitle\">Recent insider filing items are published in static JSON at <a href=\"/data/form4-latest.json\">/data/form4-latest.json</a>.</p>
-                <p class=\"muted\">Not investment advice. Not affiliated with the separate \"I/O Fund\" newsletter. Review <a href=\"/methodology.html\">methodology and known data limits</a>.</p>
+                <p class=\"muted\">Review <a href=\"/methodology.html\">methodology and known data limits</a>.</p>
             </section>
         </main>
 
@@ -894,15 +891,7 @@ def main() -> int:
             },
         )
 
-    generate_filer_pages(filers_summary, by_slug)
-    (FILER_HTML_DIR / "index.html").write_text(render_filers_index(filers_summary), encoding="utf-8")
-    HOLDINGS_PAGE.parent.mkdir(parents=True, exist_ok=True)
-    HOLDINGS_PAGE.write_text(
-        render_holdings_index(holdings_rows, filers_summary, generated_at),
-        encoding="utf-8",
-    )
-
-    print(f"Generated {len(filers_summary)} filer snapshots and {len(holdings_rows)} holdings rows")
+    print(f"Generated data for {len(filers_summary)} filers and {len(holdings_rows)} holdings rows")
     print(f"Generated {len(form4_rows)} Form 4 entries")
     return 0
 

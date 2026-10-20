@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position Size Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Estimate a position size from a chosen portfolio risk amount and price levels."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/position-size-calculator.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link
+      rel="stylesheet"
+      href="/css/position-size-calculator.css?v=2026102001"
+    />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Risk planning</span>
+        <h1 class="hero-title">Position Size Calculator</h1>
+        <p class="hero-subtitle">
+          Estimate a hypothetical share quantity from your account value, risk
+          budget, entry price, and stop level.
+        </p>
+      </section>
+      <form
+        class="filter-panel position-form"
+        id="positionForm"
+        aria-label="Position sizing assumptions"
+        novalidate
+      >
+        <div class="position-form-heading">
+          <span class="position-kicker">Your assumptions</span>
+          <h2>Set a risk budget</h2>
+          <p class="muted">
+            The estimate uses the distance from entry to stop. Values stay in
+            your browser; no market data or order execution is involved.
+          </p>
+        </div>
+        <div class="position-input-grid">
+          <label class="position-field">
+            <span>Account value</span>
+            <span class="position-input-wrap">
+              <span class="position-currency" aria-hidden="true">$</span>
+              <input
+                class="control"
+                id="accountValue"
+                name="accountValue"
+                type="number"
+                min="0.01"
+                max="1000000000000"
+                step="any"
+                value="25000"
+                inputmode="decimal"
+                required
+              />
+            </span>
+          </label>
+          <label class="position-field">
+            <span>Risk budget type</span>
+            <select class="control" id="riskType" name="riskType">
+              <option value="percent" selected>Percent of account</option>
+              <option value="fixed">Fixed amount</option>
+            </select>
+          </label>
+          <label class="position-field" id="riskPercentField">
+            <span>Risk per trade</span>
+            <span class="position-input-wrap position-suffix-wrap">
+              <input
+                class="control"
+                id="riskPercent"
+                name="riskPercent"
+                type="number"
+                min="0.01"
+                max="100"
+                step="any"
+                value="1"
+                inputmode="decimal"
+                required
+              />
+              <span class="position-suffix" aria-hidden="true">%</span>
+            </span>
+          </label>
+          <label class="position-field" id="riskAmountField" hidden>
+            <span>Risk amount</span>
+            <span class="position-input-wrap">
+              <span class="position-currency" aria-hidden="true">$</span>
+              <input
+                class="control"
+                id="riskAmount"
+                name="riskAmount"
+                type="number"
+                min="0.01"
+                max="1000000000000"
+                step="any"
+                value="250"
+                inputmode="decimal"
+              />
+            </span>
+          </label>
+          <label class="position-field">
+            <span>Trade direction</span>
+            <select class="control" id="direction" name="direction">
+              <option value="long" selected>Long — stop below entry</option>
+              <option value="short">Short — stop above entry</option>
+            </select>
+          </label>
+          <label class="position-field">
+            <span>Entry price</span>
+            <span class="position-input-wrap">
+              <span class="position-currency" aria-hidden="true">$</span>
+              <input
+                class="control"
+                id="entryPrice"
+                name="entryPrice"
+                type="number"
+                min="0.000001"
+                max="1000000000"
+                step="any"
+                value="100"
+                inputmode="decimal"
+                required
+              />
+            </span>
+          </label>
+          <label class="position-field">
+            <span>Stop price</span>
+            <span class="position-input-wrap">
+              <span class="position-currency" aria-hidden="true">$</span>
+              <input
+                class="control"
+                id="stopPrice"
+                name="stopPrice"
+                type="number"
+                min="0.000001"
+                max="1000000000"
+                step="any"
+                value="95"
+                inputmode="decimal"
+                required
+              />
+            </span>
+            <small
+              >Per-share risk is the absolute difference between entry and
+              stop.</small
+            >
+          </label>
+          <label class="position-field">
+            <span>Share quantity</span>
+            <select class="control" id="sharePrecision" name="sharePrecision">
+              <option value="whole" selected>Whole shares</option>
+              <option value="fractional">Fractional shares (4 decimals)</option>
+            </select>
+          </label>
+          <label class="position-field">
+            <span>Display currency</span>
+            <select class="control" id="positionCurrency" name="currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound Sterling</option>
+            </select>
+            <small>Display only; no exchange-rate conversion.</small>
+          </label>
+        </div>
+        <p class="position-error" id="positionError" role="alert" hidden></p>
+        <button class="btn position-submit" type="submit">
+          Update position estimate
+        </button>
+        <button class="position-reset" type="reset">Reset assumptions</button>
+      </form>
+
+      <section
+        class="position-results"
+        id="positionResults"
+        aria-labelledby="positionResultsHeading"
+      >
+        <div class="hero-panel position-summary">
+          <div class="position-summary-heading">
+            <div>
+              <span class="position-kicker">Estimated position size</span>
+              <h2 id="positionResultsHeading">
+                <span
+                  id="shareQuantity"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  >50 shares</span
+                >
+              </h2>
+            </div>
+            <span class="position-badge" id="riskBadge"
+              >1.00% account risk</span
+            >
+          </div>
+          <div class="position-metric-grid">
+            <div class="position-metric">
+              <span>Risk budget</span><strong id="riskBudget">$250.00</strong>
+            </div>
+            <div class="position-metric">
+              <span>Risk per share</span
+              ><strong id="riskPerShare">$5.00</strong>
+            </div>
+            <div class="position-metric">
+              <span>Estimated position value</span
+              ><strong id="positionValue">$5,000.00</strong>
+            </div>
+            <div class="position-metric">
+              <span>Account value at risk</span
+              ><strong id="accountRisk">1.00%</strong>
+            </div>
+          </div>
+          <p class="position-assumptions" id="positionAssumptions"></p>
+          <p
+            class="position-warning"
+            id="positionWarning"
+            role="status"
+            hidden
+          ></p>
+        </div>
+        <aside class="position-disclaimer" role="note">
+          <strong>Important assumptions and disclaimer</strong>
+          <p>
+            This educational estimate is not investment or financial advice. It
+            assumes the entered stop price is filled exactly; actual losses can
+            exceed the estimate because of gaps, slippage, liquidity, fees, or
+            other market conditions. It does not account for leverage, taxes, or
+            trading rules, and it does not determine whether a trade is
+            suitable. A display currency selection changes formatting only and
+            does not convert values. Verify all inputs and consider consulting a
+            qualified professional.
+          </p>
+        </aside>
+      </section>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/position-size-calculator.js?v=2026102001"></script>
+  </body>
+</html>

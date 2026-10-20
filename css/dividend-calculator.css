@@ -1,0 +1,298 @@
+.dividend-form,
+.dividend-results {
+  margin-top: 1rem;
+}
+
+.dividend-form-heading h2 {
+  margin-top: 0.4rem;
+  color: #1c4640;
+  font-size: 1.3rem;
+  letter-spacing: -0.04em;
+}
+
+.dividend-form-heading .muted {
+  margin-top: 0.4rem;
+  font-size: 0.84rem;
+}
+
+.dividend-kicker {
+  color: #197456;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dividend-input-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.dividend-field {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  min-width: 0;
+  color: #42635b;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.dividend-field > span:first-child small {
+  color: #758781;
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.dividend-field > small {
+  color: #758781;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.dividend-input-wrap {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.site-refresh .dividend-input-wrap .control {
+  min-width: 0;
+  padding-right: 0.65rem;
+  padding-left: 2rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.site-refresh .dividend-suffix-wrap .control {
+  padding-right: 3rem;
+  padding-left: 0.75rem;
+}
+
+.site-refresh .dividend-field select.control {
+  padding-right: 0.65rem;
+  padding-left: 0.7rem;
+  font-size: 0.83rem;
+}
+
+.site-refresh .dividend-form .control[aria-invalid="true"] {
+  border-color: #b44747;
+  box-shadow: 0 0 0 2px rgba(180, 71, 71, 0.12);
+}
+
+.dividend-currency,
+.dividend-suffix {
+  position: absolute;
+  z-index: 1;
+  color: #758781;
+  font-size: 0.84rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.dividend-currency {
+  left: 0.8rem;
+}
+
+.dividend-suffix {
+  right: 0.8rem;
+  font-size: 0.74rem;
+}
+
+.dividend-submit {
+  width: 100%;
+  margin-top: 1.25rem;
+  cursor: pointer;
+}
+
+.dividend-reset {
+  display: block;
+  min-height: 40px;
+  margin: 0.35rem auto 0;
+  border: 0;
+  background: transparent;
+  color: #557169;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.dividend-reset:hover {
+  color: #17684f;
+}
+
+.dividend-error {
+  margin-top: 0.8rem;
+  color: #a13f3f;
+  font-size: 0.84rem;
+}
+
+.dividend-results {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.dividend-results[hidden] {
+  display: none;
+}
+
+.site-refresh .dividend-summary {
+  margin: 0;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.dividend-summary-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.dividend-summary-heading h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  color: #173e36;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.dividend-summary-heading h2 small {
+  color: #627873;
+  font-size: 0.9rem;
+  font-weight: 550;
+  letter-spacing: 0;
+}
+
+.dividend-badge {
+  flex: none;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: #e8f6f0;
+  color: #197456;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.dividend-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.dividend-metric {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid rgba(35, 80, 69, 0.08);
+  border-radius: 16px;
+  background: #f5faf7;
+}
+
+.dividend-metric span {
+  color: #627873;
+  font-size: 0.72rem;
+}
+
+.dividend-metric strong {
+  color: #1b3e39;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.dividend-assumptions {
+  margin-top: 0.9rem;
+  color: #758781;
+  font-size: 0.72rem;
+}
+
+.dividend-disclaimer {
+  padding: 1rem 1.1rem;
+  border: 1px solid #ead6a5;
+  border-radius: 16px;
+  background: #fff8e8;
+  color: #624e28;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.dividend-disclaimer strong {
+  color: #594318;
+}
+
+.dividend-disclaimer p {
+  margin-top: 0.35rem;
+}
+
+[data-theme="dark"] .dividend-form-heading h2,
+[data-theme="dark"] .dividend-summary-heading h2,
+[data-theme="dark"] .dividend-metric strong {
+  color: #e9f5f0;
+}
+
+[data-theme="dark"] .dividend-field {
+  color: #b2c9c0;
+}
+
+[data-theme="dark"] .dividend-summary-heading h2 small,
+[data-theme="dark"] .dividend-field small,
+[data-theme="dark"] .dividend-assumptions {
+  color: #a2b9b0;
+}
+
+[data-theme="dark"] .dividend-badge {
+  background: #213b34;
+  color: #c8eedb;
+}
+
+[data-theme="dark"] .dividend-metric {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #14231f;
+}
+
+[data-theme="dark"] .dividend-metric span {
+  color: #a2b9b0;
+}
+
+[data-theme="dark"] .dividend-disclaimer {
+  border-color: #66562f;
+  background: #2d291d;
+  color: #e2d6b4;
+}
+
+[data-theme="dark"] .dividend-disclaimer strong {
+  color: #f0dfa9;
+}
+
+@media (max-width: 900px) {
+  .dividend-input-grid,
+  .dividend-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .dividend-input-grid,
+  .dividend-metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dividend-summary-heading {
+    flex-direction: column;
+  }
+}

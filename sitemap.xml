@@ -6,34 +6,54 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/holdings/</loc>
-    <changefreq>daily</changefreq>
+    <loc>https://ioinnovationfund.com/tools/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/filers/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://ioinnovationfund.com/tools/dividend-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/filers/berkshire-hathaway.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
+    <loc>https://ioinnovationfund.com/tools/compound-growth-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/filers/bridgewater-associates.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
+    <loc>https://ioinnovationfund.com/tools/stock-return-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/filers/pershing-square-capital.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
+    <loc>https://ioinnovationfund.com/tools/position-size-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/filers/scion-asset-management.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
+    <loc>https://ioinnovationfund.com/tools/dcf-valuation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/tools/portfolio-allocation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/tools/retirement-planner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/tools/savings-goal-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/tools/inflation-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ioinnovationfund.com/blog/</loc>
@@ -87,11 +107,6 @@
   </url>
   <url>
     <loc>https://ioinnovationfund.com/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.25</priority>
-  </url>
-  <url>
-    <loc>https://ioinnovationfund.com/disclaimer.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.25</priority>
   </url>

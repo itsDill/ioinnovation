@@ -25,14 +25,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Refresh data and filer pages
+      - name: Refresh supporting data
         run: python scripts/fetch_edgar_data.py
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/holdings-latest.json data/form4-latest.json data/btc-treasury-watchlist.json data/filers-index.json data/filers/*.json filers/*.html filers/index.html holdings/index.html
+          git add data/holdings-latest.json data/form4-latest.json data/btc-treasury-watchlist.json data/filers-index.json data/filers/*.json
           if git diff --cached --quiet; then
             echo "No data changes"
             exit 0

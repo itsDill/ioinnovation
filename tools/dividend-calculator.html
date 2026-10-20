@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dividend Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Estimate potential dividend income from share count and dividend rate."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/dividend-calculator.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/dividend-calculator.css?v=2026102002" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Income planning</span>
+        <h1 class="hero-title">Dividend Calculator</h1>
+        <p class="hero-subtitle">
+          Estimate gross and after-withholding dividend income, payout amounts,
+          and yield from a shareholding.
+        </p>
+      </section>
+      <form
+        class="filter-panel dividend-form"
+        id="dividendForm"
+        aria-label="Dividend assumptions"
+        novalidate
+      >
+        <div class="dividend-form-heading">
+          <span class="dividend-kicker">Your assumptions</span>
+          <h2>Set up a holding</h2>
+          <p class="muted">
+            Enter the dividend paid each time per share. Figures are estimates
+            and stay in your browser.
+          </p>
+        </div>
+        <div class="dividend-input-grid">
+          <label class="dividend-field">
+            <span>Number of shares</span>
+            <input
+              class="control"
+              id="shares"
+              name="shares"
+              type="number"
+              min="0"
+              max="1000000000000"
+              step="any"
+              value="100"
+              inputmode="decimal"
+              required
+            />
+          </label>
+          <label class="dividend-field">
+            <span>Dividend per share, per payment</span>
+            <span class="dividend-input-wrap"
+              ><span class="dividend-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="dividend"
+                name="dividend"
+                type="number"
+                min="0"
+                max="1000000"
+                step="any"
+                value="1"
+                inputmode="decimal"
+                required
+            /></span>
+          </label>
+          <label class="dividend-field">
+            <span>Payment frequency</span>
+            <select class="control" id="frequency" name="frequency">
+              <option value="1">Annual — 1 payment/year</option>
+              <option value="2">Semiannual — 2 payments/year</option>
+              <option value="4" selected>Quarterly — 4 payments/year</option>
+              <option value="12">Monthly — 12 payments/year</option>
+            </select>
+          </label>
+          <label class="dividend-field">
+            <span>Current share price <small>(optional)</small></span>
+            <span class="dividend-input-wrap"
+              ><span class="dividend-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="sharePrice"
+                name="sharePrice"
+                type="number"
+                min="0.000001"
+                max="1000000000"
+                step="any"
+                placeholder="Enter to estimate yield"
+                inputmode="decimal"
+            /></span>
+          </label>
+          <label class="dividend-field">
+            <span>Estimated withholding rate</span>
+            <span class="dividend-input-wrap dividend-suffix-wrap"
+              ><input
+                class="control"
+                id="withholdingRate"
+                name="withholdingRate"
+                type="number"
+                min="0"
+                max="100"
+                step="0.1"
+                value="0"
+                inputmode="decimal"
+                required
+              /><span class="dividend-suffix" aria-hidden="true">%</span></span
+            >
+            <small
+              >For an after-withholding estimate only; not a tax
+              calculation.</small
+            >
+          </label>
+          <label class="dividend-field">
+            <span>Display currency</span>
+            <select class="control" id="currency" name="currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound Sterling</option>
+            </select>
+            <small>Display symbol only; no exchange conversion.</small>
+          </label>
+        </div>
+        <p class="dividend-error" id="dividendError" role="alert" hidden></p>
+        <button class="btn dividend-submit" type="submit">
+          Update estimate
+        </button>
+        <button class="dividend-reset" type="reset">Reset assumptions</button>
+      </form>
+
+      <section
+        class="dividend-results"
+        id="dividendResults"
+        aria-labelledby="dividendResultsHeading"
+      >
+        <div class="hero-panel dividend-summary">
+          <div class="dividend-summary-heading">
+            <div>
+              <span class="dividend-kicker">Estimated gross income</span>
+              <h2 id="dividendResultsHeading">
+                <span
+                  id="annualIncome"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  >$0</span
+                ><small>per year</small>
+              </h2>
+            </div>
+            <span class="dividend-badge" id="yieldBadge"
+              >Yield unavailable</span
+            >
+          </div>
+          <div class="dividend-metric-grid">
+            <div class="dividend-metric">
+              <span>Per payment</span><strong id="paymentIncome">$0</strong>
+            </div>
+            <div class="dividend-metric">
+              <span>Monthly average</span><strong id="monthlyIncome">$0</strong>
+            </div>
+            <div class="dividend-metric">
+              <span>After withholding, annual</span
+              ><strong id="afterWithholding">$0</strong>
+            </div>
+            <div class="dividend-metric">
+              <span>Annual income yield</span
+              ><strong id="incomeYield">—</strong>
+            </div>
+          </div>
+          <p class="dividend-assumptions" id="dividendAssumptions"></p>
+        </div>
+        <aside class="dividend-disclaimer" role="note">
+          <strong>Important assumptions and disclaimer</strong>
+          <p>
+            This educational estimate is not investment, tax, or financial
+            advice. It assumes the entered dividend remains unchanged for a full
+            year and excludes fees and other taxes. Dividends are not guaranteed
+            and may be reduced, suspended, or stopped. The withholding estimate
+            is a simple percentage, not a measure of your actual tax liability.
+            Yield uses the entered current share price and does not represent
+            total return. Verify company information and consider consulting a
+            qualified professional.
+          </p>
+        </aside>
+      </section>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/dividend-calculator.js?v=2026102002"></script>
+  </body>
+</html>

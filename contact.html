@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | IO Innovation Filings</title>
+    <title>Contact IO Innovation | Data corrections and questions</title>
     <meta
       name="description"
-      content="Contact IO Innovation about filings coverage, data issues, or collaboration."
+      content="Contact IO Innovation about SEC filing data corrections, issuer coverage requests, site issues, or partnerships. Find out what details to include so we can investigate your message."
     />
     <link rel="canonical" href="https://ioinnovationfund.com/contact.html" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Contact IO Innovation Filings" />
+    <meta property="og:title" content="Contact IO Innovation" />
     <meta
       property="og:description"
-      content="Send filing correction reports, coverage requests, and data questions."
+      content="Send SEC filing corrections, coverage requests, technical reports, and partnership inquiries to IO Innovation."
     />
     <meta
       property="og:url"
@@ -60,18 +60,18 @@
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/contact.css?v=2026102001" />
   </head>
-  <body>
+  <body class="site-refresh">
     <a href="#main" class="skip-to-main">Skip to content</a>
     <header class="header">
       <nav class="nav">
-        <a href="/" class="logo">IO Innovation Filings</a>
+        <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/holdings/">Holdings</a></li>
-          <li><a href="/filers/">Filers</a></li>
+          <li><a href="/tools/">Tools</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html" class="active">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -92,33 +92,96 @@
       </nav>
     </header>
 
-    <main id="main" class="page-shell">
-      <section class="hero-panel">
-        <span class="hero-kicker">Contact</span>
-        <h1 class="hero-title">
-          Send corrections, filing requests, or partnership notes
-        </h1>
+    <main id="main" class="page-shell contact-page">
+      <section class="hero-panel contact-hero">
+        <span class="hero-kicker">Get in touch</span>
+        <h1 class="hero-title">Help us make the data and tools better</h1>
         <p class="hero-subtitle">
-          Email:
-          <a href="mailto:contact@ioinnovationfund.com"
-            >contact@ioinnovationfund.com</a
-          >
+          Report a filing discrepancy, suggest an issuer to cover, or tell us
+          about a problem with the site. A few specific details help us verify
+          the issue and find the right source.
         </p>
+        <div class="contact-cta-row">
+          <a
+            class="contact-email-button"
+            href="mailto:contact@ioinnovationfund.com?subject=IO%20Innovation%20inquiry"
+          >
+            Email contact@ioinnovationfund.com
+            <span aria-hidden="true">↗</span>
+          </a>
+          <span class="contact-response-note"
+            >Email is the best way to reach us.</span
+          >
+        </div>
       </section>
-      <section class="hero-panel">
-        <h2 style="font-size: 1.1rem">What to include</h2>
-        <ul
-          style="
-            margin-top: 0.7rem;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-          "
+
+      <section class="contact-topics" aria-label="Contact topics">
+        <article class="hero-panel contact-topic-card">
+          <span class="contact-topic-number" aria-hidden="true">01</span>
+          <h2>Report a data issue</h2>
+          <p>Help us trace a mismatch to the source filing.</p>
+          <ul>
+            <li>Page URL and filer or issuer name</li>
+            <li>SEC filing link or accession number</li>
+            <li>What appears incorrect and the expected value, if known</li>
+          </ul>
+          <a
+            href="mailto:contact@ioinnovationfund.com?subject=Filing%20data%20correction"
+            >Email a correction</a
+          >
+        </article>
+
+        <article class="hero-panel contact-topic-card">
+          <span class="contact-topic-number" aria-hidden="true">02</span>
+          <h2>Request coverage</h2>
+          <p>Suggest an institution or issuer for a future data update.</p>
+          <ul>
+            <li>Filer or issuer name and CIK, if available</li>
+            <li>Relevant filing type or research use case</li>
+            <li>SEC EDGAR link, if you have one</li>
+          </ul>
+          <a
+            href="mailto:contact@ioinnovationfund.com?subject=Coverage%20request"
+            >Request coverage</a
+          >
+        </article>
+
+        <article class="hero-panel contact-topic-card">
+          <span class="contact-topic-number" aria-hidden="true">03</span>
+          <h2>Report a site issue</h2>
+          <p>Tell us what happened so we can reproduce the problem.</p>
+          <ul>
+            <li>Page URL and a short description of the issue</li>
+            <li>Device and browser, if relevant</li>
+            <li>Screenshot or error text, if useful</li>
+          </ul>
+          <a href="mailto:contact@ioinnovationfund.com?subject=Website%20issue"
+            >Report a site issue</a
+          >
+        </article>
+      </section>
+
+      <section class="hero-panel contact-partnership">
+        <div>
+          <span class="hero-kicker">Other inquiries</span>
+          <h2>Partnerships and general questions</h2>
+          <p>
+            Include a short introduction and the reason for reaching out. We
+            review messages by email; please do not send passwords, account
+            credentials, or other sensitive information.
+          </p>
+        </div>
+        <a
+          href="mailto:contact@ioinnovationfund.com?subject=Partnership%20or%20general%20inquiry"
+          >Contact us <span aria-hidden="true">↗</span></a
         >
-          <li>Filer name and CIK for coverage requests.</li>
-          <li>Specific filing link if you spot a parsing issue.</li>
-          <li>Page URL and screenshot if layout breaks on mobile.</li>
-        </ul>
       </section>
+
+      <p class="contact-footnote">
+        For filing definitions and data limitations, see our
+        <a href="/methodology.html">methodology page</a>. This site does not
+        provide individualized investment, legal, or tax advice.
+      </p>
     </main>
 
     <footer class="footer" role="contentinfo">

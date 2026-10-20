@@ -1,13 +1,21 @@
-/* Service Worker for IO Innovation Filings */
+/* Service Worker for IO Innovation Tools */
 
-const STATIC_CACHE = "io-filings-static-v2026081801";
-const RUNTIME_CACHE = "io-filings-runtime-v2026081801";
+const STATIC_CACHE = "io-tools-static-v2026102021";
+const RUNTIME_CACHE = "io-tools-runtime-v2026102021";
 
 const STATIC_ASSETS = [
   "/",
   "/index.html",
-  "/holdings/",
-  "/filers/",
+  "/tools/",
+  "/tools/dividend-calculator.html",
+  "/tools/compound-growth-calculator.html",
+  "/tools/stock-return-calculator.html",
+  "/tools/position-size-calculator.html",
+  "/tools/dcf-valuation.html",
+  "/tools/portfolio-allocation.html",
+  "/tools/retirement-planner.html",
+  "/tools/savings-goal-calculator.html",
+  "/tools/inflation-calculator.html",
   "/blog/",
   "/about.html",
   "/contact.html",
@@ -15,11 +23,31 @@ const STATIC_ASSETS = [
   "/terms.html",
   "/css/site.css",
   "/css/holdings.css",
+  "/css/home.css",
+  "/css/blog-article.css?v=2026102001",
+  "/css/contact.css?v=2026102001",
+  "/css/portfolio-allocation.css?v=2026102003",
+  "/css/dividend-calculator.css?v=2026102002",
+  "/css/inflation-calculator.css?v=2026102002",
+  "/css/compound-growth.css?v=2026102002",
+  "/css/dcf-valuation.css?v=2026102002",
+  "/css/position-size-calculator.css?v=2026102001",
+  "/css/retirement-planner.css?v=2026102001",
+  "/css/savings-goal-calculator.css?v=2026102001",
+  "/css/stock-return-calculator.css?v=2026102002",
   "/js/shared-simple.js",
   "/js/theme-init.js",
-  "/js/holdings.js",
+  "/js/portfolio-allocation.js?v=2026102003",
+  "/js/dividend-calculator.js?v=2026102002",
+  "/js/inflation-calculator.js?v=2026102002",
+  "/js/compound-growth.js?v=2026102002",
+  "/js/dcf-valuation.js?v=2026102003",
+  "/js/position-size-calculator.js?v=2026102001",
+  "/js/retirement-planner.js?v=2026102001",
+  "/js/savings-goal-calculator.js?v=2026102001",
+  "/js/stock-return-calculator.js?v=2026102002",
   "/favicon.svg",
-  "/manifest.json"
+  "/manifest.json",
 ];
 
 self.addEventListener("install", (event) => {
@@ -28,7 +56,7 @@ self.addEventListener("install", (event) => {
       .open(STATIC_CACHE)
       .then((cache) => cache.addAll(STATIC_ASSETS))
       .then(() => self.skipWaiting())
-      .catch(() => self.skipWaiting())
+      .catch(() => self.skipWaiting()),
   );
 });
 
@@ -40,10 +68,10 @@ self.addEventListener("activate", (event) => {
         Promise.all(
           keys
             .filter((key) => key !== STATIC_CACHE && key !== RUNTIME_CACHE)
-            .map((key) => caches.delete(key))
-        )
+            .map((key) => caches.delete(key)),
+        ),
       )
-      .then(() => self.clients.claim())
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -58,7 +86,10 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const isHtml = req.destination === "document" || req.url.endsWith(".html") || req.url.endsWith("/");
+  const isHtml =
+    req.destination === "document" ||
+    req.url.endsWith(".html") ||
+    req.url.endsWith("/");
   const isAsset = req.url.includes(".css") || req.url.includes(".js");
 
   if (isHtml || isAsset) {
@@ -69,7 +100,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(RUNTIME_CACHE).then((cache) => cache.put(req, cloned));
           return res;
         })
-        .catch(() => caches.match(req))
+        .catch(() => caches.match(req)),
     );
     return;
   }
@@ -86,6 +117,6 @@ self.addEventListener("fetch", (event) => {
           return res;
         })
         .catch(() => new Response("", { status: 404 }));
-    })
+    }),
   );
 });

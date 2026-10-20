@@ -3,33 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | IO Innovation Filings</title>
+    <title>About | IO Innovation</title>
     <meta
       name="description"
-      content="Who runs IO Innovation Filings, where the data comes from, and how 13F/Form 4 filings are parsed and refreshed."
+      content="Learn about IO Innovation and its collection of finance and company research tools."
     />
     <link rel="canonical" href="https://ioinnovationfund.com/about.html" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="About IO Innovation Filings" />
+    <meta property="og:title" content="About IO Innovation" />
     <meta
       property="og:description"
-      content="Data source, parsing methodology, update cadence, and contact information for IO Innovation Filings."
+      content="About IO Innovation’s finance tools and how to get in touch."
     />
     <meta property="og:url" content="https://ioinnovationfund.com/about.html" />
     <meta
       property="og:image"
       content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
     />
-    <meta
-      property="og:image:alt"
-      content="IO Innovation Filings institutional holdings dashboard"
-    />
+    <meta property="og:image:alt" content="IO Innovation finance tools" />
     <meta name="robots" content="index, follow" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "IO Innovation Filings",
+        "name": "IO Innovation",
         "url": "https://ioinnovationfund.com/",
         "logo": "https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
       }
@@ -57,18 +54,17 @@
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
   </head>
-  <body>
+  <body class="site-refresh">
     <a href="#main" class="skip-to-main">Skip to content</a>
     <header class="header">
       <nav class="nav">
-        <a href="/" class="logo">IO Innovation Filings</a>
+        <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/holdings/">Holdings</a></li>
-          <li><a href="/filers/">Filers</a></li>
+          <li><a href="/tools/">Tools</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/about.html" class="active">About</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -93,11 +89,11 @@
       <section class="hero-panel">
         <span class="hero-kicker">About</span>
         <h1 class="hero-title">
-          Who runs this and how the filing data is built
+          Practical tools for financial research and planning
         </h1>
         <p class="hero-subtitle">
-          IO Innovation Filings is an independent project operated by a small
-          publisher focused on SEC filing transparency. Contact:
+          IO Innovation is an independent project building accessible tools for
+          investing, company research, and personal finance. Contact:
           <a href="mailto:contact@ioinnovationfund.com"
             >contact@ioinnovationfund.com</a
           >.
@@ -105,16 +101,16 @@
       </section>
 
       <section class="hero-panel">
-        <h2 style="font-size: 1.1rem">Data source</h2>
+        <h2 style="font-size: 1.1rem">The collection</h2>
         <p class="hero-subtitle">
-          All holdings and insider records on this site are pulled from public
-          SEC EDGAR submissions and filing archives. Each filer page links
-          directly to the underlying filing document on sec.gov.
+          The site brings together practical calculators and research helpers,
+          including a dividend calculator and a guided 10-K review tool. Some
+          tools are still previews and will become interactive over time.
         </p>
       </section>
 
       <section class="hero-panel">
-        <h2 style="font-size: 1.1rem">Parsing and normalization</h2>
+        <h2 style="font-size: 1.1rem">Using the tools</h2>
         <ul
           style="
             margin-top: 0.7rem;
@@ -123,31 +119,28 @@
           "
         >
           <li>
-            13F info tables are parsed into issuer, CUSIP, value, share count,
-            and inferred ticker fields.
+            Calculator outputs are estimates based on the values and assumptions
+            entered.
           </li>
           <li>
-            Form 4 feed items are extracted from each issuer's recent
-            submissions index.
+            Review assumptions and verify important information with
+            authoritative sources.
           </li>
           <li>
-            BTC-linked labeling is rule-based and may miss edge cases where
-            issuer names or tickers vary.
+            The collection is educational and does not replace independent
+            research or professional advice.
           </li>
         </ul>
       </section>
 
       <section class="hero-panel">
-        <h2 style="font-size: 1.1rem">Refresh cadence and limits</h2>
+        <h2 style="font-size: 1.1rem">Suggestions and feedback</h2>
         <p class="hero-subtitle">
-          Data refresh runs on a scheduled GitHub Actions pipeline. 13F remains
-          a delayed snapshot by design, and this site may contain mapping or
-          parser errors. Verify important values against original SEC filings
-          before use.
+          Have an idea for a useful tool or a suggestion for an existing one?
+          Get in touch and share your feedback.
         </p>
         <p class="muted" style="margin-top: 0.7rem">
-          Not investment advice. Not affiliated with the separate "I/O Fund"
-          newsletter. Full process notes:
+          Full process notes:
           <a href="/methodology.html">Methodology</a>.
         </p>
       </section>

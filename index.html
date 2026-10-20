@@ -3,57 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IO Innovation Filings | 13F Holdings and Form 4 Tracker</title>
+    <title>IO Innovation Tools | Practical Finance Calculators</title>
     <meta
       name="description"
-      content="Track what major investors hold with SEC 13F filings, monitor recent Form 4 insider activity, and filter BTC treasury-linked names in one free tool."
+      content="Explore practical investing and personal finance tools, including calculators for dividend income and investment planning."
     />
     <link rel="canonical" href="https://ioinnovationfund.com/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="IO Innovation Filings | 13F Holdings and Form 4 Tracker"
+      content="IO Innovation Tools | Practical Finance Calculators"
     />
     <meta
       property="og:description"
-      content="Institutional holdings tracker built from SEC EDGAR filings with filer pages, Form 4 updates, and BTC-linked filters."
+      content="A growing collection of practical investing, finance, and research tools."
     />
     <meta property="og:url" content="https://ioinnovationfund.com/" />
     <meta
       property="og:image"
       content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
     />
-    <meta
-      property="og:image:alt"
-      content="IO Innovation Filings institutional holdings dashboard"
-    />
-    <meta property="og:site_name" content="IO Innovation Filings" />
+    <meta property="og:image:alt" content="IO Innovation finance tools" />
+    <meta property="og:site_name" content="IO Innovation Tools" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="IO Innovation Filings | 13F and Form 4 Tracker"
+      content="IO Innovation Tools | Practical Finance Calculators"
     />
     <meta
       name="twitter:description"
-      content="See what notable filers hold, browse filer pages, and monitor Form 4 activity from SEC data."
+      content="Explore practical investing, finance, and research tools from IO Innovation."
     />
     <meta
       name="twitter:image"
       content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
     />
-    <meta
-      name="twitter:image:alt"
-      content="IO Innovation Filings institutional holdings dashboard"
-    />
+    <meta name="twitter:image:alt" content="IO Innovation finance tools" />
     <meta name="robots" content="index, follow" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "IO Innovation Filings",
+        "name": "IO Innovation Tools",
         "url": "https://ioinnovationfund.com/",
-        "description": "Static SEC filing tracker for 13F institutional holdings and Form 4 insider activity.",
+        "description": "A collection of practical finance and research tools.",
         "inLanguage": "en-US"
       }
     </script>
@@ -62,7 +56,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "IO Innovation Filings",
+        "name": "IO Innovation Tools",
         "url": "https://ioinnovationfund.com/",
         "logo": "https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg",
         "contactPoint": {
@@ -73,35 +67,21 @@
       }
     </script>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Dataset",
-        "name": "Institutional Holdings and Insider Filing Snapshot",
-        "description": "Parsed and normalized SEC EDGAR data for 13F holdings and recent Form 4 filings.",
-        "url": "https://ioinnovationfund.com/holdings/",
-        "license": "https://www.sec.gov/os/accessing-edgar-data",
-        "datePublished": "2026-08-18T15:50:33+00:00",
-        "dateModified": "2026-08-18T15:50:33+00:00"
-      }
-    </script>
-
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
   </head>
-  <body>
+  <body class="home-page site-refresh">
     <a href="#main" class="skip-to-main">Skip to content</a>
 
     <header class="header">
       <nav class="nav">
-        <a href="/" class="logo">IO Innovation Filings</a>
+        <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/" class="active">Home</a></li>
-          <li><a href="/holdings/">Holdings</a></li>
-          <li><a href="/filers/">Filers</a></li>
+          <li><a href="/tools/">Tools</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -119,141 +99,185 @@
       </nav>
     </header>
 
-    <main id="main" class="page-shell">
-      <section class="hero-panel">
-        <span class="hero-kicker">Institutional Holdings Intelligence</span>
-        <h1 class="hero-title">
-          Track what notable investors are buying and holding
-        </h1>
-        <p class="hero-subtitle">
-          Use SEC filing data to review institutional 13F portfolios, follow
-          fresh insider Form 4 activity, and filter BTC treasury-linked names in
-          one place.
-        </p>
-        <div class="metrics-row">
-          <div class="metric-card">
-            <p class="metric-label">Primary dataset</p>
-            <p class="metric-value">13F-HR</p>
+    <main id="main" class="home-main">
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero-grid">
+          <div class="home-copy">
+            <span class="home-eyebrow"
+              >IO Innovation · Finance, made clearer</span
+            >
+            <h1 class="home-title" id="home-title">
+              Make your next move <em>informed.</em>
+            </h1>
+            <p class="home-description">
+              A thoughtfully designed collection of tools for exploring
+              investments, understanding companies, and planning what comes
+              next.
+            </p>
+            <div class="home-actions">
+              <a class="home-cta" href="/tools/">
+                Explore the tools
+                <span class="home-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a
+                class="home-cta home-cta-secondary"
+                href="/tools/dividend-calculator.html"
+              >
+                Try dividend calculator
+              </a>
+            </div>
+            <div class="home-proof" aria-label="Collection highlights">
+              <span><strong>9</strong> practical tools</span>
+              <span><strong>01</strong> interactive calculator</span>
+              <span>Free to explore</span>
+            </div>
           </div>
-          <div class="metric-card">
-            <p class="metric-label">Secondary dataset</p>
-            <p class="metric-value">Form 4</p>
-          </div>
-          <div class="metric-card">
-            <p class="metric-label">Delivery model</p>
-            <p class="metric-value">Static JSON</p>
-          </div>
-          <div class="metric-card">
-            <p class="metric-label">Update cadence</p>
-            <p class="metric-value">Daily refresh</p>
+
+          <div
+            class="home-visual"
+            aria-label="Illustrative portfolio growth chart"
+          >
+            <div class="home-float-card home-float-badge">
+              <span class="home-float-icon" aria-hidden="true">↗</span>
+              <span>Research and planning<br />in one place</span>
+            </div>
+            <div class="home-chart-card">
+              <div class="home-chart-top">
+                <div>
+                  <span class="home-chart-label"
+                    >Illustrative portfolio view</span
+                  >
+                  <strong class="home-chart-value"
+                    >Plan with perspective</strong
+                  >
+                </div>
+                <span class="home-chart-change">Explore scenarios</span>
+              </div>
+              <svg
+                class="home-chart-svg"
+                viewBox="0 0 620 330"
+                role="img"
+                aria-labelledby="chart-title chart-desc"
+              >
+                <title id="chart-title">
+                  Decorative rising financial chart
+                </title>
+                <desc id="chart-desc">
+                  An illustrative upward curve representing long-term planning,
+                  not actual market data.
+                </desc>
+                <defs>
+                  <linearGradient
+                    id="home-chart-fill"
+                    x1="0"
+                    x2="0"
+                    y1="0"
+                    y2="1"
+                  >
+                    <stop offset="0%" stop-color="#56b99a" stop-opacity=".3" />
+                    <stop offset="100%" stop-color="#56b99a" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient
+                    id="home-chart-line"
+                    x1="0"
+                    x2="1"
+                    y1="1"
+                    y2="0"
+                  >
+                    <stop offset="0%" stop-color="#54b69a" />
+                    <stop offset="100%" stop-color="#18745e" />
+                  </linearGradient>
+                </defs>
+                <g stroke="#5d8d81" stroke-opacity=".14" stroke-width="1">
+                  <path
+                    d="M48 54H586M48 112H586M48 170H586M48 228H586M48 286H586"
+                  />
+                  <path
+                    d="M48 42V286M156 42V286M264 42V286M372 42V286M480 42V286M586 42V286"
+                  />
+                </g>
+                <path
+                  d="M48 255 C90 242 104 250 143 225 S205 230 245 194 S311 209 349 164 S410 176 450 130 S518 143 586 70 V286 H48Z"
+                  fill="url(#home-chart-fill)"
+                />
+                <path
+                  d="M48 255 C90 242 104 250 143 225 S205 230 245 194 S311 209 349 164 S410 176 450 130 S518 143 586 70"
+                  fill="none"
+                  stroke="url(#home-chart-line)"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+                <circle
+                  cx="586"
+                  cy="70"
+                  r="8"
+                  fill="#18745e"
+                  stroke="#fff"
+                  stroke-width="4"
+                />
+                <g fill="#66857c" font-family="sans-serif" font-size="11">
+                  <text x="48" y="312">START</text>
+                  <text x="548" y="312">GOALS</text>
+                </g>
+              </svg>
+              <div class="home-chart-legend">
+                <span>Illustrative visual · not live market data</span
+                ><span>Explore your assumptions</span>
+              </div>
+            </div>
+            <div class="home-float-card home-float-summary">
+              <span class="home-float-kicker"
+                >Start with a simple estimate</span
+              >
+              <strong class="home-float-number">Dividend income</strong>
+              <span class="home-float-caption"
+                >Adjust shares and payout frequency in the calculator.</span
+              >
+            </div>
           </div>
         </div>
-        <div
-          style="margin-top: 1rem; display: flex; gap: 0.65rem; flex-wrap: wrap"
-        >
-          <a class="btn" href="/holdings/">Open holdings explorer</a>
-          <a class="btn" href="/filers/">Browse filer pages</a>
-          <a class="btn" href="/cross-reference/index.html"
-            >View BTC x 13F hub</a
-          >
-          <a class="btn" href="/data/holdings-latest.json">Download raw JSON</a>
+      </section>
+
+      <section class="home-below" aria-labelledby="featured-tools-title">
+        <div class="home-section-heading">
+          <div>
+            <span class="home-eyebrow">A place to begin</span>
+            <h2 id="featured-tools-title">Tools for your next question</h2>
+          </div>
+          <p>
+            Start with an interactive dividend estimate or browse the growing
+            collection of finance tools.
+          </p>
         </div>
-        <p class="muted" style="margin-top: 0.8rem; font-size: 0.85rem">
-          Independent project. Not affiliated with the separate "I/O Fund"
-          newsletter.
-        </p>
-        <p class="muted" style="margin-top: 0.35rem; font-size: 0.85rem">
-          Data as of: 2026-08-18. Source: SEC EDGAR filings.
-        </p>
-      </section>
-
-      <section class="hero-panel">
-        <h2 style="font-size: 1.25rem">How to use this in 60 seconds</h2>
-        <ul
-          style="
-            margin-top: 0.8rem;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-          "
-        >
-          <li>
-            Start on Holdings to search by filer, issuer, ticker, or CUSIP.
-          </li>
-          <li>Use the BTC filter to isolate BTC treasury-linked records.</li>
-          <li>
-            Open any filer page to inspect top positions and filing context.
-          </li>
-          <li>
-            Use Form 4 JSON for more frequent insider activity between 13F
-            cycles.
-          </li>
-        </ul>
-      </section>
-
-      <section class="hero-panel">
-        <h2 style="font-size: 1.25rem">Current tracked filers</h2>
-        <p class="hero-subtitle">
-          Coverage is intentionally curated first, then expanded. Each filer has
-          a dedicated static page that can rank for long-tail queries like "what
-          is [filer] buying".
-        </p>
-        <div
-          style="
-            margin-top: 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 0.7rem;
-          "
-        >
-          <a class="filer-card" href="/filers/berkshire-hathaway.html"
-            ><strong>Berkshire Hathaway</strong
-            ><span class="muted">View latest 13F snapshot</span></a
-          >
-          <a class="filer-card" href="/filers/bridgewater-associates.html"
-            ><strong>Bridgewater Associates</strong
-            ><span class="muted">View latest 13F snapshot</span></a
-          >
-          <a class="filer-card" href="/filers/pershing-square-capital.html"
-            ><strong>Pershing Square</strong
-            ><span class="muted">View latest 13F snapshot</span></a
-          >
-          <a class="filer-card" href="/filers/scion-asset-management.html"
-            ><strong>Scion Asset Management</strong
-            ><span class="muted">View latest 13F snapshot</span></a
-          >
+        <div class="home-tool-grid">
+          <a class="home-tool-card" href="/tools/dividend-calculator.html">
+            <span class="home-tool-icon" aria-hidden="true">％</span>
+            <span class="home-tool-link" aria-hidden="true">↗</span>
+            <h3>Dividend Calculator</h3>
+            <p>
+              Estimate annual and monthly income from shares and payout
+              frequency.
+            </p>
+            <span class="home-tool-status">Available now</span>
+          </a>
+          <a class="home-tool-card" href="/tools/">
+            <span class="home-tool-icon" aria-hidden="true">✳</span>
+            <span class="home-tool-link" aria-hidden="true">↗</span>
+            <h3>Explore all 9 tools</h3>
+            <p>
+              Browse calculators and research helpers for investing and
+              planning.
+            </p>
+            <span class="home-tool-status">View collection</span>
+          </a>
         </div>
-      </section>
-
-      <section class="hero-panel">
-        <h2 style="font-size: 1.25rem">Data quality and limitations</h2>
-        <ul
-          style="
-            margin-top: 0.8rem;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-          "
-        >
-          <li>13F filings are delayed snapshots, not real-time positions.</li>
-          <li>Form 4 records can include non-open-market transactions.</li>
-          <li>
-            Ticker mapping may be incomplete for some issuers and classes.
-          </li>
-          <li>Always verify critical details directly on SEC EDGAR.</li>
-        </ul>
-        <p class="muted" style="margin-top: 0.8rem">
-          Full methodology, parsing rules, and known limitations:
-          <a href="/methodology.html">Methodology</a>.
-        </p>
       </section>
     </main>
 
     <footer class="footer" role="contentinfo">
       <div class="footer-content">
         <div class="footer-bottom">
-          <p>
-            &copy; 2026 IO Innovation. Educational data utility, not investment
-            advice.
-          </p>
+          <p>&copy; 2026 IO Innovation.</p>
         </div>
       </div>
     </footer>

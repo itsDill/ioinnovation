@@ -3,20 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How to read Form 4 insider trades | IO Innovation Filings</title>
+    <title>
+      How to read Form 4: transaction codes and context | IO Innovation
+    </title>
     <meta
       name="description"
-      content="A plain-language guide to Form 4 transaction codes and what they usually indicate."
+      content="Learn how to read Form 4 transaction codes, distinguish open-market trades from awards and option exercises, and interpret insider filings in context."
     />
     <link
       rel="canonical"
       href="https://ioinnovationfund.com/blog/how-to-read-form-4-insider-trades.html"
     />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="How to read Form 4 insider trades" />
+    <meta
+      property="og:title"
+      content="How to read Form 4: transaction codes and context"
+    />
     <meta
       property="og:description"
-      content="A plain-language guide to Form 4 transaction codes and what they usually indicate."
+      content="A practical guide to Form 4 codes, ownership details, filing timing, and the limits of drawing conclusions from insider transactions."
     />
     <meta
       property="og:url"
@@ -69,7 +74,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "How to read Form 4 insider trades",
+            "name": "How to read Form 4: transaction codes and context",
             "item": "https://ioinnovationfund.com/blog/how-to-read-form-4-insider-trades.html"
           }
         ]
@@ -79,9 +84,9 @@
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "How to read Form 4 insider trades without overreacting",
+        "headline": "How to read Form 4: transaction codes and context",
         "datePublished": "2026-08-18",
-        "dateModified": "2026-08-18",
+        "dateModified": "2026-10-20",
         "author": { "@type": "Organization", "name": "IO Innovation Filings" },
         "publisher": {
           "@type": "Organization",
@@ -96,18 +101,18 @@
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/blog-article.css?v=2026102001" />
   </head>
-  <body>
+  <body class="site-refresh">
     <a href="#main" class="skip-to-main">Skip to content</a>
     <header class="header">
       <nav class="nav">
-        <a href="/" class="logo">IO Innovation Filings</a>
+        <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/holdings/">Holdings</a></li>
-          <li><a href="/filers/">Filers</a></li>
+          <li><a href="/tools/">Tools</a></li>
           <li><a href="/blog/" class="active">Blog</a></li>
-          <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -129,52 +134,262 @@
     </header>
 
     <main id="main" class="page-shell">
-      <article class="hero-panel">
-        <p class="hero-kicker">Explainer</p>
-        <h1 class="hero-title">
-          How to read Form 4 insider trades without overreacting
-        </h1>
-        <p class="muted">Published: 2026-08-18 • Author: IO Innovation</p>
-        <p class="hero-subtitle">
-          Form 4 provides more frequent signal than 13F, but not every insider
-          transaction is discretionary buying or selling.
-        </p>
+      <article class="filing-article">
+        <header class="hero-panel filing-article-intro">
+          <p class="hero-kicker">SEC filing explainer</p>
+          <h1 class="hero-title">
+            How to read Form 4: transaction codes and context
+          </h1>
+          <p class="filing-article-meta">
+            Published: <time datetime="2026-08-18">August 18, 2026</time>
+            <span aria-hidden="true">·</span> Updated:
+            <time datetime="2026-10-20">October 20, 2026</time>
+            <span aria-hidden="true">·</span> By IO Innovation
+          </p>
+          <p class="hero-subtitle">
+            Form 4 reports many transactions in a company’s securities by
+            directors, officers, and certain large shareholders. The letter
+            codes are a starting point, not a verdict: read them alongside the
+            transaction details, footnotes, ownership after the transaction, and
+            the insider’s role.
+          </p>
+        </header>
 
-        <h2 style="margin-top: 1rem; font-size: 1.1rem">Codes that matter</h2>
-        <ul
-          style="
-            margin-top: 0.7rem;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-          "
+        <section
+          class="hero-panel filing-article-section"
+          aria-labelledby="form4-basics"
         >
-          <li>
-            <strong>P</strong>: open-market purchase (usually stronger positive
-            signal).
-          </li>
-          <li>
-            <strong>S</strong>: open-market sale (can be neutral if planned).
-          </li>
-          <li>
-            <strong>A</strong> and <strong>M</strong>: grants or option
-            exercises, often compensation related.
-          </li>
-        </ul>
+          <h2 id="form4-basics">What Form 4 tells you</h2>
+          <p>
+            In most cases, a reportable transaction must be reported within two
+            business days after it occurs, though exceptions and special rules
+            apply. The filing identifies the reporting person and issuer and
+            provides transaction dates, security type, amount, price where
+            applicable, and holdings after the transaction. Form 4 can cover
+            both ordinary shares and derivative securities such as options.
+          </p>
+          <p>
+            Do not confuse the <strong>transaction date</strong> with the
+            <strong>filing date</strong>. A filing is a disclosure submitted
+            after an event; it is not a live notification that an insider is
+            trading at that moment.
+          </p>
+        </section>
 
-        <h2 style="margin-top: 1rem; font-size: 1.1rem">Best practice</h2>
-        <ul
-          style="
-            margin-top: 0.7rem;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-          "
+        <section
+          class="hero-panel filing-article-section"
+          aria-labelledby="codes-guide"
         >
-          <li>Look for repeated behavior across multiple insiders.</li>
-          <li>Compare trade size with total holdings.</li>
-          <li>
-            Pair insider activity with valuation and business quality work.
-          </li>
-        </ul>
+          <h2 id="codes-guide">Common transaction codes</h2>
+          <p>
+            Codes describe the reported transaction type. They do not, by
+            themselves, establish whether the event reflects a discretionary
+            investment decision.
+          </p>
+          <div class="filing-table-wrap">
+            <table class="filing-table filing-code-table">
+              <thead>
+                <tr>
+                  <th scope="col">Code</th>
+                  <th scope="col">Common description</th>
+                  <th scope="col">What to check</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">P</th>
+                  <td>Purchase on an exchange or from another person</td>
+                  <td>Review price, amount, ownership after, and footnotes.</td>
+                </tr>
+                <tr>
+                  <th scope="row">S</th>
+                  <td>Sale on an exchange or to another person</td>
+                  <td>
+                    A sale alone does not reveal motive; consider scale and
+                    remaining stake.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">A</th>
+                  <td>Grant, award, or other acquisition from the company</td>
+                  <td>
+                    Often connected to compensation; check vesting and
+                    footnotes.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">M</th>
+                  <td>Exercise or conversion of a derivative security</td>
+                  <td>
+                    Separate the exercise from any related sale reported in
+                    another row.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">F</th>
+                  <td>
+                    Securities withheld or used to pay an exercise price or tax
+                    liability
+                  </td>
+                  <td>Not equivalent to an ordinary open-market sale.</td>
+                </tr>
+                <tr>
+                  <th scope="row">G</th>
+                  <td>Gift of securities to or from the reporting person</td>
+                  <td>A gift is not an exchange purchase or sale.</td>
+                </tr>
+                <tr>
+                  <th scope="row">D</th>
+                  <td>Disposition or transfer back to the issuer</td>
+                  <td>
+                    Read the footnote for the transaction’s circumstances.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="filing-note">
+            This is a selection of commonly encountered codes, not a complete
+            codebook. SEC form instructions and filing footnotes control when
+            interpreting a particular report.
+          </p>
+        </section>
+
+        <section
+          class="hero-panel filing-article-section"
+          aria-labelledby="read-details"
+        >
+          <h2 id="read-details">Read the details around the code</h2>
+          <ol>
+            <li>
+              <strong>Identify the person and role.</strong> An officer,
+              director, and 10% owner may have different relationships to the
+              company; check the reporting-owner section.
+            </li>
+            <li>
+              <strong>Check direct versus indirect ownership.</strong>
+              Securities can be held through a trust, partnership, or other
+              entity. Read the ownership code and explanatory footnotes rather
+              than assuming the insider personally holds every share.
+            </li>
+            <li>
+              <strong>Separate transaction rows.</strong> An option exercise and
+              a later sale can appear as distinct transactions. Summarize each
+              event before characterizing the net change.
+            </li>
+            <li>
+              <strong>Look at holdings after the event.</strong> A sale can be a
+              small fraction of the person’s remaining stake—or a large
+              reduction. Use comparable share counts and account for derivatives
+              and indirect holdings.
+            </li>
+            <li>
+              <strong>Read the footnotes and plan disclosures.</strong>
+              Explanations may describe tax withholding, vesting, gifts, or a
+              Rule 10b5-1 trading plan. A plan-related checkbox is context, not
+              proof of motive or a guarantee about execution conditions.
+            </li>
+          </ol>
+        </section>
+
+        <section
+          class="hero-panel filing-article-section"
+          aria-labelledby="avoid-misreads"
+        >
+          <h2 id="avoid-misreads">Common misreadings to avoid</h2>
+          <ul>
+            <li>
+              <strong>“An insider sold, so they must expect a decline.”</strong>
+              Insiders may sell for liquidity, diversification, taxes, or other
+              reasons. The filing alone usually cannot tell you why.
+            </li>
+            <li>
+              <strong>“A Form 4 row means open-market trading.”</strong> Awards,
+              option exercises, tax withholding, gifts, and issuer transactions
+              can all be reported.
+            </li>
+            <li>
+              <strong>“The headline dollar value is the whole story.”</strong>
+              Price, share count, derivative status, and post-transaction
+              holdings all matter.
+            </li>
+            <li>
+              <strong
+                >“One person’s transaction represents the whole
+                company.”</strong
+              >
+              Look for independently reported activity by multiple insiders and
+              review each person’s role and ownership.
+            </li>
+          </ul>
+        </section>
+
+        <section
+          class="hero-panel filing-article-section"
+          aria-labelledby="quick-checklist"
+        >
+          <h2 id="quick-checklist">A quick reading checklist</h2>
+          <ol>
+            <li>
+              Confirm the issuer, reporting person, role, and filing date.
+            </li>
+            <li>
+              Find the transaction date, security, code, amount, and price.
+            </li>
+            <li>
+              Check direct or indirect ownership and holdings after the
+              transaction.
+            </li>
+            <li>
+              Read footnotes, derivative rows, and any trading-plan disclosure.
+            </li>
+            <li>
+              Compare with earlier filings for the same person, then research
+              the company on its own merits.
+            </li>
+          </ol>
+          <p>
+            Form 3 generally reports initial ownership when someone becomes
+            subject to insider reporting; Form 5 is used for certain
+            transactions that were not reported earlier when permitted or
+            required. Neither changes the need to check the underlying filing
+            and its instructions.
+          </p>
+        </section>
+
+        <section
+          class="hero-panel filing-article-sources"
+          aria-labelledby="form4-sources"
+        >
+          <h2 id="form4-sources">Sources and scope</h2>
+          <p>
+            For official definitions and reporting context, see the SEC’s
+            <a
+              href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-69"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Investor Bulletin on insider transactions and Forms 3, 4, and
+              5</a
+            >
+            and the
+            <a
+              href="https://www.sec.gov/files/forms-3-4-5.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >SEC Forms 3, 4, and 5 instructions</a
+            >. Our <a href="/methodology.html">data methodology</a> explains the
+            scope of the site’s Form 4 feed, which lists recent filings for a
+            limited issuer watchlist rather than parsing every transaction
+            detail. You can also view the current
+            <a href="/data/form4-latest.json">Form 4 feed data</a>.
+          </p>
+          <p class="filing-note">
+            This explainer is for educational purposes, not legal, tax, or
+            investment advice. SEC reporting requirements can be nuanced;
+            consult the official rules or a qualified professional for
+            situation-specific questions.
+          </p>
+        </section>
       </article>
     </main>
 

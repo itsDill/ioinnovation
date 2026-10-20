@@ -148,12 +148,12 @@
       appendSchema({
         "@context": "https://schema.org",
         "@type": "FinancialProduct",
-        name: "IO Innovation Filings Holdings Explorer",
+        name: "IO Innovation Finance Tools",
         provider: {
           "@type": "Organization",
           name: "IO Innovation",
         },
-        url: "https://ioinnovationfund.com/holdings/",
+        url: "https://ioinnovationfund.com/tools/",
       });
     }
   }
@@ -210,7 +210,7 @@
   }
 
   function isToolsPath(path) {
-    return path === "/holdings/" || path === "/holdings/index.html";
+    return path === "/tools/" || path === "/tools/index.html";
   }
 
   function findArticleContainer() {

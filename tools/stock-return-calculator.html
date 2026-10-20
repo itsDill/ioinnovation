@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Return Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Review an investment’s percentage and dollar change over a chosen period."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/stock-return-calculator.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link
+      rel="stylesheet"
+      href="/css/stock-return-calculator.css?v=2026102002"
+    />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Investing</span>
+        <h1 class="hero-title">Stock Return Calculator</h1>
+        <p class="hero-subtitle">
+          Estimate an investment’s price return, dividend-inclusive return,
+          annualized performance, and ending value from your own inputs.
+        </p>
+      </section>
+      <form
+        class="filter-panel returns-form"
+        id="returnsForm"
+        aria-label="Investment return assumptions"
+        novalidate
+      >
+        <div class="returns-form-heading">
+          <span class="returns-kicker">Your assumptions</span>
+          <h2>Compare an investment</h2>
+          <p class="muted">
+            Enter a starting and ending price, then add optional dividends and
+            dates. No market data is fetched.
+          </p>
+        </div>
+        <div
+          class="returns-mode"
+          role="group"
+          aria-label="Investment amount method"
+        >
+          <label
+            ><input type="radio" name="amountMode" value="shares" checked />
+            Shares owned</label
+          >
+          <label
+            ><input type="radio" name="amountMode" value="invested" /> Initial
+            amount invested</label
+          >
+        </div>
+        <div class="returns-input-grid">
+          <label class="returns-field">
+            <span>Starting share price</span>
+            <span class="returns-input-wrap"
+              ><span class="returns-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="startPrice"
+                name="startPrice"
+                type="number"
+                min="0.000001"
+                max="1000000000"
+                step="any"
+                value="100"
+                inputmode="decimal"
+                required
+            /></span>
+          </label>
+          <label class="returns-field">
+            <span>Ending share price</span>
+            <span class="returns-input-wrap"
+              ><span class="returns-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="endPrice"
+                name="endPrice"
+                type="number"
+                min="0"
+                max="1000000000"
+                step="any"
+                value="125"
+                inputmode="decimal"
+                required
+            /></span>
+          </label>
+          <label class="returns-field" id="sharesField">
+            <span>Shares owned</span>
+            <input
+              class="control"
+              id="shares"
+              name="shares"
+              type="number"
+              min="0.000001"
+              max="1000000000000"
+              step="any"
+              value="100"
+              inputmode="decimal"
+              required
+            />
+          </label>
+          <label class="returns-field" id="investedField" hidden>
+            <span>Initial amount invested</span>
+            <span class="returns-input-wrap"
+              ><span class="returns-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="initialInvestment"
+                name="initialInvestment"
+                type="number"
+                min="0.01"
+                max="1000000000000"
+                step="any"
+                value="10000"
+                inputmode="decimal"
+            /></span>
+          </label>
+          <label class="returns-field">
+            <span
+              >Cash dividends received per share <small>(optional)</small></span
+            >
+            <span class="returns-input-wrap"
+              ><span class="returns-currency" aria-hidden="true">$</span
+              ><input
+                class="control"
+                id="dividends"
+                name="dividends"
+                type="number"
+                min="0"
+                max="1000000000000"
+                step="any"
+                value="0"
+                inputmode="decimal"
+            /></span>
+            <small
+              >Enter total dividends per share for the holding period; excludes
+              reinvestment.</small
+            >
+          </label>
+          <label class="returns-field">
+            <span>Start date <small>(optional)</small></span>
+            <input
+              class="control"
+              id="startDate"
+              name="startDate"
+              type="date"
+            />
+          </label>
+          <label class="returns-field">
+            <span>End date <small>(optional)</small></span>
+            <input class="control" id="endDate" name="endDate" type="date" />
+          </label>
+          <label class="returns-field">
+            <span>Display currency</span>
+            <select class="control" id="returnsCurrency" name="currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound Sterling</option>
+            </select>
+            <small>Display only; no exchange-rate conversion.</small>
+          </label>
+        </div>
+        <p class="returns-error" id="returnsError" role="alert" hidden></p>
+        <button class="btn returns-submit" type="submit">
+          Update return estimate
+        </button>
+        <button class="returns-reset" type="reset">Reset assumptions</button>
+      </form>
+
+      <section class="returns-results" id="returnsResults">
+        <div
+          class="hero-panel returns-summary"
+          aria-labelledby="returnsSummaryHeading"
+        >
+          <div class="returns-summary-heading">
+            <div>
+              <span class="returns-kicker">Total return with dividends</span>
+              <h2 id="returnsSummaryHeading">
+                <span
+                  id="totalReturn"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  >+25.00%</span
+                >
+              </h2>
+            </div>
+            <span class="returns-badge" id="performanceBadge"
+              >Price return +25.00%</span
+            >
+          </div>
+          <div class="returns-metric-grid">
+            <div class="returns-metric">
+              <span>Price return</span
+              ><strong id="priceReturnValue">+25.00%</strong>
+            </div>
+            <div class="returns-metric">
+              <span>Annualized total return</span
+              ><strong id="annualizedReturn">Add dates</strong>
+            </div>
+            <div class="returns-metric">
+              <span>Starting position value</span
+              ><strong id="startingValue">$10,000</strong>
+            </div>
+            <div class="returns-metric">
+              <span>Ending value incl. dividends</span
+              ><strong id="endingValue">$12,500</strong>
+            </div>
+            <div class="returns-metric">
+              <span>Dollar gain / loss incl. dividends</span
+              ><strong id="dollarChange">+$2,500</strong>
+            </div>
+            <div class="returns-metric">
+              <span>Dividend contribution</span
+              ><strong id="dividendContribution">0.00%</strong>
+            </div>
+          </div>
+          <p class="returns-assumptions" id="returnsAssumptions"></p>
+        </div>
+        <section
+          class="hero-panel returns-visual-panel"
+          aria-labelledby="returnsVisualHeading"
+        >
+          <div class="returns-section-heading">
+            <div>
+              <span class="returns-kicker">Value comparison</span>
+              <h2 id="returnsVisualHeading">Starting versus ending value</h2>
+            </div>
+          </div>
+          <div
+            class="returns-visual"
+            id="returnsVisual"
+            role="img"
+            aria-label="Starting and ending investment values"
+          ></div>
+          <p class="returns-chart-caption">
+            This simplified total return adds cash dividends to ending value. It
+            does not model dividend reinvestment, taxes, fees, or interim cash
+            flows.
+          </p>
+        </section>
+        <aside class="returns-disclaimer" role="note">
+          <strong>Important assumptions and disclaimer</strong>
+          <p>
+            This educational calculation is not investment, tax, or financial
+            advice. It assumes the entered prices and cumulative per-share cash
+            dividends apply to the same holding and currency. Total return is
+            calculated as ending share value plus dividends per share multiplied
+            by the share quantity, compared with the starting value. Dividends
+            are not reinvested; fees, taxes, additional purchases, splits, and
+            other cash flows are excluded. Annualized return is shown only when
+            valid dates are entered and assumes a single start and end value.
+            Past performance does not predict future results. Currency selection
+            changes formatting only; no exchange conversion is performed.
+          </p>
+        </aside>
+      </section>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/stock-return-calculator.js?v=2026102002"></script>
+  </body>
+</html>

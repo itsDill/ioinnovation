@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound Growth Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Explore hypothetical investment growth with regular contributions."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/compound-growth-calculator.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/compound-growth.css?v=2026102002" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Planning</span>
+        <h1 class="hero-title">Compound Growth Calculator</h1>
+        <p class="hero-subtitle">
+          Explore how regular contributions and an assumed return could grow
+          over time. Adjust the inputs to compare scenarios.
+        </p>
+      </section>
+
+      <div class="growth-layout">
+        <form class="filter-panel growth-form" id="growthForm" aria-label="Compound growth assumptions">
+          <div class="growth-form-heading">
+            <span class="growth-kicker">Your assumptions</span>
+            <h2>Set up a scenario</h2>
+            <p class="muted">All inputs are estimates. Nothing is sent to a server. Currency changes the display symbol only; no exchange-rate conversion is applied.</p>
+          </div>
+          <div class="growth-input-grid">
+            <label class="growth-field">
+              <span>Starting balance</span>
+              <span class="growth-input-wrap"><span class="currency-symbol" aria-hidden="true">$</span><input class="control" id="startingBalance" name="startingBalance" type="number" min="0" max="1000000000" step="any" value="10000" inputmode="decimal" required /></span>
+            </label>
+            <label class="growth-field">
+              <span>Contribution amount</span>
+              <span class="growth-input-wrap"><span class="currency-symbol" aria-hidden="true">$</span><input class="control" id="contribution" name="contribution" type="number" min="0" max="10000000" step="any" value="500" inputmode="decimal" required /></span>
+            </label>
+            <label class="growth-field">
+              <span>Contribution schedule</span>
+              <select class="control" id="contributionFrequency" name="contributionFrequency">
+                <option value="1">Monthly</option>
+                <option value="3">Quarterly</option>
+                <option value="12">Annually</option>
+              </select>
+            </label>
+            <label class="growth-field">
+              <span>Contribution timing</span>
+              <select class="control" id="contributionTiming" name="contributionTiming">
+                <option value="end">End of period</option>
+                <option value="beginning">Beginning of period</option>
+              </select>
+            </label>
+            <label class="growth-field">
+              <span>Assumed annual return</span>
+              <span class="growth-input-wrap growth-suffix-wrap"><input class="control" id="annualReturn" name="annualReturn" type="number" min="-99" max="100" step="0.1" value="7" inputmode="decimal" required /><span class="growth-suffix" aria-hidden="true">%</span></span>
+            </label>
+            <label class="growth-field">
+              <span>Time horizon</span>
+              <span class="growth-input-wrap growth-suffix-wrap"><input class="control" id="years" name="years" type="number" min="1" max="80" step="1" value="20" inputmode="numeric" required /><span class="growth-suffix" aria-hidden="true">years</span></span>
+            </label>
+            <label class="growth-field">
+              <span>Estimated inflation</span>
+              <span class="growth-input-wrap growth-suffix-wrap"><input class="control" id="inflation" name="inflation" type="number" min="0" max="50" step="0.1" value="2.5" inputmode="decimal" required /><span class="growth-suffix" aria-hidden="true">%</span></span>
+            </label>
+            <label class="growth-field">
+              <span>Display currency</span>
+              <select class="control" id="currency" name="currency">
+                <option value="USD">USD — US Dollar</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="GBP">GBP — Pound Sterling</option>
+              </select>
+            </label>
+          </div>
+          <p class="growth-input-error" id="inputError" role="alert" hidden></p>
+          <button class="btn growth-submit" type="submit">Update projection</button>
+          <button class="growth-reset" id="resetGrowth" type="reset">Reset assumptions</button>
+        </form>
+
+        <div class="growth-results">
+          <section class="hero-panel growth-summary">
+            <div class="growth-summary-head">
+              <div>
+                <span class="growth-kicker">Projected at year <span id="summaryYears">20</span></span>
+                <h2 id="endingBalance" role="status" aria-live="polite" aria-atomic="true">$0</h2>
+              </div>
+              <span class="growth-badge" id="realValueBadge">After inflation</span>
+            </div>
+            <p class="growth-real-value">Estimated purchasing power: <strong id="realBalance">$0</strong></p>
+            <div class="growth-stat-grid">
+              <div class="growth-stat"><span>Total invested</span><strong id="totalContributions">$0</strong></div>
+              <div class="growth-stat"><span>Estimated growth</span><strong id="investmentGrowth">$0</strong></div>
+            </div>
+            <p class="growth-equation" id="projectionAssumptions">Monthly compounding · Contributions at period end</p>
+          </section>
+
+          <section class="hero-panel growth-chart-panel" aria-labelledby="chartHeading">
+            <div class="growth-panel-heading">
+              <div><span class="growth-kicker">Illustrative projection</span><h2 id="chartHeading">Balance over time</h2></div>
+              <span class="growth-legend"><i aria-hidden="true"></i>Projected balance</span>
+            </div>
+            <div class="growth-chart-wrap">
+              <svg id="growthChart" viewBox="0 0 720 280" role="img" aria-labelledby="growthChartTitle growthChartDescription"></svg>
+            </div>
+            <p class="growth-chart-caption">Illustrative estimate, not a forecast or guarantee of future results.</p>
+          </section>
+
+          <details class="hero-panel growth-table-panel">
+            <summary>View annual breakdown</summary>
+            <div class="growth-table-wrap">
+              <table class="growth-table">
+                <thead><tr><th scope="col">Year</th><th scope="col">Total invested to date</th><th scope="col">Projected balance</th><th scope="col">Estimated growth</th></tr></thead>
+                <tbody id="annualBreakdown"></tbody>
+              </table>
+            </div>
+          </details>
+
+          <aside class="growth-disclaimer" role="note">
+            <strong>Important assumptions and disclaimer</strong>
+            <p>This educational calculator is not investment, tax, or financial advice. Results are hypothetical and are not guaranteed. It assumes a constant annual return compounded monthly, regular contributions at the selected timing, and no taxes, fees, or changes to contributions. Actual returns vary, may be negative, and investment values can fall. Inflation-adjusted figures are approximations. Verify assumptions and consider seeking advice from a qualified professional.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/compound-growth.js?v=2026102002"></script>
+  </body>
+</html>

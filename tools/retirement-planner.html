@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retirement Planner | IO Innovation</title>
+    <meta
+      name="description"
+      content="Estimate a hypothetical retirement savings path from contributions and assumptions."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/retirement-planner.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/retirement-planner.css?v=2026102001" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Long-term planning</span>
+        <h1 class="hero-title">Retirement Planner</h1>
+        <p class="hero-subtitle">
+          See how your savings and contributions could grow toward an
+          inflation-adjusted retirement income goal.
+        </p>
+      </section>
+      <div class="retirement-layout">
+        <form
+          class="filter-panel retirement-form"
+          id="retirementForm"
+          aria-label="Retirement assumptions"
+          novalidate
+        >
+          <div class="retirement-form-heading">
+            <span class="retirement-kicker">Your assumptions</span>
+            <h2>Build a scenario</h2>
+            <p class="muted">
+              A simplified estimate for planning and comparison. All
+              calculations happen in your browser.
+            </p>
+          </div>
+          <div class="retirement-input-grid">
+            <label class="retirement-field">
+              <span>Current age</span>
+              <input
+                class="control"
+                id="currentAge"
+                name="currentAge"
+                type="number"
+                min="18"
+                max="99"
+                step="1"
+                value="35"
+                inputmode="numeric"
+                required
+              />
+            </label>
+            <label class="retirement-field">
+              <span>Retirement age</span>
+              <input
+                class="control"
+                id="retirementAge"
+                name="retirementAge"
+                type="number"
+                min="19"
+                max="100"
+                step="1"
+                value="65"
+                inputmode="numeric"
+                required
+              />
+            </label>
+            <label class="retirement-field">
+              <span>Current retirement savings</span>
+              <span class="retirement-input-wrap">
+                <span class="retirement-currency" aria-hidden="true">$</span>
+                <input
+                  class="control"
+                  id="currentSavings"
+                  name="currentSavings"
+                  type="number"
+                  min="0"
+                  max="1000000000000"
+                  step="any"
+                  value="50000"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+            </label>
+            <label class="retirement-field">
+              <span>Monthly contribution</span>
+              <span class="retirement-input-wrap">
+                <span class="retirement-currency" aria-hidden="true">$</span>
+                <input
+                  class="control"
+                  id="monthlyContribution"
+                  name="monthlyContribution"
+                  type="number"
+                  min="0"
+                  max="10000000"
+                  step="any"
+                  value="750"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+            </label>
+            <label class="retirement-field">
+              <span>Assumed annual return</span>
+              <span class="retirement-input-wrap retirement-suffix-wrap">
+                <input
+                  class="control"
+                  id="annualReturn"
+                  name="annualReturn"
+                  type="number"
+                  min="-99"
+                  max="100"
+                  step="0.1"
+                  value="6"
+                  inputmode="decimal"
+                  required
+                />
+                <span class="retirement-suffix" aria-hidden="true">%</span>
+              </span>
+              <small>Nominal return, before inflation.</small>
+            </label>
+            <label class="retirement-field">
+              <span>Assumed annual inflation</span>
+              <span class="retirement-input-wrap retirement-suffix-wrap">
+                <input
+                  class="control"
+                  id="inflationRate"
+                  name="inflationRate"
+                  type="number"
+                  min="0"
+                  max="50"
+                  step="0.1"
+                  value="2.5"
+                  inputmode="decimal"
+                  required
+                />
+                <span class="retirement-suffix" aria-hidden="true">%</span>
+              </span>
+            </label>
+            <label class="retirement-field">
+              <span>Desired monthly retirement income</span>
+              <span class="retirement-input-wrap">
+                <span class="retirement-currency" aria-hidden="true">$</span>
+                <input
+                  class="control"
+                  id="monthlyIncome"
+                  name="monthlyIncome"
+                  type="number"
+                  min="0"
+                  max="100000000"
+                  step="any"
+                  value="4000"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+              <small>Expressed in today’s money.</small>
+            </label>
+            <label class="retirement-field">
+              <span>Illustrative withdrawal rate</span>
+              <span class="retirement-input-wrap retirement-suffix-wrap">
+                <input
+                  class="control"
+                  id="withdrawalRate"
+                  name="withdrawalRate"
+                  type="number"
+                  min="1"
+                  max="10"
+                  step="0.1"
+                  value="4"
+                  inputmode="decimal"
+                  required
+                />
+                <span class="retirement-suffix" aria-hidden="true">%</span>
+              </span>
+              <small>Used to estimate a target nest egg.</small>
+            </label>
+            <label class="retirement-field">
+              <span>Display currency</span>
+              <select class="control" id="retirementCurrency" name="currency">
+                <option value="USD">USD — US Dollar</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="GBP">GBP — Pound Sterling</option>
+              </select>
+              <small>Display only; no exchange conversion.</small>
+            </label>
+          </div>
+          <p
+            class="retirement-error"
+            id="retirementError"
+            role="alert"
+            hidden
+          ></p>
+          <button class="btn retirement-submit" type="submit">
+            Update projection
+          </button>
+          <button class="retirement-reset" type="reset">
+            Reset assumptions
+          </button>
+        </form>
+
+        <div class="retirement-results" id="retirementResults">
+          <section
+            class="hero-panel retirement-summary"
+            aria-labelledby="retirementSummaryHeading"
+          >
+            <div class="retirement-summary-heading">
+              <div>
+                <span class="retirement-kicker">
+                  Projected at age <span id="summaryRetirementAge">65</span>
+                </span>
+                <h2 id="retirementSummaryHeading">
+                  <span
+                    id="projectedBalance"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                    >$0</span
+                  >
+                </h2>
+              </div>
+              <span class="retirement-badge" id="goalStatus"
+                >Retirement estimate</span
+              >
+            </div>
+            <p class="retirement-real-value">
+              Estimated value in today’s money:
+              <strong id="realBalance">$0</strong>
+            </p>
+            <div class="retirement-metric-grid">
+              <div class="retirement-metric">
+                <span>Estimated target nest egg</span>
+                <strong id="targetNestEgg">$0</strong>
+              </div>
+              <div class="retirement-metric">
+                <span>Projected surplus / shortfall</span>
+                <strong id="goalGap">$0</strong>
+              </div>
+              <div class="retirement-metric">
+                <span>Monthly contribution to reach target</span>
+                <strong id="neededContribution">$0</strong>
+              </div>
+              <div class="retirement-metric">
+                <span>Total added contributions</span>
+                <strong id="totalContributions">$0</strong>
+              </div>
+            </div>
+            <p class="retirement-assumptions" id="retirementAssumptions"></p>
+          </section>
+          <section
+            class="hero-panel retirement-chart-panel"
+            aria-labelledby="retirementChartHeading"
+          >
+            <div class="retirement-section-heading">
+              <div>
+                <span class="retirement-kicker">Illustrative projection</span>
+                <h2 id="retirementChartHeading">Savings path to retirement</h2>
+              </div>
+            </div>
+            <div class="retirement-chart-wrap">
+              <svg
+                id="retirementChart"
+                viewBox="0 0 720 280"
+                role="img"
+                aria-labelledby="retirementChartTitle retirementChartDescription"
+              ></svg>
+            </div>
+            <p class="retirement-chart-caption">
+              The dashed line is the estimated target nest egg at the retirement
+              age. This scenario is not a forecast or guarantee.
+            </p>
+          </section>
+          <details class="hero-panel retirement-table-panel">
+            <summary>View annual breakdown</summary>
+            <div class="retirement-table-wrap">
+              <table class="retirement-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Age</th>
+                    <th scope="col">Contributions to date</th>
+                    <th scope="col">Projected savings</th>
+                    <th scope="col">Target nest egg</th>
+                  </tr>
+                </thead>
+                <tbody id="retirementRows"></tbody>
+              </table>
+            </div>
+          </details>
+          <aside class="retirement-disclaimer" role="note">
+            <strong>Important assumptions and disclaimer</strong>
+            <p>
+              This educational scenario is not investment, tax, or retirement
+              advice. It assumes a constant annual return compounded monthly,
+              fixed monthly contributions made at month end, and a constant
+              inflation rate. Actual returns vary and can be negative; fees,
+              taxes, contribution changes, benefit income, longevity, and
+              sequence-of-returns risk are not modeled. The withdrawal rate is
+              an illustrative planning assumption, not a guaranteed sustainable
+              rate. Retirement income and target values are estimates, not
+              promises. Currency changes formatting only. Consider consulting a
+              qualified professional.
+            </p>
+          </aside>
+        </div>
+      </div>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/retirement-planner.js?v=2026102001"></script>
+  </body>
+</html>

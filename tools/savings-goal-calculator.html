@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savings Goal Calculator | IO Innovation</title>
+    <meta
+      name="description"
+      content="Estimate the recurring savings needed to reach a target amount by a chosen date."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/savings-goal-calculator.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link
+      rel="stylesheet"
+      href="/css/savings-goal-calculator.css?v=2026102001"
+    />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="page-shell">
+      <section class="hero-panel">
+        <span class="hero-kicker">Personal finance</span>
+        <h1 class="hero-title">Savings Goal Calculator</h1>
+        <p class="hero-subtitle">
+          Find a monthly savings target and compare it with an illustrative
+          growth path toward your goal.
+        </p>
+      </section>
+      <div class="savings-layout">
+        <form
+          class="filter-panel savings-form"
+          id="savingsForm"
+          aria-label="Savings goal assumptions"
+          novalidate
+        >
+          <div class="savings-form-heading">
+            <span class="savings-kicker">Your assumptions</span>
+            <h2>Set a savings goal</h2>
+            <p class="muted">
+              Compare the amount you plan to save with the monthly contribution
+              estimated to reach your target. All calculations happen in your
+              browser.
+            </p>
+          </div>
+          <div class="savings-input-grid">
+            <label class="savings-field">
+              <span>Target amount</span>
+              <span class="savings-input-wrap">
+                <span class="savings-currency" aria-hidden="true">$</span>
+                <input
+                  class="control"
+                  id="targetAmount"
+                  name="targetAmount"
+                  type="number"
+                  min="0.01"
+                  max="1000000000000"
+                  step="any"
+                  value="25000"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+            </label>
+            <label class="savings-field">
+              <span>Current savings</span>
+              <span class="savings-input-wrap">
+                <span class="savings-currency" aria-hidden="true">$</span>
+                <input
+                  class="control"
+                  id="currentSavings"
+                  name="currentSavings"
+                  type="number"
+                  min="0"
+                  max="1000000000000"
+                  step="any"
+                  value="5000"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+            </label>
+            <label class="savings-field">
+              <span>Time to save</span>
+              <span class="savings-input-wrap savings-suffix-wrap">
+                <input
+                  class="control"
+                  id="years"
+                  name="years"
+                  type="number"
+                  min="1"
+                  max="80"
+                  step="1"
+                  value="3"
+                  inputmode="numeric"
+                  required
+                />
+                <span class="savings-suffix" aria-hidden="true">years</span>
+              </span>
+            </label>
+            <label class="savings-field">
+              <span>Assumed annual interest rate</span>
+              <span class="savings-input-wrap savings-suffix-wrap">
+                <input
+                  class="control"
+                  id="annualRate"
+                  name="annualRate"
+                  type="number"
+                  min="-99"
+                  max="100"
+                  step="0.1"
+                  value="3"
+                  inputmode="decimal"
+                  required
+                />
+                <span class="savings-suffix" aria-hidden="true">%</span>
+              </span>
+              <small>Annual rate converted to a monthly equivalent.</small>
+            </label>
+            <label class="savings-field">
+              <span>Your planned monthly deposit</span>
+              <span class="savings-input-wrap">
+                <span class="savings-currency" aria-hidden="true">$</span>
+                <input
+                  class="control"
+                  id="plannedMonthly"
+                  name="plannedMonthly"
+                  type="number"
+                  min="0"
+                  max="10000000"
+                  step="any"
+                  value="500"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+              <small>Used to compare your plan against the goal.</small>
+            </label>
+            <label class="savings-field">
+              <span>Deposit timing</span>
+              <select class="control" id="depositTiming" name="depositTiming">
+                <option value="end" selected>End of each month</option>
+                <option value="beginning">Beginning of each month</option>
+              </select>
+            </label>
+            <label class="savings-field">
+              <span>Display currency</span>
+              <select class="control" id="savingsCurrency" name="currency">
+                <option value="USD">USD — US Dollar</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="GBP">GBP — Pound Sterling</option>
+              </select>
+              <small>Display only; no exchange-rate conversion.</small>
+            </label>
+          </div>
+          <p class="savings-error" id="savingsError" role="alert" hidden></p>
+          <button class="btn savings-submit" type="submit">
+            Update estimate
+          </button>
+          <button class="savings-reset" type="reset">Reset assumptions</button>
+        </form>
+
+        <div class="savings-results" id="savingsResults">
+          <section
+            class="hero-panel savings-summary"
+            aria-labelledby="savingsSummaryHeading"
+          >
+            <div class="savings-summary-heading">
+              <div>
+                <span class="savings-kicker"
+                  >Estimated monthly savings needed</span
+                >
+                <h2 id="savingsSummaryHeading">
+                  <span
+                    id="requiredMonthly"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                    >$0</span
+                  ><small>per month</small>
+                </h2>
+              </div>
+              <span class="savings-badge" id="goalStatus">Goal estimate</span>
+            </div>
+            <div class="savings-metric-grid">
+              <div class="savings-metric">
+                <span>Projected balance with your plan</span>
+                <strong id="projectedBalance">$0</strong>
+              </div>
+              <div class="savings-metric">
+                <span>Surplus / shortfall vs. target</span>
+                <strong id="goalGap">$0</strong>
+              </div>
+              <div class="savings-metric">
+                <span>Total deposits at required rate</span>
+                <strong id="requiredDeposits">$0</strong>
+              </div>
+              <div class="savings-metric">
+                <span>Estimated interest at required rate</span>
+                <strong id="estimatedInterest">$0</strong>
+              </div>
+            </div>
+            <p class="savings-assumptions" id="savingsAssumptions"></p>
+          </section>
+          <section
+            class="hero-panel savings-chart-panel"
+            aria-labelledby="savingsChartHeading"
+          >
+            <div class="savings-section-heading">
+              <div>
+                <span class="savings-kicker">Illustrative projection</span>
+                <h2 id="savingsChartHeading">
+                  Your plan compared with the goal
+                </h2>
+              </div>
+            </div>
+            <div class="savings-chart-wrap">
+              <svg
+                id="savingsChart"
+                viewBox="0 0 720 280"
+                role="img"
+                aria-labelledby="savingsChartTitle savingsChartDescription"
+              ></svg>
+            </div>
+            <p class="savings-chart-caption">
+              The solid line estimates your current monthly plan; the dashed
+              line marks the target amount.
+            </p>
+          </section>
+          <details class="hero-panel savings-table-panel">
+            <summary>View annual breakdown</summary>
+            <div class="savings-table-wrap">
+              <table class="savings-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Year</th>
+                    <th scope="col">Deposits at required rate</th>
+                    <th scope="col">Balance with your plan</th>
+                    <th scope="col">Target amount</th>
+                  </tr>
+                </thead>
+                <tbody id="savingsRows"></tbody>
+              </table>
+            </div>
+          </details>
+          <aside class="savings-disclaimer" role="note">
+            <strong>Important assumptions and disclaimer</strong>
+            <p>
+              This educational estimate is not financial or investment advice.
+              It assumes a constant annual interest rate converted to a monthly
+              equivalent and regular deposits at the selected time of month.
+              Actual rates may change, fees and taxes are excluded, and the
+              estimate does not guarantee that a goal will be reached. A
+              negative interest assumption models a declining balance. Currency
+              selection changes formatting only and does not convert values.
+              Verify assumptions and consider consulting a qualified
+              professional.
+            </p>
+          </aside>
+        </div>
+      </div>
+      <section class="hero-panel">
+        <a class="btn" href="/tools/">Back to all tools</a>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/savings-goal-calculator.js?v=2026102001"></script>
+  </body>
+</html>
