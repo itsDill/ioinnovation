@@ -1,12 +1,13 @@
 /* Service Worker for IO Innovation Tools */
 
-const STATIC_CACHE = "io-tools-static-v2026102021";
-const RUNTIME_CACHE = "io-tools-runtime-v2026102021";
+const STATIC_CACHE = "io-tools-static-v2026102602";
+const RUNTIME_CACHE = "io-tools-runtime-v2026102602";
 
 const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/tools/",
+  "/tools/13f-comparison.html",
   "/tools/dividend-calculator.html",
   "/tools/compound-growth-calculator.html",
   "/tools/stock-return-calculator.html",
@@ -17,6 +18,7 @@ const STATIC_ASSETS = [
   "/tools/savings-goal-calculator.html",
   "/tools/inflation-calculator.html",
   "/blog/",
+  "/blog/what-is-a-13f.html",
   "/about.html",
   "/contact.html",
   "/privacy.html",
@@ -24,7 +26,9 @@ const STATIC_ASSETS = [
   "/css/site.css",
   "/css/holdings.css",
   "/css/home.css",
+  "/css/13f-comparison.css?v=2026102601",
   "/css/blog-article.css?v=2026102001",
+  "/css/blog-13f.css?v=2026102501",
   "/css/contact.css?v=2026102001",
   "/css/portfolio-allocation.css?v=2026102003",
   "/css/dividend-calculator.css?v=2026102002",
@@ -37,6 +41,10 @@ const STATIC_ASSETS = [
   "/css/stock-return-calculator.css?v=2026102002",
   "/js/shared-simple.js",
   "/js/theme-init.js",
+  "/js/13f-comparison.js?v=2026102601",
+  "/js/blog-13f.js?v=2026102501",
+  "/data/holdings-latest.json",
+  "/data/manual/filings.json",
   "/js/portfolio-allocation.js?v=2026102003",
   "/js/dividend-calculator.js?v=2026102002",
   "/js/inflation-calculator.js?v=2026102002",
@@ -91,8 +99,11 @@ self.addEventListener("fetch", (event) => {
     req.url.endsWith(".html") ||
     req.url.endsWith("/");
   const isAsset = req.url.includes(".css") || req.url.includes(".js");
+  const is13fData =
+    url.pathname === "/data/holdings-latest.json" ||
+    url.pathname === "/data/manual/filings.json";
 
-  if (isHtml || isAsset) {
+  if (isHtml || isAsset || is13fData) {
     event.respondWith(
       fetch(req)
         .then((res) => {

@@ -3,33 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Finance Tools | IO Innovation</title>
+    <title>13F Holdings Comparison Tool | IO Innovation</title>
     <meta
       name="description"
-      content="Browse practical investing, company research, and personal finance tools from IO Innovation."
+      content="Compare institutional holdings reported in SEC Form 13F filings. Explore portfolio overlap, position weights, report periods, and source documents with one free research tool."
     />
     <link rel="canonical" href="https://ioinnovationfund.com/tools/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Finance Tools | IO Innovation" />
+    <meta
+      property="og:title"
+      content="13F Holdings Comparison Tool | IO Innovation"
+    />
     <meta
       property="og:description"
-      content="A growing collection of practical finance and research tools."
+      content="One focused tool for comparing reported institutional holdings across SEC Form 13F filings."
     />
     <meta property="og:url" content="https://ioinnovationfund.com/tools/" />
     <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "13F Holdings Comparison Tool",
+        "url": "https://ioinnovationfund.com/tools/",
+        "description": "Compare reported institutional positions from tracked SEC Form 13F filings."
+      }
+    </script>
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
-    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102402" />
   </head>
-  <body class="site-refresh">
+  <body class="site-refresh comparison-directory-page">
     <a href="#main" class="skip-to-main">Skip to content</a>
     <header class="header">
       <nav class="nav">
         <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/tools/" class="active">Tools</a></li>
+          <li><a href="/tools/" class="active">13F Tool</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
@@ -47,436 +59,175 @@
         </div>
       </nav>
     </header>
-    <main id="main" class="page-shell">
-      <section class="hero-panel">
-        <span class="hero-kicker">Toolbox</span>
-        <h1 class="hero-title">Finance tools for everyday research</h1>
-        <p class="hero-subtitle">
-          Browse practical calculators and research helpers. Tools are being
-          added to this collection; the pages below are previews of what’s
-          planned.
-        </p>
+
+    <main id="main" class="page-shell comparison-directory">
+      <section class="comparison-directory-hero" aria-labelledby="tool-title">
+        <div class="comparison-directory-copy">
+          <span class="hero-kicker">One tool · SEC Form 13F</span>
+          <h1 id="tool-title" class="hero-title">
+            Compare institutional holdings, side by side
+          </h1>
+          <p class="hero-subtitle">
+            Choose two tracked investment managers to see what their latest
+            available 13F filings have in common—and what appears in only one
+            report. Compare disclosed values and portfolio weights, check each
+            filing date, and follow the source links back to EDGAR.
+          </p>
+          <div class="comparison-directory-actions">
+            <a class="home-cta" href="/tools/13f-comparison.html">
+              Open the 13F comparison
+              <span class="home-arrow" aria-hidden="true">↗</span>
+            </a>
+            <span class="comparison-directory-note"
+              >Free to use · No account required</span
+            >
+          </div>
+          <div class="comparison-directory-facts" aria-label="Tool coverage">
+            <span><strong>4</strong> currently tracked institutions</span>
+            <span>SEC source-linked filings</span>
+            <span>Search, filter, and CSV export</span>
+          </div>
+        </div>
+        <a
+          class="comparison-directory-preview"
+          href="/tools/13f-comparison.html"
+          aria-label="Open the interactive 13F comparison tool"
+        >
+          <div class="comparison-preview-card">
+            <div class="comparison-preview-topbar">
+              <span class="comparison-preview-mark">IO</span>
+              <span>13F COMPARISON</span>
+              <span class="comparison-preview-live"><i></i> FILING DATA</span>
+            </div>
+            <div class="comparison-preview-heading">
+              <div>
+                <span class="comparison-preview-overline"
+                  >SIDE-BY-SIDE SNAPSHOT</span
+                >
+                <strong>Compare institutions</strong>
+              </div>
+              <span class="comparison-preview-quarter">SEC filings</span>
+            </div>
+            <div class="comparison-preview-selectors">
+              <div>
+                <span class="comparison-preview-dot dot-blue"></span
+                ><span
+                  ><small>INSTITUTION A</small
+                  ><strong>Berkshire Hathaway</strong></span
+                ><b>⌄</b>
+              </div>
+              <div>
+                <span class="comparison-preview-dot dot-violet"></span
+                ><span
+                  ><small>INSTITUTION B</small
+                  ><strong>Bridgewater Associates</strong></span
+                ><b>⌄</b>
+              </div>
+            </div>
+            <div class="comparison-preview-metrics">
+              <div>
+                <small>SHARED POSITIONS</small><strong>Identify overlap</strong>
+              </div>
+              <div>
+                <small>REPORTED VALUE</small><strong>Compare weights</strong>
+              </div>
+              <div><small>SOURCE</small><strong>Open SEC filings</strong></div>
+            </div>
+            <div class="comparison-preview-table" aria-hidden="true">
+              <div class="comparison-preview-row comparison-preview-table-head">
+                <span>REPORTED POSITION</span><span>INSTITUTION A</span
+                ><span>INSTITUTION B</span>
+              </div>
+              <div class="comparison-preview-row">
+                <span
+                  ><i class="preview-company-dot"></i><b>Shared position</b
+                  ><small>Issuer · CUSIP</small></span
+                ><strong>Reported value</strong><strong>Reported value</strong>
+              </div>
+              <div class="comparison-preview-row">
+                <span
+                  ><i class="preview-company-dot preview-company-dot-alt"></i
+                  ><b>Unique position</b><small>Issuer · CUSIP</small></span
+                ><strong>Portfolio weight</strong><strong>—</strong>
+              </div>
+            </div>
+            <div class="comparison-preview-foot">
+              <span>Historical disclosures · not real-time holdings</span
+              ><span>Open comparison <b aria-hidden="true">↗</b></span>
+            </div>
+          </div>
+        </a>
       </section>
-      <section class="filer-grid" aria-label="Finance tools">
-        <a class="filer-card" href="/tools/dividend-calculator.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--dividend"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <rect x="48" y="66" width="124" height="37" rx="12" fill="#fff" />
-              <path
-                d="M60 66v22c0 8 7 15 15 15h70c8 0 15-7 15-15V66"
-                stroke="#4D9E7B"
-                stroke-width="4"
-              />
-              <ellipse
-                cx="110"
-                cy="67"
-                rx="62"
-                ry="16"
-                fill="#AEE4C3"
-                stroke="#4D9E7B"
-                stroke-width="4"
-              />
-              <circle
-                cx="110"
-                cy="45"
-                r="25"
-                fill="#F8D77E"
-                stroke="#B58835"
-                stroke-width="4"
-              />
-              <path
-                d="M110 31v28m8-21c-2-5-14-6-16 0-3 8 17 5 16 14-1 7-13 9-18 3"
-                stroke="#9C7123"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-              <path
-                d="m153 31 12-12 10 8 15-17"
-                stroke="#278866"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              /></svg
-          ></span>
-          <h3>Dividend Calculator</h3>
-          <p class="muted">
-            Estimate dividend income from shares and payout frequency.
+
+      <section class="comparison-directory-howto" aria-labelledby="howto-title">
+        <div class="comparison-directory-section-heading">
+          <span class="hero-kicker">How it works</span>
+          <h2 id="howto-title">From two filings to a useful comparison</h2>
+          <p>
+            The tool organizes reported positions; the SEC filings remain the
+            source of record.
           </p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/compound-growth-calculator.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--growth"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <rect x="42" y="15" width="136" height="91" rx="15" fill="#fff" />
-              <path
-                d="M59 83h104M59 60h104M59 37h104"
-                stroke="#DDEAE7"
-                stroke-width="2"
-              />
-              <path
-                d="m60 85 27-18 23 8 25-29 27-17"
-                stroke="#278A70"
-                stroke-width="5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle
-                cx="162"
-                cy="29"
-                r="7"
-                fill="#F3B76C"
-                stroke="#fff"
-                stroke-width="3"
-              />
-              <path
-                d="M155 29h14M162 22v14"
-                stroke="#fff"
-                stroke-width="2"
-              /></svg
-          ></span>
-          <h3>Compound Growth Calculator</h3>
-          <p class="muted">
-            Explore hypothetical growth with regular contributions.
+        </div>
+        <div class="home-howto-grid">
+          <article class="home-howto-card">
+            <span>01</span>
+            <h3>Choose two institutions</h3>
+            <p>
+              Select any two managers in the current coverage set. Review the
+              report period and filing date for each, and open the linked SEC
+              source.
+            </p>
+          </article>
+          <article class="home-howto-card">
+            <span>02</span>
+            <h3>Find overlap and differences</h3>
+            <p>
+              Filter to shared positions or positions unique to one filing.
+              Search by issuer, ticker, or CUSIP, and compare reported values
+              and portfolio weights.
+            </p>
+          </article>
+          <article class="home-howto-card">
+            <span>03</span>
+            <h3>Verify and continue research</h3>
+            <p>
+              Check the original filings, export the filtered table to CSV, and
+              use the comparison as a starting point for your own analysis.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <aside class="home-data-caveat comparison-directory-caveat">
+        Form 13F filings are delayed snapshots of certain reportable
+        securities—not real-time portfolios or a complete view of an
+        institution’s investments. When report periods differ, the filings are
+        not a like-for-like comparison. This tool is for informational research,
+        not investment advice.
+        <a href="/methodology.html">Read the data methodology</a>.
+      </aside>
+
+      <section
+        class="comparison-directory-research"
+        aria-labelledby="research-title"
+      >
+        <div>
+          <span class="hero-kicker">Blog</span>
+          <h2 id="research-title">
+            One tool, a growing body of filing-based analysis
+          </h2>
+          <p>
+            We use the comparison to develop explainers and observations about
+            disclosed holdings—always with dates, limitations, and source
+            filings in view.
           </p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/stock-return-calculator.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--returns"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <rect x="44" y="15" width="132" height="91" rx="15" fill="#fff" />
-              <path
-                d="M62 84h99"
-                stroke="#D9E4E0"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-              <rect
-                x="67"
-                y="61"
-                width="15"
-                height="23"
-                rx="4"
-                fill="#E7B477"
-              />
-              <rect
-                x="93"
-                y="48"
-                width="15"
-                height="36"
-                rx="4"
-                fill="#D68E77"
-              />
-              <rect
-                x="119"
-                y="38"
-                width="15"
-                height="46"
-                rx="4"
-                fill="#85BDA4"
-              />
-              <path
-                d="m64 51 29-13 25 7 32-23"
-                stroke="#4F8B78"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="m143 22 8-1-1 8"
-                stroke="#4F8B78"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              /></svg
-          ></span>
-          <h3>Stock Return Calculator</h3>
-          <p class="muted">Review an investment’s change in value over time.</p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/position-size-calculator.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--position"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <circle cx="110" cy="61" r="43" fill="#fff" />
-              <circle
-                cx="110"
-                cy="61"
-                r="28"
-                stroke="#9C91D3"
-                stroke-width="3"
-              />
-              <circle
-                cx="110"
-                cy="61"
-                r="13"
-                fill="#C7BDF0"
-                stroke="#7569B6"
-                stroke-width="3"
-              />
-              <path
-                d="M110 11v20m0 60v20M60 61h20m60 0h20"
-                stroke="#596FA6"
-                stroke-width="5"
-                stroke-linecap="round"
-              />
-              <circle cx="110" cy="61" r="4" fill="#596FA6" />
-              <path
-                d="m150 28 12-9 12 9v15h-24V28Z"
-                fill="#B9E5D4"
-                stroke="#4C9B7B"
-                stroke-width="3"
-              />
-              <path
-                d="M158 35h8"
-                stroke="#4C9B7B"
-                stroke-width="3"
-                stroke-linecap="round"
-              /></svg
-          ></span>
-          <h3>Position Size Calculator</h3>
-          <p class="muted">Plan a position using a target risk amount.</p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/dcf-valuation.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--valuation"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <rect x="51" y="15" width="118" height="91" rx="15" fill="#fff" />
-              <rect
-                x="67"
-                y="29"
-                width="86"
-                height="22"
-                rx="7"
-                fill="#DDE8F4"
-              />
-              <path
-                d="M74 40h28"
-                stroke="#638C9A"
-                stroke-width="4"
-                stroke-linecap="round"
-              />
-              <g fill="#9BD4BD">
-                <rect x="68" y="61" width="20" height="15" rx="4" />
-                <rect x="100" y="61" width="20" height="15" rx="4" />
-                <rect x="132" y="61" width="20" height="15" rx="4" />
-              </g>
-              <g fill="#B9A8DD">
-                <rect x="68" y="83" width="20" height="12" rx="4" />
-                <rect x="100" y="83" width="20" height="12" rx="4" />
-                <rect x="132" y="83" width="20" height="12" rx="4" />
-              </g>
-              <path
-                d="m153 26 14-12 13 10-13 12-14-10Z"
-                fill="#F4D07D"
-                stroke="#B78D39"
-                stroke-width="3"
-              /></svg
-          ></span>
-          <h3>DCF Valuation Tool</h3>
-          <p class="muted">
-            Estimate intrinsic value from projected free cash flow.
-          </p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/portfolio-allocation.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--allocation"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <circle cx="108" cy="61" r="43" fill="#fff" />
-              <path d="M108 18a43 43 0 0 1 42 34h-42V18Z" fill="#74BE9A" />
-              <path d="M150 52a43 43 0 0 1-27 49L108 61h42Z" fill="#E8BE75" />
-              <path
-                d="M123 101a43 43 0 0 1-51-19l36-21 15 40Z"
-                fill="#8BAED6"
-              />
-              <path d="M72 82A43 43 0 0 1 108 18v43L72 82Z" fill="#A7D8C3" />
-              <circle cx="108" cy="61" r="19" fill="#fff" />
-              <rect
-                x="153"
-                y="23"
-                width="34"
-                height="13"
-                rx="6.5"
-                fill="#C9EADB"
-              />
-              <rect
-                x="159"
-                y="43"
-                width="27"
-                height="10"
-                rx="5"
-                fill="#D9E6F2"
-              />
-              <rect
-                x="56"
-                y="98"
-                width="31"
-                height="10"
-                rx="5"
-                fill="#F0DEB8"
-              /></svg
-          ></span>
-          <h3>Portfolio Allocation Tool</h3>
-          <p class="muted">Visualize target allocations across investments.</p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/retirement-planner.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--retirement"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <circle cx="151" cy="37" r="20" fill="#F1C979" />
-              <path
-                d="M37 94h146"
-                stroke="#648A7C"
-                stroke-width="4"
-                stroke-linecap="round"
-              />
-              <path
-                d="M52 94V62l20-16 20 16v32"
-                fill="#fff"
-                stroke="#6E9C89"
-                stroke-width="4"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M63 94V72h18v22"
-                fill="#C5E5D3"
-                stroke="#6E9C89"
-                stroke-width="3"
-              />
-              <path
-                d="M107 94V52h49v42"
-                fill="#EAF4EF"
-                stroke="#6E9C89"
-                stroke-width="4"
-              />
-              <path
-                d="M119 64h9m10 0h8m-27 13h9m10 0h8"
-                stroke="#80AA99"
-                stroke-width="4"
-                stroke-linecap="round"
-              />
-              <path
-                d="m109 36 12-12 11 8 14-14"
-                stroke="#4E8A72"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              /></svg
-          ></span>
-          <h3>Retirement Planner</h3>
-          <p class="muted">Estimate a savings path toward a retirement goal.</p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/savings-goal-calculator.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--savings"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <path
-                d="M65 42h90l-8 59H73l-8-59Z"
-                fill="#fff"
-                stroke="#A584AF"
-                stroke-width="4"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M60 42h100v12H60z"
-                fill="#D3B5D8"
-                stroke="#A584AF"
-                stroke-width="4"
-              />
-              <path
-                d="M87 29h46"
-                stroke="#A584AF"
-                stroke-width="5"
-                stroke-linecap="round"
-              />
-              <circle
-                cx="101"
-                cy="68"
-                r="10"
-                fill="#F1D17D"
-                stroke="#B78C38"
-                stroke-width="3"
-              />
-              <circle
-                cx="123"
-                cy="81"
-                r="10"
-                fill="#F1D17D"
-                stroke="#B78C38"
-                stroke-width="3"
-              />
-              <path
-                d="M101 63v10m5-8c-1-3-8-3-9 0-1 4 10 3 9 7-1 4-8 4-10 1"
-                stroke="#9A732B"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="m155 31 12-12 11 9 14-16"
-                stroke="#8A60A1"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              /></svg
-          ></span>
-          <h3>Savings Goal Calculator</h3>
-          <p class="muted">Estimate the monthly savings needed for a target.</p>
-          <p class="muted">Available now</p></a
-        >
-        <a class="filer-card" href="/tools/inflation-calculator.html"
-          ><span
-            class="tool-thumbnail tool-thumbnail--inflation"
-            aria-hidden="true"
-            ><svg viewBox="0 0 220 120" fill="none">
-              <rect x="49" y="25" width="122" height="70" rx="15" fill="#fff" />
-              <path
-                d="M70 73h25l11-15 13 10 13-24 17 10"
-                stroke="#B77D44"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="m141 42 8 2-1 8"
-                stroke="#B77D44"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle cx="75" cy="45" r="8" fill="#F0CB7F" />
-              <path
-                d="M75 41v8m3-6c-1-2-6-2-7 0-1 3 7 2 7 5-1 3-6 3-8 1"
-                stroke="#9D7637"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              />
-              <path
-                d="M64 99h92"
-                stroke="#8F9B83"
-                stroke-width="4"
-                stroke-linecap="round"
-              /></svg
-          ></span>
-          <h3>Inflation Calculator</h3>
-          <p class="muted">Compare purchasing power across time.</p>
-          <p class="muted">Available now</p></a
+        </div>
+        <a class="home-more-tools-link" href="/blog/"
+          >Explore the 13F blog <span aria-hidden="true">↗</span></a
         >
       </section>
     </main>
+
     <footer class="footer" role="contentinfo">
       <div class="footer-content">
         <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>

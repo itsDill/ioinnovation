@@ -1,0 +1,722 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-25",
+  "filings": [
+    {
+      "filer": {
+        "slug": "appaloosa",
+        "name": "Appaloosa LP",
+        "cik": "0001656456"
+      },
+      "report_period": "2026-06-30",
+      "filing_date": "2026-08-14",
+      "accession": "0001656456-26-000003",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1656456/000165645626000003/primary_doc.xml",
+      "amended": false,
+      "holdings": [
+        {
+          "issuer": "ADVANCED MICRO DEVICES INC",
+          "title_of_class": "COM",
+          "cusip": "007903107",
+          "ticker": "",
+          "value_usd": 114729725,
+          "shares": 197500,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ALIBABA GROUP HLDG LTD",
+          "title_of_class": "SPONSORED ADS",
+          "cusip": "01609W102",
+          "ticker": "",
+          "value_usd": 191960000,
+          "shares": 2000000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL C",
+          "cusip": "02079K107",
+          "ticker": "",
+          "value_usd": 653660500,
+          "shares": 1850000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "AMAZON COM INC",
+          "title_of_class": "COM",
+          "cusip": "023135106",
+          "ticker": "",
+          "value_usd": 1191700000,
+          "shares": 5000000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "AMERICAN AIRLINES GROUP INC",
+          "title_of_class": "COM",
+          "cusip": "02376R102",
+          "ticker": "",
+          "value_usd": 135525000,
+          "shares": 7500000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "APPLE INC",
+          "title_of_class": "COM",
+          "cusip": "037833100",
+          "ticker": "",
+          "value_usd": 241615600,
+          "shares": 835000,
+          "put_call": "Put",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ASML HLDG NV",
+          "title_of_class": "N Y REGISTRY SHS",
+          "cusip": "N07059210",
+          "ticker": "",
+          "value_usd": 99472000,
+          "shares": 50000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BAIDU INC",
+          "title_of_class": "SPON ADR REP A",
+          "cusip": "056752108",
+          "ticker": "",
+          "value_usd": 148005550,
+          "shares": 1295000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BERKSHIRE HATHAWAY INC DEL",
+          "title_of_class": "CL B NEW",
+          "cusip": "084670702",
+          "ticker": "",
+          "value_usd": 12509750,
+          "shares": 25000,
+          "put_call": "Put",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BOEING CO",
+          "title_of_class": "COM",
+          "cusip": "097023105",
+          "ticker": "",
+          "value_usd": 173176000,
+          "shares": 800000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BROADCOM INC",
+          "title_of_class": "COM",
+          "cusip": "11135F101",
+          "ticker": "",
+          "value_usd": 56662500,
+          "shares": 150000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "COREWEAVE INC",
+          "title_of_class": "COM CL A",
+          "cusip": "21873S108",
+          "ticker": "",
+          "value_usd": 107328806,
+          "shares": 1078248,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ENERGY TRANSFER L P",
+          "title_of_class": "COM UT LTD PTN",
+          "cusip": "29273V100",
+          "ticker": "",
+          "value_usd": 30135510,
+          "shares": 1576125,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "GOODYEAR TIRE & RUBR CO",
+          "title_of_class": "COM",
+          "cusip": "382550101",
+          "ticker": "",
+          "value_usd": 9956701,
+          "shares": 1508591,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ISHARES INC",
+          "title_of_class": "MSCI STH KOR ETF",
+          "cusip": "464286772",
+          "ticker": "",
+          "value_usd": 489607500,
+          "shares": 2425000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "LAM RESEARCH CORP",
+          "title_of_class": "COM NEW",
+          "cusip": "512807306",
+          "ticker": "",
+          "value_usd": 165748725,
+          "shares": 382500,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "META PLATFORMS INC",
+          "title_of_class": "CL A",
+          "cusip": "30303M102",
+          "ticker": "",
+          "value_usd": 380220750,
+          "shares": 675000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "MICRON TECHNOLOGY INC",
+          "title_of_class": "COM",
+          "cusip": "595112103",
+          "ticker": "",
+          "value_usd": 1125432750,
+          "shares": 975000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "MPLX LP",
+          "title_of_class": "COM UNIT REP LTD",
+          "cusip": "55336V100",
+          "ticker": "",
+          "value_usd": 28303572,
+          "shares": 502460,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "NRG ENERGY INC",
+          "title_of_class": "COM NEW",
+          "cusip": "629377508",
+          "ticker": "",
+          "value_usd": 257065600,
+          "shares": 1760000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "NVIDIA CORPORATION",
+          "title_of_class": "COM",
+          "cusip": "67066G104",
+          "ticker": "",
+          "value_usd": 305137250,
+          "shares": 1525000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "QUALCOMM INC",
+          "title_of_class": "COM",
+          "cusip": "747525103",
+          "ticker": "",
+          "value_usd": 46197500,
+          "shares": 250000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "SPACE EXPLORATION TECHN CORP",
+          "title_of_class": "CLASS A COM STK",
+          "cusip": "84615Q103",
+          "ticker": "",
+          "value_usd": 38443500,
+          "shares": 225000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "TAIWAN SEMICONDUCTOR MANUFAC",
+          "title_of_class": "SPONSORED ADS",
+          "cusip": "874039100",
+          "ticker": "",
+          "value_usd": 787990500,
+          "shares": 1650000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "UBER TECHNOLOGIES INC",
+          "title_of_class": "COM",
+          "cusip": "90353T100",
+          "ticker": "",
+          "value_usd": 555204163,
+          "shares": 7694071,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "VISTRA CORP",
+          "title_of_class": "COM",
+          "cusip": "92840M102",
+          "ticker": "",
+          "value_usd": 351408597,
+          "shares": 2215272,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "WHIRLPOOL CORP",
+          "title_of_class": "COM",
+          "cusip": "963320106",
+          "ticker": "",
+          "value_usd": 28185300,
+          "shares": 715000,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        }
+      ]
+    },
+    {
+      "filer": {
+        "slug": "pershing-square-capital",
+        "name": "Pershing Square Capital Management, L.P.",
+        "cik": "0001336528"
+      },
+      "report_period": "2026-03-31",
+      "filing_date": "2026-05-15",
+      "accession": "0001172661-26-002336",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1336528/000117266126002336/primary_doc.xml",
+      "amended": false,
+      "holdings": [
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL A",
+          "cusip": "02079K305",
+          "ticker": "",
+          "value_usd": 9310043,
+          "shares": 32376,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL C",
+          "cusip": "02079K107",
+          "ticker": "",
+          "value_usd": 89421720,
+          "shares": 311726,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "AMAZON COM INC",
+          "title_of_class": "COM",
+          "cusip": "023135106",
+          "ticker": "",
+          "value_usd": 2385104083,
+          "shares": 11451981,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BROOKFIELD CORP",
+          "title_of_class": "CL A LTD VT SH",
+          "cusip": "11271J107",
+          "ticker": "",
+          "value_usd": 2415946008,
+          "shares": 59697208,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HERTZ GLOBAL HLDGS INC",
+          "title_of_class": "COM NEW",
+          "cusip": "42806J700",
+          "ticker": "",
+          "value_usd": 70261595,
+          "shares": 15241127,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HOWARD HUGHES HOLDINGS INC",
+          "title_of_class": "COM",
+          "cusip": "44267T102",
+          "ticker": "",
+          "value_usd": 1192581569,
+          "shares": 18852064,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "META PLATFORMS INC",
+          "title_of_class": "CL A",
+          "cusip": "30303M102",
+          "ticker": "",
+          "value_usd": 1522358404,
+          "shares": 2660861,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "MICROSOFT CORP",
+          "title_of_class": "COM",
+          "cusip": "594918104",
+          "ticker": "",
+          "value_usd": 2092970053,
+          "shares": 5654078,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "RESTAURANT BRANDS INTL INC",
+          "title_of_class": "COM",
+          "cusip": "76131D103",
+          "ticker": "",
+          "value_usd": 1673501194,
+          "shares": 22645483,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "SEAPORT ENTMT GROUP INC",
+          "title_of_class": "COMMON STOCK",
+          "cusip": "812215200",
+          "ticker": "",
+          "value_usd": 107910794,
+          "shares": 5023780,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "UBER TECHNOLOGIES INC",
+          "title_of_class": "COM",
+          "cusip": "90353T100",
+          "ticker": "",
+          "value_usd": 2154934398,
+          "shares": 29958771,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        }
+      ]
+    },
+    {
+      "filer": {
+        "slug": "pershing-square-capital",
+        "name": "Pershing Square Capital Management, L.P.",
+        "cik": "0001336528"
+      },
+      "report_period": "2025-12-31",
+      "filing_date": "2026-02-17",
+      "accession": "0001172661-26-001091",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1336528/000117266126001091/primary_doc.xml",
+      "amended": false,
+      "holdings": [
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL A",
+          "cusip": "02079K305",
+          "ticker": "",
+          "value_usd": 212306961,
+          "shares": 678297,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL C",
+          "cusip": "02079K107",
+          "ticker": "",
+          "value_usd": 1934222720,
+          "shares": 6163871,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "AMAZON COM INC",
+          "title_of_class": "COM",
+          "cusip": "023135106",
+          "ticker": "",
+          "value_usd": 2217677936,
+          "shares": 9607824,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BROOKFIELD CORP",
+          "title_of_class": "CL A LTD VT SH",
+          "cusip": "11271J107",
+          "ticker": "",
+          "value_usd": 2817787754,
+          "shares": 61403089,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HERTZ GLOBAL HLDGS INC",
+          "title_of_class": "COM NEW",
+          "cusip": "42806J700",
+          "ticker": "",
+          "value_usd": 78339393,
+          "shares": 15241127,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HILTON WORLDWIDE HLDGS INC",
+          "title_of_class": "COM",
+          "cusip": "43300A203",
+          "ticker": "",
+          "value_usd": 869983734,
+          "shares": 3028664,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HOWARD HUGHES HOLDINGS INC",
+          "title_of_class": "COM",
+          "cusip": "44267T102",
+          "ticker": "",
+          "value_usd": 1503829145,
+          "shares": 18852064,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "META PLATFORMS INC",
+          "title_of_class": "CL A",
+          "cusip": "30303M102",
+          "ticker": "",
+          "value_usd": 1764796161,
+          "shares": 2673569,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "RESTAURANT BRANDS INTL INC",
+          "title_of_class": "COM",
+          "cusip": "76131D103",
+          "ticker": "",
+          "value_usd": 1560199922,
+          "shares": 22866773,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "SEAPORT ENTMT GROUP INC",
+          "title_of_class": "COMMON STOCK",
+          "cusip": "812215200",
+          "ticker": "",
+          "value_usd": 99320131,
+          "shares": 5023780,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "UBER TECHNOLOGIES INC",
+          "title_of_class": "COM",
+          "cusip": "90353T100",
+          "ticker": "",
+          "value_usd": 2468273945,
+          "shares": 30207734,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        }
+      ]
+    },
+    {
+      "filer": {
+        "slug": "pershing-square-capital",
+        "name": "Pershing Square Capital Management, L.P.",
+        "cik": "0001336528"
+      },
+      "report_period": "2025-09-30",
+      "filing_date": "2025-11-14",
+      "accession": "0001172661-25-005039",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1336528/000117266125005039/primary_doc.xml",
+      "amended": false,
+      "holdings": [
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL C",
+          "cusip": "02079K107",
+          "ticker": "",
+          "value_usd": 1540217750,
+          "shares": 6324031,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "ALPHABET INC",
+          "title_of_class": "CAP STK CL A",
+          "cusip": "02079K305",
+          "ticker": "",
+          "value_usd": 1177569836,
+          "shares": 4843973,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "AMAZON COM INC",
+          "title_of_class": "COM",
+          "cusip": "023135106",
+          "ticker": "",
+          "value_usd": 1278625494,
+          "shares": 5823316,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "BROOKFIELD CORP",
+          "title_of_class": "CL A LTD VT SH",
+          "cusip": "11271J107",
+          "ticker": "",
+          "value_usd": 2813167442,
+          "shares": 41020231,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "CHIPOTLE MEXICAN GRILL INC",
+          "title_of_class": "COM",
+          "cusip": "169656105",
+          "ticker": "",
+          "value_usd": 844198727,
+          "shares": 21541177,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HERTZ GLOBAL HLDGS INC",
+          "title_of_class": "COM NEW",
+          "cusip": "42806J700",
+          "ticker": "",
+          "value_usd": 103639664,
+          "shares": 15241127,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HILTON WORLDWIDE HLDGS INC",
+          "title_of_class": "COM",
+          "cusip": "43300A203",
+          "ticker": "",
+          "value_usd": 786253156,
+          "shares": 3030578,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "HOWARD HUGHES HOLDINGS INC",
+          "title_of_class": "COM",
+          "cusip": "44267T102",
+          "ticker": "",
+          "value_usd": 1549074099,
+          "shares": 18852064,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "RESTAURANT BRANDS INTL INC",
+          "title_of_class": "COM",
+          "cusip": "76131D103",
+          "ticker": "",
+          "value_usd": 1469799913,
+          "shares": 22915496,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "SEAPORT ENTMT GROUP INC",
+          "title_of_class": "COMMON STOCK",
+          "cusip": "812215200",
+          "ticker": "",
+          "value_usd": 115145038,
+          "shares": 5023780,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        },
+        {
+          "issuer": "UBER TECHNOLOGIES INC",
+          "title_of_class": "COM",
+          "cusip": "90353T100",
+          "ticker": "",
+          "value_usd": 2965602648,
+          "shares": 30270518,
+          "put_call": "",
+          "discretion": "SOLE",
+          "btc_tag": false
+        }
+      ]
+    }
+  ]
+}

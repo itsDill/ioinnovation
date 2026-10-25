@@ -22,5 +22,29 @@
     "name": "Bridgewater Associates, LP",
     "cik": "0001350694",
     "sec_entity_type": "institution"
+  },
+  {
+    "slug": "ark-investment-management",
+    "name": "ARK Investment Management LLC",
+    "cik": "0001697748",
+    "sec_entity_type": "institution"
+  },
+  {
+    "slug": "viking-global-investors",
+    "name": "Viking Global Investors LP",
+    "cik": "0001103804",
+    "sec_entity_type": "institution"
+  },
+  {
+    "slug": "coatue-management",
+    "name": "Coatue Management LLC",
+    "cik": "0001135730",
+    "sec_entity_type": "institution"
+  },
+  {
+    "slug": "renaissance-technologies",
+    "name": "Renaissance Technologies LLC",
+    "cik": "0001037389",
+    "sec_entity_type": "institution"
   }
 ]

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Institutional Holdings Dashboard | IO Innovation</title>
+    <meta
+      name="description"
+      content="Explore manually curated SEC 13F snapshots for tracked investment managers with portfolio charts, statistics, filing history, and manager comparisons."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/tools/13f-comparison.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Institutional 13F Holdings Dashboard | IO Innovation"
+    />
+    <meta
+      property="og:description"
+      content="Explore single-manager portfolios or compare disclosed positions across institutions using source-linked SEC 13F snapshots."
+    />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/tools/13f-comparison.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Institutional 13F Holdings Dashboard",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "url": "https://ioinnovationfund.com/tools/13f-comparison.html",
+        "description": "Compare reported holdings from tracked SEC Form 13F filings."
+      }
+    </script>
+    <script src="/js/theme-init.js?v=2026060801"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
+    <link rel="stylesheet" href="/css/13f-comparison.css?v=2026102601" />
+  </head>
+  <body class="site-refresh">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools/" class="active">13F Tool</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="page-shell comparison-page">
+      <section class="hero-panel comparison-hero">
+        <span class="hero-kicker">SEC filing research</span>
+        <h1 class="hero-title">Institutional holdings dashboard</h1>
+        <p class="hero-subtitle">
+          Explore a manager’s reported portfolio or compare two managers using
+          filing-linked statistics, position charts, and quarter-by-quarter
+          snapshots.
+        </p>
+        <div class="inline-meta">
+          <span id="datasetStatus" role="status" aria-live="polite"
+            >Loading the latest available filing data…</span
+          >
+          <a href="/methodology.html">How the data is built</a>
+          <a href="/data/manual/filings.json">Download manual filing data</a>
+        </div>
+      </section>
+
+      <section class="comparison-controls" aria-labelledby="compare-heading">
+        <div class="comparison-controls-heading">
+          <div>
+            <span class="comparison-step">01 / Choose a view</span>
+            <h2 id="compare-heading">Select an institution</h2>
+          </div>
+          <button
+            class="btn comparison-share"
+            id="shareComparison"
+            type="button"
+            disabled
+          >
+            Copy comparison link
+          </button>
+        </div>
+        <div class="dashboard-mode" role="group" aria-label="Dashboard view">
+          <button
+            class="btn dashboard-mode-button"
+            id="singleMode"
+            type="button"
+            aria-pressed="true"
+          >
+            Single manager
+          </button>
+          <button
+            class="btn dashboard-mode-button"
+            id="compareMode"
+            type="button"
+            aria-pressed="false"
+          >
+            Compare managers
+          </button>
+        </div>
+        <div class="comparison-select-grid">
+          <label class="comparison-select-card" for="filerA">
+            <span class="comparison-select-label"
+              ><span class="comparison-dot comparison-dot-a"></span> Institution
+              A</span
+            >
+            <select class="control" id="filerA" disabled>
+              <option>Loading institutions…</option>
+            </select>
+            <span class="comparison-select-label">Filing snapshot</span>
+            <select class="control" id="filingA" disabled>
+              <option>Loading filings…</option>
+            </select>
+            <span class="comparison-filing-meta" id="filerAMeta"
+              >Waiting for filing data</span
+            >
+          </label>
+          <label
+            class="comparison-select-card"
+            id="comparisonCardB"
+            for="filerB"
+          >
+            <span class="comparison-select-label"
+              ><span class="comparison-dot comparison-dot-b"></span> Institution
+              B</span
+            >
+            <select class="control" id="filerB" disabled>
+              <option>Loading institutions…</option>
+            </select>
+            <span class="comparison-select-label">Filing snapshot</span>
+            <select class="control" id="filingB" disabled>
+              <option>Loading filings…</option>
+            </select>
+            <span class="comparison-filing-meta" id="filerBMeta"
+              >Waiting for filing data</span
+            >
+          </label>
+        </div>
+        <p
+          class="comparison-period-note"
+          id="periodNotice"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section class="comparison-summary" aria-label="Comparison summary">
+        <article class="comparison-stat">
+          <span class="comparison-stat-label" id="primaryMetricLabel"
+            >Positions reported</span
+          >
+          <strong id="sharedCount">—</strong>
+          <span class="comparison-stat-foot" id="primaryMetricFoot"
+            >Matched by CUSIP where available</span
+          >
+        </article>
+        <article class="comparison-stat">
+          <span class="comparison-stat-label" id="totalALabel"
+            >Institution A reported value</span
+          >
+          <strong id="totalA">—</strong>
+          <span class="comparison-stat-foot" id="periodA">—</span>
+        </article>
+        <article class="comparison-stat">
+          <span class="comparison-stat-label" id="totalBLabel"
+            >Institution B reported value</span
+          >
+          <strong id="totalB">—</strong>
+          <span class="comparison-stat-foot" id="periodB">—</span>
+        </article>
+        <article class="comparison-stat">
+          <span class="comparison-stat-label" id="positionCountLabel"
+            >Positions in comparison</span
+          >
+          <strong id="positionCount">—</strong>
+          <span class="comparison-stat-foot" id="positionCountFoot"
+            >Combined distinct reported positions</span
+          >
+        </article>
+      </section>
+
+      <section class="dashboard-charts" aria-label="Portfolio charts">
+        <article class="dashboard-chart-card dashboard-chart-wide">
+          <div class="dashboard-chart-heading">
+            <div>
+              <span class="comparison-step">Portfolio mix</span>
+              <h2 id="holdingsChartTitle">Largest reported positions</h2>
+            </div>
+            <span class="dashboard-chart-caption" id="holdingsChartCaption"
+              >Reported value · USD</span
+            >
+          </div>
+          <div
+            id="holdingsChart"
+            class="dashboard-chart"
+            role="img"
+            aria-label="Chart of largest reported positions"
+          ></div>
+        </article>
+        <article class="dashboard-chart-card">
+          <div class="dashboard-chart-heading">
+            <div>
+              <span class="comparison-step">Filing history</span>
+              <h2>Reported value over time</h2>
+            </div>
+          </div>
+          <div
+            id="historyChart"
+            class="dashboard-chart"
+            role="img"
+            aria-label="Reported 13F value by filing period"
+          ></div>
+          <p id="historyChartNote" class="dashboard-chart-note"></p>
+        </article>
+        <article class="dashboard-chart-card">
+          <div class="dashboard-chart-heading">
+            <div>
+              <span class="comparison-step">Portfolio profile</span>
+              <h2>Concentration</h2>
+            </div>
+          </div>
+          <div
+            id="concentrationChart"
+            class="dashboard-chart"
+            role="img"
+            aria-label="Top holdings concentration chart"
+          ></div>
+          <p id="concentrationNote" class="dashboard-chart-note"></p>
+        </article>
+      </section>
+
+      <section class="comparison-results" aria-labelledby="results-heading">
+        <div class="comparison-results-heading">
+          <div>
+            <span class="comparison-step">02 / Explore positions</span>
+            <h2 id="results-heading">Side-by-side holdings</h2>
+            <p class="comparison-results-copy">
+              Reported values and portfolio weights are shown separately for
+              each filing.
+            </p>
+          </div>
+          <button
+            class="btn comparison-export"
+            id="exportCsv"
+            type="button"
+            disabled
+          >
+            Export CSV
+          </button>
+        </div>
+        <div class="comparison-filters" aria-label="Filter comparison results">
+          <label class="comparison-search-label" for="positionSearch"
+            >Search positions</label
+          >
+          <input
+            id="positionSearch"
+            class="control"
+            type="search"
+            placeholder="Search issuer, ticker, or CUSIP"
+            disabled
+          />
+          <label class="comparison-filter-label" for="positionFilter"
+            >Show</label
+          >
+          <select id="positionFilter" class="control" disabled>
+            <option value="all">All positions</option>
+            <option value="shared">Shared positions</option>
+            <option value="a-only">Only Institution A</option>
+            <option value="b-only">Only Institution B</option>
+          </select>
+          <span
+            id="visibleCount"
+            class="comparison-visible-count"
+            aria-live="polite"
+            >—</span
+          >
+        </div>
+        <div class="table-wrap comparison-table-wrap">
+          <table class="data-table comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Reported position</th>
+                <th scope="col" id="columnA">Institution A</th>
+                <th scope="col" id="weightA">Weight</th>
+                <th scope="col" id="columnB">Institution B</th>
+                <th scope="col" id="weightB">Weight</th>
+                <th scope="col">Match</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonRows">
+              <tr>
+                <td colspan="6" class="comparison-empty">
+                  Loading filing data…
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav
+          class="comparison-pagination"
+          aria-label="Comparison results pages"
+        >
+          <button class="btn" id="previousPage" type="button" disabled>
+            Previous
+          </button>
+          <span id="pageStatus" aria-live="polite">Page 1</span>
+          <button class="btn" id="nextPage" type="button" disabled>Next</button>
+        </nav>
+        <p
+          id="resultsStatus"
+          class="comparison-results-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section class="comparison-notes hero-panel">
+        <h2>How to read this comparison</h2>
+        <ul>
+          <li>
+            Form 13F reports certain U.S. securities as of a past quarter-end;
+            it is not a real-time portfolio or a complete view of an
+            institution’s investments.
+          </li>
+          <li>
+            Filing dates and report periods can differ. When periods do not
+            match, compare each side as a separate snapshot—not as a direct
+            performance or trade comparison.
+          </li>
+          <li>
+            Matching uses CUSIP and reported option type where available. Values
+            are the amounts disclosed in each filing; they are not current
+            market values.
+          </li>
+          <li>
+            This tool is for informational research, not investment advice.
+            Confirm details in the linked SEC filing.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-bottom"><p>&copy; 2026 IO Innovation.</p></div>
+      </div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026071302"></script>
+    <script src="/js/13f-comparison.js?v=2026102601" defer></script>
+  </body>
+</html>

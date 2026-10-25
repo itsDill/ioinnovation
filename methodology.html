@@ -84,7 +84,7 @@
         <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/tools/">13F Tool</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
@@ -108,8 +108,9 @@
         <span class="hero-kicker">Methodology</span>
         <h1 class="hero-title">How this filing dataset is built</h1>
         <p class="hero-subtitle">
-          Data as of: 2026-08-18. Source: SEC EDGAR submissions and filing
-          archive documents.
+          The 13F dashboard uses manually curated snapshots transcribed from
+          source-linked SEC filings. Update timing depends on when each filing
+          is reviewed and added.
         </p>
       </section>
 
@@ -123,19 +124,22 @@
           "
         >
           <li>
-            Filer CIK list and issuer CIK list are maintained in static JSON
-            config files.
+            Filing records are maintained in
+            <a href="/data/manual/filings.json">the manual 13F data file</a>.
           </li>
           <li>
-            Daily scheduled GitHub Actions run fetches SEC submissions JSON and
-            filing indexes.
+            Each record includes its filer, report period, filing date,
+            accession number, SEC source link, amendment status, and reported
+            positions.
           </li>
           <li>
-            13F info table XML is parsed into issuer, class, CUSIP, value, and
-            share fields.
+            Amendments are retained as separate accession-numbered filings; they
+            do not silently replace the original record.
           </li>
           <li>
-            Recent Form 4 filings are extracted from issuer submissions indexes.
+            The dashboard calculates totals, portfolio weights, top-position
+            concentration, and historical reported values from the entered
+            snapshots.
           </li>
         </ul>
       </section>
@@ -154,15 +158,12 @@
             payloads.
           </li>
           <li>
-            Ticker mapping uses deterministic issuer-name and class-based
-            matching.
+            Values are retained in dollars as reported in the source filing; do
+            not multiply by 1,000.
           </li>
           <li>
-            BTC-linked tags are rule-based from ticker and issuer-name patterns.
-          </li>
-          <li>
-            Rows are sorted by reported value and include derived position
-            weight per filer.
+            A position’s portfolio weight is derived from its reported value
+            divided by the sum of entered positions for that filing.
           </li>
         </ul>
       </section>
@@ -178,12 +179,12 @@
         >
           <li>13F is delayed and may not reflect current holdings.</li>
           <li>
-            Some issuers and share classes cannot be mapped confidently to a
-            ticker.
+            Historical charts only show periods that have been manually entered;
+            no missing filings or positions are inferred.
           </li>
           <li>
-            Form 4 includes non-open-market transactions that can be misread as
-            conviction trades.
+            Some issuers and share classes cannot be mapped confidently to a
+            ticker.
           </li>
           <li>
             Corporate actions and identifier changes can cause temporary

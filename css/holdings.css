@@ -168,6 +168,21 @@
   border-color: var(--accent-primary);
 }
 
+.comparison-directory-icon {
+  display: inline-flex;
+  min-width: 2.8rem;
+  min-height: 2.1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.55rem;
+  border: 1px solid rgba(43, 226, 180, 0.3);
+  border-radius: var(--radius-sm);
+  background: rgba(43, 226, 180, 0.1);
+  color: var(--accent-primary);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
 .muted {
   color: var(--text-secondary);
 }

@@ -3,51 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IO Innovation Tools | Practical Finance Calculators</title>
+    <title>SEC 13F Holdings Comparison Tool | IO Innovation</title>
     <meta
       name="description"
-      content="Explore practical investing and personal finance tools, including calculators for dividend income and investment planning."
+      content="Compare institutional holdings disclosed in SEC 13F filings. Find shared and unique positions, compare reported portfolio weights, and verify results with SEC source filings."
     />
     <link rel="canonical" href="https://ioinnovationfund.com/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="IO Innovation Tools | Practical Finance Calculators"
+      content="SEC 13F Holdings Comparison Tool | IO Innovation"
     />
     <meta
       property="og:description"
-      content="A growing collection of practical investing, finance, and research tools."
+      content="Compare reported institutional holdings across SEC 13F filings, with shared positions, portfolio weights, report dates, and source links."
     />
     <meta property="og:url" content="https://ioinnovationfund.com/" />
     <meta
       property="og:image"
       content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
     />
-    <meta property="og:image:alt" content="IO Innovation finance tools" />
-    <meta property="og:site_name" content="IO Innovation Tools" />
+    <meta property="og:image:alt" content="IO Innovation 13F comparison tool" />
+    <meta property="og:site_name" content="IO Innovation 13F Research" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="IO Innovation Tools | Practical Finance Calculators"
+      content="SEC 13F Holdings Comparison Tool | IO Innovation"
     />
     <meta
       name="twitter:description"
-      content="Explore practical investing, finance, and research tools from IO Innovation."
+      content="Compare the latest available SEC 13F holdings from tracked institutions with IO Innovation’s free comparison tool."
     />
     <meta
       name="twitter:image"
       content="https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg"
     />
-    <meta name="twitter:image:alt" content="IO Innovation finance tools" />
+    <meta
+      name="twitter:image:alt"
+      content="IO Innovation 13F comparison tool"
+    />
     <meta name="robots" content="index, follow" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "IO Innovation Tools",
+        "name": "IO Innovation",
         "url": "https://ioinnovationfund.com/",
-        "description": "A collection of practical finance and research tools.",
+        "description": "A free tool to compare institutional holdings disclosed in SEC Form 13F filings.",
         "inLanguage": "en-US"
       }
     </script>
@@ -56,7 +59,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "IO Innovation Tools",
+        "name": "IO Innovation",
         "url": "https://ioinnovationfund.com/",
         "logo": "https://ioinnovationfund.com/assets/images/og-image-1200x630.jpg",
         "contactPoint": {
@@ -70,7 +73,7 @@
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
-    <link rel="stylesheet" href="/css/home.css?v=2026102002" />
+    <link rel="stylesheet" href="/css/home.css?v=2026102402" />
   </head>
   <body class="home-page site-refresh">
     <a href="#main" class="skip-to-main">Skip to content</a>
@@ -80,7 +83,7 @@
         <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/" class="active">Home</a></li>
-          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/tools/">13F Tool</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
@@ -104,171 +107,179 @@
         <div class="home-hero-grid">
           <div class="home-copy">
             <span class="home-eyebrow"
-              >IO Innovation · Finance, made clearer</span
+              >SEC Form 13F · Institutional holdings</span
             >
             <h1 class="home-title" id="home-title">
-              Make your next move <em>informed.</em>
+              Compare 13F filings. <em>See what overlaps.</em>
             </h1>
             <p class="home-description">
-              A thoughtfully designed collection of tools for exploring
-              investments, understanding companies, and planning what comes
-              next.
+              Put two tracked investment managers side by side. Find shared and
+              unique disclosed positions, compare portfolio weights, and open
+              the original SEC filings to verify the details.
             </p>
             <div class="home-actions">
-              <a class="home-cta" href="/tools/">
-                Explore the tools
+              <a class="home-cta" href="/tools/13f-comparison.html">
+                Open the 13F comparison tool
                 <span class="home-arrow" aria-hidden="true">↗</span>
               </a>
-              <a
-                class="home-cta home-cta-secondary"
-                href="/tools/dividend-calculator.html"
-              >
-                Try dividend calculator
+              <a class="home-cta home-cta-secondary" href="/methodology.html">
+                How the data is built
               </a>
             </div>
-            <div class="home-proof" aria-label="Collection highlights">
-              <span><strong>9</strong> practical tools</span>
-              <span><strong>01</strong> interactive calculator</span>
-              <span>Free to explore</span>
+            <div class="home-proof" aria-label="Tool features">
+              <span><strong>4</strong> tracked institutions</span>
+              <span>SEC filing-linked snapshots</span>
+              <span>SEC source links</span>
             </div>
           </div>
 
-          <div
-            class="home-visual"
-            aria-label="Illustrative portfolio growth chart"
+          <a
+            class="home-visual home-comparison-visual"
+            href="/tools/13f-comparison.html"
+            aria-label="Open the 13F comparison tool"
           >
-            <div class="home-float-card home-float-badge">
-              <span class="home-float-icon" aria-hidden="true">↗</span>
-              <span>Research and planning<br />in one place</span>
-            </div>
-            <div class="home-chart-card">
-              <div class="home-chart-top">
+            <div class="comparison-preview-card">
+              <div class="comparison-preview-topbar">
+                <span class="comparison-preview-mark">IO</span>
+                <span>13F COMPARISON</span>
+                <span class="comparison-preview-live"><i></i> FILING DATA</span>
+              </div>
+              <div class="comparison-preview-heading">
                 <div>
-                  <span class="home-chart-label"
-                    >Illustrative portfolio view</span
+                  <span class="comparison-preview-overline"
+                    >SIDE-BY-SIDE SNAPSHOT</span
                   >
-                  <strong class="home-chart-value"
-                    >Plan with perspective</strong
-                  >
+                  <strong>Compare institutions</strong>
                 </div>
-                <span class="home-chart-change">Explore scenarios</span>
+                <span class="comparison-preview-quarter">LATEST FILINGS</span>
               </div>
-              <svg
-                class="home-chart-svg"
-                viewBox="0 0 620 330"
-                role="img"
-                aria-labelledby="chart-title chart-desc"
-              >
-                <title id="chart-title">
-                  Decorative rising financial chart
-                </title>
-                <desc id="chart-desc">
-                  An illustrative upward curve representing long-term planning,
-                  not actual market data.
-                </desc>
-                <defs>
-                  <linearGradient
-                    id="home-chart-fill"
-                    x1="0"
-                    x2="0"
-                    y1="0"
-                    y2="1"
-                  >
-                    <stop offset="0%" stop-color="#56b99a" stop-opacity=".3" />
-                    <stop offset="100%" stop-color="#56b99a" stop-opacity="0" />
-                  </linearGradient>
-                  <linearGradient
-                    id="home-chart-line"
-                    x1="0"
-                    x2="1"
-                    y1="1"
-                    y2="0"
-                  >
-                    <stop offset="0%" stop-color="#54b69a" />
-                    <stop offset="100%" stop-color="#18745e" />
-                  </linearGradient>
-                </defs>
-                <g stroke="#5d8d81" stroke-opacity=".14" stroke-width="1">
-                  <path
-                    d="M48 54H586M48 112H586M48 170H586M48 228H586M48 286H586"
-                  />
-                  <path
-                    d="M48 42V286M156 42V286M264 42V286M372 42V286M480 42V286M586 42V286"
-                  />
-                </g>
-                <path
-                  d="M48 255 C90 242 104 250 143 225 S205 230 245 194 S311 209 349 164 S410 176 450 130 S518 143 586 70 V286 H48Z"
-                  fill="url(#home-chart-fill)"
-                />
-                <path
-                  d="M48 255 C90 242 104 250 143 225 S205 230 245 194 S311 209 349 164 S410 176 450 130 S518 143 586 70"
-                  fill="none"
-                  stroke="url(#home-chart-line)"
-                  stroke-width="5"
-                  stroke-linecap="round"
-                />
-                <circle
-                  cx="586"
-                  cy="70"
-                  r="8"
-                  fill="#18745e"
-                  stroke="#fff"
-                  stroke-width="4"
-                />
-                <g fill="#66857c" font-family="sans-serif" font-size="11">
-                  <text x="48" y="312">START</text>
-                  <text x="548" y="312">GOALS</text>
-                </g>
-              </svg>
-              <div class="home-chart-legend">
-                <span>Illustrative visual · not live market data</span
-                ><span>Explore your assumptions</span>
+              <div class="comparison-preview-selectors">
+                <div>
+                  <span class="comparison-preview-dot dot-blue"></span
+                  ><span
+                    ><small>INSTITUTION A</small
+                    ><strong>Berkshire Hathaway</strong></span
+                  ><b>⌄</b>
+                </div>
+                <div>
+                  <span class="comparison-preview-dot dot-violet"></span
+                  ><span
+                    ><small>INSTITUTION B</small
+                    ><strong>Bridgewater Associates</strong></span
+                  ><b>⌄</b>
+                </div>
+              </div>
+              <div class="comparison-preview-metrics">
+                <div>
+                  <small>SHARED POSITIONS</small><strong>Compare</strong>
+                </div>
+                <div>
+                  <small>REPORTED VALUE</small><strong>Side by side</strong>
+                </div>
+                <div><small>SOURCE</small><strong>SEC filings</strong></div>
+              </div>
+              <div class="comparison-preview-table" aria-hidden="true">
+                <div
+                  class="comparison-preview-row comparison-preview-table-head"
+                >
+                  <span>REPORTED POSITION</span><span>INSTITUTION A</span
+                  ><span>INSTITUTION B</span>
+                </div>
+                <div class="comparison-preview-row">
+                  <span
+                    ><i class="preview-company-dot"></i><b>Company position</b
+                    ><small>Issuer · CUSIP</small></span
+                  ><strong>Reported value</strong
+                  ><strong>Reported value</strong>
+                </div>
+                <div class="comparison-preview-row">
+                  <span
+                    ><i class="preview-company-dot preview-company-dot-alt"></i
+                    ><b>Another position</b><small>Issuer · CUSIP</small></span
+                  ><strong>Portfolio weight</strong
+                  ><strong>Portfolio weight</strong>
+                </div>
+              </div>
+              <div class="comparison-preview-foot">
+                <span>Reported snapshots · not real-time holdings</span
+                ><span>Open interactive tool <b aria-hidden="true">↗</b></span>
               </div>
             </div>
-            <div class="home-float-card home-float-summary">
-              <span class="home-float-kicker"
-                >Start with a simple estimate</span
-              >
-              <strong class="home-float-number">Dividend income</strong>
-              <span class="home-float-caption"
-                >Adjust shares and payout frequency in the calculator.</span
-              >
-            </div>
-          </div>
+            <span class="comparison-preview-note"
+              >Select two filers, then explore their overlap</span
+            >
+          </a>
         </div>
       </section>
 
-      <section class="home-below" aria-labelledby="featured-tools-title">
+      <section class="home-howto" aria-labelledby="howto-title">
         <div class="home-section-heading">
           <div>
-            <span class="home-eyebrow">A place to begin</span>
-            <h2 id="featured-tools-title">Tools for your next question</h2>
+            <span class="home-eyebrow">A quick guide</span>
+            <h2 id="howto-title">How to use the 13F comparison</h2>
           </div>
           <p>
-            Start with an interactive dividend estimate or browse the growing
-            collection of finance tools.
+            Start with two tracked filers. The comparison does the organizing;
+            the SEC filings remain the source of record.
           </p>
         </div>
-        <div class="home-tool-grid">
-          <a class="home-tool-card" href="/tools/dividend-calculator.html">
-            <span class="home-tool-icon" aria-hidden="true">％</span>
-            <span class="home-tool-link" aria-hidden="true">↗</span>
-            <h3>Dividend Calculator</h3>
+        <div class="home-howto-grid">
+          <article class="home-howto-card">
+            <span>01</span>
+            <h3>Choose two institutions</h3>
             <p>
-              Estimate annual and monthly income from shares and payout
-              frequency.
+              Select any two managers in the dataset. Each selection shows its
+              report period, filing date, and direct SEC source link.
             </p>
-            <span class="home-tool-status">Available now</span>
-          </a>
-          <a class="home-tool-card" href="/tools/">
-            <span class="home-tool-icon" aria-hidden="true">✳</span>
-            <span class="home-tool-link" aria-hidden="true">↗</span>
-            <h3>Explore all 9 tools</h3>
+          </article>
+          <article class="home-howto-card">
+            <span>02</span>
+            <h3>Explore the overlap</h3>
             <p>
-              Browse calculators and research helpers for investing and
-              planning.
+              Filter to shared positions or see what appears in only one filing.
+              Search by issuer, ticker, or CUSIP and compare reported values and
+              portfolio weights.
             </p>
-            <span class="home-tool-status">View collection</span>
+          </article>
+          <article class="home-howto-card">
+            <span>03</span>
+            <h3>Verify and take it with you</h3>
+            <p>
+              Check each filing’s reporting period, open the source documents,
+              or export your filtered comparison as a CSV.
+            </p>
+          </article>
+        </div>
+        <p class="home-data-caveat">
+          13F filings are delayed snapshots of certain reportable securities—not
+          real-time portfolios or a complete view of an institution’s
+          investments. Different report periods are not directly comparable.
+        </p>
+      </section>
+
+      <section class="home-more-tools" aria-labelledby="research-notes-title">
+        <div class="home-section-heading">
+          <div>
+            <span class="home-eyebrow">Research from the filings</span>
+            <h2 id="research-notes-title">
+              Comparisons lead to better questions
+            </h2>
+          </div>
+          <a class="home-more-tools-link" href="/blog/"
+            >Read the blog <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="home-research-note">
+          <p>
+            The 13F comparison is the site’s core tool. Use it to spot shared
+            and distinct reported holdings, then explore our filing explainers
+            and analysis for context. Every filing is a delayed snapshot, so
+            follow the source links and check reporting dates before drawing
+            conclusions.
+          </p>
+          <a class="home-cta" href="/tools/13f-comparison.html">
+            Start a comparison
+            <span class="home-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
       </section>
