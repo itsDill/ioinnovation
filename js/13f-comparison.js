@@ -6,6 +6,8 @@
     filerA: document.getElementById("filerA"),
     filerB: document.getElementById("filerB"),
     comparisonCardB: document.getElementById("comparisonCardB"),
+    modeHint: document.getElementById("modeHint"),
+    examples: document.getElementById("comparisonExamples"),
     singleMode: document.getElementById("singleMode"),
     compareMode: document.getElementById("compareMode"),
     filingA: document.getElementById("filingA"),
@@ -25,6 +27,15 @@
     positionCount: document.getElementById("positionCount"),
     positionCountLabel: document.getElementById("positionCountLabel"),
     positionCountFoot: document.getElementById("positionCountFoot"),
+    insightPrimaryLabel: document.getElementById("insightPrimaryLabel"),
+    insightPrimaryValue: document.getElementById("insightPrimaryValue"),
+    insightPrimaryFoot: document.getElementById("insightPrimaryFoot"),
+    insightPrimaryMeter: document.getElementById("insightPrimaryMeter"),
+    insightOptionsValue: document.getElementById("insightOptionsValue"),
+    insightOptionsFoot: document.getElementById("insightOptionsFoot"),
+    insightOptionsMeter: document.getElementById("insightOptionsMeter"),
+    insightLeaders: document.getElementById("insightLeaders"),
+    insightsCaveat: document.getElementById("insightsCaveat"),
     columnA: document.getElementById("columnA"),
     columnB: document.getElementById("columnB"),
     weightA: document.getElementById("weightA"),
@@ -39,6 +50,8 @@
     resultsStatus: document.getElementById("resultsStatus"),
     export: document.getElementById("exportCsv"),
     share: document.getElementById("shareComparison"),
+    downloadShareCard: document.getElementById("downloadShareCard"),
+    shareCardDescription: document.getElementById("shareCardDescription"),
     holdingsChart: document.getElementById("holdingsChart"),
     holdingsChartTitle: document.getElementById("holdingsChartTitle"),
     holdingsChartCaption: document.getElementById("holdingsChartCaption"),
@@ -56,6 +69,10 @@
     currency: "USD",
     notation: "compact",
     maximumFractionDigits: 2,
+  });
+  const compactShareFormat = new Intl.NumberFormat("en-US", {
+    notation: "compact",
+    maximumFractionDigits: 1,
   });
   let institutions = [];
   let latestByFiler = new Map();
@@ -78,6 +95,15 @@
 
   function formatFullMoney(value) {
     return `$${numberFormat.format(Number(value) || 0)}`;
+  }
+
+  function formatShares(value) {
+    const shares = Number(value) || 0;
+    return `${compactShareFormat.format(shares)} ${shares === 1 ? "share" : "shares"}`;
+  }
+
+  function setMeter(element, value) {
+    element.style.width = `${Math.max(0, Math.min(100, Number(value) || 0))}%`;
   }
 
   function normalize(value) {
@@ -119,6 +145,8 @@
         existing.value += Number(row.value_usd) || 0;
         existing.shares += Number(row.shares) || 0;
         if (!existing.ticker && row.ticker) existing.ticker = row.ticker;
+        if (existing.discretion !== (row.discretion || ""))
+          existing.discretion = "Multiple";
         return;
       }
 
@@ -129,6 +157,7 @@
         ticker: row.ticker || "",
         title: row.title_of_class || "",
         putCall: row.put_call || "",
+        discretion: row.discretion || "",
         value: Number(row.value_usd) || 0,
         shares: Number(row.shares) || 0,
         filingUrl: row.filing_url || "",
@@ -143,6 +172,7 @@
       throw new Error("No manually entered or baseline 13F data is available.");
     elements.filerA.replaceChildren(...institutions.map(makeOption));
     elements.filerB.replaceChildren(...institutions.map(makeOption));
+    populateExamples();
     elements.compareMode.disabled = institutions.length < 2;
 
     const params = new URLSearchParams(window.location.search);
@@ -191,6 +221,70 @@
     elements.share.disabled = false;
   }
 
+  function populateExamples() {
+    const examples = [
+      {
+        label: "Berkshire portfolio",
+        mode: "single",
+        a: "berkshire-hathaway",
+      },
+      {
+        label: "Berkshire vs Bridgewater",
+        mode: "compare",
+        a: "berkshire-hathaway",
+        b: "bridgewater-associates",
+      },
+      {
+        label: "Berkshire vs Pershing Square",
+        mode: "compare",
+        a: "berkshire-hathaway",
+        b: "pershing-square-capital",
+      },
+      {
+        label: "Scion vs Berkshire",
+        mode: "compare",
+        a: "scion-asset-management",
+        b: "berkshire-hathaway",
+      },
+    ].filter((example) =>
+      example.mode === "single"
+        ? institutions.some((item) => item.slug === example.a)
+        : institutions.some((item) => item.slug === example.a) &&
+          institutions.some((item) => item.slug === example.b),
+    );
+
+    elements.examples.replaceChildren();
+    examples.forEach((example) => {
+      const button = document.createElement("button");
+      button.className = "comparison-example-chip";
+      button.type = "button";
+      button.dataset.mode = example.mode;
+      button.dataset.filerA = example.a;
+      if (example.b) button.dataset.filerB = example.b;
+      button.textContent = example.label;
+      elements.examples.appendChild(button);
+    });
+  }
+
+  function applyExample(button) {
+    const filerA = institutions.find(
+      (item) => item.slug === button.dataset.filerA,
+    );
+    const filerB = institutions.find(
+      (item) => item.slug === button.dataset.filerB,
+    );
+    if (!filerA) return;
+
+    elements.filerA.value = filerA.slug;
+    populateFilingSelector(elements.filingA, filerA.slug, null);
+    if (filerB) {
+      elements.filerB.value = filerB.slug;
+      populateFilingSelector(elements.filingB, filerB.slug, null);
+    }
+    setMode(button.dataset.mode);
+    buildDashboard();
+  }
+
   function setMode(nextMode) {
     mode = nextMode === "compare" ? "compare" : "single";
     const isComparison = mode === "compare";
@@ -210,6 +304,9 @@
     elements.comparisonCardB.hidden = !isComparison;
     elements.singleMode.setAttribute("aria-pressed", String(!isComparison));
     elements.compareMode.setAttribute("aria-pressed", String(isComparison));
+    elements.modeHint.textContent = isComparison
+      ? "Choose two managers and a filing period for each. You can compare positions, portfolio weights, and filing history."
+      : "Choose a manager and filing period to explore one reported portfolio. Switch to compare two portfolios side by side.";
     document
       .querySelector(".comparison-page")
       .classList.toggle("single-mode", !isComparison);
@@ -299,12 +396,17 @@
 
   function renderPositionCell(row) {
     const cell = document.createElement("td");
+    cell.dataset.label = "Position";
     const name = document.createElement("span");
     name.className = "comparison-position-name";
     name.textContent = row.issuer;
     cell.appendChild(name);
 
-    const detail = [row.ticker, row.cusip ? `CUSIP ${row.cusip}` : row.title]
+    const detail = [
+      row.ticker,
+      row.cusip ? `CUSIP ${row.cusip}` : row.title,
+      row.putCall ? `${row.putCall} option` : "",
+    ]
       .filter(Boolean)
       .join(" · ");
     if (detail) {
@@ -325,6 +427,38 @@
     span.title = formatFullMoney(value);
     span.setAttribute("aria-label", formatFullMoney(value));
     return span;
+  }
+
+  function appendPositionDetails(cell, position) {
+    if (!position) return;
+    const detail = document.createElement("span");
+    detail.className = "comparison-cell-detail";
+    const parts = [formatShares(position.shares)];
+    if (position.putCall) parts.push(`${position.putCall} option`);
+    if (position.discretion) parts.push(position.discretion);
+    detail.textContent = parts.join(" · ");
+    cell.appendChild(detail);
+  }
+
+  function renderWeight(position, label, series) {
+    const cell = document.createElement("td");
+    cell.dataset.label = label;
+    if (!position) {
+      cell.textContent = "—";
+      return cell;
+    }
+    const weight = Math.max(0, Math.min(100, position.weight));
+    const meter = document.createElement("span");
+    meter.className = `comparison-weight-meter comparison-weight-meter-${series}`;
+    meter.setAttribute("aria-hidden", "true");
+    const fill = document.createElement("span");
+    fill.style.width = `${weight}%`;
+    meter.appendChild(fill);
+    const value = document.createElement("span");
+    value.className = "comparison-weight-value";
+    value.textContent = `${position.weight.toFixed(2)}%`;
+    cell.append(meter, value);
+    return cell;
   }
 
   function renderRows() {
@@ -354,14 +488,23 @@
       tr.appendChild(renderPositionCell(row));
       const valueA = row.a ? row.a.value : null;
       const valueB = row.b ? row.b.value : null;
-      tr.appendChild(createCell(""));
+      const valueCellA = createCell("");
+      valueCellA.dataset.label = currentA.name;
+      tr.appendChild(valueCellA);
       tr.lastElementChild.appendChild(renderValue(valueA));
-      tr.appendChild(createCell(row.a ? `${row.a.weight.toFixed(2)}%` : "—"));
-      tr.appendChild(createCell(""));
+      appendPositionDetails(valueCellA, row.a);
+      tr.appendChild(renderWeight(row.a, `${currentA.name} weight`, "a"));
+      const valueCellB = createCell("");
+      valueCellB.dataset.label = currentB?.name || "Portfolio B";
+      tr.appendChild(valueCellB);
       tr.lastElementChild.appendChild(renderValue(valueB));
-      tr.appendChild(createCell(row.b ? `${row.b.weight.toFixed(2)}%` : "—"));
+      appendPositionDetails(valueCellB, row.b);
+      tr.appendChild(
+        renderWeight(row.b, `${currentB?.name || "Portfolio B"} weight`, "b"),
+      );
 
       const matchCell = document.createElement("td");
+      matchCell.dataset.label = "Match";
       const badge = document.createElement("span");
       const isShared = Boolean(row.a && row.b);
       badge.className = `comparison-match${isShared ? " comparison-match-shared" : ""}`;
@@ -397,6 +540,105 @@
     elements.pageStatus.textContent = `Page ${currentPage + 1} of ${pageCount}`;
     elements.previousPage.disabled = currentPage === 0;
     elements.nextPage.disabled = currentPage >= pageCount - 1;
+  }
+
+  function renderPortfolioInsights(holdingsA, holdingsB, totalA, totalB) {
+    const rankedA = holdingsA.slice().sort((a, b) => b.value - a.value);
+    const rankedB = holdingsB.slice().sort((a, b) => b.value - a.value);
+    const topTenValueA = rankedA
+      .slice(0, 10)
+      .reduce((sum, item) => sum + item.value, 0);
+    const topTenShareA = totalA ? (topTenValueA / totalA) * 100 : 0;
+
+    if (currentB) {
+      const overlapWeight = currentRows.reduce((sum, row) => {
+        if (!row.a || !row.b) return sum;
+        return sum + Math.min(row.a.weight, row.b.weight);
+      }, 0);
+      elements.insightPrimaryLabel.textContent = "Reported-weight overlap";
+      elements.insightPrimaryValue.textContent = `${overlapWeight.toFixed(1)}%`;
+      elements.insightPrimaryFoot.textContent =
+        "Sum of the smaller portfolio weight for each matched position";
+      setMeter(elements.insightPrimaryMeter, overlapWeight);
+      elements.insightsCaveat.textContent =
+        "Overlap is calculated from matched reported positions and portfolio weights. Different reporting periods, option types, and 13F omissions can affect interpretation; this is not a measure of performance or current exposure.";
+    } else {
+      elements.insightPrimaryLabel.textContent = "Top 10 concentration";
+      elements.insightPrimaryValue.textContent = `${topTenShareA.toFixed(1)}%`;
+      elements.insightPrimaryFoot.textContent = `${formatMoney(topTenValueA)} across ${Math.min(10, rankedA.length)} largest reported positions`;
+      setMeter(elements.insightPrimaryMeter, topTenShareA);
+      elements.insightsCaveat.textContent =
+        "These calculations summarize disclosed 13F line items only. A 13F is a delayed, partial snapshot; it does not show a complete portfolio or current positions.";
+    }
+
+    const optionStats = [
+      { name: currentA.name, holdings: holdingsA, total: totalA },
+      ...(currentB
+        ? [{ name: currentB.name, holdings: holdingsB, total: totalB }]
+        : []),
+    ].map((portfolio) => {
+      const optionRows = portfolio.holdings.filter((item) => item.putCall);
+      const optionValue = optionRows.reduce((sum, item) => sum + item.value, 0);
+      return {
+        ...portfolio,
+        optionRows,
+        optionValue,
+        optionShare: portfolio.total
+          ? (optionValue / portfolio.total) * 100
+          : 0,
+      };
+    });
+    elements.insightOptionsValue.textContent = optionStats
+      .map((item) => `${item.optionShare.toFixed(1)}%`)
+      .join(" / ");
+    elements.insightOptionsFoot.textContent =
+      optionStats
+        .map(
+          (item) =>
+            `${item.name}: ${item.optionRows.length} lines · ${formatMoney(item.optionValue)} reported value`,
+        )
+        .join(" | ") + " · reported line value, not option contract notional";
+    setMeter(
+      elements.insightOptionsMeter,
+      Math.max(...optionStats.map((item) => item.optionShare)),
+    );
+
+    const leaderGroups = [
+      { label: currentA.name, holdings: rankedA, total: totalA, color: "a" },
+      ...(currentB
+        ? [
+            {
+              label: currentB.name,
+              holdings: rankedB,
+              total: totalB,
+              color: "b",
+            },
+          ]
+        : []),
+    ];
+    elements.insightLeaders.replaceChildren();
+    leaderGroups.forEach((group) => {
+      const leader = group.holdings[0];
+      if (!leader) return;
+      const row = document.createElement("div");
+      row.className = `insight-leader insight-leader-${group.color}`;
+      const copy = document.createElement("span");
+      copy.className = "insight-leader-copy";
+      const name = document.createElement("strong");
+      name.textContent = leader.ticker || leader.issuer;
+      const meta = document.createElement("small");
+      const leaderWeight = group.total ? (leader.value / group.total) * 100 : 0;
+      meta.textContent = `${group.label} · ${formatShares(leader.shares)} · ${leaderWeight.toFixed(1)}% of filing`;
+      copy.append(name, meta);
+      const value = document.createElement("b");
+      value.textContent = formatMoney(leader.value);
+      value.title = formatFullMoney(leader.value);
+      row.append(copy, value);
+      elements.insightLeaders.appendChild(row);
+    });
+    if (!elements.insightLeaders.childElementCount) {
+      elements.insightLeaders.textContent = "No reported positions available.";
+    }
   }
 
   function svgNode(name, attributes = {}) {
@@ -567,50 +809,235 @@
       });
     elements.concentrationChart.replaceChildren();
     const chart = svgNode("svg", {
-      viewBox: `0 0 520 ${portfolios.length * 78 + 10}`,
+      viewBox: `0 0 560 ${portfolios.length * 176 + 8}`,
       role: "presentation",
       class: "dashboard-svg",
     });
     portfolios.forEach((portfolio, index) => {
-      const topFive = portfolio.holdings
+      const ranked = portfolio.holdings
         .slice()
-        .sort((a, b) => b.value - a.value)
-        .slice(0, 5)
-        .reduce((sum, item) => sum + item.value, 0);
-      const share = portfolio.total ? (topFive / portfolio.total) * 100 : 0;
-      const y = index * 78 + 20;
-      svgText(chart, 0, y, portfolio.name.slice(0, 40));
+        .sort((a, b) => b.value - a.value);
+      const topHoldings = ranked.slice(0, 4);
+      const topValue = topHoldings.reduce((sum, item) => sum + item.value, 0);
+      const remainder = Math.max(0, portfolio.total - topValue);
+      const segments = [
+        ...topHoldings.map((holding) => ({
+          label: holding.ticker || holding.issuer,
+          value: holding.value,
+        })),
+        ...(remainder > 0
+          ? [{ label: "Other positions", value: remainder }]
+          : []),
+      ].filter((item) => item.value > 0);
+      const share = portfolio.total ? (topValue / portfolio.total) * 100 : 0;
+      const y = index * 176 + 16;
+      const centerX = 82;
+      const centerY = y + 66;
+      const radius = 48;
+      const circumference = 2 * Math.PI * radius;
       chart.appendChild(
-        svgNode("rect", {
-          x: 0,
-          y: y + 12,
-          width: 490,
-          height: 17,
-          rx: 8,
-          class: "chart-track",
+        svgNode("circle", {
+          cx: centerX,
+          cy: centerY,
+          r: radius,
+          class: "donut-track",
         }),
       );
-      chart.appendChild(
-        svgNode("rect", {
-          x: 0,
-          y: y + 12,
-          width: (490 * Math.min(share, 100)) / 100,
-          height: 17,
-          rx: 8,
-          class: portfolio.color,
-        }),
-      );
+      let offset = 0;
+      segments.forEach((segment, segmentIndex) => {
+        const segmentLength =
+          (segment.value / (portfolio.total || 1)) * circumference;
+        chart.appendChild(
+          svgNode("circle", {
+            cx: centerX,
+            cy: centerY,
+            r: radius,
+            class: `donut-segment donut-segment-${segmentIndex % 5}`,
+            "stroke-dasharray": `${segmentLength} ${circumference - segmentLength}`,
+            "stroke-dashoffset": -offset,
+            transform: `rotate(-90 ${centerX} ${centerY})`,
+          }),
+        );
+        offset += segmentLength;
+      });
       svgText(
         chart,
-        0,
-        y + 49,
-        `Top five: ${share.toFixed(1)}% of reported value`,
-        "dashboard-svg-value",
+        centerX,
+        centerY - 2,
+        `${share.toFixed(0)}%`,
+        "donut-center-value",
+      ).setAttribute("text-anchor", "middle");
+      svgText(
+        chart,
+        centerX,
+        centerY + 13,
+        "TOP 4",
+        "donut-center-label",
+      ).setAttribute("text-anchor", "middle");
+      svgText(
+        chart,
+        154,
+        y + 13,
+        portfolio.name.slice(0, 42),
+        "donut-portfolio-name",
       );
+      segments.forEach((segment, segmentIndex) => {
+        const legendY = y + 36 + segmentIndex * 25;
+        chart.appendChild(
+          svgNode("circle", {
+            cx: 159,
+            cy: legendY - 3,
+            r: 4,
+            class: `donut-legend-dot donut-segment-${segmentIndex % 5}`,
+          }),
+        );
+        const percentage = portfolio.total
+          ? (segment.value / portfolio.total) * 100
+          : 0;
+        svgText(
+          chart,
+          170,
+          legendY,
+          `${segment.label.slice(0, 25)} · ${percentage.toFixed(1)}%`,
+          "donut-legend-label",
+        );
+      });
     });
     elements.concentrationChart.appendChild(chart);
     elements.concentrationNote.textContent =
-      "Concentration is calculated from the five largest reported positions; 13F filings may omit securities and do not represent a complete portfolio.";
+      "Top four positions are shown individually; the remaining reported value is grouped as other. 13F filings are incomplete snapshots, not full portfolios.";
+  }
+
+  function drawShareCard() {
+    if (!currentA) return;
+    const canvas = document.createElement("canvas");
+    canvas.width = 1200;
+    canvas.height = 630;
+    const context = canvas.getContext("2d");
+    if (!context) {
+      elements.resultsStatus.textContent =
+        "Could not create the share image in this browser.";
+      return;
+    }
+
+    const gradient = context.createLinearGradient(0, 0, 1200, 630);
+    gradient.addColorStop(0, "#11152b");
+    gradient.addColorStop(0.55, "#172b3b");
+    gradient.addColorStop(1, "#251b38");
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "rgba(54, 220, 190, 0.12)";
+    context.beginPath();
+    context.arc(1110, 35, 245, 0, Math.PI * 2);
+    context.fill();
+    context.fillStyle = "#39dec0";
+    context.fillRect(64, 62, 54, 6);
+    context.fillStyle = "#a9b5ca";
+    context.font = "700 18px system-ui, sans-serif";
+    context.fillText("IO INNOVATION  /  13F SNAPSHOT", 64, 104);
+    context.fillStyle = "#f6f7fb";
+    context.font = "800 42px system-ui, sans-serif";
+    context.fillText(
+      currentB ? "Portfolio comparison" : "Portfolio snapshot",
+      64,
+      164,
+    );
+    context.fillStyle = "#b9c3d3";
+    context.font = "500 18px system-ui, sans-serif";
+    context.fillText("Reported holdings · historical SEC disclosure", 64, 197);
+
+    const columns = currentB
+      ? [
+          {
+            filer: currentA,
+            value: currentA.total_value_usd,
+            key: "a",
+            color: "#42d9c2",
+            x: 64,
+          },
+          {
+            filer: currentB,
+            value: currentB.total_value_usd,
+            key: "b",
+            color: "#ff8b72",
+            x: 618,
+          },
+        ]
+      : [
+          {
+            filer: currentA,
+            value: currentA.total_value_usd,
+            key: "a",
+            color: "#42d9c2",
+            x: 64,
+          },
+        ];
+    const panelWidth = currentB ? 518 : 1072;
+    columns.forEach((column) => {
+      context.fillStyle = "rgba(255,255,255,0.07)";
+      context.beginPath();
+      context.roundRect(column.x, 230, panelWidth, 310, 22);
+      context.fill();
+      context.fillStyle = column.color;
+      context.beginPath();
+      context.arc(column.x + 26, 270, 7, 0, Math.PI * 2);
+      context.fill();
+      context.fillStyle = "#ffffff";
+      context.font = "700 22px system-ui, sans-serif";
+      context.fillText(column.filer.name, column.x + 46, 278, panelWidth - 72);
+      context.fillStyle = "#aebbd0";
+      context.font = "500 15px system-ui, sans-serif";
+      context.fillText(
+        `Quarter ended ${column.filer.report_period || "not listed"}`,
+        column.x + 24,
+        308,
+      );
+      context.fillStyle = "#ffffff";
+      context.font = "800 34px system-ui, sans-serif";
+      context.fillText(formatMoney(column.value), column.x + 24, 359);
+      context.fillStyle = "#aebbd0";
+      context.font = "600 13px system-ui, sans-serif";
+      context.fillText("LARGEST REPORTED POSITIONS", column.x + 24, 395);
+
+      const portfolioRows = currentRows
+        .filter((row) => row[column.key])
+        .sort((left, right) => right[column.key].value - left[column.key].value)
+        .slice(0, currentB ? 3 : 4);
+      portfolioRows.forEach((row, rowIndex) => {
+        const rowY = 430 + rowIndex * 27;
+        const holding = row[column.key];
+        context.fillStyle = "#e8edf5";
+        context.font = "600 15px system-ui, sans-serif";
+        context.fillText(
+          `${row.ticker || row.issuer}  ·  ${holding.weight.toFixed(1)}%`,
+          column.x + 24,
+          rowY,
+          panelWidth - 48,
+        );
+      });
+    });
+
+    context.fillStyle = "#aebbd0";
+    context.font = "500 14px system-ui, sans-serif";
+    context.fillText(
+      "13F filings are delayed, partial disclosures—not current positions or investment advice.",
+      64,
+      585,
+    );
+    context.fillStyle = "#e7edf5";
+    context.font = "700 14px system-ui, sans-serif";
+    context.textAlign = "right";
+    context.fillText("ioinnovationfund.com", 1136, 585);
+    context.textAlign = "left";
+
+    const link = document.createElement("a");
+    link.download = currentB
+      ? `13f-snapshot-${currentA.slug}-vs-${currentB.slug}.png`
+      : `13f-snapshot-${currentA.slug}.png`;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+    elements.resultsStatus.textContent =
+      "Your share card has been downloaded as a PNG image.";
   }
 
   function renderHistoryChart() {
@@ -894,9 +1321,14 @@
 
     renderHoldingsChart(holdingsA, holdingsB, totalA, totalB);
     renderConcentration(holdingsA, holdingsB, totalA, totalB);
+    renderPortfolioInsights(holdingsA, holdingsB, totalA, totalB);
     renderHistoryChart();
 
     elements.export.disabled = false;
+    elements.downloadShareCard.disabled = false;
+    elements.shareCardDescription.textContent = currentB
+      ? `${currentA.name} vs ${currentB.name} · ${currentA.report_period || "period not listed"} and ${currentB.report_period || "period not listed"}. Download a snapshot card to share.`
+      : `${currentA.name} · quarter ended ${currentA.report_period || "not listed"}. Download a snapshot card with the largest reported positions.`;
     elements.resultsStatus.textContent = currentB
       ? "Open the SEC source links beside each selected filing to verify the reported positions."
       : "Open the SEC source link beside this filing to verify the reported positions.";
@@ -961,11 +1393,17 @@
       "CUSIP",
       `${currentA.name} value (USD)`,
       `${currentA.name} weight (%)`,
+      `${currentA.name} reported shares`,
+      `${currentA.name} put/call`,
+      `${currentA.name} discretion`,
     ];
     if (currentB)
       headings.push(
         `${currentB.name} value (USD)`,
         `${currentB.name} weight (%)`,
+        `${currentB.name} reported shares`,
+        `${currentB.name} put/call`,
+        `${currentB.name} discretion`,
         "Match",
       );
     const lines = [
@@ -976,10 +1414,16 @@
         row.cusip,
         row.a?.value ?? "",
         row.a ? row.a.weight.toFixed(4) : "",
+        row.a?.shares ?? "",
+        row.a?.putCall ?? "",
+        row.a?.discretion ?? "",
         ...(currentB
           ? [
               row.b?.value ?? "",
               row.b ? row.b.weight.toFixed(4) : "",
+              row.b?.shares ?? "",
+              row.b?.putCall ?? "",
+              row.b?.discretion ?? "",
               row.a && row.b ? "Shared" : row.a ? "A only" : "B only",
             ]
           : []),
@@ -1188,6 +1632,11 @@
   });
   elements.export.addEventListener("click", exportCsv);
   elements.share.addEventListener("click", copyComparisonLink);
+  elements.examples.addEventListener("click", (event) => {
+    const button = event.target.closest(".comparison-example-chip");
+    if (button) applyExample(button);
+  });
+  elements.downloadShareCard.addEventListener("click", drawShareCard);
 
   loadData();
 })();

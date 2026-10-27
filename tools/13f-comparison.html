@@ -40,7 +40,7 @@
     <script src="/js/theme-init.js?v=2026060801"></script>
     <link rel="stylesheet" href="/css/site.css?v=2026071302" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
-    <link rel="stylesheet" href="/css/13f-comparison.css?v=2026102601" />
+    <link rel="stylesheet" href="/css/13f-comparison.css?v=2026102702" />
   </head>
   <body class="site-refresh">
     <a href="#main" class="skip-to-main">Skip to content</a>
@@ -108,7 +108,7 @@
             type="button"
             aria-pressed="true"
           >
-            Single manager
+            One portfolio
           </button>
           <button
             class="btn dashboard-mode-button"
@@ -116,13 +116,23 @@
             type="button"
             aria-pressed="false"
           >
-            Compare managers
+            Compare two
           </button>
+        </div>
+        <p class="comparison-mode-hint" id="modeHint">
+          Choose a manager and filing period to explore one reported portfolio.
+          Switch to compare two portfolios side by side.
+        </p>
+        <div class="comparison-examples" aria-label="Try an example">
+          <span class="comparison-examples-label">Try an example</span>
+          <div class="comparison-example-list" id="comparisonExamples">
+            <span class="comparison-example-loading">Loading examples…</span>
+          </div>
         </div>
         <div class="comparison-select-grid">
           <label class="comparison-select-card" for="filerA">
             <span class="comparison-select-label"
-              ><span class="comparison-dot comparison-dot-a"></span> Institution
+              ><span class="comparison-dot comparison-dot-a"></span> Portfolio
               A</span
             >
             <select class="control" id="filerA" disabled>
@@ -142,7 +152,7 @@
             for="filerB"
           >
             <span class="comparison-select-label"
-              ><span class="comparison-dot comparison-dot-b"></span> Institution
+              ><span class="comparison-dot comparison-dot-b"></span> Portfolio
               B</span
             >
             <select class="control" id="filerB" disabled>
@@ -200,6 +210,76 @@
         </article>
       </section>
 
+      <section class="comparison-insights" aria-labelledby="insights-heading">
+        <div class="comparison-insights-heading">
+          <div>
+            <span class="comparison-step">More than a list</span>
+            <h2 id="insights-heading">Portfolio insights</h2>
+          </div>
+          <span class="insights-disclosure"
+            >Calculated from disclosed positions</span
+          >
+        </div>
+        <div class="comparison-insights-grid">
+          <article class="comparison-insight-card">
+            <span class="comparison-insight-label" id="insightPrimaryLabel"
+              >Top 10 concentration</span
+            >
+            <strong id="insightPrimaryValue">—</strong>
+            <span class="comparison-insight-foot" id="insightPrimaryFoot"
+              >Share of reported value</span
+            >
+            <span class="insight-meter" aria-hidden="true"
+              ><span id="insightPrimaryMeter"></span
+            ></span>
+          </article>
+          <article class="comparison-insight-card">
+            <span class="comparison-insight-label">Reported options lines</span>
+            <strong id="insightOptionsValue">—</strong>
+            <span class="comparison-insight-foot" id="insightOptionsFoot"
+              >—</span
+            >
+            <span class="insight-meter insight-meter-options" aria-hidden="true"
+              ><span id="insightOptionsMeter"></span
+            ></span>
+          </article>
+          <article class="comparison-insight-card comparison-insight-leaders">
+            <span class="comparison-insight-label"
+              >Largest reported positions</span
+            >
+            <div class="insight-leader-list" id="insightLeaders">
+              <span class="comparison-insight-foot">Loading holdings…</span>
+            </div>
+          </article>
+        </div>
+        <p class="comparison-insights-caveat" id="insightsCaveat">
+          These are descriptive calculations from reported 13F line items, not
+          live portfolio data or investment advice.
+        </p>
+      </section>
+
+      <section class="share-snapshot-card" aria-labelledby="share-card-heading">
+        <div class="share-snapshot-copy">
+          <span class="comparison-step">Made for sharing</span>
+          <h2 id="share-card-heading">Turn this snapshot into a share card</h2>
+          <p id="shareCardDescription">
+            Download a polished image of the selected portfolios and their
+            largest reported positions.
+          </p>
+        </div>
+        <div class="share-snapshot-actions">
+          <button
+            class="btn share-card-download"
+            id="downloadShareCard"
+            type="button"
+            disabled
+          >
+            Download social card
+          </button>
+          <span class="share-card-format">PNG · 1200 × 630</span>
+        </div>
+      </section>
+
       <section class="dashboard-charts" aria-label="Portfolio charts">
         <article class="dashboard-chart-card dashboard-chart-wide">
           <div class="dashboard-chart-heading">
@@ -237,7 +317,7 @@
           <div class="dashboard-chart-heading">
             <div>
               <span class="comparison-step">Portfolio profile</span>
-              <h2>Concentration</h2>
+              <h2>Top holdings at a glance</h2>
             </div>
           </div>
           <div
@@ -367,6 +447,6 @@
       </div>
     </footer>
     <script src="/js/shared-simple.js?v=2026071302"></script>
-    <script src="/js/13f-comparison.js?v=2026102601" defer></script>
+    <script src="/js/13f-comparison.js?v=2026102702" defer></script>
   </body>
 </html>
