@@ -1,11 +1,15 @@
 /* Service Worker for IO Innovation Tools */
 
-const STATIC_CACHE = "io-tools-static-v2026102602";
-const RUNTIME_CACHE = "io-tools-runtime-v2026102602";
+const STATIC_CACHE = "io-tools-static-v2026110301";
+const RUNTIME_CACHE = "io-tools-runtime-v2026110301";
 
 const STATIC_ASSETS = [
   "/",
   "/index.html",
+  "/physical-assets.html",
+  "/financial-assets.html",
+  "/global-resources.html",
+  "/market-intelligence.html",
   "/tools/",
   "/tools/13f-comparison.html",
   "/tools/dividend-calculator.html",
@@ -26,6 +30,7 @@ const STATIC_ASSETS = [
   "/css/site.css",
   "/css/holdings.css",
   "/css/home.css",
+  "/css/fund.css?v=2026110301",
   "/css/13f-comparison.css?v=2026102601",
   "/css/blog-article.css?v=2026102001",
   "/css/blog-13f.css?v=2026102501",

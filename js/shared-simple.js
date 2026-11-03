@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   "use strict";
 
   // Initialize all functionality
+  normalizePrimaryNavigation();
   initializeTheme();
   initializeMobileMenu();
   initializeGlobalBreadcrumb();
@@ -15,6 +16,70 @@ document.addEventListener("DOMContentLoaded", function () {
   initializePerformanceOptimizations();
   normalizeFooter();
   ensureAdExperienceAssets();
+
+  function normalizePrimaryNavigation() {
+    const navList = document.querySelector(".nav-links");
+    if (!navList) return;
+
+    const navItems = [
+      { label: "Home", href: "/", match: (path) => path === "/" },
+      {
+        label: "Physical",
+        href: "/physical-assets.html",
+        match: (path) => path === "/physical-assets.html",
+      },
+      {
+        label: "Financial",
+        href: "/financial-assets.html",
+        match: (path) =>
+          path === "/financial-assets.html" ||
+          path === "/tools" ||
+          path.startsWith("/tools/"),
+      },
+      {
+        label: "Resources",
+        href: "/global-resources.html",
+        match: (path) => path === "/global-resources.html",
+      },
+      {
+        label: "Intelligence",
+        href: "/market-intelligence.html",
+        match: (path) => path === "/market-intelligence.html",
+      },
+      {
+        label: "Research",
+        href: "/blog/",
+        match: (path) => path === "/blog" || path.startsWith("/blog/"),
+      },
+      {
+        label: "Contact",
+        href: "/contact.html",
+        match: (path) => path === "/contact.html",
+      },
+    ];
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+
+    navList.replaceChildren(
+      ...navItems.map(({ label, href, match }) => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = href;
+        link.textContent = label;
+        if (match(currentPath)) {
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+        }
+        item.appendChild(link);
+        return item;
+      }),
+    );
+
+    document
+      .querySelectorAll(".nav .logo, .footer-brand .logo")
+      .forEach((logo) => {
+        logo.textContent = "IO Innovation Fund";
+      });
+  }
 
   // Theme Management - Enhanced for mobile
   function initializeTheme() {
@@ -642,7 +707,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Service Worker registration for caching
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        const BUILD_VERSION = "2026071302";
+        const BUILD_VERSION = "2026110301";
         const CACHE_VERSION_KEY = "io-cache-version";
         const savedVersion = localStorage.getItem(CACHE_VERSION_KEY);
 
@@ -687,7 +752,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         navigator.serviceWorker
-          .register("/sw.js?v=2026102021", { updateViaCache: "none" })
+          .register("/sw.js?v=2026110301", { updateViaCache: "none" })
           .then((registration) => {
             // Ask browser to check for a newer service worker immediately.
             registration.update();
@@ -731,40 +796,46 @@ document.addEventListener("DOMContentLoaded", function () {
     footer.innerHTML = `
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo">IO Innovation</a>
+          <a href="/" class="logo">IO Innovation Fund</a>
           <p>
-            Practical tools for investing, research, and personal finance.
+            Global asset intelligence across the physical economy, financial markets, resources, and infrastructure.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Tracker</h4>
+          <h4>Asset domains</h4>
           <ul>
-            <li><a href="/tools/">Tools</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/physical-assets.html">Physical assets</a></li>
+            <li><a href="/financial-assets.html">Financial assets</a></li>
+            <li><a href="/global-resources.html">Global resources</a></li>
+            <li><a href="/market-intelligence.html">Market intelligence</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4>Research</h4>
           <ul>
+            <li><a href="/tools/13f-comparison.html">13F comparison</a></li>
+            <li><a href="/tools/">Research tools</a></li>
+            <li><a href="/blog/">Research notes</a></li>
             <li><a href="/methodology.html">Methodology</a></li>
-            <li><a href="/about.html">About</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Legal</h4>
+          <h4>About</h4>
           <ul>
+            <li><a href="/about.html">About IO Innovation Fund</a></li>
+            <li><a href="/contact.html">Contact</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
             <li><a href="/terms.html">Terms</a></li>
-            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 IO Innovation. All rights reserved.</p>
+        <p>&copy; 2026 IO Innovation Fund. All rights reserved.</p>
+        <p class="footer-disclaimer">Independent research and information only. Not investment advice or an offer to invest.</p>
       </div>
     `;
   }
