@@ -7,13 +7,13 @@
   // Check if we're on mobile
   const isMobile =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
+      navigator.userAgent,
     );
 
   // Get saved theme or default to light
   const savedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-  const theme = savedTheme || "light"; // Default to light theme
+  const theme = savedTheme || (prefersDark.matches ? "dark" : "light");
 
   console.log("Theme init - applying theme:", theme, "| Mobile:", isMobile);
 
@@ -21,7 +21,14 @@
   function applyTheme(currentTheme) {
     // Set on both html and body for maximum compatibility
     document.documentElement.setAttribute("data-theme", currentTheme);
-    document.documentElement.className = currentTheme + "-theme";
+    document.documentElement.classList.remove("dark-theme", "light-theme");
+    document.documentElement.classList.add(`${currentTheme}-theme`);
+
+    if (document.body) {
+      document.body.setAttribute("data-theme", currentTheme);
+      document.body.classList.remove("dark-theme", "light-theme");
+      document.body.classList.add(`${currentTheme}-theme`);
+    }
 
     // Additional mobile-specific theme application
     if (isMobile) {
@@ -39,9 +46,7 @@
     console.log("DOM loaded - ensuring theme consistency for mobile");
 
     // Ensure body has the correct theme
-    document.body.setAttribute("data-theme", theme);
-    document.body.className =
-      (document.body.className || "") + " " + theme + "-theme";
+    applyTheme(theme);
 
     // Mobile-specific theme fixes
     if (isMobile) {
@@ -81,7 +86,7 @@
     onDOMReady();
   }
 
-  // Listen for system theme changes
+  // Keep the initial system preference in sync until the user chooses a theme.
   prefersDark.addEventListener("change", (e) => {
     if (!localStorage.getItem("theme")) {
       const newTheme = e.matches ? "dark" : "light";

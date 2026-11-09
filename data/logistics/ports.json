@@ -1,0 +1,215 @@
+{
+  "dataset": "ports",
+  "schema_version": 1,
+  "last_updated": "2026-11-06",
+  "records": [
+    {
+      "id": "port-of-shanghai",
+      "name": "Port of Shanghai",
+      "country": "China",
+      "coordinates": [31.23, 121.47],
+      "detail_url": "/physical/ports/Shanghai-port.html",
+      "coordinate_precision": "approximate Shanghai port-area map pin; not a terminal coordinate",
+      "description": "World's largest container port by reported 2025 throughput. Container News reports 55.06 million TEU, up 7% from 2024; figures are based on the cited industry ranking and may be subject to reporting-period and port-definition differences.",
+      "status": "verified",
+      "annual_throughput": {
+        "year": 2025,
+        "teu": 55060000,
+        "yoy_growth_percent": 7
+      },
+      "profile_summary": "Shanghai retained the top position in the global container port ranking, handling 55.06 million TEU in 2025, up 7% from 2024.",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "port-of-singapore",
+      "name": "Port of Singapore",
+      "country": "Singapore",
+      "coordinates": [1.26, 103.82],
+      "coordinate_precision": "approximate port-area map pin; represents multiple terminals, not a specific terminal",
+      "description": "Container News reports 44.66 million TEU of container throughput in 2025, up 9% year on year. Figures are based on the cited industry ranking and may be subject to reporting-period and port-definition differences.",
+      "status": "verified",
+      "annual_throughput": {
+        "year": 2025,
+        "teu": 44660000,
+        "yoy_growth_percent": 9
+      },
+      "detail_url": "/physical/ports/Singapore-port.html",
+      "profile_summary": "Singapore remained the world's second-largest container port in the 2025 ranking, with throughput rising 9% to 44.66 million TEU.",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "port-of-ningbo-zhoushan",
+      "name": "Port of Ningbo-Zhoushan",
+      "country": "China",
+      "coordinates": [29.87, 121.55],
+      "coordinate_precision": "approximate Ningbo-Zhoushan port-area map pin; not a terminal coordinate",
+      "description": "Container News reports 43.87 million TEU of container throughput in 2025, up 12% from 2024. Figures are based on the cited industry ranking and may be subject to reporting-period and port-definition differences; Chinese port statistics may include river cargo.",
+      "status": "verified",
+      "annual_throughput": {
+        "year": 2025,
+        "teu": 43870000,
+        "yoy_growth_percent": 12
+      },
+      "detail_url": "/physical/ports/Ningbo-Zhoushan-port.html",
+      "profile_summary": "Ningbo-Zhoushan ranked third in 2025, with reported container throughput growing 12% to 43.87 million TEU.",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "port-of-guangzhou",
+      "detail_url": "/physical/asset-profile.html?id=port-of-guangzhou",
+      "name": "Port of Guangzhou",
+      "country": "China",
+      "coordinates": [23.1, 113.45],
+      "coordinate_precision": "approximate Guangzhou port-area pin; represents a multi-terminal port system",
+      "description": "A major container port in the Pearl River Delta. DynaLiners' 2025 review includes Guangzhou among the 19 ports handling more than 10 million TEU; the cited article does not provide a port-specific figure here.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "port-of-busan",
+      "detail_url": "/physical/asset-profile.html?id=port-of-busan",
+      "name": "Port of Busan",
+      "country": "South Korea",
+      "coordinates": [35.1, 129.04],
+      "coordinate_precision": "approximate Busan port-area pin; represents multiple terminals",
+      "description": "South Korea's largest container port and a major transshipment hub. DynaLiners' 2025 review includes Busan among the 19 ports handling more than 10 million TEU; no specific throughput value is asserted in this record.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "port-of-dubai-jebel-ali",
+      "detail_url": "/physical/asset-profile.html?id=port-of-dubai-jebel-ali",
+      "name": "Jebel Ali Port — Dubai",
+      "country": "United Arab Emirates",
+      "coordinates": [24.99, 55.06],
+      "coordinate_precision": "approximate Jebel Ali port-area pin; not a terminal coordinate",
+      "description": "Major container port serving Dubai and the wider Gulf region. DynaLiners' 2025 review includes Dubai among the 19 ports handling more than 10 million TEU; a port-specific figure is not provided here.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "port-klang",
+      "detail_url": "/physical/asset-profile.html?id=port-klang",
+      "name": "Port Klang",
+      "country": "Malaysia",
+      "coordinates": [3.0, 101.4],
+      "coordinate_precision": "approximate Port Klang port-area pin; represents multiple terminals",
+      "description": "Malaysia's main container gateway. DynaLiners' 2025 review includes Port Klang among the 19 ports handling more than 10 million TEU; this record omits a specific figure because the cited review does not give one in its summary.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "port-of-xiamen",
+      "detail_url": "/physical/asset-profile.html?id=port-of-xiamen",
+      "name": "Port of Xiamen",
+      "country": "China",
+      "coordinates": [24.48, 118.08],
+      "coordinate_precision": "approximate Xiamen port-area pin; not a terminal coordinate",
+      "description": "A major container port on China's southeast coast. DynaLiners' 2025 review includes Xiamen among the 19 ports handling more than 10 million TEU; no port-specific throughput is asserted here.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "laem-chabang-port",
+      "detail_url": "/physical/asset-profile.html?id=laem-chabang-port",
+      "name": "Laem Chabang Port",
+      "country": "Thailand",
+      "coordinates": [13.09, 100.88],
+      "coordinate_precision": "approximate Laem Chabang port-area pin; not a terminal coordinate",
+      "description": "Thailand's principal deep-sea container port. DynaLiners' 2025 review includes Laem Chabang among the 19 ports handling more than 10 million TEU; no specific throughput value is claimed here.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "tanjung-pelepas-port",
+      "detail_url": "/physical/asset-profile.html?id=tanjung-pelepas-port",
+      "name": "Port of Tanjung Pelepas",
+      "country": "Malaysia",
+      "coordinates": [1.36, 103.55],
+      "coordinate_precision": "approximate Tanjung Pelepas port-area pin; not a terminal coordinate",
+      "description": "A container transshipment port in southern Malaysia. DynaLiners' 2025 review includes Tanjung Pelepas among the 19 ports handling more than 10 million TEU; a specific figure is not asserted here.",
+      "status": "verified",
+      "sources": [
+        {
+          "publisher": "Container News",
+          "title": "Global container port throughput exceeds 1 billion TEU in 2025",
+          "url": "https://container-news.com/global-container-port-throughput-exceeds-1-billion-teu-in-2025/",
+          "published_date": "2026-08-10",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    }
+  ]
+}

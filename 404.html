@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found | IO Innovation Fund</title>
+    <meta
+      name="description"
+      content="The page you requested could not be found. Explore IO Innovation Fund research, asset maps, financial tools, and market intelligence."
+    />
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="https://ioinnovationfund.com/404.html" />
-    <script src="/js/theme-init.js?v=2026060801"></script>
-    <link rel="stylesheet" href="/css/site.css?v=2026071302" />
+    <script>
+      const legacyAssetRoutes = {
+        "/physical": "/physical-assets.html#mines-processing",
+        "/resources": "/physical-assets.html#copper",
+        "/global-resources.html": "/physical-assets.html#copper",
+        "/resources/": "/physical-assets.html#copper",
+        "/resources/index.html": "/physical-assets.html#copper",
+        "/resources/copper.html": "/physical-assets.html#copper",
+        "/resources/lithium.html": "/physical-assets.html#lithium",
+        "/resources/gold.html": "/physical-assets.html#gold",
+        "/resources/oil.html": "/physical-assets.html#oil",
+        "/resources/critical-minerals.html":
+          "/physical-assets.html#critical-minerals",
+        "/resources/value-chains.html": "/physical-assets.html#value-chains",
+        "/physical/": "/physical-assets.html#mines-processing",
+        "/physical/index.html": "/physical-assets.html#mines-processing",
+        "/physical/mines-processing.html":
+          "/physical-assets.html#mines-processing",
+        "/physical/ports-trade.html": "/physical-assets.html#ports-trade",
+        "/physical/manufacturing.html": "/physical-assets.html#manufacturing",
+        "/physical/energy-infrastructure.html":
+          "/physical-assets.html#energy-infrastructure",
+        "/physical/datacentres.html": "/physical-assets.html#datacentres",
+        "/physical/regions-projects.html":
+          "/physical-assets.html#regions-projects",
+      };
+      const legacyAssetTarget = legacyAssetRoutes[window.location.pathname];
+      if (legacyAssetTarget) window.location.replace(legacyAssetTarget);
+    </script>
+    <script src="/js/theme-init.js?v=2026110503"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026110504" />
     <link rel="stylesheet" href="/css/holdings.css?v=2026081801" />
   </head>
   <body class="site-refresh">
@@ -17,9 +50,8 @@
         <a href="/" class="logo">IO Innovation</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/physical-assets.html">Physical</a></li>
+          <li><a href="/physical-assets.html">Assets</a></li>
           <li><a href="/financial-assets.html">Financial</a></li>
-          <li><a href="/global-resources.html">Resources</a></li>
           <li><a href="/market-intelligence.html">Intelligence</a></li>
           <li><a href="/blog/">Research</a></li>
           <li><a href="/contact.html">Contact</a></li>
@@ -59,6 +91,6 @@
         <div class="footer-bottom"><p>&copy; 2026 IO Innovation Fund.</p></div>
       </div>
     </footer>
-    <script src="/js/shared-simple.js?v=2026110302"></script>
+    <script src="/js/shared-simple.js?v=2026110503"></script>
   </body>
 </html>

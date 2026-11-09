@@ -1474,6 +1474,50 @@
         : { filings: [] };
       const latestFilers = Array.isArray(data.filers) ? data.filers : [];
       const sourceRows = Array.isArray(data.holdings) ? data.holdings : [];
+      let manualFilings = Array.isArray(manual.filings) ? manual.filings : [];
+      let localSnapshotsUsed = false;
+
+      if (!latestFilers.length && !manualFilings.length) {
+        const indexResponse = await fetch("/data/edgar/filers.json", {
+          cache: "no-cache",
+        }).catch(() => null);
+        if (indexResponse?.ok) {
+          const index = await indexResponse.json();
+          const listedFilers = Array.isArray(index) ? index : index.filers;
+          const snapshots = await Promise.all(
+            (Array.isArray(listedFilers) ? listedFilers : []).map(
+              async (filer) => {
+                if (!filer?.slug) return null;
+                const response = await fetch(
+                  `/data/filers/${encodeURIComponent(filer.slug)}.json`,
+                  { cache: "no-cache" },
+                ).catch(() => null);
+                if (!response?.ok) return null;
+                const snapshot = await response.json();
+                if (
+                  !snapshot.filer?.slug ||
+                  !snapshot.filer.accession ||
+                  !Array.isArray(snapshot.holdings)
+                ) {
+                  return null;
+                }
+                return {
+                  filer: snapshot.filer,
+                  accession: snapshot.filer.accession,
+                  report_period: snapshot.filer.report_period,
+                  filing_date: snapshot.filer.filing_date,
+                  filing_url: snapshot.filer.filing_url,
+                  holdings: snapshot.holdings,
+                  generated_at: snapshot.generated_at,
+                };
+              },
+            ),
+          );
+          manualFilings = snapshots.filter(Boolean);
+          localSnapshotsUsed = manualFilings.length > 0;
+        }
+      }
+
       latestFilers.forEach((filer) => {
         latestByFiler.set(
           filer.slug,
@@ -1481,7 +1525,6 @@
         );
       });
 
-      const manualFilings = Array.isArray(manual.filings) ? manual.filings : [];
       const bySlug = new Map();
       const addInstitution = (record) => {
         if (!record?.slug) return;
@@ -1567,7 +1610,17 @@
         (total, filings) => total + filings.length,
         0,
       );
-      elements.status.textContent = `${manualFilings.length} manually curated filings · ${institutions.length} institutions · ${filingCount} available snapshots${data.generated_at ? ` · baseline ${data.generated_at.slice(0, 10)}` : ""}`;
+      const sourceDate = localSnapshotsUsed
+        ? manualFilings
+            .map((filing) => filing.generated_at)
+            .filter(Boolean)
+            .sort()
+            .at(-1)
+        : data.generated_at;
+      const sourceLabel = localSnapshotsUsed
+        ? `${manualFilings.length} source-linked local snapshots`
+        : `${manualFilings.length} manually curated filings`;
+      elements.status.textContent = `${sourceLabel} · ${institutions.length} institutions · ${filingCount} available snapshots${sourceDate ? ` · data dated ${sourceDate.slice(0, 10)}` : ""}`;
       buildDashboard();
     } catch (error) {
       elements.status.textContent = "Filing data could not be loaded.";

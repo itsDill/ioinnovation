@@ -1,15 +1,35 @@
 /* Service Worker for IO Innovation Tools */
 
-const STATIC_CACHE = "io-tools-static-v2026110301";
-const RUNTIME_CACHE = "io-tools-runtime-v2026110301";
+const STATIC_CACHE = "io-tools-static-v2026110602";
+const RUNTIME_CACHE = "io-tools-runtime-v2026110602";
 
 const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/physical-assets.html",
+  "/physical/map.html",
+  "/physical/asset-profile.html",
+  "/physical/ports/Shanghai-port.html",
+  "/physical/ports/Singapore-port.html",
+  "/physical/ports/Ningbo-Zhoushan-port.html",
   "/financial-assets.html",
-  "/global-resources.html",
+  "/financial/",
+  "/financial/index.html",
+  "/financial/holdings.html",
+  "/financial/equities.html",
+  "/financial/ownership.html",
+  "/financial/valuation.html",
+  "/financial/capital-allocation.html",
+  "/financial/disclosures.html",
   "/market-intelligence.html",
+  "/intelligence/",
+  "/intelligence/index.html",
+  "/intelligence/industry-trends.html",
+  "/intelligence/infrastructure-pipelines.html",
+  "/intelligence/investment-research.html",
+  "/intelligence/commodity-systems.html",
+  "/intelligence/companies-capital.html",
+  "/intelligence/sources-method.html",
   "/tools/",
   "/tools/13f-comparison.html",
   "/tools/dividend-calculator.html",
@@ -27,10 +47,15 @@ const STATIC_ASSETS = [
   "/contact.html",
   "/privacy.html",
   "/terms.html",
-  "/css/site.css",
+  "/css/site.css?v=2026110504",
   "/css/holdings.css",
-  "/css/home.css",
-  "/css/fund.css?v=2026110301",
+  "/css/home.css?v=2026110504",
+  "/css/fund.css?v=2026110504",
+  "/css/financial-assets.css?v=2026110503",
+  "/css/asset-atlas.css?v=2026110503",
+  "/css/shanghai-port.css?v=2026110601",
+  "/css/asset-profile.css?v=2026110601",
+  "/css/market-intelligence.css?v=2026110503",
   "/css/13f-comparison.css?v=2026102601",
   "/css/blog-article.css?v=2026102001",
   "/css/blog-13f.css?v=2026102501",
@@ -44,12 +69,21 @@ const STATIC_ASSETS = [
   "/css/retirement-planner.css?v=2026102001",
   "/css/savings-goal-calculator.css?v=2026102001",
   "/css/stock-return-calculator.css?v=2026102002",
-  "/js/shared-simple.js",
-  "/js/theme-init.js",
+  "/js/shared-simple.js?v=2026110503",
+  "/js/financial-assets.js?v=2026110402",
+  "/js/asset-atlas.js?v=2026110503",
+  "/js/logistics-atlas.js?v=2026110506",
+  "/js/shanghai-port.js?v=2026110601",
+  "/js/asset-profile.js?v=2026110601",
+  "/js/market-intelligence.js?v=2026110404",
+  "/js/theme-init.js?v=2026110503",
   "/js/13f-comparison.js?v=2026102601",
   "/js/blog-13f.js?v=2026102501",
   "/data/holdings-latest.json",
   "/data/manual/filings.json",
+  "/data/logistics/ports.json",
+  "/data/logistics/industrial-projects.json",
+  "/data/logistics/data-centres.json",
   "/js/portfolio-allocation.js?v=2026102003",
   "/js/dividend-calculator.js?v=2026102002",
   "/js/inflation-calculator.js?v=2026102002",
@@ -107,8 +141,11 @@ self.addEventListener("fetch", (event) => {
   const is13fData =
     url.pathname === "/data/holdings-latest.json" ||
     url.pathname === "/data/manual/filings.json";
+  const isLogisticsData =
+    url.pathname.startsWith("/data/logistics/") &&
+    url.pathname.endsWith(".json");
 
-  if (isHtml || isAsset || is13fData) {
+  if (isHtml || isAsset || is13fData || isLogisticsData) {
     event.respondWith(
       fetch(req)
         .then((res) => {

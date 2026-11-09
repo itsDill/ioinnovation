@@ -1,0 +1,200 @@
+{
+  "dataset": "data_centres",
+  "schema_version": 1,
+  "last_updated": "2026-11-06",
+  "records": [
+    {
+      "id": "google-the-dalles",
+      "detail_url": "/physical/asset-profile.html?id=google-the-dalles",
+      "name": "Google data centre — The Dalles",
+      "country": "United States",
+      "coordinates": [45.6, -121.18],
+      "coordinate_precision": "approximate city-area map pin; Google does not publish a precise facility coordinate on this page",
+      "description": "Google data centre location in The Dalles, Oregon. Google states that its first data centre there opened in 2006.",
+      "status": "verified",
+      "operator": "Google",
+      "sources": [
+        {
+          "publisher": "Google Data Centers",
+          "title": "The Dalles, Oregon",
+          "url": "https://datacenters.google/locations/oregon/",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "google-hamina",
+      "detail_url": "/physical/asset-profile.html?id=google-hamina",
+      "name": "Google data centre — Hamina",
+      "country": "Finland",
+      "coordinates": [60.57, 27.2],
+      "coordinate_precision": "approximate city-area map pin; Google does not publish a precise facility coordinate on this page",
+      "description": "Google data centre location in Hamina. Google states that it acquired the Summa paper mill site in 2009 and opened its first Hamina data centre in 2011.",
+      "status": "verified",
+      "operator": "Google",
+      "sources": [
+        {
+          "publisher": "Google Data Centers",
+          "title": "Hamina, Finland",
+          "url": "https://datacenters.google/locations/hamina-finland/",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "google-st-ghislain",
+      "detail_url": "/physical/asset-profile.html?id=google-st-ghislain",
+      "name": "Google data centre campus — St. Ghislain",
+      "country": "Belgium",
+      "coordinates": [50.45, 3.82],
+      "coordinate_precision": "approximate St. Ghislain-area map pin; not an individual building coordinate",
+      "description": "Google data centre campus in St. Ghislain-Mons. Google states that its first data centre in Belgium opened in 2010 and an expansion was completed in 2015.",
+      "status": "verified",
+      "operator": "Google",
+      "sources": [
+        {
+          "publisher": "Google Data Centers",
+          "title": "St. Ghislain, Belgium",
+          "url": "https://datacenters.google/locations/belgium/",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "google-dublin",
+      "detail_url": "/physical/asset-profile.html?id=google-dublin",
+      "name": "Google data centre — Dublin",
+      "country": "Ireland",
+      "coordinates": [53.33, -6.37],
+      "coordinate_precision": "approximate Dublin-area map pin; not an individual building coordinate",
+      "description": "Google data centre location in Dublin. Google states that it announced the Profile Park site in 2011 and opened its first Dublin data centre in 2012.",
+      "status": "verified",
+      "operator": "Google",
+      "sources": [
+        {
+          "publisher": "Google Data Centers",
+          "title": "Dublin, Ireland",
+          "url": "https://datacenters.google/locations/dublin-ireland/",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "meta-richland-parish",
+      "detail_url": "/physical/asset-profile.html?id=meta-richland-parish",
+      "name": "Meta Richland Parish Data Center",
+      "country": "United States",
+      "coordinates": [32.43, -91.45],
+      "coordinate_precision": "approximate Richland Parish-area map pin; not an individual building coordinate",
+      "description": "Large Meta data center campus under development in Richland Parish, Louisiana. Meta describes the site as a four-million-square-foot campus intended to house its multi-gigawatt Hyperion AI training cluster.",
+      "status": "verified",
+      "operator": "Meta",
+      "sources": [
+        {
+          "publisher": "Meta Newsroom",
+          "title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
+          "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+          "published_date": "2025-12-19",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-fairwater-mount-pleasant",
+      "detail_url": "/physical/asset-profile.html?id=microsoft-fairwater-mount-pleasant",
+      "name": "Microsoft Fairwater AI Data Center",
+      "country": "United States",
+      "coordinates": [42.72, -87.88],
+      "coordinate_precision": "approximate Mount Pleasant-area map pin; not an individual building coordinate",
+      "description": "Microsoft's Fairwater AI data center campus in Mount Pleasant, Wisconsin, built for large-scale AI computing. Microsoft reported that its first facility was complete in June 2026, with construction continuing on an adjacent second facility.",
+      "status": "verified",
+      "operator": "Microsoft",
+      "sources": [
+        {
+          "publisher": "Microsoft Source",
+          "title": "Microsoft completes construction on first datacenter facility in Mount Pleasant, Wisconsin",
+          "url": "https://news.microsoft.com/source/2026/06/23/microsoft-completes-construction-on-first-datacenter-facility-in-mount-pleasant-wisconsin/",
+          "published_date": "2026-06-23",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "xai-colossus-memphis",
+      "detail_url": "/physical/asset-profile.html?id=xai-colossus-memphis",
+      "name": "xAI Colossus — Memphis",
+      "country": "United States",
+      "coordinates": [35.05, -89.93],
+      "coordinate_precision": "approximate Memphis-area map pin; does not identify a specific building or neighboring Southaven site",
+      "description": "xAI's Colossus AI supercomputer facility in the Memphis area. xAI says it planned to equip the facility with up to one million GPUs by 2026; this is an operator-stated plan, not a verified count of installed hardware.",
+      "status": "verified",
+      "operator": "xAI",
+      "sources": [
+        {
+          "publisher": "xAI",
+          "title": "Building the Future of Intelligence in Memphis",
+          "url": "https://x.ai/memphis",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "google-council-bluffs",
+      "detail_url": "/physical/asset-profile.html?id=google-council-bluffs",
+      "name": "Google data centre campus — Council Bluffs",
+      "country": "United States",
+      "coordinates": [41.24, -95.86],
+      "coordinate_precision": "approximate Council Bluffs-area pin; not an individual building coordinate",
+      "description": "Google data centre campus in Council Bluffs, Iowa, where the company says it has operated since 2007. Google announced a further investment to expand Council Bluffs and develop a separate new data centre campus in Cedar Rapids; this record refers to Council Bluffs only.",
+      "status": "verified",
+      "operator": "Google",
+      "sources": [
+        {
+          "publisher": "Google Data Centers",
+          "title": "Iowa",
+          "url": "https://datacenters.google/locations/iowa/",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "switch-citadel-tahoe-reno",
+      "detail_url": "/physical/asset-profile.html?id=switch-citadel-tahoe-reno",
+      "name": "Switch Citadel Campus — Tahoe Reno",
+      "country": "United States",
+      "coordinates": [39.54, -119.44],
+      "coordinate_precision": "approximate Tahoe Reno Industrial Center-area pin; not an individual building coordinate",
+      "description": "Switch's colocation data centre campus in the Tahoe Reno region of Nevada. Switch describes a multi-gigawatt expansion and states that gigawatts of power capacity are planned upon completion; that is a future campus plan, not an assertion of current installed capacity.",
+      "status": "verified",
+      "operator": "Switch",
+      "sources": [
+        {
+          "publisher": "Switch",
+          "title": "Tahoe Reno Exascale Data Center Ecosystems",
+          "url": "https://www.switch.com/tahoe-reno/",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-boydton-campus",
+      "detail_url": "/physical/asset-profile.html?id=microsoft-boydton-campus",
+      "name": "Microsoft data centre campus — Boydton",
+      "country": "United States",
+      "coordinates": [36.67, -78.38],
+      "coordinate_precision": "approximate Boydton-area pin; not an individual building coordinate",
+      "description": "Microsoft operates a large data centre campus in Boydton, Virginia, and runs a local Data Center Academy with regional education partners. The source does not publish a single site capacity or number of buildings.",
+      "status": "verified",
+      "operator": "Microsoft",
+      "sources": [
+        {
+          "publisher": "Microsoft On the Issues",
+          "title": "Building Community-First AI Infrastructure",
+          "url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+          "published_date": "2026-01-13",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    }
+  ]
+}

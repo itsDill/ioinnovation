@@ -1,0 +1,200 @@
+{
+  "dataset": "industrial_projects",
+  "schema_version": 1,
+  "last_updated": "2026-11-06",
+  "records": [
+    {
+      "id": "lng-canada-export-facility",
+      "detail_url": "/physical/asset-profile.html?id=lng-canada-export-facility",
+      "name": "LNG Canada Export Facility",
+      "country": "Canada",
+      "coordinates": [54.05, -128.66],
+      "coordinate_precision": "approximate Kitimat-area map pin; not a surveyed facility entrance",
+      "description": "Liquefied natural gas export facility in Kitimat, British Columbia. The company describes the project as Canada's first LNG export facility.",
+      "status": "verified",
+      "project_type": "LNG export facility",
+      "sources": [
+        {
+          "publisher": "LNG Canada",
+          "title": "Our Export Facility",
+          "url": "https://www.lngcanada.ca/what-we-do/facility/",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "hinkley-point-c",
+      "detail_url": "/physical/asset-profile.html?id=hinkley-point-c",
+      "name": "Hinkley Point C",
+      "country": "United Kingdom",
+      "coordinates": [51.21, -3.13],
+      "coordinate_precision": "approximate Somerset-area map pin; not a surveyed site coordinate",
+      "description": "Nuclear power station project in Somerset, England. EDF's project page publishes ongoing construction updates.",
+      "status": "verified",
+      "project_type": "nuclear power station",
+      "project_status_note": "Construction activity is described by the operator; check its current project updates for the latest status.",
+      "sources": [
+        {
+          "publisher": "EDF Energy",
+          "title": "Hinkley Point C",
+          "url": "https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "neom-green-hydrogen-project",
+      "detail_url": "/physical/asset-profile.html?id=neom-green-hydrogen-project",
+      "name": "NEOM Green Hydrogen Project",
+      "country": "Saudi Arabia",
+      "coordinates": [28.0, 35.2],
+      "coordinate_precision": "approximate Oxagon/NEOM-area map pin; not a surveyed facility coordinate",
+      "description": "Green hydrogen and ammonia project located at Oxagon in the NEOM region.",
+      "status": "verified",
+      "project_type": "green hydrogen and ammonia",
+      "project_status_note": "This record does not assert an operating date or current completion status.",
+      "sources": [
+        {
+          "publisher": "NEOM Green Hydrogen Company",
+          "title": "NEOM Green Hydrogen Company",
+          "url": "https://nghc.com/",
+          "accessed_date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "three-gorges-hydropower-station",
+      "detail_url": "/physical/asset-profile.html?id=three-gorges-hydropower-station",
+      "name": "Three Gorges Hydropower Station",
+      "country": "China",
+      "coordinates": [30.82, 111.0],
+      "coordinate_precision": "approximate dam-area map pin; not an individual generating-unit coordinate",
+      "description": "Hydropower station on the Yangtze River with 22,500 MW of installed generating capacity, making it the largest power station by installed capacity.",
+      "status": "verified",
+      "project_type": "hydropower station",
+      "sources": [
+        {
+          "publisher": "U.S. Geological Survey",
+          "title": "Three Gorges Dam: The World's Largest Hydroelectric Plant",
+          "url": "https://www.usgs.gov/science/science-explorer/energy/three-gorges-dam-worlds-largest-hydroelectric-plant",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "baihetan-hydropower-station",
+      "detail_url": "/physical/asset-profile.html?id=baihetan-hydropower-station",
+      "name": "Baihetan Hydropower Station",
+      "country": "China",
+      "coordinates": [27.17, 103.65],
+      "coordinate_precision": "approximate Jinsha River-area map pin; not a surveyed dam coordinate",
+      "description": "Hydropower station on the Jinsha River with 16 GW of installed capacity; the plant became fully operational in December 2022.",
+      "status": "verified",
+      "project_type": "hydropower station",
+      "sources": [
+        {
+          "publisher": "Enerdata",
+          "title": "China's 16 GW Baihetan hydropower plant becomes fully operational",
+          "url": "https://www.enerdata.net/publications/daily-energy-news/chinas-16-gw-baihetan-hydropower-plant-becomes-fully-operational.html",
+          "published_date": "2022-12-21",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "itaipu-hydroelectric-plant",
+      "detail_url": "/physical/asset-profile.html?id=itaipu-hydroelectric-plant",
+      "name": "Itaipu Hydroelectric Plant",
+      "country": "Brazil / Paraguay",
+      "coordinates": [-25.41, -54.59],
+      "coordinate_precision": "approximate Itaipu dam-area map pin; not an individual generating-unit coordinate",
+      "description": "Binational hydropower plant on the Paraná River with 14,000 MW of installed capacity, shared by Brazil and Paraguay.",
+      "status": "verified",
+      "project_type": "hydropower plant",
+      "sources": [
+        {
+          "publisher": "Itaipu Binacional",
+          "title": "Itaipu Binacional — Integration that generates energy",
+          "url": "https://www.itaipu.energy/",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "grand-coulee-dam-project",
+      "detail_url": "/physical/asset-profile.html?id=grand-coulee-dam-project",
+      "name": "Grand Coulee Dam and Hydropower Complex",
+      "country": "United States",
+      "coordinates": [47.96, -118.98],
+      "coordinate_precision": "approximate dam-area map pin; not an individual powerhouse coordinate",
+      "description": "Multipurpose dam and hydropower complex on the Columbia River in Washington state. The U.S. Bureau of Reclamation reports generating capacity of more than 6,809 MW across the facility.",
+      "status": "verified",
+      "project_type": "hydropower and water-management complex",
+      "sources": [
+        {
+          "publisher": "U.S. Bureau of Reclamation",
+          "title": "Grand Coulee Dam — About Us",
+          "url": "https://www.usbr.gov/pn/grandcoulee/about/index.html",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "belo-monte-hydropower-project",
+      "detail_url": "/physical/asset-profile.html?id=belo-monte-hydropower-project",
+      "name": "Belo Monte Hydropower Project",
+      "country": "Brazil",
+      "coordinates": [-3.12, -51.77],
+      "coordinate_precision": "approximate Xingu River project-area pin; not an individual powerhouse coordinate",
+      "description": "Hydropower project on the Xingu River in Pará. The operator's project material reports installed capacity of approximately 11.2 GW; this is generating capacity, not annual output.",
+      "status": "verified",
+      "project_type": "hydropower project",
+      "sources": [
+        {
+          "publisher": "Norte Energia",
+          "title": "Belo Monte Hydropower Project — project information",
+          "url": "https://www.norteenergiasa.com.br/",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "barakah-nuclear-energy-plant",
+      "detail_url": "/physical/asset-profile.html?id=barakah-nuclear-energy-plant",
+      "name": "Barakah Nuclear Energy Plant",
+      "country": "United Arab Emirates",
+      "coordinates": [23.96, 52.23],
+      "coordinate_precision": "approximate Barakah site-area pin; not an individual reactor coordinate",
+      "description": "Four-unit nuclear power plant in the Al Dhafra region of Abu Dhabi. The operator reports a combined capacity of 5.6 GW, with all four units in commercial operation.",
+      "status": "verified",
+      "project_type": "nuclear power plant",
+      "sources": [
+        {
+          "publisher": "Emirates Nuclear Energy Corporation",
+          "title": "Barakah Plant",
+          "url": "https://www.enec.gov.ae/barakah-plant/",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "grand-ethiopian-renaissance-dam",
+      "detail_url": "/physical/asset-profile.html?id=grand-ethiopian-renaissance-dam",
+      "name": "Grand Ethiopian Renaissance Dam",
+      "country": "Ethiopia",
+      "coordinates": [11.21, 35.09],
+      "coordinate_precision": "approximate dam-area pin on the Blue Nile; not a surveyed structure coordinate",
+      "description": "Large hydroelectric dam on the Blue Nile in Ethiopia. The project was formally inaugurated in 2025; this record does not state a capacity or generation forecast.",
+      "status": "verified",
+      "project_type": "hydropower dam",
+      "sources": [
+        {
+          "publisher": "International Institute for Strategic Studies",
+          "title": "Ethiopia's mega-dam: national opportunities and regional implications",
+          "url": "https://www.iiss.org/online-analysis/online-analysis/2025/10/ethiopias-mega-dam-national-opportunities-and-regional-implications/",
+          "accessed_date": "2026-11-06"
+        }
+      ]
+    }
+  ]
+}

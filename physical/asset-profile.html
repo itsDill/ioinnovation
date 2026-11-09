@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Source-linked profile for a logistics atlas asset." />
+    <script src="/js/theme-init.js?v=2026110503"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026110504" />
+    <link rel="stylesheet" href="/css/asset-profile.css?v=2026110601" />
+    <title>Asset profile | IO Innovation Fund</title>
+  </head>
+  <body class="site-refresh asset-profile-page">
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/" class="logo">IO Innovation Fund</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/physical-assets.html">Physical</a></li>
+          <li><a href="/financial-assets.html">Financial</a></li>
+          <li><a href="/market-intelligence.html">Intelligence</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+            <i id="themeIcon" class="theme-icon" aria-hidden="true"></i>
+          </button>
+          <button class="mobile-menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="asset-profile-main">
+      <nav class="asset-breadcrumb" aria-label="Breadcrumb">
+        <a href="/physical-assets.html">Physical assets</a>
+        <span aria-hidden="true">/</span>
+        <a href="/physical/map.html">Logistics atlas</a>
+        <span aria-hidden="true">/</span>
+        <span>Asset profile</span>
+      </nav>
+      <section class="asset-hero" aria-labelledby="assetName">
+        <p id="assetCategory" class="asset-eyebrow">Logistics atlas · asset profile</p>
+        <h1 id="assetName">Loading asset…</h1>
+        <p id="assetCountry" class="asset-country"></p>
+        <p id="assetDescription" class="asset-description"></p>
+        <div class="asset-actions">
+          <a id="mapLink" class="asset-primary-link" href="/physical/map.html">Explore in the Logistics Atlas <span aria-hidden="true">↗</span></a>
+          <a href="/physical-assets.html">Physical assets overview <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="asset-details-grid" aria-label="Asset details">
+        <article class="asset-panel">
+          <p class="asset-section-kicker">Asset details</p>
+          <h2>At a glance</h2>
+          <dl id="assetFacts" class="asset-facts"></dl>
+        </article>
+        <article class="asset-panel">
+          <p class="asset-section-kicker">Research trail</p>
+          <h2>Sources</h2>
+          <ul id="assetSources" class="asset-sources"></ul>
+          <p id="assetStatus" class="asset-status" role="status" aria-live="polite">Loading source-linked dataset…</p>
+        </article>
+      </section>
+      <p class="asset-disclaimer">Atlas pins may be approximate. Details are manually curated from the cited sources and are not a live operational feed.</p>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content"><div class="footer-bottom"><p>&copy; 2026 IO Innovation Fund.</p></div></div>
+    </footer>
+    <script src="/js/asset-profile.js?v=2026110601" defer></script>
+    <script src="/js/shared-simple.js?v=2026110503"></script>
+  </body>
+</html>

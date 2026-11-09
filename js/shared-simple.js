@@ -26,28 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         label: "Physical",
         href: "/physical-assets.html",
-        match: (path) => path === "/physical-assets.html",
+        match: (path) =>
+          path === "/physical-assets.html" ||
+          path === "/physical" ||
+          path.startsWith("/physical/") ||
+          path === "/global-resources.html" ||
+          path === "/resources" ||
+          path.startsWith("/resources/"),
       },
       {
         label: "Financial",
         href: "/financial-assets.html",
         match: (path) =>
           path === "/financial-assets.html" ||
+          path === "/financial" ||
+          path.startsWith("/financial/") ||
           path === "/tools" ||
           path.startsWith("/tools/"),
       },
       {
-        label: "Resources",
-        href: "/global-resources.html",
-        match: (path) => path === "/global-resources.html",
-      },
-      {
         label: "Intelligence",
         href: "/market-intelligence.html",
-        match: (path) => path === "/market-intelligence.html",
+        match: (path) =>
+          path === "/market-intelligence.html" ||
+          path === "/intelligence" ||
+          path.startsWith("/intelligence/"),
       },
       {
-        label: "Research",
+        label: "Blog",
         href: "/blog/",
         match: (path) => path === "/blog" || path.startsWith("/blog/"),
       },
@@ -92,10 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
     // Get saved theme or default to light
-    let currentTheme = localStorage.getItem("theme") || "light";
+    let currentTheme =
+      localStorage.getItem("theme") || (prefersDark.matches ? "dark" : "light");
 
     // Enhanced theme application function for mobile
-    function setTheme(theme) {
+    function setTheme(theme, savePreference = true) {
       // Apply to multiple targets for maximum compatibility
       const targets = [document.documentElement, document.body];
 
@@ -109,7 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Store theme preference
-      localStorage.setItem("theme", theme);
+      if (savePreference) {
+        localStorage.setItem("theme", theme);
+      }
 
       // Update icon with mobile-optimized approach
       if (themeIcon) {
@@ -161,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize theme immediately
-    setTheme(currentTheme);
+    setTheme(currentTheme, false);
 
     // Enhanced theme toggle with mobile optimizations
     if (themeToggle) {
@@ -239,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
     prefersDark.addEventListener("change", (e) => {
       if (!localStorage.getItem("theme")) {
         const newTheme = e.matches ? "dark" : "light";
-        setTheme(newTheme);
+        setTheme(newTheme, false);
         currentTheme = newTheme;
       }
     });
@@ -752,7 +761,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         navigator.serviceWorker
-          .register("/sw.js?v=2026110301", { updateViaCache: "none" })
+          .register("/sw.js?v=2026110602", { updateViaCache: "none" })
           .then((registration) => {
             // Ask browser to check for a newer service worker immediately.
             registration.update();
@@ -805,9 +814,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-col">
           <h4>Asset domains</h4>
           <ul>
-            <li><a href="/physical-assets.html">Physical assets</a></li>
+            <li><a href="/physical-assets.html">Physical assets &amp; resources</a></li>
             <li><a href="/financial-assets.html">Financial assets</a></li>
-            <li><a href="/global-resources.html">Global resources</a></li>
             <li><a href="/market-intelligence.html">Market intelligence</a></li>
           </ul>
         </div>

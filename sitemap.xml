@@ -11,19 +11,99 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ioinnovationfund.com/physical/ports/Shanghai-port.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/physical/ports/Singapore-port.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/physical/ports/Ningbo-Zhoushan-port.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ioinnovationfund.com/financial-assets.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ioinnovationfund.com/global-resources.html</loc>
+    <loc>https://ioinnovationfund.com/financial/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/financial/holdings.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/financial/equities.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/financial/ownership.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/financial/valuation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/financial/capital-allocation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/financial/disclosures.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
   <url>
     <loc>https://ioinnovationfund.com/market-intelligence.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/industry-trends.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/infrastructure-pipelines.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/investment-research.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/commodity-systems.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/companies-capital.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://ioinnovationfund.com/intelligence/sources-method.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
   <url>
     <loc>https://ioinnovationfund.com/tools/</loc>
@@ -72,21 +152,6 @@
   </url>
   <url>
     <loc>https://ioinnovationfund.com/methodology.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ioinnovationfund.com/cross-reference/index.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://ioinnovationfund.com/cross-reference/strategy-mstr.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ioinnovationfund.com/cross-reference/btc-treasury-template.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

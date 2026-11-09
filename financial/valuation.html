@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Valuation &amp; Financial Models | IO Innovation Fund</title>
+    <meta
+      name="description"
+      content="Explore company valuation frameworks, model assumptions, and the limits of financial estimates and scenario analysis."
+    />
+    <link
+      rel="canonical"
+      href="https://ioinnovationfund.com/financial/valuation.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Company Valuation &amp; Financial Models | IO Innovation Fund"
+    />
+    <meta
+      property="og:description"
+      content="A practical framework for valuation models, assumptions, scenarios, and uncertainty."
+    />
+    <meta
+      property="og:url"
+      content="https://ioinnovationfund.com/financial/valuation.html"
+    />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Company Valuation & Financial Models",
+        "url": "https://ioinnovationfund.com/financial/valuation.html",
+        "description": "Research context for financial valuation models and their assumptions."
+      }
+    </script>
+    <script src="/js/theme-init.js?v=2026110503"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026110504" />
+    <link rel="stylesheet" href="/css/fund.css?v=2026110504" />
+    <link rel="stylesheet" href="/css/financial-assets.css?v=2026110503" />
+  </head>
+  <body
+    class="site-refresh fund-page financial-page"
+    data-financial-view="valuation"
+  >
+    <a href="#main" class="skip-to-main">Skip to content</a>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">IO Innovation Fund</a>
+        <ul class="nav-links" id="mobileNav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/physical-assets.html">Assets</a></li>
+          <li><a href="/financial-assets.html" class="active">Financial</a></li>
+          <li><a href="/market-intelligence.html">Intelligence</a></li>
+          <li><a href="/blog/">Research</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i id="themeIcon" class="theme-icon fas fa-moon"></i></button
+          ><button
+            class="mobile-menu-btn"
+            id="menuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="fund-page-main">
+      <nav class="financial-breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span
+        ><a href="/financial-assets.html">Financial assets</a
+        ><span aria-hidden="true">/</span
+        ><span aria-current="page">Valuation</span>
+      </nav>
+      <section class="fund-page-hero" aria-labelledby="page-title">
+        <span class="fund-eyebrow"><i></i> FINANCIAL ASSETS / VALUATION</span>
+        <h1 id="page-title">
+          Company valuation.<br /><em>Make assumptions visible.</em>
+        </h1>
+        <p>
+          Explore valuation methods as structured scenarios—not precise
+          facts—and understand how inputs, uncertainty, and time horizons shape
+          an estimated range.
+        </p>
+        <span class="fund-status"
+          >Valuation tools available · Assumptions matter</span
+        >
+        <div class="financial-hero-meta">
+          <span>Model inputs</span><span>Scenario ranges</span
+          ><span>Uncertainty &amp; limits</span>
+        </div>
+      </section>
+      <section class="financial-content-section" aria-labelledby="scope-title">
+        <span class="fund-section-label">Research scope</span>
+        <h2 id="scope-title">Treat model outputs as conditional estimates</h2>
+        <p>
+          Valuation depends on assumptions about cash flows, growth, risk,
+          capital structure, and market conditions. Tools can help test
+          sensitivities, but they do not establish intrinsic value or predict
+          market prices.
+        </p>
+        <div class="fund-topic-grid">
+          <article class="fund-topic-card">
+            <span>01 / METHODS</span>
+            <h3>Valuation frameworks</h3>
+            <p>
+              Understand the purpose and limitations of discounted cash flow and
+              relative methods.
+            </p>
+          </article>
+          <article class="fund-topic-card">
+            <span>02 / INPUTS</span>
+            <h3>Assumption quality</h3>
+            <p>
+              Review units, dates, source quality, and the sensitivity of key
+              inputs.
+            </p>
+          </article>
+          <article class="fund-topic-card">
+            <span>03 / SCENARIOS</span>
+            <h3>Ranges, not certainty</h3>
+            <p>
+              Use multiple plausible cases and describe what would change an
+              estimate.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="financial-explorer" aria-labelledby="explorer-title">
+        <div class="financial-explorer-heading">
+          <div>
+            <span class="fund-section-label">Interactive preview</span>
+            <h2 id="explorer-title">Explore a sample model relationship</h2>
+            <p>
+              Search or filter the synthetic model components below. No company
+              valuation is calculated in this preview.
+            </p>
+          </div>
+          <span class="financial-demo-label">Synthetic example</span>
+        </div>
+        <div class="financial-explorer-layout">
+          <div class="financial-map-panel">
+            <div class="financial-map-topline">
+              <strong>Valuation input map</strong
+              ><span>Conceptual · Not to scale</span>
+            </div>
+            <div
+              class="financial-network-canvas"
+              id="financialMap"
+              role="group"
+              aria-label="Synthetic valuation model relationship map"
+            >
+              <span class="financial-map-watermark" aria-hidden="true"
+                >ILLUSTRATIVE · NO VALUATION</span
+              >
+            </div>
+            <div class="financial-map-caption">
+              Select a node to filter. The model path is conceptual; it is not a
+              forecast or investment opinion.
+            </div>
+          </div>
+          <div class="financial-filter-panel">
+            <header>
+              <strong>Model component finder</strong><span>Demo tool</span>
+            </header>
+            <div class="financial-filter-controls">
+              <label for="financialSearch"
+                >Search examples<input
+                  id="financialSearch"
+                  type="search"
+                  placeholder="Try assumption or output"
+                  autocomplete="off" /></label
+              ><label for="financialKind"
+                >Filter by component<select id="financialKind">
+                  <option value="">All components</option>
+                  <option>Issuer</option>
+                  <option>Model</option>
+                  <option>Assumption</option>
+                  <option>Output</option>
+                </select></label
+              >
+            </div>
+            <p
+              class="financial-result-summary"
+              id="financialResultSummary"
+              aria-live="polite"
+            >
+              Loading illustrative relationships…
+            </p>
+            <ul
+              class="financial-results"
+              id="financialResults"
+              aria-label="Synthetic valuation components"
+            ></ul>
+          </div>
+        </div>
+      </section>
+      <section
+        class="financial-content-section"
+        aria-labelledby="related-title"
+      >
+        <span class="fund-section-label">Available tools</span>
+        <h2 id="related-title">
+          Explore assumptions with existing calculators
+        </h2>
+        <div class="financial-related-grid">
+          <a class="financial-related-link" href="/tools/dcf-valuation.html"
+            >Open the DCF valuation tool ↗</a
+          ><a
+            class="financial-related-link"
+            href="/tools/stock-return-calculator.html"
+            >Stock return calculator ↗</a
+          ><a class="financial-related-link" href="/tools/"
+            >Browse all financial tools ↗</a
+          >
+        </div>
+      </section>
+      <p class="fund-page-disclaimer">
+        For informational and educational use only; not investment advice, a
+        recommendation, or an offer to invest. A model output depends on
+        user-provided assumptions and is not a prediction or guaranteed value.
+      </p>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-grid"></div>
+    </footer>
+    <script src="/js/shared-simple.js?v=2026110503"></script>
+    <script src="/js/financial-assets.js?v=2026110402" defer></script>
+  </body>
+</html>

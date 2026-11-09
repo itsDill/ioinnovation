@@ -1,0 +1,2200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Logistics &amp; Infrastructure Atlas | IO Innovation Fund</title>
+    <meta
+      name="description"
+      content="Explore source-linked ports, industrial projects, and data centres on an interactive map."
+    />
+    <script>
+      (() => {
+        const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
+        const savedTheme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme =
+          savedTheme === "dark" || savedTheme === "light"
+            ? savedTheme
+            : prefersDark
+              ? "dark"
+              : "light";
+      })();
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <style>
+      :root {
+        --bg: #dfe9ee;
+        --land: #f3f0e6;
+        --edge: #b9b5a3;
+        --grid: rgba(20, 50, 70, 0.08);
+        --ink: #12232e;
+        --muted: #566975;
+        --panel: rgba(255, 255, 255, 0.9);
+        --line: rgba(20, 50, 70, 0.18);
+        --ship: #0b7fa8;
+        --shipping: #087c91;
+        --air: #d9480f;
+        --flight: #c25f25;
+        --rail: #6f42c1;
+        --road: #a8740a;
+        --ind: #d6336c;
+        --disruption: #c13b34;
+        --borders: #607986;
+        --control-bg: rgba(255, 255, 255, 0.9);
+        --control-shadow: 0 16px 44px rgba(13, 36, 47, 0.16);
+        --surface-raised: rgba(255, 255, 255, 0.78);
+        --accent: #0b7fa8;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      :root[data-theme="dark"] {
+        --bg: #0a1a24;
+        --land: #183041;
+        --edge: #2b4a5f;
+        --grid: rgba(160, 210, 240, 0.07);
+        --ink: #e6f1f7;
+        --muted: #8aa5b5;
+        --panel: rgba(10, 26, 36, 0.92);
+        --line: rgba(160, 210, 240, 0.2);
+        --ship: #3dd6f5;
+        --shipping: #45d6cb;
+        --air: #ffa94d;
+        --flight: #ffb36b;
+        --rail: #b197fc;
+        --road: #ffd43b;
+        --ind: #ff6b9a;
+        --disruption: #ff8175;
+        --borders: #9ab0ba;
+        --control-bg: rgba(12, 27, 38, 0.92);
+        --control-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+        --surface-raised: rgba(255, 255, 255, 0.045);
+        --accent: #3dd6f5;
+      }
+      :root[data-theme="light"] {
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
+        overflow: hidden;
+      }
+      .skip-link {
+        position: fixed;
+        z-index: 10;
+        top: 8px;
+        left: 8px;
+        padding: 9px 12px;
+        border-radius: 6px;
+        background: var(--ink);
+        color: var(--bg);
+        transform: translateY(-160%);
+      }
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+      #map {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+        z-index: 0;
+      }
+      .leaflet-container {
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          12px "Avenir Next",
+          "Trebuchet MS",
+          system-ui,
+          sans-serif;
+        cursor: grab;
+      }
+      .leaflet-container.leaflet-dragging {
+        cursor: grabbing;
+      }
+      .leaflet-control-attribution {
+        font-size: 10px !important;
+        border: 1px solid var(--line);
+        border-radius: 7px 0 0;
+        background: var(--control-bg) !important;
+        color: var(--muted) !important;
+        backdrop-filter: blur(12px);
+      }
+      .leaflet-control-attribution a {
+        color: var(--ship) !important;
+      }
+      .atlas-night-terrain .atlas-terrain-tiles {
+        filter: brightness(0.68) saturate(0.82) contrast(1.08);
+      }
+      .atlas-marker {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: var(--marker-color, #0b7fa8);
+        box-shadow: 0 2px 8px rgba(13, 36, 47, 0.4);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .atlas-marker.project {
+        border-radius: 5px;
+        transform: rotate(45deg) scale(0.8);
+      }
+      .atlas-marker.project span {
+        transform: rotate(-45deg);
+      }
+      .atlas-marker.disruption {
+        border-radius: 6px;
+        background: var(--marker-color, #c13b34);
+        box-shadow:
+          0 0 0 4px
+            color-mix(in srgb, var(--marker-color, #c13b34) 18%, transparent),
+          0 2px 8px rgba(13, 36, 47, 0.4);
+      }
+      .atlas-country-label {
+        width: max-content;
+        max-width: 150px;
+        color: #233843;
+        font-size: 10px;
+        font-weight: 750;
+        line-height: 1.1;
+        text-align: center;
+        text-shadow:
+          0 0 3px #fff,
+          0 0 6px #fff,
+          1px 1px 0 #fff;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      :root[data-theme="dark"] .atlas-country-label {
+        color: #eef7fb;
+        text-shadow:
+          0 0 3px #0a1a24,
+          0 0 6px #0a1a24,
+          1px 1px 0 #0a1a24;
+      }
+      .leaflet-tooltip.atlas-tip {
+        max-width: 250px;
+        white-space: normal;
+        line-height: 1.4;
+      }
+      .atlas-marker.vehicle {
+        width: 32px;
+        height: 32px;
+        border-width: 2px;
+        font-size: 16px;
+        animation: vehicle-glow 2s ease-in-out infinite;
+      }
+      @keyframes vehicle-glow {
+        50% {
+          box-shadow:
+            0 0 0 5px
+              color-mix(in srgb, var(--marker-color, #0b7fa8) 24%, transparent),
+            0 2px 8px rgba(13, 36, 47, 0.35);
+        }
+      }
+      .leaflet-interactive.atlas-route {
+        cursor: pointer;
+      }
+      .panel {
+        position: absolute;
+        background: var(--control-bg);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        backdrop-filter: blur(18px) saturate(1.2);
+        -webkit-backdrop-filter: blur(18px) saturate(1.2);
+      }
+      #head {
+        top: 12px;
+        left: 12px;
+        padding: 12px 14px;
+        width: min(390px, calc(100% - 24px));
+        max-height: calc(100% - 100px);
+        overflow: auto;
+        box-shadow: var(--control-shadow);
+      }
+      #head[hidden],
+      #showControls[hidden] {
+        display: none;
+      }
+      #hideControls,
+      #showControls {
+        min-height: 36px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--panel);
+        color: var(--ink);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      #hideControls {
+        display: block;
+        margin: 10px 0 0 auto;
+      }
+      #showControls {
+        position: absolute;
+        z-index: 3;
+        top: calc(12px + env(safe-area-inset-top, 0px));
+        left: 12px;
+        box-shadow: 0 8px 24px rgba(13, 36, 47, 0.14);
+      }
+      .eyebrow {
+        margin: 0 0 5px;
+        color: var(--ship);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .back-link {
+        display: inline-block;
+        margin: 0 0 9px;
+        color: var(--ship);
+        font-size: 11px;
+        font-weight: 750;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+      h1 {
+        font-size: clamp(17px, 2.4vw, 21px);
+        margin: 0 0 2px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+      #head p {
+        margin: 0 0 10px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .data-note {
+        margin: 10px 0 !important;
+        padding: 8px 10px;
+        border-left: 3px solid var(--road);
+        border-radius: 0 5px 5px 0;
+        background: color-mix(in srgb, var(--road) 10%, transparent);
+        color: var(--ink) !important;
+      }
+      #countryStatus {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+      #search {
+        width: 100%;
+        min-height: 40px;
+        margin: 0 0 8px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface-raised);
+        color: var(--ink);
+        font: inherit;
+        font-size: 13px;
+      }
+      #search:focus-visible,
+      #layers button:focus-visible,
+      #zoom button:focus-visible,
+      #results button:focus-visible,
+      #map:focus-visible {
+        outline: 3px solid var(--ship);
+        outline-offset: 2px;
+      }
+      #hideControls:focus-visible,
+      #showControls:focus-visible {
+        outline: 3px solid var(--ship);
+        outline-offset: 2px;
+      }
+      #results {
+        display: grid;
+        gap: 4px;
+        max-height: 150px;
+        overflow: auto;
+        margin: 0 0 10px;
+      }
+      #results:empty {
+        display: none;
+      }
+      #results button {
+        width: 100%;
+        padding: 7px 9px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background: transparent;
+        color: var(--ink);
+        text-align: left;
+        font: inherit;
+        cursor: pointer;
+      }
+      #results button:hover {
+        border-color: var(--line);
+        background: color-mix(in srgb, var(--ship) 8%, transparent);
+      }
+      #results button strong,
+      #results button span {
+        display: block;
+      }
+      #results button strong {
+        font-size: 12px;
+      }
+      #results button span {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+      #results .search-empty {
+        padding: 7px 9px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      #layers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .appearance-controls {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(135px, 0.9fr);
+        gap: 9px;
+        margin: 12px 0;
+      }
+      .appearance-field {
+        display: grid;
+        gap: 5px;
+        min-width: 0;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      #themeToggle,
+      #mapTexture {
+        width: 100%;
+        min-height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface-raised);
+        color: var(--ink);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      #themeToggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 11px;
+        cursor: pointer;
+      }
+      #themeToggle:hover,
+      #mapTexture:hover {
+        border-color: var(--ship);
+      }
+      #themeToggle .theme-state {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      #themeToggle .theme-glyph {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        place-items: center;
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--ship) 14%, transparent);
+        color: var(--ship);
+        font-size: 14px;
+      }
+      #themeToggle .theme-switch {
+        position: relative;
+        width: 34px;
+        height: 20px;
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--muted) 32%, transparent);
+        transition: background 180ms ease;
+      }
+      #themeToggle .theme-switch::after {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+        content: "";
+        transition: transform 180ms ease;
+      }
+      :root[data-theme="dark"] #themeToggle .theme-switch {
+        background: var(--ship);
+      }
+      :root[data-theme="dark"] #themeToggle .theme-switch::after {
+        transform: translateX(14px);
+      }
+      #mapTexture {
+        padding: 0 9px;
+        cursor: pointer;
+        text-transform: none;
+      }
+      .control-section-label {
+        margin: 11px 0 7px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      #layers button {
+        font: inherit;
+        font-size: 12.5px;
+        color: var(--ink);
+        background: transparent;
+        border: 1.5px solid var(--c);
+        border-radius: 999px;
+        padding: 6px 11px 6px 9px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      #layers button i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--c);
+      }
+      #layers button.off {
+        opacity: 0.4;
+        border-style: dashed;
+      }
+      #layers button.off i {
+        background: transparent;
+        border: 1.5px solid var(--c);
+      }
+      #layers button:hover {
+        background: color-mix(in srgb, var(--c) 9%, transparent);
+      }
+      #layers button[aria-pressed="true"] {
+        background: color-mix(in srgb, var(--c) 12%, var(--control-bg));
+      }
+      #layers button.off {
+        background: transparent;
+      }
+      #themeToggle:focus-visible,
+      #mapTexture:focus-visible,
+      #layers button:focus-visible,
+      #hideControls:focus-visible,
+      #showControls:focus-visible,
+      #refreshData:focus-visible {
+        outline: 3px solid var(--ship);
+        outline-offset: 2px;
+      }
+      #zoom {
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      #zoom button {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+        border: 0;
+        background: transparent;
+        color: var(--ink);
+        cursor: pointer;
+      }
+      #zoom button:hover {
+        background: color-mix(in srgb, var(--ship) 10%, transparent);
+      }
+      #zoom button + button {
+        border-top: 1px solid var(--line);
+      }
+      #stats {
+        left: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        padding: 8px 12px;
+        font-size: 12px;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+        box-shadow: 0 8px 24px rgba(13, 36, 47, 0.1);
+      }
+      #tip {
+        position: absolute;
+        pointer-events: none;
+        padding: 8px 11px;
+        font-size: 12.5px;
+        max-width: 230px;
+        opacity: 0;
+        transition: opacity 0.12s;
+        z-index: 3;
+      }
+      #tip b {
+        display: block;
+        font-size: 13.5px;
+        margin-bottom: 2px;
+      }
+      #tip span {
+        color: var(--muted);
+      }
+      .feature-card {
+        z-index: 4;
+        top: 12px;
+        right: 12px;
+        width: min(340px, calc(100% - 24px));
+        padding: 16px;
+        box-shadow: 0 14px 40px rgba(13, 36, 47, 0.2);
+      }
+      .feature-card[hidden] {
+        display: none;
+      }
+      .feature-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .feature-card-header > button {
+        min-width: 34px;
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        font-size: 19px;
+        cursor: pointer;
+      }
+      .feature-card-type {
+        color: var(--ship);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .feature-card h2 {
+        margin: 5px 0 0;
+        font-size: 18px;
+        line-height: 1.25;
+      }
+      .feature-card p {
+        margin: 11px 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .feature-card .feature-disclaimer {
+        padding-top: 9px;
+        border-top: 1px solid var(--line);
+        font-size: 10px;
+      }
+      .feature-sources {
+        display: grid;
+        gap: 5px;
+        margin: 0 0 12px;
+        padding: 0;
+        list-style: none;
+      }
+      .feature-sources a {
+        color: var(--ship);
+        font-size: 11px;
+        text-underline-offset: 2px;
+      }
+      .feature-meta {
+        padding: 8px;
+        border-radius: 5px;
+        background: color-mix(in srgb, var(--ship) 8%, transparent);
+      }
+      #refreshData {
+        min-height: 36px;
+        margin-top: 9px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      #refreshData:focus-visible {
+        outline: 3px solid var(--ship);
+        outline-offset: 2px;
+      }
+      .feature-card-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .feature-card-actions a {
+        color: var(--ship);
+        font-size: 12px;
+        font-weight: 800;
+        text-underline-offset: 3px;
+      }
+      .feature-card-actions button {
+        min-width: 36px;
+        min-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        cursor: pointer;
+      }
+      .feature-card button:focus-visible,
+      .feature-card a:focus-visible {
+        outline: 3px solid var(--ship);
+        outline-offset: 2px;
+      }
+      @media (max-width: 520px) {
+        #head {
+          top: calc(8px + env(safe-area-inset-top, 0px));
+          left: 8px;
+          width: min(390px, calc(100% - 16px));
+          max-height: min(68vh, 620px);
+          padding: 10px 12px;
+        }
+        #zoom {
+          right: 8px;
+          bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        }
+        #stats {
+          display: none;
+        }
+        #tip {
+          max-width: min(230px, calc(100vw - 24px));
+        }
+        .feature-card {
+          top: auto;
+          right: 8px;
+          bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+          width: min(340px, calc(100% - 16px));
+          max-height: 36vh;
+          overflow: auto;
+        }
+        .appearance-controls {
+          grid-template-columns: minmax(0, 1fr) minmax(120px, 0.9fr);
+          gap: 7px;
+        }
+        #layers {
+          gap: 5px;
+        }
+        #layers button {
+          font-size: 11px;
+          padding: 6px 9px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #tip {
+          transition: none;
+        }
+        .atlas-marker.vehicle {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#layers">Skip to map controls</a>
+    <div
+      id="map"
+      role="application"
+      aria-label="Interactive logistics map. Drag or zoom to explore. Select a marker for an overview."
+    ></div>
+    <div class="panel" id="head">
+      <p class="eyebrow">IO INNOVATION FUND · LOGISTICS ATLAS</p>
+      <h1>Logistics &amp; infrastructure</h1>
+      <a class="back-link" href="/physical-assets.html"
+        >← Back to Physical Assets</a
+      >
+      <p>
+        Explore real coastlines and country borders. Select any marker for an
+        overview; zoom in for a closer look.
+      </p>
+      <p class="data-note">
+        <strong>Map data.</strong> Ports, industrial projects, and data centres
+        load from source-linked JSON files. Pins may be approximate. Data is
+        curated, not live. Country outlines and English labels are separate
+        layers.
+        <span id="dataStatus" role="status" aria-live="polite"
+          >Loading atlas data…</span
+        >
+        <span id="countryStatus" role="status"
+          >Loading English country names…</span
+        >
+      </p>
+      <div class="appearance-controls" aria-label="Map appearance">
+        <div class="appearance-field">
+          <span>Day / night</span>
+          <button type="button" id="themeToggle" aria-pressed="false">
+            <span class="theme-state"
+              ><span class="theme-glyph" aria-hidden="true">☀</span
+              ><span id="themeLabel">Day mode</span></span
+            >
+            <span class="theme-switch" aria-hidden="true"></span>
+          </button>
+        </div>
+        <label class="appearance-field" for="mapTexture">
+          Map texture
+          <select id="mapTexture">
+            <option value="street">Street</option>
+            <option value="minimal">Minimal</option>
+            <option value="terrain">Terrain</option>
+            <option value="satellite">Satellite</option>
+          </select>
+        </label>
+      </div>
+      <p class="control-section-label">Explore layers</p>
+      <label class="sr-only" for="search">Search atlas locations</label>
+      <input
+        id="search"
+        type="search"
+        placeholder="Search ports, projects, data centres…"
+        autocomplete="off"
+      />
+      <div
+        id="results"
+        role="listbox"
+        aria-label="Matching atlas locations"
+      ></div>
+      <p class="sr-only" id="announce" aria-live="polite"></p>
+      <div id="layers" role="group" aria-label="Map layers">
+        <button data-l="ports" style="--c: var(--ship)" aria-pressed="true">
+          <i></i>Ports
+        </button>
+        <button data-l="projects" style="--c: var(--ind)" aria-pressed="true">
+          <i></i>Industrial projects
+        </button>
+        <button
+          data-l="datacentres"
+          style="--c: var(--road)"
+          aria-pressed="true"
+        >
+          <i></i>Data centres
+        </button>
+        <button
+          data-l="borders"
+          style="--c: var(--borders)"
+          aria-pressed="true"
+        >
+          <i></i>Country borders
+        </button>
+        <button data-l="labels" style="--c: var(--borders)" aria-pressed="true">
+          <i></i>English country names
+        </button>
+      </div>
+      <button type="button" id="refreshData">↻ Refresh data</button>
+      <button type="button" id="hideControls">Hide controls</button>
+    </div>
+    <button
+      type="button"
+      id="showControls"
+      aria-label="Show map controls"
+      hidden
+    >
+      ☰ Controls
+    </button>
+    <div class="panel" id="stats" aria-hidden="true"></div>
+    <div class="panel" id="zoom">
+      <button id="zi" aria-label="Zoom in">+</button>
+      <button id="zo" aria-label="Zoom out">−</button>
+      <button id="zr" aria-label="Reset map view">⌂</button>
+    </div>
+    <aside
+      class="panel feature-card"
+      id="featureCard"
+      aria-labelledby="featureTitle"
+      hidden
+    >
+      <div class="feature-card-header">
+        <div>
+          <span class="feature-card-type" id="featureType"></span>
+          <h2 id="featureTitle"></h2>
+        </div>
+        <button
+          type="button"
+          id="featureClose"
+          aria-label="Close feature overview"
+        >
+          ×
+        </button>
+      </div>
+      <p id="featureOverview"></p>
+      <p class="feature-meta" id="featureMeta" hidden></p>
+      <ul class="feature-sources" id="featureSources"></ul>
+      <p class="feature-disclaimer">
+        Source-linked curated data. Approximate pins and schematic routes are
+        labeled; this is not a live operational feed.
+      </p>
+      <div class="feature-card-actions">
+        <a id="featureExplore" href="/physical-assets.html#atlas-explorer-title"
+          >Explore more <span aria-hidden="true">↗</span></a
+        >
+        <button
+          type="button"
+          id="featureCloseSecondary"
+          aria-label="Close feature overview"
+        >
+          Close
+        </button>
+      </div>
+    </aside>
+
+    <script type="text/plain" id="legacyCanvasAtlas">
+      const cv = document.getElementById("map"),
+        ctx = cv.getContext("2d"),
+        tip = document.getElementById("tip"),
+        search = document.getElementById("search"),
+        results = document.getElementById("results"),
+        announce = document.getElementById("announce");
+      let W = 0,
+        H = 0,
+        dpr = 1,
+        C = {};
+      const view = { x: 10, y: 18, k: 3 },
+        tgt = { x: 10, y: 18, k: 3 };
+      const on = { ports: true, air: true, rail: true, road: true, ind: true };
+      const wrap = (l) => (l > 180 ? l - 360 : l);
+      const P = (lo, la) => [
+        (wrap(lo) - view.x) * view.k + W / 2,
+        (view.y - la) * view.k + H / 2,
+      ];
+      const minK = () => Math.max(W / 360, H / 165);
+
+      /* ---------- geography (coarse outlines, lon/lat) ---------- */
+      const LAND = [
+        [
+          [-168, 66],
+          [-156, 71],
+          [-125, 70],
+          [-95, 72],
+          [-80, 70],
+          [-62, 60],
+          [-55, 50],
+          [-67, 44],
+          [-76, 35],
+          [-81, 25],
+          [-97, 26],
+          [-97, 20],
+          [-87, 21],
+          [-83, 10],
+          [-78, 8],
+          [-85, 12],
+          [-92, 15],
+          [-105, 20],
+          [-112, 29],
+          [-110, 23],
+          [-117, 32],
+          [-124, 40],
+          [-124, 48],
+          [-135, 58],
+          [-150, 60],
+          [-165, 60],
+        ],
+        [
+          [-78, 8],
+          [-72, 12],
+          [-62, 10],
+          [-52, 5],
+          [-35, -5],
+          [-39, -15],
+          [-48, -26],
+          [-58, -38],
+          [-66, -46],
+          [-69, -55],
+          [-74, -50],
+          [-72, -30],
+          [-70, -18],
+          [-81, -5],
+          [-80, 0],
+        ],
+        [
+          [-55, 60],
+          [-45, 60],
+          [-20, 70],
+          [-20, 82],
+          [-60, 82],
+          [-70, 76],
+        ],
+        [
+          [-10, 36],
+          [-9, 43],
+          [-2, 44],
+          [-4, 48],
+          [2, 51],
+          [8, 54],
+          [10, 57],
+          [5, 62],
+          [15, 69],
+          [28, 71],
+          [45, 68],
+          [70, 73],
+          [100, 78],
+          [140, 72],
+          [170, 70],
+          [180, 66],
+          [160, 60],
+          [155, 51],
+          [142, 53],
+          [140, 45],
+          [130, 42],
+          [127, 38],
+          [122, 40],
+          [121, 31],
+          [110, 21],
+          [106, 18],
+          [109, 12],
+          [103, 9],
+          [100, 13],
+          [100, 3],
+          [104, 1],
+          [98, 8],
+          [93, 18],
+          [88, 22],
+          [80, 15],
+          [77, 8],
+          [73, 18],
+          [67, 25],
+          [57, 25],
+          [52, 28],
+          [48, 30],
+          [50, 26],
+          [56, 26],
+          [58, 20],
+          [52, 16],
+          [43, 13],
+          [35, 28],
+          [34, 31],
+          [27, 37],
+          [22, 37],
+          [18, 40],
+          [13, 45],
+          [8, 44],
+          [3, 43],
+          [-5, 36],
+        ],
+        [
+          [-17, 21],
+          [-10, 30],
+          [-6, 36],
+          [10, 37],
+          [20, 32],
+          [32, 31],
+          [35, 28],
+          [43, 12],
+          [51, 12],
+          [40, -3],
+          [40, -15],
+          [35, -25],
+          [27, -34],
+          [18, -34],
+          [12, -17],
+          [13, -5],
+          [9, 4],
+          [-8, 4],
+          [-17, 14],
+        ],
+        [
+          [114, -22],
+          [122, -18],
+          [130, -12],
+          [137, -12],
+          [142, -11],
+          [146, -19],
+          [153, -26],
+          [150, -37],
+          [140, -38],
+          [131, -31],
+          [115, -34],
+        ],
+        [
+          [-5, 50],
+          [1, 51],
+          [-2, 56],
+          [-5, 58],
+          [-6, 55],
+          [-3, 54],
+        ],
+        [
+          [130, 31],
+          [135, 34],
+          [140, 36],
+          [142, 40],
+          [141, 45],
+          [138, 38],
+          [132, 34],
+        ],
+        [
+          [109, -1],
+          [117, 7],
+          [119, 1],
+          [116, -4],
+        ],
+        [
+          [95, 5],
+          [106, -6],
+          [101, -3],
+        ],
+        [
+          [105, -6],
+          [114, -8],
+          [106, -7],
+        ],
+        [
+          [44, -25],
+          [50, -15],
+          [47, -13],
+        ],
+        [
+          [166, -46],
+          [174, -41],
+          [178, -38],
+          [172, -34],
+          [168, -44],
+        ],
+      ];
+
+      /* name, lon, lat, description */
+      const PORTS = [
+        [
+          "Shanghai",
+          121.5,
+          31.2,
+          "Major global container port (sample marker).",
+        ],
+        [
+          "Singapore",
+          103.8,
+          1.3,
+          "Major transshipment hub on the Malacca Strait (sample marker).",
+        ],
+        ["Rotterdam", 4.4, 51.9, "Major European port (sample marker)."],
+        ["Los Angeles", -118.2, 33.7, "US West Coast gateway (sample marker)."],
+        ["New York", -74, 40.6, "US East Coast gateway (sample marker)."],
+        ["Jebel Ali", 55, 25, "Port and logistics hub (sample marker)."],
+        ["Busan", 129, 35, "Major Korean port (sample marker)."],
+        ["Santos", -46.3, -23.9, "Major Brazilian port (sample marker)."],
+        ["Durban", 31, -29.9, "South African port (sample marker)."],
+        [
+          "Sydney",
+          151.2,
+          -33.9,
+          "Port Botany is Sydney’s principal container port.",
+        ],
+        [
+          "Colón",
+          -79.9,
+          9.4,
+          "Port area near the Atlantic entrance to the Panama Canal.",
+        ],
+        ["Mumbai", 72.9, 19, "Port region near Mumbai (sample marker)."],
+      ];
+      const SEA = [
+        [
+          [121.5, 31.2],
+          [122, 24],
+          [112, 10],
+          [104, 1.5],
+          [96, 5],
+          [80, 5],
+          [70, 12],
+          [58, 16],
+          [45, 12.5],
+          [40, 16],
+          [33, 28],
+          [32.3, 31.3],
+          [25, 34],
+          [10, 37.5],
+          [-5, 36],
+          [-10, 38],
+          [-9, 45],
+          [-3, 48.5],
+          [1, 50.5],
+          [4.4, 51.9],
+        ],
+        [
+          [242, 33.7],
+          [220, 36],
+          [190, 38],
+          [160, 38],
+          [140, 33],
+          [129, 35],
+        ],
+        [
+          [4.4, 51.9],
+          [1, 50.5],
+          [-5, 49.5],
+          [-30, 46],
+          [-60, 41],
+          [-74, 40.6],
+        ],
+        [
+          [-74, 40.6],
+          [-75, 30],
+          [-78, 22],
+          [-79.9, 9.4],
+        ],
+        [
+          [-79.5, 8.5],
+          [-85, 6],
+          [-100, 15],
+          [-110, 22],
+          [-118.2, 33.7],
+        ],
+        [
+          [-46.3, -23.9],
+          [-38, -15],
+          [-34, -7],
+          [-30, 5],
+          [-20, 15],
+          [-17, 25],
+          [-12, 36],
+          [-9, 45],
+          [4.4, 51.9],
+        ],
+        [
+          [31, -29.9],
+          [40, -25],
+          [60, -15],
+          [85, -5],
+          [103.8, 1.3],
+        ],
+        [
+          [151.2, -33.9],
+          [154, -25],
+          [145, -12],
+          [125, -12],
+          [110, -5],
+          [103.8, 1.3],
+        ],
+        [
+          [55, 25],
+          [58, 24],
+          [66, 20],
+          [72.9, 19],
+        ],
+        [
+          [129, 35],
+          [125, 33],
+          [121.5, 31.2],
+        ],
+      ];
+
+      const AIR = [
+        ["New York JFK", -73.8, 40.6],
+        ["London Heathrow", -0.5, 51.5],
+        ["Dubai DXB", 55.4, 25.2],
+        ["Singapore Changi", 104, 1.4],
+        ["Tokyo Haneda", 139.8, 35.5],
+        ["Los Angeles LAX", -118.4, 33.9],
+        ["Sydney", 151.2, -33.9],
+        ["São Paulo GRU", -46.5, -23.4],
+        ["Johannesburg", 28.2, -26.1],
+        ["Shanghai Pudong", 121.8, 31.1],
+        ["Delhi", 77.1, 28.6],
+      ];
+      const FLY = [
+        [0, 1],
+        [1, 2],
+        [2, 3],
+        [3, 6],
+        [4, 5],
+        [5, 0],
+        [0, 7],
+        [7, 8],
+        [8, 2],
+        [9, 4],
+        [10, 1],
+        [2, 10],
+        [9, 3],
+        [1, 8],
+        [5, 6],
+        [9, 5],
+      ];
+
+      const RAIL = [
+        [
+          "Trans-Siberian Railway",
+          "Moscow to Vladivostok; route geometry is schematic.",
+          [
+            [37.6, 55.7],
+            [50, 56],
+            [60, 57],
+            [73, 55],
+            [83, 55],
+            [92, 56],
+            [104, 52],
+            [113, 51],
+            [127, 50],
+            [131.9, 43.1],
+          ],
+        ],
+        [
+          "China high-speed corridor",
+          "Beijing to Shanghai to Guangzhou.",
+          [
+            [116.4, 39.9],
+            [117, 36],
+            [119, 33],
+            [121.5, 31.2],
+            [119, 28],
+            [113.3, 23.1],
+          ],
+        ],
+        [
+          "European main line",
+          "Paris to Berlin to Moscow.",
+          [
+            [2.3, 48.9],
+            [8, 50],
+            [13.4, 52.5],
+            [21, 52],
+            [30, 54],
+            [37.6, 55.7],
+          ],
+        ],
+        [
+          "Transcontinental US",
+          "Los Angeles to Chicago to New York.",
+          [
+            [-118.2, 34],
+            [-110, 35],
+            [-100, 36],
+            [-90, 40],
+            [-87.6, 41.9],
+            [-80, 41],
+            [-74, 40.7],
+          ],
+        ],
+        [
+          "Indian Golden Quadrilateral",
+          "Delhi, Mumbai, Chennai.",
+          [
+            [77.1, 28.6],
+            [75, 24],
+            [72.9, 19],
+            [77, 15],
+            [80.3, 13],
+          ],
+        ],
+      ];
+
+      const ROAD = [
+        [
+          "Interstate 80",
+          "San Francisco to New York.",
+          [
+            [-122.4, 37.8],
+            [-115, 40.5],
+            [-105, 39.7],
+            [-96, 41],
+            [-87.6, 41.9],
+            [-80, 41],
+            [-74, 40.7],
+          ],
+        ],
+        [
+          "Trans-African Highway",
+          "Cairo to Cape Town.",
+          [
+            [31, 30],
+            [33, 15],
+            [36.8, -1.3],
+            [33, -14],
+            [28, -26],
+            [18.4, -33.9],
+          ],
+        ],
+        [
+          "European E40",
+          "Calais to Kyiv.",
+          [
+            [1.9, 51],
+            [4.4, 50.8],
+            [13.4, 52.5],
+            [22, 51],
+            [30.5, 50.4],
+          ],
+        ],
+        [
+          "Pan-American Highway (south)",
+          "Bogotá to Santiago.",
+          [
+            [-74, 4.7],
+            [-79, -3],
+            [-77, -12],
+            [-71, -18],
+            [-70.6, -33.4],
+          ],
+        ],
+        [
+          "Eyre Highway",
+          "Perth to Adelaide to Sydney.",
+          [
+            [115.9, -32],
+            [125, -31.8],
+            [138.6, -34.9],
+            [151.2, -33.9],
+          ],
+        ],
+      ];
+
+      const IND = [
+        [
+          "Three Gorges Dam",
+          111,
+          30.8,
+          "Hydroelectric power station (sample marker; no capacity data shown).",
+        ],
+        [
+          "NEOM",
+          35,
+          28,
+          "Large-scale development initiative; status can change.",
+        ],
+        ["Giga Berlin", 13.8, 52.4, "Electric vehicle plant in Brandenburg."],
+        [
+          "Ras Tanura",
+          50.2,
+          26.6,
+          "Oil and export infrastructure in Saudi Arabia.",
+        ],
+        [
+          "Pilbara iron ore",
+          118.6,
+          -22.3,
+          "Iron ore mining region in Western Australia.",
+        ],
+        [
+          "Itaipú Dam",
+          -54.6,
+          -25.4,
+          "Hydropower on the Brazil–Paraguay border.",
+        ],
+        [
+          "Hsinchu Science Park",
+          121,
+          24.8,
+          "Semiconductor and technology cluster in Taiwan.",
+        ],
+        [
+          "Gigafactory Nevada",
+          -119.4,
+          39.5,
+          "Battery manufacturing site in Nevada (sample marker).",
+        ],
+        ["Yamal LNG", 71.5, 70, "Arctic gas liquefaction plant."],
+      ];
+
+      /* ---------- paths & entities ---------- */
+      function mk(pts) {
+        let t = 0;
+        const c = [0];
+        for (let i = 1; i < pts.length; i++) {
+          t += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+          c.push(t);
+        }
+        return { pts, c, total: t };
+      }
+      function at(p, t) {
+        t = ((t % 1) + 1) % 1;
+        const d = t * p.total;
+        let i = 1;
+        while (i < p.c.length - 1 && p.c[i] < d) i++;
+        const f = (d - p.c[i - 1]) / (p.c[i] - p.c[i - 1] || 1),
+          a = p.pts[i - 1],
+          b = p.pts[i];
+        return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+      }
+      const seaP = SEA.map(mk),
+        railP = RAIL.map((r) => mk(r[2])),
+        roadP = ROAD.map((r) => mk(r[2]));
+      const flights = FLY.map(([a, b]) => {
+        const A = AIR[a],
+          B = AIR[b];
+        let dl = B[1] - A[1];
+        if (dl > 180) dl -= 360;
+        if (dl < -180) dl += 360;
+        const dla = B[2] - A[2],
+          len = Math.hypot(dl, dla);
+        return {
+          A,
+          dl,
+          dla,
+          len,
+          lift: len * 0.13 * (A[2] + B[2] >= 0 ? 1 : -1),
+        };
+      });
+      const ents = [];
+      seaP.forEach((p, i) => {
+        for (let j = 0; j < 3; j++)
+          ents.push({
+            k: "ship",
+            p,
+            t: (j / 3 + i * 0.13) % 1,
+            s: 4.2 + (i % 3) * 0.8,
+            L: "ports",
+          });
+      });
+      railP.forEach((p, i) => {
+        for (let j = 0; j < 2; j++)
+          ents.push({ k: "train", p, t: j / 2 + i * 0.2, s: 3.4, L: "rail" });
+      });
+      roadP.forEach((p, i) => {
+        for (let j = 0; j < 3; j++)
+          ents.push({ k: "truck", p, t: j / 3 + i * 0.17, s: 2.2, L: "road" });
+      });
+      flights.forEach((f, i) =>
+        ents.push({ k: "plane", f, t: (i * 0.37) % 1, s: 9, L: "air" }),
+      );
+      function pos(e, t) {
+        if (e.f) {
+          const f = e.f;
+          return [
+            f.A[1] + f.dl * t,
+            f.A[2] + f.dla * t + Math.sin(Math.PI * t) * f.lift,
+          ];
+        }
+        return at(e.p, t);
+      }
+      function fpos(f, t) {
+        return [
+          f.A[1] + f.dl * t,
+          f.A[2] + f.dla * t + Math.sin(Math.PI * t) * f.lift,
+        ];
+      }
+
+      /* ---------- hit targets ---------- */
+      const items = [];
+      let selectedFeature = null;
+      const atlasAnchor = {
+        ports: "ports-trade",
+        air: "ports-trade",
+        rail: "ports-trade",
+        road: "regions-projects",
+        ind: "manufacturing",
+      };
+      const addItem = (item) =>
+        items.push({ ...item, anchor: atlasAnchor[item.L] });
+      PORTS.forEach((p) =>
+        addItem({
+          n: p[0],
+          lo: p[1],
+          la: p[2],
+          d: p[3],
+          t: "Port",
+          L: "ports",
+        }),
+      );
+      AIR.forEach((a) =>
+        addItem({
+          n: a[0],
+          lo: a[1],
+          la: a[2],
+          d: "Airport location shown as an illustrative reference point.",
+          t: "Airport",
+          L: "air",
+        }),
+      );
+      IND.forEach((a) =>
+        addItem({
+          n: a[0],
+          lo: a[1],
+          la: a[2],
+          d: a[3],
+          t: "Industrial project",
+          L: "ind",
+        }),
+      );
+      seaP.forEach((path, i) => {
+        const midpoint = at(path, 0.5);
+        addItem({
+          n: `Shipping corridor ${i + 1}`,
+          lo: midpoint[0],
+          la: midpoint[1],
+          path: path.pts,
+          d: "Schematic line between sample port locations; not a verified shipping lane.",
+          t: "Illustrative shipping route",
+          L: "ports",
+        });
+      });
+      FLY.forEach(([from, to], i) => {
+        const path = Array.from({ length: 25 }, (_, step) =>
+          fpos(flights[i], step / 24),
+        );
+        const midpoint = fpos(flights[i], 0.5);
+        addItem({
+          n: `${AIR[from][0]} — ${AIR[to][0]}`,
+          lo: midpoint[0],
+          la: midpoint[1],
+          path,
+          d: "Schematic connection between sample airports; not live flight or route data.",
+          t: "Illustrative flight path",
+          L: "air",
+        });
+      });
+      RAIL.forEach((r, i) => {
+        const m = at(railP[i], 0.5);
+        addItem({
+          n: r[0],
+          lo: m[0],
+          la: m[1],
+          path: r[2],
+          d: `${r[1]} Schematic corridor only; not a surveyed route.`,
+          t: "Illustrative rail corridor",
+          L: "rail",
+        });
+      });
+      ROAD.forEach((r, i) => {
+        const m = at(roadP[i], 0.5);
+        addItem({
+          n: r[0],
+          lo: m[0],
+          la: m[1],
+          path: r[2],
+          d: `${r[1]} Schematic corridor only; not a surveyed route.`,
+          t: "Illustrative highway corridor",
+          L: "road",
+        });
+      });
+
+      function focusFeature(item) {
+        selectedFeature = item;
+        tgt.x = wrap(item.lo);
+        tgt.y = item.la;
+        tgt.k = Math.max(tgt.k, 10);
+        clamp(tgt);
+        document.getElementById("featureType").textContent = item.t;
+        document.getElementById("featureTitle").textContent = item.n;
+        document.getElementById("featureOverview").textContent = item.d;
+        document.getElementById("featureExplore").href =
+          `/physical-assets.html#${item.anchor || "atlas-explorer-title"}`;
+        document.getElementById("featureCard").hidden = false;
+        announce.textContent = `${item.n} overview opened. ${item.d}`;
+      }
+
+      function renderResults() {
+        const query = search.value.trim().toLowerCase();
+        results.replaceChildren();
+        if (!query) return;
+        const matches = items
+          .filter((item) => on[item.L])
+          .filter((item) =>
+            `${item.n} ${item.t} ${item.d}`.toLowerCase().includes(query),
+          )
+          .slice(0, 8);
+        matches.forEach((item) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.setAttribute("role", "option");
+          button.setAttribute("aria-selected", "false");
+          button.setAttribute("aria-label", `Locate ${item.n}, ${item.t}`);
+          const title = document.createElement("strong");
+          title.textContent = item.n;
+          const description = document.createElement("span");
+          description.textContent = `${item.t} · ${item.d}`;
+          button.append(title, description);
+          button.addEventListener("click", () => {
+            focusFeature(item);
+            cv.focus();
+          });
+          results.append(button);
+        });
+        if (!matches.length) {
+          const empty = document.createElement("span");
+          empty.className = "search-empty";
+          empty.textContent = "No matching visible layers.";
+          results.append(empty);
+        }
+      }
+
+      /* ---------- drawing ---------- */
+      function theme() {
+        const s = getComputedStyle(document.documentElement),
+          g = (n) => s.getPropertyValue(n).trim();
+        C = {
+          bg: g("--bg"),
+          land: g("--land"),
+          edge: g("--edge"),
+          grid: g("--grid"),
+          ink: g("--ink"),
+          muted: g("--muted"),
+          ship: g("--ship"),
+          air: g("--air"),
+          rail: g("--rail"),
+          road: g("--road"),
+          ind: g("--ind"),
+        };
+      }
+      function line(pts, dash) {
+        ctx.beginPath();
+        let pr = null;
+        for (const q of pts) {
+          const s = P(q[0], q[1]);
+          if (pr && Math.abs(wrap(q[0]) - wrap(pr[0])) > 180)
+            ctx.moveTo(s[0], s[1]);
+          else if (pr) ctx.lineTo(s[0], s[1]);
+          else ctx.moveTo(s[0], s[1]);
+          pr = q;
+        }
+        ctx.stroke();
+      }
+      function draw(now, dt) {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.fillStyle = C.bg;
+        ctx.fillRect(0, 0, W, H);
+        ctx.strokeStyle = C.grid;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for (let lo = -180; lo <= 180; lo += 30) {
+          const x = P(lo, 0)[0];
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, H);
+        }
+        for (let la = -60; la <= 90; la += 30) {
+          const y = P(0, la)[1];
+          ctx.moveTo(0, y);
+          ctx.lineTo(W, y);
+        }
+        ctx.stroke();
+        ctx.fillStyle = C.land;
+        ctx.strokeStyle = C.edge;
+        ctx.lineWidth = 1;
+        ctx.lineJoin = "round";
+        for (const poly of LAND) {
+          ctx.beginPath();
+          poly.forEach((q, i) => {
+            const s = P(q[0], q[1]);
+            i ? ctx.lineTo(s[0], s[1]) : ctx.moveTo(s[0], s[1]);
+          });
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        }
+        const z = Math.min(1.6, 0.7 + view.k / 12);
+        // routes
+        ctx.lineCap = "round";
+        if (on.ports) {
+          ctx.strokeStyle = C.ship;
+          ctx.globalAlpha = 0.3;
+          ctx.lineWidth = 1.2;
+          seaP.forEach((p) => line(p.pts));
+        }
+        if (on.rail) {
+          ctx.strokeStyle = C.rail;
+          ctx.globalAlpha = 0.65;
+          ctx.lineWidth = 1.8 * z;
+          ctx.setLineDash([6, 4]);
+          railP.forEach((p) => line(p.pts));
+          ctx.setLineDash([]);
+        }
+        if (on.road) {
+          ctx.strokeStyle = C.road;
+          ctx.globalAlpha = 0.6;
+          ctx.lineWidth = 2 * z;
+          roadP.forEach((p) => line(p.pts));
+        }
+        if (on.air) {
+          ctx.strokeStyle = C.air;
+          ctx.globalAlpha = 0.22;
+          ctx.lineWidth = 1;
+          flights.forEach((f) => {
+            const a = [];
+            for (let i = 0; i <= 24; i++) a.push(fpos(f, i / 24));
+            line(a);
+          });
+        }
+        ctx.globalAlpha = 1;
+        // moving things
+        const cnt = { ship: 0, plane: 0, train: 0, truck: 0 };
+        for (const e of ents) {
+          if (!on[e.L]) continue;
+          const len = e.f ? e.f.len : e.p.total;
+          e.t = (e.t + (e.s * dt) / len) % 1;
+          const a = pos(e, e.t),
+            b = pos(e, e.t - 0.012 + (e.t < 0.012 ? 1 : 0)),
+            s = P(a[0], a[1]);
+          if (s[0] < -30 || s[0] > W + 30 || s[1] < -30 || s[1] > H + 30)
+            continue;
+          cnt[e.k]++;
+          const col = {
+            ship: C.ship,
+            plane: C.air,
+            train: C.rail,
+            truck: C.road,
+          }[e.k];
+          const pb = P(b[0], b[1]),
+            jump =
+              Math.abs(wrap(a[0]) - wrap(b[0])) > 180 || (!e.f && e.t < 0.012);
+          if (!jump) {
+            ctx.strokeStyle = col;
+            ctx.globalAlpha = 0.55;
+            ctx.lineWidth = 2 * z;
+            ctx.beginPath();
+            ctx.moveTo(pb[0], pb[1]);
+            ctx.lineTo(s[0], s[1]);
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+          }
+          const ang = jump ? 0 : Math.atan2(s[1] - pb[1], s[0] - pb[0]);
+          ctx.save();
+          ctx.translate(s[0], s[1]);
+          ctx.rotate(ang);
+          ctx.fillStyle = col;
+          ctx.strokeStyle = C.bg;
+          ctx.lineWidth = 1;
+          const r = (e.k === "truck" ? 2.6 : 3.6) * z;
+          ctx.beginPath();
+          if (e.k === "ship") {
+            ctx.moveTo(r * 1.6, 0);
+            ctx.lineTo(-r, r);
+            ctx.lineTo(-r * 0.5, 0);
+            ctx.lineTo(-r, -r);
+          } else if (e.k === "plane") {
+            const q = r * 1.4;
+            ctx.moveTo(q * 1.4, 0);
+            ctx.lineTo(-q * 0.3, q * 0.2);
+            ctx.lineTo(-q * 0.9, q);
+            ctx.lineTo(-q * 0.7, 0);
+            ctx.lineTo(-q * 0.9, -q);
+            ctx.lineTo(-q * 0.3, -q * 0.2);
+          } else if (e.k === "train") {
+            ctx.rect(-r * 1.5, -r * 0.7, r * 3, r * 1.4);
+          } else ctx.arc(0, 0, r, 0, 7);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+        }
+        // industrial pulses
+        if (on.ind)
+          for (const d of IND) {
+            const s = P(d[1], d[2]);
+            if (s[0] < -40 || s[0] > W + 40 || s[1] < -40 || s[1] > H + 40)
+              continue;
+            for (let i = 0; i < 2; i++) {
+              const ph = still ? 0.3 : (now / 1800 + i * 0.5 + d[1] * 0.01) % 1;
+              ctx.strokeStyle = C.ind;
+              ctx.globalAlpha = (1 - ph) * 0.7;
+              ctx.lineWidth = 1.5;
+              ctx.beginPath();
+              ctx.arc(s[0], s[1], (4 + ph * 18) * z, 0, 7);
+              ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = C.ind;
+            ctx.save();
+            ctx.translate(s[0], s[1]);
+            ctx.rotate(Math.PI / 4);
+            const r = 3.4 * z;
+            ctx.fillRect(-r, -r, 2 * r, 2 * r);
+            ctx.restore();
+          }
+        // nodes + labels
+        ctx.font =
+          '600 11.5px "Avenir Next","Trebuchet MS",system-ui,sans-serif';
+        ctx.textBaseline = "middle";
+        const dot = (L, col, lo, la, name, shape) => {
+          if (!on[L]) return;
+          const s = P(lo, la);
+          if (s[0] < -60 || s[0] > W + 60 || s[1] < -20 || s[1] > H + 20)
+            return;
+          ctx.fillStyle = col;
+          ctx.strokeStyle = C.bg;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          if (shape) ctx.rect(s[0] - 3.5 * z, s[1] - 3.5 * z, 7 * z, 7 * z);
+          else ctx.arc(s[0], s[1], 3.8 * z, 0, 7);
+          ctx.fill();
+          ctx.stroke();
+          if (view.k > (L === "air" ? 5 : 3.6)) {
+            ctx.fillStyle = C.ink;
+            ctx.fillText(name, s[0] + 8 * z, s[1]);
+          }
+        };
+        PORTS.forEach((p) => dot("ports", C.ship, p[1], p[2], p[0]));
+        AIR.forEach((a) => dot("air", C.air, a[1], a[2], a[0], 1));
+        if (view.k > 6)
+          IND.forEach((d) => {
+            if (!on.ind) return;
+            const s = P(d[1], d[2]);
+            ctx.fillStyle = C.ink;
+            ctx.fillText(d[0], s[0] + 10 * z, s[1] - 9 * z);
+          });
+        if (selectedFeature && on[selectedFeature.L]) {
+          const color = {
+            ports: C.ship,
+            air: C.air,
+            rail: C.rail,
+            road: C.road,
+            ind: C.ind,
+          }[selectedFeature.L];
+          ctx.save();
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2.5;
+          ctx.globalAlpha = 0.95;
+          if (selectedFeature.path) {
+            ctx.lineWidth = 3.5 * z;
+            ctx.setLineDash([]);
+            line(selectedFeature.path);
+          } else {
+            const point = P(selectedFeature.lo, selectedFeature.la);
+            ctx.beginPath();
+            ctx.arc(point[0], point[1], 9 * z, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+        document.getElementById("stats").textContent =
+          `Illustrative symbols · ${cnt.ship} ships · ${cnt.plane} flights · ${cnt.train} trains · ${cnt.truck} trucks`;
+      }
+
+      /* ---------- view control ---------- */
+      function clamp(v) {
+        v.k = Math.min(60, Math.max(minK(), v.k));
+        const hw = W / v.k / 2,
+          hh = H / v.k / 2;
+        v.x = hw >= 180 ? 0 : Math.min(180 - hw, Math.max(-180 + hw, v.x));
+        v.y = hh >= 85 ? 5 : Math.min(85 - hh, Math.max(-70 + hh, v.y));
+      }
+      function resize() {
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        W = cv.clientWidth;
+        H = cv.clientHeight;
+        cv.width = W * dpr;
+        cv.height = H * dpr;
+        if (!view.init) {
+          view.k = tgt.k = minK() * 1.1;
+          view.init = 1;
+        }
+        clamp(view);
+        clamp(tgt);
+      }
+      addEventListener("resize", resize);
+      function zoomAt(f, sx, sy) {
+        const lo = (sx - W / 2) / tgt.k + tgt.x,
+          la = tgt.y - (sy - H / 2) / tgt.k;
+        tgt.k *= f;
+        clamp(tgt);
+        tgt.x = lo - (sx - W / 2) / tgt.k;
+        tgt.y = la + (sy - H / 2) / tgt.k;
+        clamp(tgt);
+      }
+      cv.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+          zoomAt(Math.exp(-e.deltaY * 0.0015), e.offsetX, e.offsetY);
+        },
+        { passive: false },
+      );
+      document.getElementById("zi").onclick = () => zoomAt(1.6, W / 2, H / 2);
+      document.getElementById("zo").onclick = () =>
+        zoomAt(1 / 1.6, W / 2, H / 2);
+      document.getElementById("zr").onclick = () => {
+        tgt.x = 10;
+        tgt.y = 18;
+        tgt.k = minK() * 1.1;
+        clamp(tgt);
+        announce.textContent = "Map view reset.";
+      };
+      const closeFeature = () => {
+        document.getElementById("featureCard").hidden = true;
+      };
+      document
+        .getElementById("featureClose")
+        .addEventListener("click", closeFeature);
+      document
+        .getElementById("featureCloseSecondary")
+        .addEventListener("click", closeFeature);
+      document
+        .getElementById("featureCard")
+        .addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeFeature();
+            cv.focus();
+          }
+        });
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          !document.getElementById("featureCard").hidden
+        ) {
+          closeFeature();
+          cv.focus();
+        }
+      });
+      document.getElementById("hideControls").addEventListener("click", () => {
+        document.getElementById("head").hidden = true;
+        document.getElementById("showControls").hidden = false;
+        document.getElementById("showControls").focus();
+      });
+      document.getElementById("showControls").addEventListener("click", () => {
+        document.getElementById("head").hidden = false;
+        document.getElementById("showControls").hidden = true;
+        search.focus();
+      });
+      search.addEventListener("input", renderResults);
+      cv.addEventListener("keydown", (event) => {
+        const step = 32 / view.k;
+        if (
+          [
+            "ArrowLeft",
+            "ArrowRight",
+            "ArrowUp",
+            "ArrowDown",
+            "+",
+            "=",
+            "-",
+            "Home",
+          ].includes(event.key)
+        )
+          event.preventDefault();
+        if (event.key === "ArrowLeft") tgt.x -= step;
+        else if (event.key === "ArrowRight") tgt.x += step;
+        else if (event.key === "ArrowUp") tgt.y += step;
+        else if (event.key === "ArrowDown") tgt.y -= step;
+        else if (event.key === "+" || event.key === "=")
+          zoomAt(1.4, W / 2, H / 2);
+        else if (event.key === "-") zoomAt(1 / 1.4, W / 2, H / 2);
+        else if (event.key === "Home") {
+          tgt.x = 10;
+          tgt.y = 18;
+          tgt.k = minK() * 1.1;
+        }
+        clamp(tgt);
+      });
+      let drag = null,
+        moved = 0;
+      cv.addEventListener("pointerdown", (e) => {
+        drag = { x: e.clientX, y: e.clientY };
+        moved = 0;
+        cv.setPointerCapture(e.pointerId);
+        cv.classList.add("drag");
+      });
+      cv.addEventListener("pointermove", (e) => {
+        if (drag) {
+          const dx = e.clientX - drag.x,
+            dy = e.clientY - drag.y;
+          moved += Math.abs(dx) + Math.abs(dy);
+          drag = { x: e.clientX, y: e.clientY };
+          tgt.x -= dx / view.k;
+          tgt.y += dy / view.k;
+          clamp(tgt);
+          view.x = tgt.x;
+          view.y = tgt.y;
+        }
+        hover(e.offsetX, e.offsetY);
+      });
+      cv.addEventListener("pointerup", (e) => {
+        drag = null;
+        cv.classList.remove("drag");
+        if (moved < 5) {
+          const h = hit(e.offsetX, e.offsetY);
+          if (h) focusFeature(h);
+          else closeFeature();
+        }
+        hover(e.offsetX, e.offsetY);
+      });
+      cv.addEventListener("pointerleave", () => {
+        tip.style.opacity = 0;
+        cv.style.cursor = "";
+      });
+      function hit(sx, sy) {
+        let best = null;
+        let bestDistance = Infinity;
+        const test = (item, x, y, limit) => {
+          const point = P(x, y);
+          const distance = Math.hypot(point[0] - sx, point[1] - sy);
+          if (distance < limit && distance < bestDistance) {
+            best = item;
+            bestDistance = distance;
+          }
+        };
+        for (const it of items) {
+          if (!on[it.L]) continue;
+          if (it.path) {
+            for (let i = 1; i < it.path.length; i++) {
+              const from = it.path[i - 1];
+              const to = it.path[i];
+              if (Math.abs(wrap(to[0]) - wrap(from[0])) > 180) continue;
+              const a = P(from[0], from[1]);
+              const b = P(to[0], to[1]);
+              const dx = b[0] - a[0];
+              const dy = b[1] - a[1];
+              const lengthSquared = dx * dx + dy * dy;
+              const ratio = lengthSquared
+                ? Math.max(
+                    0,
+                    Math.min(
+                      1,
+                      ((sx - a[0]) * dx + (sy - a[1]) * dy) / lengthSquared,
+                    ),
+                  )
+                : 0;
+              const distance = Math.hypot(
+                sx - (a[0] + ratio * dx),
+                sy - (a[1] + ratio * dy),
+              );
+              if (distance < 10 && distance < bestDistance) {
+                best = it;
+                bestDistance = distance;
+              }
+            }
+          } else {
+            test(it, it.lo, it.la, 16);
+          }
+        }
+        for (const entity of ents) {
+          if (!on[entity.L]) continue;
+          const [lo, la] = pos(entity, entity.t);
+          const point = P(lo, la);
+          const distance = Math.hypot(point[0] - sx, point[1] - sy);
+          const canPreferSymbol = best?.path && distance <= bestDistance + 4;
+          if (distance >= 15 || (distance >= bestDistance && !canPreferSymbol))
+            continue;
+          const labels = {
+            ship: [
+              "Animated ship symbol",
+              "Shipping",
+              "Demo symbol on a schematic path; no vessel tracking or live AIS data is shown.",
+            ],
+            plane: [
+              "Animated aircraft symbol",
+              "Flight",
+              "Demo symbol on a schematic connection; no live flight or route data is shown.",
+            ],
+            train: [
+              "Animated train symbol",
+              "Rail",
+              "Demo symbol on a schematic corridor; no live train or service data is shown.",
+            ],
+            truck: [
+              "Animated truck symbol",
+              "Road",
+              "Demo symbol on a schematic corridor; no live vehicle or traffic data is shown.",
+            ],
+          }[entity.k];
+          best = {
+            n: labels[0],
+            t: labels[1],
+            d: labels[2],
+            L: entity.L,
+            lo,
+            la,
+            anchor: atlasAnchor[entity.L],
+          };
+          bestDistance = distance;
+        }
+        return best;
+      }
+      function hover(sx, sy) {
+        const h = drag ? null : hit(sx, sy);
+        cv.style.cursor = drag ? "grabbing" : h ? "pointer" : "";
+        if (!h) {
+          tip.style.opacity = 0;
+          return;
+        }
+        tip.innerHTML = `<b></b><span></span>`;
+        tip.firstChild.textContent = h.n;
+        tip.lastChild.textContent = h.t + " — " + h.d;
+        tip.style.left = Math.min(W - 240, sx + 14) + "px";
+        tip.style.top = Math.max(8, sy - 10) + "px";
+        tip.style.opacity = 1;
+      }
+      document.querySelectorAll("#layers button").forEach(
+        (b) =>
+          (b.onclick = () => {
+            const l = b.dataset.l;
+            on[l] = !on[l];
+            b.classList.toggle("off", !on[l]);
+            b.setAttribute("aria-pressed", on[l]);
+            renderResults();
+          }),
+      );
+
+      /* ---------- loop ---------- */
+      const still = matchMedia("(prefers-reduced-motion:reduce)").matches;
+      let last = performance.now();
+      theme();
+      matchMedia("(prefers-color-scheme:dark)").addEventListener(
+        "change",
+        theme,
+      );
+      resize();
+      function frame(now) {
+        const dt = still ? 0 : Math.min(0.05, (now - last) / 1000);
+        last = now;
+        if (!drag) {
+          if (still) {
+            view.x = tgt.x;
+            view.y = tgt.y;
+            view.k = tgt.k;
+          } else {
+            view.x += (tgt.x - view.x) * 0.14;
+            view.y += (tgt.y - view.y) * 0.14;
+            view.k += (tgt.k - view.k) * 0.14;
+          }
+        }
+        draw(now, dt);
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    </script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/js/logistics-atlas.js?v=2026110506" defer></script>
+  </body>
+</html>

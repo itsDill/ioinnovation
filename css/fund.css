@@ -10,65 +10,21 @@
   --fund-width: 1240px;
 }
 
+:root[data-theme="dark"] {
+  --fund-ink: #e6f1ec;
+  --fund-muted: #a8bbb2;
+  --fund-paper: #101b1a;
+  --fund-line: #344943;
+  --fund-mint: #c9efda;
+  --fund-lime: #d8f278;
+  --fund-dark: #102b27;
+}
+
 .home-page {
   padding-top: 0;
   background: var(--fund-paper);
   color: var(--fund-ink);
 }
-.home-page .header {
-  position: absolute;
-  top: 1.1rem;
-  left: 50%;
-  width: min(1320px, calc(100% - 2.5rem));
-  height: 66px;
-  transform: translateX(-50%);
-  overflow: visible;
-  border: 1px solid rgba(255, 255, 255, 0.82);
-  border-radius: 999px;
-  background: rgba(250, 252, 249, 0.9);
-  box-shadow: 0 12px 38px rgba(21, 48, 41, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-.home-page .nav {
-  max-width: none;
-  padding: 0 1.35rem;
-}
-.home-page .logo {
-  color: var(--fund-ink);
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  font-size: 1.05rem;
-  letter-spacing: -0.045em;
-  white-space: nowrap;
-}
-.home-page .nav-links {
-  gap: 0.1rem;
-}
-.home-page .nav-links a {
-  color: #52635f;
-  padding: 0.5rem 0.72rem;
-  border-radius: 999px;
-  font-size: 0.82rem;
-}
-.home-page .nav-links a:hover,
-.home-page .nav-links a.active {
-  color: var(--fund-ink);
-  background: #e8f0e9;
-}
-.home-page .theme-toggle,
-.home-page .mobile-menu-btn {
-  border-color: #dfe8e1;
-  background: #f6f9f5;
-  color: var(--fund-ink);
-}
-.home-page .mobile-menu-btn span {
-  background: var(--fund-ink);
-}
-.home-page .footer {
-  margin-top: 0;
-}
-
 .fund-home-main {
   width: min(var(--fund-width), 100%);
   margin: 0 auto;
@@ -525,9 +481,6 @@
   background: var(--fund-paper);
   color: var(--fund-ink);
 }
-.fund-page .logo {
-  font-size: 1.12rem;
-}
 .fund-page-main {
   width: min(1050px, calc(100% - 2.5rem));
   margin: 0 auto;
@@ -696,34 +649,8 @@
   .fund-domain-card {
     min-height: 270px;
   }
-  .home-page .nav-links a {
-    padding-inline: 0.5rem;
-    font-size: 0.76rem;
-  }
 }
 @media (max-width: 768px) {
-  .home-page .header {
-    top: 0.65rem;
-    width: calc(100% - 1.25rem);
-    height: 58px;
-  }
-  .home-page .nav {
-    padding-inline: 0.9rem;
-  }
-  .home-page .nav-links {
-    top: 68px;
-    left: 0.65rem;
-    right: 0.65rem;
-    width: auto;
-    border: 1px solid var(--fund-line);
-    border-radius: 14px;
-    background: #fafcf9;
-    box-shadow: 0 12px 30px rgba(21, 48, 41, 0.13);
-  }
-  .home-page .nav-links a {
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
-  }
   .fund-home-main {
     padding: 5.1rem 0.7rem 1rem;
   }
@@ -827,4 +754,75 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+}
+
+html[data-theme="dark"] .home-page,
+html[data-theme="dark"] .fund-page {
+  background: var(--fund-paper);
+  color: var(--fund-ink);
+}
+
+html[data-theme="dark"] .fund-section-heading h2 em {
+  color: #a8d7b8;
+}
+
+html[data-theme="dark"] .fund-domain-card,
+html[data-theme="dark"] .fund-topic-card {
+  border-color: var(--fund-line);
+  background: #172523;
+  color: var(--fund-ink);
+}
+
+html[data-theme="dark"] .fund-domain-number,
+html[data-theme="dark"] .fund-topic-card span {
+  color: #a2b9b0;
+}
+
+html[data-theme="dark"] .fund-domain-card h3,
+html[data-theme="dark"] .fund-topic-card h3 {
+  color: #e9f5f0;
+}
+
+html[data-theme="dark"] .fund-domain-card p,
+html[data-theme="dark"] .fund-topic-card p {
+  color: #a8bbb2;
+}
+
+html[data-theme="dark"] .fund-domain-link {
+  color: #c9efda;
+}
+
+html[data-theme="dark"] .fund-live-card {
+  border-color: #527b65;
+  background: #172523;
+  color: #e6f1ec;
+}
+
+html[data-theme="dark"] .fund-live-card:hover {
+  background: #20342f;
+}
+
+html[data-theme="dark"] .fund-live-card > span,
+html[data-theme="dark"] .fund-live-card p {
+  color: #a8bbb2;
+}
+
+html[data-theme="dark"] .fund-live-card > b,
+html[data-theme="dark"] .fund-disclaimer,
+html[data-theme="dark"] .fund-page-disclaimer {
+  color: #a2b9b0;
+}
+
+html[data-theme="dark"] .fund-callout {
+  border-left-color: #81a98a;
+  background: #1b302a;
+}
+
+html[data-theme="dark"] .fund-callout p,
+html[data-theme="dark"] .fund-callout a {
+  color: #d1e3d8;
+}
+
+html[data-theme="dark"] .fund-page-section > p {
+  color: var(--fund-muted);
 }

@@ -3,38 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Physical Assets | IO Innovation Fund</title>
+    <title>Physical Assets &amp; Global Resources | IO Innovation Fund</title>
     <meta
       name="description"
-      content="Explore IO Innovation Fund's physical asset intelligence roadmap across mines, ports, factories, energy systems, and data centres."
+      content="Explore one connected atlas of physical assets and global resources, with an interactive regional map, layer toggles, and research scope for infrastructure, commodities, and supply chains."
     />
     <link
       rel="canonical"
       href="https://ioinnovationfund.com/physical-assets.html"
     />
-    <meta property="og:title" content="Physical Assets | IO Innovation Fund" />
+    <meta
+      property="og:title"
+      content="Physical Assets &amp; Global Resources | IO Innovation Fund"
+    />
     <meta
       property="og:description"
-      content="A connected view of the infrastructure and industrial assets underpinning the global economy."
+      content="Explore physical infrastructure and global resource research through one interactive asset atlas."
     />
     <meta
       property="og:url"
       content="https://ioinnovationfund.com/physical-assets.html"
     />
-    <script src="/js/theme-init.js?v=2026110301"></script>
-    <link rel="stylesheet" href="/css/site.css?v=2026110301" />
-    <link rel="stylesheet" href="/css/fund.css?v=2026110301" />
+    <script src="/js/theme-init.js?v=2026110503"></script>
+    <link rel="stylesheet" href="/css/site.css?v=2026110504" />
+    <link rel="stylesheet" href="/css/fund.css?v=2026110504" />
+    <link rel="stylesheet" href="/css/asset-atlas.css?v=2026110503" />
   </head>
-  <body class="site-refresh fund-page">
+  <body class="site-refresh fund-page asset-atlas-page">
     <a href="#main" class="skip-to-main">Skip to content</a>
     <header class="header">
       <nav class="nav">
         <a href="/" class="logo">IO Innovation Fund</a>
         <ul class="nav-links" id="mobileNav">
           <li><a href="/">Home</a></li>
-          <li><a href="/physical-assets.html" class="active">Physical</a></li>
+          <li><a href="/physical-assets.html" class="active">Assets</a></li>
           <li><a href="/financial-assets.html">Financial</a></li>
-          <li><a href="/global-resources.html">Resources</a></li>
           <li><a href="/market-intelligence.html">Intelligence</a></li>
           <li><a href="/blog/">Research</a></li>
           <li><a href="/contact.html">Contact</a></li>
@@ -57,90 +60,504 @@
       </nav>
     </header>
     <main id="main" class="fund-page-main">
-      <section class="fund-page-hero">
-        <span class="fund-eyebrow"><i></i> ASSET DOMAIN / 01</span>
-        <h1>Physical assets.<br /><em>The built world.</em></h1>
+      <section class="fund-page-hero" aria-labelledby="atlas-title">
+        <span class="fund-eyebrow"
+          ><i></i> ASSET ATLAS / BUILT WORLD + RESOURCES</span
+        >
+        <h1 id="atlas-title">
+          Physical assets &amp; resources.<br /><em>One connected map.</em>
+        </h1>
         <p>
-          Understand the places and systems where resources are extracted, goods
-          are made, and economies connect—from mine sites and shipping gateways
-          to power networks and digital infrastructure.
+          Explore the infrastructure that moves economies and the materials that
+          power it—from mines, ports, and grids to copper, lithium, and critical
+          minerals.
         </p>
-        <span class="fund-status">Coverage roadmap · In development</span>
+        <span class="fund-status"
+          >Illustrative research scope · Source-linked locations in the
+          logistics atlas</span
+        >
+        <div class="atlas-hero-meta">
+          <span>12 connected research themes</span
+          ><span>Layer and region toggles</span
+          ><span>Source-led coverage planned</span>
+        </div>
       </section>
-      <section class="fund-page-section">
-        <span class="fund-section-label">Coverage themes</span>
-        <h2>Map the foundations of production</h2>
-        <p>
-          This section will bring together asset-level context and industry
-          research. The themes below describe the intended coverage; dedicated
-          datasets and asset profiles are not yet available.
+      <aside class="atlas-live-atlas-link" aria-label="Source-linked asset map">
+        <div>
+          <strong>Looking for mapped locations?</strong>
+          <p>
+            This page is an illustrative research-scope preview. The logistics
+            atlas has source-linked port, industrial-project, and data-centre
+            records.
+          </p>
+        </div>
+        <a class="fund-button" href="/physical/map.html">
+          Open the logistics atlas <span aria-hidden="true">↗</span>
+        </a>
+      </aside>
+      <section
+        class="asset-atlas-explorer"
+        aria-labelledby="atlas-explorer-title"
+      >
+        <div class="atlas-heading">
+          <div>
+            <span class="fund-section-label">Interactive asset atlas</span>
+            <h2 id="atlas-explorer-title">
+              Choose a layer. Explore the landscape.
+            </h2>
+            <p>
+              Toggle built-world infrastructure or global resource themes, then
+              filter the research scope below. Markers are illustrative
+              placeholders, not actual asset, deposit, facility, or trade
+              locations.
+            </p>
+          </div>
+          <span class="atlas-demo-label">Illustrative map</span>
+        </div>
+        <div class="atlas-controls">
+          <div
+            class="atlas-layer-toggle"
+            role="group"
+            aria-label="Choose asset map layer"
+          >
+            <button type="button" data-atlas-layer="all" aria-pressed="true">
+              All themes</button
+            ><button
+              type="button"
+              data-atlas-layer="physical"
+              aria-pressed="false"
+            >
+              Physical</button
+            ><button
+              type="button"
+              data-atlas-layer="resources"
+              aria-pressed="false"
+            >
+              Resources
+            </button>
+          </div>
+          <label class="atlas-control-field" for="atlasSearch"
+            >Search themes<input
+              id="atlasSearch"
+              type="search"
+              placeholder="Try energy, copper, or ports"
+              autocomplete="off"
+          /></label>
+          <label class="atlas-control-field" for="atlasRegion"
+            >Filter sample zone<select id="atlasRegion">
+              <option value="">All sample zones</option>
+              <option>Sample region A</option>
+              <option>Sample region B</option>
+              <option>Sample region C</option>
+              <option>Sample region D</option>
+              <option>Sample region E</option>
+              <option>Sample region F</option>
+            </select></label
+          >
+        </div>
+        <div class="atlas-explorer-layout">
+          <div class="atlas-map-panel">
+            <div class="atlas-map-topline">
+              <strong>Global research coverage schematic</strong
+              ><span>Not geographic · Not to scale</span>
+            </div>
+            <div
+              class="atlas-map-canvas"
+              id="atlasMap"
+              role="group"
+              aria-label="Illustrative asset and resource map; select a marker to view its research scope"
+            >
+              <span class="atlas-map-watermark" aria-hidden="true"
+                >SYNTHETIC · NO VERIFIED LOCATIONS</span
+              >
+            </div>
+            <div class="atlas-map-caption">
+              Map markers demonstrate the layer and filter controls only. They
+              are not positioned from geographic coordinates and should not be
+              read as project locations.
+            </div>
+          </div>
+          <aside class="atlas-map-side-note" aria-label="Map data status">
+            <h3>Location data status</h3>
+            <p>
+              This illustrative preview has no verified locations for these
+              research themes. Its markers are not asset coordinates.
+            </p>
+            <p>
+              The separate logistics atlas contains source-linked port,
+              industrial-project, and data-centre records, with source and
+              location-precision notes.
+            </p>
+            <div class="atlas-map-legend">
+              <span
+                ><i class="atlas-legend-dot" aria-hidden="true"></i>Physical
+                asset research themes</span
+              ><span
+                ><i class="atlas-legend-dot resource" aria-hidden="true"></i
+                >Global resource research themes</span
+              >
+            </div>
+          </aside>
+        </div>
+        <p class="atlas-count" id="atlasCount" aria-live="polite">
+          Loading topics…
         </p>
-        <div class="fund-topic-grid">
-          <article class="fund-topic-card">
-            <span>01 / EXTRACTION</span>
+        <div
+          class="atlas-topic-grid"
+          id="atlasResults"
+          aria-label="Asset and resource research topics"
+        >
+          <article
+            class="atlas-topic-card"
+            id="mines-processing"
+            data-layer="physical"
+            data-region="Sample region A"
+          >
+            <div class="atlas-topic-meta">
+              <span>BUILT WORLD</span><span>Extraction</span>
+            </div>
             <h3>Mines &amp; processing</h3>
             <p>
-              Operating regions, project stages, and the facilities that turn
-              deposits into usable materials.
+              Project stages, mineral processing, and links to materials supply
+              chains.
             </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                Planned research may cover reported project stages, processing
+                routes, ownership, and source-linked updates. No mine locations,
+                reserves, production, or facility records are currently
+                represented.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
           </article>
-          <article class="fund-topic-card">
-            <span>02 / LOGISTICS</span>
+          <article
+            class="atlas-topic-card"
+            id="ports-trade"
+            data-layer="physical"
+            data-region="Sample region B"
+          >
+            <div class="atlas-topic-meta">
+              <span>BUILT WORLD</span><span>Logistics</span>
+            </div>
             <h3>Ports &amp; trade links</h3>
             <p>
-              Shipping gateways, logistics capacity, and the connections that
-              move commodities and goods.
+              Shipping gateways, freight infrastructure, and trade corridors.
             </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                Intended scope includes gateway infrastructure, logistics
+                capacity, and network context. Any future figures would require
+                dated source citations and consistent definitions; this preview
+                contains no port or trade data.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
           </article>
-          <article class="fund-topic-card">
-            <span>03 / INDUSTRY</span>
+          <article
+            class="atlas-topic-card"
+            id="manufacturing"
+            data-layer="physical"
+            data-region="Sample region C"
+          >
+            <div class="atlas-topic-meta">
+              <span>BUILT WORLD</span><span>Industry</span>
+            </div>
             <h3>Factories &amp; supply chains</h3>
             <p>
-              Manufacturing capacity, industrial clusters, and production
-              networks.
+              Manufacturing sites, industrial clusters, and supplier networks.
             </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                This theme is designed to connect manufacturing activity with
+                inputs, energy, supplier relationships, and capacity. No real
+                factories, production levels, or supplier links are shown.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
           </article>
-          <article class="fund-topic-card">
-            <span>04 / POWER</span>
+          <article
+            class="atlas-topic-card"
+            id="energy-infrastructure"
+            data-layer="physical"
+            data-region="Sample region D"
+          >
+            <div class="atlas-topic-meta">
+              <span>BUILT WORLD</span><span>Energy</span>
+            </div>
             <h3>Energy infrastructure</h3>
-            <p>
-              Generation, transmission, storage, and the investment required to
-              expand reliable supply.
-            </p>
+            <p>Generation, transmission, storage, and grid connections.</p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                Potential coverage spans generation, transmission, storage, and
+                infrastructure dependencies, with project status and dates tied
+                to original sources. No operating assets or project pipeline is
+                included in this demo.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
           </article>
-          <article class="fund-topic-card">
-            <span>05 / COMPUTE</span>
+          <article
+            class="atlas-topic-card"
+            id="datacentres"
+            data-layer="physical"
+            data-region="Sample region E"
+          >
+            <div class="atlas-topic-meta">
+              <span>BUILT WORLD</span><span>Compute</span>
+            </div>
             <h3>Data centres</h3>
-            <p>
-              Digital infrastructure, power demand, capacity growth, and
-              regional concentration.
-            </p>
+            <p>Compute capacity, power requirements, and regional networks.</p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                The research scope may examine digital infrastructure, power
+                availability, capacity announcements, and network context. No
+                site, operator, power use, or capacity records are represented.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
           </article>
-          <article class="fund-topic-card">
-            <span>06 / PLACE</span>
+          <article
+            class="atlas-topic-card"
+            id="regions-projects"
+            data-layer="physical"
+            data-region="Sample region F"
+          >
+            <div class="atlas-topic-meta">
+              <span>BUILT WORLD</span><span>Regional context</span>
+            </div>
             <h3>Regions &amp; projects</h3>
             <p>
-              Geographic context for major assets, development pipelines, and
-              infrastructure plans.
+              Regional context, project pipelines, and public infrastructure
+              plans.
             </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                This theme is intended to organize geographic context and
+                source-reported project milestones. Sample markers are not
+                coordinates and do not identify jurisdictions or real projects.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
+          </article>
+          <article
+            class="atlas-topic-card"
+            id="copper"
+            data-layer="resources"
+            data-region="Sample region A"
+          >
+            <div class="atlas-topic-meta">
+              <span>GLOBAL RESOURCES</span><span>Electrification</span>
+            </div>
+            <h3>Copper</h3>
+            <p>
+              Extraction, processing, refined products, and infrastructure
+              applications.
+            </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                Planned research may connect copper supply stages with grids,
+                buildings, transport, and equipment. No deposits, reserves,
+                production, prices, or trade flows are shown.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
+          </article>
+          <article
+            class="atlas-topic-card"
+            id="lithium"
+            data-layer="resources"
+            data-region="Sample region B"
+          >
+            <div class="atlas-topic-meta">
+              <span>GLOBAL RESOURCES</span><span>Batteries</span>
+            </div>
+            <h3>Lithium</h3>
+            <p>
+              Resource pathways, chemical conversion, battery materials, and
+              storage.
+            </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                This topic is intended to explain extraction routes, conversion
+                steps, battery materials, and storage applications. The preview
+                has no real projects, plants, volumes, prices, or locations.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
+          </article>
+          <article
+            class="atlas-topic-card"
+            id="gold"
+            data-layer="resources"
+            data-region="Sample region C"
+          >
+            <div class="atlas-topic-meta">
+              <span>GLOBAL RESOURCES</span><span>Precious metals</span>
+            </div>
+            <h3>Gold</h3>
+            <p>
+              Production, refining, provenance questions, and market
+              applications.
+            </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                Future coverage may examine production and refining stages,
+                provenance, and market context using traceable sources. This
+                page does not show real mines, refiners, prices, or trade.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
+          </article>
+          <article
+            class="atlas-topic-card"
+            id="oil"
+            data-layer="resources"
+            data-region="Sample region D"
+          >
+            <div class="atlas-topic-meta">
+              <span>GLOBAL RESOURCES</span><span>Energy</span>
+            </div>
+            <h3>Oil &amp; liquid fuels</h3>
+            <p>
+              Upstream production, transport, refining, and downstream uses.
+            </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                The intended scope connects extraction, transport, refining, and
+                end uses. No actual basins, pipelines, terminals, output, trade,
+                or price information is included.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
+          </article>
+          <article
+            class="atlas-topic-card"
+            id="critical-minerals"
+            data-layer="resources"
+            data-region="Sample region E"
+          >
+            <div class="atlas-topic-meta">
+              <span>GLOBAL RESOURCES</span><span>Strategic inputs</span>
+            </div>
+            <h3>Critical minerals</h3>
+            <p>
+              Definitions, supply stages, and technology inputs across
+              jurisdictions.
+            </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                Criticality varies by jurisdiction and time. Future material
+                should state the relevant definition and source date. This
+                preview does not identify deposits, projects, countries, or
+                mineral-specific supply.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
+          </article>
+          <article
+            class="atlas-topic-card"
+            id="value-chains"
+            data-layer="resources"
+            data-region="Sample region F"
+          >
+            <div class="atlas-topic-meta">
+              <span>GLOBAL RESOURCES</span><span>Value chains</span>
+            </div>
+            <h3>Supply &amp; processing</h3>
+            <p>
+              Extraction, conversion, logistics, and downstream connections.
+            </p>
+            <details>
+              <summary>Research scope &amp; data status</summary>
+              <p>
+                This cross-material theme is designed to make supply-chain
+                stages and dependencies easier to inspect. No actual routes,
+                facilities, concentration metrics, or flows are represented.
+              </p>
+              <p class="atlas-data-note">
+                Status: research scope only. No verified location dataset is
+                currently connected.
+              </p>
+            </details>
           </article>
         </div>
+        <p class="atlas-empty" id="atlasEmpty" hidden>
+          No topics match these filters. Clear the search or choose another
+          layer or sample region.
+        </p>
+      </section>
+      <section class="fund-page-section" aria-labelledby="atlas-method-title">
+        <span class="fund-section-label">A connected research framework</span>
+        <h2 id="atlas-method-title">From source regions to the built world</h2>
+        <p>
+          Assets, materials, logistics, and infrastructure influence one
+          another. The atlas brings those themes together in one place while
+          distinguishing planned research from verified data.
+        </p>
         <div class="fund-callout">
           <p>
-            We are developing this coverage in stages. For now, explore the
-            broader asset-intelligence framework and available company research.
+            Future location records should be source-linked and dated, with
+            uncertainty and geographic precision made explicit. Until then, the
+            map remains a prototype rather than a factual inventory.
           </p>
-          <a href="/market-intelligence.html">View market intelligence ↗</a>
+          <a href="/methodology.html">Read our methodology ↗</a>
         </div>
       </section>
       <p class="fund-page-disclaimer">
-        Research scope is informational and may evolve. Nothing on this site is
-        investment advice or an offer to invest.
+        Research scope is informational and may evolve. Illustrative map markers
+        are not verified locations, operating records, or forecasts. Nothing on
+        this site is investment advice or an offer to invest.
       </p>
     </main>
     <footer class="footer" role="contentinfo">
       <div class="footer-grid"></div>
     </footer>
-    <script src="/js/shared-simple.js?v=2026110301"></script>
+    <script src="/js/shared-simple.js?v=2026110503"></script>
+    <script src="/js/asset-atlas.js?v=2026110503" defer></script>
   </body>
 </html>
