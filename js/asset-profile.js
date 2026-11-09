@@ -39,7 +39,7 @@
       } catch {
         return;
       }
-      if (!(["https:", "http:"].includes(url.protocol))) return;
+      if (!["https:", "http:"].includes(url.protocol)) return;
       const item = document.createElement("li");
       const link = document.createElement("a");
       const meta = document.createElement("span");
@@ -49,7 +49,8 @@
       link.textContent = `${source.publisher || "Source"} · ${source.title || source.url}`;
       meta.className = "asset-source-meta";
       const dates = [];
-      if (source.published_date) dates.push(`Published ${source.published_date}`);
+      if (source.published_date)
+        dates.push(`Published ${source.published_date}`);
       if (source.accessed_date) dates.push(`Accessed ${source.accessed_date}`);
       meta.textContent = dates.join(" · ");
       item.append(link);
@@ -69,17 +70,29 @@
     addFact("Asset type", record.project_type || label);
     addFact("Operator", record.operator);
     addFact("Data status", record.status || "Not specified");
-    addFact("Coordinates", `${record.coordinates[0]}, ${record.coordinates[1]}`);
+    addFact(
+      "Coordinates",
+      `${record.coordinates[0]}, ${record.coordinates[1]}`,
+    );
     addFact("Pin precision", record.coordinate_precision);
     addFact("Project status", record.project_status_note);
     if (record.annual_throughput) {
-      const { year, teu, yoy_growth_percent: growth } = record.annual_throughput;
-      addFact("Annual throughput", `${(teu / 1_000_000).toFixed(2)} million TEU (${year})`);
-      if (Number.isFinite(growth)) addFact("Year-over-year change", `${growth > 0 ? "+" : ""}${growth}%`);
+      const {
+        year,
+        teu,
+        yoy_growth_percent: growth,
+      } = record.annual_throughput;
+      addFact(
+        "Annual throughput",
+        `${(teu / 1_000_000).toFixed(2)} million TEU (${year})`,
+      );
+      if (Number.isFinite(growth))
+        addFact("Year-over-year change", `${growth > 0 ? "+" : ""}${growth}%`);
     }
     addFact("Dataset updated", dataset.last_updated);
     renderSources(Array.isArray(record.sources) ? record.sources : []);
-    elements.status.textContent = "Asset details loaded from the atlas dataset.";
+    elements.status.textContent =
+      "Asset details loaded from the atlas dataset.";
   }
 
   async function loadProfile() {
@@ -101,13 +114,16 @@
         return;
       }
     }
-    throw new Error("This asset profile could not be found in the atlas datasets.");
+    throw new Error(
+      "This asset profile could not be found in the atlas datasets.",
+    );
   }
 
   loadProfile().catch((error) => {
     elements.category.textContent = "Logistics atlas · asset profile";
     elements.name.textContent = "Asset profile unavailable";
     elements.description.textContent = error.message;
-    elements.status.textContent = "Return to the Logistics Atlas and select an asset to try again.";
+    elements.status.textContent =
+      "Return to the Logistics Atlas and select an asset to try again.";
   });
 })();

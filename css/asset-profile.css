@@ -39,7 +39,11 @@
 .asset-hero {
   padding: clamp(1.5rem, 5vw, 3.75rem);
   background:
-    radial-gradient(ellipse at 85% 0%, color-mix(in srgb, var(--accent-primary) 16%, transparent), transparent 44%),
+    radial-gradient(
+      ellipse at 85% 0%,
+      color-mix(in srgb, var(--accent-primary) 16%, transparent),
+      transparent 44%
+    ),
     var(--bg-card);
 }
 
